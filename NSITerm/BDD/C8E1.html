@@ -1,0 +1,1470 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Support de cours activité TP en spé NSI" name="description"/>
+<meta content="Bruno DARID" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.4" name="generator"/>
+<title>Exercices 1: Schémas relationnels - NSI</title>
+<link href="../../assets/stylesheets/main.4a0965b7.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FZSM0VGVC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FZSM0VGVC4');
+</script>
+<style type="text/css">
+div.download-btn {
+    text-align: right;
+}
+
+@page {
+    size: a4 portrait;
+    margin: 25mm 10mm 25mm 10mm;
+    counter-increment: page;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    white-space: pre;
+    color: grey;
+    @top-left {
+        font-size: x-small;
+        content: 'smaXtec';
+    }
+    @top-center {
+        font-size: x-small;
+        content: string(chapter);
+    }
+    @top-right {
+        font-size: x-small;
+        content: 'Page ' counter(page);
+    }
+}
+
+@media print {
+
+    div.download-btn {
+        display: none;
+    }
+
+    .md-typeset table:not([class]) {
+        display: block;
+        border: none;
+    }
+
+    img {
+        width: 100%;
+        page-break-inside:avoid;
+        page-break-after:avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after:avoid;
+        page-break-inside:avoid;
+    }
+
+    table, pre {
+        page-break-inside:avoid
+    }
+
+    ul, ol, dl {
+        page-break-before:avoid
+    }
+
+}</style></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#modele-relationnel-exercices">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="NSI" class="md-header__button md-logo" data-md-component="logo" href="../../index.html" title="NSI">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            NSI
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Exercices 1: Schémas relationnels
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+      Home
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../NSI1/S1/S1A1.html">
+        NSI1
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../LP2/Recursivite.html">
+        NSITerm
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../PC/ucontroleur.html">
+        Physique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../perso/videos.html">
+        Liens divers
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="NSI" class="md-nav__button md-logo" data-md-component="logo" href="../../index.html" title="NSI">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    NSI
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../index.html">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          NSI1
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="NSI1" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_1" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1">
+          Seq.1 Intoduction à la programmation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq.1 Intoduction à la programmation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          Seq.1 Intoduction à la programmation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/S1A1.html">
+        ACTIVITE 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/S1A2.html">
+        ACTIVITE 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/S1C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/S1C2.html">
+        COURS 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/S1E1.html">
+        EXERCICES 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S1/TP01.pdf">
+        TP 1
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          Seq.2 Systèmes d'exploitation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq.2 Systèmes d'exploitation" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Seq.2 Systèmes d'exploitation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2A1.html">
+        ACTIVITÉ 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2A2.html">
+        ACTIVITÉ 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2A3.html">
+        ACTIVITÉ 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2A4.html">
+        ACTIVITÉ 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2C1.html">
+        COURS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S2/S2E1.html">
+        EXERCICES 1
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3">
+          Seq.3 Codage des nombres
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq.3 Codage des nombres" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Seq.3 Codage des nombres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3A1.html">
+        ACTIVITE 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3A2.html">
+        ACTIVITE 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3C2.html">
+        COURS 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3C3.html">
+        COURS 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/TP1S3.html">
+        TP 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/Annexe_TP.html">
+        Annexe TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3E1.html">
+        EXERCICES E1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/doc/Exercices_codage_nombre.pdf">
+        EXERCICES E2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S3/S3R1.html">
+        En Résumé
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
+          Seq.4 Au coeur de l'ordinateur
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq.4 Au coeur de l'ordinateur" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Seq.4 Au coeur de l'ordinateur
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4C2.html">
+        COURS 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4A1.html">
+        ACTIVITE 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4A2.html">
+        ACTIVITE 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4TP1.html">
+        TP 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4E1.html">
+        Exercices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S4/S4R1.html">
+        En résumé
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
+          Seq. 5 Représentation de données
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq. 5 Représentation de données" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Seq. 5 Représentation de données
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C2.html">
+        COURS 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C3.html">
+        COURS 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5A1.html">
+        ACTIVITE 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5E1.html">
+        EXERCICES E1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5E2.html">
+        EXERCICES E2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5E3.html">
+        EXERCICES E3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C4.html">
+        COURS 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C5.html">
+        COURS 5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5C6.html">
+        COURS 6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S5/S5E4.html">
+        EXERCICES E4
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6">
+          Seq. 6 IHM sur le web
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq. 6 IHM sur le web" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+          Seq. 6 IHM sur le web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S6/S6C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S6/S6A1.html">
+        ACTIVITÉ 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S6/S6E2.html">
+        EXERCICES E2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S6/S6C2.html">
+        COURS 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S6/S6C3.html">
+        COURS 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_7" id="__nav_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_7">
+          Seq. 7 Algorithmique
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Seq. 7 Algorithmique" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+          Seq. 7 Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S7/S7C1.html">
+        COURS 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NSI1/S7/S7C2.html">
+        COURS 2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          NSITerm
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="NSITerm" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          NSITerm
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          Chap. 1 Récursivité
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 1 Récursivité" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 1 Récursivité
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/Recursivite.html">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C1E1.html">
+        Exercices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C1TD1Ex.html">
+        TD
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          Chap. 2 Prog. modulaire
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 2 Prog. modulaire" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 2 Prog. modulaire
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C4A1.html">
+        Actvité 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C4A2.html">
+        Actvité 2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+          Chap. 3 Mise au point - Bugs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 3 Mise au point - Bugs" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 3 Mise au point - Bugs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C5C1.html">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LP2/C5E1.html">
+        Exercices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+          Chap. 4 SDD1 Pile &amp; File
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 4 SDD1 Pile &amp; File" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 4 SDD1 Pile &amp; File
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C2C1.html">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C2E1.html">
+        Exercices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+          Chap. 5 Vocabulaire POO
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 5 Vocabulaire POO" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 5 Vocabulaire POO
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C3C1.html">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C3E1.html">
+        Exercices 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C3E2.html">
+        Exercices 2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_6" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6">
+          Chap. 6 SDD2 Liste
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 6 SDD2 Liste" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 6 SDD2 Liste
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C6C1.html">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C6E1.html">
+        Exercices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_7" id="__nav_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_7">
+          Chap. 7 SDD3 Arbre
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 7 SDD3 Arbre" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 7 SDD3 Arbre
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C7C1.html">
+        Cours 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C7C2.html">
+        Cours 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C7C3.html">
+        Cours 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C7E1.html">
+        Exercices 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C7E2.html">
+        Exercices 2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" id="__nav_3_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_8">
+          Chap. 8 BDD
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 8 BDD" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_8">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 8 BDD
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8A1.html">
+        Activité de découverte
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8C1.html">
+        Cours 1: Le modèle relationnel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8C2.html">
+        Cours 2: Structure des bases de données relationnelles
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8C3.html">
+        Cours 3: Langage SQL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8TP1.html">
+        TP 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8TP2.html">
+        TP 2
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Exercices 1: Schémas relationnels
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="C8E1.html">
+        Exercices 1: Schémas relationnels
+      </a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#relation-livres">
+    Relation livres
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#relation-films">
+    Relation films
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extraits-et-adaptation-des-exercices-du-livre-nsi-terminale-ed-ellipses">
+    Extraits et adaptation des exercices  du livre NSI Terminale éd. ellipses
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="CorC8.html">
+        Correction Ex. 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8TP1Cor.html">
+        Correction TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="C8TP2C.html">
+        Correction TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_9" id="__nav_3_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_9">
+          Chap. 9 Protocoles de routage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 9 Protocoles de routage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_9">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 9 Protocoles de routage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ARSE/C9C1.html">
+        Cours 1: Routage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ARSE/c11e.html">
+        Exercices 1
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_10" id="__nav_3_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_10">
+          Chap. 10 Gestion des processus
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 10 Gestion des processus" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_10">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 10 Gestion des processus
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ARSE/C10C1.html">
+        Cours 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ARSE/C10TP1.html">
+        TP 1
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_11" id="__nav_3_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_11">
+          Chap. 11 Algorithmique - diviser pour régner
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 11 Algorithmique - diviser pour régner" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_11">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 11 Algorithmique - diviser pour régner
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ALGO/C11C1.html">
+        Cours 1: Paradigme diviser pour régner
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ALGO/C11TD1.html">
+        TD 1: Un exemple d'application (difficile)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ALGO/C11TP1.html">
+        TP 1: Préambule au tri fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ALGO/C11TP2.html">
+        TP 2: Tourner R2D2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_12" id="__nav_3_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_12">
+          Chap. 12 Les graphes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chap. 12 Les graphes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_12">
+<span class="md-nav__icon md-icon"></span>
+          Chap. 12 Les graphes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C12C1.html">
+        Cours 1: Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C12E1.html">
+        Exercices E1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../SD/C12E1P.html">
+        Corrigé E1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ALGO/C12A1.html">
+        Activité de découverte
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_13" id="__nav_3_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_13">
+          Evaluations
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Evaluations" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_13">
+<span class="md-nav__icon md-icon"></span>
+          Evaluations
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_13_1" id="__nav_3_13_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_13_1">
+          Exempple EP (2021)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Exempple EP (2021)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_13_1">
+<span class="md-nav__icon md-icon"></span>
+          Exempple EP (2021)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../eval/21_NSI_08_modif.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../eval/NSI_21_sujet_8.html">
+        Corrigé
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../eval/NSI_21_sujet_8.pdf">
+        Corrigé version pdf
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_14" id="__nav_3_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_14">
+          Epreuve pratique
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Epreuve pratique" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_14">
+<span class="md-nav__icon md-icon"></span>
+          Epreuve pratique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../EP/EP_accueil.html">
+        Accueil
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Physique
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Physique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Physique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/ucontroleur.html">
+        Micro contrôleur
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/connexion.html">
+        Connexions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/mode_fonctionnement.html">
+        Mode de fonctionnement
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/HelloWorld.html">
+        Hello World
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/capteurs.html">
+        Mise en oeuvre
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/conclusion.html">
+        Conclusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../PC/matplotlib.html">
+        Annexe: graphiques avec matplotlib
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Liens divers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Liens divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Liens divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../perso/videos.html">
+        Videos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../perso/textes.html">
+        Textes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/NSITerm/BDD/C8E1.html/C8E1.pdf">Download PDF</a></div>
+<h1 id="modele-relationnel-exercices">Modèle relationnel - Exercices<a class="headerlink" href="#modele-relationnel-exercices" title="Permanent link">⚓︎</a></h1>
+<h2 id="relation-livres">Relation livres<a class="headerlink" href="#relation-livres" title="Permanent link">⚓︎</a></h2>
+<p>Soit la relation <code>LIVRES</code> suivante:  </p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>auteur</th>
+<th>ann_publi</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1984</td>
+<td>Orwell</td>
+<td>1949</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dune</td>
+<td>Herbert</td>
+<td>1965</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fondation</td>
+<td>Asimov</td>
+<td>1951</td>
+<td>9</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Le meilleur des mondes</td>
+<td>Huxley</td>
+<td>1931</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Fahrenheit 451</td>
+<td>Bradbury</td>
+<td>1953</td>
+<td>7</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ubik</td>
+<td>K. Dick</td>
+<td>1969</td>
+<td>9</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Chroniques martiennes</td>
+<td>Bradbury</td>
+<td>1950</td>
+<td>8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>La nuit des temps</td>
+<td>Barjavel</td>
+<td>1968</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Blade Runner</td>
+<td>K. Dick</td>
+<td>1968</td>
+<td>8</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Les Robots</td>
+<td>Asimov</td>
+<td>1950</td>
+<td>9</td>
+</tr>
+<tr>
+<td>11</td>
+<td>La Planète des singes</td>
+<td>Boulle</td>
+<td>1963</td>
+<td>8</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Ravage</td>
+<td>Barjavel</td>
+<td>1943</td>
+<td>8</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Le Maître du Haut Château</td>
+<td>K. Dick</td>
+<td>1962</td>
+<td>8</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Le monde des non-A</td>
+<td>Van Vogt</td>
+<td>1945</td>
+<td>7</td>
+</tr>
+<tr>
+<td>15</td>
+<td>La Fin de l'éternité</td>
+<td>Asimov</td>
+<td>1955</td>
+<td>8</td>
+</tr>
+<tr>
+<td>16</td>
+<td>De la Terre à la Lune</td>
+<td>Verne</td>
+<td>1865</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p><em>On justifiera toutes les réponses</em> </p>
+<ol>
+<li>L'attribut <code>note</code> peut-il jouer le rôle de clé primaire ? </li>
+<li>L'attribut <code>ann_publi</code> peut-il jouer le rôle de clé primaire ?</li>
+<li>L'attribut <code>auteur</code> peut-il jouer le rôle de clé primaire ?</li>
+<li>L'attribut <code>titre</code> peut-il jouer le rôle de clé primaire ?</li>
+</ol>
+<h2 id="relation-films">Relation films<a class="headerlink" href="#relation-films" title="Permanent link">⚓︎</a></h2>
+<p>En partant de la relation FILMS ci-dessous, créez une relation REALISATEURS (attributs de la relation REALISATEURS : id, nom, prenom et ann_naissance, vous trouverez toutes les informations nécessaires sur le Web). Modifiez ensuite la relation FILMS afin d'établir un lien entre les relations FILMS et REALISATEURS. Vous préciserez l'attribut qui jouera le rôle de clef étrangère.  </p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>realisateur</th>
+<th>ann_sortie</th>
+<th>note_sur_10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alien, le huitième passager</td>
+<td>Scott</td>
+<td>1979</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dune</td>
+<td>Lynch</td>
+<td>1985</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2001 : l'odyssée de l'espace</td>
+<td>Kubrick</td>
+<td>1968</td>
+<td>9</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blade Runner</td>
+<td>Scott</td>
+<td>1982</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extraits-et-adaptation-des-exercices-du-livre-nsi-terminale-ed-ellipses">Extraits et adaptation des exercices  du livre NSI Terminale éd. ellipses<a class="headerlink" href="#extraits-et-adaptation-des-exercices-du-livre-nsi-terminale-ed-ellipses" title="Permanent link">⚓︎</a></h2>
+<p><strong>Exercice 140</strong> </p>
+<p>On souhaite modéliser un annuaire téléphonique simple dans lequel chaque personne (<em>identifiée par son nom et son prénom</em>) est associée à son numéro de téléphone. Proposer une modélisation relationnelle de cet annuaire.  </p>
+<p><strong>Exercice 141</strong> </p>
+<p>On souhaite établir la modélisation relationnelle d'un bulletin scolaire. Pour cela, on s'appuie sur trois relations <code>Eleve</code>, <code>Matiere</code> et <code>Note</code> ayant les propriétés suivantes:  </p>
+<ul>
+<li>les élèves, possédent un numéro d'identification alphanumérique unique;</li>
+<li>les matières possèdent un intitulé, mais sont parfois déclinées en ensemble de matières (par exemple l'enseignement scientique);</li>
+<li>il y aura une note sur 20, par matière et par élève.</li>
+</ul>
+<p>Établir le schéma de ces trois relations. On précisera éventuellement les contraintes qui ne peuvent êtres inscrites dans les schémas des relations.  </p>
+<p><strong>Exercice 142</strong> </p>
+<p>On considère la solution donnée pour l'exercice 140. Dire si chacun des ensembles est une relation valide pour le schéma <em>Annuaire</em>.  </p>
+<ol>
+<li>{}</li>
+<li>{( 'Titi ' , 'Toto', ' 0123456789 ' )}</li>
+<li>{('Titi', 'Toto', ' 0123456789 ' ), ('Doe', 'John', ' 0123456789 ')}</li>
+<li>{( 'Titi ', 'Toto', ' 0123456789 ' ), ( 'Titi ' , 'Toto', ' 987654343210 ' )}</li>
+<li>{( 'Titi ' , 'Toto', ' 0123456789 ' ), ('Doe', ' John' )}</li>
+<li>{('Titi', 'Toto', 42)}</li>
+</ol>
+<p><strong>Exercice 143</strong> </p>
+<p>On considère la solution donnée pour l'exercice 141. Dire si chacun des ensembles est une relation valide pour le schéma de la base de données du bulletin de notes.  </p>
+<p>Proposition 1.</p>
+<ul>
+<li>Eleve = { }</li>
+<li>Matiere = { }</li>
+<li>Note = { }</li>
+</ul>
+<p>Proposition 2.  </p>
+<ul>
+<li>Eleve = {( 'Titi ' , 'Toto', 'AB56789 ' ), }</li>
+<li>Matiere = {('NSI', 0), ( 'Sport ', 1)}</li>
+<li>Note = {(' AB56789 ' , 1, 17)}</li>
+</ul>
+<p>Proposition 3.  </p>
+<ul>
+<li>Eleve = {('Titi', 'Toto', 'AB56789' ), }</li>
+<li>Matiere = {('NSI' ,0)}</li>
+<li>Note = {('AB56789' , 1,17)} </li>
+</ul>
+<p>Proposition 4.</p>
+<ul>
+<li>Eleve = {('Titi' , 'Toto', 'AB56789'), }</li>
+<li>Matiere = {('NS1' ,0),}</li>
+<li>Note= {('AB56789', 0, 17), ('AB56789', 0, 18)</li>
+</ul>
+<p>Proposition 5.</p>
+<ul>
+<li>Eleve = {('Titi' , 'Toto' , 'AB56789'), }</li>
+<li>Matiere= {('NSI', 0), ('Sport', 1)}</li>
+<li>Note= {('AB56789', 0, 17), ('AB56789' , 1, 17)} </li>
+</ul>
+<p><strong>Exercice 144</strong> </p>
+<p>On souhaite établir une modélisation relationnelle des départements français ainsi que leur(s) éventuels départements voisins.<br/>
+Pour cela, on créé deux relations <code>Departement</code> et <code>Voisins</code> en tenant compte des propriétés suivantes:  </p>
+<ul>
+<li>pour chaque département on veut pouvoir stocker son nom, son code, son chef-lieu. Attention, les codes de département sont tous des nombres, sauf la Corse du Sud et la Haute Corse qui ont les codes 2A et 2B respectivement. Les départements d'Outre-Mer ont un code sur trois chiffres (de 971 à 976).</li>
+<li>les départements voisins seront représentés sous la forme de couple (<span class="arithmatex">\(d_1,d_2\)</span>) où <span class="arithmatex">\(d_1\)</span> et <span class="arithmatex">\(d_2\)</span> sont les codes de deux départements et <span class="arithmatex">\(d_1&lt;d_2\)</span>. On supposera que l'on peut comparer des chaînes de caractères.</li>
+</ul>
+<p>Donner le schéma relationnel de <code>Departement</code> et <code>Voisins</code>.</p>
+<p><strong>Exercice 145</strong> </p>
+<p>On souhaite modéliser un réseau de bus. Cette modélisation doit être suffisamment riche pour permettre de générer, pour chaque arrêt de bus du réseau, une fiche horaire avec tous les horaires de passage de toutes les lignes de bus qui desservent l'arrêt.  </p>
+<p><em>Indications</em> </p>
+<ul>
+<li>le réseau est composé d'<strong>arrêts de bus</strong>. Un arrêt peut être représenté par ses coordonnées GPS (latitude et longitude), un nom et un identifiant unique;</li>
+<li>une <strong>ligne de bus</strong> est représenté par un numéro unique et un nom;</li>
+<li>des <strong>horaires de passage</strong>. Pour chaque ligne et chaque arrêt desservi par cette ligne, on stocke l'heure de passage et ainsi que l'indication <em>semaine</em> ou <em>dimanche-jour férié</em>.  </li>
+</ul>
+<p>Proposer des schémas relationnels permettant cette modélisation</p>
+<p><strong>Exercice 146</strong> </p>
+<p>On considère deux relations:  </p>
+<ul>
+<li>R (<u>(a: int)</u>, (b: int), (c: int));</li>
+<li>S (<u>#(a: int), (e: int)</u>)</li>
+</ul>
+<p>où l'attribut <code>a</code> de S est une clé étrangère faisant référence à <code>a</code> de R. Dire si les affirmations suivantes sont vraies ou fausses, en justifiant.  </p>
+<ol>
+<li>Les <code>a</code> de R sont tous deux à deux distincts.</li>
+<li>Les <code>b</code> de R sont tous deux à deux distincts.</li>
+<li>Les <code>a</code> de S sont tous deux à deux distincts.</li>
+<li>Les <code>e</code> de S sont tous deux à deux distincts.</li>
+<li>S peut être vide alors que R est non vide.</li>
+<li>R peut être vide alors que S est non vide .</li>
+</ol>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Retour en haut de la page
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Pied de page" class="md-footer__inner md-grid">
+<a aria-label="Précédent: TP 2" class="md-footer__link md-footer__link--prev" href="C8TP2.html" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Précédent
+              </span>
+              TP 2
+            </div>
+</div>
+</a>
+<a aria-label="Suivant: Correction Ex. 1" class="md-footer__link md-footer__link--next" href="CorC8.html" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Suivant
+              </span>
+              Correction Ex. 1
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}}</script>
+<script src="../../assets/javascripts/bundle.f758a944.min.js"></script>
+<script src="../../javascripts/config.js"></script>
+<script src="../../javascripts/gtag.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+<script src="../../javascripts/mermaid.js"></script>
+</body>
+</html>
