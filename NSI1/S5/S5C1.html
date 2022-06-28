@@ -1304,7 +1304,10 @@ de python permettraient de construire des tableaux hétérogènes.</li>
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-<p><img alt="types" src="img/representation_type.PNG"/></p>
+<figure>
+<img alt="types" src="img/representation_type.PNG"/>
+<figcaption> Différentes variables en python</figcaption>
+</figure>
 <div class="admonition info">
 <p class="admonition-title">Remarque</p>
 <p>Ce schéma a été obtenu avec un outil en ligne très intéressant <a href="https://pythontutor.com/">Pythontutor</a> et qui nous sera très utile dans certaine situation.</p>
@@ -1314,12 +1317,18 @@ Ainsi, si à la suite du code précédent, on ajoute:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">v</span> <span class="o">=</span> <span class="n">u</span>
 </code></pre></div></td></tr></table></div>
 <p>cela signifiera que <code>v</code> fait référence au même objet <code>list</code> que <code>u</code>.</p>
-<p><img alt="egalitetableau" src="img/representation_tableau1.PNG"/></p>
+<figure>
+<img alt="egalitetableau" src="img/representation_tableau1.PNG"/>
+<figcaption>Cas des tableaux</figcaption>
+</figure>
 <p>Cela implique que <strong>toute modification de v entraine une modification de u</strong>. Par exemple,  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p>entraine:<br/>
-<img alt="egalitetableau2" src="img/representation_tableau2.PNG"/> </p>
+<p>entraine:  </p>
+<figure>
+<img alt"egalitetableau2"="" src="img/representation_tableau2.PNG"/>
+<figcaption> Après modification d'un tableau ...</figcaption>
+</figure>
 <div class="admonition warning">
 <p class="admonition-title">Recommandation</p>
 <p>Dans la mesure du possible, en spécialité NSI, on évitera d'avoir deux variables qui référencent le même tableau.</p>
