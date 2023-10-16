@@ -2415,7 +2415,7 @@
             
   
   <span class="md-ellipsis">
-    Chap. VI(a) Le TAD Liste
+    Chap. VI Du TAD à la structure de donnée Liste
   </span>
   
 
@@ -2425,7 +2425,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
-            Chap. VI(a) Le TAD Liste
+            Chap. VI Du TAD à la structure de donnée Liste
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3641,6 +3641,7 @@
 
 
 <h1 id="tad-liste-exercices">TAD Liste : Exercices<a class="headerlink" href="#tad-liste-exercices" title="Permanent link">⚓︎</a></h1>
+<p><em>Pensez à utiliser l'éditeur de code intégré à la page puis à valider votre solution</em>  </p>
 <h2 id="exercice-1-insertion-suppression">Exercice 1 Insertion / Suppression<a class="headerlink" href="#exercice-1-insertion-suppression" title="Permanent link">⚓︎</a></h2>
 <p>On reprend la réalisation d'une liste chaînée du cours et on se propose d'ajouter à l'ensemble des opérations, l'insertion et la suppression d'un élément à un index donné.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3685,6 +3686,12 @@
 <div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="comment">###</span><div class="line" id="editor_7d28a516f9f529ddf35da490dc068c34d5e538fa"></div><div id="term_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide">lst = Cell(3, Cell(7, Cell(9, None)))bksl-nlinserer(-1, 0, lst)bksl-nlbksl-nlassert tete(queue(lst)) == 3, "tete(queue(lst)) == 3"bksl-nlassert tete(lst) == -1, "tete(lst) == -1"bksl-nlbksl-nl</span>            <button class="tooltip" onclick='check("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","C6/C6E1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
 <p><span id="content_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""bksl-nlbksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.cle = vbksl-nl        self.suiv = sbksl-nlbksl-nldef estpy-undvide(l):bksl-nl    return l is Nonebksl-nlbksl-nldef tete(l):bksl-nl    """ Renvoie l'élément de tête de l"""bksl-nl    assert l is not None, "tete: erreur liste vide"bksl-nl    return l.clebksl-nlbksl-nldef queue(l):bksl-nl    """ Renvoie une liste correspondant à la queue de l"""bksl-nl    assert not estpy-undvide(l), "queue: erreur liste vide"bksl-nl    return l.suivbksl-nlbksl-nl# A compléterbksl-nldef inserer(x, k, l):bksl-nl    """ Insère x à l'index k de la liste l non vide"""bksl-nl    passbksl-nlbksl-nl</span><span id="corr_content_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide" data-strudel="">def inserer(x, k, l):bksl-nl    """ Insère x à l'index k de la liste l non vide"""bksl-nl    if k == 0:bksl-nl        c = Cell(tete(l), queue(l))bksl-nl        l.cle = xbksl-nl        l.suiv = cbksl-nl    else:bksl-nl        pos = 1bksl-nl        # Initialisation de 2 pointeurs et de la cellule à insérerbksl-nl        # +---+---+---+...bksl-nl        # | x0| x1| x2|...bksl-nl        # +---+---+---+...bksl-nl        #   ^   ^ bksl-nl        #   |   |bksl-nl        #  av. àpy-unddécalerbksl-nl        #      (pos)bksl-nl        cellpy-undavant = lbksl-nl        cellpy-undapy-unddecaler = queue(l)bksl-nl        cellpy-undapy-undinserer = Cell(x, None)bksl-nlbksl-nl        # Déplacement des pointeurs jusqu'à trouver l'index kbksl-nl        while pos != k:bksl-nl            cellpy-undapy-unddecaler = queue(cellpy-undapy-unddecaler)bksl-nl            cellpy-undavant = queue(cellpy-undavant)bksl-nl            pos += 1bksl-nlbksl-nl        # On a trouvé la position, on assure maintenant le chaînagebksl-nl        cellpy-undavant.suiv = cellpy-undapy-undinsererbksl-nl        cellpy-undapy-undinserer.suiv = cellpy-undapy-unddecalerbksl-nlbksl-nl</span></p>
 <p><strong>A</strong></p>
+<p><strong>Commentaires</strong>  </p>
+<p>Le cas d'une insertion en tête est trivial !<br />
+Dans le cas d'une insertion à un index quelconque <span class="arithmatex">\(k\gt 0\)</span>, on doit d'abord créer
+deux <em>pointeurs</em> vers les cellules concernées par l'insertion. Ensuite,
+dans une boucle, on décale ces pointeurs jusqu'à ce l'on trouve la position 
+sera inséré la nouvelle cellule.</p>
 <p><strong>Z</strong></p>
 <p><strong>2.</strong> Écrire une fonction <code>supprimer</code> qui prend en paramètres un index <code>k</code> et une liste <code>l</code> non vide et qui supprime l'élément d'index <code>k</code> de la liste. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
