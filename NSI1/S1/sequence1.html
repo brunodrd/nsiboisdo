@@ -1,0 +1,4876 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Support de cours activité TP en spé NSI">
+      
+      
+        <meta name="author" content="Bruno DARID">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Sequence1 - NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6a10b989.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/css/jquery.terminal.min.css" rel="stylesheet">
+<script src="../../pyodide-mkdocs/utils.js"></script> 
+<script src="../../pyodide-mkdocs/interpreter.js"></script> 
+
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<link rel="stylesheet" href="../../pyodide-mkdocs/pyoditeur.css">
+<link rel="stylesheet" href="../../qcm/qcm.css">
+
+
+<input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sequence-1" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../index.html" title="NSI" class="md-header__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sequence1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="S1A1.html" class="md-tabs__link">
+          
+  
+  NSI1
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NSITerm/LP2/C1C1.html" class="md-tabs__link">
+          
+  
+  NSITerm
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PC/ucontroleur.html" class="md-tabs__link">
+          
+  
+  Physique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../perso/videos.html" class="md-tabs__link">
+          
+  
+  Liens divers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI" class="md-nav__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    NSI1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            NSI1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.1 Intoduction à la programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.1 Intoduction à la programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S1A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S1A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S1C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S1C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S1E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TP01.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.2 Systèmes d'exploitation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.2 Systèmes d'exploitation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2A3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S2/S2E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.3 Codage des nombres
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.3 Codage des nombres
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/TP1S3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/Annexe_TP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annexe TP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/doc/Exercices_codage_nombre.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S3/S3R1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    En Résumé
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.4 Au coeur de l'ordinateur
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.4 Au coeur de l'ordinateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4R1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    En résumé
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 5 Représentation de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 5 Représentation de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C3a.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3a
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C3b.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3b
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C5.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C6.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 6 IHM sur le web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 6 IHM sur le web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Séq. 7 Données tabulées
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Séq. 7 Données tabulées
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S7/S7C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S7/S7C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S7/S7E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 8 Algorithmique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 8 Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    NSITerm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            NSITerm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. I Récursivité
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I Récursivité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1TD1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vers le bac
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1TD1C.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. II Mise au point - Bugs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II Mise au point - Bugs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C2E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. III Prog. modulaire
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III Prog. modulaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actvité
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. IV SDD1 Pile & File
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV SDD1 Pile & File
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. V Vocabulaire POO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V Vocabulaire POO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VI(a) Le TAD Liste
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI(a) Le TAD Liste
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VI(b) Le TAD Dictionnaire
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI(b) Le TAD Dictionnaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6bC1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VII Gestion des ressources par un SE
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII Gestion des ressources par un SE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VIII Base de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII Base de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Activité de découverte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Le modèle relationnel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 2: Structure des bases de données relationnelles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 3: Langage SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1: Schémas relationnels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/CorC8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction Ex. 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP1Cor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction TP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP2C.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction TP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. IX Protocoles de routage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IX Protocoles de routage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C9C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Routage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/c11e.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. X Algorithmique - diviser pour régner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. X Algorithmique - diviser pour régner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Paradigme diviser pour régner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C11TD1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TD 1: Un exemple d'application (difficile)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1: Préambule au tri fusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 2: Tourner R2D2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. XI Arbres binaires
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XI Arbres binaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    EP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            EP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EP/EP260123.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EP 26 janvier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Physique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Physique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/ucontroleur.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Micro contrôleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/connexion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connexions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/mode_fonctionnement.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mode de fonctionnement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/HelloWorld.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/capteurs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mise en oeuvre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/conclusion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/matplotlib.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annexe: graphiques avec matplotlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Liens divers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Liens divers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/videos.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Videos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/textes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+                  
+
+
+<h1 id="sequence-1">SEQUENCE 1<a class="headerlink" href="#sequence-1" title="Permanent link">⚓︎</a></h1>
+<p><em>Les deux premières activités ont été extraites et adaptées du livre NSI 1re - Ed. Bordas</em></p>
+<h2 id="activite-1-constructions-elementaires-langages">ACTIVITE 1 - Constructions élémentaires &amp; langages<a class="headerlink" href="#activite-1-constructions-elementaires-langages" title="Permanent link">⚓︎</a></h2>
+<p>Adam a lu que dans la grande majorité des langages de programmation on retrouve les mêmes constructions élémentaires. 
+Les deux premières constructions élémentaires auxquelles il s'intéresse 
+sont les affectations et les séquences d'instructions qui sont présentes dans la fonction Python suivante: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">conversion</span><span class="p">(</span><span class="n">duree_en_minute</span><span class="p">):</span>
+    <span class="n">heure</span> <span class="o">=</span> <span class="n">duree_en_minute</span> <span class="o">//</span> <span class="mi">60</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">duree_en_minute</span> <span class="o">%</span> <span class="mi">60</span>
+    <span class="k">return</span> <span class="n">heures</span><span class="p">,</span> <span class="n">minutes</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Répondre aux questions</p>
+<p>A quelles lignes peut-on trouver:  </p>
+<ul>
+<li>une affectation?</li>
+<li>une séquence d'instructions?</li>
+</ul>
+</div>
+<p>Parmi les deux fonctions suivantes, laquelle contient une boucle bornée ? une boucle non bornée ? Préciser les <strong>mots clés</strong> utilisés.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">estimer_quantite</span><span class="p">(</span><span class="n">quantite_initiale</span><span class="p">,</span> <span class="n">annee</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">quantite_initiale</span>
+    <span class="k">while</span> <span class="n">resultat</span> <span class="o">&lt;=</span> <span class="n">quantite_initiale</span> <span class="o">*</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">*</span> <span class="mf">1.33</span>
+        <span class="n">annee</span> <span class="o">=</span> <span class="n">annee</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">annee</span>
+
+<span class="k">def</span> <span class="nf">augmentation</span><span class="p">(</span><span class="n">quantite_initiale</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">quantite_initiale</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">*</span> <span class="mf">1.33</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p>On considère maintenant les 6 fonctions suivantes. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">maximum2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">maximum</span><span class="p">(</span><span class="n">maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">maximum</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">positive</span><span class="p">(</span><span class="n">valeur</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">valeur</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">valeur</span> <span class="o">=</span> <span class="o">-</span><span class="n">valeur</span>
+    <span class="k">return</span> <span class="n">valeur</span>
+
+<span class="k">def</span> <span class="nf">conversion</span><span class="p">(</span><span class="n">en_bit</span><span class="p">):</span>
+    <span class="n">en_octet</span> <span class="o">=</span> <span class="n">en_bit</span> <span class="o">/</span> <span class="mi">8</span>
+    <span class="k">return</span> <span class="n">en_octet</span>
+
+<span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">compte_bits</span><span class="p">(</span><span class="n">valeur</span><span class="p">):</span>
+    <span class="n">nb_bits</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">valeur</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">**</span><span class="n">nb_bits</span><span class="p">:</span>
+        <span class="n">nb_bits</span> <span class="o">=</span> <span class="n">nb_bits</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">nb_bits</span>    
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Répondre aux questions</p>
+<p>Dans quelle(s) fonction(s) retrouve-t-on:  </p>
+<ol>
+<li>une séquence d'instructions ?</li>
+<li>une ou des affectations ?</li>
+<li>un test ?</li>
+<li>une boucle bornée ?</li>
+<li>une boucle non bornée ?</li>
+<li>un appel de fonction ?</li>
+</ol>
+</div>
+<hr />
+<p>Adam s'attache maintenant à écrire certaines fonctions précédentes avec le langage <strong>JavaScript</strong> afin de les comparer à celle écrite en Python. Il commence par écrire la fonction nommée <code>maximum()</code>. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<p>Citer les points communs avec le langage Python et repérer dans cet exemple 3 points particuliers du langage JavaScript. </p>
+</div>
+<p>Adam écrit à présent cette fonction sans les indentations (version 1) et sur une seule ligne (version 2). </p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Version 1</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Version 2</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Répondre aux questions</p>
+<ul>
+<li>Sachant que les deux écritures de la fonction <code>maximum()</code> sont correctes, 
+quelles hypothèses peut-on formuler quant aux indentations et aux retours à la ligne en javascript ?</li>
+<li>Quel signe de ponctuation est utilisé en Javascript pour remplacer les indentations en python ?</li>
+</ul>
+</div>
+<p>En gardant les indentations qui améliore la lisibilité du code, Adam s'intéresse à présent à la fonction <code>augmentation()</code>.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">augmentation</span><span class="p">(</span><span class="nx">quantite_initiale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">quantite_initiale</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">&lt;</span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resultat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.33</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">resultat</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<ul>
+<li>En considérant le programme JavaScript <code>augmentation()</code> ci-dessus, citer deux nouveaux points communs et repérer deux différences entre les langages Python et JavaScript.</li>
+<li>Formuler une hypothèse sur l'utilité d'écrire le mot clé <code>let</code> aux lignes 2 et 3. </li>
+</ul>
+</div>
+<p>Adam réécrit également la première fonction de cette activité, <code>conversion()</code>, en Javascript.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">conversion</span><span class="p">(</span><span class="nx">duree_en_minute</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">heures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">duree_en_minute</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">duree_en_minute</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">60</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">heures</span><span class="p">,</span><span class="w"> </span><span class="nx">minutes</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Répondre aux questions</p>
+<ul>
+<li>En Javascript une fonction ne peut pas renvoyer un couple de valeur (en fait un <em>n-uplet</em>). Comment Adam a-t-il choisi de renvoyer le résultat ?</li>
+<li>L'opérateur qui calcule le reste de la division euclidienne est identique en python et en javascript: <code>%</code>. 
+En revanche, il n'existe pas d'opérateur en javascript pour calculer le quotient de la division euclidienne. 
+Il faut calculer le quotient de la division et récupérer sa partie entière en faisant appel à une fonction native du langage JavaScript qui s'appelle <code>floor()</code>. 
+Adam se rappelle avoir déjà utilisé une fonction Python qui avait le même nom. 
+D'une manière générale, quelles difficultés peut-on rencontrer quand on utilise un nouveau langage de programmation ?</li>
+</ul>
+</div>
+<hr />
+<h2 id="activite-2-mise-au-point-de-programmes">ACTIVITE 2 - Mise au point de programmes<a class="headerlink" href="#activite-2-mise-au-point-de-programmes" title="Permanent link">⚓︎</a></h2>
+<h3 id="specification-dune-fonction">Spécification d'une fonction<a class="headerlink" href="#specification-dune-fonction" title="Permanent link">⚓︎</a></h3>
+<p>En tant que développeur python, on vous demande d'écrire une fonction de calcul de la racine carrée d'un nombre. L'entreprise dans laquelle vous travaillez demande que chaque fonction soit documentée selon le plan suivant: </p>
+<ol>
+<li>Quel est le nom de la fonction ?</li>
+<li>Combien de paramètres sont acceptés en entrée ? Préciser leur type.</li>
+<li>Quel est le domaine valide des valeurs des paramètres?</li>
+<li>Combien de valeurs sont renvoyées en sortie ? Préciser leur type.</li>
+<li>Quel est le domaine valide de la valeur renvoyée en sortie ?</li>
+</ol>
+<p>Si vos souvenirs sont bons en mathématiques, <strong>la racine carrée</strong> d'un nombre est toujours <strong>positive ou nulle</strong> et ne peut-être calculée <strong>que pour des valeurs positives ou nulles</strong>.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Répondre aux questions du plan en tenant compte des informations fournies.</li>
+<li>Les points 1, 2 et 4 du plan forment le <strong>prototype</strong> de la fonction 
+car ils définissent le minimum d'informations à connaître pour pouvoir l'utiliser. 
+A quoi servent les points 3 et 5 ? Comment ces informations pourraient-elles être utilisées ? </li>
+</ul>
+</div>
+<p>Vous fournissez le programme suivant:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="c1"># méthode de Héron</span>
+    <span class="k">assert</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Pour chaque question du plan, indiquer la ligne du programme qui apporte la réponse.</li>
+<li>Tester la fonction <code>racine()</code> avec un argument invalide en entrée, comme par exemple la valeur <span class="arithmatex">\(-2\)</span>. Que se passe-t-il ?</li>
+<li>On souhaite ignorer la ligne 3 de la fonction <code>racine()</code>. Il suffit 
+de la commenter comme suit <code># assert a &gt;= 0</code>. Tester à nouveau la fonction avec la valeur <span class="arithmatex">\(-2\)</span>. Que se passe-t-il ?</li>
+<li>Préciser alors le rôle de l'assertion utilisée à la ligne 3.</li>
+</ul>
+</div>
+<hr />
+<h3 id="utiliser-des-jeux-de-test">Utiliser des jeux de test<a class="headerlink" href="#utiliser-des-jeux-de-test" title="Permanent link">⚓︎</a></h3>
+<p>En tant que développeur python, on vous demande de vérifier le bon comportement de chaque fonction écrite. Pour cela, il faut écrire une deuxième fonction, dit de <em>vérification</em> ou de <em>test</em>.</p>
+<p>La fonction à écrire, qui sera ensuite vérifiée, doit calculer un prix après remise: si le prix est de 100 € ou moins, il n'y a pas de réduction. Sinon, la réduction sur le prix total est de 10 €.  </p>
+<p>Vous écrivez donc les deux fonctions suivantes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reduction</span><span class="p">(</span><span class="n">prix</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">prix</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">prix</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">prix</span> <span class="o">-</span><span class="mi">10</span>
+
+
+<span class="k">def</span> <span class="nf">test_reduction</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">reduction</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">reduction</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span> <span class="o">==</span> <span class="mi">140</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<ol>
+<li>Si la fonction de test renvoie <code>False</code>, que peut-on en déduire sur le fonctionnement de <code>reduction(prix)</code>?</li>
+<li>Que renvoie l'appel <code>test_reduction</code> ? Est-il nécessaire que le test renvoie <code>True</code> pour que la fonction soit correcte ?</li>
+<li>Dans le jeu de test, quelles sont finalement les seules valeurs testées?</li>
+<li>Confiant dans l'exactitude de votre fonction, vous l'intégrez dans le logiciel qui doit l'utiliser. On s'aperçoit par la suite que la réduction est appliquée pour un prix égal à 100 €. Selon vous, d'où vient le problème ?</li>
+<li>La fonction de test est-elle suffisante ? Expliquer pourquoi.</li>
+<li>Est-il réaliste de vouloir tester tous les cas possibles ?</li>
+<li>Commenter la citation de l'algorithmicien très connu E. Dijkstra: <em>le test de programmes peut-être une façon très efficace de montrer la présence de bugs mais est désespérément inadéquate pour prouver leur absence</em>.</li>
+<li>Plus tard, un autre développeur modifie votre fonction pour ajouter une réduction supplémentaire si le prix dépasse 200 €. L'appel <code>test_reduction()</code> renvoie désormais <code>False</code>. Que faut-il en déduire? Quel est l'intérêt d'avoir écrit cette fonction de test ? </li>
+</ol>
+</div>
+<hr />
+<h2 id="cours-langage-constructions-elementaires">COURS - Langage - Constructions élémentaires<a class="headerlink" href="#cours-langage-constructions-elementaires" title="Permanent link">⚓︎</a></h2>
+<h3 id="repere-historique">Repère historique<a class="headerlink" href="#repere-historique" title="Permanent link">⚓︎</a></h3>
+<p><img alt="john_backus" src="img/John_Backus_3.png" />  </p>
+<p>En 1954, <a href="https://fr.wikipedia.org/wiki/John_Backus">John Backus</a>(<em>1924-2007</em>) présente le premier vrai langage de programmation tel qu'on l'entend aujourd'hui: le <a href="https://fr.wikipedia.org/wiki/Fortran">Fortran</a>. Il mit au point vers la fin des années 50 le langage <a href="https://fr.wikipedia.org/wiki/Algol_(langage)">Algol</a>. Il a, par la suite, proposé la <em>forme Backus-Naur</em> notation qui permet de décrire la <em>grammaire</em> des langages de programmation.</p>
+<h3 id="programme-et-langage-de-programmation">Programme et langage de programmation<a class="headerlink" href="#programme-et-langage-de-programmation" title="Permanent link">⚓︎</a></h3>
+<p>Un <strong>programme est un texte qui décrit un algorithme que l’on souhaite faire exécuter par une machine</strong>. Ce texte est écrit dans un langage particulier, appelé <strong>langage de programmation</strong>.  On le sauvegarde dans un fichier dont l'extension donne une indication sur le langage utilisé (<code>.py</code>, <code>.js</code>, <code>.c</code>, etc.)   </p>
+<p>Le principal langage utilisé en spécialité NSI est le langage <strong>Python</strong> (créé en 1991 par Guido Van Rossum) en version 3. C'est un langage de haut niveau (<em>d'abstraction</em>) et <strong>interprété</strong>, c'est-à-dire qu'il nécessite un autre programme appelé interpréteur qui va se charger d'exécuter ligne par ligne le <em>code source</em> du programme de l'utilisateur.  </p>
+<p>Il existe bien évidemment d'autres langages de programmation. Il s'agit ici de présenter les <strong>constructions élémentaires</strong> que l'on retrouve dans la quasi totalité d'entre eux.</p>
+<h4 id="les-entreessorties">Les entrées/sorties<a class="headerlink" href="#les-entreessorties" title="Permanent link">⚓︎</a></h4>
+<p>Dans un langage de programmation on appelle <em>entrées/sorties</em> des constructions permettant une communication avec l'utilisateur, donnant ainsi un aspect interactif au programme.<br />
+En python, les fonctions <code>print()</code> et <code>input()</code> remplissent ces taches.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exemples</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python version 3.&quot;</span><span class="p">,</span> <span class="s2">&quot;Environnement&quot;</span><span class="p">,</span> <span class="s2">&quot;Jupyter Notebook 5.7&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python version 3.&quot;</span><span class="p">,</span> <span class="s2">&quot;Environnement&quot;</span><span class="p">,</span> <span class="s2">&quot;Jupyter Notebook 5.7&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; :: &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; !!! Pas de retour à la ligne.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Hello World!
+Python version 3. Environnement Jupyter Notebook 5.7
+Python version 3. :: Environnement :: Jupyter Notebook 5.7  !!! Pas de retour à la ligne.
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+<p>Les arguments optionnels comme <code>sep</code> ou <code>end</code> par exemple, permettent d'adapter l'affichage aux besoins.  </p>
+</div>
+<p>Un effet de la fonction <code>input()</code> est d'interrompre le déroulement du programme et d'attendre que l'utilisateur tape quelque chose au clavier. Les caractères entrés sont généralement récupérés dans une <strong>variable</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">niveau</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est votre niveau en programmation (novice/intermédiaire/avancé)? &quot;</span><span class="p">)</span>
+<span class="n">moyenne</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quelle était votre moyenne annuelle en math ? &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous avez répondu niveau: &quot;</span><span class="p">,</span> <span class="n">niveau</span><span class="p">,</span><span class="s2">&quot;avec &quot;</span><span class="p">,</span> <span class="n">moyenne</span><span class="p">,</span> <span class="s2">&quot;en math!&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Quel est votre niveau en programmation (novice/intermédiaire/avancé)? avancé
+Quelle était votre moyenne annuelle en math ? 20
+Vous avez répondu niveau:  avancé avec  20 en math!
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarques</p>
+<ul>
+<li><code>input()</code> <strong>renvoie toujours une chaine de caractères</strong> (même si l'utilisateur entre un nombre!);</li>
+<li>la syntaxe employée à l'intérieur de la fonction <code>print()</code> bien que correcte, sera adaptée dans les cours ultérieurs tenant compte des dernières évolutions du langage.</li>
+</ul>
+</div>
+<h4 id="la-declaration-affectation">La déclaration-affectation<a class="headerlink" href="#la-declaration-affectation" title="Permanent link">⚓︎</a></h4>
+<p>Pour pouvoir accéder aux données, un programme d’ordinateur fait abondamment usage de <strong>variables</strong>. En python, <strong>une variable est une référence vers un objet mémoire</strong> (voir <a href="https://www.youtube.com/watch?v=_jN8PWnqNks">video</a>).  </p>
+<p>Contrairement à certains langages, les variables n'ont pas besoin d'être déclarées au préalable, en python. La <strong>déclaration et l'affectation de variables</strong> peuvent se faire en une seule instruction. En python cette opération est réalisée selon le schéma <code>nom_variable = valeur</code>.  </p>
+<p>Exemples</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Affectation&quot;</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarques</p>
+<ul>
+<li>le nom de variable doit commencer par une lettre et ne pas être un mot réservé (voir <a href="https://docs.python.org/fr/3.7/reference/lexical_analysis.html#keywords">liste</a>).</li>
+<li>Le <strong>type</strong> de l'objet référencé par une variable est déterminé lors de l'affectation, de manière tout à fait transparente. Dans l'exemple précédent, <code>n</code> référence un entier (<code>int</code>), <code>msg</code> référence une chaîne de caractères (<code>str</code>), <code>pi</code> référence un nombre décimal (<code>float</code>).  </li>
+</ul>
+</div>
+<h4 id="sequence-et-bloc-dinstructions">Séquence  et bloc d'instructions<a class="headerlink" href="#sequence-et-bloc-dinstructions" title="Permanent link">⚓︎</a></h4>
+<p>On peut définir une séquence d'instructions comme un ensemble de deux instructions exécutées l'une <strong>à la suite</strong> de l'autre (l'ordre est important!). Par exemple, les lignes</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div></td></tr></table></div>
+<p>constituent une séquence d'instructions (<em>valide à condition que la variable x ait été affectée au préalable</em>). Nos programmes comporteront généralement des séquences de plus de deux instructions, on parlera alors de <strong>bloc d'instructions</strong>.<br />
+En python, un bloc d'instructions est repéré par son <strong>indentation</strong>, c'est-à-dire le décalage par rapport au bloc précédent (<em>typiquement un multiple de 4 espaces</em>).</p>
+<p><strong>Exemple</strong>  </p>
+<p>La séquence d'instructions ci-dessous permet de calculer et d'afficher l'aire <span class="arithmatex">\(S\)</span> d'un disque de rayon <span class="arithmatex">\(r\)</span> (rappel: <span class="arithmatex">\(S=\pi\times r^{2}\)</span>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>78.5
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+<p>Les instructions précédentes forment un seul bloc d'instructions (elles sont toutes alignées sur la même colonne).</p>
+</div>
+<h4 id="le-test-simple">Le test simple<a class="headerlink" href="#le-test-simple" title="Permanent link">⚓︎</a></h4>
+<p>Cette construction permet d'exécuter une instruction ou un bloc d'instructions uniquement si une condition est vérifiée. En python, la syntaxe est la suivante:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple</strong><br />
+La construction <code>x % 2 == 0</code> (<strong>comparaison</strong> du reste de la division euclidienne de <span class="arithmatex">\(x\)</span> par 2 avec zéro) permet de tester si <span class="arithmatex">\(x\)</span> est pair.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;est pair!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sa moitié vaut &quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>50 est pair!
+Sa moitié vaut  25.0
+</code></pre></div></td></tr></table></div>
+<p>Pour identifier sans ambiguités les instructions appartenant au bloc vérifiant la condition, on <strong>DOIT LES INDENTER</strong> en python.<br />
+La condition est souvent exprimée avec des <strong>opérateurs de comparaisons</strong>. Voici quelques exemples:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="c1"># x est égal à y</span>
+<span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="c1"># x est différent de y</span>
+<span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="c1"># x est plus grand que y</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="c1"># x est plus petit que y</span>
+<span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span> <span class="c1"># x est plus grand que, ou égal à y</span>
+<span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="c1"># x est plus petit que, ou égal à y</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="le-test-avec-alternative">Le test avec alternative<a class="headerlink" href="#le-test-avec-alternative" title="Permanent link">⚓︎</a></h4>
+<p>Dans un test avec alternative, on ajoute un bloc à traiter lorsque <strong>la condition n'est pas vérifiée</strong>. La syntaxe est la suivante:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">bloc_instructions_SI</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">bloc_instructions_SINON</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Les test alternatif en python</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">501</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;est pair!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sa moitié vaut &quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot; est impair&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>501  est impair
+</code></pre></div></td></tr></table></div>
+<h4 id="la-boucle-conditionnelle-non-bornee">La boucle conditionnelle, non bornée<a class="headerlink" href="#la-boucle-conditionnelle-non-bornee" title="Permanent link">⚓︎</a></h4>
+<p>Une <strong>boucle conditionnelle</strong>, appelé encore <strong>boucle while</strong> (<em>en anglais</em>) ou <strong>boucle tant que</strong> (<em>en français</em>) exécute un bloc d'instructions tant qu'une condition est vérifiée.  </p>
+<p>En python, la boucle conditionnelle a la forme suivante:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarques</p>
+<ul>
+<li>la condition s'exprime généralement avec les opérateurs de comparaisons vus plus haut;</li>
+<li>le bloc d'instructions est indenté.</li>
+</ul>
+</div>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># la condition</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot; x &quot;</span><span class="p">,</span> <span class="n">tab</span><span class="p">,</span> <span class="s2">&quot; = &quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">tab</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>1  x  8  =  8
+2  x  8  =  16
+3  x  8  =  24
+4  x  8  =  32
+5  x  8  =  40
+6  x  8  =  48
+7  x  8  =  56
+8  x  8  =  64
+9  x  8  =  72
+</code></pre></div></td></tr></table></div>
+<div class="admonition danger">
+<p class="admonition-title">ATTENTION</p>
+<p>Il <strong>faut que la condition ne soit plus vérifiée</strong> à un moment donné pour assurer la <strong>terminaison</strong> de la boucle et éviter le bouclage infini. Ce point sera détaillé dans le cours d'algorithmique.    <br />
+Dans le cas précédent, la condition est: <span class="arithmatex">\(i&lt;10\)</span>. Or, <span class="arithmatex">\(i\)</span> est un entier qui augmente de 1 à chaque tour de boucle. Lorsqu'on aura atteint <span class="arithmatex">\(i=10\)</span>, la condition ne sera plus vérifiée et on sortira de la boucle.  </p>
+</div>
+<h4 id="la-boucle-inconditionnelle-ou-bornee">La boucle inconditionnelle ou <em>bornée</em><a class="headerlink" href="#la-boucle-inconditionnelle-ou-bornee" title="Permanent link">⚓︎</a></h4>
+<p>Lorsque le <strong>nombre d'itérations est connu d'avance</strong> la boucle devient <strong>inconditionnelle</strong>. On l'appelle encore boucle bornée ou <strong>boucle pour</strong> en français (<em>for loop</em> en anglais).<br />
+En python, la syntaxe de la boucle <code>for</code>est la suivante:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">variable_compteur</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="n">bloc_instructions</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Remarques</p>
+<ul>
+<li><code>sequence</code> est une suite d'objets, comme des entiers, des caractères d'une chaine, etc, (d'autres séquences seront vus dans les prochains cours); typiquement une séquence d'entiers est obtenue avec l'objet <code>range(a, b)</code> qui fourni les entiers allant de <span class="arithmatex">\(a\)</span> à <span class="arithmatex">\(b-1\)</span>.</li>
+<li>Le bloc d'instructions doit être indenté.  </li>
+</ul>
+</div>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tab</span><span class="p">):</span> <span class="c1"># i est la variable compteur, range(1, tab) fourni la sequence d&#39;entiers</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot; x &quot;</span><span class="p">,</span> <span class="n">tab</span><span class="p">,</span> <span class="s2">&quot; = &quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">tab</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>1  x  10  =  10
+2  x  10  =  20
+3  x  10  =  30
+4  x  10  =  40
+5  x  10  =  50
+6  x  10  =  60
+7  x  10  =  70
+8  x  10  =  80
+9  x  10  =  90
+</code></pre></div></td></tr></table></div>
+<h3 id="diversite-et-unite-des-langages">Diversité et unité des langages<a class="headerlink" href="#diversite-et-unite-des-langages" title="Permanent link">⚓︎</a></h3>
+<p>Les langages de programmations sont très nombreux. Ils peuvent être classés suivant leur <em>style</em> ou <strong>paradigme</strong> (façon de modéliser les problèmes et les résoudre).  </p>
+<p>Plusieurs paradigmes (orienté objet ou fonctionnel) seront abordés en terminale. En 1re, on peut se limiter au style <strong>impératif</strong>, dans lequel les problèmes sont résolus de manière séquentielle, en procédant à des modifications de la mémoire. Il est fait usage de <em>variables</em>, de <em>boucles</em>, etc.  </p>
+<p>Passer d'un langage à un autre peut être facile à l'intérieur d'un même paradigme car les constructions sont souvent assez proches.  </p>
+<p>On peut aussi distinguer les langages suivant le fait qu'ils soient:  </p>
+<ul>
+<li>interprété<sup id="fnref:in"><a class="footnote-ref" href="#fn:in">1</a></sup> ou  compilé<sup id="fnref:com"><a class="footnote-ref" href="#fn:com">2</a></sup>;</li>
+<li>à typage dynamique<sup id="fnref:dy"><a class="footnote-ref" href="#fn:dy">3</a></sup> ou statique<sup id="fnref:st"><a class="footnote-ref" href="#fn:st">4</a></sup>;</li>
+</ul>
+<p><strong>Exemples</strong></p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Le test alternatif en Javascript</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">N</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; est pair&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Sa moitié vaut &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">N</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; est impair&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Le test alternatif en C</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">N</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d est pair</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sa moitié vaut %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d est impair</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<hr />
+<h2 id="cours-conception-mise-au-point-de-programmes">COURS - Conception &amp; Mise au point de programmes<a class="headerlink" href="#cours-conception-mise-au-point-de-programmes" title="Permanent link">⚓︎</a></h2>
+<h3 id="repere-historique_1">Repère historique<a class="headerlink" href="#repere-historique_1" title="Permanent link">⚓︎</a></h3>
+<p><a title="&quot;null0&quot; [CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:John_McCarthy_Stanford.jpg"><img width="128" alt="John McCarthy Stanford" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/John_McCarthy_Stanford.jpg/128px-John_McCarthy_Stanford.jpg"></a> <br />
+<a href="https://fr.wikipedia.org/wiki/John_McCarthy">John McCarthy</a> <em>(1927-2011)</em> auteur du langage <a href="https://fr.wikipedia.org/wiki/Lisp">Lisp</a> en 1958, dont la principale construction est la définition de <strong>fonctions</strong>. Il joua un rôle majeur dans la programmation en intelligence artificielle, écrivant un des premiers programmes jouant aux échecs.</p>
+<h3 id="quest-ce-quune-fonction">Qu'est-ce qu'une fonction ?<a class="headerlink" href="#quest-ce-quune-fonction" title="Permanent link">⚓︎</a></h3>
+<p>Les programmeurs décomposent souvent leur programmes en <em>blocs</em> courts. Chaque bloc de code, associé à un nom, est appelé <strong>fonction</strong>.<br />
+Procéder ainsi, permet:  </p>
+<ul>
+<li>d'éviter les répétitions et donc de <em>factoriser</em> le code;</li>
+<li>de faciliter la maintenance;</li>
+<li>de faciliter dans une certaine mesure le travail en équipe.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>D'autres termes comme sous-programme, procédure, etc. sont parfois employés. On ne les utilisera pas en spécialité NSI</p>
+</div>
+<h3 id="comment-definir-et-appeler-une-fonction">Comment définir et appeler une fonction ?<a class="headerlink" href="#comment-definir-et-appeler-une-fonction" title="Permanent link">⚓︎</a></h3>
+<p>La syntaxe présentée ici est celle du langage Python. On définit une fonction avec:  </p>
+<ul>
+<li>le mot clé <code>def</code> suivi d'un nom;</li>
+<li>une paire de parenthèses à l'intérieur desquelles figurent éventuellement des paramètres;</li>
+<li>le caractère <em>deux-points</em> <code>:</code> qui termine la ligne de déclaration;</li>
+<li>un bloc de code indenté qui forme le corps de la fonction;</li>
+<li>le mot clé <code>return</code> (optionnel)</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">nom_fonction</span><span class="p">(</span><span class="n">paramètre</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+    <span class="n">bloc_instructions</span>
+</code></pre></div></td></tr></table></div>
+<p>Le nom de la fonction <strong>doit</strong> commencer par une lettre et <strong>ne doit pas</strong> être un mot reservé. Ce nom sera le plus explicite possible. La fonction peut avoir 0, 1 ou plus de paramètres.  </p>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">deux_puissance</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">p</span>
+</code></pre></div></td></tr></table></div>
+<p>Lorsqu'on exécute ce code, il ne se passe <strong>rien</strong>. A ce stade on a définit la fonction, il faut maintenant l'appeler pour que tout son code soit exécuté. L'appel d'une fonction consiste à écrire <strong>son nom suivi de parenthèses ouvrantes-fermantes</strong> à l'intérieur desquelles on place d'éventuels <strong>arguments</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Calcul et affichage de 2^8 et 2^16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deux_puissance</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deux_puissance</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>256
+65536
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>En l'absence d'instruction <code>return</code>, python renvoie <em>implicitement</em> une valeur particulière <code>None</code> qui signifie 'rien';</li>
+<li>une fonction peut appeler une autre fonction.</li>
+</ul>
+</div>
+<h3 id="specifier-une-fonction">Spécifier une fonction<a class="headerlink" href="#specifier-une-fonction" title="Permanent link">⚓︎</a></h3>
+<h4 id="quest-ce-quune-specification">Qu'est-ce qu'une spécification ?<a class="headerlink" href="#quest-ce-quune-specification" title="Permanent link">⚓︎</a></h4>
+<p>En plus d'un nom explicite, une fonction devrait être convenablement documentée. Cette documentation devra comporter les <strong>spécifications</strong> de la fonction.  </p>
+<p>Spécifier une fonction consiste à donner:</p>
+<ul>
+<li>la liste ordonnée et le type de ses paramètres;</li>
+<li>une description du résultat renvoyé ou <strong>post-conditions</strong>;</li>
+<li>les conditions ou propriétés portant sur les paramètres d'entrée ou <strong>pré-conditions</strong>.  </li>
+</ul>
+<p>En python, la documentation suit <strong>immédiatement</strong> la définition de la fonction et est encadrée par des triples double quotes <code>"""</code>.  </p>
+<p>Pour garantir les post-conditions ou les pré-conditions, on peut utiliser des <strong>assertions</strong>.  </p>
+<div class="admonition definition">
+<p class="admonition-title">Definition</p>
+<p>Une assertion est une proposition logique qui doit être vraie (<code>True</code> en python) sinon le programme est arrêté. </p>
+</div>
+<p>La syntaxe d'une assertion en python est:  </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">expression</span><span class="p">,</span> <span class="s2">&quot;Message d&#39;erreur explicite&quot;</span>
+</code></pre></div></td></tr></table></div>
+Par ailleurs, la documentation d'une fonction est en outre accessible avec la fonction native <code>help()</code></p>
+<h4 id="exemple-complet">Exemple complet<a class="headerlink" href="#exemple-complet" title="Permanent link">⚓︎</a></h4>
+<p>On spécifie la fonction <code>deux_puissance()</code> précédente.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">deux_puissance</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    renvoie la puissance n-ième de 2;</span>
+<span class="sd">    n: entier naturel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Préconditions</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;Erreur: n entier&quot;</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Erreur: n &gt;= 0&quot;</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span>    
+    <span class="k">return</span> <span class="n">p</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">deux_puissance</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1048576
+</code></pre></div></td></tr></table></div>
+<p>En cas de non respect des préconditions, le <em>contrat</em> entre le programmeur et l'utilisateur est rompu et le programme s'arrête. Par exemple, un appel <code>deux_puissance(2.5)</code> conduit
+à:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>    ---------------------------------------------------------------------------
+
+    AssertionError                            Traceback (most recent call last)
+
+    &lt;ipython-input-11-34ff1cbea852&gt; in &lt;module&gt;
+          1 # Non respect de: &quot;n, entier naturel&quot;.
+          2 
+    ----&gt; 3 deux_puissance(2.5)
+
+
+    &lt;ipython-input-9-5988c4a4a8b7&gt; in deux_puissance(n)
+          5     &quot;&quot;&quot;
+          6     # Préconditions
+    ----&gt; 7     assert isinstance(n, int), &quot;Erreur: n entier&quot;
+          8     assert n &gt;= 0, &quot;Erreur: n &gt;= 0&quot;
+          9 
+
+
+    AssertionError: Erreur: n entier
+</code></pre></div></td></tr></table></div>
+<p>L'accès à la documentation se fait avec <code>help(deux_puissance)</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>    Help on function deux_puissance in module __main__:
+
+    deux_puissance(n)
+        renvoie la puissance n-ième de 2;
+        n: entier naturel.
+</code></pre></div></td></tr></table></div>
+<h3 id="utiliser-des-bibliotheques">Utiliser des bibliothèques<a class="headerlink" href="#utiliser-des-bibliotheques" title="Permanent link">⚓︎</a></h3>
+<p>La plupart des langages de programmation proposent des fonctions toutes prêtes. Ces fonctions fournies avec le langage sont regroupées au sein d'une <strong>bibliothèque standard</strong>. Il s'agit d'un ensemble de modules spécialisés (par exemple <em>math</em> ou <em>random</em>).  </p>
+<p>Pour pouvoir utiliser les objets (<em>des fonctions par exemple</em>) d'un module, il faut les <strong>importer</strong> avec l'instruction <code>import</code>.  On privilégiera la notation <code>from module import objet</code> au lieu de <code>from module import *</code>.  </p>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Utilisation de la fonction racine carrée (sqrt) du module math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1.4142135623730951
+</code></pre></div></td></tr></table></div>
+<p>Une autre construction possible et aussi valable que la précédente, consiste à importer le module avec <code>import module</code> puis à utiliser l'objet avec la notation <em>pointée</em> <code>module.objet</code>.  </p>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1.4142135623730951
+</code></pre></div></td></tr></table></div>
+<h3 id="tester-son-code">Tester son code<a class="headerlink" href="#tester-son-code" title="Permanent link">⚓︎</a></h3>
+<p>Pour s'assurer que le programme fonctionne comme prévu, il est nécessaire de le tester. Un jeu de tests devrait couvrir les cas d'utilisation:  </p>
+<ul>
+<li>typiques;</li>
+<li>limites.</li>
+</ul>
+<p>On peut utiliser des assertions dans un premier temps (l'utilisation d'un module spécialisé peut être envisagé en python).  </p>
+<p>Enfin, une approche moderne consiste à écrire ses tests avant les fonctions.  </p>
+<p><strong>Exemple</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Jeu de tests</span>
+
+<span class="k">def</span> <span class="nf">test_puissance</span><span class="p">():</span>
+    <span class="c1"># Cas limite</span>
+    <span class="k">assert</span> <span class="n">deux_puissance</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="c1"># Cas typique </span>
+    <span class="k">assert</span> <span class="n">deux_puissance</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1024</span>
+    <span class="k">return</span> <span class="s1">&#39;Tests OK&#39;</span>
+
+<span class="n">test_puissance</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;Tests OK&#39;
+</code></pre></div></td></tr></table></div>
+<div class="admonition bug">
+<p class="admonition-title">IMPORTANT</p>
+<p>Le succès d'un jeu de test ne garantit pas que le programme ne contient pas de bugs. Il s'agit d'une condition nécessaire mais non suffisante.</p>
+</div>
+<hr />
+<h2 id="exercices-sequence-1">EXERCICES Séquence 1<a class="headerlink" href="#exercices-sequence-1" title="Permanent link">⚓︎</a></h2>
+<h3 id="exercice-1-quelques-pieges-de-laffectation">Exercice 1: quelques pièges de l'affectation<a class="headerlink" href="#exercice-1-quelques-pieges-de-laffectation" title="Permanent link">⚓︎</a></h3>
+<p>On définit la fonction <code>calcul_v1()</code> suivante: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calcul_v1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>Donner deux constructions élémentaires différentes ainsi que le numéro de la ligne où elles apparaissent.</p>
+</li>
+<li>
+<p>On modifie légèrement la fonction précédente, pour obtenir une autre version:  </p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calcul_v2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p>L'exécution de <code>calcul_v2(0)</code> provoque cette fois-ci l'erreur suivante:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">e000315c4ef2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">calcul_v2</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">012</span><span class="n">f1c01c96b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="n">calcul_v2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+      <span class="mi">2</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+      <span class="mi">3</span>         <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">----&gt;</span> <span class="mi">4</span>     <span class="k">return</span> <span class="n">resultat</span>
+
+<span class="ne">UnboundLocalError</span><span class="p">:</span> <span class="n">local</span> <span class="n">variable</span> <span class="s1">&#39;resultat&#39;</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
+</code></pre></div></td></tr></table></div>
+<p>En comparant avec la première version, donner l'origine cette erreur. Proposer une explication de la situation.</p>
+<ol>
+<li>Un élève exécute la séquence d'instructions suivante:  </li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">calcul_v1</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">somme_100</span> <span class="o">=</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p>Malheureusement cette séquence échoue. L'interpréteur python affiche l'erreur</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;resultat&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</code></pre></div></td></tr></table></div>
+<p>Cette erreur semble curieuse à priori car la variable <code>resultat</code> a été déclarée et affectée dans la fonction <code>calcul_v1</code>.  </p>
+<p>Faire une hypothèse sur la <em>visibilité</em> d'une variable déclarée à l'intérieur d'une fonction.</p>
+<hr />
+<h3 id="exercice-2-des-etoiles-en-boucle">Exercice 2: des étoiles en boucle<a class="headerlink" href="#exercice-2-des-etoiles-en-boucle" title="Permanent link">⚓︎</a></h3>
+<h4 id="preambule-complements-sur-les-chaines-de-caractere">Préambule: compléments sur les chaînes de caractère<a class="headerlink" href="#preambule-complements-sur-les-chaines-de-caractere" title="Permanent link">⚓︎</a></h4>
+<p><em>Utilisation des opérateurs <code>+</code> et <code>*</code></em></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="s1">&#39;_/\_&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>_/\_
+</code></pre></div></td></tr></table></div>
+<p>L'opérateur <code>+</code> permet de concaténer deux chaînes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">ch</span> <span class="o">+</span> <span class="n">ch</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>_/\__/\__/\_
+</code></pre></div></td></tr></table></div>
+<p>On peut aussi utiliser l'opérateur <code>*</code> entre une chaîne et un entier.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>_/\__/\__/\_
+</code></pre></div></td></tr></table></div>
+<p>Dans ce dernier exemple <code>ch</code> référence un nouvel objet résultant de la concaténation <code>_/\_</code>+<code>_/\_</code>+<code>_/\_</code>.</p>
+<p><em>Le caractère d'échappement</em> <code>\</code></p>
+<p>Sa présence dans une chaîne modifie le caractère qui le suit. Ainsi <code>\n</code> ne désigne pas <code>n</code> mais un saut de ligne.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;100</span><span class="se">\n</span><span class="s1">200</span><span class="se">\n</span><span class="s1">300&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>100
+200
+300
+</code></pre></div></td></tr></table></div>
+<h4 id="enonce">Enoncé<a class="headerlink" href="#enonce" title="Permanent link">⚓︎</a></h4>
+<p>On considère la fonction <code>etoilef</code> suivante, dont la documentation est incomplète.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">etoilef</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A compléter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">a</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Que réalise cette fonction? En cas de difficulté, on peut réaliser quelques appels <code>print(etoilef(n))</code>, <code>n</code> étant un entier naturel supérieur ou égal à 1.</li>
+<li>Compléter la documentation de la fonction.</li>
+<li>Sur la <span class="arithmatex">\(i\)</span>-ème ligne, <span class="arithmatex">\(i\)</span> étant un entier supérieur à 1, combien a-t-on d'étoiles ?</li>
+<li>Transformer la fonction <code>etoilef</code> en une fonction <code>etoilew</code> qui utilise une boucle conditionnelle (<code>while</code>) et qui répond aux mêmes spécifications.</li>
+</ol>
+<hr />
+<h3 id="exercice-3-diversite-des-langages">Exercice 3: diversité des langages<a class="headerlink" href="#exercice-3-diversite-des-langages" title="Permanent link">⚓︎</a></h3>
+<p><em>Aucune connaissance des langages cités ci-dessous n'est nécessaire pour résoudre l'exercice. Il s'agit d'un travail sur les similitudes et les différences existant entre ces langages</em>.</p>
+<p>Le mélange de Fisher-Yates est un algorithme qui permet de mélanger des 
+objets (voir <a href="https://fr.wikipedia.org/wiki/M%C3%A9lange_de_Fisher-Yates">sa description sur Wikipedia</a>). 
+On se propose de comparer la traduction cet algorithme dans divers langages de programmation.</p>
+<p><code>Pascal (1970)</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">procedure</span><span class="w"> </span><span class="nf">shuffleList</span><span class="p">(</span><span class="k">var</span><span class="w"> </span><span class="n">tab</span><span class="o">:</span><span class="w"> </span><span class="n">tableau</span><span class="p">)</span><span class="o">;</span>
+<span class="k">var</span>
+<span class="w">    </span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="o">,</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nb">High</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">Low</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">random</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Low</span><span class="p">(</span><span class="n">tab</span><span class="p">)]</span><span class="o">;</span>
+<span class="w">            </span><span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Low</span><span class="p">(</span><span class="n">tab</span><span class="p">)]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Low</span><span class="p">(</span><span class="n">tab</span><span class="p">)]</span><span class="o">;</span>
+<span class="w">            </span><span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Low</span><span class="p">(</span><span class="n">tab</span><span class="p">)]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">tmp</span>
+<span class="w">        </span><span class="k">end</span><span class="o">;</span>
+<span class="w">    </span><span class="k">end</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</code></pre></div></td></tr></table></div>
+<p><code>C (1972)</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">shuffle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tab</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">            </span><span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>Go (2009)</code>  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">shuffle</span><span class="p">(</span><span class="nx">tab</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">tab</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">tmp</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tab</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="w">            </span><span class="nx">tab</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tab</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+<span class="w">            </span><span class="nx">tab</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tmp</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>ECMAScript (Javascript) ES 6 (2015)</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">shuffle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">tab</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">tab</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tab</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+<span class="w">        </span><span class="nx">tab</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tab</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="w">        </span><span class="nx">tab</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">temp</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>Python (1991)</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">)):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tab</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Comment sont délimités les blocs d'instructions ?</li>
+<li>Est-il nécessaire de déclarer les variables <em>locales</em> dans une fonction ?</li>
+<li>Comment est structurée une boucle <code>for</code> ?</li>
+<li>A partir des informations proposées, de quel(s) langage(s), le <code>Go</code> est-il proche ?</li>
+</ol>
+<p>Réponses  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C</th>
+<th>Go</th>
+<th>Python</th>
+<th>Javascript (ES 6)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Délimiteurs</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Variables locales</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Structure boucle for</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="exercice-4-specifier-une-fonction-et-tests">Exercice 4: spécifier une fonction et tests<a class="headerlink" href="#exercice-4-specifier-une-fonction-et-tests" title="Permanent link">⚓︎</a></h3>
+<p>Lucas a déjà eu 3 notes sur 20 en NSI:  </p>
+<ul>
+<li>14 coef. 1</li>
+<li>15 coef. 2</li>
+<li>16 coef. 2</li>
+</ul>
+<p>La dernière évaluation prévue sera affectée d'un coefficient 5. Lucas veut prévoir sa moyenne trimestrielle en écrivant une fonction <code>moyenne</code> qui prendra en paramètre sa dernière note et qui renvoie sa moyenne trimestrielle.</p>
+<ol>
+<li>Ecrire les spécifications de la fonction <code>moyenne</code>.</li>
+<li>Donner une assertion qui permet de garantir la précondition.</li>
+<li>
+<p>Lucas a bien pris note des bonnes pratiques de programmation. Il commence par écrire une fonction de tests de sa fonction <code>moyenne</code>:  </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_moyenne</span><span class="p">():</span>
+    <span class="c1"># Cas limites</span>
+    <span class="k">assert</span> <span class="n">moyenne</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="o">...</span>
+    <span class="k">assert</span> <span class="n">moyenne</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="o">...</span>
+    <span class="c1"># Cas typique</span>
+    <span class="k">assert</span> <span class="n">moyenne</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="s1">&#39;Tests OK&#39;</span>
+</code></pre></div></td></tr></table></div>
+Compléter cette fonction de test.</p>
+</li>
+<li>
+<p>Ecrire la fonction <code>moyenne</code> et tester la.</p>
+</li>
+</ol>
+<h3 id="exercice-5-divisibilite">Exercice 5: divisibilité<a class="headerlink" href="#exercice-5-divisibilite" title="Permanent link">⚓︎</a></h3>
+<p>Un moyen simple pour savoir si un entier naturel <span class="arithmatex">\(a\)</span> est divisible par un entier naturel <span class="arithmatex">\(k\)</span> non nul, est de tester le reste de la division de <span class="arithmatex">\(a\)</span> par <span class="arithmatex">\(k\)</span>. S'il est nul alors <span class="arithmatex">\(a\)</span> est divisible par <span class="arithmatex">\(k\)</span>. La fonction <code>est_divisible</code> ci-dessous code cette propriété.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">est_divisible</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Renvoie vrai (True) si a est divisible par k, faux (False) sinon.</span>
+<span class="sd">    a: entier naturel</span>
+<span class="sd">    k: entier naturel strictement positif</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;Erreur, a entier&quot;</span>
+    <span class="k">assert</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Erreur, a entier naturel&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;Erreur, k entier&quot;</span>
+    <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Erreur, k strictement positif&quot;</span>
+
+    <span class="k">return</span> <span class="n">a</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">test_divisible</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">est_divisible</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+    <span class="k">assert</span> <span class="n">est_divisible</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span>
+    <span class="k">assert</span> <span class="n">est_divisible</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="s1">&#39;Tests OK&#39;</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Combien de paramètres requiert la fonction <code>est_divisible</code> ?</li>
+<li>Quel est l'intérêt des lignes 7 à 10 ?</li>
+<li>Tester la fonction <code>est_divisible</code>.</li>
+<li>
+<p>Prévoir le résultat renvoyé par l'appel <code>test_divisible()</code> si on rajoute 
+avant la ligne <code>return ...</code> l'instruction </p>
+<p><code>assert est_divisible(10, 0) is False</code>.</p>
+</li>
+</ol>
+<h3 id="exercice-6-annee-bissextile">Exercice 6: année bissextile<a class="headerlink" href="#exercice-6-annee-bissextile" title="Permanent link">⚓︎</a></h3>
+<p>Dans le calendrier grégorien, une année est bissextile si (voir <a href="https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile">article wikipedia</a>) on se trouve dans un des cas suivants:  </p>
+<ul>
+<li>l'année est divisible par 4 et non divisible par 100 ;</li>
+<li>l'année est divisible par 400</li>
+</ul>
+<p>On souhaite coder une fonction <code>est_bissextile</code> qui prend en paramètre 
+une année et qui renvoie le résultat logique vrai ou faux (<code>True</code> ou <code>False</code> 
+en python) selon que l'année est bissextile ou non. Pour simplifier, on 
+considère que le passage au calendrier grégorien a eu lieu en 1583.  </p>
+<ol>
+<li>
+<p>Compléter les spécifications de la fonction <code>est_bissextile</code> ci-dessous. 
+Seuls les <code>...</code> sont à compléter. Ne pas supprimer l'instruction <code>pass</code> 
+qui sera remplacée par votre code plus tard.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># A compléter</span>
+
+<span class="k">def</span> <span class="nf">est_bissextile</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Ecrire une fonction de tests <code>test_bissextile</code> en utilisant les résultats disponibles sur la <a href="https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile">page wikipedia</a>.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># A compléter après avoir supprimer l&#39;instruction pass</span>
+
+<span class="k">def</span> <span class="nf">test_bissextile</span><span class="p">():</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Compléter la fonction <code>est_bissextile</code> en remplaçant l'instruction <code>pass</code> 
+par votre code et en ré-utilisant la fonction <code>est_divisble</code> de l'exercice précédent.</p>
+</li>
+<li>
+<p>Tester votre fonction.</p>
+</li>
+</ol>
+<h3 id="exercice-7-preparer-un-argumentaire">Exercice 7: préparer un argumentaire<a class="headerlink" href="#exercice-7-preparer-un-argumentaire" title="Permanent link">⚓︎</a></h3>
+<p>Pourquoi existe-t-il plus de 730 langages de programmation dont certains sont plus utilisés que d'autres?</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:in">
+<p>un programme annexe lit le code source et exécute les instructions; c'est le cas du langage Python (l'interpréteur le plus courant s'appelle CPython).&#160;<a class="footnote-backref" href="#fnref:in" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:com">
+<p>un programme annexe transforme le code source en langage machine (une fois) avant son exécution.&#160;<a class="footnote-backref" href="#fnref:com" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:dy">
+<p>une variable n'a pas besoin d'être déclarée et peut changer de type au cours du programme (exemple en python).&#160;<a class="footnote-backref" href="#fnref:dy" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:st">
+<p>les variables doivent être déclarées et ne peuvent changer de type.&#160;<a class="footnote-backref" href="#fnref:st" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+<script src="../../pyodide-mkdocs/ide.js"></script> 
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

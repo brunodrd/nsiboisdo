@@ -1,0 +1,4156 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Support de cours activité TP en spé NSI">
+      
+      
+        <meta name="author" content="Bruno DARID">
+      
+      
+      
+        <link rel="prev" href="../BDD/C8TP2C.html">
+      
+      
+        <link rel="next" href="c11e.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Cours 1: Routage - NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6a10b989.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/css/jquery.terminal.min.css" rel="stylesheet">
+<script src="../../pyodide-mkdocs/utils.js"></script> 
+<script src="../../pyodide-mkdocs/interpreter.js"></script> 
+
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<link rel="stylesheet" href="../../pyodide-mkdocs/pyoditeur.css">
+<link rel="stylesheet" href="../../qcm/qcm.css">
+
+
+<input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#protocoles-de-routage" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../index.html" title="NSI" class="md-header__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cours 1: Routage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NSI1/S1/S1A1.html" class="md-tabs__link">
+          
+  
+  NSI1
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LP2/C1C1.html" class="md-tabs__link">
+          
+  
+  NSITerm
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PC/ucontroleur.html" class="md-tabs__link">
+          
+  
+  Physique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../perso/videos.html" class="md-tabs__link">
+          
+  
+  Liens divers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI" class="md-nav__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    NSI1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            NSI1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.1 Intoduction à la programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.1 Intoduction à la programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/TP01.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.2 Systèmes d'exploitation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.2 Systèmes d'exploitation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.3 Codage des nombres
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.3 Codage des nombres
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/TP1S3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/Annexe_TP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annexe TP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/doc/Exercices_codage_nombre.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3R1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    En Résumé
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq.4 Au coeur de l'ordinateur
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Seq.4 Au coeur de l'ordinateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4A2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4R1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    En résumé
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 5 Représentation de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 5 Représentation de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3a.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3a
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3b.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3b
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C5.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C6.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 6 IHM sur le web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 6 IHM sur le web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Séq. 7 Données tabulées
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Séq. 7 Données tabulées
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EXERCICE 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Seq. 8 Algorithmique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Seq. 8 Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COURS 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    NSITerm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            NSITerm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. I Récursivité
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I Récursivité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1TD1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vers le bac
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1TD1C.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. II Mise au point - Bugs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II Mise au point - Bugs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C5C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C5E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C2E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. III Prog. modulaire
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III Prog. modulaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C3TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C3A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actvité
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. IV SDD1 Pile & File
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV SDD1 Pile & File
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C2C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C2E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. V Vocabulaire POO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V Vocabulaire POO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3E2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VI(a) Le TAD Liste
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI(a) Le TAD Liste
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VI(b) Le TAD Dictionnaire
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI(b) Le TAD Dictionnaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6bC1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VII Gestion des ressources par un SE
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII Gestion des ressources par un SE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C7C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C7E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. VIII Base de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII Base de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8A1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Activité de découverte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Le modèle relationnel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 2: Structure des bases de données relationnelles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 3: Langage SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1: Schémas relationnels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/CorC8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction Ex. 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP1Cor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction TP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP2C.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correction TP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. IX Protocoles de routage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IX Protocoles de routage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Cours 1: Routage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C9C1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Routage
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#routage-des-paquets" class="md-nav__link">
+    Routage des paquets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocoles-de-routage_1" class="md-nav__link">
+    Protocoles de routage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="c11e.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. X Algorithmique - diviser pour régner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. X Algorithmique - diviser pour régner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ALGO/C10C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1: Paradigme diviser pour régner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ALGO/C11TD1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TD 1: Un exemple d'application (difficile)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ALGO/C10TP1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 1: Préambule au tri fusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ALGO/C10TP2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP 2: Tourner R2D2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap. XI Arbres binaires
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XI Arbres binaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11C1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11C2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cours 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11E1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercices 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    EP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_13">
+            <span class="md-nav__icon md-icon"></span>
+            EP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EP/EP260123.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EP 26 janvier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Physique
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Physique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/ucontroleur.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Micro contrôleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/connexion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connexions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/mode_fonctionnement.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mode de fonctionnement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/HelloWorld.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/capteurs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mise en oeuvre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/conclusion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/matplotlib.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annexe: graphiques avec matplotlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Liens divers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Liens divers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/videos.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Videos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/textes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Textes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+                  
+
+
+<h1 id="protocoles-de-routage">Protocoles de routage<a class="headerlink" href="#protocoles-de-routage" title="Permanent link">⚓︎</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Concernant ce cours</p>
+<p>Ce cours a été écrit par M. Roche de l'académie de Grenoble.
+Il a diffusé ce document sous la licence <a href="https://fr.wikipedia.org/wiki/Licence_CC0">Common Creative Zero</a>.<br />
+Qu'il en soit remercié!<br />
+Seules quelques modifications mineures, des reformulations essentiellment, ont été apportées ici.<br />
+- <em>B. DARID - nov. 2021</em> -</p>
+</div>
+<h2 id="routage-des-paquets">Routage des paquets<a class="headerlink" href="#routage-des-paquets" title="Permanent link">⚓︎</a></h2>
+<p>Pour bien suivre ce cours, il est nécessaire de maitriser les bases sur les réseaux (réseau local, adresse IP, adresse réseau...) N'hésitez pas à vous replonger dans le cours de première si nécessaire.</p>
+<p>Les réseaux locaux peuvent être reliés entre eux par l'intermédiaire de routeurs. Il ne faut jamais perdre de vue qu'Internet résulte de l'interconnexion de réseaux par des <strong>routeurs</strong>.</p>
+<p><img alt="" src="img/c11c_1.png" /></p>
+<p>Nous avons sur ce schéma les éléments suivants :</p>
+<ul>
+<li>15 ordinateurs : M1 à M15</li>
+<li>6 commutateurs (ou <em>switchs</em> en anglais) : R1 à R6</li>
+<li>8 routeurs : A, B, C, D, E, F, G et H</li>
+</ul>
+<p>Comme nous l'avons déjà dit ci-dessus, un routeur permet de relier ensemble plusieurs réseaux locaux. Un routeur est composé d’un nombre plus ou moins important d’interfaces réseau ou <em>cartes</em> réseau.<br />
+Les routeurs les plus simples que l’on puisse rencontrer permettent de relier ensemble deux réseaux. Ils possèdent alors 2 interfaces réseau. Il existe cependant des routeurs capables de relier ensemble une dizaine de réseaux.  </p>
+<p>N'importe quel ordinateur peut jouer le rôle de routeur, à partir du moment où il possède au moins 2 interfaces réseau. On peut rencontrer aussi (<em>souvent</em>) des <em>machines dédiées</em> comme par exemple celle ci-dessous de marque CISCO.</p>
+<p><img alt="" src="img/c11c_2.jpg" /></p>
+<p>Revenons maintenant à l’analyse de notre schéma:</p>
+<p>Nous avons 6 réseaux locaux, chaque réseau local possède son propre commutateur.</p>
+<p>Les ordinateurs M1, M2 et M3 appartiennent au réseau local 1. Les ordinateurs M4, M5 et M6 appartiennent au réseau local 2. Nous pouvons synthétiser tout cela comme suit :</p>
+<ul>
+<li>réseau local 1 : M1, M2 et M3</li>
+<li>réseau local 2 : M4, M5 et M6</li>
+<li>réseau local 3 : M7 et M8</li>
+<li>réseau local 4 : M9 et M10</li>
+<li>réseau local 5 : M11 et M12</li>
+<li>réseau local 6 : M13, M14 et M15</li>
+</ul>
+<p>Les paragraphes suivants présentent quelques exemples de communications entre 2 ordinateurs.</p>
+<h3 id="m1-veut-communiquer-avec-m3">M1 veut communiquer avec M3<a class="headerlink" href="#m1-veut-communiquer-avec-m3" title="Permanent link">⚓︎</a></h3>
+<p>Le paquet est envoyé de M1 vers le commutateur R1.<br />
+R1 <em>constate</em> que M3 se trouve bien dans le réseau local 1, le paquet est donc envoyé directement vers M3. On peut résumer le trajet du paquet par :</p>
+<p><span class="arithmatex">\(\mathrm{M1\longrightarrow R1\longrightarrow M3}\)</span></p>
+<h3 id="m1-veut-communiquer-avec-m6">M1 veut communiquer avec M6<a class="headerlink" href="#m1-veut-communiquer-avec-m6" title="Permanent link">⚓︎</a></h3>
+<p>Le paquet est envoyé de M1 vers le commutateur R1.<br />
+R1 « constate » que M6 n’est pas sur le réseau local 1, il envoie donc le paquet vers le routeur A.<br />
+Le routeur A n'est pas connecté directement au réseau local R2 (réseau local auquel appartient M6), mais il "sait" que le routeur B est connecté au réseau local 2. Le routeur A envoie le paquet vers le routeur B.<br />
+Le routeur B est connecté au réseau local 2, il envoie le paquet au commutateur R2. Le commutateur R2 envoie le paquet à la machine M6.</p>
+<p><span class="arithmatex">\(\mathrm{M1 \longrightarrow R1 \longrightarrow Routeur\ A \longrightarrow Routeur\ B \longrightarrow R2 \longrightarrow M6}\)</span></p>
+<h3 id="m1-veut-communiquer-avec-m9">M1 veut communiquer avec M9<a class="headerlink" href="#m1-veut-communiquer-avec-m9" title="Permanent link">⚓︎</a></h3>
+<p><span class="arithmatex">\(\mathrm{M1 \longrightarrow R1 \longrightarrow Routeur\ A \longrightarrow Routeur\ B \longrightarrow Routeur\ D \longrightarrow Routeur\ E \longrightarrow R4 \longrightarrow M9}\)</span></p>
+<p>On constate que le chemin donné ci-dessus n’est pas l’unique possibilité, en effet on aurait pu aussi avoir :</p>
+<p><span class="arithmatex">\(\mathrm{M1\ \longrightarrow R1 \longrightarrow Routeur A \longrightarrow Routeur\ H \longrightarrow Routeur\ F \longrightarrow Routeur\ E \longrightarrow R4 \longrightarrow M9}\)</span></p>
+<p>Il est très important de bien comprendre qu’il <strong>existe souvent plusieurs chemins possibles pour relier 2 ordinateurs</strong>.</p>
+<h3 id="m13-veut-communiquer-avec-m9">M13 veut communiquer avec M9<a class="headerlink" href="#m13-veut-communiquer-avec-m9" title="Permanent link">⚓︎</a></h3>
+<p>Nous pouvons avoir:<br />
+<span class="arithmatex">\(\mathrm{M13 \longrightarrow R6 \longrightarrow Routeur\ G \longrightarrow Routeur\ F \longrightarrow Routeur\ E \longrightarrow R4 \longrightarrow M9}\)</span><br />
+ou encore:<br />
+<span class="arithmatex">\(\mathrm{M13 \longrightarrow R6 \longrightarrow Routeur\ G \longrightarrow Routeur\ F \longrightarrow Routeur\ H \longrightarrow Routeur\ C \longrightarrow Routeur\ D \longrightarrow Routeur\ E \longrightarrow R4 \longrightarrow M9}\)</span></p>
+<p>On pourrait penser que le chemin <span class="arithmatex">\(\mathrm{Routeur\ F \longrightarrow Routeur\ E}\)</span> est plus rapide et donc préférable au chemin <span class="arithmatex">\(\mathrm{Routeur\ F \longrightarrow Routeur\ H}\)</span>. Cela est sans doute vrai, mais imaginez qu’il y ait un problème technique entre le Routeur F et le Routeur E, l’existence du chemin <span class="arithmatex">\(\mathrm{Routeur\ F \longrightarrow Routeur\ H}\)</span> permettra tout de même d’établir une communication entre M13 et M9.</p>
+<h3 id="comment-les-commutateurs-ou-les-routeurs-procedent-pour-amener-les-paquets-a-bon-port">Comment les commutateurs ou les routeurs procèdent pour amener les paquets à bon port?<a class="headerlink" href="#comment-les-commutateurs-ou-les-routeurs-procedent-pour-amener-les-paquets-a-bon-port" title="Permanent link">⚓︎</a></h3>
+<p>Nous avons vu l'année dernière que 2 machines appartenant au même réseau local doivent avoir la même adresse réseau.<br />
+Dans le schéma ci-dessus les machines M1 et M4 n'ont pas la même adresse réseau (<em>elles n'appartiennent pas au même réseau local</em>). Si M1 cherche à entrer en communication avec M4, le commutateur R1 va constater que M4 n'appartient pas au réseau local, grâce à son adresse IP. Il va envoyer le paquet de données vers le routeur A. Cela sera alors au routeur A de gérer le <em>problème</em>: comment atteindre M4 ?</p>
+<p>Chaque routeur possède une table de routage.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Indication</p>
+<p>Une table de routage peut être vue comme un tableau qui va contenir des informations permettant au routeur d'envoyer le paquet de données dans la <em>bonne direction</em>.</p>
+</div>
+<p>Soit le schéma suivant :</p>
+<p><img alt="" src="img/c11c_3.png" /></p>
+<p>Sur le schéma ci-dessus, le choix des adresses IP des machines est tout à fait arbitraire.<br />
+En revanche, vous pouvez vérifier que tout est cohérent: adresses machines avec adresses réseaux. Les adresses réseaux sont notées à côté des différents commutateurs. Par exemple le commutateur R1 est utilisé dans le réseau d'adresse 172.168.0.0/16. </p>
+<p>Nous avons deux routeurs:</p>
+<ul>
+<li>le routeur A qui possède 3 interfaces réseau que l'on nomme eth0, eth1 et eth2 (les adresses IP liées à ces interfaces réseau sont 172.168.255.254/16 -<em>eth0</em>-, 172.169.255.254/16 -<em>eth2</em>- et 192.168.7.1/24 -<em>eth1</em>-;</li>
+<li>le routeur G qui possède 2 interfaces réseau que l'on nomme eth0 et eth1 (les adresses IP liées à ces interfaces réseau sont 10.255.255.254/8 -<em>eth0</em>- et 192.168.7.2/24 -<em>eth1</em>-.</li>
+</ul>
+<p>Les informations présentes dans la table de routage de A sont:</p>
+<ul>
+<li>le routeur A est directement relié au réseau 172.168.0.0/16 par l'intermédiaire de son interface eth0</li>
+<li>le routeur A est directement relié au réseau 172.169.0.0/16 par l'intermédiaire de son interface eth2</li>
+<li>le routeur A est directement relié au réseau 192.168.7.0/24 par l'intermédiaire de son interface eth1 (le réseau 192.168.7.0/24 est un peu particulier car il est uniquement composé des routeurs A et G)</li>
+<li>le routeur A n'est pas directement relié au réseau 10.0.0.0/8 mais par contre il "sait" que les paquets à destination de ce réseau doivent être envoyé à la machine d'adresse IP 192.168.7.2/24 (c'est à dire le routeur G qui lui est directement relié au réseau 10.0.0.0/8)</li>
+</ul>
+<p>On peut résumer tout cela avec le tableau suivant qui est une table de routage simplifiée de A:</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>172.168.0.0/16</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>192.168.7.0/24</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>172.169.0.0/16</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>10.0.0.0/8</td>
+<td>192.168.7.2/24</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Métrique</p>
+<p>Dans un protocole de routage, la métrique est une mesure de la « distance » qui sépare un routeur d'un réseau de destination.<br />
+Elle peut correspondre:  </p>
+<ul>
+<li>au nombre de sauts IP nécessaires pour atteindre le réseau destination, comme dans RIP;</li>
+<li>à un coût numérique qui dépend de la bande passante des liens franchis, comme dans OSPF;</li>
+<li>au résultat d'un calcul plus complexe, qui tient compte de la charge, du délai, du MTU, etc.  </li>
+</ul>
+<p><a href="https://fr.wikipedia.org/wiki/M%C3%A9trique_(routage)">Source: wikipedia</a></p>
+</div>
+<p>Même si dans les véritables tables de routage on utilise exclusivement les adresses IP, on pourra, dans le cadre de ce cours, utiliser les noms à la place des adresses IP. On dira pour le schéma ci-dessus que:  </p>
+<ul>
+<li>M1, M2 et M3 appartiennent au réseau R1;</li>
+<li>M4, M5 et M6 appartiennent au réseau R2;</li>
+<li>M7 et M8 appartiennent au réseau R3.</li>
+</ul>
+<p>On aura alors la table de routage écrit de cette façon :</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>réseau R1</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>réseau routeur G</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>réseau R3</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>réseau  R2</td>
+<td>routeur G</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>On peut traduire ce tableau par :</p>
+<ul>
+<li>pour atteindre le réseau R1, on doit "sortir" du routeur par eth0 (le réseau R1 est directement relié au routeur A)</li>
+<li>pour atteindre le routeur G, on doit "sortir" du routeur par eth1 (le routeur G est directement relié au routeur A)</li>
+<li>pour atteindre le réseau R3, on doit "sortir" du routeur par eth2 (le réseau R3 est directement relié au routeur A)</li>
+<li>pour atteindre le réseau R2, on doit "envoyer" le paquet de données vers le routeur G qui "saura quoi faire avec" (le réseau R2 n'est pas directement relié au routeur A)</li>
+</ul>
+<p>Dans des réseaux très complexes, chaque routeur aura une table de routage qui comportera de très nombreuses lignes (des dizaines voir des centaines...). En effet chaque routeur devra savoir vers quelle interface réseau il faudra envoyer un paquet afin qu'il puisse atteindre sa destination.  </p>
+<p>On peut trouver dans une table de routage plusieurs lignes pour une même destination. Il peut en effet, à partir d'un routeur donné, exister plusieurs chemins possibles pour atteindre la destination.<br />
+Dans le cas où il existe plusieurs chemins possibles pour atteindre une même destination, le routeur va choisir le <em>chemin le plus court</em>. Pour choisir ce chemin le plus court, le routeur va utiliser la métrique: <strong>plus la valeur de la métrique est petite, plus le chemin pour atteindre le réseau est court</strong>.<br />
+Un réseau directement lié à un routeur aura une métrique de 0.</p>
+<h3 id="comment-un-routeur-arrive-a-remplir-sa-table-de-routage">Comment un routeur arrive à remplir sa table de routage?<a class="headerlink" href="#comment-un-routeur-arrive-a-remplir-sa-table-de-routage" title="Permanent link">⚓︎</a></h3>
+<p>La réponse est simple pour les réseaux qui sont directement reliés au routeur c'est-à-dire où la métrique égal à 0. Mais qu'en est-il pour les autres réseaux (métrique supérieure à zéro)?</p>
+<p>Il existe 2 méthodes :</p>
+<ul>
+<li>le <strong>routage statique</strong>: chaque ligne doit être renseignée <em>à la main</em>. Cette solution est seulement envisageable pour des très petits réseaux de réseaux;</li>
+<li>le <strong>routage dynamique</strong>: tout se fait <em>automatiquement</em>, on utilise des protocoles qui vont permettre de <em>découvrir</em> les différentes routes automatiquement afin de pouvoir remplir la table de routage tout aussi automatiquement.</li>
+</ul>
+<h2 id="protocoles-de-routage_1">Protocoles de routage<a class="headerlink" href="#protocoles-de-routage_1" title="Permanent link">⚓︎</a></h2>
+<p>Un réseau de réseaux comportant des routeurs peut être modélisé par un graphe (<em>le cours sur les graphes sera abordé après les épreuves de mars 2022</em>). Chaque routeur est un sommet et chaque liaison entre les routeurs ou entre un routeur et un commutateur est une arête. Les algorithmes utilisés par les protocoles de routages sont donc des algorithmes issus de la théorie de graphes.</p>
+<p>On trouve plusieurs protocoles de routage, nous allons en étudier deux:  </p>
+<ul>
+<li><strong>RIP</strong> (<strong>R</strong>outing <strong>I</strong>nformation <strong>P</strong>rotocol);</li>
+<li><strong>OSPF</strong> (<strong>O</strong>pen <strong>S</strong>hortest <strong>P</strong>ath <strong>F</strong>irst).</li>
+</ul>
+<h3 id="le-protocole-rip">Le protocole RIP<a class="headerlink" href="#le-protocole-rip" title="Permanent link">⚓︎</a></h3>
+<p>Au départ, les tables de routage contiennent uniquement les réseaux qui sont directement reliés au routeur. Dans l'exemple ci-dessus, à l'origine, la table de routage de A contient uniquement les réseaux 172.168.0.0/16, 192.168.7.0/24 et 172.169.0.0/16. Ensuite:</p>
+<ul>
+<li>Chaque routeur envoie périodiquement (toutes les 30 secondes) à tous ses voisins (routeurs adjacents) un message. Ce message contient la liste de tous les réseaux qu'il connait (dans l'exemple ci-dessus, le routeur A envoie un message au routeur G avec les informations suivantes : "je connais les réseaux 172.168.0.0/16, 192.168.7.0/24 et 172.169.0.0/16").</li>
+<li>De la même manière G envoie un message à A avec les informations suivantes : "je connais les réseaux 192.168.7.0/24 et 10.0.0.0/8"). À la fin de cet échange, les routeurs mettent à jour leur table de routage avec les informations reçues (dans l'exemple ci-dessus, le routeur A va pouvoir ajouter le réseau 10.0.0.0/8 à sa table de routage: le routeur A "sait" maintenant qu'un paquet à destination du réseau 10.0.0.0/8 devra transiter par le routeur G).</li>
+<li>Pour renseigner la colonne "métrique", le protocole utilise le nombre de sauts, autrement dit, le nombre de routeurs qui doivent être traversés pour atteindre le réseau cible (dans la table de routage de A, on aura donc une métrique de 1 pour le réseau 10.0.0.0/8 car depuis A il est nécessaire de traverser le routeur G pour atteindre le réseau 10.0.0.0/8)</li>
+</ul>
+<p>Le protocole RIP s'appuie sur l'algorithme de <a href="https://fr.wikipedia.org/wiki/Algorithme_de_Bellman-Ford">Bellman-Ford</a>, algorithme qui permet de calculer les plus courts chemins dans un graphe.</p>
+<p>Prenons un exemple avec le réseau suivant :</p>
+<p><img alt="" src="img/c11c_4.png" /></p>
+<p>Établissons la table de routage du routeur A en nous basant sur le protocole RIP :</p>
+<ul>
+<li>le routeur A est directement relié au réseau R1 (adresse réseau 172.18.0.0/16) par eth0.</li>
+<li>le routeur A est directement relié au routeur B (réseau 192.168.1.0/24) par eth1</li>
+<li>le routeur A est directement relié au routeur C (réseau 192.168.2.0/24) par eth2</li>
+<li>le routeur A n'est pas directement relié au réseau R2 (adresse réseau 172.17.0.0/16) mais par contre il "sait" qu'il peut l'atteindre soit en passant par le routeur C (adresse 192.168.2.2/24) en une étape ou soit en passant par le routeur B (adresse 192.168.1.2/24) en deux étapes (B et C)</li>
+<li>le routeur A n'est pas directement relié au réseau R3 (adresse réseau 172.16.0.0/16) mais  il "sait" qu'il peut l'atteindre soit en passant par le routeur B (192.168.1.2/24) en une étape ou soit en passant par le routeur C (192.168.2.2/24) en deux étapes (C et B)</li>
+</ul>
+<p>Ce qui nous donne donc la table de routage suivante :</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>172.18.0.0/16</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>192.168.1.0/24</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>192.168.2.0/24</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>172.17.0.0/16</td>
+<td>192.168.2.2/24</td>
+<td>1</td>
+</tr>
+<tr>
+<td>172.17.0.0/16</td>
+<td>192.168.1.2/24</td>
+<td>2</td>
+</tr>
+<tr>
+<td>172.16.0.0/16</td>
+<td>192.168.1.2/24</td>
+<td>1</td>
+</tr>
+<tr>
+<td>172.16.0.0/16</td>
+<td>192.168.2.2/24</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Comme déjà vu plus haut, on peut aussi donner la table de routage de manière simplifiée, en utilisant les noms des éléments à la place des adresses IP (mais c'est aussi moins "réaliste") :</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur B</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur C</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur C</td>
+<td>1</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur B</td>
+<td>1</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur C</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>pour un paquet de données allant de R1 à R2, la route privilégiée sera donc : R1 -&gt; Routeur A -&gt; Routeur C -&gt; R2. Mais en cas de problème (panne notamment) la route R1 -&gt; Routeur A -&gt; Routeur B -&gt; Routeur C -&gt; R2 sera possible.</p>
+<p>pour un paquet de données allant de R1 à R3, la route privilégiée sera donc : R1 -&gt; Routeur A -&gt; Routeur B -&gt; R3. Mais en cas de problème la route R1 -&gt; Routeur A -&gt; Routeur C -&gt; Routeur B -&gt; R3 sera possible.</p>
+<p>Dans certains exercices, pour le calcul de la métrique, on compte le nombre total de routeurs traversés (y compris, dans notre exemple le routeur A), cela nous donne donc un décalage de un, et on obtient alors :</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur B</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur C</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur C</td>
+<td>2</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur B</td>
+<td>3</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur C</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Comme c'est juste une histoire de convention, il suffit de se mettre d'accord au départ sur la convention utilisée.</p>
+<p>Le protocole RIP est aujourd'hui très rarement utilisé dans les grandes infrastructures. En effet, il génère, du fait de l'envoi périodique de message, un trafic réseau important (surtout si les tables de routages contiennent beaucoup d'entrées). De plus, le protocole RIP est limité à 15 sauts (on traverse au maximum 15 routeurs pour atteindre sa destination). On lui préfère donc souvent le protocole OSPF.</p>
+<h3 id="le-protocole-ospf">Le protocole OSPF<a class="headerlink" href="#le-protocole-ospf" title="Permanent link">⚓︎</a></h3>
+<p>Comme dans le cas du protocole RIP, nous allons retrouver des échanges d'informations entre les routeurs (ces échanges sont plus "intelligents" dans le cas d'OSPF, ils permettent donc de réduire l'occupation du réseau). Nous n'allons pas rentrer dans les détails de ces échanges et nous allons principalement insister sur la métrique produite par OSPF. Le protocole OSPF, au contraire de RIP, n'utilise pas le "nombre de sauts nécessaire" pour établir la métrique, mais la notion de "coût des routes". Dans les messages échangés par les routeurs on trouve le coût de chaque liaison (plus le coût est grand et moins la liaison est intéressante). Quand on parle de "liaison" on parle simplement du câble qui relie un routeur à un autre routeur. Le protocole OSPF permet de connaitre le coût de chaque liaison entre routeurs, et donc, de connaitre le coût d'une route (en ajoutant le coût de chaque liaison traversée). On notera que pour effectuer ces calculs, le protocole OSPF s'appuie sur l'algorithme de Dijkstra (revoir si nécessaire le cours Algorithmes sur les graphes) .</p>
+<p>Mais sur quoi repose cette notion de coût ?</p>
+<p>La notion de coût est directement liée au débit des liaisons entre les routeurs. Le débit correspond au nombre de bits de données qu'il est possible de faire passer dans un réseau par seconde. Le débit est donc donné en bits par seconde (bps), mais on trouve souvent des kilo bits par seconde (kbps) ou encore des méga bits par seconde (Mbps) =&gt; 1 kbps = 1000 bps et 1 Mbps = 1000 kbps. Connaissant le débit d'une liaison, il est possible de calculer le coût d'une liaison à l'aide de la formule suivante :</p>
+<p><span class="arithmatex">\(coût = \frac{10^8}{débit}\)</span></p>
+<p>dans la formule ci-dessus le débit est en bits par seconde</p>
+<p>Pour obtenir la métrique d'une route, il suffit d'additionner les coûts de chaque liaison (par exemple si pour aller d'un réseau 1 à un réseau 2 on doit traverser une liaison de coût 1, puis une liaison de coût 10 et enfin une liaison de coût 1, la métrique de cette route sera de 1 + 10 + 1 = 12)</p>
+<p>Évidemment, comme dans le cas de RIP, les routes ayant les métriques les plus faibles sont privilégiées.</p>
+<p>Reprenons l'exemple ci-dessus :</p>
+<p><img alt="" src="img/c11c_4.png" /></p>
+<p>Prenons un exemple avec les débits suivants :</p>
+<ul>
+<li>liaison routeur A - routeur B : 1 Mbps</li>
+<li>liaison routeur A - routeur C : 10 Mbps</li>
+<li>liaison routeur C - routeur B : 10 Mbps</li>
+</ul>
+<p>Commençons par calculer les coûts des liaisons inter-routeurs</p>
+<ul>
+<li>liaison routeur A - routeur B : 10<sup>8</sup>/10<sup>6</sup> = 100</li>
+<li>liaison routeur A - routeur C : 10<sup>8</sup>/10<sup>7</sup> = 10</li>
+<li>liaison routeur C - routeur B : 10<sup>8</sup>/10<sup>7</sup> = 10</li>
+</ul>
+<p>pour faire :</p>
+<ul>
+<li>Routeur A -&gt; Routeur C le coût est de 10</li>
+<li>Routeur A -&gt; Routeur B le coût est de 100</li>
+<li>Routeur A -&gt; Routeur C -&gt; Routeur B le coût est 10+10=20</li>
+<li>Routeur A -&gt; Routeur B -&gt; Routeur C le coût est 100+10=110</li>
+</ul>
+<p>Ce qui nous donne la table de routage suivante :</p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>172.18.0.0/16</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>192.168.1.0/24</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>192.168.2.0/24</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>172.17.0.0/16</td>
+<td>192.168.2.2/24</td>
+<td>10</td>
+</tr>
+<tr>
+<td>172.17.0.0/16</td>
+<td>192.168.1.2/24</td>
+<td>110</td>
+</tr>
+<tr>
+<td>172.16.0.0/16</td>
+<td>192.168.1.2/24</td>
+<td>100</td>
+</tr>
+<tr>
+<td>172.16.0.0/16</td>
+<td>192.168.2.2/24</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>ou encore en se passant des adresses IP : </p>
+<table>
+<thead>
+<tr>
+<th>réseau</th>
+<th>moyen de l'atteindre</th>
+<th>métrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>eth0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur B</td>
+<td>eth1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Réseau Routeur C</td>
+<td>eth2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur C</td>
+<td>10</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Routeur B</td>
+<td>110</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur B</td>
+<td>100</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Routeur C</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>pour un paquet de données allant de R1 à R2, la route privilégiée sera donc : R1 -&gt; Routeur A -&gt; Routeur C -&gt; R2.</p>
+<p>pour un paquet de données allant de R1 à R3, la route privilégiée sera donc : R1 -&gt; Routeur A -&gt; Routeur C -&gt; Routeur B -&gt; R3 (on constate une différence avec ce que nous avions trouvé avec le protocole RIP).</p>
+
+
+
+
+
+                
+<script src="../../pyodide-mkdocs/ide.js"></script> 
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>
