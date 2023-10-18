@@ -1,6 +1,6 @@
 class Cell:
     """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""
-
+    
     def __init__(self, v, s):
         self.cle = v
         self.suiv = s
@@ -18,10 +18,10 @@ def queue(l):
     assert not est_vide(l), "queue: erreur liste vide"
     return l.suiv
 
-# A compléter
-def inserer(x, k, lst):
+
+def supprimer(k, lst):
     """ 
-    Insère x à l'index k de la liste lst non vide.
-    Ne renvoie rien: lst est modifié!
+    Supprime la cellule d'index k de la liste non vide lst.
+    Ne renvoie rien: lst est modifié !
     """
     pass

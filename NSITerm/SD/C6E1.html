@@ -98,7 +98,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tad-liste-exercices" class="md-skip">
+        <a href="#du-type-abstrait-a-la-structure-de-donnee-liste-exercices" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3640,8 +3640,8 @@
                   
 
 
-<h1 id="tad-liste-exercices">TAD Liste : Exercices<a class="headerlink" href="#tad-liste-exercices" title="Permanent link">⚓︎</a></h1>
-<p><em>Pensez à utiliser l'éditeur de code intégré à la page puis à valider votre solution</em>  </p>
+<h1 id="du-type-abstrait-a-la-structure-de-donnee-liste-exercices">Du type abstrait à la structure de donnée Liste : Exercices<a class="headerlink" href="#du-type-abstrait-a-la-structure-de-donnee-liste-exercices" title="Permanent link">⚓︎</a></h1>
+<p><em>L'utilisation de l'éditeur intégré à la page est largement envisageable pour toute solution itérative. L'utilisation de la récursion est ... un peu lente</em>!</p>
 <h2 id="exercice-1-insertion-suppression">Exercice 1 Insertion / Suppression<a class="headerlink" href="#exercice-1-insertion-suppression" title="Permanent link">⚓︎</a></h2>
 <p>On reprend la réalisation d'une liste chaînée du cours et on se propose d'ajouter à l'ensemble des opérations, l'insertion et la suppression d'un élément à un index donné.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3682,105 +3682,54 @@
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="s2">&quot;queue: erreur liste vide&quot;</span>
     <span class="k">return</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>1.</strong> Écrire une fonction <code>inserer</code> qui prend pour paramètres un élément <code>x</code>, une position <code>k</code>, une liste chaînée non vide <code>l</code> et qui va insèrer <code>x</code> à l'index <code>k</code> de la liste <code>l</code>.</p>
-<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="comment">###</span><div class="line" id="editor_7d28a516f9f529ddf35da490dc068c34d5e538fa"></div><div id="term_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide">lst = Cell(3, Cell(7, Cell(9, None)))bksl-nlinserer(-1, 0, lst)bksl-nlbksl-nlassert tete(queue(lst)) == 3, "tete(queue(lst)) == 3"bksl-nlassert tete(lst) == -1, "tete(lst) == -1"bksl-nlbksl-nl</span>            <button class="tooltip" onclick='check("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa","C6/C6E1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_7d28a516f9f529ddf35da490dc068c34d5e538fa")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
-<p><span id="content_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""bksl-nlbksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.cle = vbksl-nl        self.suiv = sbksl-nlbksl-nldef estpy-undvide(l):bksl-nl    return l is Nonebksl-nlbksl-nldef tete(l):bksl-nl    """ Renvoie l'élément de tête de l"""bksl-nl    assert l is not None, "tete: erreur liste vide"bksl-nl    return l.clebksl-nlbksl-nldef queue(l):bksl-nl    """ Renvoie une liste correspondant à la queue de l"""bksl-nl    assert not estpy-undvide(l), "queue: erreur liste vide"bksl-nl    return l.suivbksl-nlbksl-nl# A compléterbksl-nldef inserer(x, k, l):bksl-nl    """ Insère x à l'index k de la liste l non vide"""bksl-nl    passbksl-nlbksl-nl</span><span id="corr_content_editor_7d28a516f9f529ddf35da490dc068c34d5e538fa" class="py_mk_hide" data-strudel="">def inserer(x, k, l):bksl-nl    """ Insère x à l'index k de la liste l non vide"""bksl-nl    if k == 0:bksl-nl        c = Cell(tete(l), queue(l))bksl-nl        l.cle = xbksl-nl        l.suiv = cbksl-nl    else:bksl-nl        pos = 1bksl-nl        # Initialisation de 2 pointeurs et de la cellule à insérerbksl-nl        # +---+---+---+...bksl-nl        # | x0| x1| x2|...bksl-nl        # +---+---+---+...bksl-nl        #   ^   ^ bksl-nl        #   |   |bksl-nl        #  av. àpy-unddécalerbksl-nl        #      (pos)bksl-nl        cellpy-undavant = lbksl-nl        cellpy-undapy-unddecaler = queue(l)bksl-nl        cellpy-undapy-undinserer = Cell(x, None)bksl-nlbksl-nl        # Déplacement des pointeurs jusqu'à trouver l'index kbksl-nl        while pos != k:bksl-nl            cellpy-undapy-unddecaler = queue(cellpy-undapy-unddecaler)bksl-nl            cellpy-undavant = queue(cellpy-undavant)bksl-nl            pos += 1bksl-nlbksl-nl        # On a trouvé la position, on assure maintenant le chaînagebksl-nl        cellpy-undavant.suiv = cellpy-undapy-undinsererbksl-nl        cellpy-undapy-undinserer.suiv = cellpy-undapy-unddecalerbksl-nlbksl-nl</span></p>
+<p><strong>1.</strong> Écrire une fonction <code>inserer</code> qui prend pour paramètres un élément <code>x</code>, une position <code>k</code>, une liste chaînée non vide <code>lst</code> et qui va insèrer <code>x</code> à l'index <code>k</code> de la liste <code>lst</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Insère x à l&#39;index k de la liste lst non vide.</span>
+<span class="sd">    Ne renvoie rien: lst est modifié!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152" class="comment">###</span><div class="line" id="editor_27f07ea7bc6a13b6eca4bf437542f2812a981152"></div><div id="term_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_27f07ea7bc6a13b6eca4bf437542f2812a981152","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152" class="py_mk_hide">lst = Cell(3, Cell(7, Cell(9, Cell(0, None))))bksl-nlinserer(-1, 3, lst)bksl-nlbksl-nlassert tete(lst) == 3bksl-nlassert tete(queue(queue(queue(lst)))) == -1bksl-nlinserer(1000, 0, lst)bksl-nlassert tete(lst) == 1000bksl-nl</span>            <button class="tooltip" onclick='check("editor_27f07ea7bc6a13b6eca4bf437542f2812a981152","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_27f07ea7bc6a13b6eca4bf437542f2812a981152","C6/C6E1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_27f07ea7bc6a13b6eca4bf437542f2812a981152")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_27f07ea7bc6a13b6eca4bf437542f2812a981152")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""bksl-nlbksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.cle = vbksl-nl        self.suiv = sbksl-nlbksl-nldef estpy-undvide(l):bksl-nl    return l is Nonebksl-nlbksl-nldef tete(l):bksl-nl    """ Renvoie l'élément de tête de l"""bksl-nl    assert l is not None, "tete: erreur liste vide"bksl-nl    return l.clebksl-nlbksl-nldef queue(l):bksl-nl    """ Renvoie une liste correspondant à la queue de l"""bksl-nl    assert not estpy-undvide(l), "queue: erreur liste vide"bksl-nl    return l.suivbksl-nlbksl-nl# A compléterbksl-nldef inserer(x, k, lst):bksl-nl    """ bksl-nl    Insère x à l'index k de la liste lst non vide.bksl-nl    Ne renvoie rien: lst est modifié!bksl-nl    """bksl-nl    passbksl-nlbksl-nl</span><span id="corr_content_editor_27f07ea7bc6a13b6eca4bf437542f2812a981152" class="py_mk_hide" data-strudel="">def inserer(x, k, lst):bksl-nl    """ Insère x à l'index k de la liste lst non vide.bksl-nl    Ne renvoie rien: lst est modifié!bksl-nl    """bksl-nl    if k == 0: # il s'agit d'une insertion en têtebksl-nl        c = Cell(tete(lst), queue(lst))bksl-nl        lst.cle = xbksl-nl        lst.suiv = cbksl-nl    else:bksl-nl        ## 1) Initialisation des variables utiles##        bksl-nl        # compteur pour trouver l'index d'insertionbksl-nl        pos = 1 bksl-nl        bksl-nl        # 2 pointeurs 'precedent' et 'cellpy-undapy-unddecaler'bksl-nl        # ---+--------+---+-----+...bksl-nl        #    | xk-1   | xk| xk+1|...bksl-nl        # ---+--------+---+-----+...bksl-nl        #      ^        ^ bksl-nl        #      |        |bksl-nl        #cell. prec   cell. à décaler (pour l'insertion)bksl-nl        #      bksl-nl        precedent = lstbksl-nl        cellpy-undapy-unddecaler = queue(lst)bksl-nl        # Création de la cellule à insérerbksl-nl        cellpy-undapy-undinserer = Cell(x, None)bksl-nl        bksl-nl        # 2) Déplacement des pointeurs jusqu'à trouver l'index kbksl-nl        while pos != k:bksl-nl            cellpy-undapy-unddecaler = queue(cellpy-undapy-unddecaler)bksl-nl            precedent = queue(precedent)bksl-nl            pos += 1bksl-nl        bksl-nl        # On a trouvé la position, on assure maintenant le chaînagebksl-nl        precedent.suiv = cellpy-undapy-undinsererbksl-nl        cellpy-undapy-undinserer.suiv = cellpy-undapy-unddecalerbksl-nl</span></p>
 <p><strong>A</strong></p>
 <p><strong>Commentaires</strong>  </p>
 <p>Le cas d'une insertion en tête est trivial !<br />
 Dans le cas d'une insertion à un index quelconque <span class="arithmatex">\(k\gt 0\)</span>, on doit d'abord créer
 deux <em>pointeurs</em> vers les cellules concernées par l'insertion. Ensuite,
 dans une boucle, on décale ces pointeurs jusqu'à ce l'on trouve la position 
-sera inséré la nouvelle cellule.</p>
+où sera inséré la nouvelle cellule.</p>
 <p><strong>Z</strong></p>
-<p><strong>2.</strong> Écrire une fonction <code>supprimer</code> qui prend en paramètres un index <code>k</code> et une liste <code>l</code> non vide et qui supprime l'élément d'index <code>k</code> de la liste. </p>
+<p><strong>2.</strong> Écrire une fonction <code>supprimer</code> qui prend en paramètres un index <code>k</code> et une liste <code>lst</code> non vide et qui supprime l'élément d'index <code>k</code> de la liste. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">supprimer</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Supprime la cellule d&#39;index k de la liste non vide l&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Supprime la cellule d&#39;index k de la liste non vide lst.</span>
+<span class="sd">    Ne renvoie rien: lst est modifié !</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span>
-
-
-<span class="c1"># Tests</span>
 </code></pre></div></td></tr></table></div>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771" class="comment">###</span><div class="line" id="editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771"></div><div id="term_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771" class="py_mk_hide"># TESTSbksl-nllst = Cell(3, Cell(7, Cell(9, Cell(0, None))))bksl-nlsupprimer(0, lst)bksl-nlassert tete(lst) == 7bksl-nlassert tete(queue(queue(lst))) == 0bksl-nlsupprimer(2, lst)bksl-nlassert tete(queue(lst)) == 9bksl-nl</span>            <button class="tooltip" onclick='check("editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771","C6/C6E1_2")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.cle = vbksl-nl        self.suiv = sbksl-nlbksl-nldef estpy-undvide(l):bksl-nl    return l is Nonebksl-nlbksl-nldef tete(l):bksl-nl    """ Renvoie l'élément de tête de l"""bksl-nl    assert l is not None, "tete: erreur liste vide"bksl-nl    return l.clebksl-nlbksl-nldef queue(l):bksl-nl    """ Renvoie une liste correspondant à la queue de l"""bksl-nl    assert not estpy-undvide(l), "queue: erreur liste vide"bksl-nl    return l.suivbksl-nlbksl-nlbksl-nldef supprimer(k, lst):bksl-nl    """ bksl-nl    Supprime la cellule d'index k de la liste non vide lst.bksl-nl    Ne renvoie rien: lst est modifié !bksl-nl    """bksl-nl    passbksl-nlbksl-nl</span><span id="corr_content_editor_23710d5fd8e8cfbb3135226d0b78fc0433bd2771" class="py_mk_hide" data-strudel="">class Cell:bksl-nl    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.cle = vbksl-nl        self.suiv = sbksl-nlbksl-nldef estpy-undvide(l):bksl-nl    return l is Nonebksl-nlbksl-nldef tete(l):bksl-nl    """ Renvoie l'élément de tête de l"""bksl-nl    assert l is not None, "tete: erreur liste vide"bksl-nl    return l.clebksl-nlbksl-nldef queue(l):bksl-nl    """ Renvoie une liste correspondant à la queue de l"""bksl-nl    assert not estpy-undvide(l), "queue: erreur liste vide"bksl-nl    return l.suivbksl-nlbksl-nlbksl-nlbksl-nldef supprimer(k, lst):bksl-nl    """ bksl-nl    Supprime la cellule d'index k de la liste non vide lst.bksl-nl    Ne renvoie rien: lst est modifié !bksl-nl    """bksl-nl    if k == 0:bksl-nl        # Suppression en tête: on écrase la 1re clé avec la 2èmebksl-nl        # puis on établit le chaînage de manière à supprimer la 2eme cellule.bksl-nl        lst.cle = tete(queue(lst))bksl-nl        lst.suiv = queue(queue(lst))bksl-nl    else:bksl-nl        # Initialisation de variables utilesbksl-nl        # Compteur (index)bksl-nl        pos = 1bksl-nl        # Déclaration de 2 pointeurs autour de la cellule à supprimerbksl-nl        # ----+--------+-------+-------+---bksl-nl        # ... | xk-1   | xk    | xk+1  |...bksl-nl        # ----+--------+-------+-------+---bksl-nl        #       ^         ^       ^bksl-nl        #       |         |       |bksl-nl        #      prec.    à suppr.  suivantbksl-nl        bksl-nl        precedent = lstbksl-nl        suivant = queue(queue(lst))bksl-nl        bksl-nl        # Déplacement des pointeurs autour de l'index kbksl-nl        while pos != k:bksl-nl            suivant = queue(suivant)bksl-nl            precedent = queue(precedent)bksl-nl            pos += 1bksl-nl        bksl-nl        # On a trouvé la cellule à supprimer, on établitbksl-nl        # le chaînage de manière à la "court-circuiter"bksl-nl        precedent.suiv = suivantbksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
 <p><strong>3.</strong> Que peut-on dire du coût en temps de ces opérations?</p>
 <h2 id="probleme-1-la-concatenation-de-deux-listes-chainees">Problème 1 - La concaténation de deux listes chaînées<a class="headerlink" href="#probleme-1-la-concatenation-de-deux-listes-chainees" title="Permanent link">⚓︎</a></h2>
-<p>On construit une classe <code>ListeChainee</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire un maillon d&#39;une liste chainée&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
-
-<span class="k">class</span> <span class="nc">ListeChainee</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise une liste vide.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span> <span class="o">=</span> <span class="n">m</span>
-
-    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span> <span class="ow">is</span> <span class="kc">None</span>
-
-    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Construit une liste en insérant &#39;element&#39; en tete&quot;&quot;&quot;</span>
-
-        <span class="c1"># On fait attention à maintenir un chaînage correct: </span>
-        <span class="c1"># un maillon a 2 composantes: un élément et une ListeChainee !</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">ListeChainee</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maillon</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">tete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie le contenu de la premiere cellule&quot;&quot;&quot;</span>
-
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;tete : erreur liste vide&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span><span class="o">.</span><span class="n">val</span>
-
-    <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie la queue de la liste&quot;&quot;&quot;</span>
-
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;queue : erreur liste vide&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maillon</span><span class="o">.</span><span class="n">suiv</span>
-</code></pre></div></td></tr></table></div>
 <p>L'objectif de ce problème est d'écrire plusieurs versions d'une fonction permettant de <strong>concaténer</strong> (<em>mettre bout à bout</em>) deux listes.</p>
 <div class="admonition important">
 <p class="admonition-title">Avertissement</p>
-<p>Bien que moins facile à appréhender, cette implémentation ne vous demandera pas de produire du code à partir de zéro mais plutôt à compléter du code existant. Ce qui est largement à la portée d'un élève de terminale NSI.</p>
+<p>Bien que moins facile à appréhender, cette implémentation ne vous demandera pas de produire du code à partir de zéro mais plutôt à comprendre et compléter du code existant. Ce qui est à la portée d'un élève de terminale NSI.</p>
 </div>
-<h3 id="solution-autorisant-les-effets-de-bords">Solution autorisant les effets de bords<a class="headerlink" href="#solution-autorisant-les-effets-de-bords" title="Permanent link">⚓︎</a></h3>
+<h3 id="solution-recursive-autorisant-les-effets-de-bords">Solution récursive autorisant les effets de bords<a class="headerlink" href="#solution-recursive-autorisant-les-effets-de-bords" title="Permanent link">⚓︎</a></h3>
 <p>Étant données deux listes chaînées <code>l1</code> et <code>l2</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3798,284 +3747,72 @@ sera inséré la nouvelle cellule.</p>
 <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Qu'est-ce que la concaténation de <code>l1</code> et <code>l2</code>? </p>
+<p><strong>Question essentielle</strong>: qu'est-ce que la concaténation de deux listes chaînées <code>l1</code> et <code>l2</code>? </p>
 <ul>
-<li>Si <code>l2</code> est vide, la réponse est triviale, il s'agit de <code>l1</code>;</li>
-<li>Sinon il s'agit de la liste construite à partir de l'élément de tête de <code>l2</code> et de la concaténation de <code>l1</code> avec la queue de <code>l2</code>.</li>
+<li>Si <code>l2</code> est vide, la réponse est triviale, il s'agit de la liste chaînée <code>l1</code>;</li>
+<li>Sinon il s'agit de la liste chaînée résultant de la <strong>concaténation</strong> de <code>l1</code> et de la queue de <code>l2</code>, à laquelle on a inséré la tête de <code>l2</code>.</li>
 </ul>
-<p>Voici une illustration de la situation après une telle concaténation:</p>
-<p><img alt="concat" src="img/liste_concat.png" /></p>
-<p><strong>1.</strong> Compléter la fonction <code>concat</code> ci-dessous qui prend en paramètres deux listes <code>l1</code> et <code>l2</code> et qui procède à leur concaténation <code>{l2,l1}</code>, c'est-à-dire qui place <code>l1</code> au bout de <code>l2</code>. Le résultat de la concaténation sera affecté à <code>l1</code> c'est-à-dire <code>l1 &lt;- {l2,l1}</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; renvoie la concaténation l2,l1, avec résultat dans l1&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="o">...</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">l1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">l1</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Votre réponse</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS - À exécuter</span>
-<span class="k">def</span> <span class="nf">test_concat</span><span class="p">():</span>
-    <span class="n">l1</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">l2</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
-    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">dernier</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; renvoie la dernière cellule de l&quot;&quot;&quot;</span>
-        <span class="k">assert</span> <span class="ow">not</span> <span class="n">l</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
-        <span class="n">cellule</span> <span class="o">=</span> <span class="n">l</span>
-        <span class="c1"># On déplace la cellule tant que la queue n&#39;est vide.</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="n">cellule</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-            <span class="n">cellule</span> <span class="o">=</span> <span class="n">cellule</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">cellule</span>
-
-    <span class="n">l</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">l</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">7</span>
-    <span class="k">assert</span> <span class="n">l</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>
-    <span class="k">assert</span> <span class="n">dernier</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">5</span>
-    <span class="k">return</span> <span class="s1">&#39;Test OK&#39;</span>
-
-<span class="n">test_concat</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-<p><strong>2.</strong> La fonction <code>concat</code> est-elle récursive?</p>
-<p><strong>3.</strong> Quel problème peut-on identifier (<em>en cas de difficulté, observer l'illustration Pythontutor</em>)?</p>
+<p><img alt="concat1" src="img/pb1_1.png" /></p>
+<p>Après application de la fonction <code>concat</code> après <code>l3 = concat(l1, l2)</code>:</p>
+<p><img alt="concat2" src="img/pb1_3.png" /></p>
+<p><strong>1.</strong> Compléter la fonction <code>concat</code> ci-dessous qui prend en paramètres deux listes chaînées <code>l1</code> et <code>l2</code> et qui procède à leur concaténation <code>{l2,l1}</code>, c'est-à-dire qui place <code>l1</code> au bout de <code>l2</code>. Le résultat de la concaténation sera affecté à <code>l1</code> c'est-à-dire <code>l1 &lt;- {l2,l1}</code>.</p>
+<div class="admonition bug">
+<p class="admonition-title">Attention récursion</p>
+<p>Les tests de fonctions récursives peuvent être <strong>relativement lents</strong> (typiquement 1 à 2 minutes selon le navigateur). Soyez patients ... surtout si votre fonction est fausse !<br />
+Par ailleurs, en cas d'alerte du navigateur, choisir <em>Attendre</em> (et non terminer le programme ou fermer la fenêtre). Si cela vous semble rédhibitoire, copier-coller dans un notebook ...</p>
+</div>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_706ef202261fb61e8e6bf6493daa03380c8630a7" class="comment">###</span><div class="line" id="editor_706ef202261fb61e8e6bf6493daa03380c8630a7"></div><div id="term_editor_706ef202261fb61e8e6bf6493daa03380c8630a7"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_706ef202261fb61e8e6bf6493daa03380c8630a7","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_706ef202261fb61e8e6bf6493daa03380c8630a7" class="py_mk_hide">l1 = ListeChainee()bksl-nll1.insert(5)bksl-nll1.insert(3)bksl-nll1.insert(1)bksl-nlbksl-nll2 = ListeChainee()bksl-nll2.insert(10)bksl-nll2.insert(7)bksl-nll = concat(l1, l2)bksl-nlassert l.tete() == 7bksl-nlassert l.queue().tete() == 10bksl-nlassert l.queue().queue().tete() == 1bksl-nlassert l.queue().queue().queue().tete() == 3bksl-nlassert l.queue().queue().queue().queue().tete() == 5bksl-nlbksl-nl</span>            <button class="tooltip" onclick='check("editor_706ef202261fb61e8e6bf6493daa03380c8630a7","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_706ef202261fb61e8e6bf6493daa03380c8630a7","C6/C6PB1_1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_706ef202261fb61e8e6bf6493daa03380c8630a7').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_706ef202261fb61e8e6bf6493daa03380c8630a7" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_706ef202261fb61e8e6bf6493daa03380c8630a7")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_706ef202261fb61e8e6bf6493daa03380c8630a7")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_706ef202261fb61e8e6bf6493daa03380c8630a7" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste chaînée en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correspondant à la queue de la liste"""bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl        bksl-nldef concat(l1, l2):bksl-nl    """ renvoie la concaténation l2,l1, avec résultat dans l1"""bksl-nl    bksl-nl    # À compléterbksl-nl    if ...:bksl-nl        return l1bksl-nl    else:bksl-nl        concat(l1, ...).insert(...)bksl-nl        return l1bksl-nlbksl-nl</span><span id="corr_content_editor_706ef202261fb61e8e6bf6493daa03380c8630a7" class="py_mk_hide" data-strudel="">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste chaînée vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correpsondant à la queue de la liste"""bksl-nl        bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl    bksl-nldef concat(l1, l2):bksl-nl    """ renvoie la concaténation l2,l1, avec résultat dans l1"""bksl-nl    if l2.estpy-undvide():bksl-nl        return l1bksl-nl    else:bksl-nl        concat(l1, l2.queue()).insert(l2.tete())bksl-nl        return l1bksl-nlbksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Commentaires</strong>  </p>
+<p>Pour l'écriture de la fonction <code>concat</code>, une simple <em>traduction</em> de l'énoncé amène à la solution.
+Un point important: dans la méthode <code>queue</code> présente dans la classe <code>ListeChainee</code>,
+ il est <strong>IMPORTANT</strong> de renvoyer une liste chaînée. D'où le passage par 
+ la variable intemédiaire <code>reste</code>.</p>
+<p><strong>Z</strong></p>
+<p><strong>2.</strong> La fonction <code>concat</code> est-elle récursive? Justifier.</p>
+<p><strong>3.</strong> Quel problème potentiel peut-on identifier (<em>en cas de difficulté, observer l'illustration Pythontutor</em>)?</p>
 <h3 id="solution-reduisant-les-effets-de-bords">Solution réduisant les effets de bords<a class="headerlink" href="#solution-reduisant-les-effets-de-bords" title="Permanent link">⚓︎</a></h3>
-<p>On souhaite contourner le problème identifié précédémment, en travaillant sur une copie de liste. Le code d'une fonction <code>copie</code> est donnée ci-dessous. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copie</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Réalise la copie récursive de &#39;liste&#39; dans une liste chaînée vide c.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">liste</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">copie</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">liste</span><span class="o">.</span><span class="n">queue</span><span class="p">())</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">liste</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span>        
-</code></pre></div></td></tr></table></div>
-<p><strong>1.</strong> Écrire le code permettant de réaliser une copie de la liste <code>l1</code> utilisée dans les tests précédents.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-</code></pre></div></td></tr></table></div>
-<p><strong>2.</strong> Compléter la fonction <code>concaténer</code> ci-dessous:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">concatener</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie une nouvelle liste chaînée issue de la concaténation de l1 et l2, c-a-d</span>
-<span class="sd">    formée des éléments de l2 puis de l1;</span>
-<span class="sd">    l1, l2: listes chaînées</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">l1_copie</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># liste chaînée vide</span>
-    <span class="n">copie</span><span class="p">(</span><span class="n">l1_copie</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
-    <span class="n">concat</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">l1_copie</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-</code></pre></div></td></tr></table></div>
-<p><strong>3.</strong> Tester votre fonction <code>concaténer</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
-<span class="k">def</span> <span class="nf">test_concatener</span><span class="p">():</span>
-    <span class="n">l1</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">l2</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
-    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-
-    <span class="n">l3</span> <span class="o">=</span> <span class="n">concatener</span><span class="p">(</span><span class="n">l2</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span> <span class="c1"># /!\ Attention à l&#39;ordre, ici l2 au bout de l1</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">l3</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">l3</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
-        <span class="n">l3</span> <span class="o">=</span> <span class="n">l3</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">result</span>
-
-<span class="k">assert</span> <span class="n">test_concatener</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;1 3 5 -5 7 10 &#39;</span>
-</code></pre></div></td></tr></table></div>
+<p>On souhaite contourner le problème identifié précédémment. L'idée est de <strong>renvoyer une nouvelle liste chaînée</strong> contenant les cellules de la première liste puis celles de la seconde.  </p>
+<p>Compléter le code ci-dessous. Justifier la présence de la ligne 20.  </p>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677" class="comment">###</span><div class="line" id="editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677"></div><div id="term_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677" class="py_mk_hide"># TESTSbksl-nldef testpy-undconcatener():bksl-nl    l1 = ListeChainee()bksl-nl    l1.insert(5)bksl-nl    l1.insert(3)bksl-nl    l1.insert(1)bksl-nlbksl-nl    l2 = ListeChainee()bksl-nl    l2.insert(10)bksl-nl    l2.insert(7)bksl-nl    l2.insert(-5)bksl-nlbksl-nl    l3 = concatener(l1, l2) # /!\ Attention à l'ordre, ici l2 au bout de l1bksl-nl    result = ''bksl-nl    while not l3.estpy-undvide():bksl-nl        result += str(l3.tete()) + ' 'bksl-nl        l3 = l3.queue()bksl-nl    return resultbksl-nlbksl-nlassert testpy-undconcatener() == '1 3 5 -5 7 10 'bksl-nlbksl-nl</span>            <button class="tooltip" onclick='check("editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677","C6/C6PB1_2")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677" class="py_mk_hide">def concatener(lst1, lst2):bksl-nl    """ Renvoie une nouvelle liste chaînée issue de la concaténation de l1 et l2, c-a-dbksl-nl    formée des éléments de l2 puis de l1;bksl-nl    l1, l2: listes chaînées non videsbksl-nl    """bksl-nl    assert not lst1.estpy-undvide() and not lst2.estpy-undvide(), "Erreur: liste vide"bksl-nl    bksl-nl    # Création d'une nouvelle liste et d'une référence sur le dernier élément de cette listebksl-nl    lst3 = ListeChainee()bksl-nl    lst3.head = Cell(lst1.tete(), None)bksl-nl    cellulepy-undcourante = lst3.headbksl-nl    # Nécessité de réajuster lst1, sinon on risque de copier deux fois son 1er élément !!bksl-nl    lst1.head = lst1.head.suivbksl-nl    bksl-nl    for liste in (lst1, lst2):bksl-nl        while not liste.estpy-undvide():bksl-nl            x = liste.tete()bksl-nl            cellulepy-undcourante.suiv = ...bksl-nl            cellulepy-undcourante = ...bksl-nl            liste = liste.queue()bksl-nl    bksl-nl    return lst3       bksl-nlbksl-nl</span><span id="corr_content_editor_0a2aebcd5b77b843b2835ec8b7df0396e1ebe677" class="py_mk_hide" data-strudel="">def concatener(lst1, lst2):bksl-nl    """ Renvoie une nouvelle liste chaînée issue de la concaténation de l1 et l2, c-a-dbksl-nl    formée des éléments de l2 puis de l1;bksl-nl    l1, l2: listes chaînées non videsbksl-nl    """bksl-nl    assert not lst1.estpy-undvide() and not lst2.estpy-undvide(), "Erreur: liste vide"bksl-nl    bksl-nl    # Création d'une liste vide et d'une référence sur le dernier élément de cette listebksl-nl    lst3 = ListeChainee()bksl-nl    lst3.head = Cell(lst1.tete(), None)bksl-nl    cellulepy-undcourante = lst3.headbksl-nl    # Nécessité de réajuster lst1, sinon on risque de copier deux fois son 1er élément !!bksl-nl    lst1.head = lst1.head.suivbksl-nl    bksl-nl    for liste in (lst1, lst2):bksl-nl        while not liste.estpy-undvide():bksl-nl            x = liste.tete()bksl-nl            cellulepy-undcourante.suiv = Cell(x, None)bksl-nl            cellulepy-undcourante = cellulepy-undcourante.suivbksl-nl            liste = liste.queue()bksl-nl    bksl-nl    return lst3  bksl-nlbksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
 <h2 id="exercice-2-recherche-sequentielle-dans-une-liste-chainee">Exercice 2 - Recherche séquentielle dans une liste chaînée<a class="headerlink" href="#exercice-2-recherche-sequentielle-dans-une-liste-chainee" title="Permanent link">⚓︎</a></h2>
-<p>Compléter la fonction <code>trouver(x, lst)</code> qui renvoie l'index de la première occurence de <code>x</code> dans la liste chaînée <code>lst</code> ou <code>None</code> si non trouvé, ainsi que la fonction auxilliaire <code>place</code>. On donnera deux versions: récursive et itérative. Tester.</p>
+<p>La fonction <code>chercher(x, lst)</code> renvoie l'index de la première occurence de <code>x</code> dans la liste chaînée <code>lst</code> ou <code>None</code> si non trouvé. Elle s'appuie sur la fonction auxilliaire <code>recherche_aux</code> qui réalise ce travail récursivement.  </p>
+<p>L'idée retenue pour <code>recherche_aux</code> est la suivante: la recherche séquentielle de <code>x</code> dans <code>lst</code> à un index <code>i</code> est:  </p>
+<ul>
+<li>soit <code>None</code> si la liste <code>lst</code>est vide;</li>
+<li>soit <code>i</code> si <code>x</code> correspond à la tête de <code>lst</code>;</li>
+<li>soit la <code>recherche_aux</code> de <code>x</code> dans la queue de <code>lst</code>.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Indication</p>
-<p>On utilise ici l'implémentation des listes chaînées avec la classe <code>ListeChainee</code>.</p>
+<p>On utilise ici l'implémentation des listes chaînées avec la classe <code>ListeChainee</code>.  </p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># récursif</span>
-<span class="k">def</span> <span class="nf">place</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Fonction auxilliaire récursive pour &#39;trouver&#39;;</span>
-<span class="sd">    x: élément (ici un entier);</span>
-<span class="sd">    l: liste chaînée</span>
-<span class="sd">    i: index </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-        <span class="k">return</span> <span class="o">...</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">l</span><span class="o">.</span><span class="n">tete</span><span class="p">():</span>
-        <span class="k">return</span> <span class="o">...</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">trouver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-
-<span class="c1"># itératif</span>
-<span class="k">def</span> <span class="nf">trouver_iter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="o">...</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">lst</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">i</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="o">...</span>
-        <span class="n">lst</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">test_trouver</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">lst</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cherche </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s1"> récursif ----&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">trouver</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">t</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tete</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
-
-    <span class="n">t</span> <span class="o">=</span> <span class="n">lst</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Cherche </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s1"> Itératif ----&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">trouver_iter</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">t</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tete</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">test_trouver</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
-<span class="n">test_trouver</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<h3 id="version-recursive">Version récursive<a class="headerlink" href="#version-recursive" title="Permanent link">⚓︎</a></h3>
+<div class="admonition bug">
+<p class="admonition-title">Attention récursion</p>
+<p>Les tests de fonctions récursives peuvent être <strong>relativement lents</strong> (typiquement 1 à 2 minutes selon le navigateur). Soyez patients ... surtout si votre fonction est fausse !<br />
+Par ailleurs, en cas d'alerte du navigateur, choisir <em>Attendre</em> (et non terminer le programme ou fermer la fenêtre).</p>
+</div>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1" class="comment">###</span><div class="line" id="editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1"></div><div id="term_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1" class="py_mk_hide"># TESTSbksl-nll1 = ListeChainee()bksl-nll1.insert(5)bksl-nll1.insert(3)bksl-nll1.insert(1)bksl-nll1.insert(10)bksl-nll1.insert(7)bksl-nlbksl-nlassert chercher(7, l1) == 0bksl-nlassert chercher(5, l1) == 4bksl-nlassert chercher(100, l1) == Nonebksl-nl</span>            <button class="tooltip" onclick='check("editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1","C6/C6E2_1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste chaînée en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correspondant à la queue de la liste"""bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl    bksl-nl# Recherche séquentiellebksl-nl# 1) Récursivebksl-nlbksl-nldef recherchepy-undaux(x, lst, i):bksl-nl    """ bksl-nl    Fonction auxilliaire récursive qui recherche 'x' dans 'lst'bksl-nl    à partir d'une position 'i';bksl-nl    x: valeur à rechercherbksl-nl    lst: liste chainéebksl-nl    i: index où se trouve éventuellement xbksl-nl    """bksl-nl    if lst.estpy-undvide():bksl-nl        return Nonebksl-nl    elif x == lst.tete():bksl-nl        return ...bksl-nl    else:bksl-nl        return recherchepy-undaux(..., ..., ...)bksl-nl    bksl-nldef chercher(x, lst):bksl-nl    return recherchepy-undaux(x, lst, 0)bksl-nl</span><span id="corr_content_editor_07be06d8d4905c5b72e3798702649ebd4e0b2ed1" class="py_mk_hide" data-strudel="">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste chaînée en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correspondant à la queue de la liste"""bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl    bksl-nl# Recherche séquentiellebksl-nl# 1) Récursivebksl-nlbksl-nldef recherchepy-undaux(x, lst, i):bksl-nl    """ bksl-nl    Fonction auxilliaire récursive qui recherche 'x' dans 'lst'bksl-nl    à partir d'une position 'i';bksl-nl    """bksl-nl    if lst.estpy-undvide():bksl-nl        return Nonebksl-nl    elif x == lst.tete():bksl-nl        return ibksl-nl    else:bksl-nl        return recherchepy-undaux(x, lst.queue(), i+1)bksl-nl    bksl-nldef chercher(x, lst):bksl-nl    return recherchepy-undaux(x, lst, 0)bksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+<h3 id="version-iterative">Version itérative<a class="headerlink" href="#version-iterative" title="Permanent link">⚓︎</a></h3>
+<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_e5f45dc477fc07a915ffac7d55f585e918388aab" class="comment">###</span><div class="line" id="editor_e5f45dc477fc07a915ffac7d55f585e918388aab"></div><div id="term_editor_e5f45dc477fc07a915ffac7d55f585e918388aab"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_e5f45dc477fc07a915ffac7d55f585e918388aab","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_e5f45dc477fc07a915ffac7d55f585e918388aab" class="py_mk_hide"># TESTSbksl-nll1 = ListeChainee()bksl-nll1.insert(5)bksl-nll1.insert(3)bksl-nll1.insert(1)bksl-nll1.insert(10)bksl-nll1.insert(7)bksl-nlbksl-nlassert chercherpy-unditer(1, l1) == 2bksl-nlassert chercherpy-unditer(100, l1) == Nonebksl-nl</span>            <button class="tooltip" onclick='check("editor_e5f45dc477fc07a915ffac7d55f585e918388aab","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_e5f45dc477fc07a915ffac7d55f585e918388aab","C6/C6E2_2")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_e5f45dc477fc07a915ffac7d55f585e918388aab').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_e5f45dc477fc07a915ffac7d55f585e918388aab" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_e5f45dc477fc07a915ffac7d55f585e918388aab")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_e5f45dc477fc07a915ffac7d55f585e918388aab")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_e5f45dc477fc07a915ffac7d55f585e918388aab" class="py_mk_hide">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste chaînée en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correspondant à la queue de la liste"""bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl    bksl-nl# Recherche séquentiellebksl-nl# 2) Itératifbksl-nlbksl-nldef chercherpy-unditer(x, lst):bksl-nl    i = 0bksl-nl    while lst.head ...:bksl-nl        if lst.tete() == x:bksl-nl            return ibksl-nl        i += 1bksl-nl        lst.head = ...bksl-nl    return Nonebksl-nl</span><span id="corr_content_editor_e5f45dc477fc07a915ffac7d55f585e918388aab" class="py_mk_hide" data-strudel="">class Cell:bksl-nl    """ Une classe pour décrire un maillon d'une liste chainée"""bksl-nl    bksl-nl    def py-undpy-undinitpy-undpy-und(self, v, s):bksl-nl        self.val = vbksl-nl        self.suiv = sbksl-nlbksl-nlclass ListeChainee:bksl-nl    def py-undpy-undinitpy-undpy-und(self):bksl-nl        """Initialise une liste vide."""bksl-nl        self.head = Nonebksl-nl    bksl-nl    def estpy-undvide(self):bksl-nl        return self.head is Nonebksl-nl    bksl-nl    def insert(self, element):bksl-nl        """ Construit une liste chaînée en insérant 'element' en tete"""bksl-nl        self.head = Cell(element, self.head)bksl-nl        bksl-nl    def tete(self):bksl-nl        """Renvoie le contenu de la premiere cellule"""bksl-nl        bksl-nl        assert self.head  is not None , "tete : erreur liste vide"bksl-nl        return self.head.valbksl-nl    bksl-nl    def queue(self):bksl-nl        """Renvoie une liste chaînée correspondant à la queue de la liste"""bksl-nl        assert self.head  is not None , "queue : erreur liste vide"bksl-nl        bksl-nl        reste = ListeChainee()bksl-nl        reste.head = self.head.suivbksl-nl        return restebksl-nl    bksl-nl# Recherche séquentiellebksl-nl# 2) Itératifbksl-nlbksl-nldef chercherpy-unditer(x, lst):bksl-nl    i = 0bksl-nl    while not lst.estpy-undvide():bksl-nl        if lst.tete() == x:bksl-nl            return ibksl-nl        i += 1bksl-nl        lst = lst.queue()bksl-nl    return Nonebksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
 <h2 id="exercice-3-insertion-dans-une-liste-triee">Exercice 3 - Insertion dans une liste triée<a class="headerlink" href="#exercice-3-insertion-dans-une-liste-triee" title="Permanent link">⚓︎</a></h2>
 <p><strong>1.</strong> Compléter la fonction <code>inserer(x, lst)</code> qui prend en paramètres un entier <code>x</code> et une liste chaînée <code>lst</code> d'entiers, supposée triée par ordre croissant et qui renvoie <strong>une nouvelle liste</strong> dans laquelle <code>x</code> a été inséré <em>à sa place</em>. </p>
 <div class="admonition note">
 <p class="admonition-title">Indication</p>
 <p>On utilise ici l'implémentation des listes chaînées avec la classe <code>ListeChainee</code>.</p>
 </div>
-<div class="admonition hint">
+<div class="admonition tip">
 <p class="admonition-title">Coup de pouce</p>
 <p>Pensez à revoir <a href="https://brunodrd.github.io/nsiboisdo/NSITerm/LP2/C1E1.html">l'exercice 5 (optionnel)</a> du chapitre 1.</p>
 </div>
@@ -4288,6 +4025,370 @@ sera inséré la nouvelle cellule.</p>
     <span class="k">return</span> <span class="s1">&#39;Tests OK&#39;</span>
 
 <span class="n">test_pile</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire un maillon d&#39;une liste chainée&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="k">class</span> <span class="nc">ListeChainee</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise une liste chaînée vide.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Construit une liste en insérant &#39;element&#39; en tete&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie le contenu de la premiere cellule&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;tete : erreur liste vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie une liste chaînée correpsondant à la queue de la liste&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;queue : erreur liste vide&quot;</span>
+        <span class="n">reste</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
+        <span class="n">reste</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">suiv</span>
+        <span class="k">return</span> <span class="n">reste</span>
+
+<span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; renvoie la concaténation l2,l1, avec résultat dans l1&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">l2</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">l1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">queue</span><span class="p">())</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">tete</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">l1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_concat</span><span class="p">():</span>
+    <span class="n">l1</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
+    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">l2</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">l2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dernier</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; renvoie la dernière cellule de l&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">l</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
+        <span class="n">cellule</span> <span class="o">=</span> <span class="n">l</span>
+        <span class="c1"># On déplace la cellule tant que la queue n&#39;est vide.</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">cellule</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+            <span class="n">cellule</span> <span class="o">=</span> <span class="n">cellule</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cellule</span>
+
+    <span class="n">l</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">l</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">7</span>
+    <span class="k">assert</span> <span class="n">l</span><span class="o">.</span><span class="n">queue</span><span class="p">()</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>
+    <span class="k">assert</span> <span class="n">dernier</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">.</span><span class="n">tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="s1">&#39;Test OK&#39;</span>
+
+<span class="n">test_concat</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;Test OK&#39;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Cell</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire un maillon d&#39;une liste chainée&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="k">class</span> <span class="nc">ListeChainee</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise une liste vide.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Construit une liste chaînée en insérant &#39;element&#39; en tete&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie le contenu de la premiere cellule&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;tete : erreur liste vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie une liste chaînée correspondant à la queue de la liste&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span>  <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">,</span> <span class="s2">&quot;queue : erreur liste vide&quot;</span>
+
+        <span class="n">reste</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
+        <span class="n">reste</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">suiv</span>
+        <span class="k">return</span> <span class="n">reste</span>
+
+<span class="c1"># Recherche séquentielle</span>
+<span class="c1"># 1) Récursive</span>
+
+<span class="k">def</span> <span class="nf">recherche_aux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Fonction auxilliaire récursive qui recherche &#39;x&#39; dans &#39;lst&#39;</span>
+<span class="sd">    à partir d&#39;une position &#39;i&#39;;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">lst</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">lst</span><span class="o">.</span><span class="n">tete</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">i</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#return recherche_aux(x, lst.queue(), i+1)</span>
+        <span class="k">return</span> <span class="n">recherche_aux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">chercher</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">recherche_aux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">ListeChainee</span><span class="p">()</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">chercher</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">chercher</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="n">chercher</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code>---------------------------------------------------------------------------
+
+RecursionError                            Traceback (most recent call last)
+
+Cell In[26], line 10
+      7 l1.insert(7)
+      9 assert chercher(7, l1) == 0
+---&gt; 10 assert chercher(5, l1) == 4
+     11 assert chercher(100, l1) == None
+
+
+Cell In[25], line 51, in chercher(x, lst)
+     50 def chercher(x, lst):
+---&gt; 51     return recherche_aux(x, lst, 0)
+
+
+Cell In[25], line 48, in recherche_aux(x, lst, i)
+     45     return i
+     46 else:
+     47     #return recherche_aux(x, lst.queue(), i+1)
+---&gt; 48     return recherche_aux(x, lst, i+1)
+
+
+Cell In[25], line 48, in recherche_aux(x, lst, i)
+     45     return i
+     46 else:
+     47     #return recherche_aux(x, lst.queue(), i+1)
+---&gt; 48     return recherche_aux(x, lst, i+1)
+
+
+    [... skipping similar frames: recherche_aux at line 48 (2969 times)]
+
+
+Cell In[25], line 48, in recherche_aux(x, lst, i)
+     45     return i
+     46 else:
+     47     #return recherche_aux(x, lst.queue(), i+1)
+---&gt; 48     return recherche_aux(x, lst, i+1)
+
+
+Cell In[25], line 42, in recherche_aux(x, lst, i)
+     37 def recherche_aux(x, lst, i):
+     38     &quot;&quot;&quot; 
+     39     Fonction auxilliaire récursive qui recherche &#39;x&#39; dans &#39;lst&#39;
+     40     à partir d&#39;une position &#39;i&#39;;
+     41     &quot;&quot;&quot;
+---&gt; 42     if lst.est_vide():
+     43         return None
+     44     elif x == lst.tete():
+
+
+RecursionError: maximum recursion depth exceeded
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
 
 

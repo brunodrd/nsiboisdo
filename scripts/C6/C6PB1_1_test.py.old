@@ -1,0 +1,28 @@
+def test_concat():
+    l1 = ListeChainee()
+    l1.insert(5)
+    l1.insert(3)
+    l1.insert(1)
+
+    l2 = ListeChainee()
+    l2.insert(10)
+    l2.insert(7)
+
+    def dernier(l):
+        """ renvoie la valeur de la dernière cellule de la
+        liste chaînée l;
+        """
+        assert not l.est_vide()
+        cellule = l.head
+        # On déplace la cellule tant que la queue n'est vide.
+        while cellule.suiv is not None:
+            cellule = cellule.suiv
+        return cellule.val
+
+	l = concat(l1, l2)
+    assert l.tete() == 7
+    assert l.queue().tete() == 10
+    assert dernier(l) == 5
+    return 'Tests OK'
+    
+assert test_concat() == 'Tests OK', "Oups ... ne passe pas les tests"
