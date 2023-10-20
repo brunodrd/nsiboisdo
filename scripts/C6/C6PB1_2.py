@@ -1,7 +1,7 @@
 def concatener(lst1, lst2):
-    """ Renvoie une nouvelle liste chaînée issue de la concaténation de l1 et l2, c-a-d
-    formée des éléments de l2 puis de l1;
-    l1, l2: listes chaînées non vides
+    """ Renvoie une nouvelle liste chaînée issue de la concaténation de lst1 et lst2, c-a-d
+    formée des éléments de lst1 puis de lst2;
+    lst1, lst2: listes chaînées non vides
     """
     assert not lst1.est_vide() and not lst2.est_vide(), "Erreur: liste vide"
     

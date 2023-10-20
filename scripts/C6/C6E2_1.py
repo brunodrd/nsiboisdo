@@ -1,5 +1,5 @@
 class Cell:
-    """ Une classe pour décrire un maillon d'une liste chainée"""
+    """ Une classe pour décrire une cellule d'une liste chainée"""
     
     def __init__(self, v, s):
         self.val = v

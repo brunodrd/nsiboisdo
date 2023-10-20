@@ -32,9 +32,13 @@ class ListeChainee:
         return reste
     
 def concat(l1, l2):
-    """ renvoie la concaténation l2,l1, avec résultat dans l1"""
-    if l2.est_vide():
-        return l1
+    """ 
+    Renvoie la concaténation l1---l2, en modifiant l2 (l1 placé en
+    tête de l2.
+    """
+    
+    if l1.est_vide():
+        return l2
     else:
-        concat(l1, l2.queue()).insert(l2.tete())
-        return l1
+        concat(l1.queue(), l2).insert(l1.tete())
+        return l2

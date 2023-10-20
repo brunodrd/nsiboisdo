@@ -30,16 +30,31 @@ class ListeChainee:
         reste = ListeChainee()
         reste.head = self.head.suiv
         return reste
-        
-def concat(l1, l2):
-    """
-    Renvoie la concaténation l1---l2, en modifiant l2 (l1 placé en
-    tête de l2).
-    """
     
-    # À compléter
-    if ...:
-        return l2
-    else:
-        concat(l1.queue(), ...).insert(...)
-        return l2
+    def affiche(self):
+        """ Renvoie les éléments d'une liste chainée sous forme d'une chaine"""
+        
+        liste = self
+        elements = []
+        while not liste.est_vide():
+            elements.append(str(liste.tete()))
+            liste = liste.queue()
+        return '[' + ','.join(elements) + ']'
+    
+# À compléter
+
+class Pile:
+    """ Une classe pile à base de liste chaînée"""
+    
+    def __init__(self):
+        self._pile = ListeChainee()
+        
+    def est_pilevide(self):
+        return self._pile.est_vide()
+    
+    def empiler(self, x):
+        pass
+        
+    def depiler(self):
+        assert not self.est_pilevide(), "Erreur pile vide"
+        pass
