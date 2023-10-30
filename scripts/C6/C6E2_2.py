@@ -36,7 +36,7 @@ class ListeChainee:
 
 def chercher_iter(x, lst):
     i = 0
-    while lst.head ...:
+    while ...:
         if lst.tete() == x:
             return i
         i += 1
