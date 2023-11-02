@@ -3785,10 +3785,18 @@ Si les deux cartes sont de valeur égale, on dit qu'il y a <strong>bataille</str
 <p>Plusieurs modélisations sont possibles. En voici une:  </p>
 <p><a href="https://mermaid.live/edit#pako:eNqVkk1Pg0AQhv8KmZNG2vBREYg3PTUxMfFmuExhaNcAW5ddY8X-dxe2rUupB5cDk2c-3pdhO8h5QZBCXmHbPjJcC6yzxtFnSeoBhaTWuf-ezZxnfFckTcrEhi-5IiUutpj42CIko2nLiB_bTWqwdCjuDOrPrJXCaXhtEdtbf24kEySuri2CZcnyzS_c2xrGhK3xNqj6ExLYhJRjKRRUoziXLZh2y1ZqjGcrlMiqikawZI0xctHjaTm2zdxa16BXU4XN-szEv7fRb7Ozy_XHyz-qp6Y-sDr9XuOSqzGZ6oMLNYkaWaHv4jAsA7mhmjJIdVhQiaqSGWRNX4pK8pddk0MqhSIX1LZASYfbC2mJVaspFUxy8XS43_3LhS02kHbwCWkQh_MoWsSxF0bRnRcGLuw0DeZR7Me-vwgC30tu470LX5zrod488YYnjPw4TIJkMUx7HZKD4v4HGan0Gg"><img alt="" src="https://mermaid.ink/img/pako:eNqVkk1Pg0AQhv8KmZNG2vBREYg3PTUxMfFmuExhaNcAW5ddY8X-dxe2rUupB5cDk2c-3pdhO8h5QZBCXmHbPjJcC6yzxtFnSeoBhaTWuf-ezZxnfFckTcrEhi-5IiUutpj42CIko2nLiB_bTWqwdCjuDOrPrJXCaXhtEdtbf24kEySuri2CZcnyzS_c2xrGhK3xNqj6ExLYhJRjKRRUoziXLZh2y1ZqjGcrlMiqikawZI0xctHjaTm2zdxa16BXU4XN-szEv7fRb7Ozy_XHyz-qp6Y-sDr9XuOSqzGZ6oMLNYkaWaHv4jAsA7mhmjJIdVhQiaqSGWRNX4pK8pddk0MqhSIX1LZASYfbC2mJVaspFUxy8XS43_3LhS02kHbwCWkQh_MoWsSxF0bRnRcGLuw0DeZR7Me-vwgC30tu470LX5zrod488YYnjPw4TIJkMUx7HZKD4v4HGan0Gg?type=png" /></a></p>
 <h1 id="remarques-concernant-les-classes">Remarques concernant les classes<a class="headerlink" href="#remarques-concernant-les-classes" title="Permanent link">⚓︎</a></h1>
-<p>La classe <code>Carte</code> ne présente pas de difficultés particulières avec ses deux attributs <code>couleur</code> et <code>valeur</code>. L'As est particulier, c'est la plus forte carte, on peut lui attribuer la valeur 14.  </p>
-<p>La classe <code>JeuCartes</code> doit permettre de constituer les 52 cartes d'un jeu. Son attribut <code>cartes</code> étant une instance de <code>Carte</code>. </p>
+<p>La classe <code>Cartes</code> ne présente pas de difficultés particulières avec ses deux attributs <code>couleur</code> et <code>valeur</code>. L'As est particulier, c'est la plus forte carte, on peut lui attribuer la valeur 14.  </p>
+<p>La classe <code>JeuCartes</code> doit permettre de constituer les 52 cartes d'un jeu. Son attribut <code>cartes</code> étant une instance de <code>Cartes</code>. </p>
 <p>Pour pouvoir jouer, deux joueurs ont besoin d'un paquet de cartes issus d'un jeu de cartes. D'où la présence d'une classe <code>Paquet</code>.</p>
-<h1 id="cahier-des-charges">Cahier des charges<a class="headerlink" href="#cahier-des-charges" title="Permanent link">⚓︎</a></h1>
+<h1 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">⚓︎</a></h1>
+<p><a href="https://mermaid.live/edit#pako:eNqVkTtOA0EMQK9iTR0J8Wu2BgqkSFFCuY13xpsYzWfl8RQoymWoyDn2YswGEpQgClyNPE9-_myNTY5MY5QDeY7URqihrJ5gIemVFJ6pgCOwKEr5639FASsM19DAU5KAyilWKMNaUhmO2DEamCc37j3nb7DAIKnz40egS3I57odq4lNFHd_t5lJ8M4kxsGeUY9VchiGJTr067vuSp-QV2OQ9dkkO0KXt0QprETqYrMecf_f-QllzLeSoK-vzNm7_KFHpOWcCilUfQolsf1aUurrV_1juziwFBA-DnkP3FVrIuM8U9TSqmZlA9Tzs6om3U6Y1uqG6ddPUp6Mei9fWtHFXUSyaVm_Rmkal0MyUwaHSA-NaMJimR59p9wkY9bgI"><img alt="" src="https://mermaid.ink/img/pako:eNqVkTtOA0EMQK9iTR0J8Wu2BgqkSFFCuY13xpsYzWfl8RQoymWoyDn2YswGEpQgClyNPE9-_myNTY5MY5QDeY7URqihrJ5gIemVFJ6pgCOwKEr5639FASsM19DAU5KAyilWKMNaUhmO2DEamCc37j3nb7DAIKnz40egS3I57odq4lNFHd_t5lJ8M4kxsGeUY9VchiGJTr067vuSp-QV2OQ9dkkO0KXt0QprETqYrMecf_f-QllzLeSoK-vzNm7_KFHpOWcCilUfQolsf1aUurrV_1juziwFBA-DnkP3FVrIuM8U9TSqmZlA9Tzs6om3U6Y1uqG6ddPUp6Mei9fWtHFXUSyaVm_Rmkal0MyUwaHSA-NaMJimR59p9wkY9bgI?type=png" /></a></p>
+<h1 id="modalites-devaluation">Modalités d'évaluation<a class="headerlink" href="#modalites-devaluation" title="Permanent link">⚓︎</a></h1>
+<ul>
+<li>Présentation du travail</li>
+<li>Qualité du travail collaboratif et recherche</li>
+</ul>
+<h1 id="pistes-pour-les-plus-rapides">Pistes pour les plus rapides<a class="headerlink" href="#pistes-pour-les-plus-rapides" title="Permanent link">⚓︎</a></h1>
+<p>Envisager une partie <code>Joueur humain</code> vs <code>Programme</code>.</p>
 
 
 
