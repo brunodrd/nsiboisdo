@@ -5,7 +5,7 @@ def concatener(lst1, lst2):
     """
     assert not lst1.est_vide() and not lst2.est_vide(), "Erreur: liste vide"
     
-    # Création d'une nouvelle liste et d'une référence sur le dernier élément de cette liste
+    # Création d'une nouvelle liste et d'une référence sur le premier élément de cette liste
     lst3 = ListeChainee()
     lst3.head = Cell(lst1.tete(), None)
     cellule_courante = lst3.head
