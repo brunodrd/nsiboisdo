@@ -98,7 +98,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#le-tad-dictionnaire-ou-tableau-associatif" class="md-skip">
+        <a href="#le-tad-dictionnaire" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3833,9 +3833,9 @@
                   
 
 
-<h1 id="le-tad-dictionnaire-ou-tableau-associatif">Le TAD dictionnaire ou tableau associatif<a class="headerlink" href="#le-tad-dictionnaire-ou-tableau-associatif" title="Permanent link">⚓︎</a></h1>
+<h1 id="le-tad-dictionnaire">Le TAD dictionnaire<a class="headerlink" href="#le-tad-dictionnaire" title="Permanent link">⚓︎</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">⚓︎</a></h2>
-<p>Un dictionnaire ou tableau associatif peut être vu comme la généralisation du tableau vu en 1re, où son index n'est plus forcément un entier naturel.  </p>
+<p>Un dictionnaire (<em>ou tableau associatif</em>) peut être vu comme la généralisation du tableau vu en 1re, où son index n'est plus forcément un entier naturel.  </p>
 <figure>
 <img src="img/tableau_associatif.png" alt="tab_associatif" />
 </figure>
@@ -3862,7 +3862,7 @@
 <p>Les clés sont transformées au préalable en index entier grâce à une fonction dite de <em>hachage</em>. Grâce à cet index, on peut stocker l'information (<em>clé, valeur</em>) dans un tableau (appelé table de hachage).</p>
 <p>On peut remarquer que deux clés peuvent conduire à un même index. Cet événement s'appelle une <em>collision</em>. Divers algorithmes existent pour gérer les cas de collision.</p>
 <h3 id="exemple-peu-efficace">Exemple (peu efficace)<a class="headerlink" href="#exemple-peu-efficace" title="Permanent link">⚓︎</a></h3>
-<p>On utilise une fonction de hachage qui transforme une clé de type chaîne de caractères en entier, à partir de leur code ascii . Voir cet exemple d'implémentation <a href="https://capytale2.ac-paris.fr/web/c/8ea4-843279">sur Capytale</a></p>
+<p>On utilise une fonction de hachage qui transforme une clé de type chaîne de caractères en entier, à partir de leur code ascii . Voir cet exemple d'implémentation <a href="https://capytale2.ac-paris.fr/web/c/3918-2201834">sur Capytale</a></p>
 <h2 id="recherche-dune-valeur-comparaison-liste-dictionnaire">Recherche d'une valeur: comparaison liste / dictionnaire<a class="headerlink" href="#recherche-dune-valeur-comparaison-liste-dictionnaire" title="Permanent link">⚓︎</a></h2>
 <figure>
     <img src="img/liste_wiki.png" alt="liste" />
@@ -3875,7 +3875,7 @@
 </figure>
 
 <p>Un bon choix peut conduire à des recherches en temps constant (ou <span class="arithmatex">\(\mathcal{O}(1)\)</span>).</p>
-<p>Voici un résumé des performances de ces deux types de données (<a href="https://en.wikipedia.org/wiki/Associative_array">disponible sur la page wikipedia en anglais</a> consacrée aux tableaux associatifs).</p>
+<p>Voici un résumé des performances de ces deux types de données (<a href="https://en.wikipedia.org/wiki/Associative_array">disponible sur la page wikipedia en anglais</a> consacrée aux tableaux associatifs). Attention c'est l'implémentation avec des tables hachages qui est privilégiée.</p>
 <table>
 <thead>
 <tr>
@@ -3910,6 +3910,8 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 
 
