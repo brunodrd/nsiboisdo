@@ -4193,12 +4193,14 @@
 <p class="admonition-title">Erreur sujet</p>
 <p>Une erreur était présente dans le sujet original: le coût de la liaison <span class="arithmatex">\(R_1\)</span> vers le réseau <code>N3</code> en passant par <code>eth1</code> est de 11,1 et non 11,3.</p>
 </div>
-<p>La destination <code>N3</code> présente un coût de 0,3 en passant par <code>eth2</code>. Cela n'est possible que si la liaison <span class="arithmatex">\(R_2-R_3\)</span> a un coût de 0,1, soit une <strong>liaison fibre</strong>.</p>
-<p>10) Toutes les liaisons sortant par <code>eth1</code> sont concernées. On modifiera donc les métriques des liaisons:<br />
-* <span class="arithmatex">\(R_1-N2\)</span>
-* <span class="arithmatex">\(R_1-N3\)</span>
-* <span class="arithmatex">\(R_2-N4\)</span><br />
-passant par l'interface <code>eth1</code>.</p>
+<p>La destination <code>N3</code> présente un coût de 0,3 en passant par <code>eth2</code>. Cela n'est possible que si la liaison <span class="arithmatex">\(R_2-R_6\)</span> a un coût de 0,1, soit une <strong>liaison fibre</strong>.</p>
+<p>10) Toutes les liaisons sortant par <code>eth1</code> sont concernées. On modifiera donc les métriques des liaisons:  </p>
+<ul>
+<li><span class="arithmatex">\(R_1-N2\)</span></li>
+<li><span class="arithmatex">\(R_1-N3\)</span></li>
+<li><span class="arithmatex">\(R_2-N4\)</span><br />
+passant par l'interface <code>eth1</code>.</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -4248,7 +4250,7 @@ passant par l'interface <code>eth1</code>.</p>
 <p>11) En tenant compte des métriques imposées, on propose la topologie suivante pour le réseau:</p>
 <p><img alt="reseau" src="img/topologie_reseau_2.png" /></p>
 <h1 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">⚓︎</a></h1>
-<p>1) Écriture de la fonction <code>corrige</code>.</p>
+<p><strong>1)</strong> Écriture de la fonction <code>corrige</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">corrige</span><span class="p">(</span><span class="n">cop</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">corr</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">cop</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">corr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cop</span><span class="p">))]</span>
@@ -4261,9 +4263,7 @@ passant par l'interface <code>eth1</code>.</p>
 
 <span class="n">corrige</span><span class="p">(</span><span class="n">copTM</span><span class="p">,</span> <span class="n">corr0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Fonction <code>note</code></li>
-</ol>
+<p><strong>2)</strong> Fonction <code>note</code></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4280,9 +4280,7 @@ passant par l'interface <code>eth1</code>.</p>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Fonction <code>notes_paquet</code></li>
-</ol>
+<p><strong>3)</strong> Fonction <code>notes_paquet</code></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4319,10 +4317,8 @@ passant par l'interface <code>eth1</code>.</p>
  (&#39;Kurt&#39;, &#39;Jett&#39;): 4,
  (&#39;Ayet&#39;, &#39;Finzerb&#39;): 3}
 </code></pre></div></td></tr></table></div>
-<p>4) La clé d'un dictionnaire doit être un <strong>type non mutable</strong>. Par conséquent, on ne peut pas utiliser des listes de python.</p>
-<ol>
-<li>On pourrait aujouter au tuple une composante qui serait un identifiant unique (entier) incrémenté à chaque nouvelle insertion.</li>
-</ol>
+<p><strong>4)</strong> La clé d'un dictionnaire doit être un <strong>type non mutable</strong>. Par conséquent, on ne peut pas utiliser des listes de python.</p>
+<p><strong>5)</strong> On pourrait ajouter au tuple une composante qui serait un identifiant unique (entier) incrémenté à chaque nouvelle insertion.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4379,9 +4375,7 @@ passant par l'interface <code>eth1</code>.</p>
          <span class="p">(</span><span class="s1">&#39;Ayet&#39;</span><span class="p">,</span> <span class="s1">&#39;Finzerb&#39;</span><span class="p">):</span> <span class="mi">3</span>
         <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>L'appel <code>enigme(notes)</code> renvoie:  </li>
-</ol>
+<p><strong>6)</strong> L'appel <code>enigme(notes)</code> renvoie:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4390,11 +4384,11 @@ passant par l'interface <code>eth1</code>.</p>
  <span class="p">((</span><span class="s1">&#39;Kurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Jett&#39;</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span>
  <span class="p">{(</span><span class="s1">&#39;Carl&#39;</span><span class="p">,</span> <span class="s1">&#39;Roth&#39;</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Ayet&#39;</span><span class="p">,</span> <span class="s1">&#39;Finzerb&#39;</span><span class="p">):</span> <span class="mi">3</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Cette fonction construit un tuple dont les composantes sont:  </li>
+<p><strong>7)</strong> Cette fonction construit un tuple dont les composantes sont:  </p>
+<ul>
 <li>3 tuples contenant les noms des trois élèves ayant eu les meilleurs notes ainsi que ... leur notes;</li>
 <li>un dictionnaire donnant les autres élèves avec leur note.</li>
-</ol>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">enigme</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -4405,17 +4399,52 @@ passant par l'interface <code>eth1</code>.</p>
  ((&#39;Kurt&#39;, &#39;Jett&#39;), 4),
  {(&#39;Carl&#39;, &#39;Roth&#39;): 2, (&#39;Ayet&#39;, &#39;Finzerb&#39;): 3})
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Si il y a moins de trois candidats (deux par exemple), le tuple renvoyé aura toujours 4 composantes dont le contenu serait le suivant:  </li>
+<p><strong>8)</strong> Si il y a moins de trois candidats (deux par exemple), le tuple renvoyé aura toujours 4 composantes dont le contenu serait le suivant:  </p>
+<ul>
 <li>deux tuples contenant les deux meilleurs résultats;</li>
 <li><code>None</code>;</li>
-<li>
-<p><code>{}</code> (<em>dictionnaire vide</em>);</p>
-</li>
-<li>
-<p>Une fonction <code>classement</code></p>
-</li>
-</ol>
+<li><code>{}</code> (<em>dictionnaire vide</em>);</li>
+</ul>
+<p><strong>9)</strong> Une fonction <code>classement</code></p>
+<p>Commençons par une fonction d'assistance qui vérifie s'il y a encore des copies à classer:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tas_vide</span><span class="p">(</span><span class="n">c_1</span><span class="p">,</span> <span class="n">c_2</span><span class="p">,</span> <span class="n">c_3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie True si il n&#39;y a plus de copie(s) à classer  &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">c_1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">c_2</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">c_3</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+<p>Ensuite on écrit la fonction <code>classement</code> en essayant au maximum d'utiliser des noms de variables explicites.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">classement</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">):</span>
+    <span class="c1"># Initialisation des variables qui seront utilisées</span>
+    <span class="n">notes_classees</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres_candidats</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">)</span>
+
+    <span class="c1"># On boucle tant qu&#39;il reste des copies à classer</span>
+    <span class="k">while</span>  <span class="ow">not</span> <span class="n">tas_vide</span><span class="p">(</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">candidat</span> <span class="ow">in</span> <span class="p">(</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">candidat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">notes_classees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidat</span><span class="p">)</span>
+        <span class="c1"># On prend les copie suivantes</span>
+        <span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres_candidats</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">autres_candidats</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">notes_classees</span>
+</code></pre></div></td></tr></table></div>
+<details class="tip">
+<summary>Any (hors programme)</summary>
+<p>Il existe une fonction python qui réalise le même travail que la fonction <code>tas_vide</code>: il s'agit de <code>any</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4424,16 +4453,17 @@ passant par l'interface <code>eth1</code>.</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">classement</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">):</span>
-    <span class="n">notes_classees</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">)</span>
-    <span class="k">while</span>  <span class="nb">any</span><span class="p">((</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">notes_classees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">autres</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">notes_classees</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">classement_2</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">):</span>
+<span class="n">notes_classees</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">dict_notes</span><span class="p">)</span>
+<span class="k">while</span>  <span class="nb">any</span><span class="p">((</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">notes_classees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">no1</span><span class="p">,</span> <span class="n">no2</span><span class="p">,</span> <span class="n">no3</span><span class="p">,</span> <span class="n">autres</span> <span class="o">=</span> <span class="n">enigme</span><span class="p">(</span><span class="n">autres</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">notes_classees</span>
 </code></pre></div></td></tr></table></div>
+</details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">classement</span><span class="p">({(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Matt&#39;</span><span class="p">):</span> <span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Lambert&#39;</span><span class="p">,</span>
@@ -4449,6 +4479,89 @@ passant par l'interface <code>eth1</code>.</p>
  ((&#39;Kurt&#39;, &#39;Jett&#39;), 4),
  ((&#39;Ayet&#39;, &#39;Finzerb&#39;), 3),
  ((&#39;Carl&#39;, &#39;Roth&#39;), 2)]
+</code></pre></div></td></tr></table></div>
+<p><strong>10)</strong> Il fallait voir ici une recherche dichotomique (<em>de la transition</em> <code>True</code> -&gt; <code>False</code>) dans un tableau trié.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">renote_express2</span><span class="p">(</span><span class="n">copcorr</span><span class="p">):</span>
+    <span class="n">gauche</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">droite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">copcorr</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">droite</span> <span class="o">-</span> <span class="n">gauche</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="n">milieu</span> <span class="o">=</span> <span class="p">(</span><span class="n">gauche</span> <span class="o">+</span> <span class="n">droite</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">copcorr</span><span class="p">[</span><span class="n">milieu</span><span class="p">]:</span>
+            <span class="n">gauche</span> <span class="o">=</span> <span class="n">milieu</span> <span class="c1"># complété</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">droite</span> <span class="o">=</span> <span class="n">milieu</span> <span class="c1"># complété</span>
+    <span class="k">if</span> <span class="n">copcorr</span><span class="p">[</span><span class="n">gauche</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">droite</span> <span class="c1"># complété</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">gauche</span> <span class="c1"># complété</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Conseil</p>
+<p>On gagne rapidement en compréhension en raisonnant <em>à la main</em>. Un schéma est vite fait ...</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">renote_express2</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">renote_express2</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">renote_express2</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>0
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">renote_express2</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>6
+
+
+
+**11)** Dans le pire des cas (*où Pau Tager devrait quand même être content) il faudra parcourir tout le tableau dans `renote_express`. Le coût en temps de cette fonction est linéaire (on dit aussi en $\mathcal{O}(n)$).
+</code></pre></div></td></tr></table></div>
+<p>Dans <code>renote_express2</code>, la zone de recherche dans le tableau est divisé par deux à chaque tour de boucle. Le coût en temps de cette fonction est logarithmique (on dit aussi en <span class="arithmatex">\(\mathcal{O(\log(n))}\)</span></p>
+<p><strong>12)</strong> Si on exclue la construction du tableau de booléen, on reprend l'idée présente dans la question 1: on passe en paramètre la copie et le corrigé.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">renote_express3</span><span class="p">(</span><span class="n">cop</span><span class="p">,</span> <span class="n">corr</span><span class="p">):</span>
+    <span class="n">gauche</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">droite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cop</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">droite</span> <span class="o">-</span> <span class="n">gauche</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="n">milieu</span> <span class="o">=</span> <span class="p">(</span><span class="n">gauche</span> <span class="o">+</span> <span class="n">droite</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">cop</span><span class="p">[</span><span class="n">milieu</span><span class="p">]</span> <span class="o">==</span> <span class="n">corr</span><span class="p">[</span><span class="n">milieu</span><span class="p">]:</span>
+            <span class="n">gauche</span> <span class="o">=</span> <span class="n">milieu</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">droite</span> <span class="o">=</span> <span class="n">milieu</span>
+    <span class="k">if</span> <span class="n">cop</span><span class="p">[</span><span class="n">gauche</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">droite</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">gauche</span>
 </code></pre></div></td></tr></table></div>
 
 
