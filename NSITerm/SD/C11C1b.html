@@ -13,13 +13,17 @@
       
       
       
+        <link rel="prev" href="../ALGO/C10TP2.html">
+      
+      
+        <link rel="next" href="C11C2.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>C13E1P - NSI</title>
+        <title>Cours 1 - NSI</title>
       
     
     
@@ -89,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#arbres" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C13E1P
+              Cours 1
             
           </span>
         </div>
@@ -251,6 +260,8 @@
         
   
   
+    
+  
 
 
   
@@ -262,7 +273,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../LP2/C1C1.html" class="md-tabs__link">
+      <a href="../LP2/C1C1.html" class="md-tabs__link md-tabs__link--active">
         NSITerm
       </a>
     </li>
@@ -1449,16 +1460,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -1467,7 +1478,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           NSITerm
@@ -2364,16 +2375,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" checked>
       
       
       
@@ -2382,7 +2393,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_12">
           <span class="md-nav__icon md-icon"></span>
           Chap. XI Arbres binaires
@@ -2393,11 +2404,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="C11C1b.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cours 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C11C1b.html" class="md-nav__link md-nav__link--active">
         Cours 1
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structures-arborescentes" class="md-nav__link">
+    Structures arborescentes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbres-binaires" class="md-nav__link">
+    Arbres binaires
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#une-representation-possible-en-python" class="md-nav__link">
+    Une représentation possible en python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-dun-arbre-en-profondeur-dabord" class="md-nav__link">
+    Parcours d'un arbre en profondeur d'abord
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-en-largeur-dabord" class="md-nav__link">
+    Parcours en largeur d'abord
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3153,148 +3233,134 @@
                   
 
 
-  <h1>C13E1P</h1>
-
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">G</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sommets</span><span class="p">(</span><span class="n">graphe</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    renvoie une liste de tous les sommets de &#39;graphe&#39;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">graphe</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sommets</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;]
-</code></pre></div></td></tr></table></div>
+<h1 id="arbres">ARBRES<a class="headerlink" href="#arbres" title="Permanent link">⚓︎</a></h1>
+<h2 id="structures-arborescentes">Structures arborescentes<a class="headerlink" href="#structures-arborescentes" title="Permanent link">⚓︎</a></h2>
+<p>La structure de liste chaînée rencontrée précédemment est intéressante lorsqu'on a besoin d'un <strong>accès séquentiel</strong> aux éléments. En revanche, elle est peu adaptée à des accès arbitraires. Dans ce cas de figure, une structure <strong>arborescente</strong> peut être envisagée. Il s'agit d'une autre famille de structures chaînées qui permet d'organiser les informations stockées de <strong>manière hiérarchique</strong>.  </p>
+<p>Les applications sont très nombreuses; on peut citer par exemple:  </p>
+<ul>
+<li>arborescence du système de fichier d'un ordinateur;</li>
+<li>expression arithmétique;</li>
+<li>structure des pages web;</li>
+<li>arbre généalogique;</li>
+<li>etc.</li>
+</ul>
+<h2 id="arbres-binaires">Arbres binaires<a class="headerlink" href="#arbres-binaires" title="Permanent link">⚓︎</a></h2>
+<h3 id="definitions">Définitions<a class="headerlink" href="#definitions" title="Permanent link">⚓︎</a></h3>
+<p>Un arbre est une structure arborescente particulière, composée de <strong>noeuds</strong>. Dans un arbre <strong>binaire</strong> chaque noeud présente au maximum 2 <em>branches</em>.  </p>
+<p><img alt="arbre1" src="img/graph2.png" />  </p>
+<div class="admonition info">
+<p class="admonition-title">Arbre / sous arbre</p>
+<p>Un arbre qui ne comporte pas de noeud est un <strong>arbre vide</strong>.  Si l'arbre n'est pas vide, il comporte:  </p>
+<ul>
+<li>un noeud particulier appelé <strong>racine</strong>;</li>
+<li>deux sous ensembles de noeuds appelés <strong>sous arbre gauche</strong> et <strong>sous arbre droit</strong>.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Remarque</summary>
+<p>La racine est reliée à la racine des sous arbres (sauf s'il est vide).  </p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Feuille</p>
+<p>Un noeud qui a deux sous arbres vides est <strong>une feuille</strong>.  </p>
+</div>
+<p>Dans l'exemple ci-dessus:  </p>
+<ul>
+<li><code>A</code> est la racine;</li>
+<li><code>D</code>, <code>E</code> et <code>F</code> sont des feuilles.  </li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Taille</p>
+<p>La <strong>taille</strong> <span class="arithmatex">\(N\)</span> d'un arbre correspond au nombre de noeuds.</p>
+</div>
+<p>Par exemple, la taille de l'arbre présenté en introduction est <span class="arithmatex">\(N=6\)</span>.  </p>
+<div class="admonition info">
+<p class="admonition-title">Hauteur</p>
+<p>La <strong>hauteur</strong> <span class="arithmatex">\(h\)</span> d'un arbre correspond au <strong>nombre maximal de noeuds rencontrés en descendant de la racine à une feuille</strong>.</p>
+</div>
+<p>Par exemple, l'arbre présenté en introduction a une hauteur <span class="arithmatex">\(h=3\)</span>.</p>
+<h3 id="encadrement-de-la-taille">Encadrement de la taille<a class="headerlink" href="#encadrement-de-la-taille" title="Permanent link">⚓︎</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Taille</p>
+<p>La taille d'un arbre vérifie une double inégalité:  </p>
+<div class="arithmatex">\[h \leq N \leq 2^{h} -1\]</div>
+</div>
+<p>La borne inférieure correspond à un arbre dont chaque noeud ne présente qu'une branche, dans ce cas <span class="arithmatex">\(N = h\)</span> (Fig. 1). La borne supérieure correspond à un arbre où chaque niveau est complet, dans ce cas <span class="arithmatex">\(N=2^{h}-1\)</span> (Fig. 2).  </p>
+<p><img alt="peigne" src="img/graph3.png" /> (Fig. 1)  </p>
+<p><img alt="complet" src="img/graph4.png" /> (Fig. 2)</p>
+<h2 id="une-representation-possible-en-python">Une représentation possible en python<a class="headerlink" href="#une-representation-possible-en-python" title="Permanent link">⚓︎</a></h2>
+<h3 id="utilisation-dune-classe">Utilisation d'une classe<a class="headerlink" href="#utilisation-dune-classe" title="Permanent link">⚓︎</a></h3>
+<p>De la même façon qu'on a construit les listes chaînées avec des <em>cellules</em>, on va utiliser une <strong>classe Noeud</strong> pour décrire un arbre. Un noeud comporte une information ou <em>valeur</em>, une référence vers le sous arbre gauche et une référence vers le sous arbre droit.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Renvoie la liste des voisins du sommet u, dans le graphe g</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">g</span><span class="p">,</span> <span class="s2">&quot;Sommet inconnu&quot;</span>
-    <span class="k">return</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">voisins</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[&#39;e&#39;, &#39;g&#39;]
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">lst_to_mat</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    renvoie la matrice d&#39;adjacence associée au graphe g</span>
-<span class="sd">    g: graphe modélisé par un dictionnaire de listes d&#39;adjacences</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="n">liste_sommets</span> <span class="o">=</span> <span class="n">sommets</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> 
-    <span class="n">index_sommet</span> <span class="o">=</span> <span class="p">{</span><span class="n">liste_sommets</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)}</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">index_sommet</span><span class="p">)</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Noeud</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour modéliser les noeuds d&#39;un arbre&quot;&quot;&quot;</span>
 
-    <span class="k">for</span> <span class="n">sommet</span> <span class="ow">in</span> <span class="n">liste_sommets</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">voisins</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">sommet</span><span class="p">):</span>
-            <span class="n">adj</span><span class="p">[</span><span class="n">index_sommet</span><span class="p">[</span><span class="n">sommet</span><span class="p">]][</span><span class="n">index_sommet</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">adj</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">fd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">fg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">=</span> <span class="n">fd</span>        
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">lst_to_mat</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<p>Ainsi, l'arbre donné en introduction peut être codé de la manière suivante:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">arb1</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> 
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">None</span><span class="p">),</span> 
+             <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>{&#39;a&#39;: 0, &#39;b&#39;: 1, &#39;c&#39;: 2, &#39;d&#39;: 3, &#39;e&#39;: 4, &#39;f&#39;: 5, &#39;g&#39;: 6, &#39;h&#39;: 7}
-
-
-
-
-
-[[0, 1, 1, 0, 0, 0, 0, 0],
- [1, 0, 0, 1, 1, 0, 0, 0],
- [1, 0, 0, 1, 0, 0, 0, 0],
- [0, 1, 1, 0, 1, 0, 0, 0],
- [0, 1, 0, 1, 0, 1, 1, 0],
- [0, 0, 0, 0, 1, 0, 1, 0],
- [0, 0, 0, 0, 1, 1, 0, 1],
- [0, 0, 0, 0, 0, 0, 1, 0]]
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">arb1</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arb1</span><span class="o">.</span><span class="n">gauche</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">lst_to_mat</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>A
+B
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>{&#39;a&#39;: 0, &#39;b&#39;: 1, &#39;c&#39;: 2, &#39;d&#39;: 3, &#39;e&#39;: 4, &#39;f&#39;: 5, &#39;g&#39;: 6, &#39;h&#39;: 7}
+<h3 id="taille-et-hauteur">Taille et hauteur<a class="headerlink" href="#taille-et-hauteur" title="Permanent link">⚓︎</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Expression de la taille</p>
+<p>La taille d'un arbre vide vaut 0. S'il n'est pas vide, sa taille est:  </p>
+<p><strong>1 (racine) + taille sous arbre gauche + taille sous arbre droit</strong></p>
+</div>
+<p>Une telle présentation incite à utiliser une fonction récursive 🥴 (<em>Répetez 10 fois: Jaime la récursivité</em>).  </p>
+<p>Écrire cette fonction.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">taille</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie la taille de l&#39;arbre passé en paramètre&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">lst_to_mat2</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    renvoie la matrice d&#39;adjacence associée au graphe g</span>
-<span class="sd">    g: graphe modélisé par un dictionnaire de listes d&#39;adjacences</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="n">liste_sommets</span> <span class="o">=</span> <span class="n">sommets</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">sommet</span> <span class="ow">in</span> <span class="n">liste_sommets</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">voisin</span> <span class="ow">in</span> <span class="n">voisins</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">sommet</span><span class="p">):</span>
-            <span class="n">adj</span><span class="p">[</span><span class="n">liste_sommets</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">sommet</span><span class="p">)][</span><span class="n">liste_sommets</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">voisin</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">adj</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">taille</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">lst_to_mat2</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<div class="admonition info">
+<p class="admonition-title">Expression de la hauteur</p>
+<p>La hauteur d'un arbre vide est nulle. Si l'arbre n'est pas vide, sa hauteur vaut:</p>
+<div class="arithmatex">\[ 1 + \text{max}(hauteur(\text{sous arbre gauche}), hauteur(\text{sous arbre droit}))\]</div>
+</div>
+<p>Écrire une fonction récursive (<em>encore ?</em> 😰) qui renvoie la hauteur d'un arbre passé en paramètre.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">hauteur</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie la hauteur de l&#39;arbre &#39;arb&#39;&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">hauteur</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
+</code></pre></div></td></tr></table></div>
+<h2 id="parcours-dun-arbre-en-profondeur-dabord">Parcours d'un arbre en profondeur d'abord<a class="headerlink" href="#parcours-dun-arbre-en-profondeur-dabord" title="Permanent link">⚓︎</a></h2>
+<p>Dans quel ordre parcourir les noeuds d'un arbre? Il existe plusieurs possibilités:  </p>
+<ul>
+<li>si on traite d'abord la racine, puis le sous arbre gauche, puis le sous arbre droit, l'ordre est dit <strong>préfixe</strong>;</li>
+<li>si on traite d'abord le sous arbre gauche, puis la racine, puis le sous arbre droit, l'ordre est dit <strong>infixe</strong>;</li>
+<li>si on traite d'abord le sous arbre gauche, puis le sous arbre droit, puis la racine, l'ordre est dit <strong>postfixe</strong> ou <strong>suffixe</strong>.  </li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3302,14 +3368,69 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>[[0, 1, 1, 0, 0, 0, 0, 0],
- [1, 0, 0, 1, 1, 0, 0, 0],
- [1, 0, 0, 1, 0, 0, 0, 0],
- [0, 1, 1, 0, 1, 0, 0, 0],
- [0, 1, 0, 1, 0, 1, 1, 0],
- [0, 0, 0, 0, 1, 0, 1, 0],
- [0, 0, 0, 0, 1, 1, 0, 1],
- [0, 0, 0, 0, 0, 0, 1, 0]]
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_prefixe</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Parcours préfixe d&#39;un arbre&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">arb</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">parcours_prefixe</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">gauche</span><span class="p">)</span>
+        <span class="n">parcours_prefixe</span><span class="p">(</span><span class="n">arb</span><span class="o">.</span><span class="n">droit</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">parcours_prefixe</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>A B D C E F
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Compléter la fonction suivante:</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_infixe</span><span class="p">(</span><span class="n">arb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Parcours préfixe d&#39;un arbre&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">arb</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">parcours_infixe</span><span class="p">(</span><span class="n">arb1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>D B A E C F
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Écrire la fonction qui renvoie le parcours postfixe d'un arbre.</p>
+</div>
+<h2 id="parcours-en-largeur-dabord">Parcours en largeur d'abord<a class="headerlink" href="#parcours-en-largeur-dabord" title="Permanent link">⚓︎</a></h2>
+<p>Ce parcours est moins trivial que le précédent. Il s'agit de parcourir l'arbre par niveau. On commence par la racine puis les racines de ses deux sous arbres et ainsi de suite. Une structure de données adaptée à ce problème est la file. </p>
+<p>Description d'un algorithme itératif<br />
+<em>On suppose l'arbre non vide</em>.  </p>
+<ul>
+<li>on enfile l'arbre;</li>
+<li>
+<p>tant que la file n'est pas vide:  </p>
+<ul>
+<li>on défile un élément (en fait un arbre);</li>
+<li>on affiche la valeur de sa racine;</li>
+<li>on enfile ses deux sous arbres s'ils ne sont pas vides</li>
+</ul>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Compléter la fonction <code>parcours_largeur</code> puis tester.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="n">help</span><span class="p">(</span><span class="n">Queue</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3322,82 +3443,18 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">mat_to_lst</span><span class="p">(</span><span class="n">liste_sommets</span><span class="p">,</span> <span class="n">mat</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Renvoie un dictionnaire correspondant à la conversion de la matrice</span>
-<span class="sd">    d&#39;adjacence mat en liste d&#39;adjacence.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste_sommets</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">sommet</span> <span class="ow">in</span> <span class="n">liste_sommets</span><span class="p">:</span>
-        <span class="n">adj</span><span class="p">[</span><span class="n">sommet</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">adj</span><span class="p">[</span><span class="n">liste_sommets</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liste_sommets</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">adj</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">mat_to_lst</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">],</span> <span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="n">G</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>
-<p>Ecrire une fonction <code>mat_to_lst</code> qui prend en paramètre une liste (<em>de python</em>) de sommets <code>l</code> et une matrice d'adjacence <code>mat</code> (<em>liste de listes</em>) et qui renvoie un dictionnaire correspondant à une liste d'adjacence c'est-à-dire de la forme:<br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="s1">&#39;sommet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">liste</span> <span class="n">de</span> <span class="n">voisins</span><span class="p">],</span>
- <span class="o">...</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>Donner alors, sous forme de liste d'adjacence, une représentation du graphe dont la matrice d'adjacence est la suivante:  </p>
-</li>
-</ol>
-<div class="arithmatex">\[
-\begin{pmatrix}
-0&amp;1&amp;0&amp;0&amp;0\\
-0&amp;0&amp;1&amp;1&amp;1\\
-0&amp;1&amp;0&amp;1&amp;0\\
-0&amp;0&amp;1&amp;0&amp;0\\
-1&amp;1&amp;0&amp;1&amp;0
-\end{pmatrix}
-\]</div>
-<p>On notera les sommets: A, B, C, D et E.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># QUESTION 2 - A DECOMMENTER, COMPLETER PUIS EXECUTER</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>Help on function get in module queue:
 
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
-<span class="n">mat</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="p">]</span>
-<span class="n">mat_to_lst</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>{&#39;A&#39;: [&#39;B&#39;],
- &#39;B&#39;: [&#39;C&#39;, &#39;D&#39;, &#39;E&#39;],
- &#39;C&#39;: [&#39;B&#39;, &#39;D&#39;],
- &#39;D&#39;: [&#39;C&#39;],
- &#39;E&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;D&#39;]}
+get(self, block=True, timeout=None)
+    Remove and return an item from the queue.
+
+    If optional args &#39;block&#39; is true and &#39;timeout&#39; is None (the default),
+    block if necessary until an item is available. If &#39;timeout&#39; is
+    a non-negative number, it blocks at most &#39;timeout&#39; seconds and raises
+    the Empty exception if no item was available within that time.
+    Otherwise (&#39;block&#39; is false), return an item if one is immediately
+    available, else raise the Empty exception (&#39;timeout&#39; is ignored
+    in that case).
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3415,145 +3472,23 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">GrapheOriente</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour représenter les graphes orientés.&quot;&quot;&quot;</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sommets</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; sommets est la liste des sommets du graphe; ceux-ci</span>
-<span class="sd">            peuvent être des entiers ou des caractères.&quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">sommets</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sommets</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sommets</span><span class="p">))]</span>
-
-    <span class="k">def</span> <span class="nf">ajouter_arc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Ajoute un arc s1 --&gt; s2 en modifiant la matrice d&#39;ajacence&quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s1</span><span class="p">)][</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
-
-    <span class="k">def</span> <span class="nf">arc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Vérifie la présence d&#39;un arc s1 --&gt; s2&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">s1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">s2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">:</span> 
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s1</span><span class="p">)][</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s2</span><span class="p">)]</span> <span class="o">==</span> <span class="mi">1</span>
-
-    <span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">):</span>
-        <span class="n">liste_voisins</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s1</span><span class="p">)][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">liste_voisins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">liste_voisins</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">g</span> <span class="o">=</span> <span class="n">GrapheOriente</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">g</span><span class="o">.</span><span class="n">arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[&#39;b&#39;, &#39;d&#39;]
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS - A DECOMMENTER ET EXECUTER</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">GrapheOriente</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">GrapheOriente2</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour représenter les graphes orientés.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sommets</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; sommets est la liste des sommets du graphe; ceux-ci</span>
-<span class="sd">            peuvent être des entiers ou des caractères.&quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">sommets</span>
-        <span class="c1">#self.mat = [[0]*len(sommets) for _ in range(len(sommets))]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">liste</span> <span class="o">=</span> <span class="p">{</span><span class="n">sommet</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">sommet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">}</span>
-
-    <span class="k">def</span> <span class="nf">ajouter_arc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Ajoute un arc s1 --&gt; s2 en modifiant la matrice d&#39;ajacence&quot;&quot;&quot;</span>
-
-        <span class="c1">#self.mat[self.s.index(s1)][self.s.index(s2)] = 1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">liste</span><span class="p">[</span><span class="n">s1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">arc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Vérifie la présence d&#39;un arc s1 --&gt; s2&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">s1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">s2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">:</span> 
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="n">s2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">voisins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">liste</span><span class="p">[</span><span class="n">s1</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS - A DECOMMENTER ET EXECUTER</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">GrapheOriente2</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">g</span><span class="o">.</span><span class="n">voisins</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<span class="k">def</span> <span class="nf">parcours_largeur</span><span class="p">(</span><span class="n">arbre</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Affiche la valeur des noeuds trouvés lors d&#39;un parcours en largeur d&#39;un arbre;</span>
+<span class="sd">    arbre: arbre binaire</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span> <span class="c1"># On crée une file vide</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">arbre</span><span class="p">)</span> <span class="c1"># On enfile l&#39;arbre</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="c1"># défile un élément</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">gauche</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="o">...</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">droit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="o">...</span>
 </code></pre></div></td></tr></table></div>
 
 
