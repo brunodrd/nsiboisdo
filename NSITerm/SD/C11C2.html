@@ -3228,7 +3228,10 @@
 
 <h1 id="algorithmes-sur-les-abr">Algorithmes sur les ABR<a class="headerlink" href="#algorithmes-sur-les-abr" title="Permanent link">⚓︎</a></h1>
 <h2 id="definition-et-representation-des-arbres-binaires-de-recherche-en-python">Définition et représentation des arbres binaires de recherche en python<a class="headerlink" href="#definition-et-representation-des-arbres-binaires-de-recherche-en-python" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Définition</p>
 <p>Un arbre binaire de recherche (en abrégé <strong>ABR</strong>) est un arbre binaire dont les noeuds contiennent des valeurs comparables. <strong>Pour tout noeud d'un ABR toutes les valeurs situées dans le sous arbre gauche sont inférieures à celle du noeud.</strong> De la même façon, <strong>toutes les valeurs situées dans le sous arbre droit sont supérieures à celle du noeud.</strong></p>
+</div>
 <p>Exemples d'ABR<br />
 <img alt="abr01" src="img/abr_01.png" /> <img alt="abr02" src="img/abr_02.png" /></p>
 <p>Un ABR étant un arbre binaire, on peut le représenter comme précédemment avec une classe <code>Noeud</code> avec une contrainte sur la valeur des noeuds: <strong>ils doivent être comparables</strong>.<br />
@@ -3265,10 +3268,15 @@ Avec la classe <code>Noeud</code> du chapitre précédent, les deux ABR ci-dessu
             <span class="n">Noeud</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">Noeud</span><span class="p">(</span><span class="mi">13</span><span class="p">)))</span>
             <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p><em>Remarque</em>: dans la méthode <code>__init__</code>, <code>fg</code> et <code>fd</code> ont une valeur par défaut égale à <code>None</code>, cela permet juste une écriture plus compacte lors de la création d'une instance en évitant de réécrire <code>None</code> lorsqu'un noeud n'a pas de fils.</p>
+<div class="admonition info">
+<p class="admonition-title">Remarque</p>
+<p>Dans la méthode <code>__init__</code>, <code>fg</code> et <code>fd</code> ont une valeur par défaut égale à <code>None</code>, cela permet juste une écriture plus compacte lors de la création d'une instance en évitant de réécrire <code>None</code> lorsqu'un noeud n'a pas de fils.</p>
+</div>
 <h2 id="recherche-dans-un-abr">Recherche dans un ABR<a class="headerlink" href="#recherche-dans-un-abr" title="Permanent link">⚓︎</a></h2>
 <p>Chercher une valeur dans un ABR revient à <strong>la comparer à la valeur de la racine</strong> puis, si elle est différente, à poursuivre la recherche dans <strong>un seul</strong> des sous arbres.  </p>
 <p>La recherche d'une valeur ou <em>clé</em> <span class="arithmatex">\(x\)</span> dans un arbre binaire de recherche <code>arb</code> peut être menée avec l'algorithme ci-dessous qui renvoie le noeud où la valeur est présente ou <code>None</code> si la recherche n'aboutit pas.  </p>
+<div class="admonition info">
+<p class="admonition-title">Algorithme</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3289,6 +3297,7 @@ sinon si x &gt; arbre.val
 sinon
     renvoyer Vrai
 </code></pre></div></td></tr></table></div>
+</div>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
 <p>Implémenter cet algorithme en python.</p>
@@ -3322,12 +3331,15 @@ sinon
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validé !&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Efficacité de la recherche</strong>  </p>
-<p>Dans le cas idéal, <strong>si l'arbre est équilibré</strong>, chaque appel de <code>rechercher(x, arbre)</code> élimine la moitié des éléments. Cette recherche est alors à rapprocher de la recherche dichotomique vue en 1re (<em>et dans des exercices d'entrainement EP</em>), dont la complexité est <strong>logarithmique</strong>.<br />
+<p>Dans le cas idéal, <strong>si l'arbre est équilibré</strong>, chaque appel de <code>rechercher(x, arbre)</code> élimine la moitié des éléments. Cette recherche est alors à rapprocher de la recherche dichotomique vue en 1re, dont la complexité est <strong>logarithmique</strong>.<br />
 Dans le pire des cas, si l'arbre est <em>filiforme</em>, la recherche est peu efficace et sa complexité est alors linéaire.</p>
 <h2 id="insertion-dans-un-abr">Insertion dans un ABR<a class="headerlink" href="#insertion-dans-un-abr" title="Permanent link">⚓︎</a></h2>
-<p>Comme précédemment, on va privilégier une méthode récursive pour insérer une valeur <span class="arithmatex">\(x\)</span> dans un arbre tout en gardant <strong>la structure d'arbre binaire de recherche</strong>.<br />
-Le cas de base est simple: si <strong>l'arbre est vide</strong>, il suffit de renvoyer un noeud ayant <span class="arithmatex">\(x\)</span> comme valeur.
-Sinon (<em>cas récursif</em>), on compare <span class="arithmatex">\(x\)</span> à la valeur du noeud:</p>
+<p>Comme précédemment, on va privilégier une méthode récursive pour insérer une valeur <span class="arithmatex">\(x\)</span> dans un arbre tout en gardant <strong>la structure d'arbre binaire de recherche</strong>.  </p>
+<p>Afin d'éviter certains problèmes, on choisira une solution <strong>non mutable</strong>, autrement dit la fonction d'insertion va <strong>toujours renvoyer un nouvel objet ABR</strong> c'est-à-dire une instance de la classe <code>Noeud</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Algorithme</p>
+<p>Si <strong>l'arbre est vide</strong>, il suffit de renvoyer un noeud ayant <span class="arithmatex">\(x\)</span> comme valeur (<em>cas de base</em>);<br />
+sinon, on compare <span class="arithmatex">\(x\)</span> à la valeur du noeud:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3336,8 +3348,12 @@ Sinon (<em>cas récursif</em>), on compare <span class="arithmatex">\(x\)</span>
 sinon
     &quot;placer&quot; x dans le sous arbre droit
 </code></pre></div></td></tr></table></div>
-<p>Attention à l'interprétation de <code>"placer" x</code> lors de l'implémentation et notamment au type renvoyé.  </p>
+</div>
+<p><strong>Attention à l'interprétation de</strong> <code>"placer" x</code> <strong>lors de l'implémentation et notamment au type renvoyé</strong>.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
 <p>Implémenter cette fonction en python.</p>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3348,7 +3364,7 @@ sinon
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inserer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arbre</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    insère x dans un ABR tout en gardant la structure d&#39;ABR;</span>
+<span class="sd">    insère x dans un ABR tout en gardant la structure d&#39;ABR; Renvoie un ABR.</span>
 <span class="sd">    x: élément comparable avec les valeurs présentes dans l&#39;arbre</span>
 <span class="sd">    arbre: arbre binaire de recherche</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -3374,7 +3390,7 @@ sinon
 <p>Cette fonction présente une complexité temporelle identique à celle qui effectuait la recherche. Cette complexité va dépendre de la forme de l'arbre.</p>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
-<p>Travail à effectuer: comme pour les listes chaînées, compléter la classe <code>ABR</code> dont l'interface propose les méthodes <code>chercher</code> et <code>ajouter</code>.</p>
+<p>Comme pour les listes chaînées, compléter la classe <code>ABR</code> dont l'interface propose les méthodes <code>chercher</code> et <code>ajouter</code>.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3387,10 +3403,10 @@ sinon
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ABR</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour els arbres binaires de recherche&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour implémenter des arbres binaires de recherche&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">racine</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">racine</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># arbre vide</span>
 
     <span class="k">def</span> <span class="nf">ajouter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">racine</span> <span class="o">=</span> <span class="o">...</span>
@@ -3398,64 +3414,10 @@ sinon
     <span class="k">def</span> <span class="nf">chercher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="o">...</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Une autre possibilité : inclure les codes de inserer et rechercher</span>
-<span class="c1"># dans le code de la classe</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">class ABR:    </span>
-<span class="sd">    def __init__(self):</span>
-<span class="sd">        self.racine = None</span>
-
-<span class="sd">    def ajouter(self, x):</span>
-<span class="sd">        def insere(x, arbre):</span>
-<span class="sd">            if arbre is None:</span>
-<span class="sd">                return Noeud(x)</span>
-<span class="sd">            if x &lt; arbre.val:</span>
-<span class="sd">                return Noeud(arbre.val, insere(x,arbre.gauche), arbre.droit)</span>
-<span class="sd">            else:</span>
-<span class="sd">                return Noeud(arbre.val, arbre.gauche, insere(x, arbre.droit))</span>
-<span class="sd">        self.racine = insere(x, self.racine)</span>
-
-<span class="sd">    def chercher(self, x):</span>
-<span class="sd">        def rechercher(x, arbre):</span>
-<span class="sd">            if arbre is None:</span>
-<span class="sd">                return False</span>
-<span class="sd">            if x &lt; arbre.val:</span>
-<span class="sd">                return rechercher(x, arbre.gauche)</span>
-<span class="sd">            elif x &gt; arbre.val:</span>
-<span class="sd">                return rechercher(x, arbre.droit)</span>
-<span class="sd">            else:</span>
-<span class="sd">                return True</span>
-<span class="sd">        return rechercher(x, self.racine)</span>
-<span class="sd">&quot;&quot;&quot;</span>    
-</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Variante</p>
+<p>Une autre possibilité aurait été d'inclure les codes de <code>inserer</code> et <code>rechercher</code> dans le code de la classe.</p>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
