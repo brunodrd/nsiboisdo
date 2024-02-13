@@ -3259,35 +3259,27 @@
 <p>Soit l'arbre de la figure suivante.  </p>
 <p><img alt="exp305" src="img/exp305.png" />  </p>
 <ol>
-<li>En utilisant la classe <code>Noeud</code> de l'exercice précédent, définir un objet <code>arb2</code> qui pourrait le décrire. <em>Pour éviter les ambiguités: G est le fils droit de D et F est le fils gauche de C</em></li>
+<li>En utilisant la classe <code>Noeud</code> de l'exercice précédent, définir un objet <code>arb2</code> qui pourrait décrire cet arbre. <em>Pour éviter les ambiguités: G est le fils droit de D et F est le fils gauche de C</em></li>
 <li>Quelle est la hauteur de cet arbre?</li>
 <li>Donner les noeuds visités lors d'un parcours postfixe.</li>
 <li>
-<p>Compléter la fonction récursive <code>affiche</code>qui:  </p>
+<p>Compléter la fonction récursive <code>affiche</code> (<em>voir ci-dessous</em>) qui:  </p>
+<ul>
+<li>affiche un point <code>.</code> et qui ne renvoie rien pour un arbre vide;</li>
+<li>affiche une parenthèse ouvrante <code>(</code>, la valeur, le sous arbre gauche, le sous arbre droit et enfin une parenthèse fermante <code>)</code> autrement.  </li>
+</ul>
+<p>Par exemple pour l'arbre présenté ici, <code>affiche(arb2)</code> fournit:  </p>
 </li>
-<li>
-<p>affiche un point <code>.</code> et qui ne renvoie rien pour un arbre vide;</p>
-</li>
-<li>affiche une parenthèse ouvrante <code>(</code>, le sous arbre gauche, le sous arbre droit, la valeur et enfin une parenthèse fermante <code>)</code> autrement.  </li>
 </ol>
-<p>Par exemple pour l'arbre présenté ici, <code>affiche(arb2)</code> fournit:<br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>( ( (. (..G )D ) (..E )B ) ( (..F ).C )A )
-</code></pre></div></td></tr></table></div></p>
-<ol>
-<li>Dessiner l'arbre qui fournit <code>( (. (..C )B )(..D )A )</code></li>
-</ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">arb2</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
-            <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> 
-                  <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> 
-                  <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
-            <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">Noeud</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-            <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> (A (B (D. (G.. ) ) (E.. ) ) (C (F.. ). ) )
 </code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>Une paire de parenthèses délimite un arbre ou un sous arbre.</p>
+</div>
+<ol>
+<li>Dessiner l'arbre qui fournit <code>(A( D..)( B(C..).)</code></li>
+</ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3307,31 +3299,15 @@
         <span class="k">return</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="o">...</span>        
-        <span class="o">...</span>
         <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">...</span>        
+        <span class="o">...</span>        
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; )&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">affiche</span><span class="p">(</span><span class="n">arb2</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> ( ( (. (..G )D ) (..E )B ) ( (..F ).C )A )
-</code></pre></div></td></tr></table></div>
 <h2 id="un-peigne-gauche">Un peigne gauche<a class="headerlink" href="#un-peigne-gauche" title="Permanent link">⚓︎</a></h2>
-<p>Compléter la fonction qui prend en paramètre un entier naturel <span class="arithmatex">\(h\)</span> et qui renvoie un arbre de hauteur <span class="arithmatex">\(h\)</span> où chaque noeud n'a <strong>pas de sous arbre droit</strong>. Vérifier le résultat avec la fonction <code>affiche</code> de l'exercice précédent.  </p>
-<div class="admonition tip">
-<p class="admonition-title">Indication 1</p>
-<p>Deux méthodes sont acceptées: récursive ou itérative.  </p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Indication 1: Méthode récursive</p>
-<p>peigne_recursif(h)
-un peigne vide a une hauteur nulle;<br />
-un peigne de hauteur h est un noeud dont:</p>
-<ul>
-<li>la valeur est h;</li>
-<li>le sous arbre gauche est un peigne de hauteur h-1;</li>
-<li>le sous arbre droit est vide</li>
-</ul>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Compléter la fonction <code>peigne</code> ci-dessous, qui prend en paramètre un entier naturel <span class="arithmatex">\(h\)</span> et qui renvoie un arbre de hauteur <span class="arithmatex">\(h\)</span> où chaque noeud <strong>a pour valeur sa hauteur et n'a pas de sous arbre droit</strong>. Vérifier le résultat avec la fonction <code>affiche</code> de l'exercice précédent.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3344,50 +3320,49 @@ un peigne de hauteur h est un noeud dont:</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">peigne</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">peigne</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">    Renvoie un peigne gauche de hauteur h (méthode itérative);</span>
-<span class="sd">    h: entier naturel</span>
+<span class="sd">    Renvoie un peigne gauche de hauteur h, dont la valeur de chaque noeud est</span>
+<span class="sd">    égale à sa hauteur.</span>
+<span class="sd">    h: entier naturel non nul</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">noeud_courant</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">h</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">noeud_courant</span> <span class="o">=</span> <span class="n">Noeud</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="o">...</span>
     <span class="k">return</span> <span class="n">noeud_courant</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">peigne</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;__main__.Noeud at 0x7f75fbf36eb8&gt;
-</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Tester</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">peigne</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">affiche</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Une version récursive</span>
-
-<span class="k">def</span> <span class="nf">peignerec</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="admonition question">
+<p class="admonition-title">Méthode récursive</p>
+<p>On souhaite maintenant écrire une fonction <code>peigne_recursif</code> pour décrire un peigne gauche.<br />
+Un peigne vide a évidemment une hauteur nulle alors qu'un peigne gauche de hauteur <span class="arithmatex">\(h\)</span> est un noeud dont la valeur est <span class="arithmatex">\(h\)</span> et dont le sous arbre gauche est un peigne de hauteur <span class="arithmatex">\(h-1\)</span>. Les sous arbres droits étant vides.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">peignerec</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Renvoie un peigne gauche de hauteur h;</span>
+<span class="sd">    Construit récursivement et renvoie un peigne gauche de hauteur h;</span>
 <span class="sd">    h: entier naturel</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
+        <span class="o">...</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Noeud</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">peignerec</span><span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">acc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="o">...</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p2</span> <span class="o">=</span> <span class="n">peignerec</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
