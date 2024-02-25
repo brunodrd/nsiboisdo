@@ -3464,7 +3464,7 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
-
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="k">def</span> <span class="nf">lire_table</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3473,15 +3473,13 @@
     <span class="k">pass</span>
 
 <span class="n">t1</span> <span class="o">=</span> <span class="n">lire_table</span><span class="p">(</span><span class="s1">&#39;groupe1.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <hr />
 <div class="admonition tip">
 <p class="admonition-title">Suggestions pour la suite</p>
 <p>Pour réaliser une copie d'un objet complexe comme notre table, on pourra utiliser la fonction 
-<code>copie_tab_dict</code> ci-dessous.</p>
-<p>En python, on peut concaténer deux tableaux <code>a</code> et <code>b</code> pour former un <strong>nouveau</strong> tableau <code>c</code> qui 
-contienne les éléments de <code>a</code> et les éléments de <code>b</code> en utilisant la construction <code>c = a + b</code>. <em>Cela évite de boucler sur les éléments de</em> <code>a</code> <em>et de</em> <code>b</code> <em>pour construire</em> <code>c</code>.</p>
+<code>copier_table</code> ci-dessous.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3492,46 +3490,58 @@ contienne les éléments de <code>a</code> et les éléments de <code>b</code> e
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copie_tab_dict</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie une copie du tableau de dictionnaires t    </span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copier_table</span><span class="p">(</span><span class="n">table_src</span><span class="p">,</span> <span class="n">table_dest</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Copie le tableau de dictionnaire source &#39;table_src&#39; </span>
+<span class="sd">    vers le tableau de dictionnaire de destination &#39;table_dest&#39;    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Création d&#39;un tableau de dictionnaires vides</span>
-    <span class="n">t_fin</span> <span class="o">=</span> <span class="p">[{}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))]</span>
-    <span class="c1"># Recopie des couples cle, valeur de chaque ligne (dictionnaire)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">cle</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">cle</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">cle</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">t_fin</span>
+
+    <span class="c1"># Recopie les couples cle, valeur de chaque ligne i de table_src dans la destination</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table_src</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">cle</span> <span class="ow">in</span> <span class="n">table_src</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">table_dest</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">cle</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_src</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">cle</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <hr />
 <p><strong>2.</strong> Compléter la fonction <code>inserer_ligne</code> qui prend une table de données <code>t</code> en paramètre, ainsi que les notes d'un eleve <code>e</code> et qui  renvoie un nouvelle table qui contient les éléments de <code>t</code> mais aussi la ligne correspondant à <code>e</code>.  </p>
 <p>Exécuter la cellule de tests qui vérifiera si les notes de Chloé: 17 en math, 19 en LV1 et 18 en NSI, sont bien insérées dans la table <code>t</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inserer_ligne</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Renvoie un nouveau tableau qui contient les éléments de &#39;t&#39; ansi que les informations</span>
+<span class="sd">    relatives à l&#39;élève &#39;e&#39;.</span>
+<span class="sd">    t: tableau de dictionnaires</span>
+<span class="sd">    e: dictionnaire de la forme {&#39;Nom&#39;: &#39;xxx&#39;, &#39;LV1&#39;: n, ...}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">nouvelle_table</span> <span class="o">=</span> <span class="p">[{}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="c1"># on doit renvoyer un NOUVEAU tableau</span>
+    <span class="n">copier_table</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">nouvelle_table</span><span class="p">)</span> 
+    <span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="k">return</span> <span class="n">nouvelle_table</span>
+</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inserer_ligne</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">    Renvoie un nouveau tableau qui contient les éléments de &#39;t&#39; ansi que l&#39;élément e</span>
-<span class="sd">    t: tableau de dictionnaires</span>
-<span class="sd">    e: dictionnaire</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">t_fin</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="k">return</span> <span class="n">t_fin</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
 <span class="n">chloe</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Chloé&#39;</span><span class="p">,</span> <span class="s1">&#39;LV1&#39;</span><span class="p">:</span> <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;NSI&#39;</span><span class="p">:</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="s1">&#39;17&#39;</span><span class="p">}</span>
-<span class="n">t_modif</span> <span class="o">=</span> <span class="n">ajouter_ligne</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">chloe</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">t_modif</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;Nom&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Chloé&#39;</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
-<span class="k">assert</span> <span class="n">t_modif</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;NSI&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">ajouter_ligne</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">chloe</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;Nom&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Chloé&#39;</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
+<span class="k">assert</span> <span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;NSI&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
+<span class="k">assert</span> <span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;Math&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validé !&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>On voudrait ajouter une colonne contenant les moyennes de chaque élève, comme dans la table ci-dessous:</p>
@@ -3578,11 +3588,11 @@ contienne les éléments de <code>a</code> et les éléments de <code>b</code> e
 </table>
 <p>La stratégie proposée est la suivante:  </p>
 <ul>
-<li>On modifie le type des colonnes de notes, en entier par exemple;</li>
+<li>On modifie le type des colonnes de notes, en flottant par exemple;</li>
 <li>Pour chaque élève (<em>en réalité chaque ligne du tableau</em>), on calcule la moyenne et on ajoute la paire <code>'Moyenne':valeur</code> à la ligne.  </li>
 </ul>
 <p>Chacun des deux points précédents sera résolu en écrivant une fonction <strong>renvoyant un nouveau tableau</strong>.</p>
-<p><strong>a.</strong> Compléter la fonction <code>changer_type_col</code> afin que celle-ci renvoie une nouvelle table dont les <em>colonnes numériques</em> sont de type entier.</p>
+<p><strong>a.</strong> Compléter la fonction <code>colonnes_numeriques</code> afin que celle-ci renvoie une nouvelle table dont les <em>colonnes numériques</em> sont de type flottant.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3595,24 +3605,30 @@ contienne les éléments de <code>a</code> et les éléments de <code>b</code> e
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">changer_type_col</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Change le type des colonnes de &#39;t&#39; autres que le nom en entier,</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">colonnes_numeriques</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Change le type des colonnes de &#39;t&#39; autres que le nom en flottant,</span>
 <span class="sd">    et renvoie un nouveau tableau.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">nb_ligne</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
     <span class="c1"># Récupération du nom des matières</span>
-    <span class="n">matieres</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="s1">&#39;Nom&#39;</span><span class="p">]</span>
+    <span class="n">liste_matieres</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="s1">&#39;Nom&#39;</span><span class="p">]</span>
+
     <span class="c1"># Travail sur une copie de &#39;t&#39;</span>
-    <span class="n">t_fin</span> <span class="o">=</span> <span class="n">copie_tab_dict</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_ligne</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
-            <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
-    <span class="k">return</span> <span class="n">t_fin</span>
+    <span class="n">copie</span> <span class="o">=</span> <span class="p">[{}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))]</span>
+    <span class="n">copier_table</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">copie</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">matiere</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
+            <span class="n">copie</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">matiere</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">copie</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>b.</strong> Compléter la fonction <code>ajouter_col_moyenne</code>.  </p>
+<p><strong>b.</strong> Compléter la fonction <code>calculer_moyenne</code>.  </p>
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
-<p>Pour obtenir un nombre flottant avec un nombre de décimal bien déterminé, on peut utiliser la fonction <code>round</code>.<br />
+<p>Pour obtenir un nombre flottant avec un nombre de décimales bien déterminé, on peut utiliser la fonction <code>round</code>.<br />
 Exemple<br />
 <code>round(3.14159, 2)</code><br />
 <code>&gt;&gt;&gt; 3.14</code></p>
@@ -3628,32 +3644,45 @@ Exemple<br />
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ajouter_col_moyenne</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Ajoute une colonne moyenne au tableau &#39;t&#39; et renvoie un nouveau tableau.</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calculer_moyenne</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Insère une colonne &#39;Moyenne&#39; dans une copie du tableau &#39;t&#39; et le renvoie.</span>
+<span class="sd">    t: tableau de dictionnaires</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">nb_ligne</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">matieres</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="s1">&#39;Nom&#39;</span><span class="p">]</span>
-    <span class="n">t_fin</span> <span class="o">=</span> <span class="n">copie_tab_dict</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_ligne</span><span class="p">):</span>
+    <span class="c1"># Récupération du nom des matières</span>
+    <span class="n">liste_matieres</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="s1">&#39;Nom&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Travail sur une copie de t</span>
+    <span class="n">copie</span> <span class="o">=</span> <span class="p">[{}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))]</span>
+    <span class="n">copier_table</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">copie</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">copie</span><span class="p">)):</span> <span class="c1"># on calcule la moyenne pour CHAQUE élève</span>
         <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
+        <span class="c1"># On fait d&#39;abord la somme de ses notes</span>
+        <span class="k">for</span> <span class="n">matiere</span> <span class="ow">in</span> <span class="n">liste_matieres</span><span class="p">:</span>
             <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span> <span class="o">+</span> <span class="o">...</span>
-        <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Moyenne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">t_fin</span>
+        <span class="c1"># On divise par le nombre de notes et on créé la clé &#39;Moyenne&#39; associée à sa valeur</span>
+        <span class="n">copie</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Moyenne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">copie</span>
 </code></pre></div></td></tr></table></div>
+<p>Vérifier que l'exécution de <code>pprint(calculer_moyenne(table))</code> fournit bien:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
-<span class="n">t3</span> <span class="o">=</span> <span class="n">changer_type_col</span><span class="p">(</span><span class="n">t_modif</span><span class="p">)</span>
-<span class="n">tm</span> <span class="o">=</span> <span class="n">ajouter_col_moyenne</span><span class="p">(</span><span class="n">t3</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">tm</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Moyenne&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">16.3</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
-<span class="k">assert</span> <span class="n">tm</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Moyenne&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">10.3</span><span class="p">,</span> <span class="s2">&quot;Erreur: la fonction ne passe pas les tests&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validé&#39;</span><span class="p">)</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">[{</span><span class="s1">&#39;LV1&#39;</span><span class="p">:</span> <span class="mf">17.0</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s1">&#39;Moyenne&#39;</span><span class="p">:</span> <span class="mf">16.33</span><span class="p">,</span> <span class="s1">&#39;NSI&#39;</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Alex&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;LV1&#39;</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">,</span> <span class="s1">&#39;Moyenne&#39;</span><span class="p">:</span> <span class="mf">10.33</span><span class="p">,</span> <span class="s1">&#39;NSI&#39;</span><span class="p">:</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Zoé&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;LV1&#39;</span><span class="p">:</span> <span class="mf">13.0</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="mf">14.0</span><span class="p">,</span> <span class="s1">&#39;Moyenne&#39;</span><span class="p">:</span> <span class="mf">15.33</span><span class="p">,</span> <span class="s1">&#39;NSI&#39;</span><span class="p">:</span> <span class="mf">19.0</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Max&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;LV1&#39;</span><span class="p">:</span> <span class="mf">19.0</span><span class="p">,</span> <span class="s1">&#39;Math&#39;</span><span class="p">:</span> <span class="mf">17.0</span><span class="p">,</span> <span class="s1">&#39;Moyenne&#39;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span> <span class="s1">&#39;NSI&#39;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span> <span class="s1">&#39;Nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Chloé&#39;</span><span class="p">}]</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>c.</strong> (<em>A faire à la maison</em>) On voudrait rajouter un enregistrement qui donne la moyenne par matière, comme dans la table suivante:  </p>
+<p><strong>c.</strong> (<em>Pour les cracks</em>) On voudrait rajouter un enregistrement qui donne la moyenne par matière, comme dans la table suivante:  </p>
 <table>
 <thead>
 <tr>
@@ -3702,7 +3731,7 @@ Exemple<br />
 </tr>
 </tbody>
 </table>
-<p>Écrire une fonction <code>ajoute_moy_matieres</code> qui prend en paramètre une table (de type tableau de dictionnaire et ayant la forme que <code>tm</code> de la question précédente) et qui renvoit <strong>une nouvelle table</strong> en y ajoutant une ligne comportant les moyennes par matière. </p>
+<p>Écrire une fonction <code>moyennes_matieres</code> qui prend en paramètre une table (de type tableau de dictionnaire et ayant la même forme qu'à la question précédente) et qui renvoit <strong>une nouvelle table</strong> en y ajoutant une ligne comportant les moyennes par matière. </p>
 
 
 
