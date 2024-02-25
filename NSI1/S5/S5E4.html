@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fichiers-de-travail-a-telecharger" class="md-nav__link">
-    Fichiers de travail à télécharger
+  <a href="#fichiers-de-travail-a-utiliser" class="md-nav__link">
+    Fichiers de travail à utiliser
   </a>
   
 </li>
@@ -3185,10 +3185,10 @@
 
 
 <h1 id="donnees-tabulees-exercices">Données tabulées - Exercices<a class="headerlink" href="#donnees-tabulees-exercices" title="Permanent link">⚓︎</a></h1>
-<h2 id="fichiers-de-travail-a-telecharger">Fichiers de travail à télécharger<a class="headerlink" href="#fichiers-de-travail-a-telecharger" title="Permanent link">⚓︎</a></h2>
-<p><a href="https://nsiboisdo.bdrd.fr/NSI1/S5/doc/data.zip">Lien</a></p>
+<h2 id="fichiers-de-travail-a-utiliser">Fichiers de travail à utiliser<a class="headerlink" href="#fichiers-de-travail-a-utiliser" title="Permanent link">⚓︎</a></h2>
+<p>Rendez-vous sur Capytale avec le code <code>9ca9-2976730</code>, les fichiers csv sont déjà intégrés.</p>
 <h2 id="exercice-1-utilisation-dun-tableau-de-dictionnaires">Exercice 1: Utilisation d'un tableau de dictionnaires<a class="headerlink" href="#exercice-1-utilisation-dun-tableau-de-dictionnaires" title="Permanent link">⚓︎</a></h2>
-<p><em>On utilise le fichier csv</em> <code>data/rapworld.csv</code> <em>rencontré dans le cours 4</em>. On importe ce fichier vers une structure de tableau de dictionnaire.</p>
+<p><em>On utilise le fichier csv</em> <code>rapworld.csv</code> <em>rencontré dans le cours 4</em>. On importe ce fichier vers une structure de tableau de dictionnaire.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3204,14 +3204,14 @@
 <span class="kn">import</span> <span class="nn">csv</span>
 
 
-<span class="k">def</span> <span class="nf">import_table</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">importer_table</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Importe le fichier csv &#39;f&#39; et renvoie un tableau de dictionnaire, </span>
 <span class="sd">    correspondant à chaque ligne du fichier.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_ob</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_ob</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)]</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">import_table</span><span class="p">(</span><span class="s1">&#39;data/rapworld.csv&#39;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">importer_table</span><span class="p">(</span><span class="s1">&#39;rapworld.csv&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>1.</strong> Afficher tous les champs de la table <code>t</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
@@ -3284,14 +3284,14 @@
 <span class="kn">import</span> <span class="nn">csv</span>
 
 
-<span class="k">def</span> <span class="nf">import_table</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">importer_table</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Importe le fichier csv &#39;f&#39; et renvoie un tableau de tableaux, dont</span>
 <span class="sd">    les éléments correspondent à une ligne du fichier.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_ob</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">ligne</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f_ob</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)]</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">import_table</span><span class="p">(</span><span class="s1">&#39;data/rapworld.csv&#39;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">importer_table</span><span class="p">(</span><span class="s1">&#39;rapworld.csv&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>1.</strong> En examinant le code ci-dessous, dire quelle(s) modification(s) apporte la fonction <code>modifier_col</code> à une table <code>t</code>?</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3320,7 +3320,7 @@
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extrait_annee</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">extraire_annee</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Extrait l&#39;année de la chaine &#39;date&#39; passée en paramètre sachant que celle-ci</span>
 <span class="sd">    est comprise entre les index i et j exclus.</span>
 <span class="sd">    Renvoie un entier.</span>
@@ -3343,7 +3343,7 @@
         <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">colonnes</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-                    <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">extrait_annee</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+                    <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">extraire_annee</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">t_fin</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">t_fin</span>        
@@ -3417,7 +3417,7 @@
 </code></pre></div></td></tr></table></div>
 <p><strong>3.</strong> Commenter la deuxième ligne.</p>
 <h2 id="exercice-3-ajouter-un-champ-ou-un-enregistrement-a-une-table">Exercice 3 Ajouter un champ ou un enregistrement à une table<a class="headerlink" href="#exercice-3-ajouter-un-champ-ou-un-enregistrement-a-une-table" title="Permanent link">⚓︎</a></h2>
-<p>Dans le répertoire <code>./data</code> on dispose d'un fichier <code>groupe1.csv</code> qui regroupe les données tabulées suivantes:  </p>
+<p>On dispose d'un fichier <code>groupe1.csv</code> qui regroupe les données tabulées suivantes:  </p>
 <table>
 <thead>
 <tr>
@@ -3448,7 +3448,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>1.</strong> Ecrire la fonction <code>lire_table</code> qui prend en paramètre un nom de fichier (<em>string</em>) et qui renvoie un tableau de p-uplets nommés (<em>des dictionnaires ici</em>) qui représente la table ci-dessus.  </p>
+<p><strong>1.</strong> Écrire la fonction <code>lire_table</code> qui prend en paramètre un nom de fichier (<em>string</em>) et qui renvoie un tableau de p-uplets nommés (<em>des dictionnaires ici</em>) qui représente la table ci-dessus.  </p>
 <div class="admonition warning">
 <p class="admonition-title">Attention</p>
 <p>Le caractère séparateur est la <strong>virgule</strong> dans cet exercice.</p>
@@ -3472,7 +3472,7 @@
     <span class="c1"># A compléter</span>
     <span class="k">pass</span>
 
-<span class="n">t1</span> <span class="o">=</span> <span class="n">lire_table</span><span class="p">(</span><span class="s1">&#39;data/groupe1.csv&#39;</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">lire_table</span><span class="p">(</span><span class="s1">&#39;groupe1.csv&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <hr />
