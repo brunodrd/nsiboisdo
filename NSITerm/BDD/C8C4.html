@@ -3151,9 +3151,9 @@
 <p>Les SGBDR se retrouvent habituellement dans un environnement client / serveur. Une architecture courante est celle des 3 tiers, aussi appelée architecture à trois niveaux ou architecture à trois couches.<br />
 On y distingue:  </p>
 <ul>
-<li>la couche de présentation des données, correspondant à l'affichage, la restitution sur le poste de travail, le dialogue avec l'utilisateur;</li>
-<li>la couche de traitement des données, correspondant à la mise en œuvre de l'ensemble des règles de gestion et de la logique applicative;</li>
-<li>la couche d'accès aux données persistantes: correspondant aux données qui sont destinées à être conservées sur la durée, voire de manière définitive.</li>
+<li>au niveau 1: la couche de présentation des données, correspondant à l'affichage, la restitution sur le poste de travail, le dialogue avec l'utilisateur;</li>
+<li>au niveau 2: la couche de traitement des données, correspondant à la mise en œuvre de l'ensemble des règles de gestion et de la logique applicative;</li>
+<li>au niveau 3: la couche d'accès aux données persistantes, correspondant aux données qui sont destinées à être conservées sur la durée, voire de manière définitive.</li>
 </ul>
 <p><img alt="trois-tiers" src="img/3-tier.jpg" /></p>
 <p>Parmi les SGBDR courants, on peut citer: Oracle Database, MySQL, MS SQL Server, PostGreSQL, etc.</p>
@@ -3162,17 +3162,17 @@ On y distingue:  </p>
 <p>Parmi les services rendus par les SGBDR on peut citer la <strong>sécurisation des accès aux données</strong>. Pour cela, un certain nombre de mécanismes sont mis en oeuvre:  </p>
 <ul>
 <li>l'authentification, réalisée habituellement par la fourniture du couple nom d'utilisateur / mot de passe;</li>
-<li>l'attribution de Les droits et privilèges: une fois correctement identifié l'utilisateur doit pouvoir accéder aux informations et ressources auxquelles il a droit et uniquement à celles-ci;</li>
+<li>l'attribution de droits et privilèges: une fois correctement identifié l'utilisateur doit pouvoir accéder aux informations et ressources auxquelles il a droit et uniquement à celles-ci;</li>
 <li>la production de LOGs ou traces, permettant d'enregistrer tout ou partie des informations concernant les accès réussis ou échoués.</li>
 </ul>
 <p>Exemple: pensez au système de gestion <em>Pronote</em></p>
 <h2 id="persistance-des-donnees-et-acces-concurrents">Persistance des données et accès concurrents<a class="headerlink" href="#persistance-des-donnees-et-acces-concurrents" title="Permanent link">⚓︎</a></h2>
-<p>LES SGBDR doivent également rendrent deux autres services importants:  </p>
+<p>LES SGBDR doivent également rendre deux autres services importants:  </p>
 <ul>
 <li>la gestion des accès concurrents. En effet, de multiples utilisateurs doivent pouvoir accéder et utiliser la base de donnée en même temps;</li>
-<li>l'assurance d'avoir des données persistante notamment en cas de panne.</li>
+<li>l'assurance d'avoir des données persistantes notamment en cas de panne.</li>
 </ul>
-<p>La solution a ces deux problématique se trouve dans la gestion des <strong>transactions</strong>.  </p>
+<p>La solution à ces deux problématiques se trouve dans la gestion des <strong>transactions</strong>.  </p>
 <div class="admonition info">
 <p class="admonition-title">Définition (non exigible)</p>
 <p>Une transaction est une suite d'opérations interrogeant et/ou modiant la base de données, pour laquelle l'ensemble des opérations doit être soit validé (<strong>COMMIT</strong>), soit annulé (<strong>ROLLBACK</strong>).</p>
