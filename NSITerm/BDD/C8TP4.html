@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="C8TP1.html">
+        <link rel="prev" href="C8TP2.html">
       
       
-        <link rel="next" href="C8TP4.html">
+        <link rel="next" href="C8E1.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>TP 2 - NSI</title>
+        <title>TP 3 - NSI</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp2-enigme-a-resoudre-a-sql-city" class="md-skip">
+        <a href="#service-rendus-par-un-sgbdr" class="md-skip">
           Aller au contenu
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TP 2
+              TP 3
             
           </span>
         </div>
@@ -2156,6 +2156,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="C8TP2.html" class="md-nav__link">
+        TP 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -2167,24 +2181,10 @@
         
       
       
-      <a href="C8TP2.html" class="md-nav__link md-nav__link--active">
-        TP 2
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="C8TP4.html" class="md-nav__link">
+      <a href="C8TP4.html" class="md-nav__link md-nav__link--active">
         TP 3
       </a>
+      
     </li>
   
 
@@ -3160,8 +3160,66 @@
                   
 
 
-<h1 id="tp2-enigme-a-resoudre-a-sql-city">TP2 - Enigme à résoudre ... à SQL City<a class="headerlink" href="#tp2-enigme-a-resoudre-a-sql-city" title="Permanent link">⚓︎</a></h1>
-<p>Un meurtre a eu lieu le 15 janvier 2018 à SQL City. À vous de résoudre cette égnime, rendez vous à <a href="https://mystery.knightlab.com/walkthrough.html">cette adresse</a>.</p>
+<h1 id="service-rendus-par-un-sgbdr">Service rendus par un SGBDR<a class="headerlink" href="#service-rendus-par-un-sgbdr" title="Permanent link">⚓︎</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Indication</p>
+<p>Le SGBDR utilisé dans ce TP sera MySQL. Sa socumentation est disponible à <a href="https://dev.mysql.com/doc/refman/8.3/en/">cette adresse</a>.
+<img alt="logo" src="img/MySQLlogo.png" /></p>
+</div>
+<p><strong>L'intégralité du TP sera réalisé en ligne de commande</strong>.</p>
+<h1 id="question-1-licence">Question 1: licence<a class="headerlink" href="#question-1-licence" title="Permanent link">⚓︎</a></h1>
+<p>À partir d'une recherche rapide donner les particularités de la licence d'utilisation de MySQL.</p>
+<h1 id="question-2-securisation-des-acces">Question 2: sécurisation des accès<a class="headerlink" href="#question-2-securisation-des-acces" title="Permanent link">⚓︎</a></h1>
+<p><strong>a)</strong> Se connecter au serveur avec les paramètres d'authentification fournis. Typiquement, dans un shell Bash, on entrera la commande:<br />
+<code>mysql --host=xxx.xxx.xxx.xxx -ueleve -p</code>.</p>
+<p>où: <code>xxx</code> représente l'adresse IPv4 de la machine (prof) hébergeant le serveur, <code>eleve</code> est le login, à remplacer par votre prénom et <code>-p</code> le mot de passe.  </p>
+<p><strong>b)</strong> Entrer les deux requêtes suivantes: <code>SHOW DATABASES</code> puis <code>SELECT User,Host FROM mysql.user</code>. Comparer la réponse avec celle reçue par le professeur:<br />
+<img alt="reponse1" src="img/TP3_fig3.png" /></p>
+<p><strong>c)</strong> La douzième ligne de la réponse à la requête <code>SELECT User,Host FROM mysql.user</code> du professeur montre un problème de sécurité potentiel. Expliquer.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Indication</p>
+<p><code>%</code> signifie n'importe quelle machine et <code>localhost</code> est la machine locale.</p>
+</div>
+<p><strong>d)</strong> Se déconnecter du serveur avec la commande <code>exit</code>. Le prompt <code>mysql&gt;</code> réapparait.</p>
+<h1 id="question-3-acces-concurrents">Question 3: accès concurrents<a class="headerlink" href="#question-3-acces-concurrents" title="Permanent link">⚓︎</a></h1>
+<p>Il s'agit de voir le comportement du SGBDR lors d'accès concurrents.  </p>
+<p><strong>a)</strong> Se connecter au serveur avec vos login / mot de passe précédents et se placer dans la base <code>tpnsi</code> avec la commande SQL:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">USE</span><span class="w"> </span><span class="n">tpnsi</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>b)</strong> Combien de relation sont présentes dans cette table?  </p>
+<div class="admonition tip">
+<p class="admonition-title">Commande SQL</p>
+<p>La commande <code>SHOW</code> permet de consulter aussi les tables: <code>SHOW tables;</code></p>
+</div>
+<p><strong>c)</strong> Prendre connaissance de la structure de la table <code>speNSI</code>.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Commande SQL</p>
+<p>La commande <code>DESCRIBE</code> permet de consulter aussi la structure d'une table: <code>DESCRIBE speNSI</code> par exemple.</p>
+</div>
+<p><strong>d)</strong> Réaliser la <strong>transaction</strong> suivante:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">speNSI</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...,</span><span class="w"> </span><span class="p">....,</span><span class="w"> </span><span class="p">....,</span><span class="w"> </span><span class="p">....);</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">speNSI</span><span class="p">;</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Champ id</p>
+<p><code>id</code> sera un entier naturel compris entre 1 et 15 inclus.</p>
+</div>
+<p><strong>e)</strong> Vérifier auprès d'un voisin que les modifications sont visibles dans la table.</p>
+<p><strong>f)</strong> Réaliser la <strong>transaction</strong> suivante: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">speNSI</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="n">xx</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">speNSI</span><span class="p">;</span>
+<span class="k">ROLLBACK</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Commenter le résultat obtenu après avoir entrer à nouveau <code>SELECT * FROM speNSI;</code>.</p>
 
 
 
