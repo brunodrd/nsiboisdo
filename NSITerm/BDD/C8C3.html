@@ -2125,54 +2125,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cours 3: Langage SQL
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="C8C3.html" class="md-nav__link md-nav__link--active">
         Cours 3: Langage SQL
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#le-langage" class="md-nav__link">
-    Le langage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-requetes-dinterrogation" class="md-nav__link">
-    Les requêtes d'interrogation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-requetes-de-mise-a-jour" class="md-nav__link">
-    Les requêtes de mise à jour
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3206,7 +3161,7 @@
 
 
 <h1 id="langage-sql">LANGAGE SQL<a class="headerlink" href="#langage-sql" title="Permanent link">⚓︎</a></h1>
-<h2 id="le-langage">Le langage<a class="headerlink" href="#le-langage" title="Permanent link">⚓︎</a></h2>
+<h1 id="le-langage">Le langage<a class="headerlink" href="#le-langage" title="Permanent link">⚓︎</a></h1>
 <p>SQL ou <em>Structured Query Language</em> est un langage standardisé de dialogue avec une base de données. C'est un langage déclaratif impératif; on décrit le <em>quoi</em> pas le <em>comment</em>.<br />
 Conformément au programme, on va se limiter aux instructions d'<strong>interrogation</strong> et de <strong>mise à jour</strong>. En d'autres termes, il s'agira:  </p>
 <ul>
@@ -3214,7 +3169,7 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 <li>d'extraire une partie des informations suivant des critères précis;</li>
 <li>de modifier des données (insertion ou suppression)</li>
 </ul>
-<h2 id="les-requetes-dinterrogation">Les requêtes d'interrogation<a class="headerlink" href="#les-requetes-dinterrogation" title="Permanent link">⚓︎</a></h2>
+<h1 id="les-requetes-dinterrogation">Les requêtes d'interrogation<a class="headerlink" href="#les-requetes-dinterrogation" title="Permanent link">⚓︎</a></h1>
 <p>Une requête qui permet d'obtenir tout ou une partie des attributs d'une relation (<em>projection en algèbre relationnelle</em>) a une syntaxe du type:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">attribut</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div></td></tr></table></div>
@@ -3269,34 +3224,64 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 <span class="k">FROM</span><span class="w"> </span><span class="n">emprunt</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">livre</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">emprunt</span><span class="p">.</span><span class="n">isbn</span><span class="o">=</span><span class="n">livre</span><span class="p">.</span><span class="n">isbn</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">emprunt</span><span class="p">.</span><span class="n">retour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2020-02-01&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="les-requetes-de-mise-a-jour">Les requêtes de mise à jour<a class="headerlink" href="#les-requetes-de-mise-a-jour" title="Permanent link">⚓︎</a></h2>
-<h3 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">⚓︎</a></h3>
+<h1 id="les-requetes-de-mise-a-jour">Les requêtes de mise à jour<a class="headerlink" href="#les-requetes-de-mise-a-jour" title="Permanent link">⚓︎</a></h1>
+<h2 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">⚓︎</a></h2>
 <p>Une première opération de mise à jour consiste à insérer des nouvelles entrées dans une table. La syntaxe est:  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">valeurs</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">attributs</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">valeurs</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">attributs</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Application 6</strong>  </p>
 <p>Insérer une ligne de valeurs dans la table <code>usager</code>. Vérifier la mise à jour.</p>
-<h3 id="update">UPDATE<a class="headerlink" href="#update" title="Permanent link">⚓︎</a></h3>
+<h2 id="update">UPDATE<a class="headerlink" href="#update" title="Permanent link">⚓︎</a></h2>
 <p>Lorsqu'on souhaite modifier un ou plusieurs attributs, on utilise la clause <code>UPDATE</code> avec une syntaxe du type:  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">att1</span><span class="o">=</span><span class="n">valeur1</span><span class="p">,</span><span class="w"> </span><span class="n">att2</span><span class="o">=</span><span class="n">valeur2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">attn</span><span class="o">=</span><span class="n">valeurn</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">att1</span><span class="o">=</span><span class="n">valeur1</span><span class="p">,</span><span class="w"> </span><span class="n">att2</span><span class="o">=</span><span class="n">valeur2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">attn</span><span class="o">=</span><span class="n">valeurn</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Par exemple, on peut mettre à jour l'email de l'usager <code>PAYET</code>, dont <code>code_barre = '934701281931117'</code> avec la requête:  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">email</span><span class="o">=</span><span class="s1">&#39;david@payet.re&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">email</span><span class="o">=</span><span class="s1">&#39;david@payet.re&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Application 7</strong>  </p>
 <p>Procéder à la mise à jour d'un ou plusieurs attributs dans l'enregistrement effectué à l'application 6.</p>
-<h3 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">⚓︎</a></h3>
+<h2 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">⚓︎</a></h2>
 <p>On peut supprimer une ou plusieurs lignes d'une table avec la clause <code>DELETE</code> dont la syntaxe est la suivante:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span>
 </code></pre></div></td></tr></table></div>
 <p>Par exemple, si on veut supprimer l'usager <code>PAYET</code>, on peut utiliser la requête:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Remarque</p>
 <p>L'éxecution de cette requête provoque une erreur dans le cadre de l'espace de travail du cours, l'administrateur ayant retiré le droit d'utiliser la clause 
 <code>DELETE</code>.</p>
 </div>
+<h1 id="les-fonctions-dagregation">Les fonctions d'agrégation<a class="headerlink" href="#les-fonctions-dagregation" title="Permanent link">⚓︎</a></h1>
+<p>Les fonctions d'agrégation servent majoritairement à faire des statistiques: compter des lignes, connaître une moyenne, trouver la valeur maximale d'une colonne, etc.</p>
+<h2 id="exemple-1-count">Exemple 1: COUNT<a class="headerlink" href="#exemple-1-count" title="Permanent link">⚓︎</a></h2>
+<p>On s'intéresse à la table <code>livre</code> où on désire connaître le nombre de livres présents. On utilise la fonction <code>COUNT</code>:  </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">livre</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+On voudrait maintenant le nombre d'éditeurs différents présents:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">editeur</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">livre</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="exemple-2-min-max">Exemple 2: MIN, MAX<a class="headerlink" href="#exemple-2-min-max" title="Permanent link">⚓︎</a></h2>
+<p>On souhaiterait maintenant connaître l'année correspondant au livre le plus ancien et celle du plus récent:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">annee</span><span class="p">),</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">annee</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">livre</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="exemple-3-avg">Exemple 3: AVG<a class="headerlink" href="#exemple-3-avg" title="Permanent link">⚓︎</a></h2>
+<p>On se propose de trouver l'âge moyen des livres. On peut commencer par trouver <em>l'année moyenne</em> de sortie des livres:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">annee</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">livre</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>On peut récupérer l'année en cours en SQL en composant deux fonctions (<strong>non exigibles</strong>) <code>YEAR</code> et <code>NOW</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">NOW</span><span class="p">())</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">annee</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">livre</span>
+</code></pre></div></td></tr></table></div>
 
 
 
