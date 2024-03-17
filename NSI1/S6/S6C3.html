@@ -3302,6 +3302,11 @@ POST".</p>
 <hr />
 <p>Dans la méthode POST, les paramètres sont passés <strong>dans le corps de la requête</strong>. Ils ne sont plus visibles dans l'URL.<br />
 Cette méthode permet en outre, d'envoyer du contenu plus long.</p>
+<details class="warning">
+<summary>Attention</summary>
+<p>Cela ne signifie pas qu'on n'a plus accès aux données transmises. Voir cette capture de la console de développement de Chrome:  </p>
+<p><img alt="payload" src="img/fig4_F12_chrome.png" /></p>
+</details>
 <h2 id="transmission-chiffree">Transmission chiffrée<a class="headerlink" href="#transmission-chiffree" title="Permanent link">⚓︎</a></h2>
 <p>Un gros problème avec le protocole HTTP est que celui-ci manipule des données <em>en clair</em> et donc lisible de n'importe qui. C'est particulièrement problématique dans le cas de données confidentielles.<br />
 Pour pallier à cette insuffisance, on a recours (<em>presque systématiquement maintenant, la majorité des serveurs l'impose</em>) à la version sécurisée: <strong>HTTPS</strong>. Le <code>s</code> de https signifie <code>secured</code>.  Une fois l'identitée du serveur confirmée, l'échange se poursuit de manière chiffrée.</p>
