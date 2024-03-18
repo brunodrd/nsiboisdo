@@ -3221,12 +3221,15 @@
 
 <h1 id="tri-par-insertion">Tri par insertion<a class="headerlink" href="#tri-par-insertion" title="Permanent link">⚓︎</a></h1>
 <h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h2>
-<p>Visionner la <a href="https://tube-outremer.beta.education.fr/videos/watch/6b6caee0-e1e0-483d-a80b-a1d32dcabb98?stop=27s&amp;autoplay=1&amp;muted=1">séquence vidéo proposée</a>.
+<p>Visionner la <a href="https://tube-sciences-technologies.apps.education.fr/w/abjhudBKKy16e4S4CCCJtn">séquence vidéo proposée</a>.
 Le tri par insertion est le tri effectué par le joueur de carte. En supposant que l'on maintienne une partie triée, on décale les cartes de cette partie, de manière à placer la carte à classer (<em>voir video</em>).  </p>
 <p>En informatique, on va très souvent travailler avec un tableau et le <strong>parcourir de la gauche vers la droite, en maintenant la partie déjà triée sur sa gauche</strong> (voir <a href="https://fr.wikipedia.org/wiki/Tri_par_insertion#cite_note-1">lien wikipedia</a>).<br />
 Concrètement, on va décaler d'une case vers la droite tous les éléments déjà triés, qui sont plus grands que l'élément à classer, puis déposer ce dernier dans la case libérée.</p>
 <h2 id="algorithme">Algorithme<a class="headerlink" href="#algorithme" title="Permanent link">⚓︎</a></h2>
-<p>Remarque: la notation <code>t[0..i-1]</code> désigne les <span class="arithmatex">\(i\)</span> premiers éléments d'un tableau <code>t</code>, c'est-à-dire <code>t[0], t[1], ..., t[i-1]</code>.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>La notation <code>t[0..i-1]</code> désigne les <span class="arithmatex">\(i\)</span> premiers éléments d'un tableau <code>t</code>, c'est-à-dire <code>t[0], t[1], ..., t[i-1]</code>.  </p>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3240,7 +3243,7 @@ Pour i allant de 1 à n-1:
     &#39;amener&#39; t[i] à sa place parmi t[0..i-1]
 </code></pre></div></td></tr></table></div>
 <h2 id="implementation-en-python">Implémentation en python<a class="headerlink" href="#implementation-en-python" title="Permanent link">⚓︎</a></h2>
-<p>On commence par donner une réalisation de <code>amener t[i] à sa place parmi t[0..i-1]</code> en écrivant une fonction <code>place(t, i)</code> qui amène l'élément d'index <span class="arithmatex">\(i\)</span> à sa place parmi les éléments d'index 0 à <span class="arithmatex">\(i-1\)</span> déjà classés.</p>
+<p>On commence par donner une réalisation de <code>amener t[i] à sa place parmi t[0..i-1]</code> en écrivant une fonction <code>placer(t, i)</code> qui amène l'élément d'index <span class="arithmatex">\(i\)</span> à sa place parmi les éléments d'index 0 à <span class="arithmatex">\(i-1\)</span> déjà classés.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3251,7 +3254,7 @@ Pour i allant de 1 à n-1:
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">place</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">placer</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; amène t[i] à sa place dans t[0..i-1] supposé trié&quot;&quot;&quot;</span>
     <span class="n">cle</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># élément à classer</span>
     <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
@@ -3268,7 +3271,7 @@ Pour i allant de 1 à n-1:
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TEST</span>
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">place</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">placer</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">t</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[-1, 2, 3, 5, 12, 0, 4]
