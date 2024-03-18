@@ -13,17 +13,13 @@
       
       
       
-        <link rel="prev" href="../S7/S7E1.html">
-      
-      
-        <link rel="next" href="S8C2.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>COURS 1 - NSI</title>
+        <title>C8C1P - NSI</title>
       
     
     
@@ -93,11 +89,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#tri-par-selection" class="md-skip">
-          Aller au contenu
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -127,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              COURS 1
+              C8C1P
             
           </span>
         </div>
@@ -237,8 +228,6 @@
         
   
   
-    
-  
 
 
   
@@ -250,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../S1/S1A1.html" class="md-tabs__link md-tabs__link--active">
+      <a href="../S1/S1A1.html" class="md-tabs__link">
         NSI1
       </a>
     </li>
@@ -407,16 +396,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
       
       
       
@@ -425,7 +414,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           NSI1
@@ -1388,16 +1377,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
       
       
       
@@ -1406,7 +1395,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_8">
           <span class="md-nav__icon md-icon"></span>
           Seq. 8 Algorithmique
@@ -1417,73 +1406,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          COURS 1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="S8C1.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="S8C1.html" class="md-nav__link">
         COURS 1
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#principe" class="md-nav__link">
-    Principe
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#algorithme-et-implementation" class="md-nav__link">
-    Algorithme et implémentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validite-de-lalgorithme" class="md-nav__link">
-    Validité de l'algorithme
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complexite-en-temps" class="md-nav__link">
-    Complexité en temps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3212,95 +3139,76 @@
                   
 
 
-<h1 id="tri-par-selection">Tri par sélection<a class="headerlink" href="#tri-par-selection" title="Permanent link">⚓︎</a></h1>
-<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h2>
-<p>Le tri par sélection (<em>selection sort</em> en anglais) fait partie des algorithmes de tri les plus simples.<br />
-Consulter l'animation située à <a href="https://tube-sciences-technologies.apps.education.fr/w/pAkU6uBqLR55C8iq4rKPgm">cette adresse</a>.  </p>
-<p>On commence par rechercher le plus petit élement du tableau puis on l'échange avec le premier élement. Ensuite, on cherche le deuxième plus petit élement et on l'échange avec le deuxième élément du tableau et ainsi de suite jusqu'à ce que le tableau soit entièrement trié.  </p>
-<p>On peut représenter ces opérations de manière schématique:  </p>
-<p><img alt="operations" src="img/operations_tri_sel.png" /></p>
-<details class="question">
-<summary>À faire</summary>
-<p>Pour résoudre le problème du tri par sélection, on aura besoin de deux fonctions annexes: <code>index_minimum</code> et <code>echanger</code>. Les spécifications de ces fonctions sont les suivantes:  </p>
-<ul>
-<li><code>index_minimum(t, j)</code>: prend en paramètres un tableau d'éléments comparables (souvent des nombres) <code>t</code> et un entier <code>j</code>; renvoie l'index de l'élément le plus petit trouvé entre <code>j</code> et la fin du tableau;</li>
-<li><code>echanger(t, i, j)</code>: prend en paramètres un tableau <code>t</code> et permute les éléments situés aux index <code>i</code> et <code>j</code>.</li>
-</ul>
-<p>Ècrire ces deux fonctions.</p>
-</details>
-<h2 id="algorithme-et-implementation">Algorithme et implémentation<a class="headerlink" href="#algorithme-et-implementation" title="Permanent link">⚓︎</a></h2>
-<h3 id="algorithme">Algorithme<a class="headerlink" href="#algorithme" title="Permanent link">⚓︎</a></h3>
-<p>On peut formaliser l'algorithme du tri par sélection avec le pseudo-code suivant:  </p>
-<div class="admonition important">
-<p class="admonition-title">Algorithme</p>
+  <h1>C8C1P</h1>
+
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Tri_selection(t)
-t: tableau de n éléments comparables (t[0..n-1])
-Pour i allant de 0 à n-2:
-    rechercher l&#39;indice k du plus petit élément de t[i..n-1]
-    échanger t[i] et t[k]
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">echanger</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Permute les valeurs situées aux index i et j d&#39;un tableau t.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># on écrase l&#39;ancienne valeur </span>
+    <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span> <span class="c1"># l&#39;ancienne valeur de t[i]</span>
 </code></pre></div></td></tr></table></div>
-</div>
-<h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">⚓︎</a></h3>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Appliquer cet algorithme à la main sur le tableau <code>t = [3, 4, 1, 7, 2]</code>. Donner une implémentation possible en python de cet algorithme et tester.</p>
-</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">indice_min</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recherche l&#39;indice du plus petit élément situés entre les indices i et la de fin du tableau t;</span>
+<span class="sd">    i: entier positif avec i &lt; len(t)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">valeur_mini</span><span class="p">,</span> <span class="n">index_mini</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span>    
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">valeur_mini</span><span class="p">:</span>
+            <span class="n">valeur_mini</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">index_mini</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="k">return</span> <span class="n">index_mini</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">indice_min</span><span class="p">([</span><span class="o">-</span><span class="mi">2002</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tri_selection</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Effectue un tri &#39;en place&#39; du tableau t, par ordre croissant</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">indice_min</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># recherche de l&#39;indice du minimum</span>
+        <span class="n">echanger</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="c1"># permuter les valeurs</span>
+</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TEST</span>
-<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">tri_selection</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">t</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">t</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="validite-de-lalgorithme">Validité de l'algorithme<a class="headerlink" href="#validite-de-lalgorithme" title="Permanent link">⚓︎</a></h2>
-<p>La situation au <span class="arithmatex">\(i^{ème}\)</span> tour de boucle peut être représentée de la manière suivante:
-<img alt="tableau" src="img/trisel.png" />
-Tous les éléments d'indice compris entre 0 et <span class="arithmatex">\(i-1\)</span> inclus sont triés <strong>ET</strong> ils sont tous inférieurs ou égaux aux éléments de la partie non triée, entre <span class="arithmatex">\(i\)</span> et <span class="arithmatex">\(n-1\)</span>. La preuve de cette proposition logique peut être délicate à établir en classe de 1re. On dit que c'est un <strong>invariant</strong> pour l'algorithme <code>Tri_selection</code>.  </p>
-<div class="admonition important">
-<p class="admonition-title">Définition</p>
-<p>Un invariant de boucle est un <em>prédicat</em> (proposition logique) qui est:  </p>
-<ul>
-<li>initialement vrai;</li>
-<li>vrai à l'entrée d'une itération ainsi qu'à la sortie de celle-ci</li>
-</ul>
-</div>
-<p>Trouver le <em>bon</em> invariant garantit que l'algorithme renvoie un résultat conforme aux spécifications et assurer ainsi sa <strong>correction partielle</strong>.  </p>
-<p>Dans le cas de l'algorithme du tri par sélection, la terminaison est assurée car il fait intervenir une boucle bornée (<em>en réalité deux ... le voyez-vous</em>?).  </p>
-<p>La combinaison de la correction partielle et de la terminaison permet de conclure à la <strong>correction totale</strong> de l'algorithme.</p>
-<div class="admonition info">
-<p class="admonition-title">Vocabulaire</p>
-<p>Le terme <strong>correction</strong> est à prendre ici au sens correct. </p>
-</div>
-<h2 id="complexite-en-temps">Complexité en temps<a class="headerlink" href="#complexite-en-temps" title="Permanent link">⚓︎</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Qu'est-ce que la complexité en temps ?</p>
-<p>Le coût (<em>en temps</em>) ou complexité en temps de l'algorithme <code>Tri_selection</code> est lié au nombre d’opérations élémentaires effectuées pour trier une collection d’éléments. Elle donne une idée du temps d'exécution d'un programme implémentant cet algorithme.  </p>
-<p>La complexité est un critère <strong>majeur</strong> pour comparer les algorithmes entre eux.<br />
-<em>Remarque</em>: on peut s'interesser aussi à la complexité en espace mémoire</p>
-</div>
-<p>La boucle présente dans <code>tri_selection</code> est parcourue <span class="arithmatex">\(n-1\)</span> fois. Évaluons le nombre de comparaisons qu'elle effectue (à travers l'appel de <code>index_minimum</code>).</p>
-<p>Pour <span class="arithmatex">\(i=0\)</span>, on effectue <span class="arithmatex">\(n-1\)</span> comparaisons dans <code>index_minimum</code> .<br />
-Pour <span class="arithmatex">\(i=1\)</span>, on effectue <span class="arithmatex">\(n-2\)</span> comparaisons.<br />
-<span class="arithmatex">\(\cdots\)</span><br />
-Pour <span class="arithmatex">\(i=n-2\)</span>, on effectue 1 comparaison.  </p>
-<p>Le nombre total de comparaisons est donc:  </p>
-<div class="arithmatex">\[(n-1)+(n-2)+\cdots +2+1\]</div>
-<p>Cette somme correspond à la somme des termes consécutifs d'une suite arithmétique, dont la valeur pour <span class="arithmatex">\(n&gt;1\)</span> est donnée par:</p>
-<div class="arithmatex">\[\dfrac{n}{2}\times (n-1)=\dfrac{1}{2}n^2-\dfrac{1}{2}n\]</div>
-<p>Pour une taille <span class="arithmatex">\(n\)</span> très grande de l'entrée, le terme en <span class="arithmatex">\(n^2\)</span> devient prépondérant. En d'autres termes, le nombre de comparaisons effectuées, donc le temps d'exécution, est proportionnel à <span class="arithmatex">\(n^2\)</span>.  </p>
-<p>On retiendra que le coût en temps ou complexité temporelle du tri par sélection est proportionnelle au carré de la taille de l'entrée. On dit aussi que cet algorithme a une complexité temporelle quadratique.  </p>
-<div class="admonition abstract">
-<p class="admonition-title">À retenir</p>
-<p>Le tri par sélection (du minimum) consiste à chercher le plus petit élément de la partie de tableau non triée pour le mettre à sa place définitive.<br />
-Ce problème est résolu habituellement par un algorithme faisant intervenir deux boucles bornées. La <strong>terminaison est donc assurée</strong>.<br />
-Un invariant de boucle permet de conclure à sa <strong>correction partielle</strong>. La conjugaison de ces deux propriétés assure la correction totale de l'algorithme proposé.<br />
-Cet algorithme a une complexité temporelle quadratique.</p>
-</div>
 
 
 
