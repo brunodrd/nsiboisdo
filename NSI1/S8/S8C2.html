@@ -3301,7 +3301,10 @@ Pour i allant de 1 à n-1:
 <p>La boucle conditionnelle de la réalisation <code>amener t[i] à sa place parmi t[0..i-1]</code> termine, la quantité <span class="arithmatex">\(j\)</span> est un <strong>variant</strong> de boucle.</p>
 </div>
 <p>L'invariant de boucle est ici: </p>
-<p>à la i-ème itération, le sous tableau <code>t[0..i-1]</code> est trié.   </p>
+<div class="admonition info">
+<p class="admonition-title">Invariant</p>
+<p>À la i-ème itération, le sous tableau <code>t[0..i-1]</code> est trié.   </p>
+</div>
 <p>De manière intuitive, on comprend qu'à chaque tour de boucle on se rapproche de la solution recherchée. On agrandit la zone triée de un élément. Exhiber une telle propriété (invariant de boucle) permet de conclure à la correction partielle de l'algorithme.  </p>
 <p>La combinaison de la correction partielle avec la terminaison permet de conclure à la <strong>correction totale de l'algorithme</strong> <code>Tri_insertion</code>.</p>
 <h2 id="efficacite-complexite-temporelle-de-lalgorithme">Efficacité: complexité temporelle de l'algorithme<a class="headerlink" href="#efficacite-complexite-temporelle-de-lalgorithme" title="Permanent link">⚓︎</a></h2>
