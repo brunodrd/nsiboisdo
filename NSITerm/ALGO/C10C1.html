@@ -2283,14 +2283,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
-          Chap. X Algorithmique - diviser pour régner
+          Chap. X Algorithmique
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_11">
           <span class="md-nav__icon md-icon"></span>
-          Chap. X Algorithmique - diviser pour régner
+          Chap. X Algorithmique
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2348,8 +2348,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#application-2-le-tri-fusion-voir-tp" class="md-nav__link">
-    Application 2: le tri fusion (voir TP)
+  <a href="#application-2-le-tri-fusion-voir-tp-1" class="md-nav__link">
+    Application 2: le tri fusion (voir TP 1)
   </a>
   
 </li>
@@ -3206,10 +3206,6 @@
 
 
 <h1 id="diviser-pour-regner">DIVISER POUR REGNER<a class="headerlink" href="#diviser-pour-regner" title="Permanent link">⚓︎</a></h1>
-<div class="py_mk_ide"  data-max="5"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f" class="comment">###</span><div class="line" id="editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f"></div><div id="term_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f" class="py_mk_hide">bksl-nl</span>            <button class="tooltip" onclick='check("editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">5/5</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f","chap1/maximum")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
-<p><span id="content_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f" class="py_mk_hide">def somme(n):bksl-nl    """bksl-nl    Renvoie la somme des n entiers compris entre 0 et n;bksl-nl    n: entier naturel positifbksl-nl    """bksl-nl    s = 0bksl-nl    for i in range(n):bksl-nl        s += ibksl-nl   return sbksl-nl bksl-nl# testbksl-nlassert somme(4) === 10bksl-nlbksl-nl</span><span id="corr_content_editor_245846167994bbe23a4ce2b6cd6bb2885e2fc33f" class="py_mk_hide" data-strudel="">bksl-nl</span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
 <h2 id="lapproche-diviser-pour-regner">L'approche diviser pour régner<a class="headerlink" href="#lapproche-diviser-pour-regner" title="Permanent link">⚓︎</a></h2>
 <p>L'idée est de séparer le problème initial en plusieurs problèmes semblables mais ayant une taille plus petite, puis de résoudre (<em>de façon récursive</em>) ces problèmes et enfin de combiner les solutions obtenues pour obtenir la solution du problème initial.  </p>
 <p>Il y aura donc trois étapes essentielles:  </p>
@@ -3220,7 +3216,7 @@
 </ul>
 <h2 id="application-1-la-recherche-dichotomique">Application 1: la recherche dichotomique<a class="headerlink" href="#application-1-la-recherche-dichotomique" title="Permanent link">⚓︎</a></h2>
 <h3 id="le-probleme">Le problème<a class="headerlink" href="#le-probleme" title="Permanent link">⚓︎</a></h3>
-<p>Rappel du problème de 1re NSI: il s'agit de déterminer si une valeur <code>v</code> appartient à un tableau <code>t</code> trié. Ce problème a été résolu de manière itérative (voir <a href="https://brunodrd.github.io/book/algo/recherche_dico_v2.html">cours 1re sur github</a>).<br />
+<p>Rappel du problème de 1re NSI: il s'agit de déterminer si une valeur <code>v</code> appartient à un tableau <code>t</code> trié. Ce problème a été résolu de manière itérative (voir <a href="https://brunodrd.github.io/documentation/recherche/">cours 1re sur github</a>).<br />
 Adoptons une approche <em>diviser pour régner</em>.</p>
 <p><strong>Diviser</strong><br />
 Comme le tableau est trié, on peut le "<em>couper</em>" en deux pour y effectuer la recherche. Si on travaille avec des indices <code>g</code> et <code>d</code>, le milieu se situe à <span class="arithmatex">\(m=\dfrac{g+d}{2}\)</span>.  </p>
@@ -3298,8 +3294,11 @@ Lors d'une recherche, si <code>v</code> est trouvé, on renvoie son indice. Dans
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>5
 None
 </code></pre></div></td></tr></table></div>
-<p><em>Remarque</em>: le programme termine car on peut exhiber un <strong>variant</strong> de boucle: <span class="arithmatex">\(d-g\)</span>. Il s'agit d'une grandeur entière, strictement positive et qui décroit à chaque appel récursif (voir illustration ci-dessus).</p>
-<h2 id="application-2-le-tri-fusion-voir-tp">Application 2: le tri fusion (voir TP)<a class="headerlink" href="#application-2-le-tri-fusion-voir-tp" title="Permanent link">⚓︎</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Remarque</p>
+<p>Le programme termine car on peut exhiber un <strong>variant</strong> <span class="arithmatex">\(d-g\)</span>. Il s'agit d'une grandeur entière, strictement positive et qui décroit à chaque appel récursif (voir illustration ci-dessus).</p>
+</div>
+<h2 id="application-2-le-tri-fusion-voir-tp-1">Application 2: le tri fusion (voir TP 1)<a class="headerlink" href="#application-2-le-tri-fusion-voir-tp-1" title="Permanent link">⚓︎</a></h2>
 <h3 id="le-probleme-initial">Le problème initial<a class="headerlink" href="#le-probleme-initial" title="Permanent link">⚓︎</a></h3>
 <p>Il s'agit de trier une liste chaînée d'entiers, par ordre croissant. Plusieurs méthodes de tri peuvent être envisagées (<em>tri par sélection</em>, <em>tri par insertion</em>). On choisit ici une approche <em>diviser pour régner</em>.<br />
 La liste sont des instances de la classe <code>Cell</code> vue au premier trimestre.</p>
@@ -3322,7 +3321,7 @@ La liste sont des instances de la classe <code>Cell</code> vue au premier trimes
 <h3 id="approche-diviser-pour-regner">Approche diviser pour régner<a class="headerlink" href="#approche-diviser-pour-regner" title="Permanent link">⚓︎</a></h3>
 <h4 id="diviser">Diviser<a class="headerlink" href="#diviser" title="Permanent link">⚓︎</a></h4>
 <p>Il s'agit dans un premier temps de "<em>couper</em>" la liste originale en deux listes de taille égale (ou presque dans le cas d'un nombre impair d'éléments).<br />
-Il existe plusieurs façon de résoudre ce problème (voir TP), on présente ici une version ne nécessitant pas de calcul de taille de liste au préalable.</p>
+Il existe plusieurs façon de résoudre ce problème (voir TP 1), on présente ici une version ne nécessitant pas de calcul de taille de liste au préalable.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
