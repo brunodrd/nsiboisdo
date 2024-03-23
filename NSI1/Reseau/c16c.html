@@ -3291,9 +3291,13 @@
 <p>Maintenant que nos ordinateurs sont reliés par l'intermédiaire d'un switch (ou d'un concentrateur wifi), imaginons que l'ordinateur A "souhaite" entrer en communication avec l'ordinateur C. Quand vous désirez communiquer avec quelqu'un par voie postale, il est nécessaire d'écrire l'adresse de cette personne sur une enveloppe, à chaque habitation correspond donc une adresse postale. Et bien c'est un peu la même chose pour les ordinateurs en réseau, chaque machine possède une adresse. Pendant très longtemps il a existé différentes technologies de réseau et donc différents types d'adresse. Aujourd'hui, on trouve presque exclusivement qu'un seul type d'adresse : les adresses IP (nous étudierons donc uniquement ce type d'adresse).</p>
 <p>Les adresses IP sont de la forme : "a.b.c.d", avec a, b, c et d compris entre 0 et 255 (a, b, c et d sont codés sur 1 octet). Voici un exemple d'adresse IP : <code>192.168.0.1</code></p>
 <p>Une partie de l’adresse IP permet d’identifier le réseau auquel appartient la machine et l’autre partie de l’adresse IP permet d’identifier la machine sur ce réseau.</p>
-<p><em>Exemple</em><br />
-Soit un ordinateur A ayant pour adresse IP 192.168.2.1 Dans cette adresse IP "192.168.2" permet d’identifier le réseau (on dit que la machine A appartient au réseau ayant pour adresse 192.168.2.0, pour trouver l'adresse réseau il suffit de remplacer la partie "machine" de cette adresse IP par un ou des 0) et "1" permet d’identifier la machine sur le réseau.</p>
-<p>Toutes les machines appartenant au même réseau devront posséder la même adresse réseau (sinon elles ne pourront pas communiquer ensemble, même si elles sont bien physiquement reliées).</p>
+<div class="admonition tip">
+<p class="admonition-title">Exemple</p>
+<p>Soit un ordinateur A ayant pour adresse IP <code>192.168.2.1</code>.<br />
+Dans cette adresse IP, <code>192.168.2</code> permet d’identifier le réseau (on dit que la machine A appartient au réseau ayant pour adresse <code>192.168.2.0</code>). Pour trouver l'adresse réseau il suffit de remplacer la partie <em>machine</em> de cette adresse IP par un ou des 0.<br />
+L'indication <code>.1</code> permet d’identifier la machine sur le réseau.</p>
+</div>
+<p>Toutes les machines appartenant au même réseau devront posséder la même adresse réseau (sinon elles ne pourront pas communiquer, même si elles sont bien physiquement reliées).</p>
 <p>Prenons 2 exemples, soit 2 machines A et B en réseau :</p>
 <ul>
 <li>la machine A a pour adresse IP <code>192.168.2.5</code> et la machine B a pour adresse IP <code>192.168.2.8</code>. Les 3 premiers octets sont bien identiques ("192.168.2"), A et B ont donc la même adresse réseau "192.168.2.0". Ces 2 machines pourront donc communiquer;</li>
@@ -3308,14 +3312,19 @@ Soit un ordinateur A ayant pour adresse IP 192.168.2.1 Dans cette adresse IP "19
 <li>si ce nombre est 24 (exemple : <code>192.168.2.1/24</code>), cela signifie que pour une adresse a.b.c.d/24, les parties a, b et c sont consacrées à l'adresse réseau, le reste (d) est consacré à la partie machine de l'adresse IP. On aura donc une adresse réseau de la forme a.b.c.0</li>
 </ul>
 </div>
-<p>Vous avez sans doute déjà compris que le 8 signifie que les 8 premiers bits (le premier octet) sont consacrés à la partie réseau =&gt; a, que le 16 signifie que les 16 premiers bits (les deux premiers octets) sont consacrés à la partie réseau =&gt; a.b et que le 24 signifie que les 24 premiers bits (les 3 premiers octets) sont consacrés à la partie réseau =&gt; a.b.c</p>
+<p>Vous avez sans doute déjà compris que:  </p>
+<ul>
+<li>le 8 signifie que les 8 premiers bits (le premier octet) sont consacrés à la partie réseau =&gt; a;</li>
+<li>que le 16 signifie que les 16 premiers bits (les deux premiers octets) sont consacrés à la partie réseau =&gt; a.b;</li>
+<li>que le 24 signifie que les 24 premiers bits (les 3 premiers octets) sont consacrés à la partie réseau =&gt; a.b.c  </li>
+</ul>
 <p>En fait, il est possible d'avoir autre chose que /8, /16 ou /24 (on peut par exemple trouver /10 ou /17...), mais ces cas font intervenir la notion de masque de sous-réseau qui n'est pas au programme de NSI.</p>
 <p>Il est à noter que certaines adresses IP ne sont pas disponibles :</p>
 <ul>
 <li>une adresse réseau ne peut pas être attribuée à une machine, par exemple aucune machine ne pourra avoir l'adresse IP 192.168.1.0/24 ou encore l'adresse IP 25.0.0.0/8;</li>
-<li>les adresses IP qui ont tous les octets de la partie "machines" de l'adresse IP à 255 ne sont pas utilisables (ce sont des adresses de <em>broadcast</em> qui permettent d'envoyer des données vers toutes les machines d'un réseau), exemples : <code>192.167.24.255/24</code>, <code>172.28.255.255/16</code> ou encore <code>4.255.255.255/8</code> sont des adresses de broadcast</li>
+<li>les adresses IP qui ont tous les octets de la partie <em>machine</em> de l'adresse IP à 255 ne sont pas utilisables (ce sont des adresses de <em>broadcast</em> qui permettent d'envoyer des données vers toutes les machines d'un réseau), exemples : <code>192.167.24.255/24</code>, <code>172.28.255.255/16</code> ou encore <code>4.255.255.255/8</code> sont des adresses de broadcast</li>
 </ul>
-<div class="admonition tip">
+<div class="admonition info">
 <p class="admonition-title">IPv6</p>
 <p>Les adresses IP que nous avons étudiées ci-dessus sont appelées <em>adresse IPv4</em> (adresse IP version  4). Une nouvelle norme est en train de remplacer progressivement les adresses IPv4 : les adresses IPv6 (adresse IP  version 6). Nous n'étudierons pas cette nouvelle norme ici, mais voici tout de même un exemple d'adresse IPv6 : <em>2001:0db8:0000:85a3:0000:0000:ac1f:8001</em></p>
 </div>
