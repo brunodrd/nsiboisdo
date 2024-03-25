@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp-faire-tomber-r2d2-fevrier-2023" class="md-skip">
+        <a href="#tp-2-tomber-r2d2" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3332,7 +3332,7 @@
                   
 
 
-<h1 id="tp-faire-tomber-r2d2-fevrier-2023">TP FAIRE TOMBER R2D2 - février 2023<a class="headerlink" href="#tp-faire-tomber-r2d2-fevrier-2023" title="Permanent link">⚓︎</a></h1>
+<h1 id="tp-2-tomber-r2d2">TP 2 - TOMBER R2D2<a class="headerlink" href="#tp-2-tomber-r2d2" title="Permanent link">⚓︎</a></h1>
 <h2 id="le-probleme-a-resoudre">Le problème à résoudre<a class="headerlink" href="#le-probleme-a-resoudre" title="Permanent link">⚓︎</a></h2>
 <p>On souhaite faire tomber R2D2 ! On peut remarquer qu'il s'agit en fait d'effectuer une rotation d'un quart de tour (ou 90°) d'une image <em>carrée</em>, par exemple de 512 pixels sur 512 pixels.<br />
 <img alt="r2d2" src="img/vignette_r2d2.png" /><img alt="r2d2_tourne" src="img/vignette_R2D2_90.png" /></p>
@@ -3354,7 +3354,7 @@ l’approche « diviser pour régner »:  </p>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;img/R2D2.png&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;R2D2.png&quot;</span><span class="p">)</span>
 <span class="n">largeur</span><span class="p">,</span> <span class="n">hauteur</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span>
 <span class="n">pix</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -3376,7 +3376,7 @@ l’approche « diviser pour régner »:  </p>
 </ul>
 <p>On peut visualiser ces diverses opérations sur le schéma ci-dessous
 <img alt="schema" src="img/schema_1.png" /></p>
-<p>La résolution s'appuiera essentiellement sur deux fonctions auxiliaires (<em>dont on trouvera les signatures ci-dessous</em>): <code>rotation_aux</code> et <code>echanger_quadrant</code>.</p>
+<p>La résolution s'appuiera essentiellement sur une fonction auxiliaire (<em>dont on trouvera la signature ci-dessous</em>): <code>rotation_aux</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3388,44 +3388,24 @@ l’approche « diviser pour régner »:  </p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rotation_aux</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rotation_aux</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Découpe une image en quatre et effectue la rotation de chacun des morceaux.</span>
 <span class="sd">    Puis, effectue une permutation circulaire des quadrants.</span>
 <span class="sd">    px: &quot;tableau de pixels&quot; (type PixelAcess);</span>
 <span class="sd">    coord: coordonnées du coin supérieur gauche de l&#39;image (tuple);</span>
 <span class="sd">    t: taille de l&#39;image (int).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">coord</span>
     <span class="c1"># Découpage et rotation </span>
     <span class="c1"># À compléter</span>
 
     <span class="c1"># Déplacement des morceaux</span>
     <span class="c1"># À compléter</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">echanger_quadrant</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">coord_orig</span><span class="p">,</span> <span class="n">coord_dest</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Échange les pixels d&#39;un quadrant origine avec ceux d&#39;un quadrant de destination. Ne renvoie rien.</span>
-<span class="sd">    px: &quot;tableau de pixels&quot; (PixelAccess)</span>
-<span class="sd">    coord_orig: coordonnées du coin supérieur gauche du quadrant d&#39;origine (tuple);</span>
-<span class="sd">    coord_dest: coordonnées du coin supérieur gauche du quadrant de destination (tuple);</span>
-<span class="sd">    t: taille du quadrant.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">coord_orig</span>
-    <span class="n">xf</span><span class="p">,</span> <span class="n">yf</span> <span class="o">=</span> <span class="n">coord_dest</span>
-    <span class="c1"># À compléter</span>
-</code></pre></div></td></tr></table></div>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
-<p>Après avoir compléter les deux fonctions auxiliaires ci-dessus, tester votre code en réalisant l'appel <code>tomber_R2D2("img/R2D2.png")</code>.</p>
+<p>Après avoir compléter la fonction auxiliaire ci-dessus, tester votre code en réalisant l'appel <code>tomber_R2D2("R2D2.png")</code>.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3459,7 +3439,7 @@ l’approche « diviser pour régner »:  </p>
         <span class="n">rotation_aux</span><span class="p">(</span><span class="n">pix</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">larg</span><span class="p">)</span>
         <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tomber_R2D2</span><span class="p">(</span><span class="s2">&quot;img/R2D2.png&quot;</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tomber_R2D2</span><span class="p">(</span><span class="s2">&quot;R2D2.png&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 
 
