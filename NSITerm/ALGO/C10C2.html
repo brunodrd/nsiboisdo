@@ -2524,8 +2524,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applications" class="md-nav__link">
-    Applications
+  <a href="#application-detection-de-cycle-dans-un-graphe-non-oriente" class="md-nav__link">
+    Application: détection de cycle dans un graphe non orienté
   </a>
   
 </li>
@@ -3358,7 +3358,11 @@
 <img alt="g2" src="img/g02.png" /><br />
 <img alt="g3" src="img/g03.png" /></p>
 <h3 id="le-parcours-en-profondeur">Le parcours en profondeur<a class="headerlink" href="#le-parcours-en-profondeur" title="Permanent link">⚓︎</a></h3>
-<p>Les deux idées avancées au paragraphe précédent sont à la base d'un algorithme fondamental pour le parcours des graphes: le <strong>parcours en profondeur d'abord</strong> ou Depth-first search (DFS) en anglais. Il s'applique à n'importe quel graphe et permet de trouver tous les sommets joignables depuis un sommet de départ. En d'autres termes, il permet de dire s'il existe un chemin entre deux sommets.  </p>
+<p>Les deux idées avancées au paragraphe précédent sont à la base d'un algorithme fondamental pour le parcours des graphes: le <strong>parcours en profondeur d'abord</strong> ou Depth-first search (DFS) en anglais. </p>
+<div class="admonition tip">
+<p class="admonition-title">À savoir</p>
+<p>Le parcours en profondeur s'applique à n'importe quel graphe et permet de trouver tous les sommets joignables depuis un sommet de départ. En d'autres termes, il permet de dire s'il existe un chemin entre deux sommets.  </p>
+</div>
 <p>Dans sa forme la plus classique, il s'agit d'un algorithme récursif très simple:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3391,7 +3395,7 @@ Début
 Fin
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
-<p class="admonition-title">Travail 1</p>
+<p class="admonition-title">À faire</p>
 <p>Implémenter cet algorithme en python.  <em>On utilisera l'interface de la classe</em> <code>GrapheOriente</code> <em>du chapitre</em> XIII <a href="https://brunodrd.github.io/nsiboisdo/NSITerm/SD/C13E1b.html">graphes</a>, <em>notamment pour avoir les voisins d'un sommet</em> <code>s</code>. </p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">graphes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -3407,8 +3411,8 @@ Fin
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_p</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">deja_vu</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    parcours récursivement, en profondeur, le graphe G, depuis le sommet s.</span>
-<span class="sd">    G: graphe</span>
+<span class="sd">    parcours récursivement, en profondeur, le graphe g, depuis le sommet s.</span>
+<span class="sd">    g: graphe</span>
 <span class="sd">    s: sommet</span>
 <span class="sd">    deja_vu: dictionnaire de booléen caractérisant le statut d&#39;un sommet</span>
 <span class="sd">            (déjà visité ou non).</span>
@@ -3434,7 +3438,7 @@ Fin
     <span class="c1"># A compléter</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
-<p class="admonition-title">Travail 2</p>
+<p class="admonition-title">À faire</p>
 <p>Soit le graphe suivant  </p>
 <p><img alt="graphe1" src="img/graphe1_b.png" /></p>
 <p>Existe-t-il un chemin entre D et C? entre A et E? entre E et G? Pour répondre à ces questions, on demande:</p>
@@ -3445,9 +3449,11 @@ Fin
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># À compléter</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># À compléter</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">GrapheOriente</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="c1"># Ajout des arcs</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TEST</span>
@@ -3524,16 +3530,27 @@ Début
     Fin Tant que
 Fin
 </code></pre></div></td></tr></table></div>
-<p>Déroulement de l'agorithme sur le graphe ci-après où le sommet de départ est 's':  </p>
+<p>Déroulement de l'agorithme sur le graphe ci-après où le sommet de départ est <code>s</code>. Le code des couleurs est le suivant:  </p>
+<ul>
+<li>blanc (avec le symbole <span class="arithmatex">\(\infty\)</span>): sommet non découvert;</li>
+<li>gris: sommet déjà découvert mais dont la liste des voisins n'est pas entièrement examinée;</li>
+<li>noir: sommet dont la liste des voisins a été entièrement examinée.</li>
+</ul>
+<p>On remarque que la file ne contient que des sommets gris.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Dans le schéma proposé, on enfile par la droite et on défile par la gauche.</p>
+</div>
 <p><img alt="cormen" src="img/cormen_b2.png" /></p>
+<p><em>Schéma extrait du Cormen - Algorithmique, page 551, 3ème édition (française) 2010</em></p>
 <div class="admonition question">
-<p class="admonition-title">Travail 3</p>
-<p>Dérouler cet algorithme à la main sur le graphe ci-après:</p>
+<p class="admonition-title">À faire</p>
+<p>Dérouler cet algorithme à la main sur le graphe ci-après, avec départ au sommet <code>B</code>.</p>
 <p><img alt="graphe_3" src="img/graphe3.png" /></p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">Travail 4</p>
-<p>Compléter l'implémentation en python de cet algorithme.</p>
+<p class="admonition-title">À faire</p>
+<p>Compléter l'implémentation en python de cet algorithme. Ne pas hésiter à consulter la documentation du module <code>Queue</code> de Python.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3551,11 +3568,13 @@ Fin
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
 
 
 <span class="k">def</span> <span class="nf">parcours_l</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implémentation du parcours en largeur du graphe g depuis le sommet s.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">F</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
     <span class="n">dist</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
@@ -3595,8 +3614,7 @@ Fin
 
 <span class="n">parcours_l</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">⚓︎</a></h2>
-<h3 id="detection-de-cycle-dans-un-graphe-non-oriente">Détection de cycle dans un graphe non orienté<a class="headerlink" href="#detection-de-cycle-dans-un-graphe-non-oriente" title="Permanent link">⚓︎</a></h3>
+<h2 id="application-detection-de-cycle-dans-un-graphe-non-oriente">Application: détection de cycle dans un graphe non orienté<a class="headerlink" href="#application-detection-de-cycle-dans-un-graphe-non-oriente" title="Permanent link">⚓︎</a></h2>
 <p>Le parcours en profondeur permet de détecter la présence de cycle dans un graphe. On étudie ici le cas d'un graphe non orienté, le cas d'un graphe orienté sera traité en exercice.  </p>
 <p>Le graphe comporte un cycle si on traite un sommet voisin <strong>qui a déjà été rencontré et qui n'est pas le parent du sommet</strong> en cours d'exploration.  On reprend le code du parcours en profondeur en:</p>
 <ul>
@@ -3633,7 +3651,7 @@ Fin
             <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
-<p>Un fonction <code>detection_cycle</code> permet de mener une recherche à partir de n'importe quel sommet.</p>
+<p>Une fonction <code>detection_cycle</code> permet de mener une recherche à partir de n'importe quel sommet.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3649,7 +3667,7 @@ Fin
     <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Exemples</strong></p>
-<p><img alt="graphe3" src="img/graphe3.png" /><img alt="graphe2" src="img/graphe2.png" /></p>
+<p><img alt="graphe3" src="img/graphe3.png" /> <img alt="graphe2" src="img/graphe2.png" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3691,11 +3709,7 @@ Fin
 <p>Les graphes <code>g1</code> et <code>g2</code> comportent-ils des cycles ? Appliquer "à la main" l'algorithme de détection sur g1. Vérifier le résultat dans une cellule Jupyter.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">detection_cycle</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
-</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">detection_cycle</span><span class="p">(</span><span class="n">g2</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>False
 </code></pre></div></td></tr></table></div>
 <h2 id="references">Références<a class="headerlink" href="#references" title="Permanent link">⚓︎</a></h2>
 <ul>
