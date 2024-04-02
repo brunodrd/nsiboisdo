@@ -3644,7 +3644,11 @@ Fin
 </code></pre></div></td></tr></table></div>
 <h2 id="application-detection-de-cycle-dans-un-graphe-non-oriente">Application: détection de cycle dans un graphe non orienté<a class="headerlink" href="#application-detection-de-cycle-dans-un-graphe-non-oriente" title="Permanent link">⚓︎</a></h2>
 <p>Le parcours en profondeur permet de détecter la présence de cycle dans un graphe. On étudie ici le cas d'un graphe non orienté, le cas d'un graphe orienté sera traité en exercice.  </p>
-<p>Le graphe comporte un cycle si on traite un sommet voisin <strong>qui a déjà été rencontré et qui n'est pas le parent du sommet</strong> en cours d'exploration.  On reprend le code du parcours en profondeur en:</p>
+<div class="admonition info">
+<p class="admonition-title">Précision</p>
+<p>Le graphe comporte un cycle si on traite un sommet voisin <strong>qui a déjà été rencontré et qui n'est pas le parent du sommet</strong> en cours d'exploration.</p>
+</div>
+<p>On reprend le code du parcours en profondeur en:</p>
 <ul>
 <li>y ajoutant un dictionnaire <code>parent</code> qui garde une trace du parent de chaque sommet;</li>
 <li>renvoyant <code>True</code> si un cycle a été détecté, <code>False</code> sinon.</li>
