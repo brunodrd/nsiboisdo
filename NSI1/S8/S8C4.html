@@ -1502,6 +1502,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#algorithme" class="md-nav__link">
+    Algorithme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation-en-python" class="md-nav__link">
     Implémentation en python
   </a>
@@ -3425,7 +3432,17 @@
 <li>sinon, on la restreint à la partie droite de <span class="arithmatex">\(t\)</span>.</li>
 <li>ou alors on a trouvé <span class="arithmatex">\(x\)</span></li>
 </ul>
-<p>En répétant ce procédé on divise la zone de recherche par deux à chaque fois. On peut alors représenter la situation avec le schéma ci-dessous. Il s'agit d'une application du principe <em>diviser pour régner</em> qui sera vu en terminale. </p>
+<p>En répétant ce procédé on divise la zone de recherche par deux à chaque fois. On peut alors représenter la situation avec le schéma ci-dessous. Il s'agit d'une application du principe <em>diviser pour régner</em> qui sera vu en terminale.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code> 0              g        d             n-1
++--------------+----------+--------------+
+| éléments &lt; x |  ....    | éléments &gt; x | 
++--------------+----------+--------------+
+</code></pre></div></td></tr></table></div>
+<h2 id="algorithme">Algorithme<a class="headerlink" href="#algorithme" title="Permanent link">⚓︎</a></h2>
+<p>Pseudo-code de l'algorithme de recherche dichotomique  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3446,26 +3463,8 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code> 0              g        d             n-1
-+--------------+----------+--------------+
-| éléments &lt; x |  ....    | éléments &gt; x | 
-+--------------+----------+--------------+
- ```
-
-## Algorithme
-
-```bash
--------------------------------------
-fonction recherche_dichotomique(x, t)
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>-------------------------------------
+Algorithme recherche_dichotomique
 -------------------------------------
     Entrées: 
         tableau t de taille n; 
@@ -3499,8 +3498,10 @@ Renvoyer non trouvé
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
-<p>!!! "À faire"
-    Implémenter l'algorithme de la recherche dichotomique en python, en complétant le code ci-dessous.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Implémenter l'algorithme de la recherche dichotomique en python, en complétant le code ci-dessous.</p>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3588,8 +3589,10 @@ Ensuite on compare <span class="arithmatex">\(x\)</span> à <code>t[m]</code>. S
 </tr>
 </tbody>
 </table>
-<p>Soit <code>t = [1,7,8,9,12,15,15,22,30,31]</code>. On recherche <span class="arithmatex">\(x=15\)</span> dans <code>t</code>.<br />
-Compléter le tableau ci-dessus. Conclure</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Soit <code>t = [1,7,8,9,12,15,15,22,30,31]</code>. On recherche <span class="arithmatex">\(x=15\)</span> dans <code>t</code>.  Compléter le tableau ci-dessus et conclure.</p>
+</div>
 
 
 
