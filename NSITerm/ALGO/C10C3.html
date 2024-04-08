@@ -3447,9 +3447,149 @@ Renvoyer indice
 <img alt="bmh" src="img/BMH.png" /></p>
 <p>Quelle amélioration essentielle est apportée? Proposer une fonction qui permet de calculer le décalage amélioré.</p>
 </div>
-<h1 id="algorithme-de-boyer-moore">Algorithme de Boyer-Moore<a class="headerlink" href="#algorithme-de-boyer-moore" title="Permanent link">⚓︎</a></h1>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<p>Dans ce cas, l'efficacité est améliorée: on effectue moins de tests. Cela est dû au fait que le décalage n'est plus forcément de 1.  </p>
+<p>On note par ailleurs, que la recherche de correspondance:  </p>
+<ul>
+<li>se fait de la droite vers la gauche;</li>
+<li>fait intervenir une table de décalage (<em>dite table de Horspool</em>) qui donne du décalage à appliquer au motif lors d'une discordance.</li>
+</ul>
+<p>L'algorithme de construction de la table de Horspool est le suivant:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>+-------------------------+
+|Algorithme table_decalage|
++-------------------------+
+Entrée: &#39;motif&#39;, chaîne de caractère
+Sortie: dictionnaire &#39;table&#39; (tableau associatif) ayant des paires (caractère: décalage)
+
+    Initialiser tous les éléments du tableau avec la longueur m du motif
+    Pour i allant de 0 à m-2:
+        table[i] = m - 1 - i
+    Renvoyer table
 </code></pre></div></td></tr></table></div>
+<p>L'implémentation en python ne pose aucune difficulté, de même que le test associé.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">decalage</span><span class="p">(</span><span class="n">motif</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construit la table de Horspool correspondant à &#39;motif&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Habituellement cette table est indexée par les caractères de l&#39;alphabet utilisé.</span>
+    <span class="c1"># On peut commencer à partir du code ASCII 32 (caractères imprimables)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span>
+    <span class="n">table_decalage</span> <span class="o">=</span> <span class="p">{</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">m</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">table_decalage</span><span class="p">[</span><span class="n">motif</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">table_decalage</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">caractere</span><span class="p">,</span> <span class="n">decalage_</span> <span class="ow">in</span> <span class="n">decalage</span><span class="p">(</span><span class="s2">&quot;banane&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">caractere</span> <span class="ow">in</span> <span class="s2">&quot;banane&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">caractere</span><span class="p">,</span> <span class="n">decalage_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">decalage</span><span class="p">(</span><span class="s1">&#39;banane&#39;</span><span class="p">)[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>a 2
+b 5
+e 6
+n 1
+x 6
+</code></pre></div></td></tr></table></div>
+<p>L'algorithme de Boyer Moore Horspool peut être décrit avec le pseudo code suivant:  </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>+-----------------------------------+
+| Algorithme de Boyer Moore Horspool|
++-----------------------------------+
+Entrées: texte, motif
+Sortie: liste des indices de coïncidence
+
+    table &lt;- table de décalage de Horspool de motif /* prétraitement */
+    indices &lt;- liste vide
+    m &lt;- longueur de motif
+    n &lt;- longueur de texte
+    i &lt;- m-1 /* index pointant la fin du motif */
+    Tant que i &lt;= n-1
+        k &lt;- 0 /* nombre de caractères coïncidents */
+        Tant que k &lt;= m-1 ET motif[m-1-k] = texte[i-k]
+            k &lt;- k+1
+        Si k = m /* Coïncidence */
+            Sauvegarder i-m+1 dans indices
+            i &lt;- i+1
+        Sinon
+            i &lt;- i + table[texte[i]]
+    Renvoyer indices
+</code></pre></div></td></tr></table></div>
+L'implémentation en python ne pose pas de problème particulier.        </p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Implémenter cet algorithme en python. Tester en cherchant la chaîne <code>Julien tremblait</code> dans <code>le rouge et le noir</code> de Stendhal. Discuter des performances.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bmh</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span> <span class="n">motif</span><span class="p">):</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">decalage</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># À compléter</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">bmh</span><span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">,</span> <span class="s2">&quot;bra&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[1, 8]
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;LeRougeEtLeNoir.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">stendhal</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">fichier</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">stendhal</span> <span class="o">=</span> <span class="n">stendhal</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Discussion</span>
+</code></pre></div></td></tr></table></div>
+<h1 id="algorithme-de-boyer-moore">Algorithme de Boyer-Moore<a class="headerlink" href="#algorithme-de-boyer-moore" title="Permanent link">⚓︎</a></h1>
 
 
 
