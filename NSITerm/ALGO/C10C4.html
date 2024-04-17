@@ -3564,6 +3564,57 @@ Sortie:
 <p class="admonition-title">À faire</p>
 <p>Implémenter ces algorithmes en python</p>
 </div>
+<h1 id="un-exemple-en-detail-le-rendu-de-monnaie">Un exemple en détail: le rendu de monnaie<a class="headerlink" href="#un-exemple-en-detail-le-rendu-de-monnaie" title="Permanent link">⚓︎</a></h1>
+<p>On l'a vu en activité la stratégie gloutonne, bien qu'intéressante, ne donne pas toujours une solution optimale, notamment si le système de pièces n'est canonique.  </p>
+<p>Essayons un autre algorithme, récursif, qui donnerait la solution optimale quelque soit le système monétaire utilisé. Le cas de base est trivial.  </p>
+<ul>
+<li>Si la somme à rendre est nulle, aucune pièce n'est nécessaire.</li>
+<li>Sinon, on considère chaque pièce <span class="arithmatex">\(p\)</span> et on calcule récursivement le nombre de pièces minimal pour rendre <span class="arithmatex">\((somme-p)\)</span></li>
+</ul>
+<p>L'implémentation pourrait être:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">somme</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renvoie le nombre de pieces minimal &#39;nb_piece&#39; nécessaire pour former &#39;somme&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Cas de base</span>
+    <span class="k">if</span> <span class="n">somme</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">nb_piece</span> <span class="o">=</span> <span class="n">somme</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pieces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">somme</span><span class="p">:</span> <span class="c1"># on peut prendre la pièces</span>
+                <span class="n">nb_piece</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">nb_pieces</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">rendu</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">somme</span><span class="o">-</span><span class="n">p</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">nb_piece</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">rendu</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2
+</code></pre></div></td></tr></table></div>
+<p>Les performances de ce code sont épouvantables. Le problème vient des nombreux appels récursifs avec les mêmes paramètres.  Les sous problèmes se chevauchent: essayons la programmation dynamique, où une idée forte est la mémoïsation. On calcule une fois chaque sous problème et on sauvegarde le résultat dans un tableau.</p>
+<div class="py_mk_ide"  data-max="4"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_bf84a386204f6e260da63e65304ee8e5121367d0" class="comment">###</span><div class="line" id="editor_bf84a386204f6e260da63e65304ee8e5121367d0"></div><div id="term_editor_bf84a386204f6e260da63e65304ee8e5121367d0"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_bf84a386204f6e260da63e65304ee8e5121367d0","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_bf84a386204f6e260da63e65304ee8e5121367d0" class="py_mk_hide">assert rendudynamique([1, 2, 5, 10, 20], 100) == 5bksl-nlassert rendudynamique([1, 2], 100) == 50bksl-nl</span>            <button class="tooltip" onclick='check("editor_bf84a386204f6e260da63e65304ee8e5121367d0","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">4/4</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_bf84a386204f6e260da63e65304ee8e5121367d0","C10/rendudyn")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_bf84a386204f6e260da63e65304ee8e5121367d0').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_bf84a386204f6e260da63e65304ee8e5121367d0" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_bf84a386204f6e260da63e65304ee8e5121367d0")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_bf84a386204f6e260da63e65304ee8e5121367d0")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_bf84a386204f6e260da63e65304ee8e5121367d0" class="py_mk_hide">def rendudynamique(pieces, somme):bksl-nl    """bksl-nl    Renvoie le nombre de pieces minimal 'nbpy-undpiece' nécessaire pour former 'somme'bksl-nl    """bksl-nl    nbpy-undpiece = [0] py-str (somme+1) # initialisation du cachebksl-nl    for n in range(1, somme+1): # on effectue le calcul de tous les ss pb jusqu'à sommebksl-nl        nbpy-undpiece[n] = nbksl-nl        for p in pieces:bksl-nl            if p &lt;= n:bksl-nl                nbpy-undpiece[n] = min(..., ...)bksl-nl    return nbpy-undpiece[somme]bksl-nl</span><span id="corr_content_editor_bf84a386204f6e260da63e65304ee8e5121367d0" class="py_mk_hide" data-strudel="">def rendudynamique(pieces, somme):bksl-nl    """bksl-nl    Renvoie le nombre de pieces minimal 'nbpy-undpiece' nécessaire pour former 'somme'bksl-nl    """bksl-nl    nbpy-undpiece = [0] py-str (somme+1) # initialisation du cachebksl-nl    for n in range(1, somme+1): # on effectue le calcul de tous les ss pb jusqu'à sommebksl-nl        nbpy-undpiece[n] = nbksl-nl        for p in pieces:bksl-nl            if p &lt;= n:bksl-nl                nbpy-undpiece[n] = min(nbpy-undpiece[n], 1 + nbpy-undpiece[n-p])bksl-nl    return nbpy-undpiece[somme]bksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Commentaires</strong>  </p>
+<p>Le système est composé de pièces <span class="arithmatex">\(\left[1,\cdots p_i, \cdots ,p_{max}\right]\)</span>.  </p>
+<p>On part de l'hypothèse où on sait rendre de façon optimale toutes les valeurs strictement inférieures à <code>somme</code>. Pour rendre <code>somme</code>, il faut au moins une pièce, à prendre parmi les pièces disponibles du système monétaire. Une fois cette pièce choisie, la somme restante est inférieure (<em>strictement</em>) à <code>somme</code>, donc on sait la rendre de façon optimale. Il suffit d'essayer toutes possibilités parmi les pièces du système proposé:  </p>
+<p><span class="arithmatex">\(nb\_ piece[somme]=1+min(nb\_piece[somme-p_i]\)</span> pour <span class="arithmatex">\(p_i\in \left[1\cdots p_{max}\right]\)</span></p>
+<p><strong>Z</strong></p>
+<div class="admonition question">
+<p class="admonition-title">À faire *** </p>
+<p>Par ailleurs, il serait intéressant d'avoir en plus les pièces choisies. Sauriez-vous relever ce défi ?</p>
+</div>
 
 
 
