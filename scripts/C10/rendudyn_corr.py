@@ -1,4 +1,4 @@
-def rendudynamique(pieces, somme):
+def rendu_bottomup(pieces, somme):
     """
     Renvoie le nombre de pieces minimal 'nb_piece' nécessaire pour former 'somme'
     """
