@@ -3637,7 +3637,7 @@ Sortie:
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">somme</span><span class="p">):</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Version récursive avec mémoïsation&quot;&quot;&quot;</span>
     <span class="n">memo</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># intialisation du tableau avec des None </span>
     <span class="k">return</span> <span class="n">rendu_topdown</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
@@ -3652,7 +3652,7 @@ Sortie:
         <span class="n">nb_pieces</span> <span class="o">=</span> <span class="n">s</span>     <span class="c1"># nb_pieces = 1 + 1 + ... + 1 dans le pire des cas</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pieces</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">:</span>   <span class="c1"># inutile de tester une pièce dont la valeur dépasse la somme s à rendre</span>
-                <span class="n">nb_pieces</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">nb_pieces</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">rendu_topdown</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">s</span><span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="n">mem</span><span class="p">))</span>
+                <span class="n">nb_pieces</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">nb_pieces</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">rendu_topdown</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">s</span><span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="n">memo</span><span class="p">))</span>
         <span class="n">memo</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">nb_pieces</span>
         <span class="k">return</span> <span class="n">nb_pieces</span>
 </code></pre></div></td></tr></table></div>
@@ -3673,6 +3673,143 @@ Sortie:
 <p class="admonition-title">À faire *** </p>
 <p>Par ailleurs, il serait intéressant d'avoir en plus les pièces choisies. Sauriez-vous relever ce défi ?</p>
 </div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Monnaie</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span>
+<span class="n">dico</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">rendudynamique2</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">dico</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">dico</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">Monnaie</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="n">s</span><span class="o">-</span><span class="n">m</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+                    <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">dico</span><span class="p">[</span><span class="n">s</span><span class="o">-</span><span class="n">m</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">rendudynamique2</span><span class="p">(</span> <span class="n">s</span> <span class="o">-</span> <span class="n">m</span> <span class="p">)</span>
+                <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">break</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">dico</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="n">val</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">rendudynamique2</span><span class="p">(</span><span class="mi">383</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>7
+</code></pre></div></td></tr></table></div>
+<p>On introduit un second tableau qui contient pour chaque somme la solution optimale</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendudynamique1</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">somme</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renvoie le nombre de pieces minimal &#39;nb_piece&#39; nécessaire pour former &#39;somme&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nb_piece</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">somme</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># initialisation du cache</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="p">(</span><span class="n">somme</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># liste pour la solution</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">somme</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># on effectue le calcul de tous les ss pb de 1 jusqu&#39;à somme</span>
+        <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="n">solution</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pieces</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">+</span><span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]:</span>
+                <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]</span>
+                <span class="n">solution</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">solution</span><span class="p">[</span><span class="n">somme</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">rendudynamique1</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">500</span><span class="p">],</span> <span class="mi">50</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[50]
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">somme</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renvoie le nombre de pieces minimal &#39;nb_piece&#39; nécessaire pour former &#39;somme&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nb_piece</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">somme</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># initialisation du cache</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">somme</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">somme</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># on effectue le calcul de tous les ss pb jusqu&#39;à somme</span>
+        <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="c1">#solution[n] = [1] * n</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pieces</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">+</span><span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]:</span>
+                <span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">nb_piece</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">p</span><span class="p">]</span>
+                <span class="c1">#solution[n] = solution[n-p].copy()</span>
+                <span class="c1">#solution[n].append(p)</span>
+                <span class="n">solution</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">nb_piece</span><span class="p">,</span> <span class="n">solution</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">_</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">rendu</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">d</span><span class="p">[</span><span class="n">sol</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>0
+2
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sol</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[0, 0, 1, 2, 0]
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 
 
