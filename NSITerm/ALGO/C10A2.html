@@ -1,0 +1,4922 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Support de cours activité TP en spé NSI">
+      
+      
+        <meta name="author" content="Bruno DARID">
+      
+      
+      
+        <link rel="prev" href="C10C4.html">
+      
+      
+        <link rel="next" href="../SD/C11C1b.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Alignement de séquences 🎯 - NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/css/jquery.terminal.min.css" rel="stylesheet">
+<script src="../../pyodide-mkdocs/utils.js"></script> 
+<script src="../../pyodide-mkdocs/interpreter.js"></script> 
+
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<link rel="stylesheet" href="../../pyodide-mkdocs/pyoditeur.css">
+<link rel="stylesheet" href="../../qcm/qcm.css">
+
+
+<input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#alignement-de-sequences-dapres-le-cours-de-frederic-juinier" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../index.html" title="NSI" class="md-header__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Alignement de séquences 🎯
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../bo.html" class="md-tabs__link">
+      Officiel
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../NSI1/S1/S1A1.html" class="md-tabs__link">
+        NSI1
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../LP2/C1C1.html" class="md-tabs__link md-tabs__link--active">
+        NSITerm
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Projets/jeu_carte.html" class="md-tabs__link">
+        Projets
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PC/ucontroleur.html" class="md-tabs__link">
+        Physique
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../perso/videos.html" class="md-tabs__link">
+        Liens divers
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI" class="md-nav__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bo.html" class="md-nav__link">
+        Officiel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          NSI1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Seq.1 Intoduction à la programmation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Seq.1 Intoduction à la programmation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1A1.html" class="md-nav__link">
+        ACTIVITE 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1A2.html" class="md-nav__link">
+        ACTIVITE 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/S1E1.html" class="md-nav__link">
+        EXERCICES 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S1/TP01.pdf" class="md-nav__link">
+        TP 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Seq.2 Systèmes d'exploitation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Seq.2 Systèmes d'exploitation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A1.html" class="md-nav__link">
+        ACTIVITÉ 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A2.html" class="md-nav__link">
+        ACTIVITÉ 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A3.html" class="md-nav__link">
+        ACTIVITÉ 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2A4.html" class="md-nav__link">
+        ACTIVITÉ 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2C1.html" class="md-nav__link">
+        COURS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S2/S2E1.html" class="md-nav__link">
+        EXERCICES 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Seq.3 Codage des nombres
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Seq.3 Codage des nombres
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3A1.html" class="md-nav__link">
+        ACTIVITE 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3A2.html" class="md-nav__link">
+        ACTIVITE 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3C3.html" class="md-nav__link">
+        COURS 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/TP1S3.html" class="md-nav__link">
+        TP 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/Annexe_TP.html" class="md-nav__link">
+        Annexe TP1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3E1.html" class="md-nav__link">
+        EXERCICES E1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/doc/Exercices_codage_nombre.pdf" class="md-nav__link">
+        EXERCICES E2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S3/S3R1.html" class="md-nav__link">
+        En Résumé
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Seq.4 Au coeur de l'ordinateur
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Seq.4 Au coeur de l'ordinateur
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4A1.html" class="md-nav__link">
+        ACTIVITE 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4A2.html" class="md-nav__link">
+        ACTIVITE 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4TP1.html" class="md-nav__link">
+        TP 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S4/S4R1.html" class="md-nav__link">
+        En résumé
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Seq. 5 Représentation de données
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Seq. 5 Représentation de données
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3.html" class="md-nav__link">
+        COURS 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3a.html" class="md-nav__link">
+        COURS 3a
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C3b.html" class="md-nav__link">
+        COURS 3b
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5A1.html" class="md-nav__link">
+        ACTIVITE 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E1.html" class="md-nav__link">
+        EXERCICES E1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E2.html" class="md-nav__link">
+        EXERCICES E2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E3.html" class="md-nav__link">
+        EXERCICES E3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C4.html" class="md-nav__link">
+        COURS 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C5.html" class="md-nav__link">
+        COURS 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5C6.html" class="md-nav__link">
+        COURS 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S5/S5E4.html" class="md-nav__link">
+        EXERCICES E4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          Seq. 6 IHM sur le web
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Seq. 6 IHM sur le web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6A1.html" class="md-nav__link">
+        ACTIVITÉ 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6E2.html" class="md-nav__link">
+        EXERCICES E2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C3.html" class="md-nav__link">
+        COURS 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Séq. 7 Données tabulées
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Séq. 7 Données tabulées
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S7/S7E1.html" class="md-nav__link">
+        EXERCICE 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+          Seq. 8 Algorithmique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Seq. 8 Algorithmique
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C1.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C2.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C3.html" class="md-nav__link">
+        COURS 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C4.html" class="md-nav__link">
+        COURS 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/S8C5.html" class="md-nav__link">
+        COURS 5: Algorithme glouton
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/S8/pr3.html" class="md-nav__link">
+        Mini projet 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+          Seq. 9 Reseau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_9">
+          <span class="md-nav__icon md-icon"></span>
+          Seq. 9 Reseau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c16c.html" class="md-nav__link">
+        COURS 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c16a.html" class="md-nav__link">
+        ACTIVITÉ 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c17c.html" class="md-nav__link">
+        COURS 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c17a.html" class="md-nav__link">
+        ACTIVITÉ 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c18c.html" class="md-nav__link">
+        COURS 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c18a.html" class="md-nav__link">
+        ACTIVITÉ 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSI1/Reseau/c19a.html" class="md-nav__link">
+        ACTIVITÉ 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          NSITerm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          NSITerm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Chap. I Récursivité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. I Récursivité
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1TD1.html" class="md-nav__link">
+        Vers le bac
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C1TD1C.html" class="md-nav__link">
+        Correction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Chap. II Mise au point - Bugs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. II Mise au point - Bugs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C5C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C5E1.html" class="md-nav__link">
+        Exercices 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C2E2.html" class="md-nav__link">
+        Exercices 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Chap. III Prog. modulaire
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. III Prog. modulaire
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C3TP1.html" class="md-nav__link">
+        TP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C3A1.html" class="md-nav__link">
+        Actvité
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Chap. IV SDD1 Pile & File
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. IV SDD1 Pile & File
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C2C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C2E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Chap. V Vocabulaire POO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. V Vocabulaire POO
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3E1.html" class="md-nav__link">
+        Exercices 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C3E2.html" class="md-nav__link">
+        Exercices 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          Chap. VI Du TAD à la structure de donnée Liste
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. VI Du TAD à la structure de donnée Liste
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Chap. VI(b) Le TAD Dictionnaire
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. VI(b) Le TAD Dictionnaire
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C6bC1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+          Chap. VII Gestion des ressources par un SE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_8">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. VII Gestion des ressources par un SE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARSE/C7C1.html" class="md-nav__link">
+        Cours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARSE/C7E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+          Chap. VIII Base de données
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. VIII Base de données
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8A1.html" class="md-nav__link">
+        Activité de découverte
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C1.html" class="md-nav__link">
+        Cours 1: Le modèle relationnel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C2.html" class="md-nav__link">
+        Cours 2: Structure des bases de données relationnelles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C3.html" class="md-nav__link">
+        Cours 3: Langage SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8C4.html" class="md-nav__link">
+        Cours 4: Les SGBDR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP1.html" class="md-nav__link">
+        TP 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP2.html" class="md-nav__link">
+        TP 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8TP4.html" class="md-nav__link">
+        TP 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BDD/C8E1.html" class="md-nav__link">
+        Exercices 1: Schémas relationnels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+          Chap. IX Protocoles de routage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. IX Protocoles de routage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARSE/C9C1.html" class="md-nav__link">
+        Cours 1: Routage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARSE/c11e.html" class="md-nav__link">
+        Exercices 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+          Chap. X Algorithmique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_11">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. X Algorithmique
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10C1.html" class="md-nav__link">
+        Cours 1: Paradigme diviser pour régner
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C11TD1.html" class="md-nav__link">
+        TD 1: Un exemple d'application (difficile)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10TP1.html" class="md-nav__link">
+        TP 1: Préambule au tri fusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10TP2.html" class="md-nav__link">
+        TP 2: Tourner R2D2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10TP3.html" class="md-nav__link">
+        TP 3: Labyrinthe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10C2.html" class="md-nav__link">
+        Cours 2: Parcours des graphes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10E2.html" class="md-nav__link">
+        Exercices 2: parcours de graphes et applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10C3.html" class="md-nav__link">
+        Cours 3: Recherche textuelle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10A1.html" class="md-nav__link">
+        Activité 1: algorithmes gloutons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C10C4.html" class="md-nav__link">
+        Cours 4: Programmation dynamique
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Activité 2: Alignement de séquences
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C10A2.html" class="md-nav__link md-nav__link--active">
+        Activité 2: Alignement de séquences
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#un-probleme-doptimisation" class="md-nav__link">
+    Un problème d'optimisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-du-probleme-de-lalignement-de-sequences-par-programmation-dynamique" class="md-nav__link">
+    Résolution du problème de l'alignement de séquences par programmation dynamique
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+          Chap. XI Arbres binaires
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_12">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. XI Arbres binaires
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11C1b.html" class="md-nav__link">
+        Cours 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11C2.html" class="md-nav__link">
+        Cours 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C11E1.html" class="md-nav__link">
+        Exercices 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_13" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+          Chap. XII Paradigmes de programmation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_13">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. XII Paradigmes de programmation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C12C1.html" class="md-nav__link">
+        Cours 1: Paradigmes impératif, fonctionnel et objet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LP2/C12E1.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_14" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+          Chap. XIII Les graphes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_14">
+          <span class="md-nav__icon md-icon"></span>
+          Chap. XIII Les graphes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C13C1.html" class="md-nav__link">
+        Cours 1: Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SD/C13E1b.html" class="md-nav__link">
+        Exercices
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_15" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="0">
+          Évaluations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_15">
+          <span class="md-nav__icon md-icon"></span>
+          Évaluations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_15_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_15_1" id="__nav_4_15_1_label" tabindex="0">
+          23/11/2023
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_15_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_15_1">
+          <span class="md-nav__icon md-icon"></span>
+          23/11/2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EVAL/Listes.html" class="md-nav__link">
+        Exercice 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EVAL/REUJ1_2023.html" class="md-nav__link">
+        Exercice 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_15_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_15_2" id="__nav_4_15_2_label" tabindex="0">
+          Bac blanc - déc. 2023
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_15_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_15_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bac blanc - déc. 2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EVAL/revisions.html" class="md-nav__link">
+        Revisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EVAL/correction1re.html" class="md-nav__link">
+        Corrections exo niveau 1re
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EVAL/correction2023.html" class="md-nav__link">
+        Corrigé bac blanc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_16" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_16" id="__nav_4_16_label" tabindex="0">
+          EP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_16">
+          <span class="md-nav__icon md-icon"></span>
+          EP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EP/EP260123.html" class="md-nav__link">
+        EP 26 janvier
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Projets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Projets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          Terminale
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Terminale
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/jeu_carte.html" class="md-nav__link">
+        Projet 1: Autour de la POO - Jeu de cartes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Première
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Première
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/web.html" class="md-nav__link">
+        Projet 1: en période 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Physique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Physique
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/ucontroleur.html" class="md-nav__link">
+        Micro contrôleur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/connexion.html" class="md-nav__link">
+        Connexions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/mode_fonctionnement.html" class="md-nav__link">
+        Mode de fonctionnement
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/HelloWorld.html" class="md-nav__link">
+        Hello World
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/capteurs.html" class="md-nav__link">
+        Mise en oeuvre
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/conclusion.html" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/matplotlib.html" class="md-nav__link">
+        Annexe: graphiques avec matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Liens divers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Liens divers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/videos.html" class="md-nav__link">
+        Videos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/textes.html" class="md-nav__link">
+        Textes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+                  
+
+
+<h1 id="alignement-de-sequences-dapres-le-cours-de-frederic-juinier">Alignement de séquences   (D'après le cours de Frédéric Juinier)<a class="headerlink" href="#alignement-de-sequences-dapres-le-cours-de-frederic-juinier" title="Permanent link">⚓︎</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />Ce cours est mis à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>
+<p><img alt="programme" class="md-center" src="img/prog_dynamique.png" /></p>
+<div class="admonition cite">
+<p class="admonition-title">Sources et crédits pour ce cours</p>
+<p>Pour préparer ce cours, j'ai utilisé :</p>
+<ul>
+<li>le <a href="https://www.nsi-terminale.fr/">manuel NSI</a> chez Ellipses de <em>Balabonski, Conchon, Filliâtre, Nguyen</em> dont est tiré l'exemple du rendu de monnaie.</li>
+<li>le livre <a href="http://algorithmsilluminated.org/">part 3 : greedy algorithms and dynamic programming</a> de <em>Tim Roughgarden</em> dont est tirée la comparaison entre les méthodes de conception d'algorithme <em>programmation dynamique</em> et <em>Diviser Pour Régner</em>.</li>
+<li>le cours de mon collègue Pierre Duclosson pour l'exemple du triangle de nombres</li>
+</ul>
+</div>
+<h2 id="un-probleme-doptimisation">Un problème d'optimisation<a class="headerlink" href="#un-probleme-doptimisation" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 7 :  problème de l'alignement de séquences</p>
+<p>Les progrès dans la connaissance du code génétique sont l'une des avancées majeures de la biologie au vingtième siècle. On sait qu'un brin d'<a href="https://fr.wikipedia.org/wiki/Acide_d%C3%A9soxyribonucl%C3%A9ique">ADN</a> est constitué de séquences de <em>nucléotides</em>  choisis parmi l'<em>Adénine</em> (codée A), la <em>Thymine</em>(codée T), la <em>Cytosine</em> (codée C) et la <em>Guanine</em> (codée G). On peut donc modéliser une séquence génétique d'ADN par une chaîne de caractères pris dans l'alphabet {A, C, G, T}. </p>
+<p>Rapidement, l'informatique et la biologie se sont rencontrées pour constituer la  bio-informatique. Le <em>problème de l'alignement de séquences</em> est fondamental en bio-informatique, il consiste à determiner la proximité de deux séquences génétiques. Les motivations sont nombreuses :</p>
+<ul>
+<li>Si on peut rapprocher une séquence génétique d'un génome complexe comme celui de l'homme d'une séquence d'un génome mieux connu, comme celui de la souris, on pourra faire des conjectures sur le rôle joué par cette séquence.</li>
+<li>Si on peut rapprocher des séquences  génétiques extraites  de deux espèces A et B, on peut conjecturer  qu'elles descendent d'un ancêtre commun et reconstituer des <a href="https://fr.wikipedia.org/wiki/Arbre_phylog%C3%A9n%C3%A9tique">arbres phylogénétiques</a>.</li>
+<li>etc ...</li>
+</ul>
+<p>Pour mesurer la proximité entre deux séquences génétiques, on les modélise d'abord comme des chaînes de caractères pris dans un alphabet. Ensuite on définit précisément ce qu'est un <em>alignement</em> possible entre deux séquences. Puis on associe à chaque alignement un <em>score</em>. Enfin on détermine sur l'ensemble des alignements possibles le <em>score maximal</em> et un alignement le réalisant. L'algorithme proposé par <a href="https://fr.wikipedia.org/wiki/Algorithme_de_Needleman-Wunsch">Needleman et Wunsch</a> en 1970, détermine un alignement global optimal de deux chaînes de caractères et constitue   le premier exemple historique d'application de la <strong>programmation dynamique</strong> en bio-informatique. L'objet de cette partie est la présentation d'une version simplifiée de cet algorithme.</p>
+<div class="admonition tip">
+<p class="admonition-title">Définition de l'alignement de séquences</p>
+<p>Étant donné deux séquences génétiques représentées par les chaînes de caractères, un alignement de ces deux séquences est une façon de faire correspondre les caractères de la première avec ceux de la seconde en insérant éventuellement des trous. Un alignement doit respecter deux contraintes :</p>
+<ul>
+<li>on doit utiliser tous les caractères de chaque séquence et dans le même ordre</li>
+<li>on ne peut pas avoir de correspondance entre deux trous.</li>
+</ul>
+<p>Par la suite, on note '_' un trou et on parle de séquence étendue pour désigner la séquence où on a inséré (ou pas) des trous.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemple 1 : des alignements</p>
+<p>On prend pour séquence 1 : 'ACCCGT'  et pour séquence 2 :  'ACCGA'. </p>
+<ul>
+<li>
+<p>un alignement possible  avec un trou :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">G</td>
+<td align="center">A</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>un alignement impossible  car l'ordre des caractères a été modifié pour la séquence 2 :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">G</td>
+<td align="center">_</td>
+<td align="center">C</td>
+<td align="center">A</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>un alignement impossible  car deux trous correspondent :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">_</th>
+<th align="center">G</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">_</td>
+<td align="center">G</td>
+<td align="center">A</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>un autre alignement possible  avec un trou :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">C</td>
+<td align="center">G</td>
+<td align="center">A</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>un alignement possible  avec trois trous :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">_</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">C</td>
+<td align="center">G</td>
+<td align="center">A</td>
+<td align="center">_</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Score de Needleman-Wunsch</p>
+<p>Une fois qu'on a défini un <em>alignement</em>, on lui associe un <em>score</em>. Nous adopterons les mêmes conventions que dans le <a href="https://www.nsi-terminale.fr/">manuel NSI</a> de <em>Balabonski, Conchon, Filliâtre, Nguyen</em>, plus simples que dans l'<a href="https://fr.wikipedia.org/wiki/Algorithme_de_Needleman-Wunsch">algorithme de Needleman-Wunsch</a> :</p>
+<ul>
+<li><strong>l'alignement de deux caractères identiques donne un point</strong></li>
+<li><strong>l'alignement de deux caractères différents, ce qui inclut l'alignement avec un trou '_', enlève un point</strong></li>
+</ul>
+<p>Le <strong>score maximal</strong> parmi tous les alignements possibles de deux séquences est leur <em>score de Needleman-Wunsch</em>.  Le nombre d'alignements possibles croît exponentiellement avec les longueurs des séquences donc une  recherche exhaustive par <em>force-brute</em> n'est applicable que pour des entrées de petite taille. Comme pour les problèmes du <em>rendu de monnaie</em> et de <em>la somme maximale dans un triangle</em>,  on va chercher une résolution  plus efficace avec une méthode de  <strong>programmation dynamique</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemple 2 : calculs de scores</p>
+<p>On reprend  l'exemple 1 avec pour séquence 1 : 'ACCCGT'  et pour séquence 2 :  'ACCGA'.</p>
+<ul>
+<li>
+<p>un premier alignement avec son calcul de score :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">G</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est de 2.</p>
+</li>
+<li>
+<p>un autre alignement  avec son calcul de score :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">C</td>
+<td align="center">G</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est aussi de 2.</p>
+</li>
+<li>
+<p>un alignement possible  avec deux trous :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">_</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">_</td>
+<td align="center">C</td>
+<td align="center">G</td>
+<td align="center">A</td>
+<td align="center">_</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est de 1.</p>
+</li>
+</ul>
+<p>Le score maximal parmi tous les alignements possibles de 'ACCCGT' et 'ACCGA' est <span class="arithmatex">\(4-2=2\)</span> car leur plus longue sous-séquence commune est 'ACCG' de longueur <span class="arithmatex">\(4\)</span>, donc un alignement rapporte au plus 4 points et dans ce cas deux caractères de la séquence la plus longue 'ACCCGT' correspondent à un trou avec une pénalité de <span class="arithmatex">\(2\)</span> points.</p>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Exercice 9</p>
+<p>On considère les séquences 'AGTACG' et 'ACATAG'.  </p>
+<div class="admonition success">
+<p class="admonition-title">Question 1</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Énoncé</label><label for="__tabbed_1_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Calculer le score d'un alignement de 'AGTACG' et 'ACATAG' sans trous insérés.</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">G</th>
+<th align="center">T</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">A</td>
+<td align="center">T</td>
+<td align="center">A</td>
+<td align="center">G</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est de <span class="arithmatex">\(2-4=-2\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Question 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Énoncé</label><label for="__tabbed_2_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On considère l'alignement ci-dessous :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">G</th>
+<th align="center">T</th>
+<th align="center">_</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">A</td>
+<td align="center">T</td>
+<td align="center">A</td>
+<td align="center">_</td>
+<td align="center">G</td>
+</tr>
+</tbody>
+</table>
+<p>Calculer le score de cet alignement.</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">G</th>
+<th align="center">T</th>
+<th align="center">_</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">A</td>
+<td align="center">T</td>
+<td align="center">A</td>
+<td align="center">_</td>
+<td align="center">G</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est de <span class="arithmatex">\(3-4=-1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Question 3</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Énoncé</label><label for="__tabbed_3_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Proposer un alignement avec un trou inséré dans chaque séquence dont le score est supérieur au précédent.</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th align="center">Séquence 1 étendue</th>
+<th align="center">A</th>
+<th align="center">G</th>
+<th align="center">_</th>
+<th align="center">T</th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">A</td>
+<td align="center">C</td>
+<td align="center">A</td>
+<td align="center">T</td>
+<td align="center">A</td>
+<td align="center">_</td>
+<td align="center">G</td>
+</tr>
+<tr>
+<td align="center">Points</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Le score de cet alignement est de <span class="arithmatex">\(4-3=1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Question 4</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Énoncé</label><label for="__tabbed_4_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Quel est le <em>score de Needleman-Wunsch</em> des séquences 'AGTACG' et 'ACATAG' ? 
+Justifier.</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Le seul alignement de <span class="arithmatex">\(6\)</span> caractères est celui sans trous dont le score, calculé en question 1, est de <span class="arithmatex">\(-2\)</span>.</li>
+<li>Un alignement de <span class="arithmatex">\(7\)</span> caractères est obtenu en insérant un trou dans chaque séquence. Le nombre maximum de caractères correspondants est celui de la  plus longue sous-séquence commune à 'AGTACG' et 'ACATAG', qui est 'ATAG'. Le score d'un tel alignement est de <span class="arithmatex">\(4-3=1\)</span> car on a <span class="arithmatex">\(4\)</span> caractères correspondants et <span class="arithmatex">\(3\)</span> caractères différents.</li>
+<li>Un alignement de <span class="arithmatex">\(n \geqslant 8\)</span> caractères ou plus ne peut faire mieux qu'un score de <span class="arithmatex">\(4 - (n - 4) = 8  - n \leqslant 0\)</span> car le nombre maximum de  caractères correspondants est <span class="arithmatex">\(4\)</span>, celui de la plus longue sous-séquence commune.</li>
+</ul>
+<p>Le <em>score de Needleman-Wunsch</em> des séquences 'AGTACG' et 'ACATAG'  est donc 1.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="resolution-du-probleme-de-lalignement-de-sequences-par-programmation-dynamique">Résolution du problème de l'alignement de séquences par programmation dynamique<a class="headerlink" href="#resolution-du-probleme-de-lalignement-de-sequences-par-programmation-dynamique" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 8 : sous-structure optimale et solution récursive par programmation dynamique</p>
+<p>On considère la séquence 1  'GTTAACC' et la séquence 2   'CGTAAC'.</p>
+<p>Supposons qu'on dispose d'un <em>alignement</em> de ces deux séquences dont le score est maximal et examinons la dernière colonne de  cet alignement.  Trois cas sont possibles :</p>
+<ul>
+<li>
+<p><strong>Premier cas :</strong>   Les derniers caractères 'C' et 'C' des deux séquences sont alignés, on marque un point et on doit aligner ensuite les préfixes  'GTTAAC' et 'CGTAA' des deux séquences.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence</th>
+<th align="center">Premières colonnes</th>
+<th align="center">Dernière colonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 1 étendue</td>
+<td align="center">'GTTAAC' + trous</td>
+<td align="center">'C'</td>
+</tr>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">'CGTAA'  + trous</td>
+<td align="center">'C'</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Deuxième cas :</strong>  Le 'C' final de la séquence 1 est aligné avec un trou '_', on perd un point et on doit aligner le préfixe 'GTTAAC' de la séquence 1 avec la séquence 2 complète 'CGTAAC'.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence</th>
+<th align="center">Premières colonnes</th>
+<th align="center">Dernière colonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 1 étendue</td>
+<td align="center">'GTTAAC' + trous</td>
+<td align="center">'C'</td>
+</tr>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">'CGTAAC'  + trous</td>
+<td align="center">'_'</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Troisième cas :</strong>  Le 'C' final de la séquence 2 est aligné avec un trou '_', on perd un point et on doit aligner la séquence 1 complète 'GTTAACC' avec le préfixe 'CGTAA' de la séquence 2.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Séquence</th>
+<th align="center">Premières colonnes</th>
+<th align="center">Dernière colonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Séquence 1 étendue</td>
+<td align="center">'GTTAACC' + trous</td>
+<td align="center">'_'</td>
+</tr>
+<tr>
+<td align="center">Séquence 2 étendue</td>
+<td align="center">'CGTAA'  + trous</td>
+<td align="center">'C'</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Dans chaque cas on se ramène au calcul du score d'un alignement entre deux séquences qui sont des <em>préfixes</em> des séquences initiales. On peut démontrer par l'absurde comme pour le <em>problème de la somme maximale dans un triangle</em> que ce score est forcément maximal pour ce sous-problème, sinon on pourrait obtenir un meilleur score pour l'alignement global des séquences. De plus dans chaque cas, au moins une des longueurs des deux séquences du sous-problème, est inférieure à la longueur de la séquence dont elle est extraite.</p>
+<p>Ainsi une solution au <em>problème de l'alignement de séquences</em> peut s'obtenir à partir de solutions à des sous-problèmes similaires et plus petits. 
+Cette <strong>sous-structure optimale</strong> est caractéristique de la possibilité d'une résolution par <strong>programmation dynamique (Étape 1)</strong>.</p>
+<p>Si on note S le score maximal pour l'alignement des deux séquences, S1 celui du sous-problème du premier cas, S2 celui du sous-problème du second cas et S3 celui du sous-problème du troisième cas, alors on a  la <strong>relation de récurrence (Étape 2)</strong> : </p>
+<ul>
+<li><strong>S = max(1 + S1, <span class="arithmatex">\(-1\)</span> + S2, <span class="arithmatex">\(-1\)</span> + S3)</strong>   si dans le premier cas, les caractères se correspondent dans la dernière colonne</li>
+<li>ou <strong>S = max(<span class="arithmatex">\(-1\)</span> + S1, <span class="arithmatex">\(-1\)</span> + S2, <span class="arithmatex">\(-1\)</span> + S3)</strong>   si dans le premier cas, les caractères  ne se correspondent pas dans la dernière colonne</li>
+</ul>
+<p>En appelant récursivement cette relation de récurrence pour le problème global, on résout des sous-problèmes plus petits et on converge vers un des cas de base où l'une au moins des deux séquences est vide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Formalisation</p>
+<p>Soit <code>seq1</code> une séquence de longueur <code>n</code> et <code>seq2</code> une séquence de longueur <code>m</code>.</p>
+<p>Pour tous les indices entiers <span class="arithmatex">\(i \in [1;n]\)</span> et <span class="arithmatex">\(j \in [1;m]\)</span>, on note <span class="arithmatex">\(s(i, j)\)</span> le score maximal pour un alignement entre le <em>préfixe</em> <code>seq1[:i]</code> de <code>seq1</code> de longueur <span class="arithmatex">\(i\)</span> et le <em>préfixe</em> <code>seq2[:j]</code> de <code>seq2</code> de longueur <span class="arithmatex">\(j\)</span>. Le i-ieme caractère de <code>seq1</code> est <code>seq1[i-1]</code> (car les caractères sont indexés à partir de 0) et  le j-ieme caractère de <code>seq2</code> est <code>seq2[j-1]</code>. La  relation de récurrence établie précédemment s'écrit alors :</p>
+<ul>
+<li><span class="arithmatex">\(s(i, j) = max(1 + s(i-1, j-1), -1 + s(i,j - 1), -1 + s(i - 1,j))\)</span> si  <code>seq1[i-1]== seq2[i-1]</code> </li>
+<li><span class="arithmatex">\(s(i, j) = max(-1 + s(i-1, j-1), -1 + s(i,j - 1), -1 + s(i - 1,j))\)</span> sinon</li>
+</ul>
+<p>Les cas de base sont ceux où l'un des préfixes  est vide, avec $i = 0 $ ou <span class="arithmatex">\(j = 0\)</span> :</p>
+<ul>
+<li>si <span class="arithmatex">\(i = 0\)</span> et <span class="arithmatex">\(j = 0\)</span> alors les deux préfixes  sont vides et <span class="arithmatex">\(s(0, 0) = 0\)</span></li>
+<li>sinon si <span class="arithmatex">\(i = 0\)</span> et $ j \in [1; n]$ alors <span class="arithmatex">\(s(0, j) = -j\)</span> car le préfixe <code>seq2[:j]</code>  de longueur <span class="arithmatex">\(j\)</span> doit être aligné avec  <code>seq1[:0]</code> qui est vide, donc  les <span class="arithmatex">\(j\)</span> caractères de <code>seq2[:j]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-j\)</span></li>
+<li>sinon si <span class="arithmatex">\(i  \in [1; n]\)</span> et $ j = 0$ alors <span class="arithmatex">\(s(i, 0) = -i\)</span> car le préfixe <code>seq1[:i]</code>  de longueur <span class="arithmatex">\(i\)</span> doit être aligné avec  <code>seq2[:0]</code> qui est vide, donc  les <span class="arithmatex">\(i\)</span> caractères de <code>seq1[:i]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-i\)</span></li>
+</ul>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Exercice 10</p>
+<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
+<div class="admonition success">
+<p class="admonition-title">Question 1</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Énoncé</label><label for="__tabbed_5_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Compléter  le code de la fonction <code>meilleur_score_rec</code> pour implémenter l'algorithme récursif de résolution du <em>problème de l'alignement de séquences</em> par <strong>programmation dynamique</strong>.</li>
+<li>Construire l'arbre d'appels récursifs de <code>s(2, 2)</code> où <code>s</code> est  la fonction auxiliaire récursive de calcul de score maximal pour deux séquences de longueur 2 ?  Fort de l'expérience des problèmes de <code>rendu de monnaie</code>, quelle situation retrouve-t-on ?</li>
+</ol>
+<p><div class="py_mk_ide"  data-max="5"  data-max_size="90"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_81510f6aea385b20410bf2b328e871650a253204" class="comment">###</span><div class="line" id="editor_81510f6aea385b20410bf2b328e871650a253204"></div><div id="term_editor_81510f6aea385b20410bf2b328e871650a253204"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_81510f6aea385b20410bf2b328e871650a253204","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_81510f6aea385b20410bf2b328e871650a253204","C10/meilleur_score_rec")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_81510f6aea385b20410bf2b328e871650a253204').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_81510f6aea385b20410bf2b328e871650a253204" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_81510f6aea385b20410bf2b328e871650a253204")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_81510f6aea385b20410bf2b328e871650a253204")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div><span id="content_editor_81510f6aea385b20410bf2b328e871650a253204" class="py_mk_hide">def meilleurpy-undscorepy-undrec(seq1, seq2):bksl-nl    """bksl-nl    Prend en paramètres deux chaines de caractères seq1 et seq2bksl-nl    Renvoie le meilleur score d'alignementbksl-nl    """bksl-nl    bksl-nl    def s(i, j):bksl-nl        """Fonction récursive auxiliairebksl-nl        Calcule et renvoie score[i][j]bksl-nl        """bksl-nl        if i == 0:bksl-nl            if j == 0:bksl-nl                return ...bksl-nl            else:bksl-nl                return  ...bksl-nl        elif j == 0:bksl-nl             return ...bksl-nl        else:bksl-nl            # premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]bksl-nl            s1 = ...bksl-nl            # second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un troubksl-nl            s2 =  ...bksl-nl            # troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un troubksl-nl            s3 =  ...bksl-nl            # formule de récurrence pour le calcul de score[i][j]bksl-nl            # sous-cas où les derniers caractères sont identiques dans le premier sous-problèmebksl-nl            if seq1[i - 1] == seq2[j - 1]:bksl-nl                return ...bksl-nl            # sous-cas où les derniers caractères sont différentsbksl-nl            else:bksl-nl                return  ...bksl-nl    bksl-nl    bksl-nl    n = len(seq1)bksl-nl    m = len(seq2)bksl-nl    return s(n, m)bksl-nlbksl-nldef testpy-undmeilleurpy-undscorepy-undrec():bksl-nl    assert meilleurpy-undscorepy-undrec('AGTC', 'ACTG') == 0bksl-nl    assert meilleurpy-undscorepy-undrec('GTT', 'CGTT') == 2bksl-nl    print("tests réussis")bksl-nl    bksl-nl#testpy-undmeilleurpy-undscorepy-undrec()bksl-nl</span><span id="corr_content_editor_81510f6aea385b20410bf2b328e871650a253204" class="py_mk_hide" data-strudel=""></span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Code  :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">meilleur_score_rec</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prend en paramètres deux chaines de caractères seq1 et seq2</span>
+<span class="sd">    Renvoie le meilleur score d&#39;alignement</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fonction récursive auxiliaire</span>
+<span class="sd">        Calcule et renvoie score[i][j]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>  <span class="o">-</span><span class="n">j</span>
+        <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">i</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]</span>
+            <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un trou</span>
+            <span class="n">s2</span> <span class="o">=</span>  <span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un trou</span>
+            <span class="n">s3</span> <span class="o">=</span>  <span class="n">s</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+            <span class="c1"># formule de récurrence pour le calcul de score[i][j]</span>
+            <span class="c1"># sous-cas où les derniers caractères sont identiques dans le premier sous-problème</span>
+            <span class="k">if</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+            <span class="c1"># sous-cas où les derniers caractères sont différents</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>  <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>    
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_meilleur_score_rec</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_rec</span><span class="p">(</span><span class="s1">&#39;AGTACG&#39;</span><span class="p">,</span> <span class="s1">&#39;ACATAG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_rec</span><span class="p">(</span><span class="s1">&#39;GTTAACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CGTAAC&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tests réussis&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>L'arbre d'appels récursifs de <code>s(2, 2)</code>  fait apparaître de nombreux calculs redondants comme pour les problèmes de <em>rendu de monnaie</em> et de <em>somme maximale dans un triangle</em>.</p>
+<p><img alt="alt" class="center" src="img/arbre_appels.png" /></p>
+</li>
+</ol>
+<p>On peut estimer que le nombre d'appels récursifs va croître de façopn exponentielle  avec les tailles <span class="arithmatex">\(n\)</span> et <span class="arithmatex">\(m\)</span>  des séquences car chaque appel engendre au moins deux nouveaux appels récursifs sur une profondeur égale à la taille maximale des deux séquences.  Une implémentation naïve de la solution récursive par <strong>programmation dynamique</strong> aura une <em>complexité exponentielle</em>, ce qui n'est pas mieux que pour une solution par <em>force brute</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Question 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Énoncé</label><label for="__tabbed_6_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Si on résout le problème d'alignement pour des séquences de longueur <span class="arithmatex">\(n\)</span> et <span class="arithmatex">\(m\)</span> en calculant <code>s(n,m)</code>, quel  nombre de sous-problèmes  <code>s(i,j)</code> faut-il résoudre avec <span class="arithmatex">\(i \in [0;n]\)</span> et <span class="arithmatex">\(j \in [0;m]\)</span> ?</li>
+<li>Quelle technique utilisée pour les problèmes de <em>rendu de monnaie</em> et de <em>somme maximale dans un triangle</em> permet d'éviter les calculs redondants et de calculer une seule fois les solutions des sous-problèmes ?</li>
+<li>Compléter le code ci-dessous avec cette technique.  On a choisi d'initialiser toutes les cases du tableau de mémorisation <code>score</code> avec <code>-inf</code> c'est une valeur impossible pour un  score maximal, ainsi on peut distinguer les sous-problèmes qui n'ont pas déjà été résolus comme ceux où <code>score[i][j] == -inf</code>.</li>
+</ol>
+<p><div class="py_mk_ide"  data-max="5"  data-max_size="90"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_660996b8f32f27de67f7246406eaff20d5bfed4d" class="comment">###</span><div class="line" id="editor_660996b8f32f27de67f7246406eaff20d5bfed4d"></div><div id="term_editor_660996b8f32f27de67f7246406eaff20d5bfed4d"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_660996b8f32f27de67f7246406eaff20d5bfed4d","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_660996b8f32f27de67f7246406eaff20d5bfed4d","C10/meilleur_score_rec_memo")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_660996b8f32f27de67f7246406eaff20d5bfed4d').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_660996b8f32f27de67f7246406eaff20d5bfed4d" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_660996b8f32f27de67f7246406eaff20d5bfed4d")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_660996b8f32f27de67f7246406eaff20d5bfed4d")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div><span id="content_editor_660996b8f32f27de67f7246406eaff20d5bfed4d" class="py_mk_hide">from math import infbksl-nlbksl-nldef meilleurpy-undscorepy-undrecpy-undmemo(seq1, seq2):bksl-nl    """bksl-nl    Prend en paramètres deux chaines de caractères seq1 et seq2bksl-nl    Renvoie le meilleur score d'alignementbksl-nl    """bksl-nl    bksl-nl    def s(i, j):bksl-nl        """Fonction récursive auxiliairebksl-nl        Calcule et renvoie score[i][j]bksl-nl        """bksl-nl        if score[i][j] == -inf:     bksl-nl            # cas de basebksl-nl            if i == 0:bksl-nl                if j == 0:bksl-nl                    score[i][j] = ...bksl-nl                else:bksl-nl                    score[i][j] = ...bksl-nl            elif j == 0:bksl-nl                 score[i][j] = ...bksl-nl            else:bksl-nl                # premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]bksl-nl                s1 = ...bksl-nl                # second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un troubksl-nl                s2 =  ...bksl-nl                # troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un troubksl-nl                s3 =  ...bksl-nl                # formule de récurrence pour le calcul de score[i][j]bksl-nl                # sous-cas où les derniers caractères sont identiques dans le premier sous-problèmebksl-nl                if seq1[i - 1] == seq2[j - 1]:bksl-nl                    score[i][j] = ...bksl-nl                # sous-cas où les derniers caractères sont différentsbksl-nl                else:bksl-nl                    score[i][j] = ...bksl-nl        return score[i][j]bksl-nl    bksl-nl    bksl-nl    n = len(seq1)bksl-nl    m = len(seq2)bksl-nl    # tableau de mémoisationbksl-nl    # score[i][j] est le meilleur score d'alignement de seq1[:i] et seq2[:j]bksl-nl    score = [[-inf for j in range(m + 1)] for i in range(n + 1)]bksl-nl    return s(n, m)bksl-nlbksl-nldef testpy-undmeilleurpy-undscorepy-undrecpy-undmemo():bksl-nl    assert meilleurpy-undscorepy-undrecpy-undmemo('AGTACG', 'ACATAG') == 1bksl-nl    assert meilleurpy-undscorepy-undrecpy-undmemo('GTTAACC', 'CGTAAC') == 2bksl-nl    assert meilleurpy-undscorepy-undrecpy-undmemo('GTAGTAAACGTTCACC', 'CGGTCAGTAAC') == -1bksl-nl    print("tests réussis")bksl-nl    bksl-nltestpy-undmeilleurpy-undscorepy-undrecpy-undmemo()bksl-nl</span><span id="corr_content_editor_660996b8f32f27de67f7246406eaff20d5bfed4d" class="py_mk_hide" data-strudel=""></span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Le nombre de sous-problèmes <span class="arithmatex">\(s(i,j)\)</span>  à résoudre avec <span class="arithmatex">\(i \in [0;n]\)</span> et <span class="arithmatex">\(j \in [0;m]\)</span> est <span class="arithmatex">\((n + 1) \times (m +1)\)</span>.</li>
+<li>La complexité de l'implémentation  naïve  de la solution récursive par programmation dynamique a une <em>complexité exponentielle</em> par rapport aux tailles <span class="arithmatex">\(n\)</span> et <span class="arithmatex">\(m\)</span> des séquences, alors que le nombre de sous-problèmes est polynomial. La technique de <strong>mémoïsation</strong>  consiste à enregistrer dans une structure (tableau ou dictionnaire) la solution de chaque sous-problème une fois qu'elle est calculée et d'aller la lire dans cette structure (il faut que la lecture soit en temps constant) quand on en a besoin.</li>
+<li>
+<p>Code : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">inf</span>
+
+<span class="k">def</span> <span class="nf">meilleur_score_rec_memo</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prend en paramètres deux chaines de caractères seq1 et seq2</span>
+<span class="sd">    Renvoie le meilleur score d&#39;alignement</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fonction récursive auxiliaire</span>
+<span class="sd">        Calcule et renvoie score[i][j]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="n">inf</span><span class="p">:</span>     
+            <span class="c1"># cas de base</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">j</span>
+            <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]</span>
+                <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un trou</span>
+                <span class="n">s2</span> <span class="o">=</span>  <span class="n">s</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un trou</span>
+                <span class="n">s3</span> <span class="o">=</span>  <span class="n">s</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="c1"># formule de récurrence pour le calcul de score[i][j]</span>
+                <span class="c1"># sous-cas où les derniers caractères sont identiques dans le premier sous-problème</span>
+                <span class="k">if</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+                <span class="c1"># sous-cas où les derniers caractères sont différents</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="c1"># tableau de mémoisation</span>
+    <span class="c1"># score[i][j] est le meilleur score d&#39;alignement de seq1[:i] et seq2[:j]</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="n">inf</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_meilleur_score_rec_memo</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_rec_memo</span><span class="p">(</span><span class="s1">&#39;AGTACG&#39;</span><span class="p">,</span> <span class="s1">&#39;ACATAG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_rec_memo</span><span class="p">(</span><span class="s1">&#39;GTTAACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CGTAAC&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_rec_memo</span><span class="p">(</span><span class="s1">&#39;GTAGTAAACGTTCACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CGGTCAGTAAC&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tests réussis&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="resolution-iterative-par-programmation-dynamique">Résolution itérative par programmation dynamique<a class="headerlink" href="#resolution-iterative-par-programmation-dynamique" title="Permanent link">⚓︎</a></h1>
+<div class="admonition question">
+<p class="admonition-title">Exercice 11</p>
+<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
+<div class="admonition success">
+<p class="admonition-title">Question 1</p>
+<p>On reprend l'exemple  de l'exercice 9 avec le calcul du score maximal d'alignment pour la séquence  <code>seq1</code> = 'AGTACG' et la séquence <code>seq2</code>= 'ACATAG'.</p>
+<div class="admonition note">
+<p class="admonition-title">Formalisation</p>
+<p>On considère un tableau <code>score</code> à deux dimensions tel que pour  tous <span class="arithmatex">\(i \in [0;6]\)</span> et <span class="arithmatex">\(j \in [0;6]\)</span>,  <code>score[i][j]</code> est  le score maximal d'alignement des préfixes <code>seq1[:i]</code> et <code>seq2[:j]</code>.</p>
+<p>La relation de récurrence établie dans le <strong>Point de cours 8</strong> peut se reformuler ainsi :</p>
+<ul>
+<li><code>score[i][j] = max(1 + score[i-1][j-1], -1 + score[i][j - 1], -1 + score[i - 1][j])</code> si  <code>seq1[i-1]== seq2[i-1]</code> </li>
+<li><code>score[i][j] = max(-1 + score[i-1][j-1], -1 + score[i][j - 1], -1 + score[i - 1][j])</code> sinon</li>
+</ul>
+<p>Les cas de base sont ceux où l'un des préfixes  est vide, avec <code>i == 0</code> ou  <code>j == 0</code> :</p>
+<ul>
+<li>si <code>i == 0</code> et <code>j == 0</code> alors les deux préfixes  sont vides et <code>score[0][0] =  0</code></li>
+<li>sinon si <code>i == 0</code> et  <code>j &gt;= 1</code> alors <code>score[0][j] = -j</code> </li>
+<li>sinon si <code>i &gt;= 1</code> et  <code>j == 0</code>  alors <code>score[i][0] = -i</code></li>
+</ul>
+<p><img alt="alt" src="img/schema_recurrence.png" /> </p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Énoncé</label><label for="__tabbed_7_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Le score maximal d'alignement des séquences <code>seq1</code> et <code>seq2</code>  sera contenu dans <code>score[6][6]</code>. Pour le calculer on va procéder du <em>bas</em> (les plus petits sous-problèmes) vers le <em>haut</em> (le problème global) en progressant par index <code>i</code> de ligne et <code>j</code> de colonne  croissants. </p>
+<p>C'est la version <em>itérative</em> de résolution du <em>problème d'alignement de séquences</em> par <strong>programmation dynamique</strong>.</p>
+<p>Recopier et compléter le tableau ci-dessous.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">'A'</th>
+<th align="center">'C'</th>
+<th align="center">'A'</th>
+<th align="center">'T'</th>
+<th align="center">'A'</th>
+<th align="center">'G'</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center">i/j</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+<td align="center"><span class="arithmatex">\(-5\)</span></td>
+<td align="center"><span class="arithmatex">\(-6\)</span></td>
+</tr>
+<tr>
+<td align="center">'A'</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">'G'</td>
+<td align="center">2</td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">'T'</td>
+<td align="center">3</td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">'A'</td>
+<td align="center">4</td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">'C'</td>
+<td align="center">5</td>
+<td align="center"><span class="arithmatex">\(-5\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">'G'</td>
+<td align="center">6</td>
+<td align="center"><span class="arithmatex">\(-6\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">'A'</th>
+<th align="center">'C'</th>
+<th align="center">'A'</th>
+<th align="center">'T'</th>
+<th align="center">'A'</th>
+<th align="center">'G'</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center">i/j</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+<td align="center"><span class="arithmatex">\(-5\)</span></td>
+<td align="center"><span class="arithmatex">\(-6\)</span></td>
+</tr>
+<tr>
+<td align="center">'A'</td>
+<td align="center">1</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+</tr>
+<tr>
+<td align="center">'G'</td>
+<td align="center">2</td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(_1\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+</tr>
+<tr>
+<td align="center">'T'</td>
+<td align="center">3</td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+</tr>
+<tr>
+<td align="center">'A'</td>
+<td align="center">4</td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">'C'</td>
+<td align="center">5</td>
+<td align="center"><span class="arithmatex">\(-5\)</span></td>
+<td align="center"><span class="arithmatex">\(-3\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">0</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+<tr>
+<td align="center">'G'</td>
+<td align="center">6</td>
+<td align="center"><span class="arithmatex">\(-6\)</span></td>
+<td align="center"><span class="arithmatex">\(-4\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>On retrouve que le score maximal d'alignement de la séquence  <code>seq1</code> = 'AGTACG' et la séquence <code>seq2</code>= 'ACATAG' est 1.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Question 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Énoncé</label><label for="__tabbed_8_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Compléter le code ci-dessous qui implémente cette méthode itérative de résolution par <strong>programmation dynamique</strong>.  Les solutions des sous-problèmes sont mémorisées dans un tableau  <code>score</code> à deux dimensions.</p>
+<p><div class="py_mk_ide"  data-max="5"  data-max_size="90"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4" class="comment">###</span><div class="line" id="editor_88e2824077895bb04b6235a8b5ffd99e77743ba4"></div><div id="term_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_88e2824077895bb04b6235a8b5ffd99e77743ba4","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_88e2824077895bb04b6235a8b5ffd99e77743ba4","C10/meilleur_score_iter")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_88e2824077895bb04b6235a8b5ffd99e77743ba4")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_88e2824077895bb04b6235a8b5ffd99e77743ba4")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div><span id="content_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4" class="py_mk_hide">def meilleurpy-undscorepy-unditer(seq1, seq2):bksl-nl    """bksl-nl    Prend en paramètres deux chaines de caractères seq1 et seq2bksl-nl    Renvoie le meilleur score d'alignementbksl-nl    """bksl-nl    n = len(seq1)bksl-nl    m = len(seq2)bksl-nl    # score[i][j] est le meilleur score d'alignement de seq1[:i] et seq2[:j]bksl-nl    score = [[0 for j in range(m + 1)] for i in range(n + 1)]bksl-nl    for i in range(n + 1):bksl-nl        score[i][0] = ...bksl-nl    for j in range(m + 1):bksl-nl        score[0][j] = ...bksl-nl    for i in range(1, n + 1):bksl-nl        for j in range(1, m + 1):            bksl-nl            # premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]bksl-nl            s1 = ...bksl-nl            # second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un troubksl-nl            s2 =  ...bksl-nl            # troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un troubksl-nl            s3 =  ...bksl-nl            # formule de récurrence pour le calcul de score[i][j]bksl-nl            # sous-cas où les derniers caractères sont identiques dans le premier sous-problèmebksl-nl            if seq1[i - 1] == seq2[j - 1]:bksl-nl                score[i][j] = ...bksl-nl            # sous-cas où les derniers caractères sont différentsbksl-nl            else:bksl-nl                score[i][j] = ...bksl-nl    # le score de Needle-Wunsch de seq1 et seq2 est la valeur de la dernière cas du tableaubksl-nl    return score[n][m]bksl-nlbksl-nldef testpy-undmeilleurpy-undscorepy-unditer():bksl-nl    assert meilleurpy-undscorepy-unditer('AGTACG', 'ACATAG') == 1bksl-nl    assert meilleurpy-undscorepy-unditer('GTTAACC', 'CGTAAC') == 2bksl-nl    print("tests réussis")bksl-nl</span><span id="corr_content_editor_88e2824077895bb04b6235a8b5ffd99e77743ba4" class="py_mk_hide" data-strudel=""></span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">meilleur_score_iter</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prend en paramètres deux chaines de caractères seq1 et seq2</span>
+<span class="sd">    Renvoie le meilleur score d&#39;alignement</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="c1"># score[i][j] est le meilleur score d&#39;alignement de seq1[:i] et seq2[:j]</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">score</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">j</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>            
+            <span class="c1"># premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]</span>
+            <span class="n">s1</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="c1"># second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un trou</span>
+            <span class="n">s2</span> <span class="o">=</span>  <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="c1"># troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un trou</span>
+            <span class="n">s3</span> <span class="o">=</span>  <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="c1"># formule de récurrence pour le calcul de score[i][j]</span>
+            <span class="c1"># sous-cas où les derniers caractères sont identiques dans le premier sous-problème</span>
+            <span class="k">if</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+            <span class="c1"># sous-cas où les derniers caractères sont différents</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+    <span class="c1"># le score de Needle-Wunsch de seq1 et seq2 est la valeur de la dernière cas du tableau</span>
+    <span class="k">return</span> <span class="n">score</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">m</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">test_meilleur_score_iter</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_iter</span><span class="p">(</span><span class="s1">&#39;AGTACG&#39;</span><span class="p">,</span> <span class="s1">&#39;ACATAG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">meilleur_score_iter</span><span class="p">(</span><span class="s1">&#39;GTTAACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CGTAAC&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tests réussis&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="reconstruction-dune-alignement-optimal">Reconstruction d'une alignement optimal<a class="headerlink" href="#reconstruction-dune-alignement-optimal" title="Permanent link">⚓︎</a></h1>
+<div class="admonition question">
+<p class="admonition-title">Exercice 12</p>
+<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
+<p>Dans cet exercice, on met en oeuvre l'étape 3 caractéristique de la <strong>programmation dynamique</strong> : la construction d'un alignement de deux séquences qui   réalise un score maximal.</p>
+<p>Comme pour le <a href="../P2_Triangle_de_nombres/P1_Triangle_de_nombres.md">problème de la somme dans un triangle</a>, on remplit d'abord le tableau <code>score</code> à deux dimensions             pour tous les sous-problèmes <code>score[i][j]</code>. Pour cela, on procède par <strong>programmation dynamique</strong> itérativement ou récursivement avec mémoïsation, comme dans les exercices 10 et 11. Une fois le tableau rempli on le parcourt du <em>haut</em> (<code>i</code> égal à <code>n</code> et <code>j</code> égal à <code>m</code>) vers le <em>bas</em>  (les cas de bases avec <code>i</code> ou <code>j</code> égal à 0). On  tient à jour une liste <code>alignement</code> de deux chaînes de caractères avec <code>alignement[0]</code> pour l'alignement de la séquence <code>seq1</code> et <code>alignement[1]</code> pour l'alignement de la séquence <code>seq2</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Question 1</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Énoncé</label><label for="__tabbed_9_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Compléter le code de <code>meilleur_alignement_iter</code> qui prend en paramètres deux séquences sous forme de chaînes de caractères et qui renvoie un couple avec le score maximal d'alignement et un alignement  le réalisant, qui est une liste de deux chaînes de caractères.</p>
+<p><div class="py_mk_ide"  data-max="5"  data-max_size="90"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880" class="comment">###</span><div class="line" id="editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880"></div><div id="term_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880","C10/meilleur_alignement_iter")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div><span id="content_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880" class="py_mk_hide">def meilleurpy-undalignementpy-unditer(seq1, seq2):bksl-nl    """bksl-nl    Prend en paramètres deux chaines de caractères seq1 et seq2bksl-nl    Renvoie un couple le score maximal d'alignement et un alignementbksl-nl    le réalisant qui est une liste de deux chaînes de caractèresbksl-nl    """bksl-nl    # ---------------------------------------------------- #bksl-nl    # Calcul du score maximal par prog dynamique          #bksl-nl    #  on remplit le tableau score du bas vers le haut     #bksl-nl    #  on parcourt les sous-problèmes par index croissants #bksl-nl    # ---------------------------------------------------- #bksl-nl    n = len(seq1)bksl-nl    m = len(seq2)bksl-nl    # score[i][j] est le meilleur score d'alignement de seq1[:i] et seq2[:j]bksl-nl    score = [[0 for j in range(m + 1)] for i in range(n + 1)]bksl-nl    for i in range(n + 1):bksl-nl        score[i][0] = -ibksl-nl    for j in range(m + 1):bksl-nl        score[0][j] = -jbksl-nl    for i in range(1, n + 1):bksl-nl        for j in range(1, m + 1):            bksl-nl            # premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]bksl-nl            s1 = ...bksl-nl            # second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un troubksl-nl            s2 =  ...bksl-nl            # troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un troubksl-nl            s3 =  ...bksl-nl            # formule de récurrence pour le calcul de score[i][j]bksl-nl            # sous-cas où les derniers caractères sont identiques dans le premier sous-problèmebksl-nl            if seq1[i - 1] == seq2[j - 1]:bksl-nl                score[i][j] = ...bksl-nl            # sous-cas où les derniers caractères sont différentsbksl-nl            else:bksl-nl                score[i][j] = ...bksl-nl    # le score de Needle-Wunsch de seq1 et seq2 est la valeur de la dernière cas du tableaubksl-nl    # index du sous-problème : i index de ligne et j index de colonnebksl-nl    i, j = n, mbksl-nl    s = score[i][j]bksl-nl    # ----------------------------------------------- #bksl-nl    # Reconstruction d'un alignement de score maximal #bksl-nl    # On redescend du haut vers le bas                #bksl-nl    # On parcourt les choix successifs  à rebours     #bksl-nl    # Jusqu'à ce que i ou j soit nul (cas de base)    #bksl-nl    # ----------------------------------------------- #bksl-nl    bksl-nl    # alignement[0] est un alignement optimal pour seq1bksl-nl    # alignement[1] est un alignement optimal pour seq2bksl-nl    alignement = ['', '']    bksl-nl    while i != 0 and j != 0:bksl-nl        s1 = score[i - 1][j - 1]bksl-nl        s2 = score[i][j - 1]bksl-nl        s3 =  score[i - 1][j]bksl-nl        # à compléterbksl-nl        ...bksl-nl    # si i différent de 0 on aligne seq1[:i] avec i py-str 'py-und' bksl-nl    if i != 0:bksl-nl        alignement[0] = ...bksl-nl        alignement[1] = ...bksl-nl    # si j différent de 0 on aligne j py-str 'py-und'  avec seq2[:j]bksl-nl    if j != 0:bksl-nl        alignement[0] = ...bksl-nl        alignement[1] = ...bksl-nl    return (score[n][m], alignement)bksl-nl        bksl-nlbksl-nldef testpy-undmeilleurpy-undalignementpy-unditer():bksl-nl    assert meilleurpy-undalignementpy-unditer('GTTAACC', 'CGTAAC') == (2, ['py-undGTTAACC', 'CGpy-undTAApy-undC'])bksl-nl    assert meilleurpy-undalignementpy-unditer('AGTACG', 'ACATAG') == (1, ['Apy-undGTACG', 'ACATApy-undG'])bksl-nl    print("tests réussis")bksl-nl    bksl-nlbksl-nl</span><span id="corr_content_editor_d5f7373bfc2c180b8b4c40f50c3893c67fc18880" class="py_mk_hide" data-strudel=""></span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">meilleur_alignement_iter</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prend en paramètres deux chaines de caractères seq1 et seq2</span>
+<span class="sd">    Renvoie un couple avec le score maximal d&#39;alignement et un alignement</span>
+<span class="sd">    le réalisant qui est une liste de deux chaînes de caractères</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># ---------------------------------------------------- #</span>
+    <span class="c1"># Calcul du score maximal par prog dynamique          #</span>
+    <span class="c1">#  on remplit le tableau score du bas vers le haut     #</span>
+    <span class="c1">#  on parcourt les sous-problèmes par index croissants #</span>
+    <span class="c1"># ---------------------------------------------------- #</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="c1"># score[i][j] est le meilleur score d&#39;alignement de seq1[:i] et seq2[:j]</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">score</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">j</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>            
+            <span class="c1"># premier sous-problème : alignement des derniers caractères des préfixes seq1[:i] et seq2[:j]</span>
+            <span class="n">s1</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="c1"># second sous-problème : le dernier caractère de seq1[:i]  est aligné avec un trou</span>
+            <span class="n">s2</span> <span class="o">=</span>  <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="c1"># troisième sous-problème  : le dernier caractère de seq1[:j]  est aligné avec un trou</span>
+            <span class="n">s3</span> <span class="o">=</span>  <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="c1"># formule de récurrence pour le calcul de score[i][j]</span>
+            <span class="c1"># sous-cas où les derniers caractères sont identiques dans le premier sous-problème</span>
+            <span class="k">if</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+            <span class="c1"># sous-cas où les derniers caractères sont différents</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+    <span class="c1"># le score de Needle-Wunsch de seq1 et seq2 est la valeur de la dernière cas du tableau</span>
+    <span class="c1"># index du sous-problème : i index de ligne et j index de colonne</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="c1"># ----------------------------------------------- #</span>
+    <span class="c1"># Reconstruction d&#39;un alignement de score maximal #</span>
+    <span class="c1"># On redescend du haut vers le bas                #</span>
+    <span class="c1"># On parcourt les choix successifs  à rebours     #</span>
+    <span class="c1"># Jusqu&#39;à ce que i ou j soit nul (cas de base)    #</span>
+    <span class="c1"># ----------------------------------------------- #</span>
+
+    <span class="c1"># alignement[0] est un alignement optimal pour seq1</span>
+    <span class="c1"># alignement[1] est un alignement optimal pour seq2</span>
+    <span class="n">alignement</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>    
+    <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">s3</span> <span class="o">=</span>  <span class="n">score</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">maxi</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="n">s1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">maxi</span> <span class="o">==</span> <span class="n">d</span> <span class="o">+</span> <span class="n">s1</span><span class="p">:</span>
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">maxi</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">:</span>            
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="n">seq2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="s1">&#39;_&#39;</span>  <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># si i différent de 0 on aligne seq1[:i] avec i * &#39;_&#39; </span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq1</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>  <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># si j différent de 0 on aligne j * &#39;_&#39;  avec seq2[:j]</span>
+    <span class="k">if</span> <span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="s1">&#39;_&#39;</span>   <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq2</span><span class="p">[:</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">alignement</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">score</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">m</span><span class="p">],</span> <span class="n">alignement</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_meilleur_alignement_iter</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">meilleur_alignement_iter</span><span class="p">(</span><span class="s1">&#39;GTTAACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CGTAAC&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;_GTTAACC&#39;</span><span class="p">,</span> <span class="s1">&#39;CG_TAA_C&#39;</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">meilleur_alignement_iter</span><span class="p">(</span><span class="s1">&#39;AGTACG&#39;</span><span class="p">,</span> <span class="s1">&#39;ACATAG&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A_GTACG&#39;</span><span class="p">,</span> <span class="s1">&#39;ACATA_G&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tests réussis&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+                
+<script src="../../pyodide-mkdocs/ide.js"></script> 
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

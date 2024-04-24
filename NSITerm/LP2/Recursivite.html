@@ -2618,6 +2618,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ALGO/C10A2.html" class="md-nav__link">
+        Activité 2: Alignement de séquences
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -3480,13 +3494,15 @@ n+somme(n-1) &amp; \text{si } n\geq 1
 <p>Une fonction qui fait appel à elle même est dite <strong>récursive</strong>.</p>
 </div>
 <p><strong>Application directe</strong></p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Enoncé</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Enoncé</label><label for="__tabbed_1_2">Aide</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>La puissance <span class="arithmatex">\(n\)</span>-ième d'un nombre <span class="arithmatex">\(x\)</span> est la multiplication répétée <span class="arithmatex">\(n\)</span> fois de <span class="arithmatex">\(x\)</span> avec lui même. Par 
 convention <span class="arithmatex">\(x^0=1\)</span>. La puissance <span class="arithmatex">\(n\)</span>-ième de <span class="arithmatex">\(x\)</span> s'écrit:<br />
 <span class="arithmatex">\(x^n = \underbrace{x\times \cdots \times x}_{n-1 \text{ fois}}\times x=x^{n-1}\times x\)</span><br />
 Coder de manière récursive cette fonction en python.</p>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Aide</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>On peut donc définir une fonction <code>puissance</code> <span class="arithmatex">\(n\)</span>-ième de <span class="arithmatex">\(x\)</span> telle que: </p>
 <div class="arithmatex">\[
 puissance(x,n)=\begin{cases}
@@ -3494,6 +3510,7 @@ puissance(x,n)=\begin{cases}
 puissance(x,n-1)\times x &amp; \text{si } n&gt;0
 \end{cases}
 \]</div>
+</div>
 </div>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3532,11 +3549,14 @@ L'appel de <code>somme_rec(4)</code> provoque une série d'appels en cascade jus
 <p>Cette succession d'appels rend naturellement les <strong>boucles inutiles</strong> dans dans une fonction récursive.  </p>
 <p>Chaque appel de fonction se traduit par le stockage dans une zone mémoire appelée <strong>pile</strong>, de données liées au contexte d'exécution de la fonction appelante (<em>adresse de retour, paramètres de la fonction, etc.</em>). </p>
 <p><strong>Application directe</strong>  </p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Enoncé</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Enoncé</label><label for="__tabbed_2_2">Aide</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Analyser l'arbre d'appels de <code>puissance(2, 4)</code> et justifier la valeur renvoyée.</p>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Aide</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Revoir l'exemple de la fonction <code>somme_rec</code></p>
+</div>
 </div>
 </div>
 <h2 id="dautres-exemples-de-fonctions-recursives-precautions">D'autres exemples de fonctions récursives - précautions<a class="headerlink" href="#dautres-exemples-de-fonctions-recursives-precautions" title="Permanent link">⚓︎</a></h2>
