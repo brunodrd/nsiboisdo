@@ -1,19 +1,25 @@
 def ratio(objet):
-    # renvoie le rapport prix/poids d'un objet
-    return objet[2] / objet[1]
+    """ 
+    Renvoie le rapport prix/poids d'un objet de type ["nom", poids, prix]
+    """
+
+    nom, poids, prix = objet
+    # Rmq: 'nom' n'est jamais utilisé ici, il est d'usage d'utiliser la 
+    # construction suivante: _, poids, prix = objet. _ est souvent
+    # qualifié de variable jetable.  
+    return prix / poids
 
 
 def kp(objets, poids_max, poids_sac):
     """
-    Renvoie la liste des objets pris dans 'objets' et
-    satisfaisant à la condition 'poids_max'
+    Renvoie la liste de nom des objets pris dans 'objets' et
+    satisfaisant à la condition poids total < 'poids_max'
     """
     # Code à compléter
     butin = []
-    obj_tries = sorted(objets, key = ratio, reverse = True)
+    objets_tries = sorted(objets, key=ratio, reverse=True)
 
-    for i in range(len(obj_tries)):
-        poids_objet = obj_tries[i][1]
+    for nom, poids, prix in objets_tries:
         if ... :
             butin.append(...)
             poids_sac += ...
