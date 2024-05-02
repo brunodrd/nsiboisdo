@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp-espionner-les-communications-de-bob-et-alice" class="md-skip">
+        <a href="#tp-espionner-les-communications-entre-bob-et-alice" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3635,7 +3635,7 @@
                   
 
 
-<h1 id="tp-espionner-les-communications-de-bob-et-alice">TP - Espionner les communications de Bob et Alice<a class="headerlink" href="#tp-espionner-les-communications-de-bob-et-alice" title="Permanent link">⚓︎</a></h1>
+<h1 id="tp-espionner-les-communications-entre-bob-et-alice">TP - Espionner les communications entre Bob et Alice<a class="headerlink" href="#tp-espionner-les-communications-entre-bob-et-alice" title="Permanent link">⚓︎</a></h1>
 <p><em>Bob et Alice communiquent en utilisant un chiffrement construit en 1974, mais qui n'a été publié qu'en 1978. Il permet à deux parties de se mettre d'accord sur un secret en commun par l'échange de messages, et sans que ces partis n'aient préalablement de secret commun</em>.</p>
 <h2 id="la-technique">La technique<a class="headerlink" href="#la-technique" title="Permanent link">⚓︎</a></h2>
 <p>Supposons qu'Alice et Bob veulent communiquer en utilisant une clé secrète commune. Pour établir cette clé, Bob envoie à Alice un message qui consiste en un <strong>très grand nombre de puzzles</strong>, chacun assez petit pour qu'Alice puisse le résoudre par attaque par force brute. Les puzzles sont de la forme d'un message chiffré avec une clé inconnue, donc la clé est assez courte.</p>
@@ -3649,8 +3649,11 @@ identiﬁcateur : 734562 – clé : <code>H\\&gt;hq]D/x.K\\-Ov}</code><br />
 identiﬁcateur : 924252 – clé : <code>nSV)ayafjvzA9zXz</code></p>
 </blockquote>
 <p>Ce message est constitué d'un indentificateur numérique et d'une clé composée de 16 caractères. </p>
-<p>Ce fichier sera chiffré en utilisant le chiffrement XOR, avec une clé différente pour chaque ligne.<br />
-<strong>La clé devra être assez courte pour que le déchiffrement d'une ligne ne soit pas trop long</strong></p>
+<p>Ce fichier sera chiffré en utilisant le chiffrement XOR, avec une clé différente pour chaque ligne.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Dans notre exemple ...</p>
+<p>La clé devra être assez courte pour que le déchiffrement d'une ligne ne soit pas trop long.</p>
+</div>
 <p>Voici un extrait du ﬁchier chiﬀré qui sera transmis sur le réseau :</p>
 <blockquote>
 <p>47 96 83 70 114 111 49 101 24 90 72 94 135 113 82 136 96 120 65 92 70 136 31 120 106 102 31 60 116 125 76 ... 40<br />
@@ -3666,7 +3669,7 @@ Admettons qu’elle choisisse et déchiffre la ligne suivante :  </p>
 <p>Alice transmettra en clair <code>924252</code> sur le réseau à destination de Bob.<br />
 Il saura alors que la clé de session à utiliser sera <code>nSV)ayafjvzA9zXz</code>.<br />
 Alice et Bob communiquerons alors avec cette clé lors de leurs prochains échanges.  </p>
-<p>Le pirate Ève, a la tâche plus difficile. Elle ne sait pas quel puzzle a été résolu. La meilleure stratégie pour Ève est de résoudre tous les puzzles, ce qui est beaucoup plus coûteux pour elle que pour Alice. </p>
+<p>Le pirate Ève, a la tâche plus difficile. Il ne sait pas quel puzzle a été résolu. La meilleure stratégie pour Ève est de résoudre tous les puzzles, ce qui est beaucoup plus coûteux pour lui que pour Alice. </p>
 <h2 id="generation-du-fichier-identifiantscles-par-bob">Génération du fichier identifiants/clés par Bob.<a class="headerlink" href="#generation-du-fichier-identifiantscles-par-bob" title="Permanent link">⚓︎</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Mission 1</p>
@@ -3686,11 +3689,11 @@ Alice et Bob communiquerons alors avec cette clé lors de leurs prochains échan
 
 <span class="k">def</span> <span class="nf">gene_cle</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="c1"># Votre code ici.</span>
-    <span class="k">for</span> 
+    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Testez votre fonction</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Test.</span>
 
 <span class="n">gene_cle</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3700,11 +3703,11 @@ Alice et Bob communiquerons alors avec cette clé lors de leurs prochains échan
 <ul>
 <li>prend en paramètre un entier <code>nombre_lignes</code> et un entier <code>taille_cle</code>;</li>
 <li>renvoie un dictionnaire contentant <code>nombre_lignes</code> éléments.<br />
-Les clés de ce dictionnaire seront des identificateurs, c'est-à-dire des nombres aléatoires qui seront uniques.<br />
+Les clés de ce dictionnaire seront des identificateurs, c'est-à-dire des nombres aléatoires qui seront <strong>uniques</strong>.<br />
 Les valeurs seront des clés de longueurs <code>taille_cle</code> comme vu précédement.</li>
 </ul>
 <p>Pour obtenir des identifiants uniques, vous pourrez utiliser la fonction <code>sample</code> de python. 
-<a href="https://docs.python.org/fr/3/library/random.html#random.sample">Vers la documentation de sample</a></p>
+<a href="https://docs.python.org/fr/3/library/random.html#random.sample">Vers la documentation de sample</a>.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3718,29 +3721,42 @@ Les valeurs seront des clés de longueurs <code>taille_cle</code> comme vu préc
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Testez votre fonction ici.</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Test.</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">gene_dico_cles</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
 <p class="admonition-title">Mission 3</p>
-<p>Compléter le code ci-dessous de façon à obtenir un fichier similaire à celui de l'exemple.<br />
-On souhaite obtenir un fichier de 100 lignes avec des clés de longueur 16.</p>
-<p>Etudiez aussi la structure de ce code, il permet de générer un fichier contenant les identificateurs et les clés (une par ligne).</p>
+<p>Compléter le code ci-dessous de façon à obtenir un fichier similaire à celui de l'exemple. On souhaite obtenir un fichier de 100 lignes avec des clés de longueur 16.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dico_cle</span> <span class="o">=</span> <span class="n">gene_dico_cles</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dico_cle</span> <span class="o">=</span> <span class="n">gene_dico_cles</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fichier_cles.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">ident</span> <span class="ow">in</span> <span class="n">dico_cle</span><span class="p">:</span>
+        <span class="c1"># Votre code ici</span>
         <span class="k">pass</span>    
 </code></pre></div></td></tr></table></div>
 <div class="admonition tip">
 <p class="admonition-title">Indication</p>
 <p>Une fois la cellule précédente exécutée, ouvrez le fichier <code>fichier_cles.txt</code>, créé dans le répertoire courant, pour vérifier son contenu</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Mission 4</p>
+<p>Compléter le code ci-dessous de façon à écrire dans le fichier <code>fichier_cles_chiffre.txt</code>.<br />
+La fonction <code>chiffrer_fichier</code> aura :</p>
+<ul>
+<li>en paramètre la taille de la clé utilisée pour chiffrer chaque ligne. Attention, la clé doit être différente pour chaque ligne; <strong>Important : La clé sera composée de lettres en majuscule.</strong></li>
+<li>pas de sortie, le fichier <code>fichier_cles_chiffre.txt</code> sera enregistré dans le même dossier.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">En préambule</p>
+<p>Exécuter la cellule suivante fournissant les fonctions de chriffrement et de déchiffrement XOR.</p>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3860,27 +3876,18 @@ On souhaite obtenir un fichier de 100 lignes avec des clés de longueur 16.</p>
         <span class="n">texte_dechiffre</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">texte_dechiffre</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">Mission 4</p>
-<p>Compléter le code ci-dessous de façon à écrire dans le fichier <code>fichier_cles_chiffre.txt</code>.<br />
-La fonction <code>chiffrement_fichier</code> aura :</p>
-<ul>
-<li>en paramètre la taille de la clé utilisée pour coder chaque ligne. Attention, la clé doit être différente pour chaque ligne; <strong>Important : La clé sera composée de lettres en majuscule.</strong></li>
-<li>pas de sortie, le fichier <code>fichier_cles_chiffre.txt</code> sera enregistré dans le même dossier.</li>
-</ul>
-</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">chiffrement_fichier</span><span class="p">(</span><span class="n">taille_cle</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">chiffrer_fichier</span><span class="p">(</span><span class="n">taille_cle</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fichier_cles.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fichier_cles_chiffre.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier2</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">fichier1</span><span class="p">:</span>
             <span class="c1"># Votre code ici.</span>
             <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chiffrement_fichier</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chiffrer_fichier</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="c1"># Ouvrez le fichier &quot;fichier_cles_chiffre.txt&quot; pour vérifier le bon fonctionnement de votre code.</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="dechiffrement-dune-ligne-par-alice">Déchiffrement d'une ligne par Alice<a class="headerlink" href="#dechiffrement-dune-ligne-par-alice" title="Permanent link">⚓︎</a></h2>
@@ -3899,16 +3906,16 @@ La variable <code>ligne_selectionne</code> contiendra une de ces lignes choisie 
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;fichier_cles_chiffre.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier</span><span class="p">:</span>
     <span class="n">toutes_lignes</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1"># Votre code ici.</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<span class="n">ligne_selectionne</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="c1"># À compléter.</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">ligne_selectionnee</span> <span class="o">=</span> <span class="o">...</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne_selectionne</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ligne_selectionnee</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
 <p class="admonition-title">Mission 6</p>
 <p>Compléter le code ci-dessous.</p>
-<p>La fonction <code>dechiffre_force_brute</code>:</p>
+<p>La fonction <code>dechiffrer_force_brute</code>:</p>
 <ul>
 <li>prend en paramètre <code>ligne</code> qui est une chaine de caractère (la ligne à déchiffrer) et <code>taille_cle</code> un entier qui représente la taille de la clé utilisée par Bob;</li>
 <li>en sortie la fonction renvoie la ligne déchiffrée (<em>lisible en clair</em>).</li>
@@ -3928,11 +3935,11 @@ La variable <code>ligne_selectionne</code> contiendra une de ces lignes choisie 
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 <span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_uppercase</span>
 
-<span class="k">def</span> <span class="nf">decryptage_force_brute</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span><span class="n">taille_cle</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dechiffrer_force_brute</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span><span class="n">taille_cle</span><span class="p">):</span>
     <span class="c1"># liste_cles contient toutes les clés possibles</span>
     <span class="n">liste_cles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">ascii_uppercase</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">taille_cle</span><span class="p">)]</span>
-<span class="c1">#     print(liste_cles)</span>
     <span class="c1"># Votre code ici.</span>
+    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition success">
 <p class="admonition-title">Réflexion</p>
@@ -3940,15 +3947,15 @@ La variable <code>ligne_selectionne</code> contiendra une de ces lignes choisie 
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">%%</span><span class="n">time</span>
-<span class="n">decryptage_force_brute</span><span class="p">(</span><span class="n">ligne_selectionne</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">dechiffrer_force_brute</span><span class="p">(</span><span class="n">ligne_selectionnee</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
 <p class="admonition-title">Mission 7</p>
 <p>En admettant que le temps pour le déchiffrement soit le même pour chaque ligne. Combien de temps faudrait-il à un attaquant pour déchiffrer le fichier en entier si il contient 100 lignes ?</p>
 </div>
-<p><strong>Votre réponse ici :</strong></p>
+<p><strong>Réponse</strong>:</p>
 <h2 id="la-bataille-finale">La bataille finale ...<a class="headerlink" href="#la-bataille-finale" title="Permanent link">⚓︎</a></h2>
-<p>&#128521; Désolé pour le seul qui y verra un message subliminal ... Fallait bien que ça arrive une fois en deux ans &#129315;</p>
+<p>&#128521; Désolé pour celui qui y verra un message subliminal ... Fallait bien que ça arrive une fois en deux ans &#129315;</p>
 <p>Alice transmet l'identificateur : 328192</p>
 <p>Puis le message :</p>
 <blockquote>
@@ -3981,9 +3988,7 @@ Il contient les identificateurs et les clés. Mais il est chiffré ! Vous savez 
 <span class="c1"># Votre code ici.</span>
 </code></pre></div></td></tr></table></div>
 <p>A quoi ce message fait-il référence ?<br />
-<strong>Votre réponse ici</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
-</code></pre></div></td></tr></table></div>
+<strong>Réponse</strong>:</p>
 
 
 
