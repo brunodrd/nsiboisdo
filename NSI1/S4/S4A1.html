@@ -917,8 +917,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           ACTIVITE 1
@@ -935,14 +933,19 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table des matières
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simulations-logiques" class="md-nav__link">
+    Simulations logiques
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#operateurs-and-or-et-not" class="md-nav__link">
@@ -969,6 +972,19 @@
   <a href="#addition-binaire" class="md-nav__link">
     Addition binaire
   </a>
+  
+    <nav class="md-nav" aria-label="Addition binaire">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#demi-additionneur" class="md-nav__link">
+    Demi additionneur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3628,42 +3644,117 @@
                   
 
 
-<h1 id="simulations-logiques">Simulations logiques<a class="headerlink" href="#simulations-logiques" title="Permanent link">⚓︎</a></h1>
-<p><em>Les fichiers de simulation sont à récupérer</em> <a href="doc/fichiers_simulation.zip">ici</a></p>
-<h2 id="operateurs-and-or-et-not">Opérateurs and, or et not<a class="headerlink" href="#operateurs-and-or-et-not" title="Permanent link">⚓︎</a></h2>
+<h2 id="simulations-logiques">Simulations logiques<a class="headerlink" href="#simulations-logiques" title="Permanent link">⚓︎</a></h2>
+<h1 id="operateurs-and-or-et-not">Opérateurs and, or et not<a class="headerlink" href="#operateurs-and-or-et-not" title="Permanent link">⚓︎</a></h1>
 <div class="admonition question">
 <p class="admonition-title">A faire</p>
-<p>Simuler avec le logiciel <em>Digital</em> du <a href="https://github.com/hneemann/Digital">professeur Helmut Neemann</a> les 
-opérations logiques <code>and</code>, <code>or</code> et <code>not</code>. &Eacute;tablir leur table de vérité.  </p>
+<p>Simuler les opérations logiques <code>and</code>, <code>or</code> et <code>not</code>. &Eacute;tablir leur table de vérité.  </p>
 </div>
-<h2 id="lois-de-de-morgan">Lois de De Morgan<a class="headerlink" href="#lois-de-de-morgan" title="Permanent link">⚓︎</a></h2>
+<p><logic-editor  showonly="out and or xor not" style="height: 450px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    and0: {type: 'and', pos: [405, 165], in: [23, 24], out: 25},
+    or0: {type: 'or', pos: [740, 160], in: [26, 27], out: 28},
+    not0: {type: 'not', pos: [400, 365], in: 29, out: 30},
+    in0: {type: 'in', pos: [265, 130], id: 31, name: 'A'},
+    in1: {type: 'in', pos: [260, 195], id: 32, name: 'B'},
+    out0: {type: 'out', pos: [520, 165], id: 33, name: 'S'},
+    in2: {type: 'in', pos: [620, 115], id: 34, name: 'A'},
+    in3: {type: 'in', pos: [615, 225], id: 35, name: 'B'},
+    out1: {type: 'out', pos: [860, 160], id: 36, name: 'S'},
+    in4: {type: 'in', pos: [285, 365], id: 38, name: 'A'},
+    out2: {type: 'out', pos: [500, 365], id: 39},
+  },
+  wires: [[31, 23], [32, 24], [25, 33], [34, 26], [35, 27], [28, 36], [30, 39], [38, 29]]
+}
+    </script>
+    </logic-editor></p>
+<h1 id="lois-de-de-morgan">Lois de De Morgan<a class="headerlink" href="#lois-de-de-morgan" title="Permanent link">⚓︎</a></h1>
 <ol>
 <li>Dresser la table de vérité de l'expression <code>not (A or B)</code>;</li>
 <li>Vérifier les résultats par simulation;</li>
 <li>Proposer une expression équivalente;</li>
 <li>Reprendre les questions 1, 2 et 3 avec l'expression <code>not (A and B)</code></li>
 </ol>
-<h2 id="une-operation-logique-tres-utilisee">Une opération logique très utilisée<a class="headerlink" href="#une-operation-logique-tres-utilisee" title="Permanent link">⚓︎</a></h2>
-<p>Ouvrir le circuit <code>Dilemme.dig</code>.<br />
-<img alt="dilemme" src="img/Dilemme.png" /></p>
+<h1 id="une-operation-logique-tres-utilisee">Une opération logique très utilisée<a class="headerlink" href="#une-operation-logique-tres-utilisee" title="Permanent link">⚓︎</a></h1>
+<p>Soit le circuit <code>dilemme</code> suivant:  </p>
+<p><logic-editor  showonly="out and or xor not" style="height: 350px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    and0: {type: 'and', pos: [210, 215], in: [0, 1], out: 2},
+    and1: {type: 'and', pos: [365, 125], in: [3, 4], out: 5},
+    and2: {type: 'and', pos: [370, 310], in: [6, 7], out: 8},
+    and3: {type: 'and', pos: [585, 210], in: [9, 10], out: 11},
+    not0: {type: 'not', pos: [305, 215], in: 12, out: 13},
+    not1: {type: 'not', pos: [495, 125], in: 14, out: 15},
+    not2: {type: 'not', pos: [490, 310], in: 16, out: 17},
+    not3: {type: 'not', pos: [690, 210], in: 18, out: 19},
+    in0: {type: 'in', pos: [140, 115], id: 20, name: 'A'},
+    in1: {type: 'in', pos: [130, 320], id: 21, name: 'B'},
+    out0: {type: 'out', pos: [780, 210], id: 22, name: 'S'},
+  },
+  wires: [[20, 0], [21, 1], [2, 12], [13, 4], [13, 6], [20, 3], [21, 7], [15, 9], [17, 10], [8, 16], [5, 14], [11, 18], [19, 22]]
+}
+    </script>
+    </logic-editor></p>
 <p>Réaliser la simulation. &Eacute;tablir et commenter sa table de vérité.<br />
 Cette opération très utilisée a pour symbole (<em>US</em>):  </p>
 <p><img alt="ouex" src="img/ouex.png" /></p>
-<h2 id="addition-binaire">Addition binaire<a class="headerlink" href="#addition-binaire" title="Permanent link">⚓︎</a></h2>
-<h3 id="demi-additionneur">Demi additionneur<a class="headerlink" href="#demi-additionneur" title="Permanent link">⚓︎</a></h3>
+<h1 id="addition-binaire">Addition binaire<a class="headerlink" href="#addition-binaire" title="Permanent link">⚓︎</a></h1>
+<h2 id="demi-additionneur">Demi additionneur<a class="headerlink" href="#demi-additionneur" title="Permanent link">⚓︎</a></h2>
 <p>Le demi additionneur est un circuit combinatoire qui permet de réaliser la <strong>somme arithmétique de deux nombres A et B chacun sur un bit</strong>.  </p>
-<p><img alt="halfadder" src="img/halfAdder.png" /></p>
+<p><logic-editor  showonly="out and or xor not" style="height: 365px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    xor0: {type: 'xor', pos: [230, 120], in: [40, 41], out: 42},
+    and0: {type: 'and', pos: [230, 245], in: [43, 44], out: 45},
+    in0: {type: 'in', pos: [90, 110], id: 46, name: 'A'},
+    in1: {type: 'in', pos: [85, 255], id: 47, name: 'B'},
+    out0: {type: 'out', pos: [330, 120], id: 48, name: 'S'},
+    out1: {type: 'out', pos: [330, 245], id: 49, name: 'R'},
+  },
+  wires: [[46, 40], [47, 41], [46, 43], [47, 44], [42, 48], [45, 49]]
+}
+    </script>
+    </logic-editor></p>
 <p>A la sortie on va avoir la somme S et une éventuelle retenue R.  </p>
 <ol>
-<li>Ouvrir le fichier <code>halfAdder.dig</code> et passer en mode simulation. Dresser alors la table de vérité de ce circuit.</li>
+<li>Simuler et dresser alors la table de vérité de ce circuit.</li>
 <li>En déduire la table d'addition binaire.</li>
-<li>En utilisant la fonction d'analyse du logiciel, donner l'expression booléenne de la sortie S et de la retenue R.</li>
+<li>*** Sauriez-vous trouver l'expression booléenne de la sortie S et de la retenue R?</li>
 </ol>
 <h3 id="additionneur-complet">Additionneur complet<a class="headerlink" href="#additionneur-complet" title="Permanent link">⚓︎</a></h3>
 <p>Lorsqu'on souhaite effectuer l'addition binaire sur un bit de deux nombres <span class="arithmatex">\(A_i\)</span> et <span class="arithmatex">\(B_i\)</span>, il faut tenir compte d'une éventuelle retenue <span class="arithmatex">\(R_{i-1}\)</span> provenant du calcul du rang précédent. On a alors un additionneur complet, qui est réalisé avec deux demi-additionneurs.  </p>
-<p><img alt="fullAdder" src="img/fullAdder.png" />  </p>
+<p><logic-editor  showonly="out and or xor not" style="height: 275px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
+    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
+    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
+    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
+    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
+    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
+    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
+    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
+  },
+  wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
+}
+    </script>
+    </logic-editor></p>
 <p>A la sortie on va avoir la somme <span class="arithmatex">\(S_i\)</span> et une éventuelle retenue <span class="arithmatex">\(R_i\)</span>.<br />
-Ouvrir le fichier <code>fullAdder.dig</code> et passer en mode simulation. Dresser la table de vérité de l'additionneur complet.</p>
+Simuler et dresser la table de vérité de l'additionneur complet.</p>
 
 
 
@@ -3724,6 +3815,8 @@ Ouvrir le fichier <code>fullAdder.dig</code> et passer en mode simulation. Dress
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://mkdocs-logic.forge.apps.education.fr/javascripts/bundle.js"></script>
       
         <script src="../../javascripts/mermaid.js"></script>
       
