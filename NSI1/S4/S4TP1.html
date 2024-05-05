@@ -3622,7 +3622,25 @@ exemples fournis dans les diverses cellules.</p>
 </div>
 <h3 id="document-1-notation-des-electroniciens">Document 1: notation des électroniciens<a class="headerlink" href="#document-1-notation-des-electroniciens" title="Permanent link">⚓︎</a></h3>
 <p>On rappelle le schéma d'un additionneur complet, vu dans l'activité 1:  </p>
-<p><img alt="fullAdder" src="img/fullAdder.png" /></p>
+<p><logic-editor  showonly="out and or xor not" style="height: 275px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
+    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
+    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
+    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
+    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
+    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
+    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
+    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
+  },
+  wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
+}
+    </script>
+    </logic-editor></p>
 <p>En logique électronique, il est commun de noter les opérations logiques <em>et</em> et <em>ou</em> respectivement <code>.</code> et <code>+</code>. Quant à la négation <em>non</em>, on la représente avec une barre au dessus de la variable.  </p>
 <p>Ainsi, l'expression booléenne de la sortie <span class="arithmatex">\(S_i\)</span> de l'additionneur complet est  </p>
 <div class="arithmatex">\[S_i=(\overline{A_i} \cdot \overline{B_i} \cdot R_{i-1}) + (\overline{A_i} \cdot B_i \cdot \overline{R_{i-1}}) + (A_i \cdot \overline{B_i} \cdot \overline{R_{i-1}}) + (A_i \cdot B_i \cdot R_{i-1})\]</div>
@@ -3741,19 +3759,63 @@ Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les val
 <h2 id="un-circuit-important-le-multiplexeur">Un circuit important: le multiplexeur<a class="headerlink" href="#un-circuit-important-le-multiplexeur" title="Permanent link">⚓︎</a></h2>
 <p>Le <a href="https://fr.wikipedia.org/wiki/Multiplexeur">multiplexeur</a> est un circuit logique très important en architecture machine. Il permet de sélectionner une entrée parmi <span class="arithmatex">\(N\)</span> et de transférer sa valeur sur la sortie. La sélection se fait à l'aide d'une entrée <em>Select</em>.</p>
 <h3 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h3>
-<p>La figure ci-dessous présente le schéma de principe d'un multiplexeur à 4 entrées <span class="arithmatex">\(A_0 ... A_3\)</span> que vous pouvez tester avec le fichier <code>mux1.dig</code>. </p>
-<p><img alt="mux1" src="img/mux1.png" /> </p>
+<p>Le circuit ci-dessous présente le schéma de principe d'un multiplexeur à 4 entrées <span class="arithmatex">\(A_0 ... A_3\)</span> que vous pouvez tester.</p>
+<p><logic-editor  showonly="out and or xor not" style="height: 287px;" mode="tryout">
+    <script type="application/json">
+        
+{ // JSON5
+  v: 6,
+  components: {
+    in0: {type: 'in', pos: [150, 50], id: 121, name: 'A0'},
+    in1: {type: 'in', pos: [150, 90], id: 122, name: 'A1'},
+    in2: {type: 'in', pos: [150, 140], id: 123, name: 'A2'},
+    in3: {type: 'in', pos: [150, 185], id: 124, name: 'A3'},
+    in4: {type: 'in', pos: [420, 40], id: 125, name: 'Sel0'},
+    out0: {type: 'out', pos: [500, 165], id: 126, name: 'S'},
+    mux0: {type: 'mux', pos: [330, 215], in: '142-147', out: 148, from: 4, to: 1},
+    in5: {type: 'in', pos: [310, 40], id: 149, name: 'Sel1'},
+  },
+  wires: [[121, 142], [125, 146], [148, 126], [122, 143], [123, 144], [124, 145], [149, 147]]
+}
+    </script>
+    </logic-editor></p>
 <hr />
 <p>Sa réalisation avec les portes logiques élémentaires:</p>
-<p><img alt="mux2" src="img/mux2.png" /></p>
+<p><logic-editor  showonly="out and or xor not" style="height: 622px;" mode="tryout">
+    <script type="application/json">
+        
+
+
+{ // JSON5
+  v: 6,
+  components: {
+    and0: {type: 'and', pos: [565, 270], in: '153-155', out: 156, bits: 3},
+    or0: {type: 'or', pos: [745, 355], in: '169-172', out: 173, bits: 4},
+    not0: {type: 'not', pos: [265, 145], orient: 's', in: 174, out: 175},
+    not1: {type: 'not', pos: [325, 145], orient: 's', in: 176, out: 177},
+    in0: {type: 'in', pos: [190, 55], id: 178, name: 'Sel1'},
+    in1: {type: 'in', pos: [450, 60], orient: 'w', id: 179, name: 'Sel0'},
+    in2: {type: 'in', pos: [60, 240], id: 180, name: 'A0', val: 1},
+    in3: {type: 'in', pos: [65, 310], id: 181, name: 'A1'},
+    in4: {type: 'in', pos: [60, 420], id: 182, name: 'A2'},
+    in5: {type: 'in', pos: [65, 545], id: 183, name: 'A3'},
+    and1: {type: 'and', pos: [570, 365], in: '184-186', out: 187, bits: 3},
+    and2: {type: 'and', pos: [570, 460], in: '188-190', out: 191, bits: 3},
+    and3: {type: 'and', pos: [570, 550], in: '192-194', out: 195, bits: 3},
+    out0: {type: 'out', pos: [875, 355], id: 196},
+  },
+  wires: [[178, 174], [179, 176], [180, 155], [181, 186], [182, 190], [156, 169], [187, 170], [191, 171], [195, 172], [173, 196], [178, 189, {via: [[185, 385, 's']]}], [178, 193, {via: [[160, 375, 's']]}], [175, 154], [175, 185], [179, 184, {via: [[395, 185, 's']]}], [179, 192, {via: [[380, 205, 's']]}], [177, 153], [177, 188, {via: [[355, 325, 's']]}], [183, 194]]
+}
+    </script>
+    </logic-editor></p>
 <h3 id="simulation">Simulation<a class="headerlink" href="#simulation" title="Permanent link">⚓︎</a></h3>
 <ol>
-<li>Ouvrir le fichier <code>mux2.dig</code> et passer en mode simulation.</li>
+<li>Simuler le circuit ci-dessus.</li>
 <li>Quelle opération logique effectuent les 4 circuits à 3 entrées, visibles sur la réalisation ci-dessus?</li>
 <li>Quelles valeurs logiques doit-on porter les entrées de ces circuits si on veut obtenir un <em>1</em> logique sur leur sortie?</li>
-<li>On souhaite sélectionner la deuxième entrée (en d'autres termes <span class="arithmatex">\(S\)</span> doit <em>recopier</em> <span class="arithmatex">\(A_1\)</span>), quelle valeur logique doit-on affecter à <span class="arithmatex">\(Select_0\)</span> et <span class="arithmatex">\(Select_1\)</span>?</li>
+<li>On souhaite sélectionner la deuxième entrée (en d'autres termes <span class="arithmatex">\(S\)</span> doit <em>recopier</em> <span class="arithmatex">\(A_1\)</span>), quelle valeur logique doit-on affecter à <span class="arithmatex">\(Sel_0\)</span> et <span class="arithmatex">\(Sel_1\)</span>?</li>
 <li>Réaliser la sélection précédente sur le simulateur. Entrer la combinaison <span class="arithmatex">\((1,1,0,0)\)</span> pour <span class="arithmatex">\((A_0,A_1,A_2,A_3)\)</span>. Que vaut <span class="arithmatex">\(S\)</span> ? Expliquer.</li>
-<li>Garder la même sélection pour <span class="arithmatex">\(Select_0\)</span> et <span class="arithmatex">\(Select_1\)</span>. Donner une autre combinaison qui conduit à <span class="arithmatex">\(S=1\)</span>. Expliquer.</li>
+<li>Garder la même sélection pour <span class="arithmatex">\(Sel_0\)</span> et <span class="arithmatex">\(Sel_1\)</span>. Donner une autre combinaison qui conduit à <span class="arithmatex">\(S=1\)</span>. Expliquer.</li>
 </ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
