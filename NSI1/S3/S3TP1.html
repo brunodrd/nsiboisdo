@@ -3587,7 +3587,7 @@ Pour manipuler les chaînes de caractères, on dispose du type <code>str</code> 
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition question">
-<p class="admonition-title">A faire</p>
+<p class="admonition-title">À faire</p>
 <p>Donner le type des objets suivants: 11, 11.0 et "11". Représentent-ils le même objet ?</p>
 </div>
 <h2 id="convertisseur-decimal-binaire">Convertisseur decimal binaire<a class="headerlink" href="#convertisseur-decimal-binaire" title="Permanent link">⚓︎</a></h2>
@@ -3634,13 +3634,26 @@ concaténation de &#39;r&#39; et &#39;00&#39;: 100
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
 <ul>
-<li>Écrire une fonction <code>dec2bin</code> qui prend en paramètre un entier naturel <code>n</code> et qui renvoit la représentation binaire de <code>n</code>sous forme de chaine de caractères, à partir de l'algorithme fourni.</li>
-<li><strong>Bonus</strong> (<em>pour les plus rapides</em>) écrire une fonction <code>sur_16_bits</code> qui prend en paramètre une chaine représentant un nombre binaire (<em>donc formée de 0 et de 1</em>) et qui renvoit une chaine correspondant au même nombre écrit sur 16 bits. Il faudra donc rajouter, si besoin, des zéros.</li>
+<li>En utilisant l'algorithme 1, écrire une fonction <code>dec2bin</code> qui prend en paramètre un entier naturel <code>n</code> et qui renvoit la représentation binaire de <code>n</code> sous la forme d'une chaine de caractères.</li>
+<li><strong>Bonus</strong> Écrire une fonction <code>convertir_sur_16_bits</code> qui prend en paramètre un entier n et qui renvoit sa décomposition binaire écrite sur 16 bits. Il faudra donc rajouter, si besoin, des zéros.  </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Indication</p>
+<p>Réutiliser la fonction précédente.</p>
 </div>
+</div>
+<div class="py_mk_ide"  data-max="25"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_338345f54df26a520c3de24e01368b2a43a58c3a" class="comment">###</span><div class="line" id="editor_338345f54df26a520c3de24e01368b2a43a58c3a"></div><div id="term_editor_338345f54df26a520c3de24e01368b2a43a58c3a"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_338345f54df26a520c3de24e01368b2a43a58c3a","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_338345f54df26a520c3de24e01368b2a43a58c3a" class="py_mk_hide">assert dec2bin(0) == '0'bksl-nlassert dec2bin(255) == '11111111'bksl-nlassert dec2bin(127) == '1111111'bksl-nl</span>            <button class="tooltip" onclick='check("editor_338345f54df26a520c3de24e01368b2a43a58c3a","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">25/25</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_338345f54df26a520c3de24e01368b2a43a58c3a","NSI1S3/TP1Code1")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_338345f54df26a520c3de24e01368b2a43a58c3a').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_338345f54df26a520c3de24e01368b2a43a58c3a" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_338345f54df26a520c3de24e01368b2a43a58c3a")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_338345f54df26a520c3de24e01368b2a43a58c3a")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_338345f54df26a520c3de24e01368b2a43a58c3a" class="py_mk_hide">def dec2bin(n):bksl-nl    """bksl-nl    Renvoie une chaîne correspondant à la représentation binaire de l'entier n.bksl-nl    """bksl-nl    result = ''bksl-nl    # À compléterbksl-nl    return resultbksl-nl</span><span id="corr_content_editor_338345f54df26a520c3de24e01368b2a43a58c3a" class="py_mk_hide" data-strudel="">def dec2bin(n):bksl-nl    """bksl-nl    Renvoie une chaîne correspondant à la représentation binaire de l'entier n.bksl-nl    """bksl-nl    result = ''bksl-nl    quotient = nbksl-nl    if quotient == 0:bksl-nl        result = '0'bksl-nl    else:bksl-nl        while quotient != 0:bksl-nl            result = str(quotient % 2) + resultbksl-nl            quotient = quotient // 2bksl-nl    return resultbksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+<h4 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permanent link">⚓︎</a></h4>
+<div class="py_mk_ide"  data-max="25"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_be979f9d8515eec35f91e0195bc111542c31fb79" class="comment">###</span><div class="line" id="editor_be979f9d8515eec35f91e0195bc111542c31fb79"></div><div id="term_editor_be979f9d8515eec35f91e0195bc111542c31fb79"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_be979f9d8515eec35f91e0195bc111542c31fb79","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_be979f9d8515eec35f91e0195bc111542c31fb79" class="py_mk_hide">assert convertirpy-undsurpy-und16py-undbits(0) == '0000000000000000'bksl-nlassert convertirpy-undsurpy-und16py-undbits(2py-strpy-str16 - 1) == '1111111111111111'bksl-nlassert convertirpy-undsurpy-und16py-undbits(256) == '0000000100000000'bksl-nl</span>            <button class="tooltip" onclick='check("editor_be979f9d8515eec35f91e0195bc111542c31fb79","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">25/25</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_be979f9d8515eec35f91e0195bc111542c31fb79","NSI1S3/TP1Code2")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_be979f9d8515eec35f91e0195bc111542c31fb79').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_be979f9d8515eec35f91e0195bc111542c31fb79" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_be979f9d8515eec35f91e0195bc111542c31fb79")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_be979f9d8515eec35f91e0195bc111542c31fb79")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_be979f9d8515eec35f91e0195bc111542c31fb79" class="py_mk_hide">def convertirpy-undsurpy-und16py-undbits(n):bksl-nl    """bksl-nl    Renvoie la conversion binaire de n sur 16 bitsbksl-nl    """bksl-nl    assert n &lt; 2py-strpy-str16, "Erreur: n nécessite plus de 16 bits"bksl-nl    bksl-nl    # À compléter    bksl-nl</span><span id="corr_content_editor_be979f9d8515eec35f91e0195bc111542c31fb79" class="py_mk_hide" data-strudel="">def convertirpy-undsurpy-und16py-undbits(n):bksl-nl    """bksl-nl    Renvoie la conversion binaire de n sur 16 bitsbksl-nl    """bksl-nl    assert n &lt; 2py-strpy-str16, "Erreur: n nécessite plus de 16 bits"bksl-nl    bksl-nl    result = dec2bin(n)bksl-nl    k = 16 - len(result) # nb de zéros à ajouterbksl-nl    for i in range(k):bksl-nl        result = '0' + resultbksl-nl    return result    bksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
 <h2 id="application-de-la-numeration-hexadecimale">Application de la numération hexadécimale<a class="headerlink" href="#application-de-la-numeration-hexadecimale" title="Permanent link">⚓︎</a></h2>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h3>
-<p>Quelque soit leur type, les fichiers sont stockés en machine sous forme binaire. Celle-ci est peu pratique la plupart du temps. On lui préfère la forme hexadécimale.  </p>
+<p>Quelque soit leur type, les fichiers sont stockés en machine sous forme binaire. Celle-ci est peu pratique la plupart du temps. On lui préfère la forme hexadécimale. Le fichier de travail est un fichier image <a href="logo.bmp">à télécharger ici</a>. </p>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
 <ul>
@@ -3649,7 +3662,7 @@ concaténation de &#39;r&#39; et &#39;00&#39;: 100
 <li>On peut aussi convertir un nombre hexadécimal en décimal via la ligne de commande en prenant soin de le préfixé par <code>0x</code>. Exemple de syntaxe: <code>echo $((0x7F))</code> qui donne 127. Convertir le nombre héxadécimal <code>B104</code> en décimal.</li>
 </ul>
 </div>
-<h3 id="notion-de-boutisme">Notion de boutisme<a class="headerlink" href="#notion-de-boutisme" title="Permanent link">⚓︎</a></h3>
+<h3 id="notion-de-boutisme-endianness-en-anglais">Notion de boutisme (endianness en anglais)<a class="headerlink" href="#notion-de-boutisme-endianness-en-anglais" title="Permanent link">⚓︎</a></h3>
 <p>Pour une donnée qui occupent au moins deux octets, la question de sa représentation en mémoire (on dit aussi de son boutisme) se pose. En effet, on a deux possibilités pour l'écrire:  </p>
 <ul>
 <li>de l'octet de poids fort vers l'octet de poids faible; c'est la représentation <em>gros-boutisme</em> ou <em>big-endian</em>;</li>
@@ -3677,14 +3690,14 @@ Le nombre hexadécimal <code>0x1A597C</code> occupe trois octets, <code>1A</code
 <p>Les 2 premiers octets servent à identifier le fichier. Pour une image BMP, on doit avoir <code>B</code> et <code>M</code> soit <code>42</code> et <code>4D</code> en hexadécimal.  </p>
 <p>Les <strong>4 octets suivants nous donnent la taille du fichier</strong>, en hexadécimal.  </p>
 <div class="admonition question">
-<p class="admonition-title">A faire</p>
+<p class="admonition-title">À faire</p>
 <ul>
 <li>Consulter la documentation en annexe sur l'organisation d'un fichier image <code>BMP</code>;</li>
 <li>En utilisant <code>hexdump</code> et compte tenu du boutisme, donner la commande qui permet d'avoir la taille du fichier <strong>et uniquement celle-ci</strong>, en hexadécimal. Convertir cette valeur en décimal. Est-ce cohérent avec la valeur fourni par la commande <code>ls -l</code>?</li>
 </ul>
 </div>
 <h4 id="exploitation-de-lentete-dib-header">Exploitation de l'entête DIB Header<a class="headerlink" href="#exploitation-de-lentete-dib-header" title="Permanent link">⚓︎</a></h4>
-<p>On se réfère toujours à la documention du format BMP fournie en annexe (<em>et est disponible sur</em> <a href="https://en.wikipedia.org/wiki/BMP_file_format">wikipedia</a>). Sur le schéma proposé, la <em>taille</em> d'une cellule est de 4 octets. </p>
+<p>On se réfère toujours à la documention du format BMP fournie en annexe (<em>qui est disponible sur en version complète sur</em> <a href="https://en.wikipedia.org/wiki/BMP_file_format">wikipedia</a>). Sur le schéma proposé, la <em>taille</em> d'une cellule est de 4 octets. </p>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
 <p>À partir des informations extraites de l'entête <em>DIB Header</em>:</p>
