@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="REUJ1_2023.html">
+        <link rel="prev" href="sujet_042024.html">
       
       
-        <link rel="next" href="correction1re.html">
+        <link rel="next" href="../EP/EP260123.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Revisions 12/2023 - NSI</title>
+        <title>Corrigé bac blanc 04/2024 - NSI</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revisions-bac-blanc-decembre-2023" class="md-skip">
+        <a href="#exercice-1" class="md-skip">
           Aller au contenu
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Revisions 12/2023
+              Corrigé bac blanc 04/2024
             
           </span>
         </div>
@@ -3105,59 +3105,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Revisions 12/2023
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="revisions.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="revisions.html" class="md-nav__link">
         Revisions 12/2023
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#programme-de-1re" class="md-nav__link">
-    Programme de 1re
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#programme-de-terminale" class="md-nav__link">
-    Programme de terminale
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3209,11 +3161,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="bblanc2024.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="bblanc2024.html" class="md-nav__link md-nav__link--active">
         Corrigé bac blanc 04/2024
       </a>
+      
     </li>
   
 
@@ -3642,38 +3604,260 @@
                   
 
 
-<h1 id="revisions-bac-blanc-decembre-2023">Révisions bac blanc - décembre 2023<a class="headerlink" href="#revisions-bac-blanc-decembre-2023" title="Permanent link">⚓︎</a></h1>
-<h2 id="programme-de-1re">Programme de 1re<a class="headerlink" href="#programme-de-1re" title="Permanent link">⚓︎</a></h2>
+<h1 id="exercice-1">Exercice 1<a class="headerlink" href="#exercice-1" title="Permanent link">⚓︎</a></h1>
+<h1 id="question-1">Question 1<a class="headerlink" href="#question-1" title="Permanent link">⚓︎</a></h1>
+<p>Si on utilisait un arbre binaire, chaque valeur constiturait un noeud de l'arbre. Or, en examinant les chemins, on se rendrait compte que certains noeuds auraient plusieurs parents (par exemple le <strong>8</strong> en gras). Ceci n'est pas permis dans un arbre binaire ! <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">Voir ici</a>.</p>
+<div class="admonition success">
+<p class="admonition-title">Par conséquent ...</p>
+<p>On n'utilisera pas de structure d'abre binaire pour ce problème.</p>
+</div>
+<h1 id="question-2">Question 2<a class="headerlink" href="#question-2" title="Permanent link">⚓︎</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_recherche_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">valeur_chemin</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valeur_chemin</span> <span class="o">+=</span> <span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">parcours_recherche_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">parcours_recherche_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>On effectue une recherche <strong>récursive</strong> du chemin conduisant au maximum.<br />
+Le cas de base correspond à l'arrivée en bas de la pyramide. Si on n'y est pas, on effectue une recherche récursive à gauche (<em>en réalité juste en dessous</em>) et à droite en gardant la valeur maximale.</p>
+<h1 id="question-3">Question 3<a class="headerlink" href="#question-3" title="Permanent link">⚓︎</a></h1>
+<p>À chaque appel récursif, on utilise la <strong>même liste</strong> pour stocker le chemin (instruction <code>chemin.append(j)</code>). Il faudrait éviter d'utiliser <code>append</code> et passer une <strong>nouvelle liste</strong> lors des appels récursifs.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chemin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">chemin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">chemin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">valeur_chemin</span><span class="p">,</span> <span class="n">chemin</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valeur_chemin</span> <span class="o">+=</span> <span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">chemin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># /!\ Problème ici !!!!!</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">chemin</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">chemin</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">pyramide</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(38, [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 2, 2, 2, 3, 1, 1, 1, 1, 2, 2, 2, 3, 2, 2, 2, 3, 3, 3, 4, 1, 1, 1, 1, 1, 2, 2, 2, 3, 2, 2, 2, 3, 3, 3, 4, 2, 2, 2, 2, 3, 3, 3, 4, 3, 3, 3, 4, 4, 4, 5])
+</code></pre></div></td></tr></table></div>
+<div class="admonition bug">
+<p class="admonition-title">Erreur</p>
+<p>La ligne 3 de l'énoncé distribué est fausse et est corrigée ci-dessous.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chemin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">chemin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">chemin</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">valeur_chemin</span><span class="p">,</span> <span class="n">chemin</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valeur_chemin</span> <span class="o">+=</span> <span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">chemin_courant</span> <span class="o">=</span> <span class="p">[</span><span class="n">noeud</span> <span class="k">for</span> <span class="n">noeud</span> <span class="ow">in</span> <span class="n">chemin</span><span class="p">]</span>
+        <span class="n">chemin_courant</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">chemin_courant</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">chemin_courant</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">parcours_recherche_max_chemin</span><span class="p">(</span><span class="n">pyramide</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(38, [0, 1, 2, 3, 3, 4])
+</code></pre></div></td></tr></table></div>
+<h1 id="question-4">Question 4<a class="headerlink" href="#question-4" title="Permanent link">⚓︎</a></h1>
+<p>À chaque <em>niveau</em> le nombre d'appel récursif est multiplié par deux. Ainsi, pour une pyramide ayant 64 niveaux, on aurait <span class="arithmatex">\(2^{64}\)</span> appels récursifs. C'est juste ... pas possible !!!</p>
+<h1 id="question-5">Question 5<a class="headerlink" href="#question-5" title="Permanent link">⚓︎</a></h1>
+<p>La nouvelle pyramide demandée est: </p>
+<figure>
+  <img alt="Image title" src="img/q5.png" width="200" />
+  <figcaption>Nouvelle pyramide</figcaption>
+</figure>
+<h1 id="question-6">Question 6<a class="headerlink" href="#question-6" title="Permanent link">⚓︎</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">pyramide_zeros</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">pyramide_zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>[0]
+[0, 0]
+[0, 0, 0]
+[0, 0, 0, 0]
+</code></pre></div></td></tr></table></div>
+<h1 id="question-7">Question 7<a class="headerlink" href="#question-7" title="Permanent link">⚓︎</a></h1>
+<p>Commençons par préciser l'approche récursive rencontrée au début du problème:</p>
 <ul>
-<li>Système d'exploitation;</li>
-<li>arborescence: chemin absolu, chemin relatif;</li>
-<li>commandes de base du shell Bash (<code>mv</code>, <code>cd</code>, etc.);</li>
-<li>logiciels libres / propriétaires (voir exposés de 1re)</li>
-<li>commandes de base réseaux: <code>ping</code>, <code>traceroute</code>, etc.</li>
-<li>structure d'une adresse IPv4</li>
+<li>si on a une pyramide à un seul niveau (dernière ligne), la solution est simple: la valeur maximale du chemin jusqu'à un noeud est la valeur de ce noeud;</li>
+<li>sinon pour chaque noeud d'un niveau, la valeur maximale du chemin est obtenue <strong>en ajoutant la valeur du noeud avec le maximum des valeurs maximales des chemins des deux pyramides situées au dessous à gauche et à droite</strong>;</li>
 </ul>
-<h2 id="programme-de-terminale">Programme de terminale<a class="headerlink" href="#programme-de-terminale" title="Permanent link">⚓︎</a></h2>
-<h3 id="gestion-des-ressources-par-le-se">Gestion des ressources par le SE<a class="headerlink" href="#gestion-des-ressources-par-le-se" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>Processus;</li>
-<li>comprendre et utiliser un exemple simpliste d'ordonnancement;</li>
-<li>deadlock;</li>
-</ul>
-<h3 id="reseaux-protocoles-de-routage">Réseaux - protocoles de routage<a class="headerlink" href="#reseaux-protocoles-de-routage" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li>table de routage;</li>
-<li>protocole RIP: choix d'une route en fonction du nombre de routeurs à traverser pour atteindre la destination;</li>
-<li>notion de coût d'une liaison;</li>
-<li>protocole OSPF;</li>
-</ul>
-<h3 id="programmation-generale-en-python">Programmation générale (en python)<a class="headerlink" href="#programmation-generale-en-python" title="Permanent link">⚓︎</a></h3>
-<p>Pas de récursivité &#129395;</p>
-<ul>
-<li>bonne maîtrise des listes de python (pas listes chaînées &#129395;);</li>
-<li>savoir utiliser les booléens à bon escient;</li>
-<li><strong>maîtriser</strong> l'emploi des dictionnaires;</li>
-<li>savoir expliquer ce que fait un programme (<em>donné</em>) sans paraphraser le code.</li>
-</ul>
+<p>On a vu que le coût d'une application naïve de cette solution récursive, est prohibitif. Utilisons la programmation dynamique, avec une approche <em>bottom up</em> itérative pour résoudre ce problème.</p>
+<div class="admonition success">
+<p class="admonition-title">Solution</p>
+<p><code>npyramide[i][j] = pyramide[i][j]</code> pour tout <span class="arithmatex">\(j\)</span> avec <span class="arithmatex">\(i = n-1\)</span> (dernière ligne)</p>
+<p><code>npyramide[i][j] = pyramide[i][j] + max(npyramide[i+1][j], npyramide[i+1][j+1])</code> pour tout <span class="arithmatex">\(i &lt; n-1\)</span> et pour tout <span class="arithmatex">\(j &lt; i+1\)</span></p>
+</div>
+<h1 id="question-8">Question 8<a class="headerlink" href="#question-8" title="Permanent link">⚓︎</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">construction_pyramide_dynamique</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">)</span>
+    <span class="n">npyramide</span> <span class="o">=</span> <span class="n">pyramide_zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1"># initialisation de la dernière ligne</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">npyramide</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyramide</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="c1"># On remonte jusqu&#39;à la 1re ligne</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">npyramide</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">construction_pyramide_dynamique</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>[38]
+[32, 33]
+[22, 24, 31]
+[12, 15, 20, 22]
+[11, 9, 9, 17, 11]
+[8, 5, 2, 1, 9, 4]
+</code></pre></div></td></tr></table></div>
+<h1 id="question-9">Question 9<a class="headerlink" href="#question-9" title="Permanent link">⚓︎</a></h1>
+<p>On parcourt la nouvelle pyramide de haut en bas en choisissant à chaque changement de ligne la case
+accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice de colonne <span class="arithmatex">\(j\)</span> à chaque
+étape du parcours et on peut accéder aux valeurs correspondantes dans la pyramide initiale.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Non demandé</span>
+
+<span class="k">def</span> <span class="nf">chemin_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">):</span>
+    <span class="n">npyramide</span> <span class="o">=</span> <span class="n">construction_pyramide_dynamique</span><span class="p">(</span><span class="n">pyramide</span><span class="p">)</span>
+    <span class="n">chemin</span> <span class="o">=</span> <span class="p">[</span><span class="n">pyramide</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">chemin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">chemin</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">chemin_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[5, 2, 9, 5, 8, 9]
+</code></pre></div></td></tr></table></div>
+<h1 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">⚓︎</a></h1>
+<h1 id="question-1_1">Question 1<a class="headerlink" href="#question-1_1" title="Permanent link">⚓︎</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">recherche_txt</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span> <span class="n">motif</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span> <span class="ow">and</span> <span class="n">texte</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">motif</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">recherche_txt</span><span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">,</span> <span class="s2">&quot;bra&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1
+</code></pre></div></td></tr></table></div>
+<h1 id="question-2_1">Question 2<a class="headerlink" href="#question-2_1" title="Permanent link">⚓︎</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Dénomination algorithme</p>
+<p>Attention, à la question 2 il fallait lire <em>[..] l'algorithme de Boyer-Moore</em> <strong>Horspool</strong>.</p>
+</div>
+<p>L’algorithme de Boyer-Moore Horspool effectue la recherche en commençant par la fin du motif.  </p>
+<p>Si le motif fait 10 lettres par exemple, il compare la dernière lettre du motif avec la dixième lettre du texte. </p>
+<p>Si elles coïncident, il va comparer les lettres précédentes, mais si la dixième lettre du texte n’apparait pas dans le motif, alors l’algorithme va sauter les 10 premières lettres. </p>
+<p>Ainsi, avec une comparaison, on a avancé de 10 lettres. La recherche naïve aurait demander 10 comparaisons pour avancer de 10 lettres.</p>
+<h1 id="question-3_1">Question 3<a class="headerlink" href="#question-3_1" title="Permanent link">⚓︎</a></h1>
+<p>On peut parcourir le texte en commençant par la fin. Il suffit de changer les paramètres de l'objet
+<code>range</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">recherche_txt</span><span class="p">(</span><span class="n">texte</span><span class="p">,</span> <span class="n">motif</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">)</span> <span class="ow">and</span> <span class="n">texte</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">motif</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">motif</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
 
 
 
