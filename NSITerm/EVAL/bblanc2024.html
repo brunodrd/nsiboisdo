@@ -3812,7 +3812,7 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[5, 2, 9, 5, 8, 9]
 </code></pre></div></td></tr></table></div>
 <h1 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">⚓︎</a></h1>
-<h1 id="question-1_1">Question 1<a class="headerlink" href="#question-1_1" title="Permanent link">⚓︎</a></h1>
+<h2 id="question-1_1">Question 1<a class="headerlink" href="#question-1_1" title="Permanent link">⚓︎</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3833,7 +3833,7 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1
 </code></pre></div></td></tr></table></div>
-<h1 id="question-2_1">Question 2<a class="headerlink" href="#question-2_1" title="Permanent link">⚓︎</a></h1>
+<h2 id="question-2_1">Question 2<a class="headerlink" href="#question-2_1" title="Permanent link">⚓︎</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Dénomination algorithme</p>
 <p>Attention, à la question 2 il fallait lire <em>[..] l'algorithme de Boyer-Moore</em> <strong>Horspool</strong>.</p>
@@ -3842,7 +3842,7 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
 <p>Si le motif fait 10 lettres par exemple, il compare la dernière lettre du motif avec la dixième lettre du texte. </p>
 <p>Si elles coïncident, il va comparer les lettres précédentes, mais si la dixième lettre du texte n’apparait pas dans le motif, alors l’algorithme va sauter les 10 premières lettres. </p>
 <p>Ainsi, avec une comparaison, on a avancé de 10 lettres. La recherche naïve aurait demander 10 comparaisons pour avancer de 10 lettres.</p>
-<h1 id="question-3_1">Question 3<a class="headerlink" href="#question-3_1" title="Permanent link">⚓︎</a></h1>
+<h2 id="question-3_1">Question 3<a class="headerlink" href="#question-3_1" title="Permanent link">⚓︎</a></h2>
 <p>On peut parcourir le texte en commençant par la fin. Il suffit de changer les paramètres de l'objet
 <code>range</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3861,6 +3861,188 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
             <span class="k">return</span> <span class="n">i</span>
     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 </code></pre></div></td></tr></table></div>
+<hr />
+<h1 id="exercice-3">Exercice 3<a class="headerlink" href="#exercice-3" title="Permanent link">⚓︎</a></h1>
+<h2 id="question-1_2">Question 1<a class="headerlink" href="#question-1_2" title="Permanent link">⚓︎</a></h2>
+<figure>
+  <img alt="Image title" src="img/graph1.svg" width="480" />
+  <figcaption>Graphe pondéré G1</figcaption>
+</figure>
+<h2 id="question-2_2">Question 2<a class="headerlink" href="#question-2_2" title="Permanent link">⚓︎</a></h2>
+<p>Le chemin le plus court entre <code>A</code> et <code>D</code> est: <code>A - E - D</code> avec une distance de 10 km.</p>
+<h2 id="question-3_2">Question 3<a class="headerlink" href="#question-3_2" title="Permanent link">⚓︎</a></h2>
+<div class="arithmatex">\[
+\begin{pmatrix}
+   0 &amp; 4 &amp; 0 &amp; 0 &amp; 4 &amp; 0 &amp; 0 \\
+   4 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 &amp; 5 \\
+   0 &amp; 0 &amp; 0 &amp; 4 &amp; 8 &amp; 0 &amp; 0 \\
+   0 &amp; 0 &amp; 4 &amp; 0 &amp; 6 &amp; 8 &amp; 0 \\
+   4 &amp; 0 &amp; 8 &amp; 6 &amp; 0 &amp; 0 &amp; 0 \\
+   0 &amp; 7 &amp; 0 &amp; 8 &amp; 0 &amp; 0 &amp; 3 \\
+   0 &amp; 5 &amp; 0 &amp; 0 &amp; 3 &amp; 0 &amp; 0 \\
+\end{pmatrix}
+\]</div>
+<h2 id="question-4_1">Question 4<a class="headerlink" href="#question-4_1" title="Permanent link">⚓︎</a></h2>
+<p>Le graphe G2 peut être implémenté avec le dictionnaire suivant:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;D&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;F&#39;</span><span class="p">:[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;G&#39;</span><span class="p">:[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;H&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;I&#39;</span><span class="p">:[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="question-5_1">Question 5<a class="headerlink" href="#question-5_1" title="Permanent link">⚓︎</a></h2>
+<p>Un parcours en largeur à partir de <code>A</code> du graphe G2 est:</p>
+<p><code>A</code> | <code>B - C - H</code> | <code>D - E - G - I</code> | <code>F</code></p>
+<h2 id="donnees-de-lenonce">Données de l'énoncé<a class="headerlink" href="#donnees-de-lenonce" title="Permanent link">⚓︎</a></h2>
+<p>Programme p1 développé par CarteMap:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tab_itineraires</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">def</span> <span class="nf">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">chaine</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">chaine</span> <span class="o">=</span> <span class="n">chaine</span> <span class="o">+</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">chaine</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">chaine</span><span class="p">:</span>
+            <span class="n">nchemin</span> <span class="o">=</span> <span class="n">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">chaine</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nchemin</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">tab_itineraires</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nchemin</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">itineraires_court</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">dep</span><span class="p">,</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dep</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
+    <span class="n">tab_court</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">mini</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tab_itineraires</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="o">...</span> <span class="p">:</span>
+            <span class="n">mini</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tab_itineraires</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="n">mini</span><span class="p">:</span>
+            <span class="n">tab_court</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tab_court</span>
+</code></pre></div></td></tr></table></div>
+<p>On donne par ailleurs:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>itineraires_court(G2, &#39;A&#39;, &#39;F&#39;)
+&gt;&gt;&gt; [[&#39;A&#39;, &#39;B&#39;, &#39;I&#39;, &#39;F&#39;], [&#39;A&#39;, &#39;H&#39;, &#39;G&#39;, &#39;F&#39;], [&#39;A&#39;, &#39;H&#39;, &#39;I&#39;, &#39;F&#39;]]
+</code></pre></div></td></tr></table></div>
+<h2 id="question-6_1">Question 6<a class="headerlink" href="#question-6_1" title="Permanent link">⚓︎</a></h2>
+<p>La fonction <code>cherche_itineraires</code> est une fonction récursive car elle s'appelle elle même à la ligne 8.</p>
+<h2 id="question-7_1">Question 7<a class="headerlink" href="#question-7_1" title="Permanent link">⚓︎</a></h2>
+<p>La fonction <code>cherche_itineraires</code> permet de trouver <strong>tous</strong> les chemins allant de <code>start</code> à <code>end</code>. </p>
+<h2 id="question-8_1">Question 8<a class="headerlink" href="#question-8_1" title="Permanent link">⚓︎</a></h2>
+<p>Le code complet de <code>itineraires_court</code> est présenté ci-dessous:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tab_itineraires</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">def</span> <span class="nf">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">chaine</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">chaine</span> <span class="o">=</span> <span class="n">chaine</span> <span class="o">+</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">chaine</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">chaine</span><span class="p">:</span>
+            <span class="n">nchemin</span> <span class="o">=</span> <span class="n">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">chaine</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nchemin</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">tab_itineraires</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nchemin</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">itineraires_court</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">dep</span><span class="p">,</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">cherche_itineraires</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dep</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
+    <span class="n">tab_court</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Code complété</span>
+    <span class="n">mini</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tab_itineraires</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">mini</span> <span class="p">:</span> <span class="c1"># Code complété</span>
+            <span class="n">mini</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># Code complété</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tab_itineraires</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="n">mini</span><span class="p">:</span>
+            <span class="n">tab_court</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># Code complété</span>
+    <span class="k">return</span> <span class="n">tab_court</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="quelques-tests">Quelques tests<a class="headerlink" href="#quelques-tests" title="Permanent link">⚓︎</a></h2>
+<h3 id="1re-serie-de-tests">1re série de tests<a class="headerlink" href="#1re-serie-de-tests" title="Permanent link">⚓︎</a></h3>
+<p>Exécution de p1</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">itineraires_court</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[[&#39;A&#39;, &#39;C&#39;, &#39;E&#39;]]
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">itineraires_court</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[[&#39;A&#39;, &#39;C&#39;, &#39;E&#39;]]
+</code></pre></div></td></tr></table></div>
+<h3 id="2eme-serie-de-tests">2ème série de tests<a class="headerlink" href="#2eme-serie-de-tests" title="Permanent link">⚓︎</a></h3>
+<p>Exécution de p1</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">itineraires_court</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[[&#39;A&#39;, &#39;C&#39;, &#39;E&#39;]]
+</code></pre></div></td></tr></table></div>
+<p>Exécution de p1</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">itineraires_court</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[[&#39;A&#39;, &#39;B&#39;, &#39;I&#39;, &#39;F&#39;], [&#39;A&#39;, &#39;H&#39;, &#39;G&#39;, &#39;F&#39;], [&#39;A&#39;, &#39;H&#39;, &#39;I&#39;, &#39;F&#39;]]
+</code></pre></div></td></tr></table></div>
+<h2 id="question-9_1">Question 9<a class="headerlink" href="#question-9_1" title="Permanent link">⚓︎</a></h2>
+<p>On peut, sans prétention, affirmer que les ingénieurs responsables de ce code, ont un niveau très faible &#128540; Cependant, cette réponse n'est certainement pas celle attendue.  </p>
+<p>Dans la première série de tests, le résultat est faux. Le problème vient de l'utilisation de la variable <code>tab_itinéraires</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Rappels</p>
+<p>L'utilisation de variables globales est <em>généralement</em> une <strong>très très mauvaise idée</strong>. Par ailleurs, même si le problème n'est pas soulevé ici: il <strong>faut proscrire l'utilisation de paramètres optionnels mutables</strong> (<code>chaine=[]</code> dans <code>cherche_itineraires</code>).</p>
+</div>
+<p>Dans la 1re série de tests, après l'exécution de <code>itineraires_court</code>, la liste <code>tab_itineraires</code> contient un chemin à trois villes. Or, <strong>cette liste non réinitialisée est réutilisée dans le test suivant</strong>.</p>
+<p>Le problème semble absent dans la 2ème série de tests car entre les 2 appels à <code>itineraires_court</code> la liste <code>tab_itineraires</code> a été remise à liste vide.</p>
 
 
 
