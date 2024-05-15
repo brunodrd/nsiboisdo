@@ -973,6 +973,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#document-1-notation-des-electroniciens" class="md-nav__link">
+    Document 1: notation des électroniciens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-2-connaissances-du-langage" class="md-nav__link">
+    Document 2: connaissances du langage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-type-booleen" class="md-nav__link">
+    Le type booléen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comprendre-une-fonction" class="md-nav__link">
     Comprendre une fonction
   </a>
@@ -1802,20 +1823,6 @@
     <li class="md-nav__item">
       <a href="../../NSITerm/LP2/C1TD1.html" class="md-nav__link">
         Vers le bac
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C1TD1C.html" class="md-nav__link">
-        Correction
       </a>
     </li>
   
@@ -3644,11 +3651,11 @@
 
 <h1 id="implementation-dun-additionneur-complet-en-python">Implémentation d'un additionneur complet en python<a class="headerlink" href="#implementation-dun-additionneur-complet-en-python" title="Permanent link">⚓︎</a></h1>
 <div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Prendre absolument connaissance des documents 1 et 2 avant de répondre aux questions. Ne pas hésiter à exécuter les 
+<p class="admonition-title">À faire</p>
+<p>Prendre absolument connaissance des documents 1 et 2 avant de répondre aux questions. Ne pas hésiter à exécuter les
 exemples fournis dans les diverses cellules.</p>
 </div>
-<h3 id="document-1-notation-des-electroniciens">Document 1: notation des électroniciens<a class="headerlink" href="#document-1-notation-des-electroniciens" title="Permanent link">⚓︎</a></h3>
+<h2 id="document-1-notation-des-electroniciens">Document 1: notation des électroniciens<a class="headerlink" href="#document-1-notation-des-electroniciens" title="Permanent link">⚓︎</a></h2>
 <p>On rappelle le schéma d'un additionneur complet, vu dans l'activité 1:  </p>
 <p><logic-editor  showonly="out and or xor not" style="height: 275px;" mode="tryout">
     <script type="application/json">
@@ -3674,12 +3681,12 @@ exemples fournis dans les diverses cellules.</p>
 <div class="arithmatex">\[S_i=(\overline{A_i} \cdot \overline{B_i} \cdot R_{i-1}) + (\overline{A_i} \cdot B_i \cdot \overline{R_{i-1}}) + (A_i \cdot \overline{B_i} \cdot \overline{R_{i-1}}) + (A_i \cdot B_i \cdot R_{i-1})\]</div>
 <p>Celle de la retenue est:  </p>
 <div class="arithmatex">\[R_i=(A_i \cdot R_{i-1}) + (A_i \cdot B_i) + (B_i \cdot R_{i-1})\]</div>
-<h3 id="document-2-connaissances-du-langage">Document 2: connaissances du langage<a class="headerlink" href="#document-2-connaissances-du-langage" title="Permanent link">⚓︎</a></h3>
-<h4 id="le-type-booleen">Le type booléen<a class="headerlink" href="#le-type-booleen" title="Permanent link">⚓︎</a></h4>
+<h2 id="document-2-connaissances-du-langage">Document 2: connaissances du langage<a class="headerlink" href="#document-2-connaissances-du-langage" title="Permanent link">⚓︎</a></h2>
+<h2 id="le-type-booleen">Le type booléen<a class="headerlink" href="#le-type-booleen" title="Permanent link">⚓︎</a></h2>
 <p>En python, les opérateurs booléens sont nommés <code>and</code>, <code>or</code> et <code>not</code>. Ainsi l'expression booléenne <span class="arithmatex">\(\overline{A}\cdot(B+\overline{C})\)</span> se traduit en python par:  </p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">not</span> <span class="n">A</span> <span class="ow">and</span> <span class="p">(</span><span class="n">B</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">C</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">not</span> <span class="n">A</span> <span class="ow">and</span> <span class="p">(</span><span class="n">B</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">C</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les valeurs booléenne <em>vrai</em> et <em>faux</em> ou <em>1</em> et <em>0</em> se notent <code>True</code> et <code>False</code>. Voir ci-dessous.</p>
+<p>Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les valeurs booléenne <em>vrai</em> et <em>faux</em> ou <em>1</em> et <em>0</em> se notent <code>True</code> et <code>False</code>. Voir ci-dessous.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
@@ -3699,7 +3706,7 @@ Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les val
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="le-type-chaine-de-caracteres">Le type chaîne de caractères<a class="headerlink" href="#le-type-chaine-de-caracteres" title="Permanent link">⚓︎</a></h4>
+<h3 id="le-type-chaine-de-caracteres">Le type chaîne de caractères<a class="headerlink" href="#le-type-chaine-de-caracteres" title="Permanent link">⚓︎</a></h3>
 <p>Python possède un type natif pour traiter les chaînes de caractères: le type <em>string</em> <code>str</code>. Une chaîne de caratères est déclarée en étant entourée de <em>double quotes</em> <code>"</code> ou simple quote <code>'</code>.  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="s2">&quot;bonjour&quot;</span>
 </code></pre></div></td></tr></table></div>
@@ -3780,8 +3787,8 @@ Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les val
 <li>Consulter la <a href="https://docs.python.org/fr/3/library/stdtypes.html?highlight=range#range">documentation officielle</a> de python sur la fonction range afin de comprendre la construction qui apparait à la ligne 9.</li>
 <li>Les spécifications étant incomplètes, expliquer ce que réalise cette fonction en étudiant le code fourni ainsi que les documents 1 &amp; 2.</li>
 <li>Vérifier vos hypothèses avec quelques tests; par exemple:</li>
-<li><code>addb(4,'0001','0001')</code> </li>
-<li><code>addb(8,'11111111','00000001')</code> </li>
+<li><code>addb(4,'0001','0001')</code></li>
+<li><code>addb(8,'11111111','00000001')</code></li>
 <li>Quelle est l'utilité du test ligne 16 ?</li>
 </ul>
 <h2 id="un-circuit-important-le-multiplexeur">Un circuit important: le multiplexeur<a class="headerlink" href="#un-circuit-important-le-multiplexeur" title="Permanent link">⚓︎</a></h2>

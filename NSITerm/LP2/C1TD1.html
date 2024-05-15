@@ -16,7 +16,7 @@
         <link rel="prev" href="C1E1.html">
       
       
-        <link rel="next" href="C1TD1C.html">
+        <link rel="next" href="C5C1.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adaptation-plus-difficile-dun-sujet-de-bac-le-rendu-de-monnaie" class="md-skip">
+        <a href="#adaptation-dun-sujet-de-bac-le-rendu-de-monnaie" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1799,31 +1799,10 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
-    Tests
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="C1TD1C.html" class="md-nav__link">
-        Correction
-      </a>
     </li>
   
 
@@ -3649,8 +3628,7 @@
                   
 
 
-<h1 id="adaptation-plus-difficile-dun-sujet-de-bac-le-rendu-de-monnaie">Adaptation (plus difficile) d'un sujet de bac: le rendu de monnaie<a class="headerlink" href="#adaptation-plus-difficile-dun-sujet-de-bac-le-rendu-de-monnaie" title="Permanent link">⚓︎</a></h1>
-<p><em>Pour travailler à la maison, sans installation de Jupyter, ouvrir le notebook avec basthon, depuis</em> <a href="https://notebook.basthon.fr/?from=https://nsiboisdo.bdrd.fr/NSITerm/LP2/ipynb/C1TD1Ex.ipynb">cette adresse</a></p>
+<h1 id="adaptation-dun-sujet-de-bac-le-rendu-de-monnaie">Adaptation d'un sujet de bac: le rendu de monnaie<a class="headerlink" href="#adaptation-dun-sujet-de-bac-le-rendu-de-monnaie" title="Permanent link">⚓︎</a></h1>
 <p>Le problème du rendu de monnaie est un problème d'algorithmique. Il s'énonce de la façon suivante: étant donné un système de monnaie (pièces et billets), comment rendre une somme donnée de façon optimale, c'est-à-dire avec le nombre minimal de pièces et billets ?</p>
 <p>Par exemple, la meilleure façon de rendre 7 euros est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de un euro, par exemple). </p>
 <p>Cependant pour certains systèmes de monnaie dits <em>canoniques</em>, l'<strong>algorithme glouton</strong> est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes ayant cours dans le monde sont canoniques. </p>
@@ -3665,14 +3643,19 @@ on compare <span class="arithmatex">\(v\)</span> à la valeur de la i-ème pièc
 <li>sinon, la pièce peut être choisie et doit être ajoutée à la solution et on doit essayer de <strong>rendre la monnaie</strong>  sur <span class="arithmatex">\(v-P\left[ i\right]\)</span>.</li>
 </ul>
 <div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>On adopte une démarche récursive pour résoudre ce problème. En utilisant la description précédente:  </p>
+<p class="admonition-title">À faire</p>
+<p>On adopte une démarche récursive pour résoudre ce problème. En utilisant la description précédente:</p>
 <ul>
 <li>identifier le cas de base et le ou les cas récursifs;</li>
 <li>écrire une fonction <code>rendu_aux</code> dont la signature est donnée dans la cellule suivante.</li>
 </ul>
 </div>
 <h2 id="codage">Codage<a class="headerlink" href="#codage" title="Permanent link">⚓︎</a></h2>
+<div class="py_mk_ide"  data-max="10"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46" class="comment">###</span><div class="line" id="editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46"></div><div id="term_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46" class="py_mk_hide">PIECES = [100, 50, 20, 10, 5, 2, 1] # système monnaitaire canoniquebksl-nlbksl-nlassert rendupy-undaux(0, [], 0) == []bksl-nlassert rendupy-undaux(37, [], 0) == [20, 10, 5, 2]bksl-nlassert rendupy-undaux(300, [], 0) == [100, 100, 100]bksl-nl</span>            <button class="tooltip" onclick='check("editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">10/10</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46","C1/rendurec")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46" class="py_mk_hide">PIECES = [100, 50, 20, 10, 5, 2, 1] # système monnaitaire canoniquebksl-nlbksl-nlbksl-nldef rendupy-undaux(v, sol, i):bksl-nl    """bksl-nl        v (entier): somme à rendre;bksl-nl        sol (liste python): la solutionbksl-nl        i (entier): index de la pièce à testerbksl-nl        """bksl-nl    # Cas de basebksl-nl    if ...:bksl-nl        return ...bksl-nl    # Cas récursifsbksl-nl    if ...:bksl-nl        # On ne peut prendre la pièce, on essaie avec la suivantebksl-nl        return rendupy-undaux(..., ..., ...)bksl-nl    else:        bksl-nl        ... # On prend la pièce...bksl-nl        # ... et on résoud le pb avec v - PIECES[i]bksl-nl        return ... bksl-nl</span><span id="corr_content_editor_0da4dd207438f164dcce87fdf73ccb650fc3ca46" class="py_mk_hide" data-strudel="">PIECES = [100, 50, 20, 10, 5, 2, 1] # système monnaitaire canoniquebksl-nlbksl-nlbksl-nldef rendupy-undaux(v, sol, i):bksl-nl    """bksl-nl        v (entier): somme à rendre;bksl-nl        sol (liste python): la solutionbksl-nl        i (entier): index de la pièce à testerbksl-nl        """bksl-nl    # Cas de basebksl-nl    if v == 0:bksl-nl        return solbksl-nl    # Cas récursifsbksl-nl    if v &lt; PIECES[i]:bksl-nl        # On ne peut prendre la pièce, on essaie avec la suivantebksl-nl        return rendupy-undaux(v, sol, i+1)bksl-nl    else:        bksl-nl        sol.append(PIECES[i]) # On prend la pièce...bksl-nl        # ... et on résoud le pb avec v - PIECES[i]bksl-nl        return rendupy-undaux(v - PIECES[i], sol, i)bksl-nl</span></p>
+<p><strong>A</strong></p>
+<h1 id="autre-solution">Autre solution<a class="headerlink" href="#autre-solution" title="Permanent link">⚓︎</a></h1>
+<p>On remarque que l'appel de la fonction <code>rendu_aux</code> est assez lourd et que les deux derniers paramètres seront systématiquement <code>[]</code> et <code>0</code>. On pourrait alors simplifier l'appel avec une fonction <code>rendu</code> telle celle présentée ci-dessous:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3682,31 +3665,46 @@ on compare <span class="arithmatex">\(v\)</span> à la valeur de la i-ème pièc
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu_aux</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">sol</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rendu_aux</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">sol</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    v (entier): somme à rendre;</span>
-<span class="sd">    sol (liste python): la solution</span>
-<span class="sd">    i (entier): index de la pièce à tester</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="o">...</span> <span class="c1"># Cas de base</span>
-    <span class="o">...</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="o">...</span> <span class="c1"># Cas récursifs</span>
+<span class="sd">        v (entier): somme à rendre;</span>
+<span class="sd">        sol (liste python): la solution</span>
+<span class="sd">        i (entier): index de la pièce à tester</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="c1"># Cas de base</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sol</span>
+    <span class="c1"># Cas récursifs</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">PIECES</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="c1"># On ne peut prendre la pièce, on essaie avec la suivante</span>
+        <span class="k">return</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">sol</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>        
+        <span class="n">sol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">PIECES</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># On prend la pièce...</span>
+        <span class="c1"># ... et on résoud le pb avec v - PIECES[i]</span>
+        <span class="k">return</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">PIECES</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">sol</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">rendu</span><span class="p">(</span><span class="n">somme</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; résoud récursivement le pb du rendu de monnaie&quot;&quot;&quot;</span>    
+    <span class="k">return</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="n">somme</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p><strong>Z</strong></p>
 <div class="admonition tip">
 <p class="admonition-title">Rappel</p>
 <p>On insère (à droite) une valeur dans une liste python en utilisant <code>append</code>. Exemple: <code>sol.append(100)</code>.</p>
 </div>
-<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">⚓︎</a></h2>
-<p>Tester votre fonction</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">PIECES</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="p">[]</span>
-<span class="k">assert</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="mi">37</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">rendu_aux</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
+<h1 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">⚓︎</a></h1>
+<p>Tester votre fonction.</p>
 
 
 
