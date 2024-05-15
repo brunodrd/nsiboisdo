@@ -3628,8 +3628,11 @@
         <span class="n">v2</span> <span class="o">=</span> <span class="n">parcours_recherche_max</span><span class="p">(</span><span class="n">pyramide</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">valeur_chemin</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>On effectue une recherche <strong>récursive</strong> du chemin conduisant au maximum.<br />
-Le cas de base correspond à l'arrivée en bas de la pyramide. Si on n'y est pas, on effectue une recherche récursive à gauche (<em>en réalité juste en dessous</em>) et à droite en gardant la valeur maximale.</p>
+<p>On effectue une recherche de la valeur maximale d'un chemin dans une pyramide de nombres, de manière <strong>récursive</strong>.  </p>
+<ul>
+<li>Le cas de base correspond à une recherche dans une pyramide de hauteur 1 c'est-à-dire sur la dernière ligne de la pyramide.</li>
+<li>Si on n'y est pas (<em>sur la dernière ligne</em>), on effectue une recherche récursive dans une pyramide contenant le sommet courant et située à gauche (<em>en réalité juste en dessous</em>) et dans une autre située à droite. On gardera la valeur maximale parmi les résultats de ces deux recherches.</li>
+</ul>
 <h1 id="question-3">Question 3<a class="headerlink" href="#question-3" title="Permanent link">⚓︎</a></h1>
 <p>À chaque appel récursif, on utilise la <strong>même liste</strong> pour stocker le chemin (instruction <code>chemin.append(j)</code>). Il faudrait éviter d'utiliser <code>append</code> et passer une <strong>nouvelle liste</strong> lors des appels récursifs.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3703,7 +3706,7 @@ Le cas de base correspond à l'arrivée en bas de la pyramide. Si on n'y est pas
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(38, [0, 1, 2, 3, 3, 4])
 </code></pre></div></td></tr></table></div>
 <h1 id="question-4">Question 4<a class="headerlink" href="#question-4" title="Permanent link">⚓︎</a></h1>
-<p>À chaque <em>niveau</em> le nombre d'appel récursif est multiplié par deux. Ainsi, pour une pyramide ayant 64 niveaux, on aurait <span class="arithmatex">\(2^{64}\)</span> appels récursifs. C'est juste ... pas possible !!!</p>
+<p>À chaque <em>niveau</em> et <strong>pour chaque noeud</strong>, on aura deux appels récursifs, avec pour conséquence beaucoup de calculs redondants. La complexité est exponentielle. Ainsi, pour une pyramide ayant 64 niveaux, on aurait de l'ordre de <span class="arithmatex">\(2^{64}\)</span> appels récursifs. C'est juste ... pas possible !!!</p>
 <h1 id="question-5">Question 5<a class="headerlink" href="#question-5" title="Permanent link">⚓︎</a></h1>
 <p>La nouvelle pyramide demandée est: </p>
 <figure>
@@ -3800,7 +3803,7 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pyramide</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">npyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># la valeur maximale est à droite</span>
         <span class="n">chemin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pyramide</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">chemin</span>
 </code></pre></div></td></tr></table></div>
