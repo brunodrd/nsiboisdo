@@ -4029,6 +4029,67 @@ accessible avec le nombre maximal. On récupère ainsi les valeurs de l’indice
 </div>
 <p>Dans la 1re série de tests, après l'exécution de <code>itineraires_court</code>, la liste <code>tab_itineraires</code> contient un chemin à trois villes. Or, <strong>cette liste non réinitialisée est réutilisée dans le test suivant</strong>.</p>
 <p>Le problème semble absent dans la 2ème série de tests car entre les 2 appels à <code>itineraires_court</code> la liste <code>tab_itineraires</code> a été remise à liste vide.</p>
+<hr />
+<h2 id="question-10">Question 10<a class="headerlink" href="#question-10" title="Permanent link">⚓︎</a></h2>
+<p><a href="https://brunodrd.github.io/nsiboisdo/NSITerm/BDD/C8C4.html">Voir Cours 4, chapitre XVIII</a>.</p>
+<p>Parmi les raisons, on peut citer:</p>
+<ul>
+<li>la sécurisation des accès;</li>
+<li>la persistance des données notamment en cas de panne;</li>
+<li>la gestion des accès concurrents;</li>
+<li>l'efficacité de traitements des requêtes.</li>
+</ul>
+<h2 id="question-11">Question 11<a class="headerlink" href="#question-11" title="Permanent link">⚓︎</a></h2>
+<div>
+    ville(<u>(id, int)</u>, (nom, varchar(20)), (num_dep, char(2)), (nombre_hab, int), (superficie, float))
+</div>
+
+<h2 id="question-12">Question 12<a class="headerlink" href="#question-12" title="Permanent link">⚓︎</a></h2>
+<p>L'attribut <code>id_ville</code> fait référence à une clé primaire présente dans la table <code>ville</code>: <strong>c'est une clé étrangère</strong>.</p>
+<h2 id="question-13">Question 13<a class="headerlink" href="#question-13" title="Permanent link">⚓︎</a></h2>
+<p>Résultat de requête</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">nom</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ville</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">num_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">74</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">superficie</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">70</span><span class="p">;</span>
+
+<span class="n">Chamonix</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="question-14">Question 14<a class="headerlink" href="#question-14" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">nom</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sport</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;piscine&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="question-15">Question 15<a class="headerlink" href="#question-15" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">sport</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Ballon perdus&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="question-16">Question 16<a class="headerlink" href="#question-16" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">ville</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Toulouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;31&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">471941</span><span class="p">,</span><span class="w"> </span><span class="mi">118</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="question-17">Question 17<a class="headerlink" href="#question-17" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">sport</span><span class="p">.</span><span class="n">nom</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sport</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">ville</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ville</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sport</span><span class="p">.</span><span class="n">id_ville</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">ville</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Annecy&quot;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Préfixe</p>
+<p>On peut lever toute ambiguité sur l'origine d'un attribut en le préfixant du nom de la table.</p>
+</div>
 
 
 
