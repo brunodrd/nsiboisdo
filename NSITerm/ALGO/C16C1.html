@@ -5159,11 +5159,13 @@
 <figure>
 <p><a href="https://commons.wikimedia.org/wiki/File:Alan_Turing_(1912-1954)_in_1936_at_Princeton_University.jpg#/media/File:Alan_Turing_(1912-1954)_in_1936_at_Princeton_University.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Alan_Turing_%281912-1954%29_in_1936_at_Princeton_University.jpg" alt="Alan Turing (1912-1954) in 1936 at Princeton University.jpg" height="480" width="472"></a><br>Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=137325684">Link</a></p>
 </figure>
-<p>Les théories de la calculabilité et de la complexité sont deux pans de la théorie du calcul :
-* qu’est-ce que veut dire calculer ?
-* un ordinateur peut-il tout calculer ?</p>
-<p>C'est en 1936 que <em>Allan Turing (1912-1954)</em> a apporté des réponses à ces questions, et la conclusion de ses travaux... va vous étonner :)</p>
-<p>Prenons en exemple l'algorithme d'Euclide <em>un algorithme vieux de plus de 2500 ans permettant de calculer le PGCD de 2 nombres</em>. On peut l'écrire à l'aide d'une fonction Python:</p>
+<p>Les théories de la calculabilité et de la complexité sont deux pans de la théorie du calcul :  </p>
+<ul>
+<li>qu’est-ce que veut dire calculer ?</li>
+<li>un ordinateur peut-il tout calculer ?</li>
+</ul>
+<p>C'est en 1936 que <em>Alan Turing (1912-1954)</em> a apporté des réponses à ces questions, et la conclusion de ses travaux... va vous étonner :)</p>
+<p>Prenons en exemple l'algorithme d'Euclide, <em>un algorithme vieux de plus de 2500 ans permettant de calculer le PGCD de 2 nombres</em>. On peut l'écrire à l'aide d'une fonction Python:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5203,7 +5205,7 @@
 <p class="admonition-title">Remarque</p>
 <p>Le nombre <em>d'arguments</em> n'est pas fixe à priori; ces derniers sont rangés dans un tuple <code>args</code>.</p>
 </div>
-<p>À présent je peux invoquer ma machine universelle en lui passant en données :  </p>
+<p>À présent je peux invoquer ma machine universelle en lui passant en entrée:  </p>
 <ul>
 <li>la variable contenant mon algorithme;</li>
 <li>les arguments sur lequel celui-ci va travailler et obtenir la réponse</li>
@@ -5226,7 +5228,7 @@
 <ul>
 <li>Peut-on tout calculer à l'aide d'un ordinateur ?</li>
 <li>Que signifie calculer à l'aide d'un ordinateur ?</li>
-<li>Un programme est aussi une donnée. Il est donc manipulable par des algorithmes. Peut-on concevoir un algorithme permettant de savoir si un programme passé en paramètre va se terminer (<em>c'est à dire renvoyer un résultat</em>, <em>a provoquer une erreur</em>)? est correct et ne contient pas de bugs ?</li>
+<li>Un programme est aussi une donnée. Il est donc manipulable par des algorithmes. Peut-on concevoir un algorithme permettant de savoir si un programme passé en paramètre va se terminer (<em>c'est à dire renvoyer un résultat</em>, <em>a provoqué une erreur, est correct et ne contient pas de bugs</em>) ?</li>
 </ul>
 <p>Ce sont des questions fondamentales au cœur de l'algorithmique et de l'informatique en général. Imaginez un programme capable de dire si un autre programme est correct ou buggué ! vous commencez à sentir que cela ne va pas être possible, hélas ...</p>
 <div class="admonition warning">
