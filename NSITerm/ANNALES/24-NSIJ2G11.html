@@ -4628,6 +4628,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exercice-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5684,6 +5693,475 @@ Autrement dit: <code>N(m, n) = N(m-1, n) + N(m, n-1)</code>.</p>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">nombre_chemins</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">nombre_chemins</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">⚓︎</a></h2>
+<h3 id="question-1_1">Question 1<a class="headerlink" href="#question-1_1" title="Permanent link">⚓︎</a></h3>
+<p>La commande minimale à exécuter est <code>ls ./documents/</code>. Avec les options <code>a</code> et <code>l</code> (<code>ls -al</code>) on peut obtenir plus d'informations.</p>
+<h3 id="question-2_1">Question 2<a class="headerlink" href="#question-2_1" title="Permanent link">⚓︎</a></h3>
+<p>Le repertoire <code>multimedia</code> (<em>et ses sous repertoires</em>) seront déplacés dans le repertoire <code>/home/documents</code>.</p>
+<h3 id="question-3_1">Question 3<a class="headerlink" href="#question-3_1" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Arbre</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">=</span> <span class="n">g</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">=</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">droite</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gauche</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">droit</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">droit</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>    
+</code></pre></div></td></tr></table></div>
+<p>Le code proposé implémente une structure d'<strong>arbre binaire</strong>. Or, dans l'arborescence proposée, certains noeuds peuvent avoir plus de deux sous arbres !</p>
+<h3 id="question-4_1">Question 4<a class="headerlink" href="#question-4_1" title="Permanent link">⚓︎</a></h3>
+<p>La racine est <em>traitée</em> en premier, puis le sous arbre gauche, puis le sous arbre droit: il s'agit d'un parcours <strong>préfixe</strong>.</p>
+<h3 id="question-5_1">Question 5<a class="headerlink" href="#question-5_1" title="Permanent link">⚓︎</a></h3>
+<p>Dans un parcours en largeur, on aurait:</p>
+<ul>
+<li><code>home</code></li>
+<li><code>documents</code> et <code>multimedia</code></li>
+<li><code>cours</code>, <code>administratif</code>, <code>personnel</code>, <code>images</code> et <code>videos</code></li>
+<li><code>films</code></li>
+</ul>
+<h3 id="question-6_1">Question 6<a class="headerlink" href="#question-6_1" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="question-7_1">Question 7<a class="headerlink" href="#question-7_1" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;multimedia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;films&#39;</span><span class="p">,</span> <span class="p">[])])])</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="question-8_1">Question 8<a class="headerlink" href="#question-8_1" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Non demandé</span>
+
+<span class="n">var_multimedia</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>multimedia
+images
+videos
+films
+</code></pre></div></td></tr></table></div>
+<h3 id="question-9_1">Question 9<a class="headerlink" href="#question-9_1" title="Permanent link">⚓︎</a></h3>
+<p><em>Justification non formelle</em>: lors du parcours de l'arborescence, on tombera forcément sur un fils (<em>liste</em>) vide. Cela stoppera la récursion .</p>
+<h3 id="question-10">Question 10<a class="headerlink" href="#question-10" title="Permanent link">⚓︎</a></h3>
+<p>Il s'agit d'effectuer le traitement de la racine après le traitement des fils.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Non demandé</span>
+
+<span class="n">var_multimedia</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>images
+films
+videos
+multimedia
+</code></pre></div></td></tr></table></div>
+<h3 id="question-11">Question 11<a class="headerlink" href="#question-11" title="Permanent link">⚓︎</a></h3>
+<p><code>ls</code> sans option ne permet pas l'affichage des sous répertoires comme la méthode <code>parcours</code>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Avec l'option <code>-R</code>, <code>ls</code> permet l'affichage des sous répertoires (<em>et les fichiers qu'ils contiennent</em>).</p>
+</div>
+<h3 id="question-12">Question 12<a class="headerlink" href="#question-12" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nomrep</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Dossier</span><span class="p">(</span><span class="n">nomrep</span><span class="p">,</span> <span class="p">[]))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_videos</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;films&#39;</span><span class="p">,</span> <span class="p">[])])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_videos</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>videos
+films
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_videos</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;documentaires&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_videos</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>videos
+films
+documentaires
+</code></pre></div></td></tr></table></div>
+<h3 id="question-13">Question 13<a class="headerlink" href="#question-13" title="Permanent link">⚓︎</a></h3>
+<p>Une idée (<em>parmi d'autres</em>) est de parcourir l'ensemble des répertoires et sous répertoires et de tester l'appartenance à cette liste.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nomrep</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Dossier</span><span class="p">(</span><span class="n">nomrep</span><span class="p">,</span> <span class="p">[]))</span>
+
+    <span class="k">def</span> <span class="nf">contient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_dossier</span><span class="p">):</span>    
+
+        <span class="k">def</span> <span class="nf">visites</span><span class="p">(</span><span class="n">dossier</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Construit récursivement la listes des noms de dossiers</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dossier</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">dossier</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">visites</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">liste</span><span class="p">)</span>
+
+        <span class="n">dossiers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">visites</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dossiers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nom_dossier</span> <span class="ow">in</span> <span class="n">dossiers</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;multimedia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;films&#39;</span><span class="p">,</span> <span class="p">[])])])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="s1">&#39;films&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="s1">&#39;multimedia&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="s1">&#39;concert&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>False
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;concert&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var_multimedia</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="s1">&#39;concert&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>True
+</code></pre></div></td></tr></table></div>
+<h3 id="question-14">Question 14<a class="headerlink" href="#question-14" title="Permanent link">⚓︎</a></h3>
+<p>On peut imaginer une recherche récursive s'appuyant sur la méthode <code>contient</code> ainsi que sur l'attribut <code>fils</code> de l'implémentation proposée.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>Algorithme chercher_parent
+Entrées:
+    racine: répertoire racine de l&#39;arborescence donnée ;
+    dossier: nom de dossier (chaîne de caractères)
+Sortie:
+    nom du répertoire parent (chaine de caractères)
+    None si non trouvé
+
+Pour chaque fils f de la racine
+    Si f contient dossier
+        Si le nom de f est dossier
+            Renvoyer le nom de la racine
+        Sinon
+            Renvoyer chercher_parent(f, dossier)
+Renvoyer Non trouvé
+</code></pre></div></td></tr></table></div>
+<h4 id="implementation-non-demandee">Implémentation (non demandée)<a class="headerlink" href="#implementation-non-demandee" title="Permanent link">⚓︎</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">personnel</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;personnel&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="n">cours</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;cours&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="n">administratif</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;administratif&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="n">documents</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;documents&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">cours</span><span class="p">,</span> <span class="n">administratif</span><span class="p">,</span> <span class="n">personnel</span><span class="p">])</span>
+<span class="n">home</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">var_multimedia</span><span class="p">,</span> <span class="n">documents</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">chercher_parent</span><span class="p">(</span><span class="n">racine</span><span class="p">,</span> <span class="n">dossier</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">racine</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">contient</span><span class="p">(</span><span class="n">dossier</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">nom</span> <span class="o">==</span> <span class="n">dossier</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">racine</span><span class="o">.</span><span class="n">nom</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">chercher_parent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dossier</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chercher_parent</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;multimedia&#39;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chercher_parent</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="s1">&#39;personnel&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;documents&#39;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chercher_parent</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="s1">&#39;documents&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;home&#39;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">chercher_parent</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="s1">&#39;home&#39;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>None
+</code></pre></div></td></tr></table></div>
+<h3 id="question-15">Question 15<a class="headerlink" href="#question-15" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Dossier</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">liste</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">=</span> <span class="n">liste</span> <span class="c1"># liste d&#39;objets de la classe Dossier</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+    <span class="k">def</span> <span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span> <span class="o">==</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">parcours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">parcours</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nomrep</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fils</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Dossier</span><span class="p">(</span><span class="n">nomrep</span><span class="p">,</span> <span class="p">[],</span> <span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">contient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_dossier</span><span class="p">):</span>    
+
+        <span class="k">def</span> <span class="nf">visites</span><span class="p">(</span><span class="n">dossier</span><span class="p">,</span> <span class="n">liste</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Construit récursivement la listes des noms de dossiers</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">liste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dossier</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">dossier</span><span class="o">.</span><span class="n">fils</span><span class="p">:</span>
+                <span class="n">visites</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">liste</span><span class="p">)</span>
+
+        <span class="n">dossiers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">visites</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dossiers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nom_dossier</span> <span class="ow">in</span> <span class="n">dossiers</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">home</span> <span class="o">=</span> <span class="n">Dossier</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="n">home</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;documents&#39;</span><span class="p">)</span>
+<span class="n">documents</span> <span class="o">=</span> <span class="n">home</span><span class="o">.</span><span class="n">fils</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">documents</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;administratif&#39;</span><span class="p">)</span>
+<span class="n">administratif</span> <span class="o">=</span> <span class="n">documents</span><span class="o">.</span><span class="n">fils</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">documents</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;personnel&#39;</span><span class="p">)</span>
+<span class="n">personnel</span> <span class="o">=</span> <span class="n">documents</span><span class="o">.</span><span class="n">fils</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">personnel</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">personnel</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">personnel</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">personnel</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">nom</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;__main__.Dossier object at 0x7ff21c5db050&gt;
+personnel
+&lt;__main__.Dossier object at 0x7ff21c5d9c10&gt;
+documents
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">chercher_parent</span><span class="p">(</span><span class="n">home</span><span class="p">,</span> <span class="s1">&#39;personnel&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;documents&#39;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
 
 
