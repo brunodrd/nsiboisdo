@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="TP01.pdf">
+        <link rel="prev" href="C2E1.html">
       
       
         <link rel="next" href="../S3/S3A1.html">
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S1A1.html" class="md-nav__link">
+      <a href="C2A1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -773,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S1A2.html" class="md-nav__link">
+      <a href="C2A2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S1C1.html" class="md-nav__link">
+      <a href="C2C1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S1C2.html" class="md-nav__link">
+      <a href="C2C2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,32 +836,11 @@
   
   
     <li class="md-nav__item">
-      <a href="S1E1.html" class="md-nav__link">
+      <a href="C2E1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     EXERCICES 1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="TP01.pdf" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    TP 1 (ancienne version)
   </span>
   
 
@@ -963,6 +942,15 @@
   <a href="#diverses-figures" class="md-nav__link">
     <span class="md-ellipsis">
       Diverses figures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plus-difficile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plus difficile ...
     </span>
   </a>
   
@@ -5556,8 +5544,18 @@ X       X
   <img alt="carrecroix" src="img/triangleisocele.png" width="200" />
   <figcaption>Un triangle isocèle</figcaption>
 </figure>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
-</code></pre></div></td></tr></table></div>
+<h2 id="plus-difficile">Plus difficile ...<a class="headerlink" href="#plus-difficile" title="Permanent link">⚓︎</a></h2>
+<p>Il s'agit maintenant dessiner un sapin de Noël, en quatre étapes, illustrées ci-dessous. </p>
+<p>Comme pour le carré, le programme devra définir une fonction <code>sapin</code> qui prend en paramètre la taille de celui-ci. </p>
+<ol>
+<li>Étape 1: afficher un triangle représentant le feuillage puis un rectangle représentant le tronc, en utilisant les barres obliques  <code>/</code> et <code>\</code> et verticale <code>|</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.</li>
+<li>Étape 2: ajouter une étoile au sommet de l'arbre.</li>
+<li>Étape 3: modifier le programme afin d'afficher la texture du feuillage, en alternant les guillemets simples et doubles <code>'</code> et <code>”</code>.</li>
+<li>Étape 4: ajouter des décorations, représentées par des <code>o</code> disposés aléatoirement sur le sapin.</li>
+</ol>
+<p>La fonction <code>random</code> de la bibliothèque <code>random</code> renvoie un nombre décimal aléatoire compris entre <code>0</code> (<em>inclus</em>) et <code>1</code> (<em>exclus</em>), suivant une distribution uniforme (<em>tous les nombres entre 0 et 1 ont la même chance d'être tirés au sort</em>). </p>
+<p>Ce nombre est différent chaque fois que l'on appelle la fonction <code>random</code>. En utilisant <code>random( )</code>, modifier le code de l'étape 3 pour qu'une décoration <code>o</code> apparaisse 20 % du temps à la place d'un guillemet. Le sapin sera différent à chaque appel de  <code>sapin(...)</code>. </p>
+<p><img alt="illustration" src="img/illustration.png" /></p>
 
 
 
