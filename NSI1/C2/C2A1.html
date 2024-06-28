@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ascii-art" class="md-skip">
+        <a href="#activite-1-constructions-elementaires-langages" class="md-skip">
           Aller au contenu
         </a>
       
@@ -761,17 +761,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ACTIVITE 1
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="C2A1.html" class="md-nav__link md-nav__link--active">
         
   
@@ -781,79 +770,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-exemple" class="md-nav__link">
-    <span class="md-ellipsis">
-      Premier exemple
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deuxieme-exemple-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deuxième exemple guidé
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dernier-exemple-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dernier exemple guidé
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diverses-figures" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diverses figures
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plus-difficile" class="md-nav__link">
-    <span class="md-ellipsis">
-      Plus difficile ...
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -5407,52 +5323,49 @@
                   
 
 
-<h1 id="ascii-art">ASCII ART<a class="headerlink" href="#ascii-art" title="Permanent link">⚓︎</a></h1>
-<p><strong>Objectifs</strong></p>
-<ul>
-<li>Utiliser des techniques de programmation de base: boucles, tests, appels de fonction etc.</li>
-<li>Savoir utiliser les spécicifications d'une fonction</li>
-<li>Manipuler le type chaîne de caractères en python</li>
-</ul>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
-<p>L'<em>ASCII Art</em> consiste à utiliser les caractères alphanumériques du code ASCII pour produire des images. Voir <a href="https://fr.wikipedia.org/wiki/Art_ASCII">la page wikipedia</a> pour une description et quelques exemples.</p>
-<p>Nous allons commencer par dessiner un carré à l'aide de la lettre <code>X</code>. </p>
-<p>La fonction <code>print</code> prend un nombre quelconque d'arguments et les affiche en les séparant par un espace et en terminant par un retour-chariot. Il faut donc calculer le contenu d'une ligne entière avant de l'afficher. On peut utiliser des boucles : </p>
+<h1 id="activite-1-constructions-elementaires-langages">Activité 1 constructions élémentaires &amp; langages<a class="headerlink" href="#activite-1-constructions-elementaires-langages" title="Permanent link">⚓︎</a></h1>
+<p>Adam à lui que dans la grande majorité des langage de programmation on retrouve les mêmes construction élémentaires.Les deux premières constructions élémentaires auquel il s'intéresse sont les affectations et les séquences d'instruction qui sont présentes dans la fonction Python suivante: </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ligne</span> <span class="o">=</span> <span class="s2">&quot;[]&quot;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">ligne</span> <span class="o">=</span> <span class="n">ligne</span> <span class="o">+</span> <span class="s2">&quot;--&gt;8--&quot;</span> 
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">conversion</span><span class="p">(</span><span class="n">duree_en_minute</span><span class="p">):</span>
+    <span class="n">heure</span> <span class="o">=</span> <span class="n">duree_en_minute</span> <span class="o">//</span> <span class="mi">60</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">duree_en_minute</span> <span class="o">%</span> <span class="mi">60</span>
+    <span class="k">return</span> <span class="n">heures</span><span class="p">,</span> <span class="n">minutes</span>
+</code></pre></div></td></tr></table></div>
+<p>Donner les lignes où on peut trouver:</p>
+<ul>
+<li>une affectation;</li>
+<li>une séquence d'instructions.</li>
+</ul>
+<p>Réponses</p>
+<p>Parmi les deux fonctions suivantes, laquelle contient une boucle bornée ? une boucle non bornée ? <em>Préciser les mots clés utilisés</em>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">estimer_quantite</span><span class="p">(</span><span class="n">quantite_initiale</span><span class="p">,</span> <span class="n">annee</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">quantite_initiale</span>
+    <span class="k">while</span> <span class="n">resultat</span> <span class="o">&lt;=</span> <span class="n">quantite_initiale</span> <span class="o">*</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">*</span> <span class="mf">1.33</span>
+        <span class="n">annee</span> <span class="o">=</span> <span class="n">annee</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">annee</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span> <span class="c1"># []--&gt;8----&gt;8----&gt;8----&gt;8----&gt;8-- </span>
+<span class="k">def</span> <span class="nf">augmentation</span><span class="p">(</span><span class="n">quantite_initiale</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">quantite_initiale</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">*</span> <span class="mf">1.33</span>
+    <span class="k">return</span> <span class="n">resultat</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[]--&gt;8----&gt;8----&gt;8----&gt;8----&gt;8--
-</code></pre></div></td></tr></table></div>
-<p>On peut également utiliser les opérateurs de concaténation <code>+</code> et de répétition <code>*</code> des chaines :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[]&quot;</span> <span class="o">+</span> <span class="s2">&quot; -&gt;8--&quot;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># [] -&gt;8-- -&gt;8-- -&gt;8-- -&gt;8-- -&gt;8--</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[] -&gt;8-- -&gt;8-- -&gt;8-- -&gt;8-- -&gt;8--
-</code></pre></div></td></tr></table></div>
-<p>On peut en outre, forcer un passage à la ligne en introduisant la suite <code>\n</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ligne</span> <span class="o">=</span> <span class="s1">&#39;--&gt;8--&#39;</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">24</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>--&gt;8----&gt;8----&gt;8----&gt;8--
-------------------------
-</code></pre></div></td></tr></table></div>
-<h2 id="premier-exemple">Premier exemple<a class="headerlink" href="#premier-exemple" title="Permanent link">⚓︎</a></h2>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Compléter la fonction <code>carre</code> ci-dessous qui renvoie une chaîne de caractères correspondant à un carré. <em>On pourra utiliser avec profit les trois fonctions d'assistance</em> <code>ligne_...</code> <em>fournies</em>. </p>
-</div>
-<figure>
-  <img alt="image carre9" src="img/carre9.png" width="200" />
-  <figcaption>Un carré de côté 9</figcaption>
-</figure>
+<p>Réponses</p>
+<p>On considère maintenant les 6 fonctions suivantes. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5466,124 +5379,139 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ligne_XX</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie une ligne remplie de n caractères &#39;X X ...X X&#39; &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="s1">&#39;X &#39;</span> <span class="o">*</span> <span class="n">n</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
 
-<span class="k">def</span> <span class="nf">ligne_X__X</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie une ligne de n caractères &#39;X __ __ ....__ X&#39; &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">3</span>
-    <span class="k">return</span> <span class="s1">&#39;X &#39;</span> <span class="o">+</span> <span class="s1">&#39;  &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;X &#39;</span>
+<span class="k">def</span> <span class="nf">maximum2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">maximum</span><span class="p">(</span><span class="n">maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">maximum</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">ligne__X</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie une ligne de n caractères &#39;__ __ ...__ X&#39;&quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="s1">&#39;  &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;X &#39;</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Quelques tests</span>
+<span class="k">def</span> <span class="nf">positive</span><span class="p">(</span><span class="n">valeur</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">valeur</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">valeur</span> <span class="o">=</span> <span class="o">-</span><span class="n">valeur</span>
+    <span class="k">return</span> <span class="n">valeur</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne_XX</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne_X__X</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ligne__X</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">conversion</span><span class="p">(</span><span class="n">en_bit</span><span class="p">):</span>
+    <span class="n">en_octet</span> <span class="o">=</span> <span class="n">en_bit</span> <span class="o">/</span> <span class="mi">8</span>
+    <span class="k">return</span> <span class="n">en_octet</span>
+
+<span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">a</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">compte_bits</span><span class="p">(</span><span class="n">valeur</span><span class="p">):</span>
+    <span class="n">nb_bits</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">valeur</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">**</span><span class="n">nb_bits</span><span class="p">:</span>
+        <span class="n">nb_bits</span> <span class="o">=</span> <span class="n">nb_bits</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">nb_bits</span>    
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>X X X X X 
-X       X 
-        X
-</code></pre></div></td></tr></table></div>
-<div class="py_mk_ide"  data-max="10"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_fe88f893268287f6ec779716da321eaa4d864766" class="comment">###</span><div class="line" id="editor_fe88f893268287f6ec779716da321eaa4d864766"></div><div id="term_editor_fe88f893268287f6ec779716da321eaa4d864766"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_fe88f893268287f6ec779716da321eaa4d864766","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_fe88f893268287f6ec779716da321eaa4d864766" class="py_mk_hide">assert carre(8) == 'X X X X X X X X \nX             X\nX             X\nX             X\nX             X\nX             X\nX             X\nX X X X X X X X 'bksl-nlassert carre(4) == 'X X X X \nX     X\nX     X\nX X X X 'bksl-nlassert carre(2) == 'X X \nX X 'bksl-nl</span>            <button class="tooltip" onclick='check("editor_fe88f893268287f6ec779716da321eaa4d864766","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">10/10</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_fe88f893268287f6ec779716da321eaa4d864766","NSI1C2/carre")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_fe88f893268287f6ec779716da321eaa4d864766').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_fe88f893268287f6ec779716da321eaa4d864766" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_fe88f893268287f6ec779716da321eaa4d864766")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_fe88f893268287f6ec779716da321eaa4d864766")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
-<p><span id="content_editor_fe88f893268287f6ec779716da321eaa4d864766" class="py_mk_hide">def lignepy-undXX(n):bksl-nl    """ Renvoie une ligne remplie de n caractères 'X X ...X X' """bksl-nl    assert n &gt;= 1bksl-nl    return 'X ' py-str nbksl-nlbksl-nldef lignepy-undXpy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'X py-undpy-und py-undpy-und ....py-undpy-und X' """bksl-nl    assert n &gt;= 3bksl-nl    return 'X ' + '  ' py-str (n-2) + 'X 'bksl-nlbksl-nldef lignepy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'py-undpy-und py-undpy-und ...py-undpy-und X'"""bksl-nl    assert n &gt;= 2bksl-nl    return '  'py-str(n-1) + 'X 'bksl-nlbksl-nldef carre(c):bksl-nl    """bksl-nl    Renvoie une chaîne de caractères correspondant à un carré de coté cbksl-nl    """bksl-nl    figure = ... + '\n' # 1re lignebksl-nl    for i in range(c-2):bksl-nl        figure = ... + '\n'bksl-nl    figure = ... # dernière lignebksl-nl    return figurebksl-nl</span><span id="corr_content_editor_fe88f893268287f6ec779716da321eaa4d864766" class="py_mk_hide" data-strudel="">def lignepy-undXX(n):bksl-nl    """ Renvoie une ligne remplie de n caractères 'X X ...X X' """bksl-nl    assert n &gt;= 1bksl-nl    return 'X ' py-str nbksl-nlbksl-nldef lignepy-undXpy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'X py-undpy-und py-undpy-und ....py-undpy-und X' """bksl-nl    assert n &gt;= 3bksl-nl    return 'X ' + '  ' py-str (n-2) + 'X 'bksl-nlbksl-nldef lignepy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'py-undpy-und py-undpy-und ...py-undpy-und X'"""bksl-nl    assert n &gt;= 2bksl-nl    return '  'py-str(n-1) + 'X 'bksl-nlbksl-nldef carre(c):bksl-nl    """bksl-nl    Renvoie une chaîne de caractères correspondant à un carré de coté cbksl-nl    """bksl-nl    figure = lignepy-undXX(c) + '\n' # 1re lignebksl-nl    for i in range(c-2):bksl-nl        figure = figure + lignepy-undXpy-undpy-undX(c) + '\n'bksl-nl    figure = figure + lignepy-undXX(c) # dernière lignebksl-nl    return figurebksl-nl</span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
-<h2 id="deuxieme-exemple-guide">Deuxième exemple guidé<a class="headerlink" href="#deuxieme-exemple-guide" title="Permanent link">⚓︎</a></h2>
-<p>On s'intéresse maintenant à un carré de coté <span class="arithmatex">\(c\)</span> avec une croix à l'intérieur. Voir le schéma ci-dessous:</p>
-<figure>
-  <img alt="carrecroix" src="img/dessin3.png" width="300" />
-  <figcaption>Un carré avec une croix</figcaption>
-</figure>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>En s'appuyant sur ce qui a déjà été vu et suivant la même méthode, compléter la fonction <code>croixcarre</code> ci-dessous.</p>
-</div>
-<div class="py_mk_ide"  data-max="10"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1" class="comment">###</span><div class="line" id="editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1"></div><div id="term_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1" class="py_mk_hide">assert croixcarre(5) == 'X X X X X \nX   X   X \nX X X X X \nX   X   X \nX X X X X 'bksl-nlassert croixcarre(13) == 'X X X X X X X X X X X X X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX X X X X X X X X X X X X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX X X X X X X X X X X X X 'bksl-nlbksl-nl</span>            <button class="tooltip" onclick='check("editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">10/10</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1","NSI1C2/croixcarre")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
-<p><span id="content_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1" class="py_mk_hide">def lignepy-undXX(n):bksl-nl    """ Renvoie une ligne remplie de n caractères 'X X ...X X' """bksl-nl    assert n &gt;= 1bksl-nl    return 'X ' py-str nbksl-nlbksl-nldef lignepy-undXpy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'X py-undpy-und py-undpy-und ....py-undpy-und X' """bksl-nl    assert n &gt;= 3bksl-nl    return 'X ' + '  ' py-str (n-2) + 'X 'bksl-nlbksl-nldef lignepy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'py-undpy-und py-undpy-und ...py-undpy-und X'"""bksl-nl    assert n &gt;= 2bksl-nl    return '  'py-str(n-1) + 'X 'bksl-nlbksl-nlbksl-nldef croixcarre(c):bksl-nl    """bksl-nl    Renvoie une chaîne de caractères correspondant à un carré de coté c avec une bksl-nl    croix à l'intérieur.bksl-nl    """bksl-nl    assert c%2 == 1, "Erreur c impair"bksl-nl    bksl-nl    figure = ... + '\n' # 1re lignebksl-nl    for i in range(c-2):bksl-nl        if i != ((c-3) // 2):bksl-nl            figure = ...bksl-nl        else:bksl-nl            figure = ...bksl-nl    figure = ... # dernière lignebksl-nl    return figurebksl-nl</span><span id="corr_content_editor_2fc0946161cb50f4c9f394f20517ab0fe9a576e1" class="py_mk_hide" data-strudel=""></span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
-<h2 id="dernier-exemple-guide">Dernier exemple guidé<a class="headerlink" href="#dernier-exemple-guide" title="Permanent link">⚓︎</a></h2>
-<p>Dans ce dernier exemple, on souhaiterait construire un carré de côté <span class="arithmatex">\(c\)</span> avec sa diagonale gauche:</p>
-<figure>
-  <img alt="carrecroix" src="img/diaggauche.png" width="200" />
-  <figcaption>Un carré avec sa diagonale gauche</figcaption>
-</figure>
-<p>On remarque qu'en dehors de la 1re (<em>index 0</em>) et de la dernière (<em>index</em> <span class="arithmatex">\(c-1\)</span>) ligne, chaque ligne peut être composée avec <code>ligne_X__X</code> et <code>ligne__X</code>.</p>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Compléter la fonction <code>diaggauche</code> qui renvoie une chaîne correspondant à un carré avec sa diagonale gauche.</p>
-</div>
-<div class="py_mk_ide"  data-max="10"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_f65da565662c22329d39666a59f952470046b669" class="comment">###</span><div class="line" id="editor_f65da565662c22329d39666a59f952470046b669"></div><div id="term_editor_f65da565662c22329d39666a59f952470046b669"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_f65da565662c22329d39666a59f952470046b669","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_f65da565662c22329d39666a59f952470046b669" class="py_mk_hide">assert diaggauche(13) == 'X X X X X X X X X X X \nX X                 X \nX   X               X \nX     X             X \nX       X           X \nX         X         X \nX           X       X \nX             X     X \nX               X   X \nX                 X X \nX X X X X X X X X X X 'bksl-nlassert diaggauche(7) == 'X X X X X X X \nX X         X \nX   X       X \nX     X     X \nX       X   X \nX         X X \nX X X X X X X 'bksl-nl</span>            <button class="tooltip" onclick='check("editor_f65da565662c22329d39666a59f952470046b669","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">10/10</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_f65da565662c22329d39666a59f952470046b669","NSI1C2/diaggauche")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_f65da565662c22329d39666a59f952470046b669').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_f65da565662c22329d39666a59f952470046b669" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_f65da565662c22329d39666a59f952470046b669")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_f65da565662c22329d39666a59f952470046b669")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
-<p><span id="content_editor_f65da565662c22329d39666a59f952470046b669" class="py_mk_hide">def lignepy-undXX(n):bksl-nl    """ Renvoie une ligne remplie de n caractères 'X X ...X X' """bksl-nl    assert n &gt;= 1bksl-nl    return 'X ' py-str nbksl-nlbksl-nldef lignepy-undXpy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'X py-undpy-und py-undpy-und ....py-undpy-und X' """bksl-nl    assert n &gt;= 3bksl-nl    return 'X ' + '  ' py-str (n-2) + 'X 'bksl-nlbksl-nldef lignepy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'py-undpy-und py-undpy-und ...py-undpy-und X'"""bksl-nl    assert n &gt;= 2bksl-nl    return '  'py-str(n-1) + 'X 'bksl-nlbksl-nldef diaggauche(c):bksl-nl    """ Renvoie une chaîne correspondant à un carré et sa diagonale gauchebksl-nl    c: entier naturelbksl-nl    """bksl-nl    figure = lignepy-undXX(c) + '\n' # ligne 0bksl-nl    for i in range(..., ...): # lignes 1 à c-2 inclusbksl-nl        figure = figure + ... + ... + '\n'bksl-nl    figure = figure + ... # ligne c-1bksl-nl    return figurebksl-nl</span><span id="corr_content_editor_f65da565662c22329d39666a59f952470046b669" class="py_mk_hide" data-strudel="">def lignepy-undXX(n):bksl-nl    """ Renvoie une ligne remplie de n caractères 'X X ...X X' """bksl-nl    assert n &gt;= 1bksl-nl    return 'X ' py-str nbksl-nlbksl-nldef lignepy-undXpy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'X py-undpy-und py-undpy-und ....py-undpy-und X' """bksl-nl    assert n &gt;= 3bksl-nl    return 'X ' + '  ' py-str (n-2) + 'X 'bksl-nlbksl-nldef lignepy-undpy-undX(n):bksl-nl    """ Renvoie une ligne de n caractères 'py-undpy-und py-undpy-und ...py-undpy-und X'"""bksl-nl    assert n &gt;= 2bksl-nl    return '  'py-str(n-1) + 'X 'bksl-nlbksl-nldef diaggauche(c):bksl-nl    """ Renvoie une chaîne correspondant à un carré et sa diagonale gauchebksl-nl    c: entier naturelbksl-nl    """bksl-nl    figure = lignepy-undXX(c) + '\n' # ligne 0bksl-nl    for i in range(1, c-1): # lignes 1 à c-2 inclusbksl-nl        figure = figure + lignepy-undXpy-undpy-undX(i+1) + lignepy-undpy-undX(c-i-1) + '\n'bksl-nl    figure = figure + lignepy-undXX(c) # ligne c-1bksl-nl    return figurebksl-nl</span></p>
-<p><strong>A</strong></p>
-<p><strong>Z</strong></p>
-<h2 id="diverses-figures">Diverses figures<a class="headerlink" href="#diverses-figures" title="Permanent link">⚓︎</a></h2>
-<p>En utilisant ce qui précède, écrire les fonctions <code>diagdroite</code>, <code>origami</code> et <code>triangle</code> qui renvoient une chaîne correspondant aux figures suivantes:</p>
-<figure>
-  <img alt="carrecroix" src="img/diagdroite.png" width="200" />
-  <figcaption>Un carré avec sa diagonale droite</figcaption>
-</figure>
-<figure>
-  <img alt="carrecroix" src="img/origami.png" width="200" />
-  <figcaption>Origami</figcaption>
-</figure>
-<figure>
-  <img alt="carrecroix" src="img/triangleisocele.png" width="200" />
-  <figcaption>Un triangle isocèle</figcaption>
-</figure>
+<p>Dans quelle(s) fonction(s) retrouve-t-on:  </p>
+<ol>
+<li>une séquence d'instruction ?</li>
+<li>une ou des affectations ?</li>
+<li>un test ?</li>
+<li>une boucle bornée ?</li>
+<li>une boucle non bornée ?</li>
+<li>un appel de fonction ?</li>
+</ol>
+<p>Réponses</p>
+<hr />
+<p>Adam s'attache maintenant à écrire certaines fonctions précédentes avec le langage <strong>JavaScript</strong> afin de les comparer à celle écrite en Python. Il commence par écrire la fonction nommée <code>maximum()</code>. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">c</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Erreur c impair&#39;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Citer les points communs avec le langage Python et repérer dans cet exemple 3 points particuliers du langage JavaScript. </p>
+<p>Réponses</p>
+<p>Adam écrit à présent cette fonction sans les indentations (version 1) et sur une seule ligne (version 2. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* Version 1 */</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">a</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+<span class="p">}</span>
 
-    <span class="n">m</span> <span class="o">=</span> <span class="n">c</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">figure</span> <span class="o">=</span> <span class="n">ligne__X</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">figure</span> <span class="o">=</span> <span class="n">figure</span> <span class="o">+</span> <span class="n">ligne__X</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">ligne__X</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-    <span class="n">figure</span> <span class="o">=</span> <span class="n">figure</span> <span class="o">+</span> <span class="n">ligne_XX</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">figure</span>
+<span class="cm">/* Version 2 */</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&lt;</span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">triangle</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-</code></pre></div></td></tr></table></div>
+<p>Sachant que les deux écritures de la fonction <code>maximum()</code> sont correctes, quelles hypothèses peut-on formuler quant aux indentations et aux retours à la ligne en javascript ? Quel signe de ponctuation est utilisé en Javascript pour remplacer les indentations en python ?</p>
+<p>Réponses</p>
+<p>En gardant les indentations qui améliore la lisibilité du code, Adam s'intéresse à présent à la fonction <code>augmentation()</code>.  </p>
+<p>En considérant le programme JavaScript <code>augmentation()</code> ci-dessous, citer deux nouveaux points communs et repérer deux différences entre les langages Python et JavaScript.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>      X 
-    X   X 
-  X       X 
-X X X X X X X
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">augmentation</span><span class="p">(</span><span class="nx">quantite_initiale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">quantite_initiale</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">&lt;</span><span class="mf">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resultat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.33</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">resultat</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="plus-difficile">Plus difficile ...<a class="headerlink" href="#plus-difficile" title="Permanent link">⚓︎</a></h2>
-<p>Il s'agit maintenant dessiner un sapin de Noël, en quatre étapes, illustrées ci-dessous. </p>
-<p>Comme pour le carré, le programme devra définir une fonction <code>sapin</code> qui prend en paramètre la taille de celui-ci. </p>
-<ol>
-<li>Étape 1: afficher un triangle représentant le feuillage puis un rectangle représentant le tronc, en utilisant les barres obliques  <code>/</code> et <code>\</code> et verticale <code>|</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.</li>
-<li>Étape 2: ajouter une étoile au sommet de l'arbre.</li>
-<li>Étape 3: modifier le programme afin d'afficher la texture du feuillage, en alternant les guillemets simples et doubles <code>'</code> et <code>”</code>.</li>
-<li>Étape 4: ajouter des décorations, représentées par des <code>o</code> disposés aléatoirement sur le sapin.</li>
-</ol>
-<p>La fonction <code>random</code> de la bibliothèque <code>random</code> renvoie un nombre décimal aléatoire compris entre <code>0</code> (<em>inclus</em>) et <code>1</code> (<em>exclus</em>), suivant une distribution uniforme (<em>tous les nombres entre 0 et 1 ont la même chance d'être tirés au sort</em>). </p>
-<p>Ce nombre est différent chaque fois que l'on appelle la fonction <code>random</code>. En utilisant <code>random( )</code>, modifier le code de l'étape 3 pour qu'une décoration <code>o</code> apparaisse 20 % du temps à la place d'un guillemet. Le sapin sera différent à chaque appel de  <code>sapin(...)</code>. </p>
-<p><img alt="illustration" src="img/illustration.png" /></p>
+<p>Réponses</p>
+<p>Formuler une hypothèse sur l'utilité d'écrire le mot clé <code>let</code> au ligne 2 et 3. </p>
+<p>Réponses</p>
+<p>Adam réécrit également la première fonction de cette activité, <code>conversion()</code>, en javascript.  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">conversion</span><span class="p">(</span><span class="nx">duree_en_minute</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">heures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">duree_en_minute</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">duree_en_minute</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">60</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">heures</span><span class="p">,</span><span class="w"> </span><span class="nx">minutes</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>En javascript une fonction ne peut pas renvoyer un couple de valeur (en fait un <em>n-uplet</em>). Comment Adam a-t-il choisi de renvoyer le résultat ? </p>
+<p>Réponse</p>
+<p>L'opérateur qui calcule le reste de la division euclidienne est identique en python et en javascript: <code>%</code>. En revanche, il n'existe pas d'opérateur en javascript pour calculer le quotient de la division euclidienne. Il faut calculer le quotient de la division et récupérer sa partie entière en faisant appel à une fonction native du langage JavaScript qui s'appelle <code>floor()</code>. </p>
+<p>Adam se rappelle avoir déjà utilisé une fonction Python qui avait le même nom. D'une manière générale, quelles difficultés peut-on rencontrer quand on utilise un nouveau langage de programmation ?</p>
+<p>Réponses</p>
 
 
 
