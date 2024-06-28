@@ -1,0 +1,2 @@
+assert diaggauche(13) == 'X X X X X X X X X X X \nX X                 X \nX   X               X \nX     X             X \nX       X           X \nX         X         X \nX           X       X \nX             X     X \nX               X   X \nX                 X X \nX X X X X X X X X X X '
+assert diaggauche(7) == 'X X X X X X X \nX X         X \nX   X       X \nX     X     X \nX       X   X \nX         X X \nX X X X X X X '

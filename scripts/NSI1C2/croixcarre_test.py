@@ -1,0 +1,2 @@
+assert croixcarre(5) == 'X X X X X \nX   X   X \nX X X X X \nX   X   X \nX X X X X '
+assert croixcarre(13) == 'X X X X X X X X X X X X X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX X X X X X X X X X X X X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX           X           X \nX X X X X X X X X X X X X '
