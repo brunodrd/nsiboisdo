@@ -5556,12 +5556,12 @@ X       X
 On procède comme pour le carré. On devra définir une fonction <code>sapin</code> qui prendra entre autres comme paramètre la hauteur de son feuillage. </p>
 </blockquote>
 <ul>
-<li>Étape 1: écrire une fonction <code>feuillage</code>, prenant un paramètre <code>hf</code> correspondant au nombre de lignes et qui utilise les barres obliques  <code>/</code> et <code>\</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.<blockquote>
+<li>Étape 1: écrire une fonction <code>feuillage</code>, prenant un paramètre <code>hf</code> correspondant au nombre de lignes et qui utilise les barres obliques  <code>/</code> et <code>\</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.</li>
+</ul>
+<blockquote>
 <p><strong>Note</strong></p>
 <p>L'accent circonflexe est séparé de <code>hf</code> espaces du bord gauche...</p>
 </blockquote>
-</li>
-</ul>
 <figure>
 <img alt="feuillage" src="img/figfeuille.png" width="200" />
 <figcaption>Le feuillage</figcaption>
@@ -5595,7 +5595,7 @@ On procède comme pour le carré. On devra définir une fonction <code>sapin</co
 <p>On utilisera la fonction <code>random</code> de la bibliothèque <code>random</code> qui renvoie un nombre décimal aléatoire compris entre <code>0</code> (<em>inclus</em>) et <code>1</code> (<em>exclus</em>), suivant une distribution uniforme (<em>tous les nombres entre 0 et 1 ont la même chance d'être tirés au sort</em>). </p>
 <p>Ce nombre est différent chaque fois que l'on appelle la fonction <code>random</code>. En utilisant <code>random()</code>, modifier le code de la fonction <code>feuillage_2</code> afin qu'une décoration <code>o</code> apparaisse 20 % du temps à la place d'un guillemet. Le sapin sera différent à chaque appel de  <code>sapin(...)</code>. Donner le code de la fonction finale <code>sapin(ht, hf, deco)</code>, le paramètre <code>deco</code>étant un décimal compris entre 0 et 1 qui traduit le pourcentage de <code>o</code> présent sur le sapin.</p>
 <blockquote>
-<p><strong>Tip</strong></p>
+<p><strong>Note</strong></p>
 <p>On pourra s'appuyer sur le code (<em>incomplet</em>) de la fonction <code>feuillage_3</code> suivant:</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -5633,6 +5633,8 @@ On procède comme pour le carré. On devra définir une fonction <code>sapin</co
             <span class="n">figure</span> <span class="o">+=</span> <span class="n">car</span>
         <span class="n">figure</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
     <span class="k">return</span> <span class="n">figure</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
 </code></pre></div></td></tr></table></div>
 
 
