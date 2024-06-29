@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#activite-1-constructions-elementaires-langages" class="md-skip">
+        <a href="#chap-ii" class="md-skip">
           Aller au contenu
         </a>
       
@@ -761,6 +761,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="C2A1.html" class="md-nav__link md-nav__link--active">
         
   
@@ -770,6 +781,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activite-1-constructions-elementaires-langages" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACTIVITE 1 - Constructions élémentaires &amp; langages
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5323,8 +5362,12 @@
                   
 
 
-<h1 id="activite-1-constructions-elementaires-langages">Activité 1 constructions élémentaires &amp; langages<a class="headerlink" href="#activite-1-constructions-elementaires-langages" title="Permanent link">⚓︎</a></h1>
-<p>Adam à lui que dans la grande majorité des langage de programmation on retrouve les mêmes construction élémentaires.Les deux premières constructions élémentaires auquel il s'intéresse sont les affectations et les séquences d'instruction qui sont présentes dans la fonction Python suivante: </p>
+<h1 id="chap-ii">Chap. II<a class="headerlink" href="#chap-ii" title="Permanent link">⚓︎</a></h1>
+<p><em>Les deux premières activités ont été extraites et adaptées du livre NSI 1re - Ed. Bordas</em></p>
+<h2 id="activite-1-constructions-elementaires-langages">ACTIVITE 1 - Constructions élémentaires &amp; langages<a class="headerlink" href="#activite-1-constructions-elementaires-langages" title="Permanent link">⚓︎</a></h2>
+<p>Adam a lu que dans la grande majorité des langages de programmation on retrouve les mêmes <strong>constructions élémentaires</strong>. 
+Les deux premières constructions élémentaires auxquelles il s'intéresse 
+sont les <strong>affectations</strong> et les <strong>séquences d'instructions</strong> qui sont présentes dans la fonction écrite en Python, suivante: </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5333,13 +5376,15 @@
     <span class="n">minutes</span> <span class="o">=</span> <span class="n">duree_en_minute</span> <span class="o">%</span> <span class="mi">60</span>
     <span class="k">return</span> <span class="n">heures</span><span class="p">,</span> <span class="n">minutes</span>
 </code></pre></div></td></tr></table></div>
-<p>Donner les lignes où on peut trouver:</p>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<p>A quelles lignes peut-on trouver:  </p>
 <ul>
-<li>une affectation;</li>
-<li>une séquence d'instructions.</li>
+<li>une affectation?</li>
+<li>une séquence d'instructions?</li>
 </ul>
-<p>Réponses</p>
-<p>Parmi les deux fonctions suivantes, laquelle contient une boucle bornée ? une boucle non bornée ? <em>Préciser les mots clés utilisés</em>.</p>
+</div>
+<p>Parmi les deux fonctions suivantes, laquelle contient une boucle bornée ? une boucle non bornée ? Préciser les <strong>mots clés</strong> utilisés.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5364,7 +5409,6 @@
         <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">*</span> <span class="mf">1.33</span>
     <span class="k">return</span> <span class="n">resultat</span>
 </code></pre></div></td></tr></table></div>
-<p>Réponses</p>
 <p>On considère maintenant les 6 fonctions suivantes. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -5424,18 +5468,20 @@
         <span class="n">nb_bits</span> <span class="o">=</span> <span class="n">nb_bits</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">nb_bits</span>    
 </code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
 <p>Dans quelle(s) fonction(s) retrouve-t-on:  </p>
 <ol>
-<li>une séquence d'instruction ?</li>
+<li>une séquence d'instructions ?</li>
 <li>une ou des affectations ?</li>
 <li>un test ?</li>
 <li>une boucle bornée ?</li>
 <li>une boucle non bornée ?</li>
 <li>un appel de fonction ?</li>
 </ol>
-<p>Réponses</p>
+</div>
 <hr />
-<p>Adam s'attache maintenant à écrire certaines fonctions précédentes avec le langage <strong>JavaScript</strong> afin de les comparer à celle écrite en Python. Il commence par écrire la fonction nommée <code>maximum()</code>. </p>
+<p>Adam s'attache maintenant à écrire certaines fonctions précédentes avec le langage <strong>JavaScript</strong> afin de les comparer à celle écrite en Python. Il commence par déclarer une fonction nommée <code>maximum()</code>. </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5450,35 +5496,44 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
 <p>Citer les points communs avec le langage Python et repérer dans cet exemple 3 points particuliers du langage JavaScript. </p>
-<p>Réponses</p>
-<p>Adam écrit à présent cette fonction sans les indentations (version 1) et sur une seule ligne (version 2. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* Version 1 */</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</div>
+<p>Adam écrit à présent cette fonction sans les indentations (version 1) et sur une seule ligne (version 2). </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Version 1</label><label for="__tabbed_1_2">Version 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="k">return</span><span class="w"> </span><span class="nx">a</span>
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="k">return</span><span class="w"> </span><span class="nx">b</span>
 <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="cm">/* Version 2 */</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&lt;</span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Sachant que les deux écritures de la fonction <code>maximum()</code> sont correctes, quelles hypothèses peut-on formuler quant aux indentations et aux retours à la ligne en javascript ? Quel signe de ponctuation est utilisé en Javascript pour remplacer les indentations en python ?</p>
-<p>Réponses</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">&gt;</span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<ul>
+<li>Sachant que les deux écritures de la fonction <code>maximum()</code> sont correctes, 
+quelles hypothèses peut-on formuler quant aux indentations et aux retours à la ligne en javascript ?</li>
+<li>Quel caractère est utilisé en Javascript pour remplacer les indentations en python ?</li>
+</ul>
+</div>
 <p>En gardant les indentations qui améliore la lisibilité du code, Adam s'intéresse à présent à la fonction <code>augmentation()</code>.  </p>
-<p>En considérant le programme JavaScript <code>augmentation()</code> ci-dessous, citer deux nouveaux points communs et repérer deux différences entre les langages Python et JavaScript.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5493,10 +5548,14 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">resultat</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Réponses</p>
-<p>Formuler une hypothèse sur l'utilité d'écrire le mot clé <code>let</code> au ligne 2 et 3. </p>
-<p>Réponses</p>
-<p>Adam réécrit également la première fonction de cette activité, <code>conversion()</code>, en javascript.  </p>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<ul>
+<li>En considérant le programme JavaScript <code>augmentation()</code> ci-dessus, citer deux nouveaux points communs et repérer deux différences entre les langages Python et JavaScript.</li>
+<li>Formuler une hypothèse sur l'utilité d'écrire le mot clé <code>let</code> aux lignes 2 et 3. </li>
+</ul>
+</div>
+<p>Adam réécrit également la première fonction de cette activité, <code>conversion()</code>, en Javascript.  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5507,11 +5566,17 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">heures</span><span class="p">,</span><span class="w"> </span><span class="nx">minutes</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>En javascript une fonction ne peut pas renvoyer un couple de valeur (en fait un <em>n-uplet</em>). Comment Adam a-t-il choisi de renvoyer le résultat ? </p>
-<p>Réponse</p>
-<p>L'opérateur qui calcule le reste de la division euclidienne est identique en python et en javascript: <code>%</code>. En revanche, il n'existe pas d'opérateur en javascript pour calculer le quotient de la division euclidienne. Il faut calculer le quotient de la division et récupérer sa partie entière en faisant appel à une fonction native du langage JavaScript qui s'appelle <code>floor()</code>. </p>
-<p>Adam se rappelle avoir déjà utilisé une fonction Python qui avait le même nom. D'une manière générale, quelles difficultés peut-on rencontrer quand on utilise un nouveau langage de programmation ?</p>
-<p>Réponses</p>
+<div class="admonition question">
+<p class="admonition-title">Analyser</p>
+<ul>
+<li>En Javascript une fonction ne peut pas renvoyer un couple de valeur (en fait un <em>n-uplet</em>). Comment Adam a-t-il choisi de renvoyer le résultat ?</li>
+<li>L'opérateur qui calcule le reste de la division euclidienne est identique en python et en javascript: <code>%</code>. 
+En revanche, il n'existe pas d'opérateur en javascript pour calculer le quotient de la division euclidienne. 
+Il faut calculer le quotient de la division et récupérer sa partie entière en faisant appel à une fonction native du langage JavaScript qui s'appelle <code>floor()</code>. 
+Adam se rappelle avoir déjà utilisé une fonction Python qui avait le même nom. 
+D'une manière générale, quelles difficultés peut-on rencontrer quand on utilise un nouveau langage de programmation ?</li>
+</ul>
+</div>
 
 
 
