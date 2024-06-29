@@ -948,9 +948,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#plus-difficile" class="md-nav__link">
+  <a href="#un-sapin" class="md-nav__link">
     <span class="md-ellipsis">
-      Plus difficile ...
+      Un sapin ...
     </span>
   </a>
   
@@ -5410,9 +5410,9 @@
 <h1 id="ascii-art">ASCII ART<a class="headerlink" href="#ascii-art" title="Permanent link">⚓︎</a></h1>
 <p><strong>Objectifs</strong></p>
 <ul>
-<li>Utiliser des techniques de programmation de base: boucles, tests, appels de fonction etc.</li>
-<li>Savoir utiliser les spécicifications d'une fonction</li>
-<li>Manipuler le type chaîne de caractères en python</li>
+<li>Utiliser des techniques de programmation de base <em>impérative</em> : boucles, tests, création et appels de fonction etc.</li>
+<li>Savoir utiliser les spécicifications d'une fonction;</li>
+<li>Manipuler le type chaîne de caractères en python (<em>objectif secondaire</em>).</li>
 </ul>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
 <p>L'<em>ASCII Art</em> consiste à utiliser les caractères alphanumériques du code ASCII pour produire des images. Voir <a href="https://fr.wikipedia.org/wiki/Art_ASCII">la page wikipedia</a> pour une description et quelques exemples.</p>
@@ -5544,18 +5544,96 @@ X       X
   <img alt="carrecroix" src="img/triangleisocele.png" width="200" />
   <figcaption>Un triangle isocèle</figcaption>
 </figure>
-<h2 id="plus-difficile">Plus difficile ...<a class="headerlink" href="#plus-difficile" title="Permanent link">⚓︎</a></h2>
-<p>Il s'agit maintenant dessiner un sapin de Noël, en quatre étapes, illustrées ci-dessous. </p>
-<p>Comme pour le carré, le programme devra définir une fonction <code>sapin</code> qui prend en paramètre la taille de celui-ci. </p>
-<ol>
-<li>Étape 1: afficher un triangle représentant le feuillage puis un rectangle représentant le tronc, en utilisant les barres obliques  <code>/</code> et <code>\</code> et verticale <code>|</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.</li>
-<li>Étape 2: ajouter une étoile au sommet de l'arbre.</li>
-<li>Étape 3: modifier le programme afin d'afficher la texture du feuillage, en alternant les guillemets simples et doubles <code>'</code> et <code>”</code>.</li>
-<li>Étape 4: ajouter des décorations, représentées par des <code>o</code> disposés aléatoirement sur le sapin.</li>
-</ol>
-<p>La fonction <code>random</code> de la bibliothèque <code>random</code> renvoie un nombre décimal aléatoire compris entre <code>0</code> (<em>inclus</em>) et <code>1</code> (<em>exclus</em>), suivant une distribution uniforme (<em>tous les nombres entre 0 et 1 ont la même chance d'être tirés au sort</em>). </p>
-<p>Ce nombre est différent chaque fois que l'on appelle la fonction <code>random</code>. En utilisant <code>random( )</code>, modifier le code de l'étape 3 pour qu'une décoration <code>o</code> apparaisse 20 % du temps à la place d'un guillemet. Le sapin sera différent à chaque appel de  <code>sapin(...)</code>. </p>
-<p><img alt="illustration" src="img/illustration.png" /></p>
+<h2 id="un-sapin">Un sapin ...<a class="headerlink" href="#un-sapin" title="Permanent link">⚓︎</a></h2>
+<p>Il s'agit maintenant dessiner un sapin de Noël, en plusieurs étapes, qui aurait l'allure finale suivante:</p>
+<figure>
+  <img alt="sapinnoel" src="img/sapinfinal.png" width="200" />
+  <figcaption>Un sapin avec sa décoration</figcaption>
+</figure>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>Pour inclure une barre oblique inversée (<code>'\'</code> ou « backslash ») dans une chaîne de caractères, pour le bord droit du sapin, il faut répéter celle-ci : <code>'\\'</code>. La raison est la suivante : certains caractères spéciaux sont représentés dans les chaînes de caractères Python par un backslash suivit d’un code, par exemple <code>\n</code> pour le retour chariot et <code>\t</code> pour la tabulation. Pour afficher un backslash normal, il faut le doubler : <code>print("\\")</code> affiche <code>\</code>
+On procède comme pour le carré. On devra définir une fonction <code>sapin</code> qui prendra entre autres comme paramètre la hauteur de son feuillage. </p>
+</blockquote>
+<ul>
+<li>Étape 1: écrire une fonction <code>feuillage</code>, prenant un paramètre <code>hf</code> correspondant au nombre de lignes et qui utilise les barres obliques  <code>/</code> et <code>\</code> ainsi que l'accent circonflexe pour le sommet <code>^</code>.<blockquote>
+<p><strong>Note</strong></p>
+<p>L'accent circonflexe est séparé de <code>hf</code> espaces du bord gauche...</p>
+</blockquote>
+</li>
+</ul>
+<figure>
+<img alt="feuillage" src="img/figfeuille.png" width="200" />
+<figcaption>Le feuillage</figcaption>
+</figure>
+<ul>
+<li>Étape 2: écrire une première version <code>sapin_1(ht, hf)</code> qui construit un sapin en appelant la fonction <code>feuillage(hf)</code> <strong>après</strong> avoir ajouté une étoile au sommet puis qui rajoute un tronc dont la hauteur est paramétré par <code>ht</code>.</li>
+</ul>
+<figure>
+    <img alt="sapin1" src="img/sapinf1.png" width="200" />
+<figcaption>Une première version</figcaption>
+</figure>
+<ul>
+<li>Étape 3: on aimerait changer la texture du feuillage, en alternant les guillemets simples et doubles <code>'</code> et <code>”</code>.</li>
+</ul>
+<figure>
+<img alt="feuillage2" src="img/figfeuille3.png" width="200" />
+<figcaption>Une autre texture du feuillage</figcaption>
+</figure>
+<p>Compléter le code de <code>feuillage_2(hf)</code> ci-dessous permettant de réaliser cet effet, puis proposer une nouvelle version <code>sapin_2(ht, hf)</code>.</p>
+<div class="py_mk_ide"  data-max="10"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466" class="comment">###</span><div class="line" id="editor_9d090e5d6deb00e7a087b2aea517b5095b14b466"></div><div id="term_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_9d090e5d6deb00e7a087b2aea517b5095b14b466","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span id="test_term_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466" class="py_mk_hide">assert feuillagepy-und2(9) == '        ^\n       /\'\\\n      /\'"\'\\\n     /\'"\'"\'\\\n    /\'"\'"\'"\'\\\n   /\'"\'"\'"\'"\'\\\n  /\'"\'"\'"\'"\'"\'\\\n /\'"\'"\'"\'"\'"\'"\'\\\n/\'"\'"\'"\'"\'"\'"\'"\'\\\n'bksl-nl</span>            <button class="tooltip" onclick='check("editor_9d090e5d6deb00e7a087b2aea517b5095b14b466","")'>            <img src="../../pyodide-mkdocs/icons8-check-64.png">            <span class="tooltiptext">Valider</span>            </button>            <span class="compteur">10/10</span><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_9d090e5d6deb00e7a087b2aea517b5095b14b466","NSI1C2/feuillage_2")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_9d090e5d6deb00e7a087b2aea517b5095b14b466")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_9d090e5d6deb00e7a087b2aea517b5095b14b466")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
+<p><span id="content_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466" class="py_mk_hide">def feuillagepy-und2(hf):bksl-nl    figure = ' 'py-str(...) + '^' + '\n'bksl-nl    for i in range(hf-1):bksl-nl        figure += ' 'py-str(...) + '/'bksl-nl        for k in range(2py-stri+1):bksl-nl            if k%2 == 0:bksl-nl                car = "'"bksl-nl            else:bksl-nl                car = '"'bksl-nl            figure += carbksl-nl        figure += '\' + '\n'bksl-nl    return ...bksl-nl</span><span id="corr_content_editor_9d090e5d6deb00e7a087b2aea517b5095b14b466" class="py_mk_hide" data-strudel="">def feuillagepy-und2(hf):bksl-nl    """bksl-nl    Renvoie une chaîne de caractères correspondant au feuillage d'un sapin s'étendant sur hf lignes.bksl-nl    """bksl-nl    figure = ' 'py-str(hf-1) + '^' + '\n'bksl-nl    for i in range(hf-1):bksl-nl        figure += ' 'py-str(hf-i-2) + '/'bksl-nl        for k in range(2py-stri+1):bksl-nl            if k%2 == 0:bksl-nl                car = "'"bksl-nl            else:bksl-nl                car = '"'bksl-nl            figure += carbksl-nl        figure += '\' + '\n'bksl-nl    return figurebksl-nl</span></p>
+<p><strong>A</strong></p>
+<p><strong>Z</strong></p>
+<ul>
+<li>Étape 4: on voudrait ajouter des décorations, représentées par des caractères <code>o</code> disposés aléatoirement sur le sapin.</li>
+</ul>
+<figure>
+<img alt="deco" src="img/decosapin.png" width="200" />
+<figcaption>Un peu de décoration</figcaption>
+</figure>
+<p>On utilisera la fonction <code>random</code> de la bibliothèque <code>random</code> qui renvoie un nombre décimal aléatoire compris entre <code>0</code> (<em>inclus</em>) et <code>1</code> (<em>exclus</em>), suivant une distribution uniforme (<em>tous les nombres entre 0 et 1 ont la même chance d'être tirés au sort</em>). </p>
+<p>Ce nombre est différent chaque fois que l'on appelle la fonction <code>random</code>. En utilisant <code>random()</code>, modifier le code de la fonction <code>feuillage_2</code> afin qu'une décoration <code>o</code> apparaisse 20 % du temps à la place d'un guillemet. Le sapin sera différent à chaque appel de  <code>sapin(...)</code>. Donner le code de la fonction finale <code>sapin(ht, hf, deco)</code>, le paramètre <code>deco</code>étant un décimal compris entre 0 et 1 qui traduit le pourcentage de <code>o</code> présent sur le sapin.</p>
+<blockquote>
+<p><strong>Tip</strong></p>
+<p>On pourra s'appuyer sur le code (<em>incomplet</em>) de la fonction <code>feuillage_3</code> suivant:</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+
+<span class="k">def</span> <span class="nf">feuillage_3</span><span class="p">(</span><span class="n">hf</span><span class="p">,</span> <span class="n">deco</span><span class="p">):</span>
+    <span class="n">figure</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">hf</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;^&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hf</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">figure</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">deco</span><span class="p">:</span>
+                <span class="n">car</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">k</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">car</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">car</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span>
+            <span class="n">figure</span> <span class="o">+=</span> <span class="n">car</span>
+        <span class="n">figure</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">figure</span>
+</code></pre></div></td></tr></table></div>
 
 
 
