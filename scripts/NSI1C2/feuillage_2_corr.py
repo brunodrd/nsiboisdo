@@ -4,12 +4,12 @@ def feuillage_2(hf):
     """
     figure = ' '*(hf-1) + '^' + '\n'
     for i in range(hf-1):
-        figure += ' '*(hf-i-2) + '/'
+        figure = figure + ' '*(hf-i-2) + '/'
         for k in range(2*i+1):
             if k%2 == 0:
                 car = "'"
             else:
                 car = '"'
-            figure += car
-        figure += '\\' + '\n'
+            figure = figure + car
+        figure = figure + "\\\\" + "\n"
     return figure

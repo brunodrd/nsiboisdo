@@ -21,11 +21,11 @@ def croixcarre(c):
     """
     assert c%2 == 1, "Erreur c impair"
     
-    figure = ... + '\n' # 1re ligne
+    figure = ligne_XX(c) + '\n' # 1re ligne
     for i in range(c-2):
         if i != ((c-3) // 2):
-            figure = ...
+            figure = figure + ligne_X__X((c+1) // 2) + ligne__X((c-1) // 2) + '\n'
         else:
-            figure = ...
-    figure = ... # dernière ligne
+            figure = figure + ligne_XX(c) + '\n' # ligne du milieu particulière: que des'X'
+    figure = figure + ligne_XX(c) # dernière ligne
     return figure

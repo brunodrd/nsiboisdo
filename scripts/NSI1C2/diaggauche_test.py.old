@@ -1,0 +1,7 @@
+test5 = [ord(car) for car in diaggauche(5)]
+#test7 = [ord(car) for car in diaggauche(7)]
+#test13 = [ord(car) for car in diaggauche(13)]
+#
+assert diaggauche(5) == ''.join([chr(c) for c in test5])
+#assert diaggauche(7) == ''.join([chr(c) for c in test7])
+#assert diaggauche(13) == ''.join([chr(c) for c in test13])

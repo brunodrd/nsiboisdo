@@ -5,12 +5,12 @@ def ligne_XX(n):
 
 def ligne_X__X(n):
     """ Renvoie une ligne de n caractères 'X __ __ ....__ X' """
-    assert n >= 3
+    assert n >= 2
     return 'X ' + '  ' * (n-2) + 'X '
 
 def ligne__X(n):
     """ Renvoie une ligne de n caractères '__ __ ...__ X'"""
-    assert n >= 2
+    assert n >= 1
     return '  '*(n-1) + 'X '
 
 def carre(c):
