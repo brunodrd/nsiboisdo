@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#encodage-des-entiers-relatifs" class="md-skip">
+        <a href="#comment-coder-un-entier-signe-sur-une-machine-numerique" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1043,9 +1043,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-coder-un-entier-signe-sur-une-machine-numerique" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Comment coder un entier signé sur une machine numérique?
+      Introduction
     </span>
   </a>
   
@@ -1061,18 +1061,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-solution-plus-satisfaisante" class="md-nav__link">
+  <a href="#la-solution-retenue" class="md-nav__link">
     <span class="md-ellipsis">
-      Une solution plus satisfaisante
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
-    <span class="md-ellipsis">
-      A retenir
+      La solution retenue
     </span>
   </a>
   
@@ -5397,12 +5388,12 @@
                   
 
 
-<h1 id="encodage-des-entiers-relatifs">Encodage des entiers relatifs<a class="headerlink" href="#encodage-des-entiers-relatifs" title="Permanent link">⚓︎</a></h1>
-<h2 id="comment-coder-un-entier-signe-sur-une-machine-numerique">Comment coder un entier signé sur une machine numérique?<a class="headerlink" href="#comment-coder-un-entier-signe-sur-une-machine-numerique" title="Permanent link">⚓︎</a></h2>
+<h1 id="comment-coder-un-entier-signe-sur-une-machine-numerique">Comment coder un entier signé sur une machine numérique?<a class="headerlink" href="#comment-coder-un-entier-signe-sur-une-machine-numerique" title="Permanent link">⚓︎</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
 <p>Le signe d'un entier relatif peut prendre deux valeurs possibles: <code>+</code> ou <code>-</code>. Par conséquent, un seul bit suffit pour le codage du signe.  </p>
 <div class="admonition tip">
 <p class="admonition-title">Convention</p>
-<p>Par convention le signe + est codé par 0 et le signe - par 1.</p>
+<p>Par convention le signe <code>+</code> est codé par 0 et le signe <code>-</code> par 1.</p>
 </div>
 <p>Les tailles courantes pour représenter un entier sont 8, 16, 32 ou 64 bits.</p>
 <h2 id="proprietes-a-verifier-et-premiere-solution">Propriétés à vérifier et première solution<a class="headerlink" href="#proprietes-a-verifier-et-premiere-solution" title="Permanent link">⚓︎</a></h2>
@@ -5414,29 +5405,24 @@
 <li><span class="arithmatex">\(-(-a) = a\)</span> (propriété 2)</li>
 </ul>
 </div>
-<p>La première idée est d'utiliser un bit, généralement <strong>le bit de poids fort</strong>, pour représenter le signe et les autres bits pour représenter la valeur absolue du nombre <span class="arithmatex">\(x\)</span> à coder.  Ce qui peut être représenté par:  </p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    &lt;---- n-1 bits --&gt;
-+---+----------------+
-| 1 |    |x|         |
-+---+----------------+
-</code></pre></div></td></tr></table></div>
-ou </p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    &lt;---- n-1 bits --&gt;
-+---+----------------+
-| 0 |    |x|         |
-+---+----------------+
-</code></pre></div></td></tr></table></div>
-selon que <span class="arithmatex">\(x\)</span> soit négatif ou positif.</p>
-<p><strong>Exemple</strong>  </p>
-<p>Soit à coder <span class="arithmatex">\(-5\)</span> sur 4 bits.<br />
-Avec 4 bits, la valeur absolue sera codée sur 3 bits et le signe sur 1 bit.
-On a <span class="arithmatex">\(|-5| = 5\)</span>, ce qui correspond à <span class="arithmatex">\(101_{2}\)</span>, le bit de signe valant 1 car <span class="arithmatex">\(-5&lt;0\)</span>. On aura donc le codage suivant: <span class="arithmatex">\(-5\rightarrow 1\ 1\ 0\ 1\)</span>  </p>
+<p>La première idée est d'utiliser un bit, généralement <strong>le bit de poids fort</strong>, pour représenter le signe et les autres bits pour représenter la valeur absolue du nombre <span class="arithmatex">\(x\)</span> à coder.  Ainsi, si l'on dispose de <span class="arithmatex">\(n\)</span> bits, la représentation <span class="arithmatex">\(x\)</span> pourrait être une des des deux formes suivantes: </p>
+<figure>
+    <img alt="repr1" src="img/repr.png">
+    <figcaption>Représentation d'un nombre négatif</figcaption>
+</figure>
+
+<figure>
+    <img alt="repr0" src="img/repr_0.png">
+    <figcaption>Représentation d'un nombre positif</figcaption>
+</figure>
+
+<div class="admonition success">
+<p class="admonition-title">Exemple</p>
+<p>Soit à coder <span class="arithmatex">\(-5\)</span> sur 4 bits.</p>
+</div>
+<p>Comme on dispose de 4 bits, la valeur absolue sera codée sur 3 bits et le signe sur 1 bit.
+On a <span class="arithmatex">\(|-5| = 5\)</span>, ce qui correspond à <span class="arithmatex">\(101_{2}\)</span>. Le bit de signe vaut 1 car <span class="arithmatex">\(-5&lt;0\)</span>. On aura donc le codage suivant:  </p>
+<p><span class="arithmatex">\(-5\rightarrow 1\ 1\ 0\ 1\)</span>  </p>
 <p>La propriété (1) ci-dessus est-elle vérifiée ?<br />
 Ajoutons les représentations de <span class="arithmatex">\(5\)</span> et <span class="arithmatex">\(-5\)</span>, avec un résultat sur 4 bits:  </p>
 <table>
@@ -5473,18 +5459,27 @@ Ajoutons les représentations de <span class="arithmatex">\(5\)</span> et <span 
 </tr>
 </tbody>
 </table>
-<p><strong>La valeur obtenue sur 4 bits est différente de zéro: cette solution n'est pas satisfaisante</strong>.  </p>
-<div class="admonition info">
-<p class="admonition-title">Remarque</p>
+<p>La valeur obtenue sur 4 bits est différente de zéro !</p>
+<div class="admonition warning">
+<p class="admonition-title">Autre problème ...</p>
 <p>Un problème supplémentaire peut être mis en évidence: l'existence de <strong>deux</strong> représentations pour zéro.</p>
 </div>
-<h2 id="une-solution-plus-satisfaisante">Une solution plus satisfaisante<a class="headerlink" href="#une-solution-plus-satisfaisante" title="Permanent link">⚓︎</a></h2>
+<p><strong>Conclusion: cette solution n'est pas satisfaisante</strong>.  </p>
+<h2 id="la-solution-retenue">La solution retenue<a class="headerlink" href="#la-solution-retenue" title="Permanent link">⚓︎</a></h2>
 <h3 id="le-complement-a-2">Le complément à 2<a class="headerlink" href="#le-complement-a-2" title="Permanent link">⚓︎</a></h3>
 <p>Sur <span class="arithmatex">\(n\)</span> bits on peut coder <span class="arithmatex">\(2^n\)</span> entiers. Il y en a autant de positifs que de négatifs, soit <span class="arithmatex">\(\dfrac{2^n}{2}=2^{n-1}\)</span>. Les plages de valeurs représentables sont:</p>
 <ul>
 <li>de <span class="arithmatex">\(0\)</span> à <span class="arithmatex">\(2^{n-1}-1\)</span> pour les valeurs positives;</li>
 <li>de <span class="arithmatex">\(-1\)</span> à <span class="arithmatex">\(-2^{n-1}\)</span> pour les valeurs négatives</li>
 </ul>
+<p>ou sous forme schématique:</p>
+<figure>
+    <img alt="complement2" src="img/schema_complement_2.png">
+    <figcaption>
+        Entiers représentables avec n bits
+    </figcaption>
+</figure>
+
 <p>Ainsi, avec <span class="arithmatex">\(n=8\)</span> bits par exemple, on peut représenter les entiers allant de <span class="arithmatex">\(-128\)</span> à <span class="arithmatex">\(+127\)</span>.  </p>
 <div class="admonition important">
 <p class="admonition-title">Définition</p>
@@ -5498,14 +5493,13 @@ Ajoutons les représentations de <span class="arithmatex">\(5\)</span> et <span 
 <p class="admonition-title">Vocabulaire</p>
 <p>La quantité <span class="arithmatex">\(2^n-\lvert x\rvert\)</span>, appelée <strong>complément à</strong> <span class="arithmatex">\(2^n\)</span> <strong>de</strong> <span class="arithmatex">\(x\)</span> voit son nom souvent abrégé en <strong>complément à 2</strong>.</p>
 </div>
-<h3 id="comment-utiliser-le-complement-a-2">Comment utiliser le complément à 2 ?<a class="headerlink" href="#comment-utiliser-le-complement-a-2" title="Permanent link">⚓︎</a></h3>
-<h4 id="methode-1">Méthode 1<a class="headerlink" href="#methode-1" title="Permanent link">⚓︎</a></h4>
-<p>On utilise directement la définition.<br />
-<strong>Exemples</strong><br />
-Soit à coder les entiers relatifs <span class="arithmatex">\(x_1=107\)</span> et <span class="arithmatex">\(x_2=-107\)</span> sur 8 bits. </p>
+<h3 id="en-pratique-comment-utiliser-le-complement-a-2">En pratique, comment utiliser le complément à 2 ?<a class="headerlink" href="#en-pratique-comment-utiliser-le-complement-a-2" title="Permanent link">⚓︎</a></h3>
+<p>Soit à coder les entiers relatifs <span class="arithmatex">\(x_1=107\)</span> et <span class="arithmatex">\(x_2=-107\)</span> sur 8 bits. </p>
+<h4 id="utilisation-directe-de-la-definition">Utilisation directe de la définition.<a class="headerlink" href="#utilisation-directe-de-la-definition" title="Permanent link">⚓︎</a></h4>
 <ul>
-<li><span class="arithmatex">\(x_1=107=1101011_2\)</span>, soit <span class="arithmatex">\(0110\ 1011\)</span>. On constate que le bit de poids fort vaut <span class="arithmatex">\(0\)</span>, ce qui indique un nombre positif.  </li>
-<li>Pour <span class="arithmatex">\(x_2\)</span> on a: <span class="arithmatex">\(2^8-\lvert -107\rvert=149\)</span> qui s'écrit en binaire <span class="arithmatex">\(1001\ 0101\)</span> et qui correspond à la représentation de <span class="arithmatex">\(-107\)</span> sur 8 bits. Par ailleurs, le bit de poids fort vaut <span class="arithmatex">\(1\)</span>, ce qui indique bien un nombre négatif.</li>
+<li><span class="arithmatex">\(x_1=107=1101011_2\)</span>, soit <span class="arithmatex">\(0110\ 1011\)</span>. On constate que le bit de poids fort vaut <span class="arithmatex">\(0\)</span>, ce qui est cohérent avec la représentation d'un nombre positif.  </li>
+<li>On remarque que <span class="arithmatex">\(x_2\gt 0\)</span>. Pour <span class="arithmatex">\(x_2\)</span>, la représentation est la même que celle de <span class="arithmatex">\(2^8-\lvert -107\rvert=149\)</span>, qui s'écrit en binaire <span class="arithmatex">\(1001\ 0101\)</span> et qui correspond à la représentation de <span class="arithmatex">\(-107\)</span> sur 8 bits.
+  Par ailleurs, le bit de poids fort vaut <span class="arithmatex">\(1\)</span>, ce qui est cohérent avec la représentation d'un nombre négatif.</li>
 </ul>
 <p>Effectuons <span class="arithmatex">\(x_1+x_2\)</span>:</p>
 <table>
@@ -5558,37 +5552,27 @@ Soit à coder les entiers relatifs <span class="arithmatex">\(x_1=107\)</span> e
 </tr>
 </tbody>
 </table>
-<p>La méthode du complément à 2 vérifie la propriété 1.</p>
+<p>La méthode du complément à 2 vérifie la propriété 1 👏.</p>
+<h4 id="representer-loppose-dun-nombre">Représenter l'opposé d'un nombre<a class="headerlink" href="#representer-loppose-dun-nombre" title="Permanent link">⚓︎</a></h4>
 <div class="admonition important">
-<p class="admonition-title">Méthode 2 (à connaître)</p>
-<p>Pour représenter l'opposé d'un entier relatif:</p>
+<p class="admonition-title">À connaître</p>
+<p>Pour représenter l'opposé d'un entier relatif, on applique la méthode suivante:</p>
 <ul>
-<li>Ecrire la valeur absolue du nombre en binaire naturel avec le nombre de bits spécifié (compléter si besoin avec des zéros);</li>
+<li>Écrire la valeur absolue du nombre en binaire naturel avec le nombre de bits spécifié (compléter si besoin avec des zéros);</li>
 <li>Inverser tous les bits (complément à un);</li>
 <li>Ajouter 1 au résultat précédent.</li>
 </ul>
 </div>
 <p><strong>Exemple</strong><br />
-Coder <span class="arithmatex">\(x_2=-107\)</span> sur 8 bits en utilisant la méthode 2.<br />
-<span class="arithmatex">\(\lvert x_2\rvert = 0110\ 1011\)</span>. On inverse les bits: <span class="arithmatex">\(1001\ 0100\)</span> et on ajoute 1: <span class="arithmatex">\(1001\ 0101\)</span>. On retrouve heureusement le résultat précédent.<br />
-Appliquons une deuxième fois le complément à 2 sur le résultat <span class="arithmatex">\(1001\ 0101\)</span>:<br />
-Inversion des bits: <span class="arithmatex">\(0110\ 1010\)</span>, additionner 1: <span class="arithmatex">\(0110\ 1011\)</span>. La propriété 2 est vérifiée.</p>
-<h3 id="representation-circulaire">Représentation circulaire<a class="headerlink" href="#representation-circulaire" title="Permanent link">⚓︎</a></h3>
-<p>Il est commode de représenter le codage d'entiers relatifs sous forme circulaire.  </p>
-<figure>
-    <img alt="roue" src="img/TwoComplementCircle.png" width="50%">
-</figure>
-
-<p>On y repère l'intervalle des valeurs couvertes selon qu'on travaille avec des entiers non signés (<em>extérieur</em>) ou signés (<em>intérieur</em>).<br />
-Par ailleurs, la notion de complément à <span class="arithmatex">\(2^n\)</span> est bien mise en évidence. Par exemple, <span class="arithmatex">\(-5\)</span> sera codé comme son complément à <span class="arithmatex">\(2^4\)</span>, c'est-à-dire <span class="arithmatex">\(2^4-\lvert -5\rvert=11\)</span>.</p>
-<h2 id="a-retenir">A retenir<a class="headerlink" href="#a-retenir" title="Permanent link">⚓︎</a></h2>
-<p>Pour coder un entier relatif, on utilise la méthode du complément à <span class="arithmatex">\(2^n\)</span>. Pour cela, si la capacité est fixée à <span class="arithmatex">\(n\)</span> bits, on peut simplement:  </p>
-<ul>
-<li>écrire la valeur absolue du nombre en binaire naturel avec le nombre de bits spécifié (compléter si besoin avec des zéros);  </li>
-<li>inverser tous les bits (complément à un);  </li>
-<li>ajouter 1 au résultat précédent  </li>
-</ul>
-<p>Avec <span class="arithmatex">\(n\)</span> bits, on peut coder les entiers appartenant à l'intervalle <span class="arithmatex">\([\![-2^{n-1}...2^{n-1}-1]\!]\)</span>. Si une opération conduit à un nombre se situant en dehors de cet intervalle, on a un phénomène de dépassement de capacité (en anglais <em>overflow</em>).</p>
+Coder <span class="arithmatex">\(x_2=-107\)</span> sur 8 bits en remarquant que <span class="arithmatex">\(x_2\)</span> est l'opposé de <span class="arithmatex">\(x_1\)</span>.<br />
+Rappel: représentation binaire de <span class="arithmatex">\(x_1\)</span>: <span class="arithmatex">\(0110\ 1011\)</span>.<br />
+On inverse les bits: <span class="arithmatex">\(1001\ 0100\)</span><br />
+on ajoute 1: <span class="arithmatex">\(1001\ 0101\)</span>.<br />
+On retrouve heureusement le résultat précédent.  </p>
+<p>Appliquons une deuxième fois le complément à 2 sur le résultat <span class="arithmatex">\(1001\ 0101\)</span>:<br />
+Inversion des bits: <span class="arithmatex">\(0110\ 1010\)</span>,<br />
+additionner 1: <span class="arithmatex">\(0110\ 1011\)</span>.<br />
+La propriété 2 est vérifiée 👏.</p>
 
 
 
