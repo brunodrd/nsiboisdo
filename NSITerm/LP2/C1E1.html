@@ -16,7 +16,7 @@
         <link rel="prev" href="C1C1.html">
       
       
-        <link rel="next" href="C1TD1.html">
+        <link rel="next" href="C1E2.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Exercices - NSI</title>
+        <title>Série 1 - NSI</title>
       
     
     
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exercices
+              Série 1
             
           </span>
         </div>
@@ -2818,6 +2818,46 @@
   
   
   
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Exercices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -2830,7 +2870,7 @@
           
   
   <span class="md-ellipsis">
-    Exercices
+    Série 1
   </span>
   
 
@@ -2841,7 +2881,7 @@
         
   
   <span class="md-ellipsis">
-    Exercices
+    Série 1
   </span>
   
 
@@ -2932,15 +2972,23 @@
   
   
     <li class="md-nav__item">
-      <a href="C1TD1.html" class="md-nav__link">
+      <a href="C1E2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Vers le bac
+    Série 2
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5938,7 +5986,7 @@ Le cas de base étant obtenu lorsque le nombre <span class="arithmatex">\(n\)</s
 <p>C'est quoi trier un tableau <span class="arithmatex">\(t\)</span> de <span class="arithmatex">\(n\)</span> éléments par insertion ?</p>
 <ul>
 <li>si <span class="arithmatex">\(t\)</span> est vide alors il s'agit d'un tableau vide;</li>
-<li>sinon c'est <strong>placer</strong> <code>t[0]</code> dans le reste du tableau (<em>formé des</em> <span class="arithmatex">\(n-1\)</span> <em>éléments suivants</em> <code>[t[1]...t[n-1]</code>) <strong>trié par insertion</strong>.</li>
+<li>sinon c'est <strong>placer</strong> <code>t[0]</code> dans le reste du tableau (<em>c'est-à-dire formé des</em> <span class="arithmatex">\(n-1\)</span> <em>éléments suivants</em> <code>[t[1]...t[n-1]</code>) <strong>trié par insertion</strong>.</li>
 </ul>
 <div class="admonition question">
 <p class="admonition-title">A faire</p>
@@ -5948,7 +5996,7 @@ Le cas de base étant obtenu lorsque le nombre <span class="arithmatex">\(n\)</s
 <p><span id="content_editor_230ebb68e2ab6aed5181339793e7bf2386ec23b7" class="py_mk_hide">def tripy-undinsertion(t):bksl-nl    """bksl-nl    Trie t par insertion. Renvoie un nouveau tableaubksl-nl    """bksl-nl    # À compléterbksl-nl</span><span id="corr_content_editor_230ebb68e2ab6aed5181339793e7bf2386ec23b7" class="py_mk_hide" data-strudel="">def tripy-undinsertion(t):bksl-nl    """bksl-nl    Trie t par insertion. Renvoie un nouveau tableaubksl-nl    """bksl-nl    bksl-nl    if len(t) == 0:bksl-nl        return []bksl-nl    else:bksl-nl        return placer(t[0], tripy-undinsertion(t[1:]))bksl-nl</span></p>
 <p><strong>A</strong></p>
 <p><strong>Z</strong></p>
-<h2 id="exercice-6-un-autre-tri-le-tri-fusion">Exercice 6: Un autre tri, le tri fusion<a class="headerlink" href="#exercice-6-un-autre-tri-le-tri-fusion" title="Permanent link">⚓︎</a></h2>
+<h2 id="exercice-6-un-autre-tri-le-tri-fusion">Exercice 6: Un autre tri, le tri fusion <img alt="⭐" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2b50.svg" title=":star:" /><img alt="⭐" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2b50.svg" title=":star:" /><img alt="⭐" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2b50.svg" title=":star:" /><a class="headerlink" href="#exercice-6-un-autre-tri-le-tri-fusion" title="Permanent link">⚓︎</a></h2>
 <p><strong>Préambule</strong>  </p>
 <p>Avant d'aborder l'implémentation d'un nouvel algorithme de tri plus performant que ceux vus en 1re, on donne les deux fonctions ci-dessous. Malheureusement les spécifications ne sont pas toutes complètes ...</p>
 <div class="py_mk_ide"  data-max="∞"  data-max_size="30"  data-exclude="eval,exec" ><div class="wrapper" ><span id="comment_editor_0709da142b14988da5eacbfbcb8374f66e2e366b" class="comment">###</span><div class="line" id="editor_0709da142b14988da5eacbfbcb8374f66e2e366b"></div><div id="term_editor_0709da142b14988da5eacbfbcb8374f66e2e366b"  class="term_editor" ></div></div><button class="tooltip" onclick='play("editor_0709da142b14988da5eacbfbcb8374f66e2e366b","")'>            <img src="../../pyodide-mkdocs/icons8-play-64.png">            <span class="tooltiptext">Lancer</span>            </button><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='download("editor_0709da142b14988da5eacbfbcb8374f66e2e366b","C1/ex/ex6a")'>            <img src="../../pyodide-mkdocs/icons8-download-64.png">            <span class="tooltiptext">Télécharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick="document.getElementById('input_editor_0709da142b14988da5eacbfbcb8374f66e2e366b').click()" >            <img src="../../pyodide-mkdocs/icons8-upload-64.png">            <span class="tooltiptext">Téléverser</span>            </button>                <input type="file" id="input_editor_0709da142b14988da5eacbfbcb8374f66e2e366b" name="file" enctype="multipart/form-data" class="py_mk_hide"/><span style="display: inline-block; width:1em"></span><button class="tooltip" onclick='restart("editor_0709da142b14988da5eacbfbcb8374f66e2e366b")'>            <img src="../../pyodide-mkdocs/icons8-restart-64.png">            <span class="tooltiptext">Recharger</span>            </button><span style="display: inline-block; width:0.3em"></span><button class="tooltip" onclick='save("editor_0709da142b14988da5eacbfbcb8374f66e2e366b")'>            <img src="../../pyodide-mkdocs/icons8-save-64.png">            <span class="tooltiptext">Sauvegarder</span>            </button><span style="display: inline-block; width:1em"></span></div>
