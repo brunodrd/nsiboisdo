@@ -3525,6 +3525,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Cours 3: Langage SQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="C8C3.html" class="md-nav__link md-nav__link--active">
         
   
@@ -3534,6 +3545,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#le-langage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le langage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-requetes-dinterrogation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les requêtes d'interrogation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-requetes-de-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les requêtes de mise à jour
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5593,7 +5650,7 @@
 
 
 <h1 id="langage-sql">LANGAGE SQL<a class="headerlink" href="#langage-sql" title="Permanent link">⚓︎</a></h1>
-<h1 id="le-langage">Le langage<a class="headerlink" href="#le-langage" title="Permanent link">⚓︎</a></h1>
+<h2 id="le-langage">Le langage<a class="headerlink" href="#le-langage" title="Permanent link">⚓︎</a></h2>
 <p>SQL ou <em>Structured Query Language</em> est un langage standardisé de dialogue avec une base de données. C'est un langage déclaratif impératif; on décrit le <em>quoi</em> pas le <em>comment</em>.<br />
 Conformément au programme, on va se limiter aux instructions d'<strong>interrogation</strong> et de <strong>mise à jour</strong>. En d'autres termes, il s'agira:  </p>
 <ul>
@@ -5601,10 +5658,13 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 <li>d'extraire une partie des informations suivant des critères précis;</li>
 <li>de modifier des données (insertion ou suppression)</li>
 </ul>
-<h1 id="les-requetes-dinterrogation">Les requêtes d'interrogation<a class="headerlink" href="#les-requetes-dinterrogation" title="Permanent link">⚓︎</a></h1>
+<h2 id="les-requetes-dinterrogation">Les requêtes d'interrogation<a class="headerlink" href="#les-requetes-dinterrogation" title="Permanent link">⚓︎</a></h2>
 <p>Une requête qui permet d'obtenir tout ou une partie des attributs d'une relation (<em>projection en algèbre relationnelle</em>) a une syntaxe du type:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">attribut</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div></td></tr></table></div>
+</div>
 <hr />
 <p><strong>Application 1</strong>  </p>
 <ol>
@@ -5613,8 +5673,11 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 </ol>
 <hr />
 <p>On peut rajouter une condition de restriction sur les informations extraites en utilisant la clause <code>WHERE</code>. La syntaxe devient alors:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">attribut</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <hr />
 <p><strong>Application 2.1</strong>  </p>
 <p>En utilisant la relation <code>livre</code>, écrire et tester la requête SQL permettant d'obtenir toutes informations sur les livres publiés par l'éditeur <code>Dargaud</code>.</p>
@@ -5627,11 +5690,14 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 </code></pre></div></td></tr></table></div>
 <hr />
 <p>Si on désire obtenir les résultats dans un ordre particulier, on pourra utiliser la clause <code>ORDER BY</code>. La syntaxe est:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">attribut</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">attribut</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <hr />
 <p><strong>Application 3</strong>  </p>
-<p>Ecrire et tester la requête SQL permettant d'obtenir tous les titres de livres publiés après 1990, classés par titre (on dit aussi <em>ordre lexicographique</em>).</p>
+<p>Écrire et tester la requête SQL permettant d'obtenir tous les titres de livres publiés après 1990, classés par titre (on dit aussi <em>ordre lexicographique</em>).</p>
 <hr />
 <p>Si on veut éviter les doublons, on ajoute le mot clé <code>DISTINCT</code> à la clause <code>SELECT</code>.</p>
 <hr />
@@ -5643,8 +5709,11 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 </ul>
 <hr />
 <p>À partir de la table <code>emprunt</code>, on peut obtenir la liste de tous les livres empruntés avec la requête simple <code>SELECT * FROM emprunt</code>. Le résultat n'est très exploitable. Il serait intéressant d'avoir aussi les informations sur les livres à partir de l'isbn de la table <code>livre</code>. Cette opération de <em>fusion</em> des tables <code>emprunt</code> et <code>livre</code> est appelée <strong>jointure</strong>.  La syntaxe générale d'une jointure en SQL est:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">attribut</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_aux</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">condition</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <p><strong>Application 5</strong>  </p>
 <ul>
 <li>Tester la jointure des tables <code>emprunt</code> et <code>livre</code> avec la requête suivante: <code>SELECT * FROM emprunt JOIN livre ON emprunt.isbn=livre.isbn</code>.</li>
@@ -5656,26 +5725,35 @@ Conformément au programme, on va se limiter aux instructions d'<strong>interrog
 <span class="k">FROM</span><span class="w"> </span><span class="n">emprunt</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">livre</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">emprunt</span><span class="p">.</span><span class="n">isbn</span><span class="o">=</span><span class="n">livre</span><span class="p">.</span><span class="n">isbn</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">emprunt</span><span class="p">.</span><span class="n">retour</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2020-02-01&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h1 id="les-requetes-de-mise-a-jour">Les requêtes de mise à jour<a class="headerlink" href="#les-requetes-de-mise-a-jour" title="Permanent link">⚓︎</a></h1>
-<h2 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">⚓︎</a></h2>
+<h2 id="les-requetes-de-mise-a-jour">Les requêtes de mise à jour<a class="headerlink" href="#les-requetes-de-mise-a-jour" title="Permanent link">⚓︎</a></h2>
+<h3 id="insert">INSERT<a class="headerlink" href="#insert" title="Permanent link">⚓︎</a></h3>
 <p>Une première opération de mise à jour consiste à insérer des nouvelles entrées dans une table. La syntaxe est:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">liste</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">valeurs</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">attributs</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <p><strong>Application 6</strong>  </p>
 <p>Insérer une ligne de valeurs dans la table <code>usager</code>. Vérifier la mise à jour.</p>
-<h2 id="update">UPDATE<a class="headerlink" href="#update" title="Permanent link">⚓︎</a></h2>
+<h3 id="update">UPDATE<a class="headerlink" href="#update" title="Permanent link">⚓︎</a></h3>
 <p>Lorsqu'on souhaite modifier un ou plusieurs attributs, on utilise la clause <code>UPDATE</code> avec une syntaxe du type:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">att1</span><span class="o">=</span><span class="n">valeur1</span><span class="p">,</span><span class="w"> </span><span class="n">att2</span><span class="o">=</span><span class="n">valeur2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">attn</span><span class="o">=</span><span class="n">valeurn</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <p>Par exemple, on peut mettre à jour l'email de l'usager <code>PAYET</code>, dont <code>code_barre = '934701281931117'</code> avec la requête:  </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">email</span><span class="o">=</span><span class="s1">&#39;david@payet.re&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Application 7</strong>  </p>
 <p>Procéder à la mise à jour d'un ou plusieurs attributs dans l'enregistrement effectué à l'application 6.</p>
-<h2 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">⚓︎</a></h2>
+<h3 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">⚓︎</a></h3>
 <p>On peut supprimer une ou plusieurs lignes d'une table avec la clause <code>DELETE</code> dont la syntaxe est la suivante:  </p>
+<div class="admonition tip">
+<p class="admonition-title">Syntaxe</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span>
 </code></pre></div></td></tr></table></div>
+</div>
 <p>Par exemple, si on veut supprimer l'usager <code>PAYET</code>, on peut utiliser la requête:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">usager</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code_barre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;934701281931117&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
