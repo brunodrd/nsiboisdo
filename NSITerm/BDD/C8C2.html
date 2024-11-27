@@ -5742,7 +5742,7 @@
 <h3 id="anomalies-de-suppression">Anomalies de suppression<a class="headerlink" href="#anomalies-de-suppression" title="Permanent link">⚓︎</a></h3>
 <p>On ne peut pas supprimer un film sans supprimer du même coup son réalisateur. Si on souhaite, par exemple, ne plus voir le film <em>Titanic</em> figurer dans la base de données, on va effacer du même coup les informations sur <em>James Cameron</em>.</p>
 <h2 id="comprendre-un-bon-schema-dune-base-de-donnees">Comprendre un (bon) schéma d'une base de données<a class="headerlink" href="#comprendre-un-bon-schema-dune-base-de-donnees" title="Permanent link">⚓︎</a></h2>
-<p>*Le schéma de la base support pour cette section peut être consultée avec l'interface en ligne * <code>dbdiagram.io</code>. Le lien est disponible sur Pronote.</p>
+<p><em>Le schéma de la base support pour cette section peut être consultée avec l'interface en ligne</em> <code>dbdiagram.io</code>. Le lien est disponible sur Pronote.</p>
 <p>Le modèle relationnel possède un outil (<em>hors programme de terminale</em>) permettant d'éviter tous les problèmes liés à la redondance: la <strong>normalisation</strong>. En l'appliquant au problème précédent on peut aboutir au schéma de base de données <code>Infos_films</code> suivant:  </p>
 <ul>
 <li>Film (<u>idFilm</u>, titre, année, genre, résumé, #idRéalisateur, #codePays)</li>
@@ -5755,7 +5755,7 @@
 <p>On peut d'abord noter que chaque relation possède une clé primaire, ce qui assure l'unicité des n-uplets.<br />
 La clé étrangère <code>idRéalisateur</code> dans <code>Film</code> référence la clé primaire <code>idArtiste</code> de <code>Artiste</code>. De même, La clé étrangère <code>codePays</code> dans <code>Film</code> référence la clé primaire <code>code</code> de <code>Pays</code>. Ainsi, connaissant un film on peut retrouver son réalisateur ou son pays de production.</p>
 <p>On peut aussi utiliser une méthode <em>graphique</em> visualiser les liens entre les diverses relations.<br />
-<img alt="graphe" src="img/construireSQL_1.png" /></p>
+<img alt="graphe" src="img/films_2.png" /></p>
 <hr />
 <p><strong>Référence</strong>: <a href="http://sql.bdpedia.fr/">Cours base de données de Philipe Rigaux</a></p>
 
