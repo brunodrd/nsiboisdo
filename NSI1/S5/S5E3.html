@@ -5942,29 +5942,7 @@ On utilisera des fonctions disponibles dans la librairie standard de python, plu
     <span class="s2">&quot;hippopotame&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Afrique&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
     <span class="s2">&quot;girafe&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Afrique&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">)}</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">maxi</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">nom_animal</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">categorie</span> <span class="ow">in</span> <span class="n">zoo_Beauval</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">categorie</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxi</span><span class="p">:</span>
-        <span class="n">maxi</span> <span class="o">=</span> <span class="n">categorie</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">nom_animal</span> <span class="o">=</span> <span class="n">categorie</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Asie
-Asie
-Asie
-Afrique
-Afrique
-</code></pre></div></td></tr></table></div>
-<p>On souhaite écrire une fonction <code>plus_grand_nombre</code> qui prend un zoo en paramètre et qui retourne le nom de l'animal le plus représenté dans ce zoo.  </p>
+<p>On souhaite écrire une fonction <code>plus_grand_nombre</code> qui prend un zoo en paramètre et qui renvoie le nom de l'animal le plus représenté dans ce zoo.  </p>
 <p><strong>1</strong>. Quel type d'itération doit-on utiliser dans cette fonction?  </p>
 <ul>
 <li><code>for cle in d.keys()</code></li>
