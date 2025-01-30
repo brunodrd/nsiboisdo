@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#protocole-tcpip" class="md-skip">
+        <a href="#transmission-de-donnees-dans-un-reseau" class="md-skip">
           Aller au contenu
         </a>
       
@@ -2533,7 +2533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="c18c.html" class="md-nav__link">
+      <a href="c18c2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5672,7 +5672,7 @@
                   
 
 
-<h1 id="protocole-tcpip">Protocole TCP/IP<a class="headerlink" href="#protocole-tcpip" title="Permanent link">⚓︎</a></h1>
+<h1 id="transmission-de-donnees-dans-un-reseau">Transmission de données dans un réseau<a class="headerlink" href="#transmission-de-donnees-dans-un-reseau" title="Permanent link">⚓︎</a></h1>
 <h2 id="notion-de-protocole">Notion de protocole<a class="headerlink" href="#notion-de-protocole" title="Permanent link">⚓︎</a></h2>
 <p>Pour communiquer, les ordinateurs en réseau doivent utiliser des <strong>règles communes</strong>. L'ensemble de ces règles permettant l'échange d'informations s'appelle un <strong>protocole</strong>.</p>
 <p>Il existe de nombreux protocoles réseau, nous allons en étudier deux:  </p>
@@ -5691,16 +5691,16 @@
 <p><strong>Internet était né</strong>. Le terme Internet vient de "internetting" qui signifie "Connexion entre plusieurs réseaux".  </p>
 <p><strong>TCP/IP est donc au coeur d'Internet. Voilà pourquoi aujourd'hui, la plupart des machines utilisent TCP/IP</strong>.</p>
 <h2 id="les-protocoles-tcp-et-ip">Les protocoles TCP et IP<a class="headerlink" href="#les-protocoles-tcp-et-ip" title="Permanent link">⚓︎</a></h2>
-<h3 id="notion-dencapsulation">Notion d'encapsulation<a class="headerlink" href="#notion-dencapsulation" title="Permanent link">⚓︎</a></h3>
+<h3 id="encapsulation">Encapsulation<a class="headerlink" href="#encapsulation" title="Permanent link">⚓︎</a></h3>
 <p>Quand un ordinateur A "désire" envoyer des données à un ordinateur B, l'ordinateur A "utilise" le protocole TCP pour mettre en forme les données à envoyer.</p>
 <p>Ensuite le protocole IP prend le relai et utilise les données mises en forme par le protocole TCP afin de créer des paquets des données. </p>
 <figure>
   <img alt="paquet" src="img/c17c_1.jpg" width="400" />
-  <figcaption>Paquet de données</figcaption>
+  <figcaption>Paquet de données IP</figcaption>
 </figure>
 <p>Après quelques autres opérations qui ne seront pas évoquées ici, les paquets de données pourront commencer leur voyage sur le réseau jusqu'à l'ordinateur B. </p>
 <div class="admonition important">
-<p class="admonition-title">Encapsulation</p>
+<p class="admonition-title">À retenir</p>
 <p>Il est important de bien comprendre que le protocole IP <strong>encapsule</strong> les données issues du protocole TCP afin de constituer des paquets de données.</p>
 </div>
 <p>Une fois arrivées à destination (ordinateur B), les données sont <strong>désencapsulées</strong>: on récupère les données TCP contenues dans les paquets afin de pouvoir les utiliser.</p>
@@ -5709,7 +5709,7 @@
   <figcaption>Arrivée à destination</figcaption>
 </figure>
 <div class="admonition important">
-<p class="admonition-title">Rôle de IP</p>
+<p class="admonition-title">Service rendu par IP</p>
 <p>Le protocole IP s'occupe uniquement de faire arriver à destination les paquets en utilisant l'adresse IP de l'ordinateur de destination. Les adresses IP de l'ordinateur de départ (ordinateur A) et de l'ordinateur destination (ordinateur B) sont ajoutées aux paquets de données.</p>
 </div>
 <figure>
@@ -5718,7 +5718,7 @@
 </figure>
 <h3 id="accuse-de-reception">Accusé de réception<a class="headerlink" href="#accuse-de-reception" title="Permanent link">⚓︎</a></h3>
 <div class="admonition important">
-<p class="admonition-title">Rôle de TCP</p>
+<p class="admonition-title">Service rendu par TCP</p>
 <p>Le protocole TCP permet de s'assurer qu'un paquet est bien arrivé à destination. </p>
 </div>
 <p>En effet quand l'ordinateur B reçoit un paquet de données en provenance de l'ordinateur A, l'ordinateur B envoie un <strong>accusé de réception</strong> à l'ordinateur A (un peu dans le genre "OK, j'ai bien reçu le paquet").  </p>
@@ -5733,7 +5733,8 @@
 <p>À noter qu'il existe aussi le protocole <strong>UDP</strong> qui ressemble beaucoup au protocole TCP. La grande différence entre UDP et TCP est que le protocole UDP ne gère pas les accusés de réception. Les échanges de données avec UDP sont donc moins fiables qu'avec TCP. Un paquet <em>perdu</em> est <strong>définitivement perdu</strong> et ne sera pas renvoyé.  </p>
 <p>UDP est souvent utilisé pour les échanges de données qui doivent être rapides, mais où la perte d'un paquet de données de temps en temps n'est pas un gros problème (par exemple le streaming vidéo).</p>
 </div>
-<h3 id="precision-sur-les-paquets">Précision sur les paquets<a class="headerlink" href="#precision-sur-les-paquets" title="Permanent link">⚓︎</a></h3>
+<h3 id="transmission-de-paquets-sur-un-reseau">Transmission de paquets sur un réseau<a class="headerlink" href="#transmission-de-paquets-sur-un-reseau" title="Permanent link">⚓︎</a></h3>
+<h4 id="decoupage-des-donnees-en-paquets">Découpage des données en paquets<a class="headerlink" href="#decoupage-des-donnees-en-paquets" title="Permanent link">⚓︎</a></h4>
 <p>Il est très important de bien comprendre que TCP/IP repose sur la notion de paquets de données. Si par exemple on désire envoyer un fichier (son, photo, vidéo ou texte, peu importe, dans tous les cas on envoie une succession de bits) en utilisant TCP/IP. </p>
 <div class="admonition important">
 <p class="admonition-title">Découpage en paquets</p>
@@ -5744,6 +5745,21 @@
   <img alt="voyage" src="img/c17c_5.png" width="450" />
   <figcaption>Emission et réception de paquets</figcaption>
 </figure>
+<h4 id="trame-ethernet">Trame Ethernet<a class="headerlink" href="#trame-ethernet" title="Permanent link">⚓︎</a></h4>
+<p>En réalité, les paquets IP ne peuvent pas transiter sur un réseau tel quel. Ils vont eux aussi être encapsulés avant d'être transmis sur le réseau. L'encapsulation des paquets IP fait appel à un autre protocole: <strong>Ethernet</strong>. Les données IP encapsulées s'appelle des <strong>trames</strong>.  </p>
+<p>Si vous utilisez un réseau filaire avec des câbles réseau habituels, la trame sera de type Ethernet (ce qui est le cas pour le réseau de la salle B104). Si vous utilisez un réseau sans fil Wifi, la trame sera de type Wifi.  </p>
+<p>En fait, la trame Wifi ressemble beaucoup à la trame Ethernet, on peut même dire que la trame Wifi est la variante sans-fil de la trame Ethernet, afin de simplifier les choses, dans la suite, nous évoquerons uniquement la trame Ethernet en ayant à l'esprit que ce qui est dit sur la trame Ethernet et aussi valable pour la trame Wifi.</p>
+<p>Le paquet IP étant encapsulé dans une trame Ethernet, les adresses IP ne sont plus directement disponibles. Nous allons donc trouver un autre type d'adresse qui permet d'identifier l'émetteur et le récepteur : <strong>l'adresse MAC</strong> (Media Access Control) aussi appelée adresse physique.</p>
+<figure>
+<img alt="trame" src="img/c18c_2.png" width="450" />
+<figcaption> trame Ethernet</figcaption>
+</figure>
+<details class="tip">
+<summary>Complément: adresse MAC</summary>
+<p>Une adresse MAC est codée sur 6 octets. on écrit traditionnellement les adresses MAC en hexadécimal, chaque octet étant séparés par 2 points (exemple d'adresse MAC : 00:E0:4C:68:02:11)</p>
+<p>L'adresse MAC est liée au matériel, chaque carte réseau (Ethernet ou Wifi) possède sa propre adresse MAC, il n'existe pas dans le monde, 2 cartes réseau (Ethernet ou Wifi) qui possèdent la même adresse MAC. Les 3 premiers octets d'une adresse MAC ("00:E0:4C" dans l'exemple ci-dessus) désignent le constructeur du matériel, par exemple, "00:E0:4C" désigne le constructeur "realtek semiconductor corp".</p>
+</details>
+<p>Au moment de l'encapsulation d'un paquet IP, l'ordinateur "émetteur" va utiliser un protocole nommé ARP (Address Resolution Protocol) qui va permettre de déterminer l'adresse MAC de l'ordinateur "destination", en effectuant une requête "broadcast" (requête destinée à tous les ordinateurs du réseau) du type : "j'aimerais connaitre l'adresse MAC de l'ordinateur ayant pour IP XXX.XXX.XXX.XXX". Une fois qu'il a obtenu une réponse à cette requête ARP, l'ordinateur "émetteur" encapsule le paquet IP dans une trame Ethernet et envoie cette trame sur le réseau.</p>
 
 
 
