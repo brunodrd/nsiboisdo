@@ -5625,7 +5625,7 @@
 <h2 id="formalisation">Formalisation<a class="headerlink" href="#formalisation" title="Permanent link">⚓︎</a></h2>
 <p>Considérons un ensemble de <span class="arithmatex">\(n\)</span> pièces de monnaie de valeurs <span class="arithmatex">\(v_1 &lt; v_2 &lt; \cdots &lt; v_n\)</span> , 
 avec <span class="arithmatex">\(v_1 = 1\)</span>. On suppose que ce système est <em>canonique</em> c'est-à-dire qu'un algorithme glouton va pouvoir donner une solution optimale au problème du rendu de monnaie (<em>pour les courageux, lire</em> <a href="https://arxiv.org/pdf/0809.0400.pdf">cette référence</a> ).  </p>
-<p>On note le système de pièces <span class="arithmatex">\(S_n = \{v_1, \cdots, v_{n−1}\}\)</span>.<br />
+<p>On note le système de pièces <span class="arithmatex">\(S_n = \{v_1, \cdots, v_{n}\}\)</span>.<br />
 Désignons par <span class="arithmatex">\(s\)</span> une somme à rendre avec le minimum de pièces de <span class="arithmatex">\(S_n\)</span>. L’algorithme glouton sélectionne la plus grande valeur <span class="arithmatex">\(v_n\)</span> et la compare à <span class="arithmatex">\(s\)</span>.  </p>
 <ul>
 <li>Si <span class="arithmatex">\(s &lt; v_n\)</span>, la pièce de valeur <span class="arithmatex">\(v_n\)</span> ne peut pas être utilisée. On reprend l’algorithme avec le système de pièces <span class="arithmatex">\(S_{n−1}\)</span> ;</li>
