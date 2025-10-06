@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -37,6 +37,8 @@
   
   
     
+      
+      
     
   
   
@@ -6142,25 +6144,34 @@ exemples fournis dans les diverses cellules.</p>
 </div>
 <h2 id="document-1-notation-des-electroniciens">Document 1: notation des électroniciens<a class="headerlink" href="#document-1-notation-des-electroniciens" title="Permanent link">⚓︎</a></h2>
 <p>On rappelle le schéma d'un additionneur complet, vu dans l'activité 1:  </p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 275px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
-    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
-    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
-    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
-    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
-    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
-    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
-    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
+    hadder0: {type: &#39;halfadder&#39;, pos: [145, 90], in: [50, 51], out: [52, 53]},
+    hadder1: {type: &#39;halfadder&#39;, pos: [305, 90], in: [54, 55], out: [56, 57]},
+    in0: {type: &#39;in&#39;, pos: [40, 45], id: 58, name: &#39;Ai&#39;},
+    in1: {type: &#39;in&#39;, pos: [40, 145], id: 59, name: &#39;Bi&#39;},
+    out0: {type: &#39;out&#39;, pos: [510, 70], id: 60, name: &#39;Si&#39;},
+    or0: {type: &#39;or&#39;, pos: [400, 215], in: [61, 62], out: 63},
+    out1: {type: &#39;out&#39;, pos: [515, 215], id: 64, name: &#39;Ri&#39;},
+    in2: {type: &#39;in&#39;, pos: [55, 230], id: 65, name: &#39;Ri-1&#39;},
   },
   wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <p>En logique électronique, il est commun de noter les opérations logiques <em>et</em> et <em>ou</em> respectivement <code>.</code> et <code>+</code>. Quant à la négation <em>non</em>, on la représente avec une barre au dessus de la variable.  </p>
 <p>Ainsi, l'expression booléenne de la sortie <span class="arithmatex">\(S_i\)</span> de l'additionneur complet est  </p>
 <div class="arithmatex">\[S_i=(\overline{A_i} \cdot \overline{B_i} \cdot R_{i-1}) + (\overline{A_i} \cdot B_i \cdot \overline{R_{i-1}}) + (A_i \cdot \overline{B_i} \cdot \overline{R_{i-1}}) + (A_i \cdot B_i \cdot R_{i-1})\]</div>
@@ -6280,54 +6291,82 @@ exemples fournis dans les diverses cellules.</p>
 <p>Le <a href="https://fr.wikipedia.org/wiki/Multiplexeur">multiplexeur</a> est un circuit logique très important en architecture machine. Il permet de sélectionner une entrée parmi <span class="arithmatex">\(N\)</span> et de transférer sa valeur sur la sortie. La sélection se fait à l'aide d'une entrée <em>Select</em>.</p>
 <h3 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h3>
 <p>Le circuit ci-dessous présente le schéma de principe d'un multiplexeur à 4 entrées <span class="arithmatex">\(A_0 ... A_3\)</span> que vous pouvez tester.</p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 287px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    in0: {type: 'in', pos: [150, 50], id: 121, name: 'A0'},
-    in1: {type: 'in', pos: [150, 90], id: 122, name: 'A1'},
-    in2: {type: 'in', pos: [150, 140], id: 123, name: 'A2'},
-    in3: {type: 'in', pos: [150, 185], id: 124, name: 'A3'},
-    in4: {type: 'in', pos: [420, 40], id: 125, name: 'Sel0'},
-    out0: {type: 'out', pos: [500, 165], id: 126, name: 'S'},
-    mux0: {type: 'mux', pos: [330, 215], in: '142-147', out: 148, from: 4, to: 1},
-    in5: {type: 'in', pos: [310, 40], id: 149, name: 'Sel1'},
+    in0: {type: &#39;in&#39;, pos: [150, 50], id: 121, name: &#39;A0&#39;},
+    in1: {type: &#39;in&#39;, pos: [150, 90], id: 122, name: &#39;A1&#39;},
+    in2: {type: &#39;in&#39;, pos: [150, 140], id: 123, name: &#39;A2&#39;},
+    in3: {type: &#39;in&#39;, pos: [150, 185], id: 124, name: &#39;A3&#39;},
+    in4: {type: &#39;in&#39;, pos: [420, 40], id: 125, name: &#39;Sel0&#39;},
+    out0: {type: &#39;out&#39;, pos: [500, 165], id: 126, name: &#39;S&#39;},
+    mux0: {type: &#39;mux&#39;, pos: [330, 215], in: &#39;142-147&#39;, out: 148, from: 4, to: 1},
+    in5: {type: &#39;in&#39;, pos: [310, 40], id: 149, name: &#39;Sel1&#39;},
   },
   wires: [[121, 142], [125, 146], [148, 126], [122, 143], [123, 144], [124, 145], [149, 147]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <hr />
 <p>Sa réalisation avec les portes logiques élémentaires:</p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 622px;" mode="tryout">
-    <script type="application/json">
-        
-
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>:height: 622
+:mode: tryout
 
 { // JSON5
   v: 6,
   components: {
-    and0: {type: 'and', pos: [565, 270], in: '153-155', out: 156, bits: 3},
-    or0: {type: 'or', pos: [745, 355], in: '169-172', out: 173, bits: 4},
-    not0: {type: 'not', pos: [265, 145], orient: 's', in: 174, out: 175},
-    not1: {type: 'not', pos: [325, 145], orient: 's', in: 176, out: 177},
-    in0: {type: 'in', pos: [190, 55], id: 178, name: 'Sel1'},
-    in1: {type: 'in', pos: [450, 60], orient: 'w', id: 179, name: 'Sel0'},
-    in2: {type: 'in', pos: [60, 240], id: 180, name: 'A0', val: 1},
-    in3: {type: 'in', pos: [65, 310], id: 181, name: 'A1'},
-    in4: {type: 'in', pos: [60, 420], id: 182, name: 'A2'},
-    in5: {type: 'in', pos: [65, 545], id: 183, name: 'A3'},
-    and1: {type: 'and', pos: [570, 365], in: '184-186', out: 187, bits: 3},
-    and2: {type: 'and', pos: [570, 460], in: '188-190', out: 191, bits: 3},
-    and3: {type: 'and', pos: [570, 550], in: '192-194', out: 195, bits: 3},
-    out0: {type: 'out', pos: [875, 355], id: 196},
+    and0: {type: &#39;and&#39;, pos: [565, 270], in: &#39;153-155&#39;, out: 156, bits: 3},
+    or0: {type: &#39;or&#39;, pos: [745, 355], in: &#39;169-172&#39;, out: 173, bits: 4},
+    not0: {type: &#39;not&#39;, pos: [265, 145], orient: &#39;s&#39;, in: 174, out: 175},
+    not1: {type: &#39;not&#39;, pos: [325, 145], orient: &#39;s&#39;, in: 176, out: 177},
+    in0: {type: &#39;in&#39;, pos: [190, 55], id: 178, name: &#39;Sel1&#39;},
+    in1: {type: &#39;in&#39;, pos: [450, 60], orient: &#39;w&#39;, id: 179, name: &#39;Sel0&#39;},
+    in2: {type: &#39;in&#39;, pos: [60, 240], id: 180, name: &#39;A0&#39;, val: 1},
+    in3: {type: &#39;in&#39;, pos: [65, 310], id: 181, name: &#39;A1&#39;},
+    in4: {type: &#39;in&#39;, pos: [60, 420], id: 182, name: &#39;A2&#39;},
+    in5: {type: &#39;in&#39;, pos: [65, 545], id: 183, name: &#39;A3&#39;},
+    and1: {type: &#39;and&#39;, pos: [570, 365], in: &#39;184-186&#39;, out: 187, bits: 3},
+    and2: {type: &#39;and&#39;, pos: [570, 460], in: &#39;188-190&#39;, out: 191, bits: 3},
+    and3: {type: &#39;and&#39;, pos: [570, 550], in: &#39;192-194&#39;, out: 195, bits: 3},
+    out0: {type: &#39;out&#39;, pos: [875, 355], id: 196},
   },
-  wires: [[178, 174], [179, 176], [180, 155], [181, 186], [182, 190], [156, 169], [187, 170], [191, 171], [195, 172], [173, 196], [178, 189, {via: [[185, 385, 's']]}], [178, 193, {via: [[160, 375, 's']]}], [175, 154], [175, 185], [179, 184, {via: [[395, 185, 's']]}], [179, 192, {via: [[380, 205, 's']]}], [177, 153], [177, 188, {via: [[355, 325, 's']]}], [183, 194]]
+  wires: [[178, 174], [179, 176], [180, 155], [181, 186], [182, 190], [156, 169], [187, 170], [191, 171], [195, 172], [173, 196], [178, 189, {via: [[185, 385, &#39;s&#39;]]}], [178, 193, {via: [[160, 375, &#39;s&#39;]]}], [175, 154], [175, 185], [179, 184, {via: [[395, 185, &#39;s&#39;]]}], [179, 192, {via: [[380, 205, &#39;s&#39;]]}], [177, 153], [177, 188, {via: [[355, 325, &#39;s&#39;]]}], [183, 194]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <h3 id="simulation">Simulation<a class="headerlink" href="#simulation" title="Permanent link">⚓︎</a></h3>
 <ol>
 <li>Simuler le circuit ci-dessus.</li>
@@ -6399,10 +6438,10 @@ exemples fournis dans les diverses cellules.</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../javascripts/config.js"></script>
       

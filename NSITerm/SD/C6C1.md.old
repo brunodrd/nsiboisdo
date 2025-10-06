@@ -1,0 +1,193 @@
+Le TAD liste - Exemples d'implémentation
+==================================
+
+*TAD* pour **T**ype **A**bstrait de **D**onnées: description d’un ensemble organisé d’objets et des opérations de manipulation sur cet ensemble ([Jean Berstel](https://fr.wikipedia.org/wiki/Jean_Berstel) dans [Éléments d'algorithmique](http://www-igm.univ-mlv.fr/~berstel/Elements/Elements.pdf) page 38).
+
+## Repère historique  
+[John McCarthy](https://fr.wikipedia.org/wiki/John_McCarthy), prix Turing en 1971, créa en 1958 le langage [Lisp](https://fr.wikipedia.org/wiki/Lisp) qui signifie **LIS**t **P**rocessor.  Les listes constituent le fondement de Lisp.
+
+
+## Introduction
+
+!!! info "Définitions"
+    Une liste est une collection finie d’éléments qui se suivent. C’est une structure de données **linéaire**. 
+    Une liste qui ne contient aucun élément est une **liste vide**.  
+    
+Les doublons sont possibles. On formalisera cette définition dans un premier temps, avant de donner des implémentations possibles des opérations fondamentales sur les listes.  
+
+**Exemples**
+
+* liste des gaz nobles dans l'ordre de leur masse atomique: [hélium, néon, argon, krypton, xénon, radon];
+* liste des nombres de jour des mois d'une année non bissextile: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+## Comment formaliser une liste ?
+
+Supposons une liste composée de trois éléments, ici des entiers: $\ell = [3, 7, 9]$. Une façon de décrire cette liste consiste à voir $\ell$ comme l'association:  
+
+* d'un premier élément 3 qu’on nomme élément de tête;
+* et d'une liste $\ell_1 = [7, 9]$ des éléments qui suivent (liste qu’on nomme souvent *reste*).  
+
+Cette description de $\ell$ est aussi valable pour $\ell_1$ qui est constituée:  
+
+* d’un élément de tête : 7,
+* et d’un reste : $\ell_2 = [9]$.
+
+De la même façon que précédemment, la liste $\ell_2$ est constituée:  
+
+* d’un élément de tête : 9,
+* et d’un reste : $\ell_3 = []$.  
+
+La liste $\ell_3$ étant vide, elle ne possède pas d’élement de tête, et ne peut donc pas être décomposée
+comme nous venons de le faire à trois reprises.  
+
+!!! info "Définition"
+    Une liste $\ell$ d'éléments d'un ensemble $E$, est:  
+    
+    * soit une liste vide;
+    * soit un couple $(x,L)$ formé d'un élément de tête $x\in E$ et d'une liste $L$ d'éléments de $E$: 
+
+Cette définition est récursive.
+
+## Opérations sur les listes
+
+Parmi les opérations fondamentales sur les listes, on peut citer celles mises en évidence ci-dessous.
+
+!!! important "Opérations"
+    
+    - création d'une liste vide;
+    - construction d'une liste à partir d'un élément et d'une autre liste;
+    - test d'une liste afin de savoir si elle est vide ou pas;
+    - pour une liste non vide, récupération de la tête et du reste (on dit aussi *queue*).
+
+## Structures concrètes
+
+Une liste peut être implémentée de différentes façons. On verra ici rapidement une réalisation à base de couples, puis, de manière plus détaillée, une implémentation à base d'éléments chaînés entre eux.
+
+### Réalisation avec des couples
+
+{{ IDE('C6/C6APP1') }}
+!!! tip "Insertion"
+    L'insertion d'un élément à l'intérieur de la liste, pas très pratique, est laissée en guise d'exercice.
+
+### Réalisation avec des listes chaînées
+
+Dans cette réalisation concrète d'une liste, les éléments sont chaînés entre eux.  
+
+![liste](img/liste.png)  
+
+Chaque élément, qu'on nomme habituellement **cellule** ou **maillon** en français (*Node* en anglais), contient une valeur ou **clé** et une **référence** (*qui peut être vue comme l'adresse mémoire*) vers la cellule suivante.  
+On va représenter une cellule par une **classe** `Cell` en python.
+
+
+```python
+class Cell:
+    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""
+    
+    def __init__(self, v, s):
+        self.cle = v
+        self.suiv = s
+```
+
+La construction d'une liste ressemble beaucoup à la réalisation par couple. La liste schématisée ci-dessus est obtenue par:
+
+
+```python
+lst = Cell(3, Cell(7, Cell(9, None)))
+```
+
+On remarque que la liste vide est obtenue avec `None`. La tête et la queue d'une liste chaînée peuvent être obtenues avec les fonctions suivantes:
+
+
+```python
+def tete(l):
+    """ Renvoie l'élément de tête de l"""
+    assert not est_vide(l), "tete: erreur liste vide"
+    return l.cle
+
+def queue(l):
+    """ Renvoie une liste correspondant à la queue de l"""
+    assert not est_vide(l), "queue: erreur liste vide"
+    return l.suiv
+```  
+Dans un IDE:  
+
+{{ IDE('C6/C6APP2') }}
+
+
+### Autres opérations sur les listes
+
+#### Longueur d'une liste
+
+Une première possibilité est d'écrire une fonction récursive:  
+
+* si la liste est vide, sa longueur est nulle;
+* sinon sa longueur vaut 1 plus la longueur de la liste suivante (*rappel: une liste est un élément suivi d'une autre liste, la queue*). 
+
+
+
+```python
+def longueur(l):
+    """ renvoie la longueur d'une liste l"""   
+    
+    if est_vide(l):
+        return 0
+    else:
+        return 1 + longueur(queue(l))
+
+```
+
+
+```python
+print(longueur(lst))
+print(longueur(queue(lst)))
+```
+
+    3
+    2
+
+
+Seconde possibilité:  
+
+??? question "À faire"
+    Écrire une version itérative de la fonction `longueur`.  
+    
+    ```python
+    def longueur_iter(l):
+    """ Version itérative de la fonction 'longueur' """
+    
+    # Supprimer l'instruction pass et proposer votre code
+    pass
+    ```
+
+Le coût en temps est proportionnel à la taille $n$ de la liste (complexité temporelle en $\mathcal{O}(n)$).
+
+#### Accéder au n-ième élément
+
+On souhaite accéder à la clé (avoir la valeur) de l'élément d'index $k$ d'une liste `lst` avec une fonction `kieme(k, lst)`. On peut procèder encore une fois de manière récursive:  
+
+* si $k=0$, on renvoie simplement la tête de `lst`;
+* sinon, on renvoie la clé de l'élément d'index $(k-1)$ de la queue de `lst`.  
+
+Évidemment accéder à l'élément d'index $k$ n'est pas défini pour une liste vide.  
+
+
+??? question "À faire"
+    Écrire la fonction
+    
+    ```python
+    def kieme(k, lst):
+    """ renvoie la clé du k-ième élément de la liste lst;
+    k: entier naturel,
+    lst: liste non vide
+    """
+    
+    assert not est_vide(lst), "Erreur: accès impossible"
+    # Compléter avec votre code
+    ```
+
+Le pire des cas se produit pour un accès à la clé de la dernière cellule. Dans ce cas, le coût en temps est proportionnel à la taille $n$ de la liste (complexité temporelle en $\mathcal{O}(n)$).
+
+#### Insérer ou supprimer un élément  
+
+!!! question "À faire"
+    Voir exercice 1 de la fiche d'exercices

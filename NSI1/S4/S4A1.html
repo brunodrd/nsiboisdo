@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -37,6 +37,8 @@
   
   
     
+      
+      
     
   
   
@@ -6151,28 +6153,40 @@
 <p class="admonition-title">À faire</p>
 <p>Simuler les opérations logiques <code>and</code>, <code>or</code> et <code>not</code>. &Eacute;tablir leur table de vérité.  </p>
 </div>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 450px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    and0: {type: 'and', pos: [405, 165], in: [23, 24], out: 25},
-    or0: {type: 'or', pos: [740, 160], in: [26, 27], out: 28},
-    not0: {type: 'not', pos: [400, 365], in: 29, out: 30},
-    in0: {type: 'in', pos: [265, 130], id: 31, name: 'A'},
-    in1: {type: 'in', pos: [260, 195], id: 32, name: 'B'},
-    out0: {type: 'out', pos: [520, 165], id: 33, name: 'S'},
-    in2: {type: 'in', pos: [620, 115], id: 34, name: 'A'},
-    in3: {type: 'in', pos: [615, 225], id: 35, name: 'B'},
-    out1: {type: 'out', pos: [860, 160], id: 36, name: 'S'},
-    in4: {type: 'in', pos: [285, 365], id: 38, name: 'A'},
-    out2: {type: 'out', pos: [500, 365], id: 39},
+    and0: {type: &#39;and&#39;, pos: [405, 165], in: [23, 24], out: 25},
+    or0: {type: &#39;or&#39;, pos: [740, 160], in: [26, 27], out: 28},
+    not0: {type: &#39;not&#39;, pos: [400, 365], in: 29, out: 30},
+    in0: {type: &#39;in&#39;, pos: [265, 130], id: 31, name: &#39;A&#39;},
+    in1: {type: &#39;in&#39;, pos: [260, 195], id: 32, name: &#39;B&#39;},
+    out0: {type: &#39;out&#39;, pos: [520, 165], id: 33, name: &#39;S&#39;},
+    in2: {type: &#39;in&#39;, pos: [620, 115], id: 34, name: &#39;A&#39;},
+    in3: {type: &#39;in&#39;, pos: [615, 225], id: 35, name: &#39;B&#39;},
+    out1: {type: &#39;out&#39;, pos: [860, 160], id: 36, name: &#39;S&#39;},
+    in4: {type: &#39;in&#39;, pos: [285, 365], id: 38, name: &#39;A&#39;},
+    out2: {type: &#39;out&#39;, pos: [500, 365], id: 39},
   },
   wires: [[31, 23], [32, 24], [25, 33], [34, 26], [35, 27], [28, 36], [30, 39], [38, 29]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <h1 id="lois-de-de-morgan">Lois de De Morgan<a class="headerlink" href="#lois-de-de-morgan" title="Permanent link">⚓︎</a></h1>
 <ol>
 <li>Dresser la table de vérité de l'expression <code>not (A or B)</code>;</li>
@@ -6182,51 +6196,70 @@
 </ol>
 <h1 id="une-operation-logique-tres-utilisee">Une opération logique très utilisée<a class="headerlink" href="#une-operation-logique-tres-utilisee" title="Permanent link">⚓︎</a></h1>
 <p>Soit le circuit <code>dilemme</code> suivant:  </p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 350px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    and0: {type: 'and', pos: [210, 215], in: [0, 1], out: 2},
-    and1: {type: 'and', pos: [365, 125], in: [3, 4], out: 5},
-    and2: {type: 'and', pos: [370, 310], in: [6, 7], out: 8},
-    and3: {type: 'and', pos: [585, 210], in: [9, 10], out: 11},
-    not0: {type: 'not', pos: [305, 215], in: 12, out: 13},
-    not1: {type: 'not', pos: [495, 125], in: 14, out: 15},
-    not2: {type: 'not', pos: [490, 310], in: 16, out: 17},
-    not3: {type: 'not', pos: [690, 210], in: 18, out: 19},
-    in0: {type: 'in', pos: [140, 115], id: 20, name: 'A'},
-    in1: {type: 'in', pos: [130, 320], id: 21, name: 'B'},
-    out0: {type: 'out', pos: [780, 210], id: 22, name: 'S'},
+    and0: {type: &#39;and&#39;, pos: [210, 215], in: [0, 1], out: 2},
+    and1: {type: &#39;and&#39;, pos: [365, 125], in: [3, 4], out: 5},
+    and2: {type: &#39;and&#39;, pos: [370, 310], in: [6, 7], out: 8},
+    and3: {type: &#39;and&#39;, pos: [585, 210], in: [9, 10], out: 11},
+    not0: {type: &#39;not&#39;, pos: [305, 215], in: 12, out: 13},
+    not1: {type: &#39;not&#39;, pos: [495, 125], in: 14, out: 15},
+    not2: {type: &#39;not&#39;, pos: [490, 310], in: 16, out: 17},
+    not3: {type: &#39;not&#39;, pos: [690, 210], in: 18, out: 19},
+    in0: {type: &#39;in&#39;, pos: [140, 115], id: 20, name: &#39;A&#39;},
+    in1: {type: &#39;in&#39;, pos: [130, 320], id: 21, name: &#39;B&#39;},
+    out0: {type: &#39;out&#39;, pos: [780, 210], id: 22, name: &#39;S&#39;},
   },
   wires: [[20, 0], [21, 1], [2, 12], [13, 4], [13, 6], [20, 3], [21, 7], [15, 9], [17, 10], [8, 16], [5, 14], [11, 18], [19, 22]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <p>Réaliser la simulation. &Eacute;tablir et commenter sa table de vérité.<br />
 Cette opération très utilisée a pour symbole (<em>US</em>):  </p>
 <p><img alt="ouex" src="img/ouex.png" /></p>
 <h1 id="addition-binaire">Addition binaire<a class="headerlink" href="#addition-binaire" title="Permanent link">⚓︎</a></h1>
 <h2 id="demi-additionneur">Demi additionneur<a class="headerlink" href="#demi-additionneur" title="Permanent link">⚓︎</a></h2>
 <p>Le demi additionneur est un circuit combinatoire qui permet de réaliser la <strong>somme arithmétique de deux nombres A et B chacun sur un bit</strong>.  </p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 365px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    xor0: {type: 'xor', pos: [230, 120], in: [40, 41], out: 42},
-    and0: {type: 'and', pos: [230, 245], in: [43, 44], out: 45},
-    in0: {type: 'in', pos: [90, 110], id: 46, name: 'A'},
-    in1: {type: 'in', pos: [85, 255], id: 47, name: 'B'},
-    out0: {type: 'out', pos: [330, 120], id: 48, name: 'S'},
-    out1: {type: 'out', pos: [330, 245], id: 49, name: 'R'},
+    xor0: {type: &#39;xor&#39;, pos: [230, 120], in: [40, 41], out: 42},
+    and0: {type: &#39;and&#39;, pos: [230, 245], in: [43, 44], out: 45},
+    in0: {type: &#39;in&#39;, pos: [90, 110], id: 46, name: &#39;A&#39;},
+    in1: {type: &#39;in&#39;, pos: [85, 255], id: 47, name: &#39;B&#39;},
+    out0: {type: &#39;out&#39;, pos: [330, 120], id: 48, name: &#39;S&#39;},
+    out1: {type: &#39;out&#39;, pos: [330, 245], id: 49, name: &#39;R&#39;},
   },
   wires: [[46, 40], [47, 41], [46, 43], [47, 44], [42, 48], [45, 49]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <p>A la sortie on va avoir la somme S et une éventuelle retenue R.  </p>
 <ol>
 <li>Simuler et dresser alors la table de vérité de ce circuit.</li>
@@ -6235,25 +6268,34 @@ Cette opération très utilisée a pour symbole (<em>US</em>):  </p>
 </ol>
 <h3 id="additionneur-complet">Additionneur complet<a class="headerlink" href="#additionneur-complet" title="Permanent link">⚓︎</a></h3>
 <p>Lorsqu'on souhaite effectuer l'addition binaire sur un bit de deux nombres <span class="arithmatex">\(A_i\)</span> et <span class="arithmatex">\(B_i\)</span>, il faut tenir compte d'une éventuelle retenue <span class="arithmatex">\(R_{i-1}\)</span> provenant du calcul du rang précédent. On a alors un additionneur complet, qui est réalisé avec deux demi-additionneurs.  </p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 275px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>{ // JSON5
   v: 6,
   components: {
-    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
-    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
-    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
-    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
-    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
-    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
-    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
-    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
+    hadder0: {type: &#39;halfadder&#39;, pos: [145, 90], in: [50, 51], out: [52, 53]},
+    hadder1: {type: &#39;halfadder&#39;, pos: [305, 90], in: [54, 55], out: [56, 57]},
+    in0: {type: &#39;in&#39;, pos: [40, 45], id: 58, name: &#39;Ai&#39;},
+    in1: {type: &#39;in&#39;, pos: [40, 145], id: 59, name: &#39;Bi&#39;},
+    out0: {type: &#39;out&#39;, pos: [510, 70], id: 60, name: &#39;Si&#39;},
+    or0: {type: &#39;or&#39;, pos: [400, 215], in: [61, 62], out: 63},
+    out1: {type: &#39;out&#39;, pos: [515, 215], id: 64, name: &#39;Ri&#39;},
+    in2: {type: &#39;in&#39;, pos: [55, 230], id: 65, name: &#39;Ri-1&#39;},
   },
   wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
 }
-    </script>
-    </logic-editor></p>
+</code></pre></div></td></tr></table></div>
 <p>A la sortie on va avoir la somme <span class="arithmatex">\(S_i\)</span> et une éventuelle retenue <span class="arithmatex">\(R_i\)</span>.<br />
 Simuler et dresser la table de vérité de l'additionneur complet.</p>
 
@@ -6316,10 +6358,10 @@ Simuler et dresser la table de vérité de l'additionneur complet.</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../javascripts/config.js"></script>
       
