@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#structures-de-donnees-lineaires-1-pile-et-file-implementation-et-interface" class="md-skip">
+        <a href="#c2c1-structures-de-donnees-lineaires-piles-et-files" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3288,36 +3288,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#les-structures-de-donnees-lineaires" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Les structures de données linéaires
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-premiere-structure-simple-la-pile" class="md-nav__link">
+  <a href="#la-structure-de-donnees-pile" class="md-nav__link">
     <span class="md-ellipsis">
-      Une première structure simple: la pile
+      La structure de données Pile
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-deuxieme-structure-la-file" class="md-nav__link">
+  <a href="#la-structure-de-donnees-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Une deuxième structure: la file
+      La structure de données File
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vers-une-abstraction-des-structures-de-donnees" class="md-nav__link">
+  <a href="#bilan" class="md-nav__link">
     <span class="md-ellipsis">
-      Vers une abstraction des structures de données
+      Bilan
     </span>
   </a>
   
@@ -6148,140 +6148,61 @@
 
 
 
-<h1 id="structures-de-donnees-lineaires-1-pile-et-file-implementation-et-interface">Structures de données linéaires 1: pile et file - implémentation et interface<a class="headerlink" href="#structures-de-donnees-lineaires-1-pile-et-file-implementation-et-interface" title="Permanent link">⚓︎</a></h1>
-<details class="info">
-<summary>Complément-rappels: les tableaux/listes de python (le retour)</summary>
-<p>En classe de première on a rencontré et utilisé les tableaux. En toute rigueur, ce sont des structures 
-ayant une taille fixe et contenant des objets de même type.<br />
-Cependant, Python n'implémente pas des tableaux répondant à ces critères (du moins pas sans module 
-spécialisé). A la place, on trouve des structures plus complexes: les tableaux dynamiques (<em>les fameuses 
-"listes de python"</em>) qui ont la propriété de pouvoir être agrandis, à droite.<br />
-On peut ajouter ou retirer des éléments d'une <em>liste de python</em> avec les méthodes <code>append</code> et <code>pop</code>.<br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
-<span class="n">t</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">70</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-On peut éventuellement agrandir le tableau "par la gauche" avec la méthode insert:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">t</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-On évitera autant que possible cette pratique à cause de ses médiocres performances, notamment sur les 
-tableaux de grande taille.<br />
-Rappelons enfin, que l'accès à la dernière valeur du tableau peut se faire avec l'index <code>-1</code>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="mi">50</span>
-</code></pre></div></td></tr></table></div></p>
-</details>
-<h2 id="les-structures-de-donnees-lineaires">Les structures de données linéaires<a class="headerlink" href="#les-structures-de-donnees-lineaires" title="Permanent link">⚓︎</a></h2>
-<p>En informatique, pour chaque type de données, pour chaque utilisation prévue, une structure particulière de données se revèlera probablement plus adaptée qu'une autre.  </p>
-<p>Lorsque les données ne comportent pas de hiérarchie et jouent le même rôle, on utilise des <strong>structures de données linéaires</strong> comme les dictionnaires ou les listes. Par ailleurs, le problème de l'entrée ou de la sortie des données dans la structure peut être important. Ce qui nous amènera à distinguer ces structures linéaires entre elles.</p>
-<h2 id="une-premiere-structure-simple-la-pile">Une première structure simple: la pile<a class="headerlink" href="#une-premiere-structure-simple-la-pile" title="Permanent link">⚓︎</a></h2>
-<h3 id="presentation">Présentation<a class="headerlink" href="#presentation" title="Permanent link">⚓︎</a></h3>
-<figure>
-    <img alt="assiette" src="img/assiette.png" width="40%")>
-    <figcaption>Pile d'assiettes</figcaption>
-</figure>
-
-<p>Dans une pile d'assiettes, les manipulations <strong>enlever</strong> ou <strong>déposer</strong> une nouvelle assiette, ne peuvent se faire qu'au sommet. Une propriété remarquable est qu'une assiette ne peut être enlevée qu'après avoir enlevé toutes celles qui se trouvaient au dessus.  Il s'agit d'une structure de type <strong>LIFO</strong>, qui signifie <em>Last In First Out</em>.</p>
-<p>En informatique, il existe une structure de donnée appelée <em>pile</em> (<em>stack</em> en anglais) dont le fonctionnnement peut rappeler celui de la pile d'assiette. Les applications sont très nombreuses. Citons par exemple, le problème de l'annulation de la dernière action enregistrée de nombreux logiciels (le fameux <span class="keys"><kbd class="key-control">Ctrl</kbd><span>＋</span><kbd class="key-z">Z</kbd></span>). Il s'agit de sauvegarder les actions de l'utilisateur et de pouvoir restaurer la dernière si besoin. Il existe énormément de <a href="https://www.youtube.com/watch?v=1SWr7q121gc">ressources de vulgarisation</a> sur Internet permettant de découvrir son fonctionnement  </p>
-<h3 id="realisation-implementation-simple">Réalisation (implémentation) simple<a class="headerlink" href="#realisation-implementation-simple" title="Permanent link">⚓︎</a></h3>
-<p>Une première réalisation possible d'une pile (<em>bornée</em>) peut se faire avec un tableau (de taille fixe <span class="arithmatex">\(N+1\)</span>). La première case du tableau (index 0) stockera le nombre <span class="arithmatex">\(n\)</span> d'éléments de la pile, permettant ainsi d'avoir accès au <strong>sommet</strong>.  </p>
-<p><img alt="tableaupile" src="img/tableau1.png" />  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#la taille choisie est arbitraire</span>
-
-<span class="c1"># Création d&#39;un pile vide capable d&#39;accueillir N éléments par défaut</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">creer_pile</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="n">p</span>
-</code></pre></div></td></tr></table></div>
-<p>Les opérations d'insertions et de suppressions, qu'on nommera ici <strong>empiler</strong> et <strong>dépiler</strong>, se font au sommet.<br />
-Il est évident qu'on ne peut pas dépiler une pile vide ou empiler une pile pleine ! Il faut donc gérer ces cas.   On peut éventuellement prévoir une fonction <code>est_pilevide</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur: pile vide&quot;</span>
-    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1"># ne pas oublier de réajuster le sommet</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Erreur: pile pleine&quot;</span>
-    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># la pile va contenir un élément de plus</span>
-    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-    <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
-</code></pre></div></td></tr></table></div>
-<p>Enfin, il est courant d'avoir une fonction <code>sommet</code> qui récupère le seul élément accessible de la pile.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur: pile vide&quot;</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-</code></pre></div></td></tr></table></div>
-<details class="question">
-<summary>Application</summary>
-<p>Donner la situation de la pile après chacune des opérations suivantes:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-Quelle valeur se trouve au sommet de la pile? Le vérifier.</p>
-</details>
-<p>On peut aussi réaliser une pile (<em>non bornée</em>) avec des <em>listes de python</em> et leurs méthodes <code>append</code> et <code>pop</code>.  </p>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Compléter les fonctions <code>depiler</code> , <code>empiler</code> et <code>sommet</code>.</p>
-</div>
+<h1 id="c2c1-structures-de-donnees-lineaires-piles-et-files">C2C1 – Structures de données linéaires : piles et files<a class="headerlink" href="#c2c1-structures-de-donnees-lineaires-piles-et-files" title="Permanent link">⚓︎</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
+<p>Les structures de données linéaires permettent de <strong>regrouper des données</strong> et de <strong>définir des opérations de base</strong> pour les manipuler.<br />
+Elles sont dites “linéaires” car les éléments sont organisés les uns à la suite des autres.</p>
+<p>Dans le programme NSI, cette partie s’inscrit dans le thème <strong>« Structures de données »</strong>.<br />
+Pour mieux comprendre la démarche, on distingue ici trois niveaux :
+- la <strong>description abstraite</strong> du comportement attendu (souvent appelée <em>TAD</em> en algorithmique),
+- la <strong>structure de données concrète</strong> utilisée en mémoire,
+- l’<strong>implémentation</strong> de ces opérations en code.</p>
+<p>Parmi les structures linéaires les plus courantes, on trouve :<br />
+- la <strong>pile</strong> (LIFO),<br />
+- la <strong>file</strong> (FIFO),<br />
+- la <strong>liste</strong>.</p>
+<hr />
+<blockquote>
+<p>🟦 <strong>TAD, Structure de données, Implémentation : bien faire la distinction</strong></p>
+<p>Lorsqu’on étudie les structures linéaires (listes, piles, files…), il est essentiel de distinguer :</p>
+<ul>
+<li>
+<p>🧠 <strong>Le TAD (Type Abstrait de Données)</strong><br />
+  → C’est une <strong>abstraction</strong>. Elle définit <em>ce qu’on peut faire</em> (opérations disponibles) et leur signification.<br />
+  → Exemple : le TAD <strong>Pile</strong> définit <code>creer</code>, <code>empiler</code>, <code>depiler</code>, <code>sommet</code>, <code>est_vide</code>.<br />
+  → Le TAD ne dit rien sur <strong>la représentation en mémoire</strong>.</p>
+</li>
+<li>
+<p>🧱 <strong>La structure de données</strong><br />
+  → C’est une <strong>représentation concrète</strong> utilisée pour implémenter le TAD (tableau, liste chaînée, etc.).<br />
+  → Un même TAD peut avoir plusieurs structures différentes.</p>
+</li>
+<li>
+<p>🧰 <strong>L’implémentation</strong><br />
+  → C’est le <strong>code</strong> qui réalise les opérations du TAD avec une structure donnée.</p>
+</li>
+</ul>
+<p>📌 Un même TAD peut être implémenté par plusieurs structures différentes, et une même structure peut servir à plusieurs TAD.</p>
+</blockquote>
+<hr />
+<h2 id="la-structure-de-donnees-pile">La structure de données Pile<a class="headerlink" href="#la-structure-de-donnees-pile" title="Permanent link">⚓︎</a></h2>
+<h3 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">⚓︎</a></h3>
+<p>Une <strong>pile</strong> est une structure de données linéaire dans laquelle les insertions et les suppressions se font à une extrémité unique : le <strong>sommet</strong>.<br />
+Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
+<h3 id="interface-de-la-pile">Interface de la pile<a class="headerlink" href="#interface-de-la-pile" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li><code>creer(capacite)</code> : créer une pile vide bornée de taille maximale <code>capacite</code>  </li>
+<li><code>empiler(p, x)</code> : ajouter <code>x</code> au sommet de la pile <code>p</code>  </li>
+<li><code>depiler(p)</code> : retirer et renvoyer l’élément au sommet  </li>
+<li><code>sommet(p)</code> : accéder à l’élément au sommet sans le retirer  </li>
+<li><code>est_pile_vide(p)</code> : tester si la pile est vide</li>
+</ul>
+<hr />
+<h3 id="implementation-pile-bornee-avec-pile0-comme-indice-du-sommet">Implémentation : pile bornée avec <code>pile[0]</code> comme indice du sommet<a class="headerlink" href="#implementation-pile-bornee-avec-pile0-comme-indice-du-sommet" title="Permanent link">⚓︎</a></h3>
+<p>On choisit ici une <strong>structure simple</strong> :<br />
+- un <strong>tableau</strong> de taille <code>capacite + 1</code>,<br />
+- <strong><code>pile[0]</code> contient l’indice du sommet</strong> (0 si pile vide),<br />
+- les <strong>éléments empilés</strong> sont stockés à partir de l’indice 1.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6298,24 +6219,166 @@ Quelle valeur se trouve au sommet de la pile? Le vérifier.</p>
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_pile</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">[]</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacite</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">est_pilevide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Erreur pile pleine&quot;</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">x</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sommet_pile</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
+<p><strong>Exemple d'utilisation</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sommet_pile</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 10</span>
+</code></pre></div></td></tr></table></div>
+<p>Toutes les opérations sont en <strong>temps constant</strong> <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</p>
+<hr />
+<h2 id="la-structure-de-donnees-file">La structure de données File<a class="headerlink" href="#la-structure-de-donnees-file" title="Permanent link">⚓︎</a></h2>
+<h3 id="definition_1">Définition<a class="headerlink" href="#definition_1" title="Permanent link">⚓︎</a></h3>
+<p>Une <strong>file</strong> est une structure de données linéaire dans laquelle les insertions se font à une extrémité (l’arrière) et les suppressions à l’autre (l’avant).<br />
+Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
+<h3 id="interface-de-la-file">Interface de la file<a class="headerlink" href="#interface-de-la-file" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li><code>creer()</code> : créer une file vide  </li>
+<li><code>enfiler(f, x)</code> : ajouter <code>x</code> à l’arrière  </li>
+<li><code>defiler(f)</code> : retirer et renvoyer l’élément en tête  </li>
+<li><code>est_file_vide(f)</code> : tester si la file est vide</li>
+</ul>
+<hr />
+<h3 id="1-implementation-triviale-avec-une-liste-python">1. Implémentation triviale avec une liste Python<a class="headerlink" href="#1-implementation-triviale-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
+<p>On peut utiliser directement les méthodes natives <code>append</code> et <code>pop(0)</code> de Python :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">est_file_vide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_file_vide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple d'utilisation</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># A</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># B</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enfiler</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti</td>
+</tr>
+<tr>
+<td><code>defiler</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span> (décalage)</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Cette version est très simple à comprendre, mais <code>defiler</code> est <strong>de complexité en temps linéaire</strong> car Python doit décaler tous les éléments de la liste.</p>
+<hr />
+<h3 id="2-implementation-avec-deux-piles">2. Implémentation avec deux piles<a class="headerlink" href="#2-implementation-avec-deux-piles" title="Permanent link">⚓︎</a></h3>
+<p>Le programme NSI demande de présenter la <strong>construction d’une file à partir de deux piles</strong>.</p>
+<h4 id="principe">📌 Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h4>
+<ul>
+<li><code>enfiler(x)</code> → empiler <code>x</code> sur la pile <strong>entree</strong>.  </li>
+<li><code>defiler()</code> :</li>
+<li>si la pile <strong>sortie</strong> est vide → transférer tous les éléments d’<strong>entree</strong> vers <strong>sortie</strong> (inverser l’ordre),</li>
+<li>dépiler le sommet de <strong>sortie</strong>.</li>
+</ul>
+<p>Chaque élément est transféré <strong>au plus une fois</strong> → complexité <strong>amortie en O(1)</strong>.</p>
+<h4 id="code">🧰 Code<a class="headerlink" href="#code" title="Permanent link">⚓︎</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file_piles</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
+    <span class="n">entree</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">)</span>
+    <span class="n">sortie</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">est_vide_file_piles</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
+    <span class="k">return</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">entree</span><span class="p">)</span> <span class="ow">and</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
+    <span class="n">empiler</span><span class="p">(</span><span class="n">entree</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
+    <span class="k">if</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">):</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">entree</span><span class="p">):</span>
+            <span class="n">empiler</span><span class="p">(</span><span class="n">sortie</span><span class="p">,</span> <span class="n">depiler</span><span class="p">(</span><span class="n">entree</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">depiler</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple d'utilisation</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6323,257 +6386,44 @@ Quelle valeur se trouve au sommet de la pile? Le vérifier.</p>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-<span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_piles</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># A</span>
+<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># C</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># D</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>15
-5
-</code></pre></div></td></tr></table></div>
-<div class="admonition important">
-<p class="admonition-title">A retenir</p>
-<p>Les opérations réalisables sur une pile peuvent donner lieu à des réalisations (on dit aussi 
-implémentations) différentes.</p>
-</div>
-<h2 id="une-deuxieme-structure-la-file">Une deuxième structure: la file<a class="headerlink" href="#une-deuxieme-structure-la-file" title="Permanent link">⚓︎</a></h2>
-<h3 id="presentation_1">Présentation<a class="headerlink" href="#presentation_1" title="Permanent link">⚓︎</a></h3>
-<figure>
-<img src="img/attente.png" alt="attente" width="50%" />
-<figcaption>
-    File d'attente
-</figcaption>
-</figure>
-<p>La file est une structure qui diffère de la pile dans le sens où l'insertion et la suppression ne se font pas du même côté (penser à une <em>file d'attente</em> devant un guichet). Ces opérations sont nommées <strong>enfiler</strong> et <strong>défiler</strong>.  Les files sont par exemple utilisées dans les gestionnaires d'impression (des imprimantes).  Il s'agit d'une structure de type <strong>FIFO</strong>, pour <em>First In First Out</em>.</p>
-<h3 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">⚓︎</a></h3>
-<p>Une implémentation triviale peut être réalisée avec des <em>listes de python</em>. </p>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Compléter le code suivant. <em>Coup de pouce</em>: utiliser les méthodes <code>append</code> , <code>pop</code> et <code>insert</code>.</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">[]</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-</code></pre></div></td></tr></table></div>
-<p>Vérifier que l'on a bien une structure de file en exécutant la cellule suivante</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>5 15 25
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>---------------------------------------------------------------------------
-
-AssertionError                            Traceback (most recent call last)
-
-&lt;ipython-input-66-cbba2ba98b42&gt; in &lt;module&gt;
-----&gt; 1 defiler(f)
-
-
-&lt;ipython-input-64-bfde421bb079&gt; in defiler(f)
-      7 def defiler(f):
-      8     #A compléter
-----&gt; 9     assert not est_filevide(f), &quot;Erreur: file vide&quot;
-     10     return f.pop()
-     11
-
-
-AssertionError: Erreur: file vide
-</code></pre></div></td></tr></table></div>
-<p>Une autre réalisation est possible en utilisant 2 piles qu'on nommera <code>p_in</code> et <code>p_out</code>.  Les opérations <code>enfiler</code> et <code>défiler</code> sont détaillées ci dessous:</p>
-<p><strong>enfiler</strong><br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>empiler sur p_in.
-</code></pre></div></td></tr></table></div></p>
-<p><strong>defiler</strong><br />
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Si p_out est vide:
-    Tant que p_in n&#39;est pas vide:
-        depiler p_in et empiler cet élément sur p_out
-depiler p_out
-</code></pre></div></td></tr></table></div></p>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Compléter l'implémentation d'une file qui utilise deux piles, dans la cellule suivante.        </p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">creer_pile</span><span class="p">(),</span> <span class="n">creer_pile</span><span class="p">())</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-    <span class="n">p_in</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur: file vide&quot;</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="n">p_in</span><span class="p">,</span> <span class="n">p_out</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p_in</span><span class="p">)</span> <span class="ow">and</span> <span class="n">est_pilevide</span><span class="p">(</span><span class="n">p_out</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#Cellule de tests à exécuter</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">est_filevide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>---------------------------------------------------------------------------
-
-AssertionError                            Traceback (most recent call last)
-
-&lt;ipython-input-70-cbba2ba98b42&gt; in &lt;module&gt;
-----&gt; 1 defiler(f)
-
-
-&lt;ipython-input-68-6de1afd1571e&gt; in defiler(f)
-      7 
-      8 def defiler(f):
-----&gt; 9     assert not est_filevide(f), &quot;Erreur: file vide&quot;
-     10     p_in, p_out = f[0], f[1]
-     11     if est_pilevide(p_out):
-
-
-AssertionError: Erreur: file vide
-</code></pre></div></td></tr></table></div>
-<p><strong>Comme pour la pile, même si les implémentations d'une file peuvent être très différentes les fonctionnalités qu'elles offrent sont identiques</strong>.</p>
-<h2 id="vers-une-abstraction-des-structures-de-donnees">Vers une abstraction des structures de données<a class="headerlink" href="#vers-une-abstraction-des-structures-de-donnees" title="Permanent link">⚓︎</a></h2>
-<p>Les exemples précédents ont montré qu'on pouvait définir <strong>une structure de données comme étant une description logique de la façon dont on voit ces données et des opérations permises</strong>.<br />
-D'un point de vue utilisateur (<em>c'est-à-dire le programmeur</em>), manipuler une structure de données c'est se préoccuper de ce que les données représentent et utiliser les opérations autorisées <strong>sans se soucier de leur implémentation</strong>.  </p>
-<p><img alt="abstraction" src="img/adt.png" /></p>
-<p>Les détails de mise en oeuvre des structures de données étant cachés à l'utilisateur, celui-ci accède à ces objets par le biais d'une <strong>interface</strong> (ensemble des opérations permises et d'une description informelle de leur effet).  </p>
-<p>Voici par exemple, les spécifications de la structure de données <strong>pile</strong> précedente:  </p>
 <table>
 <thead>
 <tr>
-<th>Struture de données Pile</th>
-<th></th>
+<th>Opération</th>
+<th>Complexité amortie</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Opérations</td>
-<td>Description</td>
+<td><code>enfiler</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span>)</td>
 </tr>
 <tr>
-<td>creer_pile(n)</td>
-<td>Créé une pile vide de taille n optionnelle</td>
-</tr>
-<tr>
-<td>est_pilevide(p)</td>
-<td>retourne un booléen correspondant <br>à l'état de la pile p.</td>
-</tr>
-<tr>
-<td>empiler(p, val)</td>
-<td>empile val dans la pile p.</td>
-</tr>
-<tr>
-<td>depiler(p)</td>
-<td>renvoie le sommet de la pile p et le supprime<br>de celle-ci</td>
-</tr>
-<tr>
-<td>sommet(p)</td>
-<td>renvoie le sommet de la pile p, sans le <br>supprimer</td>
+<td><code>defiler</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amortie <span class="arithmatex">\(\mathcal{O}(n)\)</span> si transfert ponctuel)</td>
 </tr>
 </tbody>
 </table>
-<p>Cette liste de spécifications est souvent appelée <strong>API</strong> pour <strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface.</p>
+<p>👉 Cette implémentation est une <strong>belle illustration de la distinction entre TAD et structure</strong> : la structure est ici composée de <strong>deux piles</strong> au lieu d’un tableau ou d’une liste.</p>
+<hr />
+<h2 id="bilan">Bilan<a class="headerlink" href="#bilan" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>La <strong>pile</strong> et la <strong>file</strong> sont deux structures fondamentales, dont on peut décrire le comportement abstrait puis choisir différentes structures concrètes pour les réaliser :</li>
+<li>Pour la <strong>pile</strong> : tableau simple (<code>pile[0]</code> = sommet),</li>
+<li>Pour la <strong>file</strong> : liste Python (simple) ou deux piles (efficace).  </li>
+<li>Ces exemples montrent bien qu’un <strong>même comportement abstrait</strong> peut être implémenté de plusieurs manières différentes.</li>
+</ul>
 
 
 
