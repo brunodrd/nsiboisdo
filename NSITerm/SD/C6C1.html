@@ -3523,9 +3523,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-operations-derivees" class="md-nav__link">
+  <a href="#3-autres-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      3. ⚡️ Opérations dérivées
+      3. ⚡️ Autres opérations
     </span>
   </a>
   
@@ -6160,6 +6160,11 @@
 <h1 id="le-tad-liste-definitions-et-implementations">🧱 Le TAD Liste — Définitions et Implémentations<a class="headerlink" href="#le-tad-liste-definitions-et-implementations" title="Permanent link">⚓︎</a></h1>
 <h2 id="1-definition-du-tad-liste">1. 📚 Définition du TAD Liste<a class="headerlink" href="#1-definition-du-tad-liste" title="Permanent link">⚓︎</a></h2>
 <p>Une <strong>liste</strong> est une structure de données linéaire permettant de stocker une collection ordonnée d’éléments.</p>
+<div class="admonition tip">
+<p class="admonition-title">Structure de donnée linéaire ?</p>
+<p>Une structure de données linéaire est une structure dans laquelle les éléments sont organisés les uns à la suite des autres, dans un ordre bien défini. Chaque élément (sauf le premier et le dernier) a un prédécesseur et un successeur unique.</p>
+<p>On peut donc parcourir la structure de manière séquentielle, élément par élément.</p>
+</div>
 <h3 id="11-definition-recursive">1.1 Définition récursive<a class="headerlink" href="#11-definition-recursive" title="Permanent link">⚓︎</a></h3>
 <p>Une liste <span class="arithmatex">\( L \)</span> d’éléments d’un ensemble <span class="arithmatex">\( E \)</span> est :</p>
 <ul>
@@ -6213,12 +6218,16 @@
 </ul>
 <p>Cette structure peut être réalisée de plusieurs façons en Python :</p>
 <ul>
-<li>une <strong>version fonctionnelle</strong>, à base de <strong>paires (tuples)</strong> immuables ;</li>
-<li>une <strong>version impérative / orientée objet</strong>, à base de <strong>maillons (classes)</strong>.</li>
+<li>dans un style <strong>fonctionnel</strong>, à base de <strong>paires</strong> (<em>tuples en Python</em>) immuables ;</li>
+<li>dans un style <strong>impératif / orienté objet</strong>, à base de <strong>maillons (classes)</strong>.</li>
 </ul>
-<p>Dans les deux cas, la <strong>structure sous-jacente est la même</strong> : une liste chaînée.</p>
+<div class="admonition tip">
+<p class="admonition-title">Vocabulaire</p>
+<p>Le terme <strong>fonctionnel</strong> sera précisé plus tard dans le cours de terminale.</p>
+</div>
+<p>Dans les deux cas, la <strong>structure sous-jacente est la même</strong> : la liste chaînée.</p>
 <hr />
-<h3 id="21-version-fonctionnelle-paires-tuples">2.1 🌿 Version fonctionnelle (paires / tuples)<a class="headerlink" href="#21-version-fonctionnelle-paires-tuples" title="Permanent link">⚓︎</a></h3>
+<h3 id="21-style-fonctionnel-paires-tuples">2.1 🌿 Style fonctionnel (paires / tuples)<a class="headerlink" href="#21-style-fonctionnel-paires-tuples" title="Permanent link">⚓︎</a></h3>
 <p>Cette implémentation suit directement la définition récursive.</p>
 <h4 id="representation">Représentation<a class="headerlink" href="#representation" title="Permanent link">⚓︎</a></h4>
 <ul>
@@ -6246,7 +6255,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">liste_liste_vide</span><span class="p">():</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">liste_vide</span><span class="p">():</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
@@ -6279,7 +6288,7 @@
 On prévilégiera une version <strong>récursive</strong> (<em>la version itérative sera abordée dans la série d'exercices 1</em>).</p>
 </blockquote>
 <hr />
-<h3 id="22-version-orientee-objet-maillons">2.2 🧱 Version orientée objet (maillons)<a class="headerlink" href="#22-version-orientee-objet-maillons" title="Permanent link">⚓︎</a></h3>
+<h3 id="22-style-imperatif-oriente-objet-maillons">2.2 🧱 Style impératif / orienté objet (maillons)<a class="headerlink" href="#22-style-imperatif-oriente-objet-maillons" title="Permanent link">⚓︎</a></h3>
 <p>Cette version repose sur une structure dynamique où chaque <strong>maillon</strong> (ou cellule) contient une valeur et une référence vers le maillon suivant.</p>
 <h4 id="classe-cellule">Classe Cellule<a class="headerlink" href="#classe-cellule" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6306,7 +6315,7 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">liste_liste_vide</span><span class="p">():</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">liste_vide</span><span class="p">():</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
@@ -6333,7 +6342,7 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 <p>✅ <strong>Avantages</strong> : insertion ou suppression locales rapides (<span class="arithmatex">\(O(1)\)</span> si on a une référence sur le maillon), structure dynamique mutable.<br />
 ⚠️ <strong>Limites</strong> : accès à un élément d’indice k nécessite de parcourir la liste depuis le début (<span class="arithmatex">\(O(n)\)</span>).</p>
 <hr />
-<h2 id="3-operations-derivees">3. ⚡️ Opérations dérivées<a class="headerlink" href="#3-operations-derivees" title="Permanent link">⚓︎</a></h2>
+<h2 id="3-autres-operations">3. ⚡️ Autres opérations<a class="headerlink" href="#3-autres-operations" title="Permanent link">⚓︎</a></h2>
 <h3 id="31-longueur">3.1 Longueur<a class="headerlink" href="#31-longueur" title="Permanent link">⚓︎</a></h3>
 <p><strong>Version récursive</strong> (valable pour les deux implémentations) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6355,10 +6364,10 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">longueur_iter</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">courant</span> <span class="o">=</span> <span class="n">L</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">courant</span><span class="p">):</span>
+    <span class="n">reste</span> <span class="o">=</span> <span class="n">L</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">courant</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span>
+        <span class="n">reste</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="n">reste</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">n</span>
 </code></pre></div></td></tr></table></div>
 <hr />
@@ -6372,14 +6381,14 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 <span class="normal">7</span>
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kieme</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-    <span class="n">courant</span> <span class="o">=</span> <span class="n">L</span>
+    <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Erreur k positif&quot;</span>
+    <span class="n">reste</span> <span class="o">=</span> <span class="n">L</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">courant</span><span class="p">):</span>
-        <span class="n">courant</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">):</span>
+        <span class="n">reste</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="n">reste</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tete</span><span class="p">(</span><span class="n">courant</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">),</span> <span class="s2">&quot;Erreur accès hors de la liste&quot;</span>
+    <span class="k">return</span> <span class="n">tete</span><span class="p">(</span><span class="n">reste</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Complexité en temps: <span class="arithmatex">\(O(k)\)</span> dans les deux versions.</p>
 <hr />
