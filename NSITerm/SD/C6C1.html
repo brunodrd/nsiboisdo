@@ -6372,6 +6372,33 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 </code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="32-acces-au-k-ieme-element">3.2 Accès au k-ième élément<a class="headerlink" href="#32-acces-au-k-ieme-element" title="Permanent link">⚓︎</a></h3>
+<p>L’accès au k-ième élément d’une liste chaînée n’est pas direct :<br />
+il faut <strong>parcourir la structure depuis la tête</strong> jusqu’au maillon d’indice k.</p>
+<hr />
+<h4 id="version-recursive-style-fonctionnel">🧠 Version récursive (style fonctionnel)<a class="headerlink" href="#version-recursive-style-fonctionnel" title="Permanent link">⚓︎</a></h4>
+<p>Cette version repose sur la <strong>définition récursive</strong> de la liste :<br />
+- si k = 0 → on renvoie la tête ;<br />
+- sinon → on accède au (k−1)-ième élément de la queue.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kieme_rec</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="s2">&quot;Indice hors de la liste&quot;</span>
+
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kieme_rec</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Style <strong>fonctionnel</strong> : pas de boucle, ni de variable mutable.  </li>
+<li>La structure de l’algorithme suit directement la définition du TAD Liste.</li>
+</ul>
+<hr />
+<h4 id="version-iterative-style-imperatif">🧱 Version itérative (style impératif)<a class="headerlink" href="#version-iterative-style-imperatif" title="Permanent link">⚓︎</a></h4>
+<p>Cette version utilise une boucle et un compteur pour parcourir la liste.<br />
+Elle fonctionne aussi bien avec une <strong>représentation par paires (tuples)</strong> qu’avec une <strong>représentation par maillons (classes)</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6379,18 +6406,46 @@ On prévilégiera une version <strong>récursive</strong> (<em>la version itéra
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kieme</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Erreur k positif&quot;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kieme_iter</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">reste</span> <span class="o">=</span> <span class="n">L</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">):</span>
         <span class="n">reste</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="n">reste</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">),</span> <span class="s2">&quot;Erreur accès hors de la liste&quot;</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">reste</span><span class="p">),</span> <span class="s2">&quot;Indice hors de la liste&quot;</span>
     <span class="k">return</span> <span class="n">tete</span><span class="p">(</span><span class="n">reste</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Complexité en temps: <span class="arithmatex">\(O(k)\)</span> dans les deux versions.</p>
+<ul>
+<li>Style <strong>impératif</strong> : boucle <code>while</code>, variable <code>i</code> pour compter les étapes.  </li>
+<li>Ne dépend pas du paradigme de la structure, uniquement de son mode d’accès séquentiel.</li>
+</ul>
+<hr />
+<h4 id="complexite">⏱️ Complexité<a class="headerlink" href="#complexite" title="Permanent link">⚓︎</a></h4>
+<blockquote>
+<p><strong>Complexité temporelle : O(k)</strong> dans les deux versions (récursive ou itérative).<br />
+En effet, pour atteindre l’élément d’indice k, on doit effectuer <strong>k “sauts de maillons”</strong> depuis la tête.<br />
+Chaque étape est en temps constant (lecture de la tête, passage à la queue / au maillon suivant), donc le temps total est proportionnel à k.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Accès au k-ième élément</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tableau (list Python)</td>
+<td>O(1) (accès direct par indice)</td>
+</tr>
+<tr>
+<td>Liste chaînée (paires ou maillons)</td>
+<td>O(k) (parcours séquentiel)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>✅ Cela montre clairement la différence entre une <strong>liste chaînée</strong> et une <strong>structure indexée</strong>, et prépare à la comparaison entre représentations.</p>
 <hr />
 <h3 id="33-insertion-en-tete-au-milieu">3.3 Insertion en tête / au milieu<a class="headerlink" href="#33-insertion-en-tete-au-milieu" title="Permanent link">⚓︎</a></h3>
 <ul>
