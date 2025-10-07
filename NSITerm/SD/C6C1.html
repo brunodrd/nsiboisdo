@@ -6141,7 +6141,7 @@
 <p>Une liste <span class="arithmatex">\( L \)</span> d’éléments d’un ensemble <span class="arithmatex">\( E \)</span> est :</p>
 <ul>
 <li>soit la <strong>liste vide</strong> ;</li>
-<li>soit un <strong>couple</strong> <span class="arithmatex">\((x, R)\)</span> où <span class="arithmatex">\(x \in E\)</span> est la <strong>tête</strong> de la liste et <span class="arithmatex">\(R\)</span> est la <strong>queue</strong> (le reste de la liste).</li>
+<li>soit un <strong>couple</strong> <span class="arithmatex">\((x, R)\)</span> où $ x \in E $ est la <strong>tête</strong> de la liste et $ R $ est la <strong>queue</strong> (le reste de la liste).</li>
 </ul>
 <p>👉 Cette définition sert de base à plusieurs implémentations possibles.</p>
 <h3 id="12-operations-fondamentales">1.2 Opérations fondamentales<a class="headerlink" href="#12-operations-fondamentales" title="Permanent link">⚓︎</a></h3>
@@ -6183,20 +6183,14 @@
 </table>
 <hr />
 <h2 id="2-implementation-par-listes-chainees">2. 🧠 Implémentation par <strong>listes chaînées</strong><a class="headerlink" href="#2-implementation-par-listes-chainees" title="Permanent link">⚓︎</a></h2>
-<p>Une <strong>liste chaînée</strong> est une suite de maillons contenant chacun :</p>
-<ul>
-<li>une <strong>valeur</strong>,</li>
-<li>une <strong>référence</strong> vers la suite de la liste.</li>
-</ul>
+<p>Une <strong>liste chaînée</strong> est une suite de maillons contenant chacun :
+- une <strong>valeur</strong>,
+- une <strong>référence</strong> vers la suite de la liste.</p>
 <p>Cette structure peut être réalisée de plusieurs façons en Python :</p>
 <ul>
 <li>une <strong>version fonctionnelle</strong>, à base de <strong>paires (tuples)</strong> immuables ;</li>
 <li>une <strong>version impérative / orientée objet</strong>, à base de <strong>maillons (classes)</strong>.</li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">Vocabulaire</p>
-<p>Le terme <strong>fonctionnelle</strong> caractérise encore un autre style de programmation et sera abordé plus tard.</p>
-</div>
 <p>Dans les deux cas, la <strong>structure sous-jacente est la même</strong> : une liste chaînée.</p>
 <hr />
 <h3 id="21-version-fonctionnelle-paires-tuples">2.1 🌿 Version fonctionnelle (paires / tuples)<a class="headerlink" href="#21-version-fonctionnelle-paires-tuples" title="Permanent link">⚓︎</a></h3>
@@ -6257,7 +6251,7 @@
 <h3 id="exercice-1">📝 Exercice 1<a class="headerlink" href="#exercice-1" title="Permanent link">⚓︎</a></h3>
 <blockquote>
 <p>Écrire une fonction <code>longueur(L)</code> qui renvoie la taille d’une liste représentée par tuples.<br />
-Puis écrire une version <strong>récursive</strong> et une version <strong>itérative</strong>.</p>
+On prévilégiera une version <strong>récursive</strong> (<em>la version itérative sera abordée dans la série d'exercices 1</em>).</p>
 </blockquote>
 <hr />
 <h3 id="22-version-orientee-objet-maillons">2.2 🧱 Version orientée objet (maillons)<a class="headerlink" href="#22-version-orientee-objet-maillons" title="Permanent link">⚓︎</a></h3>
@@ -6311,7 +6305,7 @@ Puis écrire une version <strong>récursive</strong> et une version <strong>ité
 <span class="nb">print</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>          <span class="c1"># 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">)))</span>   <span class="c1"># 2</span>
 </code></pre></div></td></tr></table></div>
-<p>✅ <strong>Avantages</strong> : insertion ou suppression locales rapides (<span class="arithmatex">\(O(1)\)</span> si on a une référence sur le maillon, structure dynamique mutable.<br />
+<p>✅ <strong>Avantages</strong> : insertion ou suppression locales rapides (<span class="arithmatex">\(O(1)\)</span> si on a une référence sur le maillon), structure dynamique mutable.<br />
 ⚠️ <strong>Limites</strong> : accès à un élément d’indice k nécessite de parcourir la liste depuis le début (<span class="arithmatex">\(O(n)\)</span>).</p>
 <hr />
 <h2 id="3-operations-derivees">3. ⚡️ Opérations dérivées<a class="headerlink" href="#3-operations-derivees" title="Permanent link">⚓︎</a></h2>
@@ -6398,18 +6392,18 @@ Indique la complexité en fonction de k et n.</p>
 </tr>
 <tr>
 <td>Insertion au milieu</td>
-<td>re-création (coûteux)</td>
+<td>recréation (coûteux)</td>
 <td><span class="arithmatex">\(O(k)\)</span></td>
 </tr>
 <tr>
 <td>Suppression au milieu</td>
-<td>re-création (coûteux)</td>
+<td>recréation (coûteux)</td>
 <td><span class="arithmatex">\(O(k)\)</span></td>
 </tr>
 <tr>
 <td>Mémoire</td>
 <td>compacte</td>
-<td>plus d’objets</td>
+<td>plus d’overhead (objets)</td>
 </tr>
 <tr>
 <td>Paradigme</td>

@@ -1,0 +1,202 @@
+Du type abstrait à la structure de donnée Liste : Exercices
+===============================================
+
+
+*L'utilisation de l'éditeur intégré à la page est largement envisageable pour toute solution itérative. L'utilisation de la récursion est ... un peu lente*!  
+
+*On pourrait également choisir de télécharger le script, en utilisant le bouton à cet effet et l'inclure dans un notebook* ...
+
+## Exercice 1 Insertion / Suppression
+
+On reprend la réalisation d'une liste chaînée du cours et on se propose d'ajouter à l'ensemble des opérations, l'insertion et la suppression d'un élément à un index donné.
+
+
+```python
+class Cell:
+    """ Une classe pour décrire une cellule (maillon) d'une liste chainée"""
+    
+    def __init__(self, v, s):
+        self.cle = v
+        self.suiv = s
+
+def est_vide(l):
+    return l is None
+
+def tete(l):
+    """ Renvoie l'élément de tête de l"""
+    assert l is not None, "tete: erreur liste vide"
+    return l.cle
+
+def queue(l):
+    """ Renvoie une liste correspondant à la queue de l"""
+    assert not est_vide(l), "queue: erreur liste vide"
+    return l.suiv
+```
+
+**1.** Écrire une fonction `inserer` qui prend pour paramètres un élément `x`, une position `k`, une liste chaînée non vide `lst` et qui va insèrer `x` à l'index `k` de la liste `lst`.
+
+```python
+def inserer(x, k, lst):
+    """ 
+    Insère x à l'index k de la liste lst non vide.
+    Ne renvoie rien: lst est modifié!
+    """
+    pass
+```
+    
+
+{{ IDE('C6/C6E1', MAX=10) }}
+
+**2.** Écrire une fonction `supprimer` qui prend en paramètres un index `k` et une liste `lst` non vide et qui supprime l'élément d'index `k` de la liste. 
+
+```python
+def supprimer(k, l):
+    """ 
+    Supprime la cellule d'index k de la liste non vide lst.
+    Ne renvoie rien: lst est modifié !
+    """
+    pass
+```
+
+{{ IDE('C6/C6E1_2', MAX=10) }}
+
+**3.** Que peut-on dire du coût en temps de ces opérations?
+
+## Problème 1 - La concaténation de deux listes chaînées
+
+L'objectif de ce problème est d'écrire plusieurs versions d'une fonction permettant de **concaténer** (*mettre bout à bout*) deux listes.
+
+!!! important "Avertissement"
+    Bien que moins facile à appréhender, cette implémentation ne vous demandera pas de produire du code à partir de zéro mais plutôt à comprendre et compléter du code existant. Ce qui est à la portée d'un élève de terminale NSI.
+
+### Solution récursive autorisant les effets de bords
+
+Étant données deux listes chaînées `l1` et `l2`:
+
+
+```python
+l1 = ListeChainee()
+l1.insert(5)
+l1.insert(3)
+l1.insert(1)
+
+l2 = ListeChainee()
+l2.insert(10)
+l2.insert(7)
+```
+
+**Question essentielle**: qu'est-ce que la concaténation de deux listes chaînées `l1` et `l2`? 
+
+* Si `l1` est vide, la réponse est triviale, il s'agit de la liste chaînée `l2`;
+* Sinon il s'agit de la liste chaînée résultant de la **concaténation** de la queue de `l1` avec `l2`, à laquelle on a inséré la tête de `l1`.
+
+![concat1](img/C6PB1_1b.png)
+
+Après application de la fonction `concat` après `l3 = concat(l1, l2)`:
+
+![concat2](img/C6PB1_2b.png)
+
+**1.** Compléter la fonction `concat` ci-dessous qui prend en paramètres deux listes chaînées `l1` et `l2` et qui procède à leur concaténation `l1---l2`, c'est-à-dire qui place `l2` au bout de `l1`. Le résultat de la concaténation sera affecté à `l2` c'est-à-dire `l2 <- l1---l2`.
+
+!!! bug "Attention récursion"
+    
+    Les tests de fonctions récursives peuvent être **relativement lents** (typiquement 1 à 2 minutes selon le navigateur). Soyez patients ... surtout si votre fonction est fausse !  
+    Par ailleurs, en cas d'alerte du navigateur, choisir *Attendre* (et non terminer le programme ou fermer la fenêtre). Si cela vous semble rédhibitoire, copier-coller dans un notebook ...
+
+
+{{ IDE('C6/C6PB1_1v2', MAX=10) }}
+
+**2.** La fonction `concat` est-elle récursive? Justifier.
+
+**3.** Quel problème potentiel peut-on identifier (*en cas de difficulté, observer l'illustration Pythontutor*)?
+
+### Solution réduisant les effets de bords
+
+On souhaite contourner le problème identifié précédémment. L'idée est de **renvoyer une nouvelle liste chaînée** contenant les cellules de la première liste puis celles de la seconde.  
+
+Compléter le code ci-dessous. Justifier la présence de la ligne 20.  
+
+{{ IDE('C6/C6PB1_2', MAX=10) }}
+
+## Exercice 2 - Recherche séquentielle dans une liste chaînée
+
+La fonction `chercher(x, lst)` renvoie l'index de la première occurence de `x` dans la liste chaînée `lst` ou `None` si non trouvé. Elle s'appuie sur la fonction auxilliaire `recherche_aux` qui réalise ce travail récursivement.  
+
+L'idée retenue pour `recherche_aux` est la suivante: la recherche séquentielle de `x` dans `lst` à un index `i` est:  
+
+* soit `None` si la liste `lst`est vide;
+* soit `i` si `x` correspond à la tête de `lst`;
+* soit la `recherche_aux` de `x` dans la queue de `lst`.
+
+
+!!! note "Indication"
+    On utilise ici l'implémentation des listes chaînées avec la classe `ListeChainee`.  
+
+### Version récursive
+
+!!! bug "Attention récursion"
+    
+    Les tests de fonctions récursives peuvent être **relativement lents** (typiquement 1 à 2 minutes selon le navigateur). Soyez patients ... surtout si votre fonction est fausse !  
+    Par ailleurs, en cas d'alerte du navigateur, choisir *Attendre* (et non terminer le programme ou fermer la fenêtre).
+
+{{ IDE('C6/C6E2_1', MAX=10) }}
+
+### Version itérative
+
+{{ IDE('C6/C6E2_2', MAX=10) }}
+
+## Exercice 3 - Insertion dans une liste chaînée triée ... version récursive ;)
+
+**1.** Compléter la fonction `list_insert(x, lst)` qui prend en paramètres un entier `x` et une liste chaînée `lst` d'entiers, supposée triée par ordre croissant et qui renvoie **une nouvelle liste** dans laquelle `x` a été inséré *à sa place*.  
+
+```
+   +-----+-----+-----+---
+lst|  n0 |  n1 | n2  | ..
+   +-----+-----+-----+---
+avec n0 <= n1 <= n2 <= ... <= nk-1 si lst comporte k éléments
+```
+
+!!! note "Indication"
+    On utilise ici l'implémentation des listes chaînées avec la classe `ListeChainee` ainsi que la fonction `concatener` en version *effets de bord réduits*. Par ailleurs, une méthode `affiche` a été ajoutée afin de faciliter le debugage.
+
+
+On remarque que:  
+
+* si `lst`est vide, il suffit de renvoyer une liste chaînée dans laquelle on a inséré `x`;
+* si $x<n_0$, on crée une liste chaînée `l` avec `x` comme seul élément et on renvoie la concaténation de cette liste avec lst. **Attention à l'ordre des paramètres lors de l'appel de** `concatener`! ;
+* sinon (*c-à-d* $x\ge n_0$) on renvoie la concaténation de l'insertion de `x` dans la queue de `lst`, avec une liste `l` constituée de la tête de `lst`.
+
+Il est important de noter que nous avons ici **deux cas de base**.  
+
+!!! tip "Coup de pouce"
+    Pensez éventuellement à revoir [l'exercice 5 (optionnel)](https://brunodrd.github.io/nsiboisdo/NSITerm/LP2/C1E1.html) du chapitre 1.
+
+
+{{ IDE('C6/C6E3', MAX=10) }}
+
+## Exercice 4 - Listes identiques
+
+Compléter la fonction `identiques(lst1, lst2)` qui renvoie un booléen indiquant si les listes `lst1` et `lst2` sont identiques c'est-à-dire contiennent les mêmes éléments, dans le même ordre. Une approche itérative sera adoptée (... pour une fois &#129395;)
+
+!!! note "Indication"
+    On utilise ici l'implémentation des listes chaînées avec la classe `ListeChainee`. On essaiera de tirer au mieux profit des commentaires.
+
+{{ IDE('C6/C6E4', MAX=10) }}
+
+## Problème 2 - Création d'une classe Pile avec une liste chaînée
+
+On considère le type abstrait de données `Pile` muni des opérations suivantes:  
+
+* creer_pile_vide: $\varnothing\longrightarrow$ `Pile`;
+* est_pilevide: `Pile` $\longrightarrow$ `Booléen`;
+* empiler: `Pile`, `element` $\longrightarrow\varnothing$;
+* dépiler: `Pile`  $\longrightarrow$ `element` (*avec* `Pile` *non vide*);
+
+On se propose de donner une réalisation possible de ce TAD avec une liste chaînée.
+
+!!! note "Indication"
+    On utilise ici l'implémentation des listes chaînées avec la classe `ListeChainee` donnée plus haut. De plus, étant donné la particularité de l'initialisateur (`__init__`) en python, la création de la pile vide se fera simplement en instanciant un objet *pile* par l'appel `Pile()`. 
+
+On crée une classe `Pile` en l'initialisant avec une liste vide. Compléter les méthodes de cette classe.
+
+{{ IDE('C6/C6PB2', MAX=10) }}
