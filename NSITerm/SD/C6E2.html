@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tad-liste-serie-2" class="md-skip">
+        <a href="#serie-2-listes-chainees-en-imperatif-oo" class="md-skip">
           Aller au contenu
         </a>
       
@@ -6193,7 +6193,7 @@
 
 
 
-<h1 id="tad-liste-serie-2">📄 TAD Liste – Série 2<a class="headerlink" href="#tad-liste-serie-2" title="Permanent link">⚓︎</a></h1>
+<h1 id="serie-2-listes-chainees-en-imperatif-oo">📄 Série 2: listes chainées en impératif / OO<a class="headerlink" href="#serie-2-listes-chainees-en-imperatif-oo" title="Permanent link">⚓︎</a></h1>
 <h3 id="implementation-imperative-orientee-objet-maillons">📌 Implémentation impérative / orientée objet (maillons)<a class="headerlink" href="#implementation-imperative-orientee-objet-maillons" title="Permanent link">⚓︎</a></h3>
 <blockquote>
 <p>Cette série prolonge la Série 1 (version paires) en utilisant une <strong>implémentation orientée objet</strong> d’une <strong>liste chaînée</strong>.<br />
@@ -6278,11 +6278,7 @@ On suppose définie la classe <code>Cellule</code> et les primitives suivantes :
 <hr />
 <h2 id="exercice-3-insertion">🧠 Exercice 3 — Insertion<a class="headerlink" href="#exercice-3-insertion" title="Permanent link">⚓︎</a></h2>
 <p>Écrire une fonction <code>insert_k(L, k, x)</code> qui insère <code>x</code> <strong>à la position <code>k</code></strong> (<em>la tête correspond à l'indice 0</em>) dans une liste chaînée.</p>
-<ul>
-<li>Si <code>k == 0</code>, insérer en tête.</li>
-<li>Utiliser une assertion <code>k</code> inférieur ou égal à la longueur pour éviter une insertion hors liste.</li>
-<li>Renvoyer la tête (potentiellement modifiée) de la liste.</li>
-</ul>
+<p>Cette fonction ne renvoie rien. On dit que la liste <code>L</code> est modifiée <strong>en place</strong>. </p>
 <p>Exemple :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
