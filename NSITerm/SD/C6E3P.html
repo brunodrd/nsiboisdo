@@ -6107,28 +6107,64 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DictListe</span><span class="p">:</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DictListe</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># liste de paires (clé, valeur)</span>
+        <span class="c1"># Stockage interne : liste de paires (clé, valeur)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">cle</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ajoute ou remplace la paire (c, v).&quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">trouve</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">):</span>
+            <span class="n">cle</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">cle</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+                <span class="c1"># La clé existe : on remplace la valeur</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-                <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="n">trouve</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="c1"># Si la clé n&#39;a pas été trouvée, on ajoute la paire à la fin</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">trouve</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">rechercher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">cle</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie la valeur associée ou None si la clé n’existe pas.&quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">):</span>
+            <span class="n">cle</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">cle</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">val</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="kc">None</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">cle</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Supprime la paire de clé c si elle existe. Renvoie True/False.&quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">):</span>
+            <span class="n">cle</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">cle</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
                 <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">donnees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="analyse-de-complexite">Analyse de complexité<a class="headerlink" href="#analyse-de-complexite" title="Permanent link">⚓︎</a></h3>
@@ -6175,9 +6211,9 @@
 </ul>
 <h3 id="2-calcul-du-rapport-nm">2) Calcul du rapport n/M<a class="headerlink" href="#2-calcul-du-rapport-nm" title="Permanent link">⚓︎</a></h3>
 <p>Pour n = 10⁴ et M = 100 :</p>
-<p>[
-\frac{n}{M} = 100
-]
+<p>$
+\dfrac{n}{M} = 100
+$
 → En moyenne, 100 éléments par case.</p>
 <h3 id="3-consequences">3) Conséquences<a class="headerlink" href="#3-consequences" title="Permanent link">⚓︎</a></h3>
 <ul>
