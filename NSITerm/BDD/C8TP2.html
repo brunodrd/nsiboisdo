@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp2-enigme-a-resoudre-a-sql-city" class="md-skip">
+        <a href="#tp-sql-sql-murder-mystery" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3916,6 +3916,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    TP 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="C8TP2.html" class="md-nav__link md-nav__link--active">
         
   
@@ -3927,6 +3940,106 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminale-nsi-annee-scolaire-2025-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminale NSI --- Année scolaire 2025 / 26
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objectifs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consignes-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Consignes générales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-retrouver-la-scene-de-crime" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Étape 1 --- Retrouver la scène de crime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-interroger-les-temoins" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Étape 2 --- Interroger les témoins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-identifier-un-suspect-potentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Étape 3 --- Identifier un suspect potentiel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-4-confirmer-lidentite-du-coupable" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Étape 4 --- Confirmer l'identité du coupable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-5-lenquete-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Étape 5 --- L'enquête continue ...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏁 Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6103,8 +6216,91 @@
 
 
 
-<h1 id="tp2-enigme-a-resoudre-a-sql-city">TP2 - Enigme à résoudre ... à SQL City<a class="headerlink" href="#tp2-enigme-a-resoudre-a-sql-city" title="Permanent link">⚓︎</a></h1>
-<p>Un meurtre a eu lieu le 15 janvier 2018 à SQL City. À vous de résoudre cette égnime, rendez vous à <a href="https://mystery.knightlab.com/walkthrough.html">cette adresse</a>.</p>
+<h1 id="tp-sql-sql-murder-mystery">🕵️ TP SQL -- <strong>SQL Murder Mystery</strong><a class="headerlink" href="#tp-sql-sql-murder-mystery" title="Permanent link">⚓︎</a></h1>
+<h2 id="terminale-nsi-annee-scolaire-2025-26">Terminale NSI --- Année scolaire 2025 / 26<a class="headerlink" href="#terminale-nsi-annee-scolaire-2025-26" title="Permanent link">⚓︎</a></h2>
+<h2 id="objectifs">🎯 Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Interroger une base de données SQL</li>
+<li>Utiliser <strong>SELECT</strong>, <strong>WHERE</strong>, <strong>JOIN</strong></li>
+<li>Lire et analyser un schéma relationnel</li>
+<li>Résoudre une enquête en utilisant les données</li>
+</ul>
+<hr />
+<h2 id="consignes-generales">🔎 Consignes générales<a class="headerlink" href="#consignes-generales" title="Permanent link">⚓︎</a></h2>
+<p>Le site de l'énigme se trouve à <a href="https://mystery.knightlab.com/walkthrough.html">cette adresse</a></p>
+<p>Pour chaque étape le plan sera le suivant: </p>
+<ol>
+<li><strong>Formuler la ou les questions en langage naturel</strong></li>
+<li><strong>Écrire la (les) requête(s) SQL</strong></li>
+<li><strong>Observer le résultat</strong></li>
+<li><strong>Expliquer la déduction</strong></li>
+</ol>
+<p>Note <strong>toutes</strong> tes requêtes et tes conclusions.</p>
+<p><strong>Les cellules intitulées "Espace de travail" sont à compléter avec les réponses aux questions, les requêtes SQL et les résultats</strong>.</p>
+<hr />
+<h2 id="etape-1-retrouver-la-scene-de-crime">🧩 Étape 1 --- Retrouver la scène de crime<a class="headerlink" href="#etape-1-retrouver-la-scene-de-crime" title="Permanent link">⚓︎</a></h2>
+<p>Un meurtre a eu lieu le <strong>15 janvier 2018</strong> à <strong>SQL City</strong>.</p>
+<h3 id="questions">❓ Questions<a class="headerlink" href="#questions" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Quelle table contient les rapports de scène de crime ?</li>
+<li>Quelle requête permet de retrouver celui du jour et du lieu indiqués
+    ?</li>
+<li>Quels témoins sont cités ?</li>
+</ul>
+<h3 id="espace-de-travail">📝 Espace de travail<a class="headerlink" href="#espace-de-travail" title="Permanent link">⚓︎</a></h3>
+<p><strong>Requête SQL :</strong></p>
+<p><strong>Résultats / Analyse :</strong></p>
+<hr />
+<h2 id="etape-2-interroger-les-temoins">🧩 Étape 2 --- Interroger les témoins<a class="headerlink" href="#etape-2-interroger-les-temoins" title="Permanent link">⚓︎</a></h2>
+<p>Les témoins retrouvés ont été interrogés.</p>
+<h3 id="questions_1">❓ Questions<a class="headerlink" href="#questions_1" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Quelle table contient les interviews ?</li>
+<li>Que disent les témoins ?</li>
+<li>Quels indices importants donnent-ils ?</li>
+</ul>
+<h3 id="espace-de-travail_1">📝 Espace de travail<a class="headerlink" href="#espace-de-travail_1" title="Permanent link">⚓︎</a></h3>
+<p><strong>Requête SQL :</strong></p>
+<p><strong>Résultats / Analyse :</strong></p>
+<hr />
+<h2 id="etape-3-identifier-un-suspect-potentiel">🧩 Étape 3 --- Identifier un suspect potentiel<a class="headerlink" href="#etape-3-identifier-un-suspect-potentiel" title="Permanent link">⚓︎</a></h2>
+<p>Les témoins donnent des détails (lieu fréquenté, apparence,
+véhicule...).</p>
+<h3 id="questions_2">❓ Questions<a class="headerlink" href="#questions_2" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Quelles tables sont nécessaires pour vérifier ces indices ?</li>
+<li>Comment filtrer les candidats potentiels ?</li>
+<li>Quel suspect correspond à l'ensemble des indices ?</li>
+</ul>
+<h3 id="espace-de-travail_2">📝 Espace de travail<a class="headerlink" href="#espace-de-travail_2" title="Permanent link">⚓︎</a></h3>
+<p><strong>Requête SQL (joins possibles) :</strong></p>
+<p><strong>Résultats / Analyse :</strong></p>
+<hr />
+<h2 id="etape-4-confirmer-lidentite-du-coupable">🧩 Étape 4 --- Confirmer l'identité du coupable<a class="headerlink" href="#etape-4-confirmer-lidentite-du-coupable" title="Permanent link">⚓︎</a></h2>
+<p>Tu as un ou plusieurs suspects.</p>
+<h3 id="questions_3">❓ Questions<a class="headerlink" href="#questions_3" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Comment vérifier les informations personnelles du suspect ?</li>
+<li>Ses déplacements / activités correspondent-ils aux indices ?</li>
+</ul>
+<h3 id="espace-de-travail_3">📝 Espace de travail<a class="headerlink" href="#espace-de-travail_3" title="Permanent link">⚓︎</a></h3>
+<p><strong>Requête SQL :</strong></p>
+<p><strong>Résultats / Analyse :</strong></p>
+<hr />
+<h2 id="etape-5-lenquete-continue">🧩 Étape 5 --- L'enquête continue ...<a class="headerlink" href="#etape-5-lenquete-continue" title="Permanent link">⚓︎</a></h2>
+<p>Une fois le meurtrier trouvé, réinterroge-le : il pourrait révéler un
+complice.</p>
+<h3 id="espace-de-travail_4">📝 Espace de travail<a class="headerlink" href="#espace-de-travail_4" title="Permanent link">⚓︎</a></h3>
+<p><strong>Requête SQL :</strong></p>
+<p><strong>Résultats / Analyse :</strong></p>
+<hr />
+<h2 id="conclusion">🏁 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">⚓︎</a></h2>
+<p>Rédige une courte conclusion expliquant :</p>
+<ul>
+<li>comment tu as identifié le coupable,</li>
+<li>quelles tables ont été les plus utiles,</li>
+<li>quelles difficultés tu as rencontrées.</li>
+</ul>
 
 
 
