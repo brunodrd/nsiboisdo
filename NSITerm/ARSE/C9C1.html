@@ -6288,9 +6288,11 @@ il envoie ses paquets à un <strong>routeur</strong>, chargé de les transmettre
 <p>Un protocole de routage permet à un routeur de :
 - décider vers quel autre routeur transmettre un paquet ;
 - choisir un chemin jugé <em>optimal</em> selon un critère donné.</p>
-<p>⚠️ Un routeur :
-- ne connaît pas tout Internet ;
-- applique simplement des règles à partir de sa <strong>table de routage</strong>.</p>
+<p>⚠️ Un routeur :</p>
+<ul>
+<li>ne connaît pas tout Internet ;</li>
+<li>applique simplement des règles à partir de sa <strong>table de routage</strong>.</li>
+</ul>
 <hr />
 <h2 id="3-table-de-routage-idee-essentielle">3. Table de routage (idée essentielle)<a class="headerlink" href="#3-table-de-routage-idee-essentielle" title="Permanent link">⚓︎</a></h2>
 <p>Une table de routage contient des informations de la forme :</p>
@@ -6298,10 +6300,12 @@ il envoie ses paquets à un <strong>routeur</strong>, chargé de les transmettre
 <li>réseau de destination</li>
 <li>prochain routeur à contacter</li>
 </ul>
-<p>Le routeur :
-1. reçoit un paquet ;
-2. consulte sa table de routage ;
-3. transmet le paquet vers le routeur indiqué.</p>
+<p>Le routeur :</p>
+<ol>
+<li>reçoit un paquet ;</li>
+<li>consulte sa table de routage ;</li>
+<li>transmet le paquet vers le routeur indiqué.</li>
+</ol>
 <p>👉 Le protocole de routage détermine <strong>comment ces choix sont faits</strong>.</p>
 <hr />
 <h2 id="4-le-protocole-rip-routing-information-protocol">4. Le protocole RIP (Routing Information Protocol)<a class="headerlink" href="#4-le-protocole-rip-routing-information-protocol" title="Permanent link">⚓︎</a></h2>
@@ -6309,7 +6313,7 @@ il envoie ses paquets à un <strong>routeur</strong>, chargé de les transmettre
 <p>RIP choisit le chemin comportant le <strong>moins de routeurs intermédiaires</strong>.</p>
 <ul>
 <li>Chaque liaison compte pour <strong>1 saut</strong></li>
-<li>Le chemin retenu est celui avec le <strong>nombre minimal de sauts</strong></li>
+<li>Le chemin retenu est celui avec le <strong>nombre minimal de sauts</strong>.</li>
 </ul>
 <h3 id="avantages">Avantages<a class="headerlink" href="#avantages" title="Permanent link">⚓︎</a></h3>
 <ul>
@@ -6317,22 +6321,24 @@ il envoie ses paquets à un <strong>routeur</strong>, chargé de les transmettre
 <li>Simple à mettre en œuvre</li>
 </ul>
 <h3 id="limites">Limites<a class="headerlink" href="#limites" title="Permanent link">⚓︎</a></h3>
+<p>Ne tient pas compte :</p>
 <ul>
-<li>Ne tient pas compte :</li>
 <li>de la vitesse des liaisons</li>
 <li>de leur fiabilité</li>
 <li>de leur saturation</li>
-<li>Le chemin le plus court n’est pas toujours le meilleur</li>
 </ul>
+<p>Le chemin le plus court n’est pas toujours le meilleur</p>
 <hr />
 <h2 id="5-le-protocole-ospf-open-shortest-path-first">5. Le protocole OSPF (Open Shortest Path First)<a class="headerlink" href="#5-le-protocole-ospf-open-shortest-path-first" title="Permanent link">⚓︎</a></h2>
 <h3 id="principe_1">Principe<a class="headerlink" href="#principe_1" title="Permanent link">⚓︎</a></h3>
 <p>Avec OSPF, chaque liaison possède un <strong>coût</strong>.</p>
 <p>Le routeur choisit le chemin dont le <strong>coût total est le plus faible</strong>.</p>
-<p>Le coût peut représenter :
-- le temps de transmission
-- la qualité de la liaison
-- la capacité du lien</p>
+<p>Le coût peut représenter :</p>
+<ul>
+<li>le temps de transmission</li>
+<li>la qualité de la liaison</li>
+<li>la capacité du lien</li>
+</ul>
 <h3 id="avantages_1">Avantages<a class="headerlink" href="#avantages_1" title="Permanent link">⚓︎</a></h3>
 <ul>
 <li>Choix plus réaliste du chemin</li>
@@ -6371,8 +6377,6 @@ il envoie ses paquets à un <strong>routeur</strong>, chargé de les transmettre
 <li>OSPF utilise un coût associé aux liaisons.</li>
 <li>Le meilleur chemin dépend du critère choisi.</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
-</code></pre></div></td></tr></table></div>
 
 
 
