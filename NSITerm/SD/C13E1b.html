@@ -6327,8 +6327,8 @@ Remarque: dans cet exercice, le beau-frère de X est le frère du mari/femme de 
 </ol>
 <h3 id="implementation-en-python">Implémentation en python<a class="headerlink" href="#implementation-en-python" title="Permanent link">⚓︎</a></h3>
 <h4 id="liste-dadjacence">Liste d'adjacence<a class="headerlink" href="#liste-dadjacence" title="Permanent link">⚓︎</a></h4>
-<p>Une façon d’encoder un graphe sous Python est d’utiliser un dictionnaire contenant les listes des voisins de chaque sommet.
-Les clés seront les sommets du graphe et leur valeur sera la liste des sommets adjacents.</p>
+<p>Une façon possible d’implémenter un graphe sous Python est d’utiliser un dictionnaire contenant les listes des voisins de chaque sommet.
+<strong>Les clés seront les sommets du graphe et leur valeur sera la liste des sommets adjacents</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6350,8 +6350,8 @@ Les clés seront les sommets du graphe et leur valeur sera la liste des sommets 
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ol>
-<li>Ecrire une fonction <code>sommets</code> qui prend un graphe en paramètre et qui renvoie la liste de ses sommets.</li>
-<li>Ecrire une fonction <code>voisins</code> qui prend en paramètres un graphe et un sommet et qui renvoie la liste des vosins de ce sommet.</li>
+<li>Écrire une fonction <code>sommets</code> qui prend un graphe en paramètre et qui renvoie la liste de ses sommets.</li>
+<li>Écrire une fonction <code>voisins</code> qui prend en paramètres un graphe et un sommet et qui renvoie la liste des voisins de ce sommet.</li>
 <li>Que réalise la fonction <code>lst_to_mat</code>? Expliquer notamment la portion de code située entre les lignes 9 et 11. On pourra utiliser <a href="https://docs.python.org/3/tutorial/datastructures.html">la documentation python</a>.</li>
 <li>Le résultat de l'appel <code>lst_to_mat(G)</code> est-il conforme aux données de l'énoncé?</li>
 </ol>
@@ -6406,7 +6406,7 @@ Les clés seront les sommets du graphe et leur valeur sera la liste des sommets 
 <h4 id="matrice-dadjacence">Matrice d'adjacence<a class="headerlink" href="#matrice-dadjacence" title="Permanent link">⚓︎</a></h4>
 <ol>
 <li>
-<p>Ecrire une fonction <code>mat_to_lst</code> qui prend en paramètre une liste (<em>de python</em>) de sommets <code>l</code> et une matrice d'adjacence <code>mat</code> (<em>liste de listes</em>) et qui renvoie un dictionnaire correspondant à une liste d'adjacence c'est-à-dire de la forme:<br />
+<p>Écrire une fonction <code>mat_to_lst</code> qui prend en paramètre une liste (<em>de python</em>) de sommets <code>l</code> et une matrice d'adjacence <code>mat</code> (<em>liste de listes</em>) et qui renvoie un dictionnaire correspondant à une liste d'adjacence c'est-à-dire de la forme:<br />
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="s1">&#39;sommet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">liste</span> <span class="n">de</span> <span class="n">voisins</span><span class="p">],</span>
@@ -6504,7 +6504,7 @@ Les clés seront les sommets du graphe et leur valeur sera la liste des sommets 
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS - A DECOMMENTER ET EXECUTER</span>
-<span class="c1">#g = GrapheOr([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])</span>
+<span class="c1">#g = GrapheOriente([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])</span>
 <span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;b&#39;)</span>
 <span class="c1">#g.ajouter_arc(&#39;a&#39;, &#39;d&#39;)</span>
 <span class="c1">#g.ajouter_arc(&#39;b&#39;, &#39;c&#39;)</span>
