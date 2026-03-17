@@ -6268,7 +6268,7 @@ Plus précisément, à sa création un labyrinthe possède trois attributs :</p>
 </div>
 <p>Cette démarche porte le nom de <strong>parcours en profondeur</strong> car chaque route est explorée dans son entier avant d’en explorer une nouvelle.</p>
 <h3 id="question-1">Question 1.<a class="headerlink" href="#question-1" title="Permanent link">⚓︎</a></h3>
-<p>Pour marquer les cases explorées, on utilise un tableau <code>dejavu</code> de taille <span class="arithmatex">\(p \times q\)</span> contenant initialement la valeur <code>False</code> dans chacune de ses cases. Marquer une case revient à faire passer cette valeur à <code>True</code>.</p>
+<p>Pour marquer les cases explorées, on utilise un tableau (<em>de tableaux</em>) <code>dejavu</code> de taille <span class="arithmatex">\(p \times q\)</span> contenant initialement la valeur <code>False</code> dans chacune de ses cases. Marquer une case revient à faire passer cette valeur à <code>True</code>.</p>
 <p><strong>Le fil d’Ariane sera représenté par une pile</strong>. Avancer dans le labyrinthe revient à empiler les coordonnées <span class="arithmatex">\((i, j)\)</span> des cases parcourues ; revenir sur ses pas revient à supprimer le sommet de la pile.</p>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
