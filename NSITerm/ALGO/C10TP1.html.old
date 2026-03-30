@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="S6E2.html">
+        <link rel="prev" href="C11TD1.html">
       
       
-        <link rel="next" href="S6C3.html">
+        <link rel="next" href="C10TP2.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>COURS 2 - NSI</title>
+        <title>TP 1: Préambule au tri fusion - NSI</title>
       
     
     
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interactions-client-serveur-protocole-http" class="md-skip">
+        <a href="#quelques-operations-sur-les-listes-chainees" class="md-skip">
           Aller au contenu
         </a>
       
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              COURS 2
+              TP 1: Préambule au tri fusion
             
           </span>
         </div>
@@ -274,7 +274,12 @@
   
   
   
+  
     
+    
+      
+  
+  
   
   
     
@@ -283,22 +288,11 @@
   
   
   
-    
-  
   
     
     
-      
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../C1/C1A1.html" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../NSI1/C1/C1A1.html" class="md-tabs__link">
           
   
   
@@ -320,6 +314,8 @@
   
   
   
+    
+  
   
     
     
@@ -327,11 +323,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../NSITerm/LP2/C1C1.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LP2/C1C1.html" class="md-tabs__link">
           
   
   
@@ -519,29 +517,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -554,7 +549,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             NSI1
@@ -654,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1A1.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1A1.html" class="md-nav__link">
         
   
   
@@ -677,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1A2.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1A2.html" class="md-nav__link">
         
   
   
@@ -700,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1A3.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1A3.html" class="md-nav__link">
         
   
   
@@ -723,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1A4.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1A4.html" class="md-nav__link">
         
   
   
@@ -754,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1C1.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1C1.html" class="md-nav__link">
         
   
   
@@ -777,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1E1.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1E1.html" class="md-nav__link">
         
   
   
@@ -800,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C1/C1EV.html" class="md-nav__link">
+      <a href="../../NSI1/C1/C1EV.html" class="md-nav__link">
         
   
   
@@ -917,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2A1.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2A1.html" class="md-nav__link">
         
   
   
@@ -940,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2A2.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2A2.html" class="md-nav__link">
         
   
   
@@ -1014,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2C1.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2C1.html" class="md-nav__link">
         
   
   
@@ -1037,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2C2.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2C2.html" class="md-nav__link">
         
   
   
@@ -1068,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2E1.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2E1.html" class="md-nav__link">
         
   
   
@@ -1091,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C2/C2TP2.html" class="md-nav__link">
+      <a href="../../NSI1/C2/C2TP2.html" class="md-nav__link">
         
   
   
@@ -1208,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3A1.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3A1.html" class="md-nav__link">
         
   
   
@@ -1231,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3A2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3A2.html" class="md-nav__link">
         
   
   
@@ -1305,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3C1.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3C1.html" class="md-nav__link">
         
   
   
@@ -1328,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3C2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3C2.html" class="md-nav__link">
         
   
   
@@ -1351,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3C3.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3C3.html" class="md-nav__link">
         
   
   
@@ -1374,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C2.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C2.html" class="md-nav__link">
         
   
   
@@ -1448,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3TP3.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3TP3.html" class="md-nav__link">
         
   
   
@@ -1471,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3TP3An.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3TP3An.html" class="md-nav__link">
         
   
   
@@ -1502,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3E1.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3E1.html" class="md-nav__link">
         
   
   
@@ -1525,7 +1520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E2.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5E2.html" class="md-nav__link">
         
   
   
@@ -1591,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3E3.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3E3.html" class="md-nav__link">
         
   
   
@@ -1614,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3E4.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3E4.html" class="md-nav__link">
         
   
   
@@ -1645,7 +1640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../C3/C3R1.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3R1.html" class="md-nav__link">
         
   
   
@@ -1719,7 +1714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4C1.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4C1.html" class="md-nav__link">
         
   
   
@@ -1742,7 +1737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4C2.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4C2.html" class="md-nav__link">
         
   
   
@@ -1765,7 +1760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4A1.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4A1.html" class="md-nav__link">
         
   
   
@@ -1788,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4A2.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4A2.html" class="md-nav__link">
         
   
   
@@ -1811,7 +1806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4TP1.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4TP1.html" class="md-nav__link">
         
   
   
@@ -1834,7 +1829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4E1.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4E1.html" class="md-nav__link">
         
   
   
@@ -1857,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S4/S4R1.html" class="md-nav__link">
+      <a href="../../NSI1/S4/S4R1.html" class="md-nav__link">
         
   
   
@@ -1931,7 +1926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C1.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C1.html" class="md-nav__link">
         
   
   
@@ -1954,7 +1949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C3.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C3.html" class="md-nav__link">
         
   
   
@@ -1977,7 +1972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E1.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5E1.html" class="md-nav__link">
         
   
   
@@ -2000,7 +1995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E3.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5E3.html" class="md-nav__link">
         
   
   
@@ -2023,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C4.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C4.html" class="md-nav__link">
         
   
   
@@ -2046,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C5.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C5.html" class="md-nav__link">
         
   
   
@@ -2069,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C6.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5C6.html" class="md-nav__link">
         
   
   
@@ -2092,7 +2087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E4.html" class="md-nav__link">
+      <a href="../../NSI1/S5/S5E4.html" class="md-nav__link">
         
   
   
@@ -2120,8 +2115,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2132,11 +2125,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -2152,7 +2147,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Chap. VI: IHM sur le web
@@ -2166,7 +2161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S6C1.html" class="md-nav__link">
+      <a href="../../NSI1/S6/S6C1.html" class="md-nav__link">
         
   
   
@@ -2189,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S6A1.html" class="md-nav__link">
+      <a href="../../NSI1/S6/S6A1.html" class="md-nav__link">
         
   
   
@@ -2212,7 +2207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S6E2.html" class="md-nav__link">
+      <a href="../../NSI1/S6/S6E2.html" class="md-nav__link">
         
   
   
@@ -2232,32 +2227,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    COURS 2
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="S6C2.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../NSI1/S6/S6C2.html" class="md-nav__link">
         
   
   
@@ -2268,53 +2241,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#modele-client-serveur-et-protocole-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modèle client-serveur et protocole http.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-outils-utilises" class="md-nav__link">
-    <span class="md-ellipsis">
-      Les outils utilisés
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#analyse-dun-echange" class="md-nav__link">
-    <span class="md-ellipsis">
-      Analyse d'un échange
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2327,7 +2253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="S6C3.html" class="md-nav__link">
+      <a href="../../NSI1/S6/S6C3.html" class="md-nav__link">
         
   
   
@@ -2401,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C1.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C1.html" class="md-nav__link">
         
   
   
@@ -2424,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C2.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C2.html" class="md-nav__link">
         
   
   
@@ -2447,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C3.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C3.html" class="md-nav__link">
         
   
   
@@ -2470,7 +2396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C4.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C4.html" class="md-nav__link">
         
   
   
@@ -2493,7 +2419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C5.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C5.html" class="md-nav__link">
         
   
   
@@ -2516,7 +2442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/S8C6.html" class="md-nav__link">
+      <a href="../../NSI1/S8/S8C6.html" class="md-nav__link">
         
   
   
@@ -2539,7 +2465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/correction_tp.html" class="md-nav__link">
+      <a href="../../NSI1/S8/correction_tp.html" class="md-nav__link">
         
   
   
@@ -2562,7 +2488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../S8/pr3.html" class="md-nav__link">
+      <a href="../../NSI1/S8/pr3.html" class="md-nav__link">
         
   
   
@@ -2636,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c16c3.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c16c3.html" class="md-nav__link">
         
   
   
@@ -2659,7 +2585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c16a.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c16a.html" class="md-nav__link">
         
   
   
@@ -2682,7 +2608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c17c2.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c17c2.html" class="md-nav__link">
         
   
   
@@ -2705,7 +2631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c17a.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c17a.html" class="md-nav__link">
         
   
   
@@ -2728,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c18c2.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c18c2.html" class="md-nav__link">
         
   
   
@@ -2751,7 +2677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c18a.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c18a.html" class="md-nav__link">
         
   
   
@@ -2774,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Reseau/c19a.html" class="md-nav__link">
+      <a href="../../NSI1/Reseau/c19a.html" class="md-nav__link">
         
   
   
@@ -2809,26 +2735,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -2841,7 +2770,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             NSITerm
@@ -2898,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C1C1.html" class="md-nav__link">
+      <a href="../LP2/C1C1.html" class="md-nav__link">
         
   
   
@@ -2964,7 +2893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C1E1.html" class="md-nav__link">
+      <a href="../LP2/C1E1.html" class="md-nav__link">
         
   
   
@@ -2987,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C1E2.html" class="md-nav__link">
+      <a href="../LP2/C1E2.html" class="md-nav__link">
         
   
   
@@ -3018,7 +2947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C1TP1.html" class="md-nav__link">
+      <a href="../LP2/C1TP1.html" class="md-nav__link">
         
   
   
@@ -3092,7 +3021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C5C1.html" class="md-nav__link">
+      <a href="../LP2/C5C1.html" class="md-nav__link">
         
   
   
@@ -3115,7 +3044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C5E1.html" class="md-nav__link">
+      <a href="../LP2/C5E1.html" class="md-nav__link">
         
   
   
@@ -3138,7 +3067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C2E2.html" class="md-nav__link">
+      <a href="../LP2/C2E2.html" class="md-nav__link">
         
   
   
@@ -3212,7 +3141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C3TP1.html" class="md-nav__link">
+      <a href="../LP2/C3TP1.html" class="md-nav__link">
         
   
   
@@ -3235,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C3A1.html" class="md-nav__link">
+      <a href="../LP2/C3A1.html" class="md-nav__link">
         
   
   
@@ -3309,7 +3238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C2C1.html" class="md-nav__link">
+      <a href="../SD/C2C1.html" class="md-nav__link">
         
   
   
@@ -3332,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C2E1.html" class="md-nav__link">
+      <a href="../SD/C2E1.html" class="md-nav__link">
         
   
   
@@ -3406,7 +3335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C3C1.html" class="md-nav__link">
+      <a href="../SD/C3C1.html" class="md-nav__link">
         
   
   
@@ -3429,7 +3358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C3E1.html" class="md-nav__link">
+      <a href="../SD/C3E1.html" class="md-nav__link">
         
   
   
@@ -3452,7 +3381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C3E2.html" class="md-nav__link">
+      <a href="../SD/C3E2.html" class="md-nav__link">
         
   
   
@@ -3526,7 +3455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C6C1.html" class="md-nav__link">
+      <a href="../SD/C6C1.html" class="md-nav__link">
         
   
   
@@ -3549,7 +3478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C6E1.html" class="md-nav__link">
+      <a href="../SD/C6E1.html" class="md-nav__link">
         
   
   
@@ -3572,7 +3501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C6E2.html" class="md-nav__link">
+      <a href="../SD/C6E2.html" class="md-nav__link">
         
   
   
@@ -3646,7 +3575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C6C2b.html" class="md-nav__link">
+      <a href="../SD/C6C2b.html" class="md-nav__link">
         
   
   
@@ -3669,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C6E3.html" class="md-nav__link">
+      <a href="../SD/C6E3.html" class="md-nav__link">
         
   
   
@@ -3743,7 +3672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C7C1.html" class="md-nav__link">
+      <a href="../ARSE/C7C1.html" class="md-nav__link">
         
   
   
@@ -3766,7 +3695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C7E1.html" class="md-nav__link">
+      <a href="../ARSE/C7E1.html" class="md-nav__link">
         
   
   
@@ -3840,7 +3769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8A1.html" class="md-nav__link">
+      <a href="../BDD/C8A1.html" class="md-nav__link">
         
   
   
@@ -3863,7 +3792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8C1.html" class="md-nav__link">
+      <a href="../BDD/C8C1.html" class="md-nav__link">
         
   
   
@@ -3886,7 +3815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8C2.html" class="md-nav__link">
+      <a href="../BDD/C8C2.html" class="md-nav__link">
         
   
   
@@ -3909,7 +3838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
+      <a href="../BDD/C8C3.html" class="md-nav__link">
         
   
   
@@ -3932,7 +3861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8C4.html" class="md-nav__link">
+      <a href="../BDD/C8C4.html" class="md-nav__link">
         
   
   
@@ -3955,7 +3884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8TP1.html" class="md-nav__link">
+      <a href="../BDD/C8TP1.html" class="md-nav__link">
         
   
   
@@ -3978,7 +3907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8TP2.html" class="md-nav__link">
+      <a href="../BDD/C8TP2.html" class="md-nav__link">
         
   
   
@@ -4001,7 +3930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8TP4.html" class="md-nav__link">
+      <a href="../BDD/C8TP4.html" class="md-nav__link">
         
   
   
@@ -4024,7 +3953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+      <a href="../BDD/C8E1.html" class="md-nav__link">
         
   
   
@@ -4098,7 +4027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C9C1.html" class="md-nav__link">
+      <a href="../ARSE/C9C1.html" class="md-nav__link">
         
   
   
@@ -4121,7 +4050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/c11e.html" class="md-nav__link">
+      <a href="../ARSE/c11e.html" class="md-nav__link">
         
   
   
@@ -4149,8 +4078,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -4159,13 +4090,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" checked>
         
           
           <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
@@ -4181,7 +4110,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_11">
             <span class="md-nav__icon md-icon"></span>
             Chap. X Algorithmique
@@ -4195,7 +4124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10C1.html" class="md-nav__link">
+      <a href="C10C1.html" class="md-nav__link">
         
   
   
@@ -4218,7 +4147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C11TD1.html" class="md-nav__link">
+      <a href="C11TD1.html" class="md-nav__link">
         
   
   
@@ -4238,10 +4167,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10TP1.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    TP 1: Préambule au tri fusion
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C10TP1.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4252,6 +4203,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comment-couper-une-liste-en-deux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment couper une liste en deux ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-fusionner-deux-listes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment fusionner deux listes ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-trier-une-liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment trier une liste ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4264,7 +4262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10TP2.html" class="md-nav__link">
+      <a href="C10TP2.html" class="md-nav__link">
         
   
   
@@ -4287,7 +4285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10TP3.html" class="md-nav__link">
+      <a href="C10TP3.html" class="md-nav__link">
         
   
   
@@ -4310,7 +4308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10C2.html" class="md-nav__link">
+      <a href="C10C2.html" class="md-nav__link">
         
   
   
@@ -4333,7 +4331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10E2.html" class="md-nav__link">
+      <a href="C10E2.html" class="md-nav__link">
         
   
   
@@ -4356,7 +4354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10C3.html" class="md-nav__link">
+      <a href="C10C3.html" class="md-nav__link">
         
   
   
@@ -4379,7 +4377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10A1.html" class="md-nav__link">
+      <a href="C10A1.html" class="md-nav__link">
         
   
   
@@ -4402,7 +4400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10C4.html" class="md-nav__link">
+      <a href="C10C4.html" class="md-nav__link">
         
   
   
@@ -4425,7 +4423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C10A2.html" class="md-nav__link">
+      <a href="C10A2.html" class="md-nav__link">
         
   
   
@@ -4499,7 +4497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C11C1b.html" class="md-nav__link">
+      <a href="../SD/C11C1b.html" class="md-nav__link">
         
   
   
@@ -4522,7 +4520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C11C2.html" class="md-nav__link">
+      <a href="../SD/C11C2.html" class="md-nav__link">
         
   
   
@@ -4545,7 +4543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C11E1.html" class="md-nav__link">
+      <a href="../SD/C11E1.html" class="md-nav__link">
         
   
   
@@ -4619,7 +4617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C12C1.html" class="md-nav__link">
+      <a href="../LP2/C12C1.html" class="md-nav__link">
         
   
   
@@ -4642,7 +4640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C12E2.html" class="md-nav__link">
+      <a href="../LP2/C12E2.html" class="md-nav__link">
         
   
   
@@ -4665,7 +4663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/LP2/C12E1.html" class="md-nav__link">
+      <a href="../LP2/C12E1.html" class="md-nav__link">
         
   
   
@@ -4739,7 +4737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C13C1.html" class="md-nav__link">
+      <a href="../SD/C13C1.html" class="md-nav__link">
         
   
   
@@ -4762,7 +4760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/SD/C13E1b.html" class="md-nav__link">
+      <a href="../SD/C13E1b.html" class="md-nav__link">
         
   
   
@@ -4836,7 +4834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C14C1.html" class="md-nav__link">
+      <a href="../ARSE/C14C1.html" class="md-nav__link">
         
   
   
@@ -4859,7 +4857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C14TP1.html" class="md-nav__link">
+      <a href="../ARSE/C14TP1.html" class="md-nav__link">
         
   
   
@@ -4933,7 +4931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ARSE/C15C1.html" class="md-nav__link">
+      <a href="../ARSE/C15C1.html" class="md-nav__link">
         
   
   
@@ -5007,7 +5005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ALGO/C16C1.html" class="md-nav__link">
+      <a href="C16C1.html" class="md-nav__link">
         
   
   
@@ -5124,7 +5122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/Listes.html" class="md-nav__link">
+      <a href="../EVAL/Listes.html" class="md-nav__link">
         
   
   
@@ -5147,7 +5145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/REUJ1_2023.html" class="md-nav__link">
+      <a href="../EVAL/REUJ1_2023.html" class="md-nav__link">
         
   
   
@@ -5221,7 +5219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/revisions.html" class="md-nav__link">
+      <a href="../EVAL/revisions.html" class="md-nav__link">
         
   
   
@@ -5244,7 +5242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/correction1re.html" class="md-nav__link">
+      <a href="../EVAL/correction1re.html" class="md-nav__link">
         
   
   
@@ -5267,7 +5265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/correction2023.html" class="md-nav__link">
+      <a href="../EVAL/correction2023.html" class="md-nav__link">
         
   
   
@@ -5290,7 +5288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/sujet_042024.html" class="md-nav__link">
+      <a href="../EVAL/sujet_042024.html" class="md-nav__link">
         
   
   
@@ -5313,7 +5311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/bblanc2024.html" class="md-nav__link">
+      <a href="../EVAL/bblanc2024.html" class="md-nav__link">
         
   
   
@@ -5336,7 +5334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/correction_bblanc_dec24.html" class="md-nav__link">
+      <a href="../EVAL/correction_bblanc_dec24.html" class="md-nav__link">
         
   
   
@@ -5359,7 +5357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/sujet_122025.pdf" class="md-nav__link">
+      <a href="../EVAL/sujet_122025.pdf" class="md-nav__link">
         
   
   
@@ -5382,7 +5380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/corrige_122025.pdf" class="md-nav__link">
+      <a href="../EVAL/corrige_122025.pdf" class="md-nav__link">
         
   
   
@@ -5456,7 +5454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ANNALES/24-J1G11.html" class="md-nav__link">
+      <a href="../ANNALES/24-J1G11.html" class="md-nav__link">
         
   
   
@@ -5479,7 +5477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ANNALES/24-NSIJ2G11.html" class="md-nav__link">
+      <a href="../ANNALES/24-NSIJ2G11.html" class="md-nav__link">
         
   
   
@@ -5502,7 +5500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/ANNALES/24-NSIJ2A1.html" class="md-nav__link">
+      <a href="../ANNALES/24-NSIJ2A1.html" class="md-nav__link">
         
   
   
@@ -5584,7 +5582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/EVAL/EP2024.html" class="md-nav__link">
+      <a href="../EVAL/EP2024.html" class="md-nav__link">
         
   
   
@@ -5805,7 +5803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../projet/projet_fin_NSI1.html" class="md-nav__link">
+      <a href="../../NSI1/projet/projet_fin_NSI1.html" class="md-nav__link">
         
   
   
@@ -6233,69 +6231,270 @@
 
 
 
-<h1 id="interactions-client-serveur-protocole-http">INTERACTIONS CLIENT-SERVEUR: protocole HTTP<a class="headerlink" href="#interactions-client-serveur-protocole-http" title="Permanent link">⚓︎</a></h1>
-<h2 id="modele-client-serveur-et-protocole-http">Modèle client-serveur et protocole http.<a class="headerlink" href="#modele-client-serveur-et-protocole-http" title="Permanent link">⚓︎</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">Définition</p>
-<p>On appelle interaction client-serveur un mode de communication entre un programme qualifié de <em>client</em> qui 
-<strong>envoie des requêtes</strong> et un programme dit <em>serveur</em> qui y <strong>répond</strong>.  </p>
-</div>
-<p>Dans le cas du Web, le client peut être un navigateur (<em>Google Chrome, Firefox, Brave, etc</em>) et le serveur un programme tel que <em>Apache, Nginx, etc</em>.<br />
-Le protocole utilisé est <strong>HTTP</strong>.</p>
-<h2 id="les-outils-utilises">Les outils utilisés<a class="headerlink" href="#les-outils-utilises" title="Permanent link">⚓︎</a></h2>
-<p>On utilisera le navigateur <em>Firefox</em> avec sa console de développement (touche <code>F12</code>) côté client. Évidemment tout autre choix (<em>Chrome, Brave, etc.</em>) est tout aussi valable.  </p>
-<p>Côté serveur, on utilisera un programme léger écrit en Javascript (<em>Node.js</em> plus exactement). L'adresse de ce serveur noté <code>http://172.19.xxx.xxx:8080/</code> sera fournie par le professeur au cours de la séance.</p>
-<h2 id="analyse-dun-echange">Analyse d'un échange<a class="headerlink" href="#analyse-dun-echange" title="Permanent link">⚓︎</a></h2>
-<h3 id="que-se-passe-t-il-apres-avoir-saisi-une-url">Que se passe-t-il après avoir saisi une URL?<a class="headerlink" href="#que-se-passe-t-il-apres-avoir-saisi-une-url" title="Permanent link">⚓︎</a></h3>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Ouvrir l'URL http://172.19.xxx.xxx:8080/ dans un navigateur ainsi que la console de développement.</p>
-</div>
-<p><img alt="accueil" src="img/accueil.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Rappel</p>
-<p>L'URL est composée de la manière suivante: <strong>protocole://adresse-ou-nom/ressource</strong>. Le protocole est souvent HTTP (ou HTTPS); on écrit généralement un nom plutôt qu'une adresse (le DNS fait la conversion) et la ressource peut être une page HTML, un image, une vidéo, un fichier de style ou JS etc. </p>
-</div>
-<p>La partie haute de la console de développement liste les fichiers nécessaires à l'affichage de la page.<br />
-<img alt="requetes" src="img/requetes.png" /></p>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Combien de requêtes sont nécessaires à l'affichage de la page '/' ? Quels types de fichiers sont demandés?</p>
-</div>
-<p>L'accès à une ressource se fait selon le protocole HTTP. Le détail de l'échange peut être suivi dans la console de développement.</p>
-<div class="admonition info">
-<p class="admonition-title">En résumé</p>
-<p>Pour afficher une page web le navigateur (client) réalise les opérations suivantes:  </p>
+<h1 id="quelques-operations-sur-les-listes-chainees">Quelques opérations sur les listes chaînées<a class="headerlink" href="#quelques-operations-sur-les-listes-chainees" title="Permanent link">⚓︎</a></h1>
+<h2 id="comment-couper-une-liste-en-deux">Comment couper une liste en deux ?<a class="headerlink" href="#comment-couper-une-liste-en-deux" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Cell</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Classe cellule pour liste chainée&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suiv</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS - Visualiser avec pythontutor</span>
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))))</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="proposition-1">Proposition 1<a class="headerlink" href="#proposition-1" title="Permanent link">⚓︎</a></h3>
+<p><em>Idée</em>:  </p>
 <ul>
-<li>ouverture d'une connection TCP à destination du serveur;</li>
-<li>envoi d'un <em>message</em> HTTP (qui est lisible en version 1.1);</li>
-<li>lecture de la réponse du serveur;</li>
-<li>fermeture ou réutilisation de la connection pour d'autres requêtes. </li>
+<li>trouver la taille <span class="arithmatex">\(n\)</span> de la liste originale;  </li>
+<li>mettre ses <span class="arithmatex">\(\left\lfloor \dfrac{n}{2}\right\rfloor\)</span> premiers éléments dans une première liste et les autres dans une seconde liste.</li>
 </ul>
-</div>
-<h3 id="envoi-dune-requete-par-le-client">Envoi d'une requête par le client<a class="headerlink" href="#envoi-dune-requete-par-le-client" title="Permanent link">⚓︎</a></h3>
-<p>La deuxième partie de la console détaille, entre autres, les requêtes du client (navigateur) envoyées au serveur. Une requête HTTP est composée d'une première ligne où figurent la <strong>méthode</strong>, le <strong>chemin</strong> de la ressource et la <strong>version du protocole</strong>. Ensuite, on trouve plusieurs lignes d'entête.<br />
-<img alt="http" src="img/HTTP_Request_2.png" />  </p>
-<p>... et dans notre cas:<br />
-<img alt="firefox1" src="img/fig1_F12_firefox.png" />  </p>
-<p>On peut avoir une signification de chaque entête en cliquant sur le point d'interrogation (<strong>sous Fierefox</strong>) associé (bouton <em>Texte brut</em> désactivé) dans la console de développement.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">taille</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Renvoie la taille d&#39;une liste l non vide&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">taille</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">taille</span><span class="p">(</span><span class="n">lst2</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">couper_liste_v1</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    coupe la liste l en deux parties (égales si la longueur de l est paire).</span>
+<span class="sd">    renvoie deux listes chainées l1 et l2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">taille</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">nb_element</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nb_element</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+        <span class="n">nb_element</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">afficher_liste</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="s1">&#39; --&gt; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">couper_liste_v1</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">lst2</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>2  --&gt; 10  --&gt; 5  --&gt; -4  --&gt; 0  --&gt; 1  --&gt; None
+5  --&gt; 10  --&gt; 2  --&gt; None
+1  --&gt; 0  --&gt; -4  --&gt; None
+</code></pre></div></td></tr></table></div>
+<h3 id="proposition-2">Proposition 2<a class="headerlink" href="#proposition-2" title="Permanent link">⚓︎</a></h3>
+<p><em>Idée</em>:  </p>
+<ul>
+<li>prendre deux éléments de la liste originale (<em>si possible</em>);</li>
+<li>disposer un élément dans <code>l1</code> et l'autre dans <code>l2</code></li>
+</ul>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
-<p>Quel est le chemin de la ressource associée à la troisième requête lors de l'affichage de la page 
-précédente?</p>
+<p>Compléter le code suivant.</p>
 </div>
-<p><img alt="firefox2" src="img/fig2_F12_firefox.png" /></p>
-<p>La méthode <em>GET</em> est utilisée pour récupérer une ressource. D'autres méthodes existent, on pourra consulter <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/M%C3%A9thode">cette page</a> pour avoir une liste complète. On utilisera notamment la méthode <em>POST</em> dans le prochain chapitre.</p>
-<h3 id="lecture-de-la-reponse-du-serveur">Lecture de la réponse du serveur<a class="headerlink" href="#lecture-de-la-reponse-du-serveur" title="Permanent link">⚓︎</a></h3>
-<p>La première ligne contient la version du protocole, un code de retour et un message de retour. On trouve ensuite des ligne d'entête comme pour les requêtes. <br />
-<img alt="response" src="img/HTTP_Response_2.png" />  </p>
-<p>... et dans notre cas:  </p>
-<p><img alt="firefox3" src="img/fig3_F12_firefox.png" />  </p>
-<p>On pourra trouver à <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status">cette adresse</a>, les codes de réponse du protocole HTTP.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">couper_liste_v2</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    coupe l en deux parties (égales si la longueur de l est paire).</span>
+<span class="sd">    renvoie deux listes chainées l1 et l2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="n">l</span><span class="p">:</span> <span class="c1"># boucle tant qu&#39;on a au moins 1 element dans l        </span>
+        <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># On en a au moins 2 !</span>
+            <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span>            
+            <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">),</span> <span class="n">Cell</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span><span class="o">.</span><span class="n">suiv</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># il n&#39;en reste qu&#39;un seul !</span>
+            <span class="n">val1</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">val</span>            
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">couper_liste_v2</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>10  --&gt; 5  --&gt; -4  --&gt; 0  --&gt; 1  --&gt; None
+1  --&gt; -4  --&gt; 10  --&gt; None
+0  --&gt; 5  --&gt; None
+</code></pre></div></td></tr></table></div>
+<h3 id="proposition-3-beaucoup-plus-tordue">Proposition 3 (<em>beaucoup plus tordue</em> &#129326;)<a class="headerlink" href="#proposition-3-beaucoup-plus-tordue" title="Permanent link">⚓︎</a></h3>
+<p><em>Idée</em>:  </p>
+<p>On parcours la liste originale et on place la valeur lue une fois dans <code>l1</code>, une fois dans <code>l2</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">couper_liste_v3</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">suiv</span>
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span>
+</code></pre></div></td></tr></table></div>
 <div class="admonition question">
 <p class="admonition-title">À faire</p>
-<p>Saisir l'URL <code>http://172.19.xxx.xxx:8080/Exercice</code> puis commentez la réponse du serveur.</p>
+<p>Vérifier la bonne compréhension du code précédent sur pythontutor</p>
 </div>
+<h2 id="comment-fusionner-deux-listes">Comment fusionner deux listes ?<a class="headerlink" href="#comment-fusionner-deux-listes" title="Permanent link">⚓︎</a></h2>
+<p>On souhaite écrire une fonction <code>fusion</code> qui prend en paramètre deux listes chaînées <code>l1</code> et <code>l2</code> (<em>que l'on suppose triées par ordre croissant</em>) et qui renvoie une liste chaînée contenant tous les éléments de <code>l1</code> et <code>l2</code> triés par ordre croissant.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Compléter le code de la fonction <code>fusion</code></p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fusion</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Fusionne récursivement l1 et l2&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l2</span>
+    <span class="k">if</span> <span class="n">l2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">l1</span>
+    <span class="k">if</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Cell</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">Cell</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">liste_finale</span> <span class="o">=</span> <span class="n">fusion</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">liste_finale</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>3  --&gt; 8  --&gt; 13  --&gt; 17  --&gt; None
+-2  --&gt; 1  --&gt; 7  --&gt; 11  --&gt; None
+-2  --&gt; 1  --&gt; 3  --&gt; 7  --&gt; 8  --&gt; 11  --&gt; 13  --&gt; 17  --&gt; None
+</code></pre></div></td></tr></table></div>
+<h2 id="comment-trier-une-liste">Comment trier une liste ?<a class="headerlink" href="#comment-trier-une-liste" title="Permanent link">⚓︎</a></h2>
+<h3 id="exemple-du-tri-fusion">Exemple du tri fusion<a class="headerlink" href="#exemple-du-tri-fusion" title="Permanent link">⚓︎</a></h3>
+<p>En utilisant les résultats précédents, écrire une fonction <code>tri_fusion</code> qui prend en paramètre une liste chaînée et qui renvoie une nouvelle liste chaînée triée.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Compléter le code de la fonction <code>tri_fusion</code></p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tri_fusion</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Réalise le tri de lst selon le paradigme diviser pour régner&quot;&quot;&quot;</span>
+    <span class="c1"># Cas de base: liste contenant 1 élément</span>
+    <span class="k">if</span> <span class="n">lst</span><span class="o">.</span><span class="n">suiv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="c1"># Cas récursif</span>
+    <span class="n">partie_1</span><span class="p">,</span> <span class="n">partie_2</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># diviser</span>
+    <span class="k">return</span> <span class="n">fusion</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1"># régner - combiner</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># TESTS</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+<span class="n">afficher_liste</span><span class="p">(</span><span class="n">tri_fusion</span><span class="p">(</span><span class="n">lst1</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>10  --&gt; 5  --&gt; -4  --&gt; 0  --&gt; 1  --&gt; None
+-4  --&gt; 0  --&gt; 1  --&gt; 5  --&gt; 10  --&gt; None
+</code></pre></div></td></tr></table></div>
 
 
 
