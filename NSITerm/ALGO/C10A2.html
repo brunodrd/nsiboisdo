@@ -6726,7 +6726,7 @@ Justifier.</p>
 </div>
 <h2 id="resolution-du-probleme-de-lalignement-de-sequences-par-programmation-dynamique">Résolution du problème de l'alignement de séquences par programmation dynamique<a class="headerlink" href="#resolution-du-probleme-de-lalignement-de-sequences-par-programmation-dynamique" title="Permanent link">⚓︎</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Point de cours 8 : sous-structure optimale et solution récursive par programmation dynamique</p>
+<p class="admonition-title">Point de cours: sous-structure optimale et solution récursive par programmation dynamique</p>
 <p>On considère la séquence 1  'GTTAACC' et la séquence 2   'CGTAAC'.</p>
 <p>Supposons qu'on dispose d'un <em>alignement</em> de ces deux séquences dont le score est maximal et examinons la dernière colonne de  cet alignement.  Trois cas sont possibles :</p>
 <ul>
@@ -6820,17 +6820,16 @@ Cette <strong>sous-structure optimale</strong> est caractéristique de la possib
 <li><span class="arithmatex">\(s(i, j) = max(1 + s(i-1, j-1), -1 + s(i,j - 1), -1 + s(i - 1,j))\)</span> si  <code>seq1[i-1]== seq2[i-1]</code> </li>
 <li><span class="arithmatex">\(s(i, j) = max(-1 + s(i-1, j-1), -1 + s(i,j - 1), -1 + s(i - 1,j))\)</span> sinon</li>
 </ul>
-<p>Les cas de base sont ceux où l'un des préfixes  est vide, avec $i = 0 $ ou <span class="arithmatex">\(j = 0\)</span> :</p>
+<p>Les cas de base sont ceux où l'un des préfixes  est vide, avec <span class="arithmatex">\(i = 0\)</span> ou <span class="arithmatex">\(j = 0\)</span> :</p>
 <ul>
 <li>si <span class="arithmatex">\(i = 0\)</span> et <span class="arithmatex">\(j = 0\)</span> alors les deux préfixes  sont vides et <span class="arithmatex">\(s(0, 0) = 0\)</span></li>
-<li>sinon si <span class="arithmatex">\(i = 0\)</span> et $ j \in [1; n]$ alors <span class="arithmatex">\(s(0, j) = -j\)</span> car le préfixe <code>seq2[:j]</code>  de longueur <span class="arithmatex">\(j\)</span> doit être aligné avec  <code>seq1[:0]</code> qui est vide, donc  les <span class="arithmatex">\(j\)</span> caractères de <code>seq2[:j]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-j\)</span></li>
-<li>sinon si <span class="arithmatex">\(i  \in [1; n]\)</span> et $ j = 0$ alors <span class="arithmatex">\(s(i, 0) = -i\)</span> car le préfixe <code>seq1[:i]</code>  de longueur <span class="arithmatex">\(i\)</span> doit être aligné avec  <code>seq2[:0]</code> qui est vide, donc  les <span class="arithmatex">\(i\)</span> caractères de <code>seq1[:i]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-i\)</span></li>
+<li>sinon si <span class="arithmatex">\(i = 0\)</span> et <span class="arithmatex">\(j \in [1; n]\)</span> alors <span class="arithmatex">\(s(0, j) = -j\)</span> car le préfixe <code>seq2[:j]</code>  de longueur <span class="arithmatex">\(j\)</span> doit être aligné avec  <code>seq1[:0]</code> qui est vide, donc  les <span class="arithmatex">\(j\)</span> caractères de <code>seq2[:j]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-j\)</span></li>
+<li>sinon si <span class="arithmatex">\(i  \in [1; n]\)</span> et <span class="arithmatex">\(j = 0\)</span> alors <span class="arithmatex">\(s(i, 0) = -i\)</span> car le préfixe <code>seq1[:i]</code>  de longueur <span class="arithmatex">\(i\)</span> doit être aligné avec  <code>seq2[:0]</code> qui est vide, donc  les <span class="arithmatex">\(i\)</span> caractères de <code>seq1[:i]</code> sont tous alignés avec des trous ce qui donne un score de <span class="arithmatex">\(-i\)</span></li>
 </ul>
 </div>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Exercice 10</p>
-<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
 <div class="admonition success">
 <p class="admonition-title">Question 1</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Énoncé</label><label for="__tabbed_5_2">Solution</label></div>
@@ -7069,7 +7068,6 @@ Cette <strong>sous-structure optimale</strong> est caractéristique de la possib
 <h1 id="resolution-iterative-par-programmation-dynamique">Résolution itérative par programmation dynamique<a class="headerlink" href="#resolution-iterative-par-programmation-dynamique" title="Permanent link">⚓︎</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Exercice 11</p>
-<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
 <div class="admonition success">
 <p class="admonition-title">Question 1</p>
 <p>On reprend l'exemple  de l'exercice 9 avec le calcul du score maximal d'alignment pour la séquence  <code>seq1</code> = 'AGTACG' et la séquence <code>seq2</code>= 'ACATAG'.</p>
@@ -7401,7 +7399,6 @@ Cette <strong>sous-structure optimale</strong> est caractéristique de la possib
 <h1 id="reconstruction-dune-alignement-optimal">Reconstruction d'une alignement optimal<a class="headerlink" href="#reconstruction-dune-alignement-optimal" title="Permanent link">⚓︎</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Exercice 12</p>
-<p><a class="md-button" href="https://capytale2.ac-paris.fr/web/c/601b-3332392">💻 Saisir ses réponses sur Capytale</a></p>
 <p>Dans cet exercice, on met en oeuvre l'étape 3 caractéristique de la <strong>programmation dynamique</strong> : la construction d'un alignement de deux séquences qui   réalise un score maximal.</p>
 <p>Comme pour le problème de la somme dans un triangle, on remplit d'abord le tableau <code>score</code> à deux dimensions             pour tous les sous-problèmes <code>score[i][j]</code>. Pour cela, on procède par <strong>programmation dynamique</strong> itérativement ou récursivement avec mémoïsation, comme dans les exercices 10 et 11. Une fois le tableau rempli on le parcourt du <em>haut</em> (<code>i</code> égal à <code>n</code> et <code>j</code> égal à <code>m</code>) vers le <em>bas</em>  (les cas de bases avec <code>i</code> ou <code>j</code> égal à 0). On  tient à jour une liste <code>alignement</code> de deux chaînes de caractères avec <code>alignement[0]</code> pour l'alignement de la séquence <code>seq1</code> et <code>alignement[1]</code> pour l'alignement de la séquence <code>seq2</code>.</p>
 <div class="admonition success">
