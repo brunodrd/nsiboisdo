@@ -3314,15 +3314,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#bilan" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bilan
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6283,14 +6274,83 @@ Pour mieux comprendre la démarche, on distingue ici trois niveaux :
 Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 <h3 id="interface-de-la-pile">Interface de la pile<a class="headerlink" href="#interface-de-la-pile" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li><code>creer(capacite)</code> : créer une pile vide bornée de taille maximale <code>capacite</code>  </li>
-<li><code>empiler(p, x)</code> : ajouter <code>x</code> au sommet de la pile <code>p</code>  </li>
-<li><code>depiler(p)</code> : retirer et renvoyer l’élément au sommet  </li>
-<li><code>sommet(p)</code> : accéder à l’élément au sommet sans le retirer  </li>
-<li><code>est_pile_vide(p)</code> : tester si la pile est vide</li>
+<li><code>creer(capacite)</code> : créer une pile vide bornée de taille maximale <code>capacite</code>;</li>
+<li><code>empiler(p, x)</code> : ajouter <code>x</code> au sommet de la pile <code>p</code>;</li>
+<li><code>depiler(p)</code> : retirer et renvoyer l’élément au sommet de la pile <code>p</code> avec la précondition <code>p</code> non vide;</li>
+<li><code>sommet(p)</code> : renvoyer l’élément au sommet de la pile <code>p</code> sans le retirer, avec la précondition <code>p</code> non vide;</li>
+<li><code>est_pile_vide(p)</code> : renvoyer un booléen indiquant si la pile <code>p</code> est vide.</li>
 </ul>
-<hr />
-<h3 id="implementation-pile-bornee-avec-pile0-comme-indice-du-sommet">Implémentation : pile bornée avec <code>pile[0]</code> comme indice du sommet<a class="headerlink" href="#implementation-pile-bornee-avec-pile0-comme-indice-du-sommet" title="Permanent link">⚓︎</a></h3>
+<h3 id="implementation-1-pile-non-bornee-avec-une-liste-python">Implémentation 1: pile non bornée avec une liste Python<a class="headerlink" href="#implementation-1-pile-non-bornee-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
+<p>On utilise directement les méthodes natives <code>append</code> et <code>pop</code> de Python, qui travaillent en fin de liste :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_pile</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple d'utilisation</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>   <span class="c1"># 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 10</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>empiler</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti</td>
+</tr>
+<tr>
+<td><code>depiler</code></td>
+<td>\mathcal{O}(1)$</td>
+</tr>
+<tr>
+<td><code>sommet_pile</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>👉 Cette implémentation est très simple, mais la pile n'a pas de capacité maximale imposée: Python redimensionne le tableau interne automatiquement.</p>
+<h3 id="implementation-2-pile-bornee-avec-pile0-comme-indice-du-sommet">Implémentation 2: pile bornée avec <code>pile[0]</code> comme indice du sommet<a class="headerlink" href="#implementation-2-pile-bornee-avec-pile0-comme-indice-du-sommet" title="Permanent link">⚓︎</a></h3>
 <p>On choisit ici une <strong>structure simple</strong> :<br />
 - un <strong>tableau</strong> de taille <code>capacite + 1</code>,<br />
 - <strong><code>pile[0]</code> contient l’indice du sommet</strong> (0 si pile vide),<br />
@@ -6331,7 +6391,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
     <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">x</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">sommet_pile</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
     <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
@@ -6344,12 +6404,14 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sommet_pile</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># 20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sommet</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># 20</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 20</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">depiler</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>      <span class="c1"># 10</span>
 </code></pre></div></td></tr></table></div>
 <p>Toutes les opérations sont en <strong>temps constant</strong> <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</p>
-<hr />
+<blockquote>
+<p>👉 Les deux implémentations respectent exactement la même interface (<code>creer</code>, <code>empiler</code>, <code>depiler</code>, <code>sommet</code>, <code>est_pile_vide</code>) et le même comportement LIFO, mais reposent sur des choix de structure différents : l'une s'appuie sur les mécanismes internes de Python, l'autre gère elle-même un tableau de taille fixe. C'est ce qui permet de parler de la pile comme d'un <strong>TAD</strong>, indépendamment de son implémentation.</p>
+</blockquote>
 <h2 id="la-structure-de-donnees-file">La structure de données File<a class="headerlink" href="#la-structure-de-donnees-file" title="Permanent link">⚓︎</a></h2>
 <h3 id="definition_1">Définition<a class="headerlink" href="#definition_1" title="Permanent link">⚓︎</a></h3>
 <p>Une <strong>file</strong> est une structure de données linéaire dans laquelle les insertions se font à une extrémité (l’arrière) et les suppressions à l’autre (l’avant).<br />
@@ -6508,14 +6570,119 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 </tbody>
 </table>
 <p>👉 Cette implémentation est une <strong>belle illustration de la distinction entre TAD et structure</strong> : la structure est ici composée de <strong>deux piles</strong> au lieu d’un tableau ou d’une liste.</p>
-<hr />
-<h2 id="bilan">Bilan<a class="headerlink" href="#bilan" title="Permanent link">⚓︎</a></h2>
+<h3 id="3-nouvelle-implementation-de-la-file-tableau-circulaire-borne">3. Nouvelle implémentation de la file : tableau circulaire borné<a class="headerlink" href="#3-nouvelle-implementation-de-la-file-tableau-circulaire-borne" title="Permanent link">⚓︎</a></h3>
+<p>À insérer entre l'implémentation triviale (liste Python) et l'implémentation à deux piles.</p>
+<blockquote>
+<p>🟦 <strong>Pourquoi une file par tableau ?</strong></p>
+<p>Le programme officiel cite la file comme exemple d'une structure implémentable « avec un tableau ou avec deux piles ». La version triviale (<code>pop(0)</code>) est coûteuse car Python doit décaler tous les éléments. Une solution classique consiste à utiliser un tableau de taille fixe et à faire « tourner » les indices de tête et de queue : c'est le principe du <strong>tampon circulaire</strong>.</p>
+</blockquote>
+<h4 id="principe_1">Principe<a class="headerlink" href="#principe_1" title="Permanent link">⚓︎</a></h4>
 <ul>
-<li>La <strong>pile</strong> et la <strong>file</strong> sont deux structures fondamentales, dont on peut décrire le comportement abstrait puis choisir différentes structures concrètes pour les réaliser :</li>
-<li>Pour la <strong>pile</strong> : tableau simple (<code>pile[0]</code> = sommet),</li>
-<li>Pour la <strong>file</strong> : liste Python (simple) ou deux piles (efficace).  </li>
-<li>Ces exemples montrent bien qu’un <strong>même comportement abstrait</strong> peut être implémenté de plusieurs manières différentes.</li>
+<li>On réserve un tableau de <code>capacite</code> cases.</li>
+<li>Deux informations suffisent pour gérer la file : l'indice de la <strong>tête</strong> (premier élément) et le <strong>nombre d'éléments</strong> actuellement stockés.</li>
+<li>Quand on enfile ou défile, on avance les indices <strong>modulo la capacité</strong> : quand on atteint la fin du tableau, on revient au début, comme sur un cadran d'horloge.</li>
 </ul>
+<h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">⚓︎</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file_circulaire</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
+    <span class="c1"># f[0] : indice de la tête</span>
+    <span class="c1"># f[1] : nombre d&#39;éléments actuellement stockés</span>
+    <span class="c1"># f[2:] : le tableau de stockage, de taille &quot;capacite&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacite</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">est_file_circulaire_vide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">capacite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">capacite</span><span class="p">,</span> <span class="s2">&quot;Erreur file pleine&quot;</span>
+    <span class="n">indice</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="n">capacite</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">indice</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_file_circulaire_vide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
+    <span class="n">capacite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacite</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Exemple d'utilisation (on observe le "tour" du tableau)</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_circulaire</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># A -&gt; la tête avance</span>
+<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>     <span class="c1"># D vient se ranger au début du tableau, la file &quot;boucle&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># C</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># D</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enfiler_circulaire</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> — pas seulement amorti, réellement constant</td>
+</tr>
+<tr>
+<td><code>defiler_circulaire</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> — réellement constant</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Contrairement à la version « deux piles », dont le coût n'est constant qu'<strong>en moyenne</strong> (le transfert ponctuel coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span>), le tampon circulaire garantit un coût constant à <strong>chaque</strong> appel, au prix d'une capacité fixée à l'avance.</p>
+<hr />
+<blockquote>
+<p><strong>Bilan</strong></p>
+<p>On a maintenant vu, pour la pile comme pour la file, <strong>plusieurs implémentations d'une même interface</strong> :</p>
+<ul>
+<li>Pile : liste Python (<code>append</code>/<code>pop</code>), ou tableau borné avec un indice de sommet.</li>
+<li>File : liste Python (<code>append</code>/<code>pop(0)</code>), tableau circulaire borné, ou deux piles.</li>
+</ul>
+<p>Toutes ces implémentations respectent la même interface (les mêmes opérations, avec le même comportement LIFO ou FIFO), mais diffèrent par :</p>
+<ul>
+<li>la façon dont les données sont stockées en mémoire,</li>
+<li>la présence ou non d'une capacité maximale,</li>
+<li>le coût en temps de chaque opération (constant, constant amorti, ou linéaire).</li>
+</ul>
+<p>C'est précisément cette capacité à décrire un comportement indépendamment de sa mise en œuvre concrète que l'on appelle un <strong>TAD (Type Abstrait de Données)</strong> : un même TAD peut être réalisé par plusieurs structures de données différentes, et le choix de l'implémentation se fait selon les contraintes du problème (mémoire disponible, besoin d'un coût garanti constant, simplicité du code, etc.).</p>
+</blockquote>
 
 
 
