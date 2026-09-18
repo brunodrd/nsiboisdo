@@ -6268,7 +6268,7 @@
   → C’est le <strong>code</strong> qui réalise les opérations du TAD avec une structure donnée.</p>
 </li>
 </ul>
-<p>📌 Un même TAD peut être implémenté par plusieurs structures différentes, et une même structure peut servir à plusieurs TAD.</p>
+<p>📌 Le constructeur (<code>creer</code>) peut varier d'une implémentation à l'autre : son rôle est d'initialiser la représentation choisie, et cette initialisation dépend nécessairement de la structure retenue (ex. une capacité pour un tableau). Ce qui doit en revanche rester strictement identique, c'est l'ensemble des opérations qui manipulent une instance déjà créée.</p>
 </blockquote>
 <hr />
 <h2 id="la-structure-de-donnees-pile">La structure de données Pile<a class="headerlink" href="#la-structure-de-donnees-pile" title="Permanent link">⚓︎</a></h2>
@@ -6355,10 +6355,14 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 </table>
 <p>👉 Cette implémentation est très simple, mais la pile n'a pas de capacité maximale imposée: Python redimensionne le tableau interne automatiquement.</p>
 <h3 id="implementation-2-pile-bornee-avec-pile0-comme-indice-du-sommet">Implémentation 2: pile bornée avec <code>pile[0]</code> comme indice du sommet<a class="headerlink" href="#implementation-2-pile-bornee-avec-pile0-comme-indice-du-sommet" title="Permanent link">⚓︎</a></h3>
-<p>On choisit ici une <strong>structure simple</strong> :<br />
-- un <strong>tableau</strong> de taille <code>capacite + 1</code>,<br />
-- <strong><code>pile[0]</code> contient l’indice du sommet</strong> (0 si pile vide),<br />
-- les <strong>éléments empilés</strong> sont stockés à partir de l’indice 1.</p>
+<p>On choisit ici une structure à <strong>capacité fixée à l'avance</strong>, plus proche de ce qu'est un tableau en mémoire (contrairement à la liste Python de l'implémentation 1, qui se redimensionne automatiquement):</p>
+<ul>
+<li>un tableau de taille <code>capacite + 1</code>;</li>
+<li>une <em>case</em> <code>pile[0]</code> qui sert de métadonnée: elle stocke le nombre d'éléments actuellement empilés, qui est aussi l'indice de la case occupée par le sommet (0 si la pile est vide);</li>
+<li>les éléments empilés eux-mêmes sont stockés à partir de l'indice 1.</li>
+</ul>
+<p>👉 Cette case <code>pile[0]</code> joue donc un double rôle (compteur et indice), ce qui permet d'économiser une variable supplémentaire — au prix d'une petite gymnastique mentale, illustrée ci-dessous:</p>
+<p><img alt="pile bornée" src="img/pile_bornee.pdf" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6414,7 +6418,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 </code></pre></div></td></tr></table></div>
 <p>Toutes les opérations sont en <strong>temps constant</strong> <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</p>
 <blockquote>
-<p>👉 Les deux implémentations respectent exactement la même interface (<code>creer</code>, <code>empiler</code>, <code>depiler</code>, <code>sommet</code>, <code>est_pile_vide</code>) et le même comportement LIFO, mais reposent sur des choix de structure différents : l'une s'appuie sur les mécanismes internes de Python, l'autre gère elle-même un tableau de taille fixe. C'est ce qui permet de parler de la pile comme d'un <strong>TAD</strong>, indépendamment de son implémentation.</p>
+<p>👉 En dehors de leur constructeur, les deux implémentations respectent exactement la même interface (<code>empiler</code>, <code>depiler</code>, <code>sommet</code>, <code>est_pile_vide</code>) et le même comportement LIFO, mais reposent sur des choix de structure différents: l'une s'appuie sur les mécanismes internes de Python, l'autre gère elle-même un tableau de taille fixe. C'est ce qui permet de parler de la pile comme d'un <strong>TAD</strong>, indépendamment de son implémentation.</p>
 </blockquote>
 <h2 id="la-structure-de-donnees-file">La structure de données File<a class="headerlink" href="#la-structure-de-donnees-file" title="Permanent link">⚓︎</a></h2>
 <h3 id="definition_1">Définition<a class="headerlink" href="#definition_1" title="Permanent link">⚓︎</a></h3>
@@ -6679,7 +6683,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <li>Pile : liste Python (<code>append</code>/<code>pop</code>), ou tableau borné avec un indice de sommet.</li>
 <li>File : liste Python (<code>append</code>/<code>pop(0)</code>), tableau circulaire borné, ou deux piles.</li>
 </ul>
-<p>Toutes ces implémentations respectent la même interface (les mêmes opérations, avec le même comportement LIFO ou FIFO), mais diffèrent par :</p>
+<p>Toutes ces implémentations respectent la même interface pour les opérations sur une pile déjà créée (<em>même si leur constructeur diffère selon les besoins propres à chaque structure</em>). Cependant, elles diffèrent par:</p>
 <ul>
 <li>la façon dont les données sont stockées en mémoire,</li>
 <li>la présence ou non d'une capacité maximale,</li>
