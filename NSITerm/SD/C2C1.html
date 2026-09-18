@@ -6233,17 +6233,20 @@
 
 <h1 id="les-structures-de-donnees-lineaires-piles-et-files">Les structures de données linéaires piles et files<a class="headerlink" href="#les-structures-de-donnees-lineaires-piles-et-files" title="Permanent link">⚓︎</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
-<p>Les structures de données linéaires permettent de <strong>regrouper des données</strong> et de <strong>définir des opérations de base</strong> pour les manipuler.<br />
-Elles sont dites “linéaires” car les éléments sont organisés les uns à la suite des autres.</p>
-<p>Dans le programme NSI, cette partie s’inscrit dans le thème <strong>« Structures de données »</strong>.<br />
-Pour mieux comprendre la démarche, on distingue ici trois niveaux :
-- la <strong>description abstraite</strong> du comportement attendu (souvent appelée <em>TAD</em> en algorithmique),
-- la <strong>structure de données concrète</strong> utilisée en mémoire,
-- l’<strong>implémentation</strong> de ces opérations en code.</p>
-<p>Parmi les structures linéaires les plus courantes, on trouve :<br />
-- la <strong>pile</strong> (LIFO),<br />
-- la <strong>file</strong> (FIFO),<br />
-- la <strong>liste</strong>.</p>
+<p>Les structures de données linéaires permettent de <strong>regrouper des données</strong> et de <strong>définir des opérations de base</strong> pour les manipuler. Elles sont dites <em>linéaires</em> car les éléments sont organisés les uns à la suite des autres.</p>
+<p>Dans le programme NSI, cette partie s’inscrit dans le thème <strong>« Structures de données »</strong>.  </p>
+<p>Pour mieux comprendre la démarche, on distingue ici trois niveaux :</p>
+<ul>
+<li>la <strong>description abstraite</strong> du comportement attendu (souvent appelée <em>TAD</em> en algorithmique);</li>
+<li>la <strong>structure de données concrète</strong> utilisée en mémoire;</li>
+<li>l’<strong>implémentation</strong> de ces opérations en code.</li>
+</ul>
+<p>Parmi les structures linéaires courantes étudiées en NSI, on trouve :</p>
+<ul>
+<li>la <strong>pile</strong> (LIFO);</li>
+<li>la <strong>file</strong> (FIFO);</li>
+<li>la <strong>liste</strong>.</li>
+</ul>
 <hr />
 <blockquote>
 <p>🟦 <strong>TAD, Structure de données, Implémentation : bien faire la distinction</strong></p>
@@ -6280,6 +6283,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 <li><code>sommet(p)</code> : renvoyer l’élément au sommet de la pile <code>p</code> sans le retirer, avec la précondition <code>p</code> non vide;</li>
 <li><code>est_pile_vide(p)</code> : renvoyer un booléen indiquant si la pile <code>p</code> est vide.</li>
 </ul>
+<p><img alt="Fig.1 Structure de données PILE" src="img/pile_sch1.png" /></p>
 <h3 id="implementation-1-pile-non-bornee-avec-une-liste-python">Implémentation 1: pile non bornée avec une liste Python<a class="headerlink" href="#implementation-1-pile-non-bornee-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
 <p>On utilise directement les méthodes natives <code>append</code> et <code>pop</code> de Python, qui travaillent en fin de liste :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6341,7 +6345,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 </tr>
 <tr>
 <td><code>depiler</code></td>
-<td>\mathcal{O}(1)$</td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
 </tr>
 <tr>
 <td><code>sommet_pile</code></td>
@@ -6418,12 +6422,12 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <h3 id="interface-de-la-file">Interface de la file<a class="headerlink" href="#interface-de-la-file" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li><code>creer()</code> : créer une file vide  </li>
+<li><code>creer_file()</code> : créer une file vide  </li>
 <li><code>enfiler(f, x)</code> : ajouter <code>x</code> à l’arrière  </li>
 <li><code>defiler(f)</code> : retirer et renvoyer l’élément en tête  </li>
 <li><code>est_file_vide(f)</code> : tester si la file est vide</li>
 </ul>
-<hr />
+<p><img alt="Struture de données FILE" src="img/file_sch1.png" /></p>
 <h3 id="1-implementation-triviale-avec-une-liste-python">1. Implémentation triviale avec une liste Python<a class="headerlink" href="#1-implementation-triviale-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
 <p>On peut utiliser directement les méthodes natives <code>append</code> et <code>pop(0)</code> de Python :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
