@@ -6283,7 +6283,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 <li><code>sommet(p)</code> : renvoyer l’élément au sommet de la pile <code>p</code> sans le retirer, avec la précondition <code>p</code> non vide;</li>
 <li><code>est_pile_vide(p)</code> : renvoyer un booléen indiquant si la pile <code>p</code> est vide.</li>
 </ul>
-<p><img alt="Fig.1 Structure de données PILE" src="img/pile_sch1.png" /></p>
+<p><img alt="Fig.1 Structure de données PILE" src="img/pile_sch1.png" width="60%" /></p>
 <h3 id="implementation-1-pile-non-bornee-avec-une-liste-python">Implémentation 1: pile non bornée avec une liste Python<a class="headerlink" href="#implementation-1-pile-non-bornee-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
 <p>On utilise directement les méthodes natives <code>append</code> et <code>pop</code> de Python, qui travaillent en fin de liste :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6431,7 +6431,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <li><code>defiler(f)</code> : retirer et renvoyer l’élément en tête  </li>
 <li><code>est_file_vide(f)</code> : tester si la file est vide</li>
 </ul>
-<p><img alt="Struture de données FILE" src="img/file_sch1.png" width="80%" /></p>
+<p><img alt="Struture de données FILE" src="img/file_sch1.png" width="60%" /></p>
 <h3 id="1-implementation-triviale-avec-une-liste-python">1. Implémentation triviale avec une liste Python<a class="headerlink" href="#1-implementation-triviale-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
 <p>On peut utiliser directement les méthodes natives <code>append</code> et <code>pop(0)</code> de Python :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6598,7 +6598,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <li>Seul l'indice de la tête avance réellement, d'un cran à chaque <code>defiler</code>, modulo la capacité : arrivé en fin de tableau, il revient au début, comme sur un cadran d'horloge.</li>
 <li>La case où insérer un nouvel élément (lors d'un <code>enfiler</code>) n'est pas mémorisée séparément : elle est recalculée à chaque appel, à partir de la tête et du nombre d'éléments — (tête + nombre d'éléments) % capacite.</li>
 </ul>
-<p><img alt="file tableau circulaire" src="img/file_tab_circulaire.svg" width="80%" /></p>
+<p><img alt="file tableau circulaire" src="img/file_tab_circulaire.svg" width="90%" /></p>
 <h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
