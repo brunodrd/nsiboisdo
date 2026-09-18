@@ -6598,7 +6598,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <li>Seul l'indice de la tête avance réellement, d'un cran à chaque <code>defiler</code>, modulo la capacité : arrivé en fin de tableau, il revient au début, comme sur un cadran d'horloge.</li>
 <li>La case où insérer un nouvel élément (lors d'un <code>enfiler</code>) n'est pas mémorisée séparément : elle est recalculée à chaque appel, à partir de la tête et du nombre d'éléments — (tête + nombre d'éléments) % capacite.</li>
 </ul>
-<p><img alt="file tableau circulaire" src="img/file_tab_circulaire.svg" width="90%" /></p>
+<p><img alt="file tableau circulaire" src="img/file_tab_circulaire_v2.svg" width="90%" /></p>
 <h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6647,23 +6647,37 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
     <span class="k">return</span> <span class="n">x</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Exemple d'utilisation (on observe le "tour" du tableau)</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
 <span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
 <span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># A -&gt; la tête avance</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>     <span class="c1"># D vient se ranger au début du tableau, la file &quot;boucle&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># C</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># D</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="c1"># f = [0, 6, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;]  &lt;- état du panneau 1 (tête=0, taille=6, plein)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># &#39;A&#39;</span>
+<span class="c1"># f = [1, 5, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;]  &lt;- tête avance à 1, taille redescend à 5</span>
+<span class="c1">#     (&#39;A&#39; est encore physiquement présent en f[2], mais n&#39;est plus lu : hors de la file)</span>
+
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span>
+<span class="c1"># indice d&#39;écriture = (tête + taille) % capacite = (1 + 5) % 6 = 0</span>
+<span class="c1"># f = [1, 6, &#39;G&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;]  &lt;- état du panneau 2 (tête=1, taille=6, plein)</span>
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>
