@@ -6362,7 +6362,7 @@ Elle suit la règle <strong>LIFO</strong> (<em>Last In, First Out</em>).</p>
 <li>les éléments empilés eux-mêmes sont stockés à partir de l'indice 1.</li>
 </ul>
 <p>👉 Cette case <code>pile[0]</code> joue donc un double rôle (compteur et indice), ce qui permet d'économiser une variable supplémentaire — au prix d'une petite gymnastique mentale, illustrée ci-dessous:</p>
-<p><img alt="pile bornée" src="img/pile_bornee.svg" /></p>
+<p><img alt="pile bornée" src="img/pile_bornee.svg" width="80%" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6431,7 +6431,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <li><code>defiler(f)</code> : retirer et renvoyer l’élément en tête  </li>
 <li><code>est_file_vide(f)</code> : tester si la file est vide</li>
 </ul>
-<p><img alt="Struture de données FILE" src="img/file_sch1.png" /></p>
+<p><img alt="Struture de données FILE" src="img/file_sch1.png" width="80%" /></p>
 <h3 id="1-implementation-triviale-avec-une-liste-python">1. Implémentation triviale avec une liste Python<a class="headerlink" href="#1-implementation-triviale-avec-une-liste-python" title="Permanent link">⚓︎</a></h3>
 <p>On peut utiliser directement les méthodes natives <code>append</code> et <code>pop(0)</code> de Python :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6490,16 +6490,19 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <p>👉 Cette version est très simple à comprendre, mais <code>defiler</code> est <strong>de complexité en temps linéaire</strong> car Python doit décaler tous les éléments de la liste.</p>
 <hr />
 <h3 id="2-implementation-avec-deux-piles">2. Implémentation avec deux piles<a class="headerlink" href="#2-implementation-avec-deux-piles" title="Permanent link">⚓︎</a></h3>
-<p>Le programme NSI demande de présenter la <strong>construction d’une file à partir de deux piles</strong>.</p>
-<h4 id="principe">📌 Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h4>
+<p>Le programme officiel cite cette construction comme illustration pour faire émerger la notion d'abstraction d'une structure de données.</p>
+<p><strong>Principe</strong></p>
 <ul>
-<li><code>enfiler(x)</code> → empiler <code>x</code> sur la pile <strong>entree</strong>.  </li>
-<li><code>defiler()</code> :</li>
-<li>si la pile <strong>sortie</strong> est vide → transférer tous les éléments d’<strong>entree</strong> vers <strong>sortie</strong> (inverser l’ordre),</li>
-<li>dépiler le sommet de <strong>sortie</strong>.</li>
+<li><code>enfiler(f, x)</code> → empiler <code>x</code> sur la pile <code>entree</code> de <code>f</code>.</li>
+<li><code>defiler(f)</code>:<ol>
+<li>Si la pile <code>sortie</code> est vide, transférer tous les éléments de <code>entree</code> vers <code>sortie</code> (<em>cette opération inverse leur ordre</em>).</li>
+<li>Dépiler et renvoyer le sommet de <code>sortie</code>.</li>
+</ol>
+</li>
 </ul>
 <p>Chaque élément est transféré <strong>au plus une fois</strong> → complexité <strong>amortie en O(1)</strong>.</p>
-<h4 id="code">🧰 Code<a class="headerlink" href="#code" title="Permanent link">⚓︎</a></h4>
+<p><img alt="file avec 2 piles" src="img/file_pile_v5.svg" width="80%" /></p>
+<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6519,28 +6522,29 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file_piles</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
-    <span class="n">entree</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">)</span>
-    <span class="n">sortie</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">)</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">():</span>
+    <span class="n">entree</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+    <span class="n">sortie</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">est_vide_file_piles</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">est_vide_file</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
     <span class="k">return</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">entree</span><span class="p">)</span> <span class="ow">and</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
     <span class="n">empiler</span><span class="p">(</span><span class="n">entree</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">entree</span><span class="p">,</span> <span class="n">sortie</span> <span class="o">=</span> <span class="n">f</span>
     <span class="k">if</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">):</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">entree</span><span class="p">):</span>
             <span class="n">empiler</span><span class="p">(</span><span class="n">sortie</span><span class="p">,</span> <span class="n">depiler</span><span class="p">(</span><span class="n">entree</span><span class="p">))</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_pile_vide</span><span class="p">(</span><span class="n">sortie</span><span class="p">),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
     <span class="k">return</span> <span class="n">depiler</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Exemple d'utilisation</strong></p>
+<p><strong>Attention: dans le cas d'une utilisation de notebook Jupyter (comme sur Capytale), pensez à réexécuter la cellule de l'implémentation 1 des piles</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6549,7 +6553,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_piles</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_piles</span><span class="p">()</span>
 <span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
 <span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
 <span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
@@ -6579,17 +6583,22 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 </table>
 <p>👉 Cette implémentation est une <strong>belle illustration de la distinction entre TAD et structure</strong> : la structure est ici composée de <strong>deux piles</strong> au lieu d’un tableau ou d’une liste.</p>
 <h3 id="3-nouvelle-implementation-de-la-file-tableau-circulaire-borne">3. Nouvelle implémentation de la file : tableau circulaire borné<a class="headerlink" href="#3-nouvelle-implementation-de-la-file-tableau-circulaire-borne" title="Permanent link">⚓︎</a></h3>
-<p>À insérer entre l'implémentation triviale (liste Python) et l'implémentation à deux piles.</p>
 <blockquote>
 <p>🟦 <strong>Pourquoi une file par tableau ?</strong></p>
 <p>Le programme officiel cite la file comme exemple d'une structure implémentable « avec un tableau ou avec deux piles ». La version triviale (<code>pop(0)</code>) est coûteuse car Python doit décaler tous les éléments. Une solution classique consiste à utiliser un tableau de taille fixe et à faire « tourner » les indices de tête et de queue : c'est le principe du <strong>tampon circulaire</strong>.</p>
 </blockquote>
-<h4 id="principe_1">Principe<a class="headerlink" href="#principe_1" title="Permanent link">⚓︎</a></h4>
+<h4 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h4>
 <ul>
 <li>On réserve un tableau de <code>capacite</code> cases.</li>
-<li>Deux informations suffisent pour gérer la file : l'indice de la <strong>tête</strong> (premier élément) et le <strong>nombre d'éléments</strong> actuellement stockés.</li>
-<li>Quand on enfile ou défile, on avance les indices <strong>modulo la capacité</strong> : quand on atteint la fin du tableau, on revient au début, comme sur un cadran d'horloge.</li>
+<li>Deux informations suffisent pour gérer la file:<ul>
+<li>l'indice de la tête (la case du premier élément);</li>
+<li>le nombre d'éléments actuellement stockés (<em>une valeur qui varie entre</em> <code>0</code> <em>et</em> <code>capacite</code>, <em>sans jamais « boucler »</em>).</li>
 </ul>
+</li>
+<li>Seul l'indice de la tête avance réellement, d'un cran à chaque <code>defiler</code>, modulo la capacité : arrivé en fin de tableau, il revient au début, comme sur un cadran d'horloge.</li>
+<li>La case où insérer un nouvel élément (lors d'un <code>enfiler</code>) n'est pas mémorisée séparément : elle est recalculée à chaque appel, à partir de la tête et du nombre d'éléments — (tête + nombre d'éléments) % capacite.</li>
+</ul>
+<p><img alt="file tableau circulaire" src="img/file_tab_circulaire.svg" width="80%" /></p>
 <h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">⚓︎</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6613,24 +6622,24 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file_circulaire</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
     <span class="c1"># f[0] : indice de la tête</span>
     <span class="c1"># f[1] : nombre d&#39;éléments actuellement stockés</span>
     <span class="c1"># f[2:] : le tableau de stockage, de taille &quot;capacite&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacite</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">est_file_circulaire_vide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">est_file_vide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">capacite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
     <span class="k">assert</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">capacite</span><span class="p">,</span> <span class="s2">&quot;Erreur file pleine&quot;</span>
     <span class="n">indice</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="n">capacite</span>
     <span class="n">f</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">indice</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_file_circulaire_vide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_file_vide</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
     <span class="n">capacite</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
     <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacite</span>
@@ -6646,15 +6655,15 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_circulaire</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
-<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
-<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># A -&gt; la tête avance</span>
-<span class="n">enfiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>     <span class="c1"># D vient se ranger au début du tableau, la file &quot;boucle&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># C</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_circulaire</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># D</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># A -&gt; la tête avance</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>     <span class="c1"># D vient se ranger au début du tableau, la file &quot;boucle&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># C</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>   <span class="c1"># D</span>
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>
