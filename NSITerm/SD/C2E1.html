@@ -3338,9 +3338,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-4-file-bornee" class="md-nav__link">
+  <a href="#exercice-4-extrait-bac" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 4 - File bornée
+      Exercice 4 - extrait bac
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question 4
     </span>
   </a>
   
@@ -6263,113 +6299,43 @@ La valeur d’une telle expression peut être calculée facilement en utilisant 
 <h2 id="exercice-3-chaines-bien-parenthesees">Exercice 3 - Chaînes bien parenthésées<a class="headerlink" href="#exercice-3-chaines-bien-parenthesees" title="Permanent link">⚓︎</a></h2>
 <p>On considère une chaîne de caractères incluant à la fois des parenthèses rondes <code>(</code> et <code>)</code> et des parenthèses carrées <code>[</code> et <code>]</code> . La chaîne est bien parenthésée si chaque ouvrante est associée à une unique fermante de même forme, et réciproquement.  </p>
 <p>Écrire une fonction prenant en paramètre une chaîne de caractères contenant, entre autres, les parenthèses décrites et qui renvoie <code>True</code> si la chaîne est bien parenthésée et <code>False</code> sinon.</p>
-<h2 id="exercice-4-file-bornee">Exercice 4 - File bornée<a class="headerlink" href="#exercice-4-file-bornee" title="Permanent link">⚓︎</a></h2>
-<p>On propose ici une autre réalisation possible d'une file bornée à partir d'un tableau.  Les extrémités de la file seront repérées par deux index <code>tete</code> et <code>queue</code>. On enfile par la queue et défile par la tête.  </p>
-<p>Soit <code>MAXFILE</code> la capacité de la file. On prévoit un tableau de taille <code>MAXFILE+3</code> car on souhaite stocker également:</p>
+<h2 id="exercice-4-extrait-bac">Exercice 4 - extrait bac<a class="headerlink" href="#exercice-4-extrait-bac" title="Permanent link">⚓︎</a></h2>
+<p><em>Notion abordée : structures de données : les piles.</em></p>
+<p>Dans cet exercice, on considère une pile d'entiers positifs. On suppose que les quatre fonctions suivantes ont été programmées préalablement en langage Python :</p>
 <ul>
-<li>la position de la tête (index 0);  </li>
-<li>la position de la queue (index 1);  </li>
-<li>le nombre d'élément présent dans la file (index 3)  </li>
+<li><code>empiler(P, e)</code> : ajoute l'élément <code>e</code> sur la pile <code>P</code> ;</li>
+<li><code>depiler(P)</code> : enlève le sommet de la pile <code>P</code> et retourne la valeur de ce sommet ;</li>
+<li><code>est_vide(P)</code> : retourne <code>True</code> si la pile est vide et <code>False</code> sinon ;</li>
+<li><code>creer_pile()</code> : retourne une pile vide.</li>
 </ul>
-<p>La position de la queue indique l'endroit où sera enfilée la prochaine donnée et la position de la tête, la prochaine donnée qui sera défilée.<br />
-La figure (a) ci-dessous montre l'état d'une file <code>f</code> de ce type et de capacité maximale 7, dans laquelle figurent déjà 4 éléments. À partir de cette situation et après les opérations:  </p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-on se trouve dans la situation (b).</p>
-<p><img alt="file" src="img/file_tab.png" /></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">MAXFILE</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># Capacité de la pile</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">creer_file</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">MAXFILE</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">est_pleine</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="c1"># A compléter</span>
-    <span class="k">pass</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>
-<p>A partir des informations disponibles:  </p>
-<ul>
-<li>dire combien d'opérations sont autorisées sur cette structure;</li>
-<li>rédiger leur spécification.</li>
-</ul>
-</li>
-<li>
-<p>Prévoir les réponses de l'interpréteur python après les séquences de commandes ci-dessous (<em>qui se suivent!</em>).</p>
-</li>
-<li>
-<p>Proposer une implémentation pour <code>enfiler</code> et <code>defiler</code>.</p>
-</li>
-</ol>
-<p>Séquence 1
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f1</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
-<span class="n">est_vide</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<p>Séquence 2
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">enfiler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">est_vide</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<p>Séquence 3
+<p><strong>Dans cet exercice, seule l'utilisation de ces quatre fonctions sur la structure de données pile est autorisée.</strong></p>
+<h2 id="question-1">Question 1<a class="headerlink" href="#question-1" title="Permanent link">⚓︎</a></h2>
+<p>Recopier le schéma ci-dessous et le compléter sur votre copie en exécutant les appels de fonctions donnés. On écrira ce que renvoie la fonction utilisée dans chaque cas, et on indiquera <code>None</code> si la fonction ne retourne aucune valeur.</p>
+<p><img alt="Évolution de la pile" src="img/q1.svg" /></p>
+<h2 id="question-2">Question 2<a class="headerlink" href="#question-2" title="Permanent link">⚓︎</a></h2>
+<p>On propose la fonction ci-dessous, qui prend en argument une pile <code>P</code> et renvoie un couple de piles :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">enfiler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="o">-</span><span class="mi">35</span><span class="p">)</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">f1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<p>Séquence 4
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f2</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">enfiler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">transforme</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">depile</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+        <span class="n">empile</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p>Recopier et compléter sur votre copie le document ci-dessous.</p>
+<p><img alt="Exécution de la fonction transforme" src="img/q2.svg" /></p>
+<h2 id="question-3">Question 3<a class="headerlink" href="#question-3" title="Permanent link">⚓︎</a></h2>
+<p>Écrire une fonction en langage Python <code>maximum(P)</code> recevant une pile <code>P</code> comme argument et qui renvoie la valeur maximale de cette pile. On ne s'interdit pas qu'après exécution de la fonction, la pile soit vide.</p>
+<p>On souhaite connaître le nombre d'éléments d'une pile à l'aide de la fonction <code>taille(P)</code>.</p>
+<p><img alt="Pile utilisée pour illustrer la fonction taille" src="img/q3.svg" /></p>
+<p><code>taille(P)</code> retournera donc l'entier <code>5</code>.</p>
+<h2 id="question-4">Question 4<a class="headerlink" href="#question-4" title="Permanent link">⚓︎</a></h2>
+<p><strong>a.</strong> Proposer une stratégie permettant de programmer la fonction <code>taille(P)</code>.</p>
+<p><strong>b.</strong> Écrire en langage Python le code de la fonction <code>taille(P)</code> en utilisant les cinq fonctions déjà programmées.</p>
 
 
 
