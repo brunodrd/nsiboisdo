@@ -6503,6 +6503,9 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <p>Chaque élément est transféré <strong>au plus une fois</strong> → complexité <strong>amortie en O(1)</strong>.</p>
 <p><img alt="file avec 2 piles" src="img/file_pile_v5.svg" width="80%" /></p>
 <h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">⚓︎</a></h4>
+<blockquote>
+<p>⚠️ Cette implémentation suppose des piles non bornées : elle appelle <code>creer_pile()</code> sans capacité. Si vous avez exécuté après elle la cellule de l'implémentation 2 de la pile (bornée), réexécutez d'abord la cellule de l'implémentation 1 avant de tester cette section.</p>
+</blockquote>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6544,7 +6547,6 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
     <span class="k">return</span> <span class="n">depiler</span><span class="p">(</span><span class="n">sortie</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Exemple d'utilisation</strong></p>
-<p><strong>Attention: dans le cas d'une utilisation de notebook Jupyter (comme sur Capytale), pensez à réexécuter la cellule de l'implémentation 1 des piles</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6553,15 +6555,15 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file_piles</span><span class="p">()</span>
-<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
-<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
-<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># A</span>
-<span class="n">enfiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># C</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">defiler_piles</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># D</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">creer_file</span><span class="p">()</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># A</span>
+<span class="n">enfiler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># C</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">defiler</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>  <span class="c1"># D</span>
 </code></pre></div></td></tr></table></div>
 <table>
 <thead>
@@ -6688,11 +6690,11 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 </thead>
 <tbody>
 <tr>
-<td><code>enfiler_circulaire</code></td>
+<td><code>enfiler</code></td>
 <td><span class="arithmatex">\(\mathcal{O}(1)\)</span> — pas seulement amorti, réellement constant</td>
 </tr>
 <tr>
-<td><code>defiler_circulaire</code></td>
+<td><code>defiler</code></td>
 <td><span class="arithmatex">\(\mathcal{O}(1)\)</span> — réellement constant</td>
 </tr>
 </tbody>
@@ -6700,7 +6702,7 @@ Elle suit la règle <strong>FIFO</strong> (<em>First In, First Out</em>).</p>
 <p>👉 Contrairement à la version « deux piles », dont le coût n'est constant qu'<strong>en moyenne</strong> (le transfert ponctuel coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span>), le tampon circulaire garantit un coût constant à <strong>chaque</strong> appel, au prix d'une capacité fixée à l'avance.</p>
 <hr />
 <blockquote>
-<p><strong>Bilan</strong></p>
+<p><strong>Bilan - À retenir</strong></p>
 <p>On a maintenant vu, pour la pile comme pour la file, <strong>plusieurs implémentations d'une même interface</strong> :</p>
 <ul>
 <li>Pile : liste Python (<code>append</code>/<code>pop</code>), ou tableau borné avec un indice de sommet.</li>
