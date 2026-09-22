@@ -3329,9 +3329,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-3-chaines-bien-parenthesees" class="md-nav__link">
+  <a href="#exercice-guide-la-chaine-bien-parenthesee" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 3 - Chaînes bien parenthésées
+      Exercice guidé : la chaîne bien parenthésée
     </span>
   </a>
   
@@ -6260,9 +6260,213 @@ La valeur d’une telle expression peut être calculée facilement en utilisant 
 <p>Si l'expression était bien écrite, il y a bien toujours deux nombres sur la pile lorsque l’on voit un opérateur, et à la fin du processus il <strong>reste exactement un nombre sur la pile, qui est le résultat</strong>.  </p>
 <p>Écrire une fonction prenant en paramètre une chaîne de caractères représentant une expression en notation polonaise inverse composée d’additions et de de multiplications de nombres entiers et renvoyant la valeur de cette expression.  </p>
 <p><em>On supposera que les éléments de l'expression sont séparés par des espaces. Attention, cette fonction ne doit pas renvoyer de résultat si l'expression est mal écrite</em>.</p>
-<h2 id="exercice-3-chaines-bien-parenthesees">Exercice 3 - Chaînes bien parenthésées<a class="headerlink" href="#exercice-3-chaines-bien-parenthesees" title="Permanent link">⚓︎</a></h2>
-<p>On considère une chaîne de caractères incluant à la fois des parenthèses rondes <code>(</code> et <code>)</code> et des parenthèses carrées <code>[</code> et <code>]</code> . La chaîne est bien parenthésée si chaque ouvrante est associée à une unique fermante de même forme, et réciproquement.  </p>
-<p>Écrire une fonction prenant en paramètre une chaîne de caractères contenant, entre autres, les parenthèses décrites et qui renvoie <code>True</code> si la chaîne est bien parenthésée et <code>False</code> sinon.</p>
+<h2 id="exercice-guide-la-chaine-bien-parenthesee">Exercice guidé : la chaîne bien parenthésée<a class="headerlink" href="#exercice-guide-la-chaine-bien-parenthesee" title="Permanent link">⚓︎</a></h2>
+<p><em>Le notebook associé à cet exercice se trouve sur Capytale, code: 9769-11727988</em></p>
+<h3 id="lenonce">L'énoncé<a class="headerlink" href="#lenonce" title="Permanent link">⚓︎</a></h3>
+<p>On considère une chaîne de caractères incluant à la fois des parenthèses rondes <code>(</code> <code>)</code> et des parenthèses carrées <code>[</code> <code>]</code>. La chaîne est <strong>bien parenthésée</strong> si chaque ouvrante est associée à une unique fermante de même forme, et réciproquement.</p>
+<p>Écrire une fonction prenant en paramètre une chaîne de caractères contenant, entre autres, les parenthèses décrites et qui renvoie <code>True</code> si la chaîne est bien parenthésée, <code>False</code> sinon.</p>
+<h3 id="etape-0-bien-comprendre-lenonce">Étape 0 — Bien comprendre l'énoncé<a class="headerlink" href="#etape-0-bien-comprendre-lenonce" title="Permanent link">⚓︎</a></h3>
+<p>C'est une étape importante. Négligée, elle peut être la source d'erreurs par la ensuite. Pour chacun des exemples suivants, vérifier la bonne compréhension du résultat <strong>avant</strong> de passer à la suite.</p>
+<table>
+<thead>
+<tr>
+<th>Chaîne</th>
+<th>Bien parenthésée ?</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"()"</code></td>
+<td>✅ Oui</td>
+<td>une ouvrante, une fermante de même forme</td>
+</tr>
+<tr>
+<td><code>"()[]"</code></td>
+<td>✅ Oui</td>
+<td>deux paires indépendantes, chacune correcte</td>
+</tr>
+<tr>
+<td><code>"([])"</code></td>
+<td>✅ Oui</td>
+<td>les paires sont <strong>imbriquées</strong>, dans le bon ordre</td>
+</tr>
+<tr>
+<td><code>"([)]"</code></td>
+<td>❌ Non</td>
+<td>les paires sont <strong>croisées</strong> : <code>[</code> est ouverte, puis <code>(</code> ouverte, puis on ferme <code>)</code> alors que <code>[</code> n'est pas refermée</td>
+</tr>
+<tr>
+<td><code>"(()"</code></td>
+<td>❌ Non</td>
+<td>une parenthèse ouvrante n'a jamais été refermée</td>
+</tr>
+<tr>
+<td><code>")("</code></td>
+<td>❌ Non</td>
+<td>une fermante apparaît <strong>avant</strong> toute ouvrante</td>
+</tr>
+<tr>
+<td><code>"abc(de[f]g)h"</code></td>
+<td>✅ Oui</td>
+<td>les lettres ne sont pas des parenthèses : on les ignore complètement</td>
+</tr>
+</tbody>
+</table>
+<h3 id="etape-1-pourquoi-utiliser-une-pile">Étape 1 — Pourquoi utiliser une pile ?<a class="headerlink" href="#etape-1-pourquoi-utiliser-une-pile" title="Permanent link">⚓︎</a></h3>
+<p>Sur l'exemple <code>"([])"</code> : <code>(</code> est ouverte en premier, mais c'est <code>[</code> — ouverte en second — qui doit être refermée en premier. <strong>Le dernier élément ouvert est le premier qui doit être fermé.</strong> C'est très exactement le comportement LIFO d'une pile — pas celui d'une file.</p>
+<p>Concrètement, <strong>on empile chaque ouvrante qu'on rencontre; quand une fermante est rencontrée, elle doit correspondre au sommet de la pile</strong>.</p>
+<ul>
+<li>Analyser le tableau suivant sur l'expression <code>"([)]"</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Caractère lu</th>
+<th>Action</th>
+<th>Contenu de la pile après l'action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(</code></td>
+<td>empiler</td>
+<td><code>(</code></td>
+</tr>
+<tr>
+<td><code>[</code></td>
+<td>empiler</td>
+<td><code>(</code> <code>[</code></td>
+</tr>
+<tr>
+<td><code>)</code></td>
+<td>le sommet est <code>[</code>, or <code>)</code> attend un <code>(</code></td>
+<td>❌ <strong>erreur détectée ici</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Refaire le même travail sur <code>"([])"</code> et s'assurer de la bonne compréhension avant de passer à l'étape suivante.</li>
+</ul>
+<h3 id="etape-2-formalisation-du-probleme">Étape 2 — Formalisation du problème<a class="headerlink" href="#etape-2-formalisation-du-probleme" title="Permanent link">⚓︎</a></h3>
+<p>Compléter la formalisation suivante, proche d'un pseudocode:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>créer une pile vide
+
+pour chaque caractère c de la chaîne :
+    si c est une ouvrante ( &#39;(&#39; ou &#39;[&#39; ) :
+        ..............................
+    sinon si c est une fermante ( &#39;)&#39; ou &#39;]&#39; ) :
+        si la pile est vide :
+            .............................. (que peut-on en conclure ?)
+        sinon :
+            dépiler le sommet
+            si le sommet dépilé ne correspond pas à c :
+                .............................. (que peut-on en conclure ?)
+    sinon :
+        .............................. (c&#39;est un caractère qui n&#39;est ni ouvrante ni fermante)
+
+à la fin de la boucle :
+    si la pile n&#39;est pas vide :
+        .............................. (que peut-on en conclure ?)
+    sinon :
+        ..............................
+</code></pre></div></td></tr></table></div>
+<p>Deux points essentiels de cette formalisation sont souvent oubliés et sont sources d'erreurs:</p>
+<ul>
+<li>que faire si on rencontre une fermante <strong>alors que la pile est déjà vide</strong> ? (exemple <code>")("</code>)</li>
+<li>que faire <strong>après la boucle</strong>, s'il reste des ouvrantes non refermées dans la pile ? (exemple <code>"(("</code>)</li>
+</ul>
+<p>Identifier ces deux points dans la proposition ci-dessus.</p>
+<h3 id="etape-3-ecriture-de-la-fonction">Étape 3 — Écriture de la fonction<a class="headerlink" href="#etape-3-ecriture-de-la-fonction" title="Permanent link">⚓︎</a></h3>
+<p><em>Indication</em>: on réutilise l'interface de la pile vue en cours (<code>creer_pile</code>, <code>empiler</code>, <code>depiler</code>, <code>est_pile_vide</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">est_bien_parenthesee</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; À compléter &quot;&quot;&quot;</span>
+
+    <span class="n">correspondance</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;)&#39;</span><span class="p">:</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">:</span> <span class="s1">&#39;[&#39;</span><span class="p">}</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">creer_pile</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chaine</span><span class="p">:</span>
+        <span class="c1"># à compléter</span>
+
+    <span class="k">return</span> <span class="o">...</span>        
+</code></pre></div></td></tr></table></div>
+<p>En s'appuyant sur le pseudocode de l'étape précédente, compléter la fonction <code>est_bien_parenthesee</code>.</p>
+<h3 id="etape-4-jeu-de-tests">Étape 4 — Jeu de tests<a class="headerlink" href="#etape-4-jeu-de-tests" title="Permanent link">⚓︎</a></h3>
+<p>Appliquer le jeu de tests suivants:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;()[]&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;([])&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;([)]&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;((&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;)(&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;abc(de[f]g)h&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>        <span class="c1"># cas limite : chaîne vide</span>
+    <span class="p">(</span><span class="s2">&quot;(]&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>      <span class="c1"># mauvaise forme</span>
+    <span class="p">(</span><span class="s2">&quot;[(])&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>    <span class="c1"># imbrication croisée</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">chaine</span><span class="p">,</span> <span class="n">attendu</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="n">est_bien_parenthesee</span><span class="p">(</span><span class="n">chaine</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">resultat</span> <span class="o">==</span> <span class="n">attendu</span><span class="p">:</span>
+        <span class="n">statut</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">statut</span> <span class="o">=</span> <span class="s2">&quot;❌ ÉCHEC&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">statut</span><span class="p">,</span> <span class="s2">&quot;est_bien_parenthesee(&quot;</span><span class="p">,</span> <span class="n">chaine</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">resultat</span><span class="p">,</span> <span class="s2">&quot;(attendu&quot;</span><span class="p">,</span> <span class="n">attendu</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>En cas d'échec et <strong>avant de modifier le code au hasard</strong>, refaire la trace à la main (comme à l'étape 1) sur la chaîne qui pose problème. Identifier et corriger le bug.</p>
+<h3 id="pour-aller-plus-loin">Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Que se passe-t-il avec des accolades <code>{</code> <code>}</code> en plus ? Modifier <code>correspondance</code> et les tests <code>in '(['</code> / <code>in ')]'</code> en conséquence — combien de lignes doit-on changer ?</li>
+<li>La complexité en temps, est-elle en <span class="arithmatex">\(\mathcal{O}(1)\)</span>, <span class="arithmatex">\(\mathcal{O}(n)\)</span> ou pire, en fonction de la longueur <span class="arithmatex">\(n\)</span> de la chaîne ? Justifier.</li>
+</ul>
 <h2 id="exercice-4-extrait-bac-2021">Exercice 4 - extrait bac 2021<a class="headerlink" href="#exercice-4-extrait-bac-2021" title="Permanent link">⚓︎</a></h2>
 <p><em>Notion abordée : structures de données : les piles.</em></p>
 <p>Dans cet exercice, on considère une pile d'entiers positifs. On suppose que les quatre fonctions suivantes ont été programmées préalablement en langage Python :</p>
