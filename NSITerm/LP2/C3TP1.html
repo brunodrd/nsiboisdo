@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#methodes-de-programmation-modulaire" class="md-skip">
+        <a href="#tp-modularite-et-mise-au-point-de-programmes" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3191,18 +3191,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#avantages-dune-programmation-modulaire" class="md-nav__link">
+  <a href="#thematique-conception-et-utilisation-dun-module-de-gestion-du-temps" class="md-nav__link">
     <span class="md-ellipsis">
-      Avantages d'une programmation modulaire
+      Thématique : Conception et utilisation d'un module de gestion du temps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tp-traitement-de-donnees-au-format-json" class="md-nav__link">
+  <a href="#contextualisation" class="md-nav__link">
     <span class="md-ellipsis">
-      TP: traitement de données au format JSON
+      Contextualisation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avant-de-commencer-trois-mots-a-ne-pas-confondre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avant de commencer: trois mots à ne pas confondre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-1-decouverte-et-utilisation-dun-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partie 1 : Découverte et utilisation d'un module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-2-extension-et-mise-au-point-dun-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partie 2 : Extension et mise au point d'un module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-3-test-de-robustesse-gestion-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partie 3 : Test de robustesse &amp; gestion des erreurs
     </span>
   </a>
   
@@ -6222,26 +6258,128 @@
 
 
 
-<h1 id="methodes-de-programmation-modulaire">Méthodes de programmation modulaire<a class="headerlink" href="#methodes-de-programmation-modulaire" title="Permanent link">⚓︎</a></h1>
-<h2 id="avantages-dune-programmation-modulaire">Avantages d'une programmation modulaire<a class="headerlink" href="#avantages-dune-programmation-modulaire" title="Permanent link">⚓︎</a></h2>
-<div>
-En première on a introduit les fonctions en réponse à la répétition de code au sein d'un programme. Cependant, la répétition des fonctions entre programmes est encore possible. Une solution est de regrouper ces fonctions et classes dans un <strong>module</strong>. On <strong>décompose</strong> ainsi une application en module(s) qui peuvent être <strong>développés indépendamment et réutilisés</strong> dans d'autres applications.  
-
-Par ailleurs, cette organisation limite ou <strong>supprime les doublons</strong> de code, facilitant ainsi la maintenance (<em>un bug est corrigé une fois</em>).
-
-Enfin, la programmation modulaire permet d'une certaine façon de <strong>cacher des détails d'implémentation</strong>, l'interaction utilisateur-module se faisant par le biais de l'interface.
-
-Il s'agira dans le TP, de se placer en temps qu'utilisateur de modules en se référant à leur API, puis en temps que concepteur d'un module simple, dans l'activité.
-</div>
-
-<h2 id="tp-traitement-de-donnees-au-format-json">TP: traitement de données au format JSON<a class="headerlink" href="#tp-traitement-de-donnees-au-format-json" title="Permanent link">⚓︎</a></h2>
-<h3 id="preambule-le-format-json">Préambule: le format json<a class="headerlink" href="#preambule-le-format-json" title="Permanent link">⚓︎</a></h3>
-<p>Un fichier <code>json</code> est un fichier texte contenant de l'information structurée, très utilisé sur internet. Cette structuration est assurée par des scalaires (nombre, booléen, chaîne) et des types d'éléments tels que:  </p>
+<h1 id="tp-modularite-et-mise-au-point-de-programmes">TP - Modularité et mise au point de programmes<a class="headerlink" href="#tp-modularite-et-mise-au-point-de-programmes" title="Permanent link">⚓︎</a></h1>
+<h2 id="thematique-conception-et-utilisation-dun-module-de-gestion-du-temps">Thématique : Conception et utilisation d'un module de gestion du temps<a class="headerlink" href="#thematique-conception-et-utilisation-dun-module-de-gestion-du-temps" title="Permanent link">⚓︎</a></h2>
+<p><strong>Durée:</strong> 2h</p>
+<p><strong>Compétences du programme NSI mobilisées :</strong></p>
 <ul>
-<li>des paires clé/valeur (qui rappelle les dictionnaires de python);</li>
-<li>de listes ordonnées de valeurs.  </li>
+<li>Spécifier une interface et la séparer de son implémentation.</li>
+<li>Utiliser des API ou des bibliothèques, exploiter leur documentation.</li>
+<li>Créer des modules simples et les documenter.</li>
+<li>Documenter un programme et rédiger des préconditions à l'aide d'assertions <code>assert</code>.</li>
 </ul>
-<p>Voir <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">json sur wikipedia</a>. Voici un exemple de données au format <code>json</code>:<br />
+<p><strong>Pratiques complémentaires abordées dans ce TP</strong> <em>(conventions Python utiles, mais non exigibles) :</em></p>
+<ul>
+<li>Gérer l'espace de noms lors d'un import (<code>import ... as ...</code> plutôt que <code>from ... import *</code>).</li>
+<li>Protéger le code de test d'un module avec la clause <code>if __name__ == "__main__":</code>.</li>
+</ul>
+<h2 id="contextualisation">Contextualisation<a class="headerlink" href="#contextualisation" title="Permanent link">⚓︎</a></h2>
+<blockquote>
+<p>Lors du développement d'un projet informatique complexe, réécrire les mêmes fonctions de calcul de durées ou de conversion de temps dans chaque fichier est inefficace et source d'erreurs.</p>
+<p>L'objectif de ce TP est de découvrir, puis d'étendre, un module réutilisable nommé <code>horloge</code>, qui fournit des services de conversion et de calcul sur les durées exprimées en secondes, minutes et heures.</p>
+</blockquote>
+<p><strong>Un fichier zippé contenant le notebook jupyter ainsi que les modules (<em>compilés</em>) sera fourni</strong>.</p>
+<h2 id="avant-de-commencer-trois-mots-a-ne-pas-confondre">Avant de commencer: trois mots à ne pas confondre<a class="headerlink" href="#avant-de-commencer-trois-mots-a-ne-pas-confondre" title="Permanent link">⚓︎</a></h2>
+<p>Ce TP emploie constamment trois mots — <strong>interface</strong>, <strong>implémentation</strong>, <strong>API</strong> — . Il faut prendre le temps de les distinguer maintenant, car l'intégralité du TP y fait référence.</p>
+<ul>
+<li><strong>Interface</strong> : ce que l'on voit et utilise <em>de l'extérieur</em> d'une fonction, d'un module ou
+  d'une structure de données — son nom, ses paramètres, ce qu'elle fait (en langage naturel,
+  dans sa docstring), et ses préconditions. C'est un <strong>contrat</strong> entre celui qui écrit le code
+  et celui qui l'utilise: tant que le contrat est respecté, peu importe comment il est tenu!</li>
+<li><strong>Implémentation</strong> : le code qui réalise <em>réellement</em> ce que l'interface promet — les lignes
+  à l'intérieur du corps de la fonction. Deux implémentations différentes peuvent respecter
+  exactement la même interface (produire le même résultat par un chemin interne différent) sans
+  que l'utilisateur du module ne s'en aperçoive ni n'ait besoin de le savoir.</li>
+<li><strong>API</strong> (<em>Application Programming Interface</em> ou <strong>interface de programmation</strong>) : ce terme désigne l'<strong>ensemble</strong> des interfaces (fonctions, classes, constantes...) qu'un module ou une bibliothèque met à disposition.</li>
+</ul>
+<p>Une API et une interface, c'est la même idée ; on parle d'API quand on désigne l'ensemble des services offerts par tout un module, plutôt qu'une seule   fonction isolée.  Le mot est aussi très employé pour désigner des services web — <em>l'API du réseau X, par exemple</em> — mais c'est exactement le même principe : une façade documentée, derrière laquelle l'implémentation reste cachée et peut changer.</p>
+<p><strong>Analogie.</strong> Un four à micro-ondes a une interface : les boutons <em>puissance</em>, <em>durée</em>, <em>marche</em>.
+Vous n'avez pas besoin de savoir comment fonctionne le magnétron à l'intérieur (l'implémentation)
+pour faire chauffer votre plat : connaître l'interface suffit. Un fabricant peut changer
+entièrement l'électronique interne d'un nouveau modèle (nouvelle implémentation) sans toucher aux
+boutons (même interface) : vous continueriez à vous en servir exactement de la même façon.</p>
+<p>Dans ce TP :</p>
+<ul>
+<li>en <strong>partie 1</strong>, le rôle d'utilisateur est privilégié: on ne voit que l'<strong>API</strong> de <code>horloge</code> (le tableau ci-dessous), jamais son implémentation ;</li>
+<li>en <strong>partie 2</strong>, c'est le rôle de développeur qui est visé: on <strong>implémente</strong> une extension (le corps des fonctions), en respectant une <strong>interface</strong>;</li>
+<li>la <strong>partie 3</strong> est réservée au test de la robustesse du module.</li>
+</ul>
+<p><strong>Auto-vérification</strong> — sans remonter au texte ci-dessus, associez chaque définition au bon mot
+(<em>interface</em>, <em>implémentation</em>, <em>API</em>) :</p>
+<ol>
+<li>Ensemble des fonctions et de leur documentation qu'un module met à disposition, sans exposer
+   le code interne. → ..............?</li>
+<li>Le code réel, à l'intérieur du corps des fonctions, qui réalise le travail. → ............?</li>
+<li>Terme le plus souvent utilisé pour désigner l'interface de tout un module ou d'une
+   bibliothèque, plutôt que d'une seule fonction isolée. → ...............?</li>
+</ol>
+<h2 id="partie-1-decouverte-et-utilisation-dun-module">Partie 1 : Découverte et utilisation d'un module<a class="headerlink" href="#partie-1-decouverte-et-utilisation-dun-module" title="Permanent link">⚓︎</a></h2>
+<p>Dans cette première partie, on joue le rôle du <strong>client (l'utilisateur du module)</strong>. On ne connait pas l'implémentation interne du module <code>horloge.py</code>, mais on dispose de sa spécification:</p>
+<p><strong>Spécification de l'API</strong> <code>horloge</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Signature</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Preconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>en_secondes</code></td>
+<td style="text-align: left;"><code>(h: int, m: int, s: int) -&gt; int</code></td>
+<td style="text-align: left;">Convertit une durée (heures, minutes, secondes) en un nombre total de secondes.</td>
+<td style="text-align: left;"><code>h &gt;= 0</code>, <code>0 &lt;= m &lt; 60</code>, <code>0 &lt;= s &lt; 60</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>en_hms</code></td>
+<td style="text-align: left;"><code>(secondes: int) -&gt; tuple</code></td>
+<td style="text-align: left;">Convertit un nombre total de secondes en un triplet <code>(h, m, s)</code>.</td>
+<td style="text-align: left;"><code>secondes &gt;= 0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>formater_duree</code></td>
+<td style="text-align: left;"><code>(secondes: int) -&gt; str</code></td>
+<td style="text-align: left;">Renvoie une chaîne au format <code>"HH:MM:SS"</code>.</td>
+<td style="text-align: left;"><code>secondes &gt;= 0</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exploitation-du-module">Exploitation du module<a class="headerlink" href="#exploitation-du-module" title="Permanent link">⚓︎</a></h3>
+<p>Compléter la cellule suivante pour:</p>
+<ol>
+<li>Importer le module <code>horloge</code> sous l'alias <code>hor</code>.</li>
+<li>Calculer la durée totale en secondes d'une tâche d'une durée de 2h 45min et 30s.</li>
+<li>Afficher cette durée sous le format <code>HH:MM:SS</code> grâce à la fonction de l'API.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># À compléter par l&#39;élève</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">...</span>
+
+<span class="c1"># 1. Calculer la durée en secondes</span>
+<span class="c1"># sec = ...</span>
+
+<span class="c1"># 2. Afficher la durée formatée</span>
+<span class="c1"># print(...)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="reflexion-sur-lespace-de-noms">Réflexion sur l'espace de noms<a class="headerlink" href="#reflexion-sur-lespace-de-noms" title="Permanent link">⚓︎</a></h3>
+<p>On souhaiterait mener une réflexion sur <em>l'espace de noms</em> en s'intéressant aux questions suivantes (<strong>ne pas répondre tout de suite</strong>):</p>
+<ol>
+<li>Pourquoi privilégie-t-on <code>import horloge as hor</code> plutôt que <code>from horloge import *</code> ?</li>
+<li>Que se passerait-il si le script principal contenait déjà une fonction nommée <code>en_secondes</code> ?</li>
+</ol>
+<h4 id="demonstration-dun-conflit-despace-de-noms">Démonstration d'un conflit d'espace de noms<a class="headerlink" href="#demonstration-dun-conflit-despace-de-noms" title="Permanent link">⚓︎</a></h4>
+<blockquote>
+<p>Avant de répondre aux deux questions ci-dessus, exécuter la cellule de code suivante.<br />
+Elle définit <em>localement</em>, dans ce notebook, une fonction <code>en_secondes</code> qui n'a rien à voir avec celle du module <code>horloge</code>, puis importe le module avec <code>from horloge import *</code>.</p>
+</blockquote>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6254,56 +6392,86 @@ Il s'agira dans le TP, de se placer en temps qu'utilisateur de modules en se ré
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;menu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;popup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;menuitem&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;onclick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CreateNewDoc()&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Open&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;onclick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OpenDoc()&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Close&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;onclick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CloseDoc()&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">            </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-<h3 id="travail-sur-un-fichier-reel">Travail sur un fichier réel<a class="headerlink" href="#travail-sur-un-fichier-reel" title="Permanent link">⚓︎</a></h3>
-<p>Le <a href="https://openweathermap.org/">site openweathermap</a> permet d'obtenir des informations météo dans beaucoup de villes du monde entier. Pour obtenir le temps dans une ville donnée, il faut fournir un identifiant unique ou la paire lattitude/longitude. </p>
-<p>Openweathermap propose un fichier <code>json</code> contenant les informations précédentes. Ce fichier a été téléchargé et une version zippée est fournie <code>city.zip</code>.  </p>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Dézipper ce fichier et retrouver ce notebook.</p>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">ATTENTION</p>
-<p>Ne pas double-cliquer sur le fichier se situant dans le dossier <code>json</code>, pour ouvrir avec l'application par défaut. En effet, ce fichier a une taille de 33 Mo et plus de 2 millions de lignes!!</p>
-</div>
-<p>On préfèrera un traitement en ligne de commande pour voir la structure du fichier. On rappelle que l'utilisation de la ligne de commande est possible dans une cellule <code>jupyter notebook</code>, il suffit de préfixer la commande avec le caractère <code>!</code>.  </p>
-<p>Enfin, pour plus de précisions sur une commande du <em>shell</em>, ne pas hésiter à consulter le manuel (exemple: <code>!man sed</code>).</p>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Que réalise la commande suivante ?</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">!</span><span class="n">cat</span> <span class="o">./</span><span class="n">json</span><span class="o">/</span><span class="n">city</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">en_secondes</span><span class="p">(</span><span class="n">nombre_de_jours</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fonction locale, sans rapport avec le module horloge : convertit des jours en secondes.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nombre_de_jours</span> <span class="o">*</span> <span class="mi">86400</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avant l&#39;import :&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;en_secondes(2) =&quot;</span><span class="p">,</span> <span class="n">en_secondes</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;(le nombre de secondes dans 2 jours)&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">horloge</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>   <span class="c1"># déconseillé : voir la suite</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Après &#39;from horloge import *&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;en_secondes(2) =&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en_secondes</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;erreur :&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2095791
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Que réalise la commande suivante ?</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">!</span><span class="n">cat</span> <span class="o">./</span><span class="n">json</span><span class="o">/</span><span class="n">city</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">json</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;RE&quot;</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">2</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>238646:    &quot;country&quot;: &quot;RE&quot;,
-238656:    &quot;country&quot;: &quot;RE&quot;,
-</code></pre></div></td></tr></table></div>
-<p>Enfin, pour avoir une meilleure idée du contenu du fichier, on affiche quelques lignes avec l'éditeur <code>sed</code> disponible avec le <em>shell</em>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Affichage de 20 lignes</span>
-<span class="err">!</span><span class="n">sed</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;238642,+20p&quot;</span> <span class="o">./</span><span class="n">json</span><span class="o">/</span><span class="n">city</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">json</span>
-</code></pre></div></td></tr></table></div>
+<p>La fonction locale <code>en_secondes</code> définie dans cette cellule a été <strong>remplacée</strong> par celle du module <code>horloge</code>.  L'erreur obtenue (<code>en_secondes() takes exactly 3 positional arguments (1 given)</code>) provient de la signature <code>en_secondes(h, m, s)</code> <strong>du module</strong>, pas de la fonction locale à un seul paramètre. </p>
+<p>On remarque qu'aucun message n'a prévenu ce remplacement au moment de l'import. C'est exactement le risque de <code>from ... import *</code>, qui importe tous les noms du module dans l'espace de noms courant et qui peut donc <strong>écraser silencieusement des noms déjà utilisés</strong>. </p>
+<p>Avec <code>import horloge as hor</code>, ce risque disparaît: on accède toujours à la fonction du module via <code>hor.en_secondes</code>, qui ne peut jamais entrer en
+conflit avec une fonction locale nommée <code>en_secondes</code>.</p>
+<p><strong>Répondre maintenant aux deux questions ci-dessus, en s'appuyant sur cette observation.</strong></p>
+<h2 id="partie-2-extension-et-mise-au-point-dun-module">Partie 2 : Extension et mise au point d'un module<a class="headerlink" href="#partie-2-extension-et-mise-au-point-dun-module" title="Permanent link">⚓︎</a></h2>
+<p>Il s'agit désormais de se placer dans le rôle de <strong>concepteur / développeur</strong>.</p>
+<p>On n'a pas accès au code source de <code>horloge</code>, on ne dispose que de son API, comme en partie 1. On ne peut donc pas modifier <code>horloge</code>. Il s'agit d'écrire un <strong>nouveau module</strong> <code>horloge_ext.py</code>, qui sera une extension de <code>horloge</code>. Les fonctions du nouveau module appelleront les fonctions de <code>horloge</code> sans avoir besoin de savoir comment elles sont écrites. C'est exactement l'intérêt d'une interface.</p>
+<h3 id="description-du-module-horloge_extpy">Description du module <code>horloge_ext.py</code><a class="headerlink" href="#description-du-module-horloge_extpy" title="Permanent link">⚓︎</a></h3>
+<p>Le nouveau module <code>horloge_ext.py</code> commence par <code>import horloge as hor</code> et fournit deux nouvelles fonctionnalités :</p>
+<ol>
+<li>
+<p><strong><code>difference_durees(t1: tuple[int, int, int], t2: tuple[int, int, int]) -&gt; int</code></strong> :</p>
+<ul>
+<li>prend deux tuples au format <code>(h, m, s)</code> représentant deux instants;</li>
+<li>renvoie l'écart absolu en secondes entre ces deux instants (toujours positif ou nul);</li>
+<li>utilise la fonction <code>en_secondes</code> du module <code>horloge</code> (c'est-à-dire <code>hor.en_secondes</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>additionner_durees(duree1_sec: int, duree2_sec: int) -&gt; tuple[int, int, int]</code></strong> :</p>
+<ul>
+<li>calcule la somme de deux durées exprimées en secondes et renvoie le résultat sous forme de tuple <code>(h, m, s)</code> en réutilisant <code>hor.en_hms</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exigences-de-qualite-et-de-mise-au-point-interface-a-completer">Exigences de qualité et de mise au point - Interface à compléter<a class="headerlink" href="#exigences-de-qualite-et-de-mise-au-point-interface-a-completer" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li><strong>Documentation:</strong> chaque fonction doit contenir une docstring décrivant le rôle, <strong>chaque paramètre</strong> et la valeur de retour, sur le modèle des docstrings de <code>en_secondes</code>, <code>en_hms</code> et <code>formater_duree</code> qu'on peut consulter avec <code>help(hor.en_secondes)</code> (rôle, puis une ligne par paramètre, puis "renvoie ...").</li>
+<li><strong>Assertions (<code>assert</code>) :</strong> chaque fonction doit valider la conformité de ses arguments d'entrée (type et domaines de valeurs). Les fonctions de <code>horloge</code> contrôlent déjà leurs propres arguments, il s'agira de vérifier cette conformité pour les deux fonctions à écrire.</li>
+<li><strong>Clause</strong> <code>if __name__ == '__main__'</code>: ajouter des tests unitaires validant les nouvelles fonctions lors de l'exécution directe du fichier.</li>
+<li><strong>Table d'interface :</strong> comme pour l'API d'origine (tableau de la partie 1), compléter la table Markdown ci-dessous en spécifiant l'interface des deux nouvelles fonctions, <strong>avant</strong> de les implémenter.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fonction</th>
+<th style="text-align: left;">Signature</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Préconditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>difference_durees</code></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>additionner_durees</code></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementation-des-deux-fonctions">Implémentation des deux fonctions<a class="headerlink" href="#implementation-des-deux-fonctions" title="Permanent link">⚓︎</a></h3>
+<p>Compléter la cellule ci-dessous <strong>directement</strong> (docstrings, assertions, calculs, tests). </p>
+<p>Sa première ligne, <code>%%writefile horloge_ext.py</code>, demande à Jupyter d'écrire le contenu de la cellule dans le fichier <code>horloge_ext.py</code> quand on l'exécute. On peut donc la ré-exécuter autant de fois que nécessaire: elle réécrit simplement le fichier avec la version actuelle de la cellule.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6324,132 +6492,98 @@ Il s'agira dans le TP, de se placer en temps qu'utilisateur de modules en se ré
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>  {
-    &quot;id&quot;: 935146,
-    &quot;name&quot;: &quot;Les Trois-Bassins&quot;,
-    &quot;state&quot;: &quot;&quot;,
-    &quot;country&quot;: &quot;RE&quot;,
-    &quot;coord&quot;: {
-      &quot;lon&quot;: 55.299999,
-      &quot;lat&quot;: -21.1
-    }
-  },
-  {
-    &quot;id&quot;: 935210,
-    &quot;name&quot;: &quot;Salazie&quot;,
-    &quot;state&quot;: &quot;&quot;,
-    &quot;country&quot;: &quot;RE&quot;,
-    &quot;coord&quot;: {
-      &quot;lon&quot;: 55.539001,
-      &quot;lat&quot;: -21.02734
-    }
-  },
-  {
-</code></pre></div></td></tr></table></div>
-<h3 id="les-objectifs-du-tp">Les objectifs du TP<a class="headerlink" href="#les-objectifs-du-tp" title="Permanent link">⚓︎</a></h3>
-<p>Le principal objectif de ce TP est d'exploiter un module fourni par la bibliothèque standard de python. Il sera très important de savoir utiliser la documentation du module afin d'extraire du fichier <code>json</code> fourni, <strong>uniquement les informations concernant les villes de la Réunion mais aussi de sauvegarder ces dernières dans un fichier au format json</strong>. Le fichier obtenu devrait être nettement moins lourd et plus facilement utilisable (une soixantaine d'entrées au lieu de plus de 200 000 dans le fichier original).  </p>
-<details class="tip">
-<summary>Rappels de 1re</summary>
-<p>Pour importer un module, on peut utiliser la syntaxe <code>import mon_super_module</code>; ce qui nous obligera à 
-préfixer chaque appel de fonction par <code>mon_super_module.ma_fonction()</code>. On peut <em>raccourcir</em> les appels en 
-utilisant un alias lors de l'import: <code>import mon_super_module as msp</code>, on appelle alors 
-<code>msp.ma_fonction()</code>.<br />
-Enfin, on peut cibler une fonction précise à importer. Dans ce cas, on utilisera la syntaxe: <code>from 
-mon_super_module import ma_fonction</code> et l'appel se fera directement par <code>ma_fonction()</code> sans préfixe.</p>
-</details>
-<h3 id="travail-a-realiser">Travail à réaliser<a class="headerlink" href="#travail-a-realiser" title="Permanent link">⚓︎</a></h3>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Prendre connaissance de l'api du module <code>json</code>, en ligne sur 
-<a href="https://docs.python.org/fr/3.8/library/json.html">python.org</a> ou à défaut dans une cellule de Jupyter en 
-utilisant les fonctions <code>dir</code> et <code>help</code>.</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">horloge_ext</span><span class="o">.</span><span class="n">py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module horloge_ext : extension du module horloge.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">horloge</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hor</span>
 
-
-<span class="nb">dir</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Quelles sont les deux fonctions du module <code>json</code> susceptibles de nous intéresser en vue d'une ouverture et 
-d'une écriture de fichiers json ? 
-Pour obtenir de l'aide sur une fonction présente dans un module on 
-utilise la fonction <code>help</code> (par exemple <code>help(json.xxxx)</code> où <code>xxxx</code> est le nom d'une fonction du module 
-<code>json</code>).  </p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>On ne va extraire que les informations concernant les villes de la Réunion. Quelle fonction doit-on utiliser 
-pour transformer le fichier <code>city.list.json</code> présent sur le disque, en une structure de donnée utilisable en python ? Réaliser cette 
-opération en complétant le code ci-dessous.   </p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-<span class="c1"># Création d&#39;un objet fichier f lié à city.list.json</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./json/city.list.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="c1">#A compléter (supprimer la ligne &#39;pass&#39;)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">difference_durees</span><span class="p">(</span><span class="n">t1</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">t2</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie l&#39;écart absolu en secondes entre deux tuples (h, m, s).&quot;&quot;&quot;</span>
+    <span class="c1"># Écrire ici une docstring complète (paramètres + retour), puis les</span>
+    <span class="c1"># assertions de précondition, puis le calcul (avec hor.en_secondes) et le retour.</span>
     <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">additionner_durees</span><span class="p">(</span><span class="n">duree1_sec</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">duree2_sec</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Additionne deux durées en secondes et renvoie un tuple (h, m, s).&quot;&quot;&quot;</span>
+    <span class="c1"># Écrire ici une docstring complète (paramètres + retour), puis les</span>
+    <span class="c1"># assertions de précondition, puis le calcul (avec hor.en_hms) et le retour.</span>
+    <span class="k">pass</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Placer vos assertions de test ici (au moins trois par fonction)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fin des tests de horloge_ext (aucune assertion n&#39;a échoué).&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Quelle est le type de la structure de donnée obtenue et combien d'entrées possède-t-elle? </p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
+<h3 id="les-tests-du-nouveau-module">Les tests du nouveau module<a class="headerlink" href="#les-tests-du-nouveau-module" title="Permanent link">⚓︎</a></h3>
+<p>La commande magique <code>%run</code> lance un fichier comme un <strong>script</strong>. La clause <code>if __name__ == '__main__':</code> s'exécute donc et les tests unitaires aussi. Exécuter la cellule suivante après avoir complété la zone de tests de la cellule précédente.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">%</span><span class="n">run</span> <span class="n">horloge_ext</span><span class="o">.</span><span class="n">py</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Afficher la première valeur de cette structure de donnée.</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse (donner la ligne de code + résultat)</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Proposer un code permettant de sauver les entrées qui ne concernent que la Réunion dans une <em>liste python</em>.</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-<span class="n">villes_RE</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="c1"># À compléter</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Combien d'entrées possède cette nouvelle liste ?</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Quelle fonction devra-t-on utilser pour sauver cette liste dans un fichier <code>json</code> ?</p>
-</div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponse</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">A faire</p>
-<p>Proposer un code qui réalise la sauvergarde la liste <code>villes_RE</code> dans un fichier <code>json</code> 
-<code>villes_RE.json</code>.</p>
-</div>
+<h4 id="a-lire-avant-de-continuer-python-ne-recharge-pas-un-module-modifie-tout-seul">⚠️ À lire avant de continuer : Python ne recharge pas un module modifié, tout seul!<a class="headerlink" href="#a-lire-avant-de-continuer-python-ne-recharge-pas-un-module-modifie-tout-seul" title="Permanent link">⚓︎</a></h4>
+<blockquote>
+<p>Le nouveau module <code>horloge_ext.py</code> a été écrit sur le disque. Dès qu'on l'importe une première fois, Python en garde <strong>une copie en mémoire</strong>. 
+Si on corrige ensuite le code et ré-exécute la cellule, <strong>un nouvel</strong> <code>import horloge_ext</code> <strong>ne relira pas le fichier: Python considère que le module est déjà chargé et réutilise la version qu'il a en cache</strong>.</p>
+<p>C'est un point essentiel de la notion de module en Python, pas un simple détail technique: <strong>chaque fois qu'on modifie</strong> <code>horloge_ext.py</code>, <strong>il faut 
+exécuter la cellule suivante pour recharger explicitement le module</strong> avec <code>importlib.reload</code>, afin que la suite du TP utilise bien la dernière 
+version. (Le module <code>horloge</code>, lui, ne change pas : il n'y a aucune raison de le recharger.)</p>
+</blockquote>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#Réponse</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">horloge_ext</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">horloge_ext</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module horloge rechargé : difference_durees disponible ?&quot;</span><span class="p">,</span>
+      <span class="nb">hasattr</span><span class="p">(</span><span class="n">horloge_ext</span><span class="p">,</span> <span class="s2">&quot;difference_durees&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module horloge rechargé : additionner_durees disponible ?&quot;</span><span class="p">,</span>
+      <span class="nb">hasattr</span><span class="p">(</span><span class="n">horloge_ext</span><span class="p">,</span> <span class="s2">&quot;additionner_durees&quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="verifier-le-travail-avec-une-reference-cachee">Vérifier le travail avec une référence cachée<a class="headerlink" href="#verifier-le-travail-avec-une-reference-cachee" title="Permanent link">⚓︎</a></h3>
+<p>Comment savoir si les fonctions écrites sont correctes, sans que l'énoncé ne donne la solution ? </p>
+<p>Le module <code>verif_horloge</code> (fourni, sans son code) contient sa <strong>propre implémentation</strong> de <code>difference_durees</code> et de <code>additionner_durees</code>. Il appelle <em>les fonctions écrites plus haut</em> sur de nombreux cas, compare leurs résultats à sa référence.  Puis il affiche un rapport:</p>
+<ul>
+<li>d'abord les résultats;</li>
+<li>ensuite le contrôle des préconditions (<code>assert</code>).</li>
+</ul>
+<p>Si un ❌ apparaît, corriger la cellule d'écriture de <code>horloge_ext.py</code>, exécuter-la, puis la cellule de rechargement, puis la cellule ci-dessous.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">verif_horloge</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vh</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">horloge_ext</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ext</span>
 
-<span class="c1"># Création d&#39;un objet fichier f lié à villes_RE.json</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./json/villes_RE.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="c1">#à compléter ici</span>
-    <span class="k">pass</span>           
+<span class="n">vh</span><span class="o">.</span><span class="n">verifier_difference_durees</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">difference_durees</span><span class="p">)</span>
+<span class="n">vh</span><span class="o">.</span><span class="n">verifier_additionner_durees</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">additionner_durees</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="partie-3-test-de-robustesse-gestion-des-erreurs">Partie 3 : Test de robustesse &amp; gestion des erreurs<a class="headerlink" href="#partie-3-test-de-robustesse-gestion-des-erreurs" title="Permanent link">⚓︎</a></h2>
+<p>Dans cette section, on vérifie le comportement du module face à des utilisations incorrectes.</p>
+<h4 id="detection-derreurs">Détection d'erreurs<a class="headerlink" href="#detection-derreurs" title="Permanent link">⚓︎</a></h4>
+<p>Exécuter la cellule suivante. Expliquer quelle assertion a échoué et pourquoi.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">horloge</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hor</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Test avec un nombre de minutes invalide (65 min)</span>
+    <span class="n">duree</span> <span class="o">=</span> <span class="n">hor</span><span class="o">.</span><span class="n">en_secondes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Assertion déclenchée:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="application-pratique">Application pratique<a class="headerlink" href="#application-pratique" title="Permanent link">⚓︎</a></h4>
+<p>Écrire un programme client qui simule un journal de bord de coureur à pied:</p>
+<ol>
+<li>L'utilisateur enregistre 3 séances de course données en secondes : <code>3600</code>, <code>2750</code> et <code>4120</code>.</li>
+<li>Utiliser le module <code>horloge</code> pour calculer la durée totale d'entraînement de la semaine.</li>
+<li>Afficher la durée totale au format rédigé : <code>"X heures, Y minutes et Z secondes"</code>.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Code du le journal de bord</span>
 </code></pre></div></td></tr></table></div>
 
 
