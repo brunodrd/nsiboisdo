@@ -3385,18 +3385,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#ce-qui-genait-au-chapitre-precedent" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Ce qui gênait au chapitre précédent
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#voyage-en-premiere-classe-avec-les-objets" class="md-nav__link">
+  <a href="#en-python-tout-est-objet" class="md-nav__link">
     <span class="md-ellipsis">
-      Voyage en première classe avec les objets
+      En Python, tout est objet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#une-premiere-classe-la-carte-a-jouer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Une première classe : la carte à jouer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-methodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les méthodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objets-et-references-attention-aux-effets-de-bord" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objets et références : attention aux effets de bord
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retour-aux-piles-et-aux-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retour aux piles et aux files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodes-speciales-pour-aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Méthodes spéciales (pour aller plus loin)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bilan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bilan
     </span>
   </a>
   
@@ -6223,91 +6277,161 @@
 
 
 <h1 id="vocabulaire-de-la-programmation-objet">Vocabulaire de la programmation objet<a class="headerlink" href="#vocabulaire-de-la-programmation-objet" title="Permanent link">⚓︎</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
-<p>En python on ne manipule que des objets. On en a rencontré de plusieurs sortes depuis la classe de première. Le type d'un objet peut être obtenu avec la fonction ... <code>type</code>!
+<blockquote>
+<p><strong>Programme officiel — Structures de données</strong></p>
+<p><em>Contenus :</em> vocabulaire de la programmation objet : classes, attributs, méthodes, objets.</p>
+<p><em>Capacités attendues :</em> écrire la définition d'une classe ; accéder aux attributs et méthodes d'une classe.</p>
+<p><em>Commentaire :</em> on n'aborde pas ici tous les aspects de la programmation objet comme le polymorphisme et l'héritage.</p>
+</blockquote>
+<p><em>Au chapitre précédent, on a implémenté des piles et des files avec des <strong>fonctions</strong> et des <strong>listes Python</strong>. Ce chapitre présente une autre manière de programmer, la <strong>programmation objet</strong>, et montre qu'elle permet d'implémenter ces mêmes structures de façon plus lisible et plus sûre</em>.</p>
+<h2 id="ce-qui-genait-au-chapitre-precedent">Ce qui gênait au chapitre précédent<a class="headerlink" href="#ce-qui-genait-au-chapitre-precedent" title="Permanent link">⚓︎</a></h2>
+<p>Rappelons l'implémentation de la pile bornée du chapitre IV :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="s1">&#39;bonjour&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ch</span><span class="p">))</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">creer_pile</span><span class="p">(</span><span class="n">capacite</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacite</span>
 
-<span class="n">l</span> <span class="o">=</span> <span class="mf">3.1</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Erreur pile pleine&quot;</span>
+    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">x</span>
 </code></pre></div></td></tr></table></div>
-Même si les types d'objets natifs de Python sont très puissants, on pourra souvent être amené à en créer d'autres.  </p>
-<p>Les paragraphes qui suivent ont pour objectif de:  </p>
+<p>Cette implémentation est correcte, mais elle présente plusieurs défauts.</p>
 <ul>
-<li>se familiariser avec tout le vocabulaire nécessaire à la compréhension de la construction des objets;</li>
-<li>présenter les bases permettant de créer ses propres classes d'objets.  </li>
+<li><strong>Une donnée anonyme.</strong> La case <code>p[0]</code> joue le rôle de compteur <em>et</em> d'indice du sommet. Rien dans son nom ne l'indique: il faut une explication pour comprendre <code>p[p[0]] = x</code>.</li>
+<li><strong>Aucune protection.</strong> Pour Python, <code>p</code> n'est qu'une liste. Rien n'empêche d'écrire <code>p[0] = 42</code> par erreur, ni d'appeler <code>defiler(p)</code> sur une pile.</li>
+<li><strong>Des données et des traitements séparés.</strong> La liste d'un côté, les fonctions de l'autre.</li>
+<li><strong>Des conflits de noms.</strong> Les deux implémentations de la pile définissaient chacune une fonction <code>creer_pile</code>. Elles ne pouvaient pas coexister dans un même programme: il fallait réexécuter l'une pour « effacer » l'autre.</li>
 </ul>
-<h2 id="voyage-en-premiere-classe-avec-les-objets">Voyage en première classe avec les objets<a class="headerlink" href="#voyage-en-premiere-classe-avec-les-objets" title="Permanent link">⚓︎</a></h2>
-<h3 id="descritption-dune-classe">Descritption d'une classe<a class="headerlink" href="#descritption-dune-classe" title="Permanent link">⚓︎</a></h3>
-<div class="admonition info">
-<p class="admonition-title">Définition</p>
-<p>Une classe est une structure qui peut contenir des variables et des définitions de fonctions. </p>
-</div>
-<p>On peut faire l'analogie avec une usine ayant des plans de construction et qui pourra donc construire des <strong>objets</strong>. </p>
-<p>Dans le cas le plus simple, en python on définit une classe avec le mot clé <code>class</code> suivi d'un nom de classe (<em>qu'on écrit avec une première lettre en majuscule, par convention</em>) puis des <code>:</code> annonçant l'arrivée d'un bloc.</p>
-<p>Construisons notre première classe. Il s'agit d'une classe permettant de construire des objets de type <code>Rectangle</code>.</p>
+<p>La programmation objet répond à ces quatre problèmes : elle permet de <strong>regrouper dans une même entité des données nommées et les traitements qui s'y appliquent</strong>.</p>
+<h2 id="en-python-tout-est-objet">En Python, tout est objet<a class="headerlink" href="#en-python-tout-est-objet" title="Permanent link">⚓︎</a></h2>
+<p>Même si le terme n'a jamais été véritablement expliqué, on utilise des objets depuis la classe de première. La fonction <code>type</code> révèle la <strong>classe</strong> d'une valeur :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire les rectangles&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longueur</span><span class="p">,</span> <span class="n">largeur</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">long</span> <span class="o">=</span> <span class="n">longueur</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">larg</span> <span class="o">=</span> <span class="n">largeur</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;bonjour&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mf">3.1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">([])</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">list</span><span class="s1">&#39;&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>Une bonne habitude est de fournir une documentation. On trouve ensuite une définition de fonction <code>__init__</code> qui sera détaillée plus loin.  </p>
-<h3 id="creation-dun-objet">Création d'un objet<a class="headerlink" href="#creation-dun-objet" title="Permanent link">⚓︎</a></h3>
-<p>Pour construire un <strong>objet</strong> de type <code>Rectangle</code>, on fait suivre le nom de la classe de la liste d'arguments attendus par <code>__init__</code> sauf <code>self</code>.  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Rectangle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;__main__.Rectangle at 0x7f70f92fd220&gt;
-</code></pre></div></td></tr></table></div>
-<p>L'interpréteur nous informe qu'un objet a été créé. Néanmoins, construire un objet de cette façon n'est pas très utile. On va plutôt affecter l'objet créé à une variable.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">r1</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>La classe permet de créer des objets. Ce processus de création d'objet est appelé <strong>instanciation</strong> et l'objet créé est une <strong>instance</strong> de la classe.</p>
-<p>A ce stade, voici la situation relevée avec <a href="http://pythontutor.com/visualize.html#code=class%20Rectangle%3A%0A%20%20%20%20%22%22%22%20Une%20classe%20pour%20d%C3%A9crire%20les%20rectangles%22%22%22%0A%20%20%20%20%0A%20%20%20%20def%20__init__%28self,%20longueur,%20largeur%29%3A%0A%20%20%20%20%20%20%20%20self.long%20%3D%20longueur%0A%20%20%20%20%20%20%20%20self.larg%20%3D%20largeur%0A%0Ar1%20%3D%20Rectangle%286,%204%29%0Ar2%20%3D%20Rectangle%285,%202%29&amp;cumulative=false&amp;curInstr=11&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Pythontutor</a>.  </p>
-<p><img alt="classe1" src="img/classe2.png" /></p>
-<p>Chaque objet <code>Rectangle</code> créé possède ses <strong>propres variables</strong> <code>larg</code> et <code>long</code>. Ce sont les <strong>attributs</strong> de l'objet. On dit aussi <em>attributs d'instance</em>.</p>
-<p>On peut accéder aux attributs <em>faisant partie de l'interface</em> de l'objet avec la notation <code>objet.attribut</code>. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">larg</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>4
-</code></pre></div></td></tr></table></div>
-<p>Les attributs des objets sont mutables en python. Néanmoins, on évitera de recourir à cette propriété et on privilégiera l'interaction avec les objets via des <em>méthodes</em> (voir ci-dessous).</p>
-<h3 id="manipuler-les-donnees">Manipuler les données<a class="headerlink" href="#manipuler-les-donnees" title="Permanent link">⚓︎</a></h3>
-<p>Supposons que l'on veuille calculer l'aire ou la diagonale du rectangle correspondant à l'objet <code>r1</code>. On peut utiliser les attributs de <code>r1</code>.</p>
+<p>On a aussi déjà utilisé des <strong>méthodes</strong>: dans la première implémentation de la pile, <code>p.append(x)</code> et <code>p.pop()</code> sont des méthodes de la classe <code>list</code>. La notation <code>objet.méthode(...)</code> est donc familière.</p>
+<p>La nouveauté, est que l'on peut <strong>créer nos propres classes</strong>.</p>
+<h2 id="une-premiere-classe-la-carte-a-jouer">Une première classe : la carte à jouer<a class="headerlink" href="#une-premiere-classe-la-carte-a-jouer" title="Permanent link">⚓︎</a></h2>
+<h3 id="definir-une-classe">Définir une classe<a class="headerlink" href="#definir-une-classe" title="Permanent link">⚓︎</a></h3>
+<p><strong>Définition — Classe</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Une <strong>classe</strong> définit un nouveau type de données. Elle décrit:</p>
+<ul>
+<li>les <strong>attributs</strong> : les données que possédera chaque objet de ce type (son <em>état</em>) ;</li>
+<li>les <strong>méthodes</strong> : les opérations que l'on pourra effectuer sur ces objets (son <em>comportement</em>).</li>
+</ul>
+</div>
+<blockquote>
+<p>Une classe est comparable à un <strong>plan de fabrication</strong>: le plan n'est pas l'objet, mais il permet d'en fabriquer autant qu'on veut.</p>
+</blockquote>
+<p>Une carte à jouer est caractérisée par une <strong>valeur</strong> (de 2 à 14, l'As valant 14) et une <strong>couleur</strong> (♠, ♥, ♦ ou ♣).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Carte</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Une carte à jouer, décrite par sa valeur (2 à 14) et sa couleur.&quot;&quot;&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">larg</span> <span class="o">*</span> <span class="n">r1</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d = &quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">larg</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r1</span><span class="o">.</span><span class="n">long</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">couleur</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">valeur</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;valeur invalide&quot;</span>
+        <span class="k">assert</span> <span class="n">couleur</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;♠&#39;</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">,</span> <span class="s1">&#39;♦&#39;</span><span class="p">,</span> <span class="s1">&#39;♣&#39;</span><span class="p">),</span> <span class="s2">&quot;couleur invalide&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="n">valeur</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">couleur</span> <span class="o">=</span> <span class="n">couleur</span>
+</code></pre></div></td></tr></table></div>
+<p>On retiendra:</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<ul>
+<li>le mot-clé <code>class</code>, suivi du nom de la classe (par convention avec une <strong>majuscule</strong>), puis <code>:</code> ;</li>
+<li>une <strong>docstring</strong> qui documente la classe, comme pour les fonctions;</li>
+<li>une méthode particulière, <code>__init__</code>, détaillée plus loin.</li>
+</ul>
+</div>
+<h3 id="creer-des-objets-linstanciation">Créer des objets: l'instanciation<a class="headerlink" href="#creer-des-objets-linstanciation" title="Permanent link">⚓︎</a></h3>
+<p>Pour fabriquer un objet, on <strong>appelle la classe</strong> comme une fonction, avec les arguments attendus par <code>__init__</code> (sauf <code>self</code>) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">c1</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">)</span>   <span class="c1"># une Dame de cœur</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;♠&#39;</span><span class="p">)</span>   <span class="c1"># un As de pique</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Définitions — Instance, instanciation</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>La création d'un objet à partir d'une classe s'appelle l'<strong>instanciation</strong>. L'objet obtenu est une <strong>instance</strong> de la classe.</p>
+</div>
+<p><code>c1</code> et <code>c2</code> sont deux instances distinctes de la classe <code>Carte</code>. Notre classe est bien devenue un type, au même titre que <code>str</code> ou <code>list</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Carte</span><span class="s1">&#39;&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Une classe Carte et deux instances c1 et c2" src="img/poo_classe_instances.svg" /></p>
+<p><em>À faire :</em> copier la classe et les deux instanciations dans <a href="https://pythontutor.com/python-compiler.html#mode=edit">Python Tutor</a>. On voit apparaître la classe, puis deux objets distincts, chacun avec <strong>ses propres</strong> <code>valeur</code> et <code>couleur</code>.</p>
+<h3 id="creation-et-initialisation-__init__-et-self">Création et initialisation : <code>__init__</code> et <code>self</code><a class="headerlink" href="#creation-et-initialisation-__init__-et-self" title="Permanent link">⚓︎</a></h3>
+<p>L'instruction <code>Carte(12, '♥')</code> déclenche <strong>deux étapes</strong>, toutes deux automatiques :</p>
+<ol>
+<li><strong>la création</strong> de l'objet : Python fabrique un nouvel objet de type <code>Carte</code>, encore sans attributs (c'est le rôle d'une méthode spéciale, <code>__new__</code>, qu'on n'écrit jamais en NSI) ;</li>
+<li><strong>l'initialisation</strong> de cet objet : Python appelle <code>__init__</code> en lui transmettant l'objet tout juste créé, dans le paramètre <code>self</code>, ainsi que les arguments fournis.</li>
+</ol>
+<p><code>__init__</code> ne crée donc pas l'objet : il le reçoit déjà créé et lui donne ses attributs. C'est pourquoi <code>__init__</code> ne contient jamais de <code>return</code>.</p>
+<p>On peut le vérifier en affichant <code>self</code> au début de <code>__init__</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Carte</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">couleur</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Objet reçu :&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="n">valeur</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">couleur</span> <span class="o">=</span> <span class="n">couleur</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>A =  24
-d =  7.211102550927978
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">)</span>
+<span class="n">Objet</span> <span class="n">reçu</span> <span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Carte</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f9f64d030e0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Carte</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f9f64d030e0</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>Cependant, cela ne correspond pas au style de la programmation orientée objet. C'est la classe qui doit se charger de définir les traitements possibles sur les objets. Cela se fait par le biais de <strong>méthodes</strong>.  </p>
-<div class="admonition info">
-<p class="admonition-title">Définition</p>
-<p>Une méthode est fonction rattachée à une classe.  </p>
+<p>L'adresse est la même : l'objet existait déjà avant l'exécution de la première ligne de <code>__init__</code>.</p>
+<p>L'instruction <code>self.valeur = valeur</code> signifie alors : « crée dans cet objet un attribut nommé <code>valeur</code> et donne-lui la valeur du paramètre <code>valeur</code> ». Attention, les deux <code>valeur</code> sont différents : celui de droite est un <strong>paramètre</strong>, variable locale qui disparaît à la fin de <code>__init__</code> ; celui de gauche est un <strong>attribut</strong>, qui vit aussi longtemps que l'objet.</p>
+<p><strong>Vocabulaire — « constructeur »</strong></p>
+<blockquote>
+<p>L'équivalent de <code>creer_pile()</code> au chapitre IV, c'est l'appel <code>Carte(...)</code> tout entier : il crée <em>et</em> initialise, puis renvoie l'objet.</p>
+<p>Dans l'usage courant, et dans de nombreux sujets de bac, on appelle souvent <code>__init__</code> le « constructeur » de la classe. C'est un abus de langage qu'il faut savoir reconnaître : quand un énoncé parle du constructeur, il désigne la méthode <code>__init__</code> que vous devez écrire. Le terme exact pour <code>__init__</code> est <strong>méthode d'initialisation</strong>.</p>
+</blockquote>
+<h3 id="acceder-aux-attributs">Accéder aux attributs<a class="headerlink" href="#acceder-aux-attributs" title="Permanent link">⚓︎</a></h3>
+<p>On accède à un attribut avec la <strong>notation pointée</strong> <code>objet.attribut</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span><span class="o">.</span><span class="n">valeur</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span><span class="o">.</span><span class="n">couleur</span>
+<span class="s1">&#39;♠&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Définition — Attribut</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Un <strong>attribut</strong> est une variable rattachée à un objet. Chaque instance possède ses propres attributs (on parle d'<strong>attributs d'instance</strong>).</p>
 </div>
-<p>On peut compléter la classe rectangle.</p>
+<h2 id="les-methodes">Les méthodes<a class="headerlink" href="#les-methodes" title="Permanent link">⚓︎</a></h2>
+<p>Pour savoir si une carte est supérieure à une autre, on pourrait écrire <code>c1.valeur &gt; c2.valeur</code> partout dans le programme. Mais c'est à la classe de définir les opérations qui ont du sens pour ses objets : c'est le rôle des <strong>méthodes</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6319,47 +6443,77 @@ d =  7.211102550927978
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire les rectangles&quot;&quot;&quot;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Carte</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Une carte à jouer, décrite par sa valeur (2 à 14) et sa couleur.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longueur</span><span class="p">,</span> <span class="n">largeur</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">long</span> <span class="o">=</span> <span class="n">longueur</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">larg</span> <span class="o">=</span> <span class="n">largeur</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">couleur</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">valeur</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;valeur invalide&quot;</span>
+        <span class="k">assert</span> <span class="n">couleur</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;♠&#39;</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">,</span> <span class="s1">&#39;♦&#39;</span><span class="p">,</span> <span class="s1">&#39;♣&#39;</span><span class="p">),</span> <span class="s2">&quot;couleur invalide&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="n">valeur</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">couleur</span> <span class="o">=</span> <span class="n">couleur</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">long</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">larg</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">diagonale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">larg</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">long</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_plus_forte_que</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">autre</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie True si la carte self bat la carte autre.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">&gt;</span> <span class="n">autre</span><span class="o">.</span><span class="n">valeur</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">r1</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A =&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">surface</span><span class="p">(),</span> <span class="s2">&quot;; d =&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">diagonale</span><span class="p">())</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;♠&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span><span class="o">.</span><span class="n">est_plus_forte_que</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>A = 24 ; d = 7.211102550927978
-</code></pre></div></td></tr></table></div>
-<p>Une méthode destinée à manipuler les objets se définit dans la classe comme une fonction ordinaire. L'interpréteur le confirme.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Rectangle</span><span class="o">.</span><span class="n">surface</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;function __main__.Rectangle.surface(self)&gt;
-</code></pre></div></td></tr></table></div>
-<p>Par contre, on doit <strong>impérativement</strong> définir comme premier paramètre <code>self</code>. Il s'agit d'une <strong>référence</strong> vers l'objet sur lequel on opère.  </p>
-<div class="admonition tip">
-<p class="admonition-title">Remarque</p>
-<p><code>self</code> est juste une convention adoptée par la communauté python, on aurait pu nommer ce paramètre autrement.</p>
+<p><strong>Définition — Méthode</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Une <strong>méthode</strong> est une fonction définie à l'intérieur d'une classe. Son premier paramètre, <code>self</code>, désigne l'objet sur lequel elle est appelée.</p>
 </div>
-<p>Lors de l'appel de la méthode sur l'objet, on ne fait pas apparaître <code>self</code>. En réalité, quand on écrit <code>r1.surface()</code>, c'est un raccourci pour <code>Rectangle.surface(r1)</code> où <code>r1</code> est associé à <code>self</code>.</p>
-<h3 id="methodes-speciales">Méthodes spéciales<a class="headerlink" href="#methodes-speciales" title="Permanent link">⚓︎</a></h3>
-<p>Lors de la création d'un objet, python appelle <em>automatiquement</em> deux méthodes spéciales. L'une d'entre elle <code>__init__</code> est chargée d'initialiser les attributs de l'objet. Son premier paramètre est aussi <code>self</code>.  </p>
-<p>Il existe d'autres méthodes spéciales, reconnaissables à leur syntaxe: elles commencent et se terminent par un double <em>souligné</em> (<em>underscore</em> en anglais) <code>__</code>. Elles ne sont pas spécifiquement au programmes de NSI mais seront quelques fois rencontrées dans des exercices.<br />
-A titre d'exemple, montrons une utilisation de la méthode <code>__str__</code> qui est automatiquement appelé par <code>print</code>.</p>
+<p>L'appel <code>c2.est_plus_forte_que(c1)</code> est en réalité un raccourci pour :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Carte</span><span class="o">.</span><span class="n">est_plus_forte_que</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>c2</code> est transmis automatiquement au paramètre <code>self</code>, et <code>c1</code> au paramètre <code>autre</code>. C'est pourquoi on n'écrit <strong>jamais</strong> <code>self</code> lors de l'appel, mais <strong>toujours</strong> lors de la définition.</p>
+<p>On peut remarquer aussi qu'une méthode peut recevoir en paramètre un <strong>autre objet de la même classe</strong> : ici, <code>autre</code> est une carte, dont on lit l'attribut <code>valeur</code>.</p>
+<p><strong>Erreur classique : oublier <code>self</code>.</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Affichage de l&#39;objet r1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Carte</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_rouge</span><span class="p">():</span>
+        <span class="o">...</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;__main__.Rectangle object at 0x7f70e36f0490&gt;
+<p>L'appel <code>c1.est_rouge()</code> provoque :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TypeError: Carte.est_rouge() takes 0 positional arguments but 1 was given
 </code></pre></div></td></tr></table></div>
-<p>Ce n'est pas très explicite, on va définir la méthode <code>__str__</code>.</p>
+<p>Le message s'explique : Python a bien transmis <strong>un</strong> argument (l'objet <code>c1</code>), mais la méthode n'en attendait aucun.</p>
+<p><em>Remarque :</em> le nom <code>self</code> est une convention universellement respectée, mais ce n'est pas un mot-clé du langage. Ce paramètre pourrait porter un autre nom ; on ne le fait jamais.</p>
+<h2 id="objets-et-references-attention-aux-effets-de-bord">Objets et références : attention aux effets de bord<a class="headerlink" href="#objets-et-references-attention-aux-effets-de-bord" title="Permanent link">⚓︎</a></h2>
+<p>Une variable ne <em>contient</em> pas un objet : elle <strong>référence</strong> un objet. C'était déjà le cas avec les tableaux (<em>listes python</em>) en première.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">c1</span>              <span class="c1"># c2 référence le MÊME objet que c1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span><span class="o">.</span><span class="n">valeur</span>
+<span class="mi">13</span>
+</code></pre></div></td></tr></table></div>
+<p>Il n'y a qu'<strong>un seul</strong> objet, désigné par deux noms. Le modifier via <code>c2</code>, c'est donc aussi le modifier « via » <code>c1</code>. C'est un <strong>effet de bord</strong>, cause typique de bugs (voir le chapitre <em>Mise au point des programmes</em>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c3</span> <span class="o">=</span> <span class="n">Carte</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">==</span> <span class="n">c3</span>
+<span class="kc">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="ow">is</span> <span class="n">c2</span>
+<span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Deux noms pour un même objet, et un troisième objet distinct au contenu identique" src="img/poo_references.svg" /></p>
+<p><code>c1</code> et <code>c3</code> représentent toutes deux un Roi de cœur, et pourtant <code>c1 == c3</code> vaut <code>False</code>. Pour une classe que nous écrivons nous-mêmes, <code>==</code> compare par défaut <strong>l'identité</strong> des objets (s'agit-il du même objet en mémoire ?) et non leur contenu. Pour comparer deux cartes, on comparera explicitement leurs attributs, ou on écrira une méthode dédiée (<em>voir exercice</em>).</p>
+<h2 id="retour-aux-piles-et-aux-files">Retour aux piles et aux files<a class="headerlink" href="#retour-aux-piles-et-aux-files" title="Permanent link">⚓︎</a></h2>
+<p>On dispose maintenant de tout le vocabulaire nécessaire pour réécrire les structures du chapitre IV, en les implémentant avec des classes.</p>
+<h3 id="la-classe-pile">La classe <code>Pile</code><a class="headerlink" href="#la-classe-pile" title="Permanent link">⚓︎</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6374,28 +6528,257 @@ A titre d'exemple, montrons une utilisation de la méthode <code>__str__</code> 
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Une classe pour décrire les rectangles&quot;&quot;&quot;</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Pile</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pile non bornée, implémentée avec une liste Python.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longueur</span><span class="p">,</span> <span class="n">largeur</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">long</span> <span class="o">=</span> <span class="n">longueur</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">larg</span> <span class="o">=</span> <span class="n">largeur</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">long</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">larg</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">diagonale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">larg</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">long</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">empiler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Rect(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">long</span><span class="si">}</span><span class="s1"> X </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">larg</span><span class="si">}</span><span class="s1">)&#39;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">depiler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sommet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;Erreur pile vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>Comparons avec le chapitre IV :</p>
+<table>
+<thead>
+<tr>
+<th>Chapitre IV (fonctions)</th>
+<th>Chapitre V (objet)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p = creer_pile()</code></td>
+<td><code>p = Pile()</code></td>
+</tr>
+<tr>
+<td><code>empiler(p, 10)</code></td>
+<td><code>p.empiler(10)</code></td>
+</tr>
+<tr>
+<td><code>depiler(p)</code></td>
+<td><code>p.depiler()</code></td>
+</tr>
+<tr>
+<td><code>sommet(p)</code></td>
+<td><code>p.sommet()</code></td>
+</tr>
+<tr>
+<td><code>est_pile_vide(p)</code></td>
+<td><code>p.est_vide()</code></td>
+</tr>
+</tbody>
+</table>
+<p>La pile n'est plus passée en paramètre : elle devient l'objet <strong>sur lequel</strong> on appelle la méthode, et elle est reçue dans <code>self</code>.</p>
+<p><strong>Interface et convention du souligné.</strong> </p>
+<p>L'<strong>interface</strong> de la pile, ce sont ses méthodes <code>est_vide</code>, <code>empiler</code>, <code>depiler</code> et <code>sommet</code> : c'est tout ce que l'utilisateur de la classe a besoin de connaître. L'attribut <code>_contenu</code> relève de l'<strong>implémentation</strong>. Le souligné initial est une <strong>convention</strong> Python qui signifie « attribut interne, ne pas l'utiliser depuis l'extérieur de la classe ». Python n'interdit pas techniquement d'écrire <code>p._contenu</code>, mais un programmeur qui respecte la convention ne le fera pas. On retrouve la distinction <strong>interface / implémentation</strong> du chapitre IV.</p>
+<h3 id="deux-classes-pour-la-file">Deux classes pour la file<a class="headerlink" href="#deux-classes-pour-la-file" title="Permanent link">⚓︎</a></h3>
+<p><strong>Première implémentation : une liste Python.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileListe</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;File non bornée, implémentée avec une liste Python.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contenu</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Comme au chapitre IV, <code>defiler</code> a un coût linéaire, car <code>pop(0)</code> oblige Python à décaler tous les éléments.</p>
+<p><strong>Seconde implémentation : deux piles.</strong> </p>
+<p>Au chapitre IV, cette file était un tuple <code>(entree, sortie)</code>. Ici, <strong>les attributs d'une file sont eux-mêmes des objets</strong> de la classe <code>Pile</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">File</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;File non bornée, implémentée avec deux piles.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_entree</span> <span class="o">=</span> <span class="n">Pile</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span> <span class="o">=</span> <span class="n">Pile</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_entree</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">enfiler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_entree</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">defiler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_entree</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span><span class="o">.</span><span class="n">empiler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_entree</span><span class="o">.</span><span class="n">depiler</span><span class="p">())</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;Erreur file vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sortie</span><span class="o">.</span><span class="n">depiler</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Le schéma ci-dessous montre les objets en mémoire après quelques opérations. On y voit que <code>f</code> référence un objet <code>File</code>, dont chaque attribut référence à son tour un objet <code>Pile</code>, lequel référence une liste.</p>
+<p><img alt="Un objet File dont les deux attributs sont des objets Pile" src="img/poo_file_deux_piles.svg" /></p>
+<p>La classe <code>File</code> n'utilise <strong>que l'interface</strong> de <code>Pile</code> : elle n'accède jamais à <code>_contenu</code>. Si l'on changeait l'implémentation de <code>Pile</code>, la classe <code>File</code> continuerait de fonctionner sans aucune modification.</p>
+<h3 id="une-meme-interface-deux-implementations">Une même interface, deux implémentations<a class="headerlink" href="#une-meme-interface-deux-implementations" title="Permanent link">⚓︎</a></h3>
+<p>Les classes <code>FileListe</code> et <code>File</code> <strong>coexistent</strong> sans conflit de noms, alors que leurs méthodes portent les mêmes noms : chaque méthode appartient à sa classe. Mieux, un même programme peut utiliser l'une ou l'autre indifféremment :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">vider</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Défile et affiche tous les éléments de la file f.&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">FileListe</span><span class="p">(),</span> <span class="n">File</span><span class="p">()):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+    <span class="n">vider</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">r2</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>A B C D
+A B C D
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Rect(8 X 3)
+<p><img alt="Le code client ne voit que l'interface ; les implémentations restent cachées" src="img/poo_interface.svg" /></p>
+<p>La fonction <code>vider</code> ne sait pas, et n'a pas besoin de savoir, comment la file est représentée en mémoire. Le comportement observé est identique ; seuls diffèrent la représentation interne et le coût des opérations (linéaire pour <code>FileListe.defiler</code>, constant amorti pour <code>File.defiler</code>). C'est l'idée de <strong>type abstrait</strong> du chapitre IV qui prend ici une forme concrète.</p>
+<h2 id="methodes-speciales-pour-aller-plus-loin">Méthodes spéciales (pour aller plus loin)<a class="headerlink" href="#methodes-speciales-pour-aller-plus-loin" title="Permanent link">⚓︎</a></h2>
+<p>Les méthodes dont le nom commence et se termine par un double souligné (<code>__init__</code>, <code>__str__</code>…) sont des <strong>méthodes spéciales</strong> : Python les appelle automatiquement dans certaines situations. Seule <code>__init__</code> est indispensable en NSI ; les autres ne sont pas exigibles mais apparaissent parfois dans les sujets.</p>
+<p>Par défaut, afficher une carte n'est pas très lisible :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Carte</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f70e36f0490</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
+<p>La méthode <code>__str__</code>, appelée automatiquement par <code>print</code>, permet de choisir l'affichage. On l'ajoute à la classe <code>Carte</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">figures</span> <span class="o">=</span> <span class="p">{</span><span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="ow">in</span> <span class="n">figures</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">figures</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">valeur</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">couleur</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">couleur</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Carte</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;♥&#39;</span><span class="p">))</span>
+<span class="n">D</span><span class="err">♥</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="bilan">Bilan<a class="headerlink" href="#bilan" title="Permanent link">⚓︎</a></h2>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Définition</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Classe</strong></td>
+<td>Définition d'un nouveau type : attributs et méthodes communs à ses objets</td>
+<td><code>class Carte:</code></td>
+</tr>
+<tr>
+<td><strong>Objet / instance</strong></td>
+<td>Valeur construite à partir d'une classe</td>
+<td><code>c1</code></td>
+</tr>
+<tr>
+<td><strong>Instanciation</strong></td>
+<td>Création d'un objet en appelant la classe</td>
+<td><code>c1 = Carte(12, '♥')</code></td>
+</tr>
+<tr>
+<td><strong>Méthode d'initialisation</strong></td>
+<td><code>__init__</code>, appelée automatiquement juste après la création de l'objet pour lui donner ses attributs (souvent appelée « constructeur » par abus de langage)</td>
+<td><code>def __init__(self, valeur, couleur):</code></td>
+</tr>
+<tr>
+<td><strong>Attribut</strong></td>
+<td>Variable propre à chaque objet</td>
+<td><code>c1.valeur</code></td>
+</tr>
+<tr>
+<td><strong>Méthode</strong></td>
+<td>Fonction définie dans la classe, appelée sur un objet</td>
+<td><code>c2.est_plus_forte_que(c1)</code></td>
+</tr>
+<tr>
+<td><strong><code>self</code></strong></td>
+<td>Premier paramètre de toute méthode : l'objet sur lequel elle est appelée</td>
+<td><code>self.valeur</code></td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Méthodes offertes à l'utilisateur de la classe</td>
+<td><code>empiler</code>, <code>depiler</code>…</td>
+</tr>
+</tbody>
+</table>
+<p><strong>À retenir.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<ul>
+<li>Une classe regroupe des <strong>données nommées</strong> (attributs) et les <strong>traitements</strong> qui s'y appliquent (méthodes).</li>
+<li>La programmation objet est un moyen naturel d'<strong>implémenter une structure de données</strong> : l'interface correspond aux méthodes, l'implémentation aux attributs internes.</li>
+<li>Une variable <strong>référence</strong> un objet : deux variables peuvent désigner le même objet.</li>
+</ul>
+</div>
 
 
 
