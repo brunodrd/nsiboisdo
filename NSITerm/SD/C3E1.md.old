@@ -1,0 +1,98 @@
+Vocabulaire de la programmation objet - Manipuler des classes
+===================================================
+
+## Le vocabulaire
+
+Donner la définition des termes apparaissant en gras dans la consigne ci-dessous.
+
+Il existe dans la librairie standard un module nommé `datetime` qui permet de manipuler les dates. Il implémente notamment une **classe** `date` (*voir* `help(datetime.date)` *pour une description plus complète*).  
+Des objets de type `date` seront **instanciés** en utilisant la syntaxe `date(annee, mois, jour)` (*voir exemple ci-dessous*).  
+Une date possède des **attributs** intéressants: `year`, `month` et `day` dont les noms sont suffisamment explicites.  
+Enfin, la date du jour peut être obtenue avec la **méthode** `today`. 
+
+
+```python
+from datetime import date
+
+d = date(2000, 12, 1)  # le 1er décembre 2000
+print(d.day)  # le jour
+print(d.month)  # le  mois
+print(d.year)  # l'année
+print(date.today())
+```
+
+    1
+    12
+    2000
+    2021-07-30
+
+
+
+```python
+import inspect
+
+print(inspect.getsource(date))
+```
+
+## Une classe Personne
+
+Créer une classe `Personne` qui initialisera les instances avec 3 paramètres: `nom`, `prenom` et une date de naissance `nais`. Cette classe fournit une méthode `age` qui renvoie l'age de la personne.  
+Créer un objet `p1` de type `Personne` qui sera initialisé avec les informations suivantes: `'Bob'`,  `'Leponge'` né le `17 juillet 1999`. Donner alors son âge.
+
+
+```python
+# Réponses
+# Cellule à compléter
+
+from datetime import date
+
+
+class Personne:
+    """Informations personnelles sur une personne"""
+    
+    def __init__(self, nom, prenom, dnais):
+        pass
+        # à compléter - SUPPRIMER la ligne contenant l'instruction 'pass' !!
+    
+    def age(self):
+        d = date.today()
+        # à compléter
+```
+
+## Une classe Article
+
+Compléter la cellule suivante dans laquelle on devra créer une classe `Article` qui **initialisera** les objets instanciés avec les paramètres `ref`, `prixHT`, et `tva`. Cette classe implémentera les méthodes:  
+
+* `prixTTC` qui renvoie le prix TTC calculé de la manière suivante: `prixHT + prixHT*tva/100`;
+* `affiche` qui affiche toutes la référence de l'article, son prix HT et son prixTTC.  
+
+Tester (*avec une TVA à 20% par exemple*).
+
+
+```python
+# Réponses
+# Cellule à compléter
+
+class Article:
+    """Une classe pour manipuler les caractéristiques des articles"""
+    
+    #def __init__(...):
+        
+    #def prixTTC(...):
+    
+    #def affiche(...):
+        
+        
+```
+
+## Compte bancaire
+
+On définit compte bancaire par la donnée:  
+
+* d'un nom et d'un prénom
+* d'un numéro de compte
+* d'un solde initial de 50 (la banque offre 50€ de bienvenue pour l'ouverture d'un compte)
+
+Par ailleurs, le titulaire peut débiter son compte, le créditer ou le consulter (*c-à-d obtenir la valeur du solde*). Attention, on ne peut débiter son compte que si son solde le permet !  
+
+Ecrire et tester une classe `CompteBancaire` qui répond à ce cahier des charges.

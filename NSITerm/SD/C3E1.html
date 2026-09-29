@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vocabulaire-de-la-programmation-objet-manipuler-des-classes" class="md-skip">
+        <a href="#vocabulaire-de-la-programmation-objet-exercices-1" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3408,36 +3408,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#le-vocabulaire" class="md-nav__link">
+  <a href="#exercice-1-utiliser-une-classe-existante-date" class="md-nav__link">
     <span class="md-ellipsis">
-      Le vocabulaire
+      Exercice 1 — Utiliser une classe existante : date
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-classe-personne" class="md-nav__link">
+  <a href="#exercice-2-lire-et-predire" class="md-nav__link">
     <span class="md-ellipsis">
-      Une classe Personne
+      Exercice 2 — Lire et prédire
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-classe-article" class="md-nav__link">
+  <a href="#exercice-3-deboguer" class="md-nav__link">
     <span class="md-ellipsis">
-      Une classe Article
+      Exercice 3 — Déboguer
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compte-bancaire" class="md-nav__link">
+  <a href="#exercice-4-une-classe-personne" class="md-nav__link">
     <span class="md-ellipsis">
-      Compte bancaire
+      Exercice 4 — Une classe Personne
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-un-compte-bancaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 5 — Un compte bancaire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-retour-aux-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 6 — Retour aux files
     </span>
   </a>
   
@@ -6240,13 +6258,11 @@
 
 
 
-<h1 id="vocabulaire-de-la-programmation-objet-manipuler-des-classes">Vocabulaire de la programmation objet - Manipuler des classes<a class="headerlink" href="#vocabulaire-de-la-programmation-objet-manipuler-des-classes" title="Permanent link">⚓︎</a></h1>
-<h2 id="le-vocabulaire">Le vocabulaire<a class="headerlink" href="#le-vocabulaire" title="Permanent link">⚓︎</a></h2>
-<p>Donner la définition des termes apparaissant en gras dans la consigne ci-dessous.</p>
-<p>Il existe dans la librairie standard un module nommé <code>datetime</code> qui permet de manipuler les dates. Il implémente notamment une <strong>classe</strong> <code>date</code> (<em>voir</em> <code>help(datetime.date)</code> <em>pour une description plus complète</em>).<br />
-Des objets de type <code>date</code> seront <strong>instanciés</strong> en utilisant la syntaxe <code>date(annee, mois, jour)</code> (<em>voir exemple ci-dessous</em>).<br />
-Une date possède des <strong>attributs</strong> intéressants: <code>year</code>, <code>month</code> et <code>day</code> dont les noms sont suffisamment explicites.<br />
-Enfin, la date du jour peut être obtenue avec la <strong>méthode</strong> <code>today</code>. </p>
+<h1 id="vocabulaire-de-la-programmation-objet-exercices-1">Vocabulaire de la programmation objet — Exercices 1<a class="headerlink" href="#vocabulaire-de-la-programmation-objet-exercices-1" title="Permanent link">⚓︎</a></h1>
+<p>Les exercices suivent la progression du cours : on <strong>utilise</strong> d'abord une classe existante, on <strong>lit</strong> et on <strong>corrige</strong> du code objet, puis on <strong>écrit</strong> ses propres classes.</p>
+<hr />
+<h2 id="exercice-1-utiliser-une-classe-existante-date">Exercice 1 — Utiliser une classe existante : <code>date</code><a class="headerlink" href="#exercice-1-utiliser-une-classe-existante-date" title="Permanent link">⚓︎</a></h2>
+<p>Le module <code>datetime</code> de la bibliothèque standard définit une classe <code>date</code> qui permet de manipuler des dates.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6255,11 +6271,11 @@ Enfin, la date du jour peut être obtenue avec la <strong>méthode</strong> <cod
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># le 1er décembre 2000</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>  <span class="c1"># le jour</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>  <span class="c1"># le  mois</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>  <span class="c1"># l&#39;année</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>       <span class="c1"># le 1er décembre 2000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -6267,17 +6283,104 @@ Enfin, la date du jour peut être obtenue avec la <strong>méthode</strong> <cod
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>1
 12
 2000
-2021-07-30
+4
 </code></pre></div></td></tr></table></div>
+<ol>
+<li>Dans ce code, identifier :<ul>
+<li>le nom de la <strong>classe</strong> ;</li>
+<li>l'instruction qui réalise une <strong>instanciation</strong>, et l'<strong>objet</strong> obtenu ;</li>
+<li>trois <strong>attributs</strong> ;</li>
+<li>une <strong>méthode</strong>.</li>
+</ul>
+</li>
+<li>D'après l'affichage, que renvoie la méthode <code>weekday</code> ? On pourra consulter <code>help(date.weekday)</code>.</li>
+<li>
+<p>Exécuter les instructions suivantes, puis répondre aux questions.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">d1</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span> <span class="o">==</span> <span class="n">d2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span> <span class="ow">is</span> <span class="n">d2</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="une-classe-personne">Une classe Personne<a class="headerlink" href="#une-classe-personne" title="Permanent link">⚓︎</a></h2>
-<p>Créer une classe <code>Personne</code> qui initialisera les instances avec 3 paramètres: <code>nom</code>, <code>prenom</code> et une date de naissance <code>nais</code>. Cette classe fournit une méthode <code>age</code> qui renvoie l'age de la personne.<br />
-Créer un objet <code>p1</code> de type <code>Personne</code> qui sera initialisé avec les informations suivantes: <code>'Bob'</code>,  <code>'Leponge'</code> né le <code>17 juillet 1999</code>. Donner alors son âge.</p>
+<p>a. Combien d'objets de type <code>date</code> ont été créés ?</p>
+<p>b. Dans le cours, deux cartes <code>Carte(13, '♥')</code> distinctes donnaient <code>False</code> avec <code>==</code>. Que constate-t-on ici ? Qu'en déduire sur la signification de <code>==</code> pour les objets d'une classe ?</p>
+</li>
+<li>
+<p>Exécuter :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">d3</span> <span class="o">=</span> <span class="n">d1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2001</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d3</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>La méthode <code>replace</code> a-t-elle modifié l'objet <code>d1</code> ? Que renvoie-t-elle ?</p>
+</li>
+</ol>
+<p><em>Remarque :</em> la classe <code>date</code> propose aussi <code>date.today()</code>, qui renvoie la date du jour. Elle s'appelle directement sur la <strong>classe</strong> et non sur un objet : c'est un cas particulier qui n'est pas au programme.</p>
+<hr />
+<h2 id="exercice-2-lire-et-predire">Exercice 2 — Lire et prédire<a class="headerlink" href="#exercice-2-lire-et-predire" title="Permanent link">⚓︎</a></h2>
+<p>On considère la classe suivante.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Compteur</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">incrementer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p><strong>Sans exécuter le code</strong>, prévoir l'affichage du programme ci-dessous. Faire un schéma des variables et des objets en mémoire, comme dans le cours, puis vérifier.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">Compteur</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Compteur</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">incrementer</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">incrementer</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">incrementer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">valeur</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">valeur</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>On poursuit le programme précédent avec deux fonctions.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remplacer</span><span class="p">(</span><span class="n">cpt</span><span class="p">):</span>
+    <span class="n">cpt</span> <span class="o">=</span> <span class="n">Compteur</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">remise_a_zero</span><span class="p">(</span><span class="n">cpt</span><span class="p">):</span>
+    <span class="n">cpt</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">remplacer</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span>
+<span class="n">remise_a_zero</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">valeur</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">valeur</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>a. Prévoir les deux affichages, puis vérifier.</p>
+<p>b. Expliquer pourquoi <code>remplacer</code> n'a aucun effet sur <code>a</code>, alors que <code>remise_a_zero</code> en a un. Pourquoi <code>b.valeur</code> a-t-il changé lui aussi ?</p>
+</li>
+</ol>
+<hr />
+<h2 id="exercice-3-deboguer">Exercice 3 — Déboguer<a class="headerlink" href="#exercice-3-deboguer" title="Permanent link">⚓︎</a></h2>
+<p>Le programme suivant doit afficher <code>1 min 15 s</code>. Il contient <strong>trois</strong> erreurs, toutes liées à <code>self</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6290,33 +6393,30 @@ Créer un objet <code>p1</code> de type <code>Personne</code> qui sera initialis
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponses</span>
-<span class="c1"># Cellule à compléter</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Chrono</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">secondes</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">avancer</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secondes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">secondes</span> <span class="o">+</span> <span class="n">n</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">afficher</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">secondes</span> <span class="o">//</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secondes</span> <span class="o">%</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Informations personnelles sur une personne&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">dnais</span><span class="p">):</span>
-        <span class="k">pass</span>
-        <span class="c1"># à compléter - SUPPRIMER la ligne contenant l&#39;instruction &#39;pass&#39; !!</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="c1"># à compléter</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Chrono</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">avancer</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">afficher</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="une-classe-article">Une classe Article<a class="headerlink" href="#une-classe-article" title="Permanent link">⚓︎</a></h2>
-<p>Compléter la cellule suivante dans laquelle on devra créer une classe <code>Article</code> qui <strong>initialisera</strong> les objets instanciés avec les paramètres <code>ref</code>, <code>prixHT</code>, et <code>tva</code>. Cette classe implémentera les méthodes:  </p>
+<p>Exécuter le programme. Pour chaque erreur rencontrée :</p>
 <ul>
-<li><code>prixTTC</code> qui renvoie le prix TTC calculé de la manière suivante: <code>prixHT + prixHT*tva/100</code>;</li>
-<li><code>affiche</code> qui affiche toutes la référence de l'article, son prix HT et son prixTTC.  </li>
+<li>recopier le <strong>type</strong> de l'erreur et son message ;</li>
+<li>expliquer ce message ;</li>
+<li>corriger une seule ligne, puis exécuter à nouveau.</li>
 </ul>
-<p>Tester (<em>avec une TVA à 20% par exemple</em>).</p>
+<p>Quelle erreur est la plus trompeuse ? Pourquoi Python ne la signale-t-il pas à la ligne où elle a été commise ?</p>
+<hr />
+<h2 id="exercice-4-une-classe-personne">Exercice 4 — Une classe <code>Personne</code><a class="headerlink" href="#exercice-4-une-classe-personne" title="Permanent link">⚓︎</a></h2>
+<p>On souhaite représenter une personne par son nom, son prénom et sa date de naissance. <strong>La date de naissance sera un objet de type <code>date</code>.</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6327,27 +6427,98 @@ Créer un objet <code>p1</code> de type <code>Personne</code> qui sera initialis
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Réponses</span>
-<span class="c1"># Cellule à compléter</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Article</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Une classe pour manipuler les caractéristiques des articles&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Une personne, décrite par son nom, son prénom et sa date de naissance.&quot;&quot;&quot;</span>
 
-    <span class="c1">#def __init__(...):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">naissance</span><span class="p">):</span>
+        <span class="o">...</span>  <span class="c1"># à compléter</span>
 
-    <span class="c1">#def prixTTC(...):</span>
-
-    <span class="c1">#def affiche(...):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jour</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie l&#39;âge (en années révolues) de la personne à la date jour.&quot;&quot;&quot;</span>
+        <span class="o">...</span>  <span class="c1"># à compléter</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="compte-bancaire">Compte bancaire<a class="headerlink" href="#compte-bancaire" title="Permanent link">⚓︎</a></h2>
-<p>On définit compte bancaire par la donnée:  </p>
-<ul>
-<li>d'un nom et d'un prénom</li>
-<li>d'un numéro de compte</li>
-<li>d'un solde initial de 50 (la banque offre 50€ de bienvenue pour l'ouverture d'un compte)</li>
-</ul>
-<p>Par ailleurs, le titulaire peut débiter son compte, le créditer ou le consulter (<em>c-à-d obtenir la valeur du solde</em>). Attention, on ne peut débiter son compte que si son solde le permet !  </p>
-<p>Ecrire et tester une classe <code>CompteBancaire</code> qui répond à ce cahier des charges.</p>
+<ol>
+<li>Compléter <code>__init__</code>.</li>
+<li>Créer un objet <code>p1</code> représentant Bob Leponge, né le 17 juillet 1999. Quelle expression donne son <strong>année</strong> de naissance ? Combien de points contient-elle, et que désigne chacun d'eux ?</li>
+<li>Compléter la méthode <code>age</code>. Attention : une personne n'a pas encore atteint son nouvel âge si son anniversaire n'est pas encore passé dans l'année.</li>
+<li>
+<p>Vérifier votre méthode avec les tests suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">p1</span><span class="o">.</span><span class="n">age</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span> <span class="o">==</span> <span class="mi">26</span>   <span class="c1"># la veille de son anniversaire</span>
+<span class="k">assert</span> <span class="n">p1</span><span class="o">.</span><span class="n">age</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span> <span class="o">==</span> <span class="mi">27</span>   <span class="c1"># le jour de son anniversaire</span>
+<span class="k">assert</span> <span class="n">p1</span><span class="o">.</span><span class="n">age</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span> <span class="o">==</span> <span class="mi">27</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Pourquoi la méthode <code>age</code> reçoit-elle la date <code>jour</code> en paramètre, plutôt que d'utiliser <code>date.today()</code> ? Penser à ce que deviendraient les tests ci-dessus l'année prochaine.</p>
+</li>
+<li>Un élève propose de calculer l'âge par <code>(jour - self.naissance).days // 365</code>. Montrer, à l'aide de l'un des tests précédents, que cette formule est fausse, puis expliquer pourquoi.</li>
+</ol>
+<hr />
+<h2 id="exercice-5-un-compte-bancaire">Exercice 5 — Un compte bancaire<a class="headerlink" href="#exercice-5-un-compte-bancaire" title="Permanent link">⚓︎</a></h2>
+<p>Un compte bancaire est défini par le nom de son titulaire et un numéro de compte. À l'ouverture, la banque offre 50 € de bienvenue.</p>
+<p>On impose l'<strong>interface</strong> suivante.</p>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CompteBancaire(titulaire, numero)</code></td>
+<td>crée un compte, avec un solde initial de 50 €</td>
+</tr>
+<tr>
+<td><code>solde()</code></td>
+<td>renvoie le solde actuel</td>
+</tr>
+<tr>
+<td><code>crediter(montant)</code></td>
+<td>ajoute <code>montant</code> au solde</td>
+</tr>
+<tr>
+<td><code>debiter(montant)</code></td>
+<td>retire <code>montant</code> si le solde le permet, et renvoie <code>True</code> ; sinon ne fait rien et renvoie <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>Un montant nul ou négatif est une erreur de programmation : <code>crediter</code> et <code>debiter</code> le signaleront par une <strong>assertion</strong>.</p>
+<ol>
+<li>Écrire la classe <code>CompteBancaire</code>. Le solde sera stocké dans un attribut <code>_solde</code>. Que signifie le souligné ?</li>
+<li>
+<p>Vérifier votre classe avec :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">cb</span> <span class="o">=</span> <span class="n">CompteBancaire</span><span class="p">(</span><span class="s1">&#39;Bob Leponge&#39;</span><span class="p">,</span> <span class="s1">&#39;FR76-0001&#39;</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">crediter</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">cb</span><span class="o">.</span><span class="n">debiter</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">cb</span><span class="o">.</span><span class="n">debiter</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">cb</span><span class="o">.</span><span class="n">solde</span><span class="p">()</span> <span class="o">==</span> <span class="mi">30</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Pourquoi a-t-on choisi que <code>debiter</code> renvoie <code>False</code> en cas de solde insuffisant, plutôt que de déclencher une assertion comme pour un montant négatif ?</p>
+</li>
+<li><strong>Changer d'implémentation.</strong> La banque veut désormais conserver l'historique des opérations. Écrire une classe <code>CompteBancaire2</code> qui offre <strong>la même interface</strong>, mais dont le seul attribut interne (en plus du titulaire et du numéro) est une liste <code>_operations</code> : le bonus d'ouverture, puis chaque crédit (positif) et chaque débit (négatif). Le solde n'est plus stocké : il est <strong>calculé</strong>.</li>
+<li>Ajouter à <code>CompteBancaire2</code> une méthode <code>releve()</code> qui renvoie la liste des opérations. Pourquoi est-il préférable de renvoyer une <strong>copie</strong> de <code>_operations</code> plutôt que la liste elle-même ? On pourra relire la section 5 du cours.</li>
+<li>Les tests de la question 2 passent-ils sans modification avec <code>CompteBancaire2</code> ? Quelle notion du cours cela illustre-t-il ?</li>
+</ol>
+<hr />
+<h2 id="exercice-6-retour-aux-files">Exercice 6 — Retour aux files<a class="headerlink" href="#exercice-6-retour-aux-files" title="Permanent link">⚓︎</a></h2>
+<p>On utilise les classes <code>Pile</code>, <code>FileListe</code> et <code>File</code> du cours (les copier dans votre notebook jupyter).</p>
+<ol>
+<li>Écrire une fonction <code>inverser(f)</code> qui inverse l'ordre des éléments de la file <code>f</code>, à l'aide d'une pile. La fonction ne renvoie rien : elle modifie <code>f</code>.</li>
+<li>Tester votre fonction avec une <code>FileListe</code>, puis avec une <code>File</code>, en enfilant <code>'A'</code>, <code>'B'</code>, <code>'C'</code>, <code>'D'</code> puis en défilant tous les éléments : on doit obtenir <code>D C B A</code> dans les deux cas.</li>
+<li>Votre fonction accède-t-elle à un attribut dont le nom commence par <code>_</code> ? Pourquoi fonctionne-t-elle avec les deux classes ?</li>
+<li>La modification de <code>f</code> par la fonction est un effet de bord. Ici, est-il voulu ou non désiré ? Comment le signaler dans la docstring de la fonction ?</li>
+</ol>
 
 
 
