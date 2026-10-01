@@ -1,0 +1,92 @@
+NSI
+===
+
+Les cours de  spécialité NSI au lycée de Bois d'Olive.
+
+<figure markdown="span">
+  ![logo lycée](logo2.png){ width="200" }
+</figure>
+---
+
+Années scolaires 2024-25/26
+
+---
+__18 septembre 2026__
+Update du cours structure de données Pile / File
+
+---
+__7 octobre 2025__  
+Update du cours terminale TAD liste
+------------------------
+
+---
+__23 janvier 2025__  
+[Mise à jour des cours réseau niveau 1re](https://brunodrd.github.io/nsiboisdo/NSI1/Reseau/c16c2.html)
+
+---
+__27 novembre 2024__  
+Mise à jour mineure du cours de base de données terminale (_lien vers dbdiagram.io_)
+
+---
+__2 septembre 2024__  
+[TP1 Fractales](https://brunodrd.github.io/nsiboisdo/NSITerm/LP2/C1TP1.html) illustrant la récursivité.
+
+---
+__28 juin 2024__
+
+Début de refonte du contenu, niveau 1re, il y en a pour au moins 3 semaines ...
+
+---
+__14 juin 2024__
+
+[Le corrigé de (_l'excellent_) exercice 1 du sujet Asie 24-NSIJ2JA1](https://brunodrd.github.io/nsiboisdo/NSITerm/ANNALES/24-NSIJ2A1.html) (Problème de recherche d'un élément absolument majoritaire, de manière naïve puis avec diviser pour régner). À faire absolument !
+
+---  
+__12 juin 2024__
+
+Ajout des corrections de l'exercice 1 des exercices distribués en classe mardi (_centres étrangers_): [J1](https://brunodrd.github.io/nsiboisdo/NSITerm/ANNALES/24-J1G11.html) et [J2](https://brunodrd.github.io/nsiboisdo/NSITerm/ANNALES/24-NSIJ2G11.html) (Remarques ou précisions: mail pro mon_prenom.mon_nom@ac-reunion.fr)
+
+---
+__4 juin 2024__  
+
+[Calculabilité:](https://brunodrd.github.io/nsiboisdo/NSITerm/ALGO/C16C1.html) dernier chapitre de terminale 	&#128546;
+
+---
+__22 mai 2024__
+
+&#127776; Amérique du nord 2024 [J1](https://brunodrd.github.io/nsiboisdo/NSITerm/divers/24-NSIJ1AN1.pdf) et [J2](https://brunodrd.github.io/nsiboisdo/NSITerm/divers/24-NSIJ2AN1.pdf) sont sortis
+
+---
+__19 mai 2024__  
+
+[Projet Puissance 4](https://brunodrd.github.io/nsiboisdo/NSI1/projet/projet_fin_NSI1.html) 1ère
+
+---
+__18 mai 2024__
+[Une correction du TP Iris de Fisher](https://brunodrd.github.io/nsiboisdo/NSI1/S8/correction_tp.html) en 1ère
+
+---
+__16 mai 2024__
+
+Update de la section Liens divers / Textes
+
+---
+__15 mai 2024__
+
+[Bac blanc terminale + corrigé](https://brunodrd.github.io/nsiboisdo/NSITerm/EVAL/sujet_042024.html)
+
+[Descriptif succinct des thèmes abordés dans les sujets d'épreuves pratiques](https://brunodrd.github.io/nsiboisdo/NSITerm/EVAL/EP2024.html)
+
+---
+__10 mai 2024__
+
+[Intégration d'un simulateur logique sur des pages de 1re](https://brunodrd.github.io/nsiboisdo/NSI1/S4/S4A1.html)
+
+__Octobre 2023__
+
+Ajout d'un interpréteur python dans certaines pages d'exercices (*pour l'instant uniquement le niveau terminale et à partir du chapitre 6*). Cela a été rendu possible grâce la distribution Python pour le Web [Pyodide](https://pyodide.org/en/stable/).
+<figure markdown="span">
+  ![logo](img/pyodide-logo.svg){ width="200" }
+</figure>
+
+Pyodide est un projet assez récent (2018), en développement reposant sur [WebAssembly](https://developer.mozilla.org/fr/docs/WebAssembly).
