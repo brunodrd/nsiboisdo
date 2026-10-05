@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementation-dun-additionneur-complet-en-python" class="md-skip">
+        <a href="#tp-de-la-logique-au-calcul" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1769,7 +1769,7 @@
   
   
   <span class="md-ellipsis">
-    COURS 1
+    COURS / ACTIVITÉ 1
     
   </span>
   
@@ -1793,29 +1793,6 @@
   
   <span class="md-ellipsis">
     COURS 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="S4A1.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ACTIVITE 1
     
   </span>
   
@@ -1906,45 +1883,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#document-1-notation-des-electroniciens" class="md-nav__link">
+  <a href="#partie-a-leclairage-de-lescalier" class="md-nav__link">
     <span class="md-ellipsis">
-      Document 1: notation des électroniciens
+      Partie A : l'éclairage de l'escalier
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#document-2-connaissances-du-langage" class="md-nav__link">
+  <a href="#partie-b-les-lois-de-de-morgan" class="md-nav__link">
     <span class="md-ellipsis">
-      Document 2: connaissances du langage
+      Partie B : les lois de De Morgan
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-type-booleen" class="md-nav__link">
+  <a href="#partie-c-faire-calculer-les-portes-logiques" class="md-nav__link">
     <span class="md-ellipsis">
-      Le type booléen
+      Partie C : faire calculer les portes logiques
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprendre-une-fonction" class="md-nav__link">
+  <a href="#partie-d-les-booleens-en-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprendre une fonction
+      Partie D : les booléens en Python
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#un-circuit-important-le-multiplexeur" class="md-nav__link">
+  <a href="#defi-la-porte-mystere-a-3-entrees" class="md-nav__link">
     <span class="md-ellipsis">
-      Un circuit important: le multiplexeur
+      Défi : la porte mystère à 3 entrées
     </span>
   </a>
   
@@ -6342,211 +6319,241 @@
 
 
 
-<h1 id="implementation-dun-additionneur-complet-en-python">Implémentation d'un additionneur complet en python<a class="headerlink" href="#implementation-dun-additionneur-complet-en-python" title="Permanent link">⚓︎</a></h1>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Prendre absolument connaissance des documents 1 et 2 avant de répondre aux questions. Ne pas hésiter à exécuter les
-exemples fournis dans les diverses cellules.</p>
+<h1 id="tp-de-la-logique-au-calcul">TP : de la logique au calcul<a class="headerlink" href="#tp-de-la-logique-au-calcul" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objectifs du TP</p>
+<ul>
+<li>Construire des circuits à partir d'une expression ou d'un cahier des charges.</li>
+<li>Découvrir le <strong>ou exclusif</strong> (xor) et les <strong>lois de De Morgan</strong>.</li>
+<li>Construire un circuit qui <strong>additionne</strong> des nombres.</li>
+<li>Comprendre l'<strong>évaluation séquentielle</strong> de <code>and</code> et <code>or</code> en Python.</li>
+</ul>
 </div>
-<h2 id="document-1-notation-des-electroniciens">Document 1: notation des électroniciens<a class="headerlink" href="#document-1-notation-des-electroniciens" title="Permanent link">⚓︎</a></h2>
-<p>On rappelle le schéma d'un additionneur complet, vu dans l'activité 1:  </p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 275px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
-  v: 6,
-  components: {
-    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
-    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
-    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
-    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
-    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
-    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
-    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
-    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
-  },
-  wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
-}
-    </script>
-    </logic-editor></p>
-<p>En logique électronique, il est commun de noter les opérations logiques <em>et</em> et <em>ou</em> respectivement <code>.</code> et <code>+</code>. Quant à la négation <em>non</em>, on la représente avec une barre au dessus de la variable.  </p>
-<p>Ainsi, l'expression booléenne de la sortie <span class="arithmatex">\(S_i\)</span> de l'additionneur complet est  </p>
-<div class="arithmatex">\[S_i=(\overline{A_i} \cdot \overline{B_i} \cdot R_{i-1}) + (\overline{A_i} \cdot B_i \cdot \overline{R_{i-1}}) + (A_i \cdot \overline{B_i} \cdot \overline{R_{i-1}}) + (A_i \cdot B_i \cdot R_{i-1})\]</div>
-<p>Celle de la retenue est:  </p>
-<div class="arithmatex">\[R_i=(A_i \cdot R_{i-1}) + (A_i \cdot B_i) + (B_i \cdot R_{i-1})\]</div>
-<h2 id="document-2-connaissances-du-langage">Document 2: connaissances du langage<a class="headerlink" href="#document-2-connaissances-du-langage" title="Permanent link">⚓︎</a></h2>
-<h2 id="le-type-booleen">Le type booléen<a class="headerlink" href="#le-type-booleen" title="Permanent link">⚓︎</a></h2>
-<p>En python, les opérateurs booléens sont nommés <code>and</code>, <code>or</code> et <code>not</code>. Ainsi l'expression booléenne <span class="arithmatex">\(\overline{A}\cdot(B+\overline{C})\)</span> se traduit en python par:  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">not</span> <span class="n">A</span> <span class="ow">and</span> <span class="p">(</span><span class="n">B</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">C</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>Par ailleurs, Python possède un type booléen nommé <code>bool</code>. Les valeurs booléenne <em>vrai</em> et <em>faux</em> ou <em>1</em> et <em>0</em> se notent <code>True</code> et <code>False</code>. Voir ci-dessous.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
-<span class="n">A</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">A</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">B</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="ow">or</span> <span class="n">B</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>Python associe les valeurs booléennes <code>True</code>et <code>False</code> à <code>1</code> et <code>0</code> respectivement.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">B</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="le-type-chaine-de-caracteres">Le type chaîne de caractères<a class="headerlink" href="#le-type-chaine-de-caracteres" title="Permanent link">⚓︎</a></h3>
-<p>Python possède un type natif pour traiter les chaînes de caractères: le type <em>string</em> <code>str</code>. Une chaîne de caratères est déclarée en étant entourée de <em>double quotes</em> <code>"</code> ou simple quote <code>'</code>.  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="s2">&quot;bonjour&quot;</span>
-</code></pre></div></td></tr></table></div>
-<p>On peut accéder aux caractères individuellement avec une notation <strong>indexée</strong> entre <em>crochet</em> <code>[ ]</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Le simulateur</p>
+<p>Les simulateurs de cette page sont aussi accessibles en plein écran sur <a href="https://logic.modulo-info.ch/">logic.modulo-info.ch</a>.<br />
+Glissez les composants depuis la liste de gauche, reliez-les en tirant un fil d'une sortie vers une entrée. Un fil coloré transporte un 1, un fil noir un 0.<br />
+⚠️ Rien n'est sauvegardé : utilisez le bouton <strong>Télécharger</strong> pour conserver un circuit.</p>
+</div>
+<h2 id="partie-a-leclairage-de-lescalier">Partie A : l'éclairage de l'escalier<a class="headerlink" href="#partie-a-leclairage-de-lescalier" title="Permanent link">⚓︎</a></h2>
+<p>Dans une cage d'escalier, la lampe peut être commandée par deux interrupteurs, l'un en bas (<code>a</code>), l'autre en haut (<code>b</code>). Au départ, les deux interrupteurs sont à 0 et la lampe est éteinte. <strong>Basculer l'un ou l'autre des interrupteurs change l'état de la lampe.</strong></p>
+<ol>
+<li>Dressez la table de vérité de la lampe <code>L</code> en fonction de <code>a</code> et <code>b</code>.</li>
+<li>Complétez la phrase : « la lampe est allumée si et seulement si … ».</li>
+<li>Comparez avec la table de <code>a or b</code>. Quelle est la différence ? Faites le lien avec le « fromage ou dessert » de la séance précédente.</li>
+<li>Écrivez une expression de <code>L</code> utilisant uniquement <code>and</code>, <code>or</code> et <code>not</code>.<br />
+<em>Aide : repérez les lignes où <code>L</code> vaut 1 et décrivez chacune d'elles avec un <code>and</code>.</em></li>
+<li>Construisez le circuit correspondant et vérifiez qu'il respecte votre table.</li>
+</ol>
+<iframe style="width: 100%; height: 450px; border: 0" src="https://logic.modulo-info.ch/?showonly=in,out,and,or,not"></iframe>
+
+<details class="success">
+<summary>À retenir : le ou exclusif</summary>
+<p>Le <strong>ou exclusif</strong>, noté <strong>xor</strong> (<span class="arithmatex">\(\oplus\)</span>), est vrai si <strong>une seule</strong> des deux entrées est vraie, c'est-à-dire si elles sont <strong>différentes</strong>.</p>
 <table>
 <thead>
 <tr>
-<th>index</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a xor b</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ch</td>
-<td>'b'</td>
-<td>'o'</td>
-<td>'n'</td>
-<td>'j'</td>
-<td>'o'</td>
-<td>'u'</td>
-<td>'r'</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 </tr>
 </tbody>
 </table>
+<p><code>a xor b</code> est équivalent à <code>(a and not b) or (not a and b)</code>.<br />
+Il existe une porte dédiée : <img alt="ouex" src="img/ouex.svg" /></p>
+<p>En Python, il n'existe pas d'opérateur <code>xor</code> comparable à <code>and</code>, <code>or</code> et <code>not</code>.<br />
+Mais <code>a xor b</code> est vrai exactement quand <code>a</code> et <code>b</code> sont <strong>différents</strong>. Si <code>a</code> et <code>b</code> valent <code>True</code> ou <code>False</code>, on peut donc l'obtenir avec la comparaison <code>a != b</code> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="s2">&quot;bonjour&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># True, comme a xor b</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h2 id="comprendre-une-fonction">Comprendre une fonction<a class="headerlink" href="#comprendre-une-fonction" title="Permanent link">⚓︎</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">addb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Renvoie ....</span>
-<span class="sd">    On suppose que a et b sont des chaines constitués des caractères </span>
-<span class="sd">    appartenant à {&#39;0&#39;,&#39;1&#39;}; n est un entier naturel supérieur à zéro.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ri_1</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">ai</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">bi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">si</span> <span class="o">=</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ai</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">bi</span> <span class="ow">and</span> <span class="n">ri_1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ai</span> <span class="ow">and</span> <span class="n">bi</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ri_1</span><span class="p">)</span> <span class="ow">or</span> \
-        <span class="p">(</span><span class="n">ai</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">bi</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ri_1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">ai</span> <span class="ow">and</span> <span class="n">bi</span> <span class="ow">and</span> <span class="n">ri_1</span><span class="p">)</span>
-        <span class="n">ri_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">ai</span> <span class="ow">and</span> <span class="n">ri_1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">ai</span> <span class="ow">and</span> <span class="n">bi</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">bi</span> <span class="ow">and</span> <span class="n">ri_1</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">si</span><span class="p">))</span> <span class="o">+</span> <span class="n">res</span>
-    <span class="k">if</span> <span class="n">ri_1</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="n">res</span>
-    <span class="k">return</span> <span class="n">res</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">addb</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;11111111&#39;</span><span class="p">,</span><span class="s1">&#39;00000001&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<ul>
-<li>Consulter la <a href="https://docs.python.org/fr/3/library/stdtypes.html?highlight=range#range">documentation officielle</a> de python sur la fonction range afin de comprendre la construction qui apparait à la ligne 9.</li>
-<li>Les spécifications étant incomplètes, expliquer ce que réalise cette fonction en étudiant le code fourni ainsi que les documents 1 &amp; 2.</li>
-<li>Vérifier vos hypothèses avec quelques tests; par exemple:</li>
-<li><code>addb(4,'0001','0001')</code></li>
-<li><code>addb(8,'11111111','00000001')</code></li>
-<li>Quelle est l'utilité du test ligne 16 ?</li>
-</ul>
-<h2 id="un-circuit-important-le-multiplexeur">Un circuit important: le multiplexeur<a class="headerlink" href="#un-circuit-important-le-multiplexeur" title="Permanent link">⚓︎</a></h2>
-<p>Le <a href="https://fr.wikipedia.org/wiki/Multiplexeur">multiplexeur</a> est un circuit logique très important en architecture machine. Il permet de sélectionner une entrée parmi <span class="arithmatex">\(N\)</span> et de transférer sa valeur sur la sortie. La sélection se fait à l'aide d'une entrée <em>Select</em>.</p>
-<h3 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">⚓︎</a></h3>
-<p>Le circuit ci-dessous présente le schéma de principe d'un multiplexeur à 4 entrées <span class="arithmatex">\(A_0 ... A_3\)</span> que vous pouvez tester.</p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 287px;" mode="tryout">
-    <script type="application/json">
-        
-{ // JSON5
-  v: 6,
-  components: {
-    in0: {type: 'in', pos: [150, 50], id: 121, name: 'A0'},
-    in1: {type: 'in', pos: [150, 90], id: 122, name: 'A1'},
-    in2: {type: 'in', pos: [150, 140], id: 123, name: 'A2'},
-    in3: {type: 'in', pos: [150, 185], id: 124, name: 'A3'},
-    in4: {type: 'in', pos: [420, 40], id: 125, name: 'Sel0'},
-    out0: {type: 'out', pos: [500, 165], id: 126, name: 'S'},
-    mux0: {type: 'mux', pos: [330, 215], in: '142-147', out: 148, from: 4, to: 1},
-    in5: {type: 'in', pos: [310, 40], id: 149, name: 'Sel1'},
-  },
-  wires: [[121, 142], [125, 146], [148, 126], [122, 143], [123, 144], [124, 145], [149, 147]]
-}
-    </script>
-    </logic-editor></p>
-<hr />
-<p>Sa réalisation avec les portes logiques élémentaires:</p>
-<p><logic-editor exportformat="superfence"  style="height: 150px;" showonly="out and or xor not" style="height: 622px;" mode="tryout">
-    <script type="application/json">
-        
-
-
-{ // JSON5
-  v: 6,
-  components: {
-    and0: {type: 'and', pos: [565, 270], in: '153-155', out: 156, bits: 3},
-    or0: {type: 'or', pos: [745, 355], in: '169-172', out: 173, bits: 4},
-    not0: {type: 'not', pos: [265, 145], orient: 's', in: 174, out: 175},
-    not1: {type: 'not', pos: [325, 145], orient: 's', in: 176, out: 177},
-    in0: {type: 'in', pos: [190, 55], id: 178, name: 'Sel1'},
-    in1: {type: 'in', pos: [450, 60], orient: 'w', id: 179, name: 'Sel0'},
-    in2: {type: 'in', pos: [60, 240], id: 180, name: 'A0', val: 1},
-    in3: {type: 'in', pos: [65, 310], id: 181, name: 'A1'},
-    in4: {type: 'in', pos: [60, 420], id: 182, name: 'A2'},
-    in5: {type: 'in', pos: [65, 545], id: 183, name: 'A3'},
-    and1: {type: 'and', pos: [570, 365], in: '184-186', out: 187, bits: 3},
-    and2: {type: 'and', pos: [570, 460], in: '188-190', out: 191, bits: 3},
-    and3: {type: 'and', pos: [570, 550], in: '192-194', out: 195, bits: 3},
-    out0: {type: 'out', pos: [875, 355], id: 196},
-  },
-  wires: [[178, 174], [179, 176], [180, 155], [181, 186], [182, 190], [156, 169], [187, 170], [191, 171], [195, 172], [173, 196], [178, 189, {via: [[185, 385, 's']]}], [178, 193, {via: [[160, 375, 's']]}], [175, 154], [175, 185], [179, 184, {via: [[395, 185, 's']]}], [179, 192, {via: [[380, 205, 's']]}], [177, 153], [177, 188, {via: [[355, 325, 's']]}], [183, 194]]
-}
-    </script>
-    </logic-editor></p>
-<h3 id="simulation">Simulation<a class="headerlink" href="#simulation" title="Permanent link">⚓︎</a></h3>
+<p>⚠️ Cette astuce ne vaut que pour des booléens. Avec d'autres valeurs, <code>!=</code> compare simplement les valeurs : <code>2 != 3</code> vaut <code>True</code> parce que 2 et 3 sont différents, pas parce qu'il s'agirait d'un « ou exclusif ».</p>
+</details>
+<h2 id="partie-b-les-lois-de-de-morgan">Partie B : les lois de De Morgan<a class="headerlink" href="#partie-b-les-lois-de-de-morgan" title="Permanent link">⚓︎</a></h2>
 <ol>
-<li>Simuler le circuit ci-dessus.</li>
-<li>Quelle opération logique effectuent les 4 circuits à 3 entrées, visibles sur la réalisation ci-dessus?</li>
-<li>Quelles valeurs logiques doit-on porter les entrées de ces circuits si on veut obtenir un <em>1</em> logique sur leur sortie?</li>
-<li>On souhaite sélectionner la deuxième entrée (en d'autres termes <span class="arithmatex">\(S\)</span> doit <em>recopier</em> <span class="arithmatex">\(A_1\)</span>), quelle valeur logique doit-on affecter à <span class="arithmatex">\(Sel_0\)</span> et <span class="arithmatex">\(Sel_1\)</span>?</li>
-<li>Réaliser la sélection précédente sur le simulateur. Entrer la combinaison <span class="arithmatex">\((1,1,0,0)\)</span> pour <span class="arithmatex">\((A_0,A_1,A_2,A_3)\)</span>. Que vaut <span class="arithmatex">\(S\)</span> ? Expliquer.</li>
-<li>Garder la même sélection pour <span class="arithmatex">\(Sel_0\)</span> et <span class="arithmatex">\(Sel_1\)</span>. Donner une autre combinaison qui conduit à <span class="arithmatex">\(S=1\)</span>. Expliquer.</li>
+<li>Dressez la table de vérité de <code>not (a or b)</code>.</li>
+<li>Construisez le circuit dans le simulateur ci-dessous.</li>
+<li><strong>Dans le même simulateur</strong>, construisez à côté le circuit de <code>(not a) and (not b)</code>. Comparez les deux lampes pour toutes les combinaisons. Que constatez-vous ?</li>
+<li>Cherchez de même une expression équivalente à <code>not (a and b)</code> qui utilise <code>or</code>. Vérifiez par un circuit.</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<iframe style="width: 100%; height: 450px; border: 0" src="https://logic.modulo-info.ch/?showonly=in,out,and,or,not"></iframe>
+
+<details class="success">
+<summary>À retenir : les lois de De Morgan</summary>
+<p>Deux expressions sont <strong>équivalentes</strong> si elles ont la même table de vérité.</p>
+<ul>
+<li><code>not (a or b)</code> est équivalent à <code>(not a) and (not b)</code></li>
+<li><code>not (a and b)</code> est équivalent à <code>(not a) or (not b)</code></li>
+</ul>
+<p>Exemple : « il ne pleut pas et il ne neige pas » veut dire la même chose que « il n'est pas vrai qu'il pleut ou qu'il neige ».</p>
+</details>
+<h2 id="partie-c-faire-calculer-les-portes-logiques">Partie C : faire calculer les portes logiques<a class="headerlink" href="#partie-c-faire-calculer-les-portes-logiques" title="Permanent link">⚓︎</a></h2>
+<h3 id="c1-le-demi-additionneur">C.1 Le demi-additionneur<a class="headerlink" href="#c1-le-demi-additionneur" title="Permanent link">⚓︎</a></h3>
+<p>On veut additionner deux nombres <code>A</code> et <code>B</code> qui ne peuvent valoir que <strong>0 ou 1</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Compter avec seulement deux chiffres</p>
+<p>En décimal, on dispose de dix chiffres (0 à 9). Quand on calcule 9 + 1, le résultat ne tient pas sur un seul chiffre : on <strong>pose 0 et on retient 1</strong>, ce qui donne 10.</p>
+<p>Si on ne dispose que des chiffres 0 et 1, le même phénomène se produit dès 1 + 1 : on pose 0 et on retient 1. Le résultat s'écrit donc <strong>10</strong> (« un, zéro »), et il vaut bien deux.</p>
+</div>
+<p>Le résultat peut donc nécessiter deux chiffres : le chiffre posé <code>S</code> (la somme) et la retenue <code>R</code>.</p>
+<ol>
+<li>
+<p>Complétez la table d'addition :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">A + B (avec des 0 et des 1)</th>
+<th style="text-align: center;">R</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Reconnaissez-vous la table de <code>S</code> ? celle de <code>R</code> ? Écrivez leurs expressions.</p>
+</li>
+<li>Construisez le demi-additionneur (deux entrées, deux sorties) et testez-le.</li>
+<li>En notation booléenne, on écrit parfois <code>or</code> avec le signe +, et alors 1 + 1 = 1. Pourquoi ne peut-on pas utiliser une simple porte <code>or</code> pour faire l'addition ?</li>
+</ol>
+<iframe style="width: 100%; height: 450px; border: 0" src="https://logic.modulo-info.ch/?showonly=in,out,and,or,not,xor"></iframe>
+
+<h3 id="c2-ladditionneur-complet">C.2 L'additionneur complet<a class="headerlink" href="#c2-ladditionneur-complet" title="Permanent link">⚓︎</a></h3>
+<p>Pour additionner des nombres de plusieurs chiffres, on procède comme pour une addition posée : chaque colonne doit tenir compte de la <strong>retenue</strong> venue de la colonne de droite. On additionne alors <strong>trois</strong> chiffres <code>A</code>, <code>B</code> et <code>Rin</code>, qui valent chacun 0 ou 1.</p>
+<ol>
+<li>Combien de lignes a la table de vérité ? Dressez-la (sorties <code>S</code> et <code>Rout</code>).</li>
+<li>Construisez l'additionneur complet avec <strong>deux demi-additionneurs</strong> et une porte <code>or</code>.<br />
+<em>Aide : additionnez d'abord <code>A</code> et <code>B</code>, puis ajoutez <code>Rin</code> au résultat. Il y a une retenue finale si l'une des deux additions en a produit une.</em></li>
+<li>Vérifiez votre circuit sur les 8 combinaisons.</li>
+</ol>
+<iframe style="width: 100%; height: 500px; border: 0" src="https://logic.modulo-info.ch/?showonly=in,out,and,or,not,xor"></iframe>
+
+<h3 id="c3-bonus-additionner-deux-nombres-de-4-chiffres">C.3 Bonus : additionner deux nombres de 4 chiffres<a class="headerlink" href="#c3-bonus-additionner-deux-nombres-de-4-chiffres" title="Permanent link">⚓︎</a></h3>
+<p>Le simulateur propose un composant <strong>additionneur complet</strong> tout fait. Ouvrez le <a href="https://logic.modulo-info.ch/">simulateur complet</a> dans un nouvel onglet.</p>
+<ol>
+<li>En chaînant 4 additionneurs complets, construisez un circuit qui additionne deux nombres écrits avec 4 chiffres 0 ou 1. Placez un afficheur décimal en sortie pour lire le résultat.</li>
+<li>Posez à la main l'addition 0101 + 0011, puis vérifiez avec votre circuit.</li>
+<li>Faites de même avec 1011 + 0110. Que vaut la dernière retenue ? Que se passe-t-il si l'on ne dispose que de 4 chiffres pour écrire le résultat ?</li>
+</ol>
+<h2 id="partie-d-les-booleens-en-python">Partie D : les booléens en Python<a class="headerlink" href="#partie-d-les-booleens-en-python" title="Permanent link">⚓︎</a></h2>
+<h3 id="d1-afficher-une-table-de-verite">D.1 Afficher une table de vérité<a class="headerlink" href="#d1-afficher-une-table-de-verite" title="Permanent link">⚓︎</a></h3>
+<p>Le programme suivant affiche la table de vérité de la fonction <code>f</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">b</span>      <span class="c1"># expression à modifier</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a b | f&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span>
 </code></pre></div></td></tr></table></div>
+<ol>
+<li>Exécutez-le et vérifiez le résultat à la main.</li>
+<li>Modifiez <code>f</code> pour vérifier vos réponses des parties A et B (xor, lois de De Morgan).</li>
+<li>Pourquoi ce programme <strong>prouve</strong>-t-il une équivalence, et ne se contente-t-il pas de la vérifier sur quelques exemples ?</li>
+</ol>
+<h3 id="d2-annee-bissextile">D.2 Année bissextile<a class="headerlink" href="#d2-annee-bissextile" title="Permanent link">⚓︎</a></h3>
+<p>Une année est bissextile si elle est divisible par 4 mais pas par 100, ou si elle est divisible par 400.</p>
+<p>Écrivez une fonction <code>est_bissextile(annee)</code> qui renvoie un booléen, puis vérifiez-la :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">est_bissextile</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">est_bissextile</span><span class="p">(</span><span class="mi">1900</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">est_bissextile</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">est_bissextile</span><span class="p">(</span><span class="mi">2026</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="d3-lordre-compte">D.3 L'ordre compte !<a class="headerlink" href="#d3-lordre-compte" title="Permanent link">⚓︎</a></h3>
+<p>Avant d'exécuter chaque ligne, <strong>prédisez</strong> ce qu'elle va afficher. Puis vérifiez.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">and</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Dans chaque cas, pourquoi une ligne fonctionne-t-elle et pas l'autre ?</li>
+<li>Complétez : « dans <code>x and y</code>, Python n'évalue <code>y</code> que si … » ; « dans <code>x or y</code>, Python n'évalue <code>y</code> que si … ».</li>
+</ol>
+<details class="success">
+<summary>À retenir : évaluation séquentielle</summary>
+<p>Python évalue <code>and</code> et <code>or</code> <strong>de gauche à droite</strong> et s'arrête dès que le résultat est connu :</p>
+<ul>
+<li>dans <code>x and y</code>, <code>y</code> n'est évalué que si <code>x</code> est vrai ;</li>
+<li>dans <code>x or y</code>, <code>y</code> n'est évalué que si <code>x</code> est faux.</li>
+</ul>
+<p>On s'en sert pour <strong>protéger</strong> une opération risquée en plaçant le test en premier : <code>i &lt; len(t) and t[i] == v</code>.</p>
+</details>
+<h2 id="defi-la-porte-mystere-a-3-entrees">Défi : la porte mystère à 3 entrées<a class="headerlink" href="#defi-la-porte-mystere-a-3-entrees" title="Permanent link">⚓︎</a></h2>
+<p><a href="https://logic.modulo-info.ch/?mode=tryout&amp;data=N4KABGBEBukFxgEwBpxQJYDt5gNrEgAcB7AZx1wFYAGZMAFmoF07J0ATHWqaAQwBsuAXzoES5BFW4AOZqw44AjKz6CE1EWDFkKNOosRyMnBCh4DhLNJGIBXAC4VtEvIll1ZLYzgDsQqxCQAOa89gCmLviQ9gCehGE4kAAaAPIASgDMkKziFIruYJ7y2JIZdPR0lF42DjgAbKykABbEAO4AgqQAqpgA1phtJWD2AE62Yf6oga3oIxEUuNwZXrjKDCtmVXS4DWA+TEwgQkA">Ce circuit</a> contient une porte à 3 entrées dont le type est masqué. Retrouvez sa table de vérité, puis décrivez en une phrase quand sa sortie vaut 1.</p>
 
 
 

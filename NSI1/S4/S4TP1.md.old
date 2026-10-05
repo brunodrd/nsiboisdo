@@ -1,0 +1,197 @@
+Implémentation d'un additionneur complet en python
+===========================================
+
+!!! question "À faire"
+    Prendre absolument connaissance des documents 1 et 2 avant de répondre aux questions. Ne pas hésiter à exécuter les
+    exemples fournis dans les diverses cellules.
+
+Document 1: notation des électroniciens
+---------------------------------------
+
+On rappelle le schéma d'un additionneur complet, vu dans l'activité 1:  
+
+```{.logic showonly="out and or xor not" style="height: 275px;" mode="tryout"}
+
+{ // JSON5
+  v: 6,
+  components: {
+    hadder0: {type: 'halfadder', pos: [145, 90], in: [50, 51], out: [52, 53]},
+    hadder1: {type: 'halfadder', pos: [305, 90], in: [54, 55], out: [56, 57]},
+    in0: {type: 'in', pos: [40, 45], id: 58, name: 'Ai'},
+    in1: {type: 'in', pos: [40, 145], id: 59, name: 'Bi'},
+    out0: {type: 'out', pos: [510, 70], id: 60, name: 'Si'},
+    or0: {type: 'or', pos: [400, 215], in: [61, 62], out: 63},
+    out1: {type: 'out', pos: [515, 215], id: 64, name: 'Ri'},
+    in2: {type: 'in', pos: [55, 230], id: 65, name: 'Ri-1'},
+  },
+  wires: [[58, 50], [59, 51], [52, 54], [53, 62], [57, 61], [65, 55], [56, 60], [63, 64]]
+}
+```
+
+En logique électronique, il est commun de noter les opérations logiques *et* et *ou* respectivement `.` et `+`. Quant à la négation *non*, on la représente avec une barre au dessus de la variable.  
+
+Ainsi, l'expression booléenne de la sortie $S_i$ de l'additionneur complet est  
+
+$$S_i=(\overline{A_i} \cdot \overline{B_i} \cdot R_{i-1}) + (\overline{A_i} \cdot B_i \cdot \overline{R_{i-1}}) + (A_i \cdot \overline{B_i} \cdot \overline{R_{i-1}}) + (A_i \cdot B_i \cdot R_{i-1})$$
+
+Celle de la retenue est:  
+
+$$R_i=(A_i \cdot R_{i-1}) + (A_i \cdot B_i) + (B_i \cdot R_{i-1})$$
+
+Document 2: connaissances du langage
+------------------------------------
+
+## Le type booléen
+
+En python, les opérateurs booléens sont nommés `and`, `or` et `not`. Ainsi l'expression booléenne $\overline{A}\cdot(B+\overline{C})$ se traduit en python par:  
+
+```python
+not A and (B or not C)
+```
+
+Par ailleurs, Python possède un type booléen nommé `bool`. Les valeurs booléenne *vrai* et *faux* ou *1* et *0* se notent `True` et `False`. Voir ci-dessous.
+
+```python
+print(type(False))
+A = False
+print(not A)
+```
+
+```python
+B = True
+print(A or B)
+```
+
+Python associe les valeurs booléennes `True`et `False` à `1` et `0` respectivement.
+
+```python
+A = True
+B = False
+print(A == 1)
+print(B == 0)
+```
+
+### Le type chaîne de caractères
+
+Python possède un type natif pour traiter les chaînes de caractères: le type *string* `str`. Une chaîne de caratères est déclarée en étant entourée de *double quotes* `"` ou simple quote `'`.  
+
+```python
+ch = "bonjour"
+```
+
+On peut accéder aux caractères individuellement avec une notation **indexée** entre *crochet* `[ ]`.
+
+| index  | 0    | 1    | 2    | 3    | 4    | 5    | 6    |
+|------- |----- |----- |----- |----- |----- |----- |----- |
+| ch     | 'b'  | 'o'  | 'n'  | 'j'  | 'o'  | 'u'  | 'r'  |
+
+```python
+ch = "bonjour"
+print(ch[0])
+print(ch[3])
+```
+
+---
+
+## Comprendre une fonction
+
+```python
+def addb(n,a,b):
+    """
+    Renvoie ....
+    On suppose que a et b sont des chaines constitués des caractères 
+    appartenant à {'0','1'}; n est un entier naturel supérieur à zéro.
+    """
+    ri_1 = False
+    res = ""
+    for i in range(n - 1, -1, -1):
+        ai = int(a[i])
+        bi = int(b[i])
+        si = (not ai and not bi and ri_1) or (not ai and bi and not ri_1) or \
+        (ai and not bi and not ri_1) or (ai and bi and ri_1)
+        ri_1 = (ai and ri_1) or (ai and bi) or (bi and ri_1)
+        res = str(int(si)) + res
+    if ri_1:
+        res = '1' + res
+    return res
+```
+
+```python
+addb(8,'11111111','00000001')
+```
+
+* Consulter la [documentation officielle](https://docs.python.org/fr/3/library/stdtypes.html?highlight=range#range) de python sur la fonction range afin de comprendre la construction qui apparait à la ligne 9.
+* Les spécifications étant incomplètes, expliquer ce que réalise cette fonction en étudiant le code fourni ainsi que les documents 1 & 2.
+* Vérifier vos hypothèses avec quelques tests; par exemple:
+* `addb(4,'0001','0001')`
+* `addb(8,'11111111','00000001')`
+* Quelle est l'utilité du test ligne 16 ?
+
+## Un circuit important: le multiplexeur
+
+Le [multiplexeur](https://fr.wikipedia.org/wiki/Multiplexeur) est un circuit logique très important en architecture machine. Il permet de sélectionner une entrée parmi $N$ et de transférer sa valeur sur la sortie. La sélection se fait à l'aide d'une entrée *Select*.
+
+### Principe
+
+Le circuit ci-dessous présente le schéma de principe d'un multiplexeur à 4 entrées $A_0 ... A_3$ que vous pouvez tester.
+
+```{.logic showonly="out and or xor not" style="height: 287px;" mode="tryout"}
+
+{ // JSON5
+  v: 6,
+  components: {
+    in0: {type: 'in', pos: [150, 50], id: 121, name: 'A0'},
+    in1: {type: 'in', pos: [150, 90], id: 122, name: 'A1'},
+    in2: {type: 'in', pos: [150, 140], id: 123, name: 'A2'},
+    in3: {type: 'in', pos: [150, 185], id: 124, name: 'A3'},
+    in4: {type: 'in', pos: [420, 40], id: 125, name: 'Sel0'},
+    out0: {type: 'out', pos: [500, 165], id: 126, name: 'S'},
+    mux0: {type: 'mux', pos: [330, 215], in: '142-147', out: 148, from: 4, to: 1},
+    in5: {type: 'in', pos: [310, 40], id: 149, name: 'Sel1'},
+  },
+  wires: [[121, 142], [125, 146], [148, 126], [122, 143], [123, 144], [124, 145], [149, 147]]
+}
+```
+
+---
+
+Sa réalisation avec les portes logiques élémentaires:
+
+```{.logic showonly="out and or xor not" style="height: 622px;" mode="tryout"}
+:height: 622
+:mode: tryout
+
+{ // JSON5
+  v: 6,
+  components: {
+    and0: {type: 'and', pos: [565, 270], in: '153-155', out: 156, bits: 3},
+    or0: {type: 'or', pos: [745, 355], in: '169-172', out: 173, bits: 4},
+    not0: {type: 'not', pos: [265, 145], orient: 's', in: 174, out: 175},
+    not1: {type: 'not', pos: [325, 145], orient: 's', in: 176, out: 177},
+    in0: {type: 'in', pos: [190, 55], id: 178, name: 'Sel1'},
+    in1: {type: 'in', pos: [450, 60], orient: 'w', id: 179, name: 'Sel0'},
+    in2: {type: 'in', pos: [60, 240], id: 180, name: 'A0', val: 1},
+    in3: {type: 'in', pos: [65, 310], id: 181, name: 'A1'},
+    in4: {type: 'in', pos: [60, 420], id: 182, name: 'A2'},
+    in5: {type: 'in', pos: [65, 545], id: 183, name: 'A3'},
+    and1: {type: 'and', pos: [570, 365], in: '184-186', out: 187, bits: 3},
+    and2: {type: 'and', pos: [570, 460], in: '188-190', out: 191, bits: 3},
+    and3: {type: 'and', pos: [570, 550], in: '192-194', out: 195, bits: 3},
+    out0: {type: 'out', pos: [875, 355], id: 196},
+  },
+  wires: [[178, 174], [179, 176], [180, 155], [181, 186], [182, 190], [156, 169], [187, 170], [191, 171], [195, 172], [173, 196], [178, 189, {via: [[185, 385, 's']]}], [178, 193, {via: [[160, 375, 's']]}], [175, 154], [175, 185], [179, 184, {via: [[395, 185, 's']]}], [179, 192, {via: [[380, 205, 's']]}], [177, 153], [177, 188, {via: [[355, 325, 's']]}], [183, 194]]
+}
+```
+
+### Simulation
+
+1. Simuler le circuit ci-dessus.
+2. Quelle opération logique effectuent les 4 circuits à 3 entrées, visibles sur la réalisation ci-dessus?
+3. Quelles valeurs logiques doit-on porter les entrées de ces circuits si on veut obtenir un *1* logique sur leur sortie?
+4. On souhaite sélectionner la deuxième entrée (en d'autres termes $S$ doit *recopier* $A_1$), quelle valeur logique doit-on affecter à $Sel_0$ et $Sel_1$?
+5. Réaliser la sélection précédente sur le simulateur. Entrer la combinaison $(1,1,0,0)$ pour $(A_0,A_1,A_2,A_3)$. Que vaut $S$ ? Expliquer.
+6. Garder la même sélection pour $Sel_0$ et $Sel_1$. Donner une autre combinaison qui conduit à $S=1$. Expliquer.
+
+```python
+
+```

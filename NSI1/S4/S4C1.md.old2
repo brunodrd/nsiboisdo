@@ -1,0 +1,128 @@
+# Expressions booléennes
+
+!!! abstract "Objectifs de la séance"
+    - Connaître les valeurs et opérateurs booléens `and`, `or`, `not`.
+    - Traduire une condition exprimée en français en expression booléenne.
+    - **Dresser la table de vérité d'une expression booléenne.**
+
+!!! question "Fil rouge"
+    Un ordinateur ne manipule que des 0 et des 1. Comment peut-il **raisonner** (« si… et… ou… ») et **calculer** (additionner) avec uniquement des interrupteurs ?
+
+## 1. Un peu d'histoire (10 min)
+
+Regardez la vidéo de Marie Duflot-Kremer, chercheuse en informatique à l'Université de Lorraine : [lien 1](https://tube-outremer.beta.education.fr/videos/watch/3f992951-1b15-4ceb-94ad-ebd75228cb6e) ou [lien 2](https://www.dailymotion.com/video/x71hxwp).
+
+!!! question "À faire"
+    1. Quelle est l'idée originale de George Boole ?
+    2. Combien de valeurs suffisent pour son « calcul » ? Lesquelles ?
+    3. Complétez l'entrée *George Boole* de votre frise historique.
+
+??? success "À retenir"
+    [George Boole](https://fr.wikipedia.org/wiki/George_Boole) (1815-1864) traduit les raisonnements logiques en **calculs** : une proposition est soit vraie (1), soit fausse (0). En 1937, [Claude Shannon](https://fr.wikipedia.org/wiki/Claude_Shannon) montre que ce calcul peut être réalisé par des **circuits électriques** : c'est la naissance de l'électronique numérique.
+
+## 2. Les portes mystères (20 min)
+
+Le circuit ci-dessous contient trois **portes logiques** dont on a masqué le type. Chaque entrée est un interrupteur (cliquer dessus pour le basculer entre 0 et 1), chaque sortie une lampe.
+
+<iframe style="width: 100%; height: 450px; border: 0" src="https://logic.modulo-info.ch/?mode=tryout&data=N4IgbiBcBMA0IEsB2UDaoAOB7AzmgrAAywBshAuvAgCZTHgCGANnQL6ya4HECM0FVWpB7wwzNhxDY8kVEVjQAzAMRCSo8ZELtOMucUXLKqqD3piWWnVK6z5igJwqapkY0vbjWAK4AXNLpoysROxi6Q+NbSQYTESs5CDlG2qMGwimRhQjyRxgDmDL4ApnqgvgCeGEVQIADyAEog8NGyPAAcIc4osnCKXn5QACzwOAAWWADuAII4AKpIANZIk92+AE7eRdYVVTUAcrUAKk02eu1xRlTdAOzwPv6QbSPj03OLyxOrG1uSO9WQICmewAIicWqhzulMlc0HxYDw+ncBsJhiAxpMZvMlisoOtNqxjEwGAAjIpMUqnWEddIqYoADweIAAClg1sUAAQ8EDJM7UniheD0xkstlFdnQbmScGQ4LGIU1EUcxTc4wTBBrEpoVBxSgQ9K64b4XXqa66p4OXVmeHQS0iBGW4Y5cjkVhAA"></iframe>
+
+Si le circuit ne s'affiche pas, ouvrez-le [dans un nouvel onglet](https://logic.modulo-info.ch/?mode=tryout&data=N4IgbiBcBMA0IEsB2UDaoAOB7AzmgrAAywBshAuvAgCZTHgCGANnQL6ya4HECM0FVWpB7wwzNhxDY8kVEVjQAzAMRCSo8ZELtOMucUXLKqqD3piWWnVK6z5igJwqapkY0vbjWAK4AXNLpoysROxi6Q+NbSQYTESs5CDlG2qMGwimRhQjyRxgDmDL4ApnqgvgCeGEVQIADyAEog8NGyPAAcIc4osnCKXn5QACzwOAAWWADuAII4AKpIANZIk92+AE7eRdYVVTUAcrUAKk02eu1xRlTdAOzwPv6QbSPj03OLyxOrG1uSO9WQICmewAIicWqhzulMlc0HxYDw+ncBsJhiAxpMZvMlisoOtNqxjEwGAAjIpMUqnWEddIqYoADweIAAClg1sUAAQ8EDJM7UniheD0xkstlFdnQbmScGQ4LGIU1EUcxTc4wTBBrEpoVBxSgQ9K64b4XXqa66p4OXVmeHQS0iBGW4Y5cjkVhAA).
+
+!!! question "À faire"
+    1. Pour chaque porte, testez **toutes** les combinaisons d'entrées et notez les résultats dans un tableau. Combien y a-t-il de combinaisons pour une porte à deux entrées ? à une entrée ?
+    2. Pour chaque porte, complétez la phrase : « la lampe s'allume si et seulement si … ».
+    3. Proposez un nom pour chaque porte.
+
+??? success "À retenir : valeurs et opérateurs booléens"
+    Une **valeur booléenne** ne peut prendre que **deux états** : 0 ou 1, faux ou vrai (`False` ou `True` en Python).  
+    Une **variable booléenne** est une variable qui contient une valeur booléenne.
+
+    Le tableau qui donne la sortie pour chaque combinaison des entrées s'appelle la **table de vérité**.
+
+    | a | b | a and b | a or b |
+    |:-:|:-:|:-------:|:------:|
+    | 0 | 0 | 0       | 0      |
+    | 0 | 1 | 0       | 1      |
+    | 1 | 0 | 0       | 1      |
+    | 1 | 1 | 1       | 1      |
+
+    | a | not a |
+    |:-:|:-----:|
+    | 0 | 1     |
+    | 1 | 0     |
+
+    - **`and`** (ET, conjonction, \(\wedge\)) : vrai si les deux sont vrais.
+    - **`or`** (OU, disjonction, \(\lor\)) : vrai si **au moins un** des deux est vrai.
+    - **`not`** (NON, négation, \(\lnot\)) : inverse la valeur.
+
+    Les circuits qui réalisent ces opérations s'appellent des **portes logiques** :
+
+    ![symboles](img/bool.svg)
+
+## 3. Du français à l'expression booléenne (20 min)
+
+!!! question "À faire"
+    Pour chaque situation, écrivez une expression booléenne avec les variables indiquées.
+
+    1. Je peux sortir si j'ai fini mes devoirs (`d`) et rangé ma chambre (`c`).
+    2. Le cinéma est à tarif réduit si on a moins de 18 ans (`m`) ou si on est étudiant (`e`).
+    3. Le distributeur refuse la carte si le code saisi n'est pas correct (`c`).
+    4. En Python, avec les variables `age` (un entier) et `etudiant` (un booléen), écrivez l'expression de la situation 2.
+    5. Au restaurant, le menu indique « fromage **ou** dessert ». Peut-on prendre les deux ? Ce « ou » est-il le même que le `or` ?
+
+??? success "À retenir"
+    En Python, une **comparaison** (`==`, `!=`, `<`, `>=`…) est une expression booléenne : `age < 18` vaut `True` ou `False`. On peut la combiner avec `and`, `or`, `not` :
+
+    ```python
+    age = 16
+    etudiant = False
+    print(age < 18 or etudiant)   # True
+    ```
+
+    Le `or` est **inclusif** : il est vrai aussi quand les deux sont vrais. Le « ou » du menu est **exclusif** : on le retrouvera en TP.
+
+## 4. Dresser une table de vérité (30 min)
+
+Une alarme de maison dépend de trois variables :
+
+- `a` vaut 1 si l'alarme est **activée** ;
+- `p` vaut 1 si la **porte** est ouverte ;
+- `f` vaut 1 si la **fenêtre** est ouverte.
+
+L'alarme doit sonner lorsqu'elle est activée **et** que la porte ou la fenêtre est ouverte.
+
+!!! question "À faire"
+    1. Un élève propose l'expression `a and (p or f)`, un autre `a and p or f`. À votre avis, sont-elles équivalentes ?
+    2. Combien y a-t-il de combinaisons possibles pour les trois variables ?
+    3. Dressez la table de vérité des deux expressions en suivant la méthode ci-dessous. Laquelle est correcte ? Dans quelle situation l'autre pose-t-elle problème ?
+    4. Construisez le circuit de l'expression correcte dans le simulateur et vérifiez votre table.
+
+!!! info "Méthode"
+    1. Avec \(n\) variables, la table a \(2^n\) lignes.
+    2. On écrit les combinaisons dans un ordre systématique pour n'en oublier aucune : 000, 001, 010, 011, 100, 101, 110, 111. C'est l'ordre dans lequel on compterait si on n'avait que les chiffres 0 et 1.
+    3. On ajoute des **colonnes intermédiaires** pour calculer l'expression morceau par morceau.
+
+    | a | p | f | p or f | a and (p or f) |
+    |:-:|:-:|:-:|:------:|:--------------:|
+    | 0 | 0 | 0 |        |                |
+    | 0 | 0 | 1 |        |                |
+    | … | … | … |        |                |
+
+<iframe style="width: 100%; height: 450px; border: 0" src="https://logic.modulo-info.ch/?showonly=in,out,and,or,not"></iframe>
+
+??? success "À retenir : priorité des opérateurs"
+    Sans parenthèses, `not` est prioritaire sur `and`, lui-même prioritaire sur `or`.
+
+    - `a and p or f` signifie `(a and p) or f` : l'alarme sonne dès que la fenêtre est ouverte, **même désactivée** !
+    - `not a or b` signifie `(not a) or b`, et non `not (a or b)`.
+
+    En Python, les comparaisons sont évaluées avant les opérateurs booléens : `x > 0 and x < 10` signifie `(x > 0) and (x < 10)`.
+
+    En cas de doute : **des parenthèses**.
+
+## 5. Pour vérifier (5 min)
+
+!!! question "Ticket de sortie"
+    1. Combien de lignes a la table de vérité d'une expression à 4 variables ?
+    2. Que vaut `not a or b` lorsque `a` vaut 1 et `b` vaut 0 ?
+    3. Écrivez une expression Python vraie si `x` est compris entre 0 et 100 (inclus).
