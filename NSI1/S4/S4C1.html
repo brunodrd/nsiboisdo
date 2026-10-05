@@ -1841,6 +1841,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#proprietes-et-operateurs-derives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propriétés et opérateurs dérivés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#expression-booleenne-en-python" class="md-nav__link">
     <span class="md-ellipsis">
       Expression booléenne en python
@@ -6336,164 +6345,325 @@
 <h1 id="expressions-booleennes">Expressions booléennes<a class="headerlink" href="#expressions-booleennes" title="Permanent link">⚓︎</a></h1>
 <h2 id="reperes-historiques">Repères historiques<a class="headerlink" href="#reperes-historiques" title="Permanent link">⚓︎</a></h2>
 <figure>
-<img alt="George Boole" src="img/Boole.jpg" />
-<figcaption>George Boole</figcaption>  
+<p><img alt="George Boole" src="img/Boole.jpg" />
+  </p>
+<figcaption>George Boole</figcaption>
 </figure>
-
-<p><a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole</a> (<em>1815-1864</em>): mathématicien, logicien britannique, auteur d'une algèbre <strong>binaire</strong> dite <strong>booléenne</strong> n'acceptant que deux valeurs 0 et 1.<br />
-Voir ce <a href="https://tube-outremer.beta.education.fr/videos/watch/3f992951-1b15-4ceb-94ad-ebd75228cb6e">lien</a> ou <a href="https://www.dailymotion.com/video/x71hxwp">celui-ci</a> vers la présentation de Marie Duflot-Kremer, chercheuse en informatique l'Université de Lorraine.<br />
-Aujourd'hui, l'algèbre de Boole trouve de nombreuses applications en informatique et dans la conception des circuits électroniques</p>
+<p><a href="https://fr.wikipedia.org/wiki/George_Boole">George Boole</a> (<em>1815-1864</em>) : mathématicien et logicien britannique. Dans <em>Les lois de la pensée</em> (1854), il traduit les raisonnements logiques en <strong>calculs algébriques</strong> : c'est l'algèbre dite <strong>booléenne</strong>, qui, dans sa forme moderne, n'accepte que deux valeurs, 0 et 1.<br />
+Voir ce <a href="https://tube-outremer.beta.education.fr/videos/watch/3f992951-1b15-4ceb-94ad-ebd75228cb6e">lien</a> ou <a href="https://www.dailymotion.com/video/x71hxwp">celui-ci</a> vers la présentation de Marie Duflot-Kremer, chercheuse en informatique à l'Université de Lorraine.</p>
+<p>En 1937, <a href="https://fr.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a> montre que cette algèbre permet de décrire et de concevoir des <strong>circuits électriques</strong> à interrupteurs : la logique devient de l'électronique.<br />
+Aujourd'hui, l'algèbre de Boole trouve de nombreuses applications en informatique et dans la conception des circuits électroniques.</p>
 <h2 id="quelques-definitions">Quelques définitions<a class="headerlink" href="#quelques-definitions" title="Permanent link">⚓︎</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Valeur logique (booléenne)</p>
-<p>On appelle <strong>valeur logique</strong> ou <strong>valeur booléenne</strong> toute valeur notée par deux symboles. </p>
-</div>
+<p>On appelle <strong>valeur logique</strong> ou <strong>valeur booléenne</strong> une valeur qui ne peut prendre que <strong>deux états</strong>.</p>
 <p>On peut utiliser par exemple un des couples de valeurs suivants : {0,1}, {vrai, faux}, {true, false} ou {ouvert, fermé}.<br />
 <strong>Exemple</strong><br />
-L'état d'un interrupteur a une valeur booléenne, il peut être <em>ouvert</em> ou <em>fermé</em>.  </p>
+L'état d'un interrupteur a une valeur booléenne, il peut être <em>ouvert</em> ou <em>fermé</em>.</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Variable booléenne</p>
-<p>Une variable booléenne ou variable logique est une grandeur représentée par un nom et pouvant prendre des
-valeurs booléennes.  </p>
+<p>Une variable booléenne ou variable logique est une grandeur représentée par un nom et pouvant prendre des valeurs booléennes.</p>
 </div>
-<p>L'algèbre de Boole est caractérisée par la donnée:  </p>
+<p>L'algèbre de Boole est caractérisée par la donnée :</p>
 <ul>
-<li>de deux opérations binaires <strong>or</strong> et <strong>and</strong> (<code>ou</code> et <code>et</code> en français, correspondant respectivement, à la somme "+" et au produit ".")  </li>
-<li>d'une opération unaire <strong>not</strong> (<em>en français non, correspondant au complémentaire <span class="arithmatex">\(\bar{}\)</span></em>).  </li>
+<li>de deux opérations binaires <strong>or</strong> et <strong>and</strong> (<code>ou</code> et <code>et</code> en français, correspondant respectivement à la somme "+" et au produit ".") ;</li>
+<li>d'une opération unaire <strong>not</strong> (<em>en français non, correspondant au complémentaire <span class="arithmatex">\(\bar{}\)</span></em>).</li>
 </ul>
-<p>Ces opérations doivent vérifier certaines conditions qui ne seront pas exposées ici.</p>
-<div class="admonition hint">
+<p>Ces opérations vérifient certaines propriétés ; les plus utiles sont présentées plus bas.</p>
+<div class="admonition note">
 <p class="admonition-title">Remarque</p>
-<p>En mathématique on trouve les notations <span class="arithmatex">\(\lor\)</span> (<em>disjonction</em> pour le <code>ou</code>), <span class="arithmatex">\(\wedge\)</span> (<em>conjonction</em> pour 
-le <code>et</code>) et <span class="arithmatex">\(\lnot\)</span> (<em>négation</em>).  </p>
+<p>En mathématiques on trouve les notations <span class="arithmatex">\(\lor\)</span> (<em>disjonction</em> pour le <code>ou</code>), <span class="arithmatex">\(\wedge\)</span> (<em>conjonction</em> pour le <code>et</code>) et <span class="arithmatex">\(\lnot\)</span> (<em>négation</em>).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Avec la notation "+", on a en algèbre de Boole <span class="arithmatex">\(1 + 1 = 1\)</span> : il s'agit du <code>ou</code> logique, <strong>pas</strong> de l'addition des nombres. L'addition binaire (<span class="arithmatex">\(1 + 1 = 10_2\)</span>) est une autre opération, que l'on réalisera avec des portes logiques.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Expression booléenne</p>
-<p>On appelle expression booléenne, l'association de variables booléennes et d'opérateur(s) booléen(s).</p>
-</div>
+<p>On appelle expression booléenne l'association de variables booléennes et d'opérateur(s) booléen(s).</p>
 <p><strong>Exemple</strong><br />
-Si <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> et <span class="arithmatex">\(c\)</span> sont trois variables booléennes, <code>(a and b and not c) or (a and  not b and c)</code> est une expression booléenne.  </p>
-<div class="admonition hint">
+Si <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> et <span class="arithmatex">\(c\)</span> sont trois variables booléennes, <code>(a and b and not c) or (a and not b and c)</code> est une expression booléenne.</p>
+</div>
+<div class="admonition note">
 <p class="admonition-title">Remarque</p>
 <p>L'usage de parenthèses améliore la lisibilité.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Table de vérité</p>
-<p>Dresser la <strong>table de vérité</strong> d'une expression booléenne signifie construire une table ayant autant de 
-colonnes que de variables d'entrée plus une colonne donnant le résultat (<em>vrai</em> ou <em>faux</em>, 0 ou 1) pour 
-chaque combinaison possible des variables d'entrée.</p>
+<p>Dresser la <strong>table de vérité</strong> d'une expression booléenne signifie construire une table ayant autant de colonnes que de variables d'entrée plus une colonne donnant le résultat (<em>vrai</em> ou <em>faux</em>, 0 ou 1) pour chaque combinaison possible des variables d'entrée.</p>
+<p>Avec <span class="arithmatex">\(n\)</span> variables d'entrée, il y a <span class="arithmatex">\(2^n\)</span> combinaisons possibles, donc <span class="arithmatex">\(2^n\)</span> lignes.</p>
 </div>
 <h2 id="les-operations-logiques-elementaires">Les opérations logiques élémentaires<a class="headerlink" href="#les-operations-logiques-elementaires" title="Permanent link">⚓︎</a></h2>
 <h3 id="les-symboles">Les symboles<a class="headerlink" href="#les-symboles" title="Permanent link">⚓︎</a></h3>
-<p>Les opérations logiques sont réalisées simplement avec des circuits électroniques (à base de transistors) appelés <strong>portes logiques</strong>. Voici les symboles des portes logiques utilisées pour les opérations <code>and</code>, <code>or</code> et <code>not</code>.  </p>
+<p>Les opérations logiques sont réalisées simplement avec des circuits électroniques (à base de transistors) appelés <strong>portes logiques</strong>. Voici les symboles des portes logiques utilisées pour les opérations <code>and</code>, <code>or</code> et <code>not</code>.</p>
 <figure>
-<img alt="symboles" src="img/bool.png" />
+<p><img alt="symboles" src="img/bool.png" />
+  </p>
 <figcaption>Symboles</figcaption>
 </figure>
-
 <h3 id="la-conjonction-et-logique">La conjonction ("et logique")<a class="headerlink" href="#la-conjonction-et-logique" title="Permanent link">⚓︎</a></h3>
-<p>La conjonction fait appel à l'opérateur logique <strong>and</strong>. Elle traduit le fait que deux expressions sont <strong>vraies simultanément</strong>: <code>a and b</code> est vrai si et seulement si <code>a</code> est vrai et <code>b</code> est vrai aussi.  </p>
-<p><strong>Table de vérité</strong>  </p>
+<p>La conjonction fait appel à l'opérateur logique <strong>and</strong>. Elle traduit le fait que deux expressions sont <strong>vraies simultanément</strong> : <code>a and b</code> est vrai si et seulement si <code>a</code> est vrai et <code>b</code> est vrai aussi.</p>
+<p><strong>Table de vérité</strong></p>
 <table>
 <thead>
 <tr>
-<th>a</th>
-<th>b</th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
 <th style="text-align: center;">a and b</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td>0</td>
-<td>1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td>1</td>
-<td>0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td>1</td>
-<td>1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
 <h3 id="la-disjonction-ou-logique">La disjonction ("ou logique")<a class="headerlink" href="#la-disjonction-ou-logique" title="Permanent link">⚓︎</a></h3>
-<p>La disjonction fait appel à l'opérateur logique <strong>or</strong>. Elle traduit le fait  qu’<strong>une parmi deux expressions est vraie</strong>: <code>a or b</code> est vrai si soit <code>a</code> est vrai, soit <code>b</code> est vrai soit les deux sont vrais.  </p>
-<p><strong>Table de vérité</strong>  </p>
+<p>La disjonction fait appel à l'opérateur logique <strong>or</strong>. Elle traduit le fait qu'<strong>au moins une parmi deux expressions est vraie</strong> : <code>a or b</code> est vrai si soit <code>a</code> est vrai, soit <code>b</code> est vrai, soit les deux sont vrais.</p>
+<p><strong>Table de vérité</strong></p>
 <table>
 <thead>
 <tr>
-<th>a</th>
-<th>b</th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
 <th style="text-align: center;">a or b</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td>0</td>
-<td>1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td>1</td>
-<td>0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td>1</td>
-<td>1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
 <h3 id="la-negation-non-logique">La négation ("non logique")<a class="headerlink" href="#la-negation-non-logique" title="Permanent link">⚓︎</a></h3>
-<p>La négation fait appel à l'opérateur logique <strong>not</strong>. Il permet d'obtenir la valeur inverse d’une valeur booléenne.  </p>
+<p>La négation fait appel à l'opérateur logique <strong>not</strong>. Il permet d'obtenir la valeur inverse d'une valeur booléenne.</p>
 <p><strong>Table de vérité</strong></p>
 <table>
 <thead>
 <tr>
-<th>a</th>
+<th style="text-align: center;">a</th>
 <th style="text-align: center;">not a</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td>1</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 </tr>
 </tbody>
 </table>
+<h3 id="methode-dresser-la-table-dune-expression">Méthode : dresser la table d'une expression<a class="headerlink" href="#methode-dresser-la-table-dune-expression" title="Permanent link">⚓︎</a></h3>
+<p>Reprenons l'expression <code>(a and b and not c) or (a and not b and c)</code>.</p>
+<ol>
+<li>Elle comporte 3 variables : la table a <span class="arithmatex">\(2^3 = 8\)</span> lignes.</li>
+<li>On énumère les combinaisons dans l'ordre du <strong>comptage binaire</strong> (000, 001, 010… 111) pour n'en oublier aucune.</li>
+<li>On ajoute des <strong>colonnes intermédiaires</strong> pour calculer l'expression morceau par morceau.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">not b</th>
+<th style="text-align: center;">not c</th>
+<th style="text-align: center;">a and b and not c</th>
+<th style="text-align: center;">a and not b and c</th>
+<th style="text-align: center;">résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>L'expression est vraie lorsque <code>a</code> est vrai <strong>et</strong> que <code>b</code> et <code>c</code> ont des valeurs <strong>différentes</strong>.</p>
+<h2 id="proprietes-et-operateurs-derives">Propriétés et opérateurs dérivés<a class="headerlink" href="#proprietes-et-operateurs-derives" title="Permanent link">⚓︎</a></h2>
+<h3 id="priorite-des-operateurs">Priorité des opérateurs<a class="headerlink" href="#priorite-des-operateurs" title="Permanent link">⚓︎</a></h3>
+<p>En l'absence de parenthèses, <code>not</code> est prioritaire sur <code>and</code>, lui-même prioritaire sur <code>or</code> :</p>
+<ul>
+<li><code>not a or b</code> signifie <code>(not a) or b</code>, et <strong>non</strong> <code>not (a or b)</code> ;</li>
+<li><code>a or b and c</code> signifie <code>a or (b and c)</code>.</li>
+</ul>
+<p>En Python, les comparaisons (<code>==</code>, <code>&lt;</code>, <code>!=</code>…) sont évaluées <strong>avant</strong> les opérateurs booléens : <code>x &gt; 0 and x &lt; 10</code> signifie <code>(x &gt; 0) and (x &lt; 10)</code>.</p>
+<h3 id="lois-de-de-morgan">Lois de De Morgan<a class="headerlink" href="#lois-de-de-morgan" title="Permanent link">⚓︎</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Lois de De Morgan</p>
+<ul>
+<li><code>not (a or b)</code> est équivalent à <code>(not a) and (not b)</code></li>
+<li><code>not (a and b)</code> est équivalent à <code>(not a) or (not b)</code></li>
+</ul>
+<p>Deux expressions sont <strong>équivalentes</strong> si elles ont la même table de vérité.</p>
+</div>
+<h3 id="le-ou-exclusif-xor">Le ou exclusif (xor)<a class="headerlink" href="#le-ou-exclusif-xor" title="Permanent link">⚓︎</a></h3>
+<p>Le <strong>ou exclusif</strong>, noté <strong>xor</strong> (<span class="arithmatex">\(\oplus\)</span> en mathématiques), traduit le fait qu'<strong>une seule</strong> des deux expressions est vraie : <code>a xor b</code> est vrai si <code>a</code> et <code>b</code> ont des valeurs différentes.</p>
+<p><strong>Table de vérité</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a xor b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><code>a xor b</code> est équivalent à <code>(a and not b) or (not a and b)</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+<p>Le xor est au cœur de l'<strong>addition binaire</strong> : dans le demi-additionneur, la somme vaut <code>A xor B</code> et la retenue <code>A and B</code>.<br />
+Dans l'exemple de la méthode ci-dessus, l'expression étudiée vaut <code>a and (b xor c)</code>.</p>
+</div>
 <h2 id="expression-booleenne-en-python">Expression booléenne en python<a class="headerlink" href="#expression-booleenne-en-python" title="Permanent link">⚓︎</a></h2>
-<p>Python possède un type de base <code>bool</code>. Les objets de ce type ne peuvent prendre que deux valeurs <code>True</code> ou <code>False</code>.  </p>
-<p>Les opérateurs logiques sont notés, sans surprise: <code>and</code>, <code>or</code> et <code>not</code>.  </p>
+<p>Python possède un type de base <code>bool</code>. Les objets de ce type ne peuvent prendre que deux valeurs <code>True</code> ou <code>False</code>. Ils correspondent aux valeurs 1 et 0 : en Python, <code>True == 1</code> et <code>False == 0</code>.</p>
+<p>Les opérateurs logiques sont notés, sans surprise : <code>and</code>, <code>or</code> et <code>not</code>. Python n'a pas de mot-clé <code>xor</code> : pour deux booléens, on écrit <code>a != b</code> (ou <code>a ^ b</code>).</p>
 <p><strong>Exemples</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="n">c</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- a == 6:&#39;</span><span class="p">,</span><span class="n">a</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- a == 6:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- a == 7:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- a == 16 and b == 7:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">16</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- a == 6 or b == 67:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">67</span><span class="p">)</span>
@@ -6506,15 +6676,30 @@ chaque combinaison possible des variables d'entrée.</p>
 - a == 16 and b == 7: False
 - a == 6 or b == 67: True
 </code></pre></div></td></tr></table></div>
-<div class="admonition tip">
+<p><strong>Traduire une condition en expression booléenne</strong></p>
+<p>Une année est bissextile si elle est divisible par 4 mais pas par 100, ou si elle est divisible par 400 :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">annee</span> <span class="o">=</span> <span class="mi">2026</span>
+<span class="n">bissextile</span> <span class="o">=</span> <span class="p">(</span><span class="n">annee</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">annee</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">annee</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bissextile</span><span class="p">)</span>  <span class="c1"># False</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition danger">
 <p class="admonition-title">Important</p>
-<p>Les expressions contenant les opérateurs <code>and</code>et <code>or</code>sont évaluées de manières <em>séquentielles</em>. Ainsi, 
-dans une expression du type:  </p>
+<p>Les expressions contenant les opérateurs <code>and</code> et <code>or</code> sont évaluées de manière <em>séquentielle</em>, de gauche à droite. Ainsi, dans une expression du type :</p>
 <ul>
-<li><code>x and y</code>, le deuxième argument <code>y</code> est évalué uniquement si <code>x</code> est vrai;</li>
+<li><code>x and y</code>, le deuxième argument <code>y</code> est évalué uniquement si <code>x</code> est vrai ;</li>
 <li><code>x or y</code>, le deuxième argument <code>y</code> est évalué uniquement si <code>x</code> est faux.</li>
 </ul>
-<p>Voir les exemples lignes 6 et 7 ci-dessus.</p>
+<p>Dans les exemples ci-dessus (lignes 5 et 6), <code>b == 7</code> et <code>b == 67</code> ne sont donc jamais évalués : le résultat est connu dès le premier argument.</p>
+<p>L'ordre des arguments peut changer le comportement d'un programme :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># False : la division n&#39;est jamais calculée</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># ZeroDivisionError !</span>
+</code></pre></div></td></tr></table></div>
+<p>On utilisera souvent cette propriété, par exemple pour tester qu'un indice est valide <strong>avant</strong> d'accéder à un élément d'un tableau : <code>i &lt; len(t) and t[i] != v</code>.</p>
 </div>
 
 
