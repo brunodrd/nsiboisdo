@@ -6575,7 +6575,7 @@
 <p>Pourquoi a-t-on choisi que <code>debiter</code> renvoie <code>False</code> en cas de solde insuffisant, plutôt que de déclencher une assertion comme pour un montant négatif ?</p>
 </li>
 <li><strong>Changer d'implémentation.</strong> La banque veut désormais conserver l'historique des opérations. Écrire une classe <code>CompteBancaire2</code> qui offre <strong>la même interface</strong>, mais dont le seul attribut interne (en plus du titulaire et du numéro) est une liste <code>_operations</code> : le bonus d'ouverture, puis chaque crédit (positif) et chaque débit (négatif). Le solde n'est plus stocké : il est <strong>calculé</strong>.</li>
-<li>Ajouter à <code>CompteBancaire2</code> une méthode <code>releve()</code> qui renvoie la liste des opérations. Pourquoi est-il préférable de renvoyer une <strong>copie</strong> de <code>_operations</code> plutôt que la liste elle-même ? On pourra relire la section 5 du cours.</li>
+<li>Ajouter à <code>CompteBancaire2</code> une méthode <code>releve()</code> qui renvoie la liste des opérations. Pourquoi est-il préférable de renvoyer une <strong>copie</strong> de <code>_operations</code> plutôt que la liste elle-même ? On pourra relire ... le cours.</li>
 <li>Les tests de la question 2 passent-ils sans modification avec <code>CompteBancaire2</code> ? Quelle notion du cours cela illustre-t-il ?</li>
 </ol>
 <hr />
