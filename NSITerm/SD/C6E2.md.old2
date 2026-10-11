@@ -1,0 +1,159 @@
+# 📄 Série 2: listes chainées en impératif / OO
+### 📌 Implémentation impérative / orientée objet (maillons)
+
+> Cette série prolonge la Série 1 (version paires) en utilisant une **implémentation orientée objet** d’une **liste chaînée**.  
+> On suppose définie la classe `Cellule` et les primitives suivantes :
+
+```python
+class Cellule:
+    def __init__(self, valeur, suivant):
+        self.valeur = valeur
+        self.suivant = suivant
+
+def liste_vide():
+    return None
+
+def est_vide(L):
+    return L is None
+
+def cons(x, L):
+    return Cellule(x, L)
+
+def tete(L):
+    return L.valeur
+
+def queue(L):
+    return L.suivant
+```
+
+---
+
+## 🧠 Exercice 1 — Longueur d’une liste (récursif et itératif)
+
+1. Écrire une fonction **récursive** `longueur_rec(L)` qui renvoie la longueur de la liste chaînée.  
+2. Écrire une version **itérative** `longueur_iter(L)`.  
+3. Tester les fonctions sur :
+
+    * une liste vide ;
+    * une liste de 1 élément ;
+    * une liste de plusieurs éléments construite avec `cons`.
+
+> 💡 Penser à utiliser les fonctions `cons`, `tete`, `queue`, `est_vide`.
+
+---
+
+## 🧠 Exercice 2 — Accès au k-ième élément
+
+Écrire une fonction `kieme(L, k)` qui renvoie la valeur du **k-ième élément** d’une liste chaînée, avec :
+
+- `k = 0` pour le premier élément ;
+- une assertion ou une erreur si `k` est en dehors de la liste.
+
+Exemples :
+
+```python
+L = cons(10, cons(20, cons(30, liste_vide())))
+>>> kieme(L, 0)
+10
+>>> kieme(L, 2)
+30
+```
+
+> ❗ Penser à gérer les cas limites (`k < 0`, liste vide…).
+
+---
+
+## 🧠 Exercice 3 — Insertion
+
+Écrire une fonction `insert_k(L, k, x)` qui insère `x` **à la position `k`** (_la tête correspond à l'indice 0_) dans une liste chaînée.
+
+Cette fonction ne renvoie rien. On dit que la liste `L` est modifiée **en place**. 
+
+Exemple :
+
+```python
+L = cons(1, cons(2, cons(3, liste_vide())))
+L = insert_k(L, 0, 99)   # [99, 1, 2, 3]
+L = insert_k(L, 2, 42)   # [99, 1, 42, 2, 3]
+```
+
+> 🧠 Cet exercice est **important** : il fait intervenir la compréhension fine des maillons et des références.
+
+---
+
+## 🧠 Exercice 4 — Suppression
+
+Écrire une fonction `supprime_k(L, k)` qui **supprime l’élément à l’indice `k`** d’une liste chaînée et renvoie la **tête** mise à jour.
+
+- Si `k == 0`, supprimer la tête.
+- Sinon, parcourir jusqu’au maillon précédent pour mettre à jour les références.
+- Utiliser une assertion pour s'assurer que `k` est valide.
+
+Exemple :
+
+```python
+L = cons(1, cons(2, cons(3, liste_vide())))
+L = supprime_k(L, 1)   # [1, 3]
+```
+
+---
+
+## 🧠 Exercice 5 — Concaténation de deux listes
+
+Écrire une fonction `concat(L1, L2)` qui renvoie une nouvelle liste chaînée contenant les éléments de `L1` suivis de ceux de `L2`, **sans créer de nouveaux maillons** pour `L1`.
+
+Exemple :
+
+```python
+L1 = cons(1, cons(2, liste_vide()))
+L2 = cons(3, cons(4, liste_vide()))
+L = concat(L1, L2)    # [1, 2, 3, 4]
+```
+
+> 💡 Penser à gérer les cas `L1` vide ou `L2` vide.
+
+---
+
+## ✍️ Exercice 6 — Filtrage (optionnel)
+
+Écrire une fonction `filtre(L, pred)` qui renvoie une **nouvelle liste** contenant uniquement les éléments de `L` pour lesquels `pred(x)` est vrai.  
+
+On peut choisir une version :
+- **récursive** (en recréant une nouvelle structure), ou
+- **itérative** en construisant au fur et à mesure une nouvelle liste.
+
+Exemple :
+
+```python
+def est_pair(x):
+    return x % 2 == 0
+
+L = cons(1, cons(2, cons(3, cons(4, liste_vide()))))
+M = filtre(L, est_pair)   # [2, 4]
+```
+
+---
+
+## 📝 Exercice 7 — Analyse de complexité
+
+Pour chaque fonction écrite dans cette série :
+
+1. Donner la **complexité temporelle** en fonction de `n` (taille de la liste) et `k` (indice).
+2. Indiquer brièvement pourquoi.
+
+---
+
+## 🟡 Bonus (pour les curieux)
+
+- Transformer `insert_k` et `supprime_k` pour gérer aussi des **insertions/suppressions en queue** efficacement si on maintient un **pointeur sur le dernier maillon**.  
+- Réfléchir à la façon dont on pourrait rendre cette structure **doublement chaînée**.
+
+---
+
+## ✅ Bilan
+
+À la fin de cette série, vous devez savoir :
+
+- construire et manipuler une liste chaînée en version impérative,  
+- programmer les opérations fondamentales et dérivées,  
+- raisonner sur la **structure en maillons** et les **complexités** associées.

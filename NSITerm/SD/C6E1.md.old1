@@ -1,0 +1,191 @@
+# 🧠 Série 1 — Listes chaînées avec des tuples
+
+Dans cette première série d'exercices, nous allons implémenter une **structure de liste chaînée** en Python, en utilisant uniquement des **tuples**.
+
+Une cellule est représentée par un tuple : `(valeur, suivant)`.
+
+- `valeur` est la donnée stockée dans la cellule ;
+- `suivant` est soit une autre cellule (tuple), soit `None` s’il s’agit de la fin de la liste.
+
+Exemple : la liste `3 → 5 → 7 → None` est représentée par :
+
+```python
+(3, (5, (7, None)))
+```
+
+👉 **Objectifs** :
+
+- comprendre le fonctionnement des listes chaînées ;
+- manipuler des tuples de manière récursive ou itérative ;
+- implémenter des opérations simples (parcours, insertion, suppression…).
+
+---
+
+## 🧩 Exercice 1 — Représentation d’une cellule
+
+1. Donner la ligne d'instruction python qui permet de construire la liste contenant les éléments `3 → 5 → 7 → None`.  
+2. Écrire une fonction `tete(liste)` qui renvoie la valeur stockée dans la **première cellule**.  
+3. Écrire une fonction `reste(liste)` qui renvoie la **liste chaînée privée de son premier élément**.
+
+💡 **Rappel** : une liste chaînée de tête `3`, puis `5`, puis `7` se représente :
+
+```python
+>>>
+```
+
+```python
+# À compléter
+def tete(liste):
+    pass
+
+def reste(liste):
+    pass
+
+# Exemple de test
+l = (3, (5, (7, None)))
+# print(tete(l))  # attendu : 3
+# print(reste(l)) # attendu : (5, (7, None))
+```
+
+---
+
+## 🧩 Exercice 2 — Parcours d’une liste chaînée
+
+1. Écrire une fonction `affiche(liste)` qui affiche les éléments de la liste chaînée séparés par des flèches, par exemple :
+
+```
+3 -> 5 -> 7 -> None
+```
+
+2. Tester la fonction sur la liste `(3, (5, (7, None)))`.
+
+```python
+# À compléter
+def affiche(liste):
+    pass
+
+# l = (3, (5, (7, None)))
+# affiche(l)
+```
+
+---
+
+## 🧩 Exercice 3 — Longueur
+
+1. Écrire une fonction `longueur(liste)` (_de nature itérative_) qui renvoie la **taille de la liste chaînée**.  
+2. Tester sur plusieurs exemples :
+
+* liste vide `None`
+* une cellule `(4, None)`
+* la liste `(1, (2, (3, None)))`
+
+```python
+# À compléter
+def longueur(liste):
+    pass
+
+# Tests possibles :
+# print(longueur(None))                    # attendu : 0
+# print(longueur((4, None)))               # attendu : 1
+# print(longueur((1, (2, (3, None)))))     # attendu : 3
+```
+
+---
+
+## 🧩 Exercice 4 — Insertion en tête
+
+1. Écrire une fonction `inserer_en_tete(valeur, liste)` qui renvoie une nouvelle liste chaînée avec `valeur` ajoutée **au début**.  
+2. Exemple :
+
+```python
+l = (2, (3, None))
+l = inserer_en_tete(1, l)
+print(l)
+# Résultat attendu : (1, (2, (3, None)))
+```
+
+```python
+# À compléter
+def inserer_en_tete(valeur, liste):
+    pass
+
+# l = (2, (3, None))
+# l = inserer_en_tete(1, l)
+# print(l)
+```
+
+---
+
+## 🧩 Exercice 5 — Insertion en fin
+
+1. Écrire une fonction `inserer_en_fin(valeur, liste)` qui renvoie une nouvelle liste chaînée avec `valeur` ajoutée **à la fin**.  
+2. Tester avec une liste vide et une liste non vide.
+
+```python
+# À compléter
+def inserer_en_fin(valeur, liste):
+    pass
+
+# print(inserer_en_fin(4, None))
+# print(inserer_en_fin(4, (1, (2, None))))
+```
+
+---
+
+## 🧩 Exercice 6 — Recherche
+
+1. Écrire une fonction `contient(liste, valeur)` qui renvoie `True` si la valeur est présente dans la liste, `False` sinon.
+
+```python
+# À compléter
+def contient(liste, valeur):
+    pass
+
+# print(contient((1, (2, (3, None))), 2))  # True
+# print(contient((1, (2, (3, None))), 5))  # False
+```
+
+---
+
+## 🧩 Exercice 7 — Suppression en tête
+
+1. Écrire une fonction `supprimer_tete(liste)` qui renvoie une **nouvelle liste** sans le premier élément.  
+2. Gérer le cas où la liste est vide (`None`).
+
+```python
+# À compléter
+def supprimer_tete(liste):
+    pass
+
+# print(supprimer_tete(None))
+# print(supprimer_tete((1, (2, (3, None)))))
+```
+
+---
+
+## 🧩 Exercice 8 — Suppression d’une valeur
+
+1. Écrire une fonction `supprimer_valeur(liste, valeur)` qui renvoie une nouvelle liste chaînée où **la première occurrence** de `valeur` est supprimée.  
+2. Exemple :
+
+```python
+l = (1, (4, (2, (4, None))))
+l = supprimer_valeur(l, 4)
+# Résultat attendu : (1, (2, (4, None)))
+```
+
+```python
+# À compléter
+def supprimer_valeur(liste, valeur):
+    pass
+
+# l = (1, (4, (2, (4, None))))
+# print(supprimer_valeur(l, 4))
+```
+
+---
+
+✍️ **Pour aller plus loin (facultatif)** :
+- Écrire une fonction qui **inverse** une liste chaînée (itérative ou récursive).  
+- Écrire une fonction qui convertit une **liste chaînée → liste Python** et inversement.  
+- Fusionner deux listes chaînées en une seule.

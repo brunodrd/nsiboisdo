@@ -1,0 +1,302 @@
+# 🧱 Autre structure de données linéaire: la liste
+
+## 1. 📚 Définition du TAD Liste
+
+Une **liste** est une structure de données linéaire permettant de stocker une collection ordonnée d’éléments.
+
+!!! tip "Rappel: structure de donnée linéaire"
+    Une structure de données linéaire est une structure dans laquelle les éléments sont organisés les uns à la suite des autres, dans un ordre bien défini. Chaque élément (sauf le premier et le dernier) a un prédécesseur et un successeur unique.
+
+    On peut donc parcourir la structure de manière séquentielle, élément par élément.
+
+### 1.1 Définition récursive
+
+Une liste \( L \) d’éléments d’un ensemble \( E \) est :
+
+- soit la **liste vide** ;
+- soit un **couple** $(x, R)$ où $x \in E$ est la **tête** de la liste et $R$ est la **queue** (le reste de la liste).
+
+👉 Cette définition sert de base à plusieurs implémentations possibles.
+
+### 1.2 Opérations fondamentales
+
+| Opération        | Nom        | Description                                     |
+|------------------|------------|-------------------------------------------------|
+| `liste_vide()`        | création   | renvoie une liste vide                         |
+| `est_vide(L)`   | test       | indique si L est vide                           |
+| `tete(L)`      | accès     | renvoit l’élément en tête de L                 |
+| `queue(L)`     | accès     | renvoie la sous-liste sans la tête            |
+| `cons(x, L)`   | construction     | construit une nouvelle liste avec x en tête de L |
+
+---
+
+## 2. 🧠 Implémentation par **listes chaînées**
+
+Une **liste chaînée** est une suite de maillons contenant chacun :
+
+- une **valeur**,
+- une **référence** vers la suite de la liste.
+
+Cette structure peut être réalisée de plusieurs façons en Python :
+
+- dans un style **fonctionnel**, à base de **paires** (_tuples en Python_) immuables ;
+- dans un style **impératif / orienté objet**, à base de **maillons (classes)**.
+
+!!! tip "Vocabulaire"
+    Le terme **fonctionnel** sera précisé plus tard dans le cours de terminale.
+
+Dans les deux cas, la **structure sous-jacente est la même** : la liste chaînée.
+
+---
+
+### 2.1 🌿 Style fonctionnel (paires / tuples)
+
+Cette implémentation suit directement la définition récursive.
+
+#### Représentation
+
+- Une liste vide est représentée par `None`.
+- Une liste non vide est représentée par un **tuple** `(tete, queue)`.
+
+Exemple :
+
+```python
+# Liste [1, 2, 3]
+L = (1, (2, (3, None)))
+```
+
+#### Fonctions de base
+
+```python
+def liste_vide():
+    return None
+
+def est_vide(L):
+    return L is None
+
+def cons(x, L):
+    return (x, L)
+
+def tete(L):
+    assert not est_vide(L)
+    return L[0]
+
+def queue(L):
+    assert not est_vide(L)
+    return L[1]
+```
+
+#### Exemple d’utilisation
+
+```python
+L = cons(1, cons(2, cons(3, liste_vide())))
+print(tete(L))        # 1
+print(tete(queue(L))) # 2
+```
+
+✅ **Avantages** : simple, directement basé sur la définition mathématique, immuable (utile pour raisonnement récursif).  
+⚠️ **Limites** : modification en milieu de liste coûteuse (il faut recréer des tuples), pas de parcours efficace à rebours.
+
+---
+
+### 📝 Exercice 1
+
+> Écrire une fonction `longueur(L)` qui renvoie la taille d’une liste représentée par tuples.  
+> On prévilégiera une version **récursive** (_la version itérative sera abordée dans la série d'exercices 1_).
+
+---
+
+### 2.2 🧱 Style impératif / orienté objet (maillons)
+
+Cette version repose sur une structure dynamique où chaque **maillon** (ou cellule) contient une valeur et une référence vers le maillon suivant.
+
+#### Classe Cellule
+
+```python
+class Cellule:
+    def __init__(self, valeur, suivant):
+        self.valeur = valeur
+        self.suivant = suivant
+```
+
+#### Fonctions de base
+
+```python
+def liste_vide():
+    return None
+
+def est_vide(L):
+    return L is None
+
+def cons(x, L):
+    return Cellule(x, L)
+
+def tete(L):
+    assert not est_vide(L)
+    return L.valeur
+
+def queue(L):
+    assert not est_vide(L)
+    return L.suivant
+```
+
+Exemple :
+
+```python
+L = cons(1, cons(2, cons(3, liste_vide())))
+print(tete(L))          # 1
+print(tete(queue(L)))   # 2
+```
+
+✅ **Avantages** : insertion ou suppression locales rapides (\(O(1)\) si on a une référence sur le maillon), structure dynamique mutable.  
+⚠️ **Limites** : accès à un élément d’indice k nécessite de parcourir la liste depuis le début (\(O(n)\)).
+
+---
+
+## 3. ⚡️ Autres opérations
+
+### 3.1 Longueur
+
+**Version récursive** (valable pour les deux implémentations) :
+
+```python
+def longueur(L):
+    if est_vide(L):
+        return 0
+    else:
+        return 1 + longueur(queue(L))
+```
+
+**Version itérative (POO)** :
+
+```python
+def longueur_iter(L):
+    n = 0
+    reste = L
+    while not est_vide(reste):
+        n += 1
+        reste = queue(reste)
+    return n
+```
+
+---
+
+### 3.2 Accès au k-ième élément
+
+L’accès au k-ième élément d’une liste chaînée n’est pas direct :  
+il faut **parcourir la structure depuis la tête** jusqu’au maillon d’indice k.
+
+---
+
+#### 🧠 Version récursive (style fonctionnel)
+
+Cette version repose sur la **définition récursive** de la liste :  
+- si k = 0 → on renvoie la tête ;  
+- sinon → on accède au (k−1)-ième élément de la queue.
+
+```python
+def kieme_rec(L, k):
+    assert not est_vide(L), "Indice hors de la liste"
+
+    if k == 0:
+        return tete(L)
+    return kieme_rec(queue(L), k - 1)
+```
+
+- Style **fonctionnel** : pas de boucle, ni de variable mutable.  
+- La structure de l’algorithme suit directement la définition du TAD Liste.
+
+---
+
+#### 🧱 Version itérative (style impératif)
+
+Cette version utilise une boucle et un compteur pour parcourir la liste.  
+Elle fonctionne aussi bien avec une **représentation par paires (tuples)** qu’avec une **représentation par maillons (classes)**.
+
+```python
+def kieme_iter(L, k):
+    reste = L
+    i = 0
+    while i < k and not est_vide(reste):
+        reste = queue(reste)
+        i += 1
+    assert not est_vide(reste), "Indice hors de la liste"
+    return tete(reste)
+```
+
+- Style **impératif** : boucle `while`, variable `i` pour compter les étapes.  
+- Ne dépend pas du paradigme de la structure, uniquement de son mode d’accès séquentiel.
+
+---
+
+#### ⏱️ Complexité
+
+> **Complexité temporelle : O(k)** dans les deux versions (récursive ou itérative).  
+> En effet, pour atteindre l’élément d’indice k, on doit effectuer **k “sauts de maillons”** depuis la tête.  
+> Chaque étape est en temps constant (lecture de la tête, passage à la queue / au maillon suivant), donc le temps total est proportionnel à k.
+
+| Structure | Accès au k-ième élément |
+|----------|---------------------------|
+| Tableau (list Python) | O(1) (accès direct par indice) |
+| Liste chaînée (paires ou maillons) | O(k) (parcours séquentiel) |
+
+---
+
+✅ Cela montre clairement la différence entre une **liste chaînée** et une **structure indexée**, et prépare à la comparaison entre représentations.
+
+---
+
+### 3.3 Insertion en tête / au milieu
+
+- **En tête** : `L = cons(x, L)` → \(O(1)\)  
+- **Au milieu** : on doit parcourir jusqu’à l’emplacement, puis modifier les références → \(O(n)\)
+
+---
+
+### 📝 Exercice 2
+
+> Écrire une fonction `insert_k(L, k, x)` qui insère `x` à la position `k` (0 = tête) dans une liste chaînée.  
+> Indique la complexité en fonction de k et n.
+
+---
+
+## 4. 📊 Comparaison des deux **styles** d’implémentation
+
+| Caractéristique                   | Version fonctionnelle (paires) | Version orientée objet (maillons) |
+|-----------------------------------|----------------------------------|------------------------------------|
+| Création en tête                  | \(O(1)\)                        | \(O(1)\)                          |
+| Accès au k-ième élément           | \(O(k)\)                        | \(O(k)\)                          |
+| Insertion au milieu               | recréation (coûteux)            | \(O(k)\)                          |
+| Suppression au milieu             | recréation (coûteux)            | \(O(k)\)                          |
+| Mémoire                           | compacte                        | plus d’overhead (objets)          |
+| Paradigme                         | fonctionnel                     | impératif / orienté objet         |
+
+✅ **Conclusion** :
+
+- Les deux versions sont **des listes chaînées**.
+- Elles se distinguent par leur **paradigme de programmation** : fonctionnel vs impératif.
+- Le choix dépend du type d’opérations à effectuer et du style recherché.
+
+---
+
+## 5. 🧠 Synthèse & applications
+
+- Le **TAD Liste** est une abstraction : plusieurs façons de coder une **liste chaînée**.  
+- En Terminale NSI, il est important de savoir :
+  - utiliser les opérations fondamentales,
+  - coder quelques opérations dérivées,
+  - comprendre les **complexités associées**,
+  - distinguer les **styles d’implémentation**.
+
+---
+
+### 🌟 Exercice final (type bac)
+
+On considère une liste `L` contenant les entiers de 0 à 4.
+
+1. Représenter `L` avec la version fonctionnelle (paires).  
+2. Représenter `L` avec la version orientée objet (maillons).  
+3. Écrire une fonction `supprime_k(L, k)` qui supprime l’élément d’indice k (dans la version POO).  
+4. Quelle est la complexité de cette opération ?
+
+---
