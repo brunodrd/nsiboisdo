@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exercices" class="md-skip">
+        <a href="#exercices-dictionnaires" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3549,36 +3549,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercice-1-implementation-naive" class="md-nav__link">
+  <a href="#exercice-1-manipuler-un-dict" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 1 — Implémentation naïve
+      Exercice 1 — Manipuler un dict ★
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-2-fonction-de-hachage-simple" class="md-nav__link">
+  <a href="#exercice-2-compter-et-regrouper" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 2 — Fonction de hachage simple
+      Exercice 2 — Compter et regrouper ★
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-3-comparaison-empirique" class="md-nav__link">
+  <a href="#exercice-3-rechercher-une-cle-ou-une-valeur" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 3 — Comparaison empirique
+      Exercice 3 — Rechercher une clé ou une valeur ★★
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonus-dictionnaire-avec-chainage" class="md-nav__link">
+  <a href="#exercice-4-une-deuxieme-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Bonus — Dictionnaire avec chaînage
+      Exercice 4 — Une deuxième implémentation ★
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-changer-dimplementation-mesurer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 5 — Changer d'implémentation, mesurer ★★
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-une-table-de-hachage-hors-programme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 6 — Une table de hachage ★★ / ★★★ (hors programme)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-7-le-grand-raid-format-de-lepreuve-ecrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 7 — Le Grand Raid ★★ (format de l'épreuve écrite)
     </span>
   </a>
   
@@ -5960,52 +5987,884 @@
 
 
 
-<h1 id="exercices">Exercices<a class="headerlink" href="#exercices" title="Permanent link">⚓︎</a></h1>
-<h2 id="exercice-1-implementation-naive">Exercice 1 — Implémentation naïve<a class="headerlink" href="#exercice-1-implementation-naive" title="Permanent link">⚓︎</a></h2>
-<p>Implémente une classe Python <code>DictListe</code> qui réalise le TAD dictionnaire<br />
-en utilisant une <strong>liste de paires (clé, valeur)</strong>.</p>
-<ul>
-<li><code>insert(c, v)</code> : ajoute ou remplace la paire selon la présence de <code>c</code>.  </li>
-<li><code>rechercher(c)</code> : renvoie la valeur ou <code>None</code>.  </li>
-<li><code>supprimer(c)</code> : supprime la paire si la clé est présente.</li>
-</ul>
-<p>👉 Analyse la <strong>complexité</strong> de chaque opération.</p>
+<h1 id="exercices-dictionnaires">✏️ Exercices Dictionnaires<a class="headerlink" href="#exercices-dictionnaires" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Organisation de la fiche</p>
+<p>Ces exercices accompagnent le <a href="C6C2b.html">cours sur les dictionnaires</a>. Ils utilisent l'interface du cours : <code>dico_vide</code>, <code>contient</code>, <code>valeur</code>, <code>ajouter</code>, <code>modifier</code>, <code>supprimer</code>, <code>cles</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Séance</th>
+<th>Exercice</th>
+<th>Thème</th>
+<th>Niveau</th>
+<th>Durée</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Manipuler un <code>dict</code></td>
+<td>★</td>
+<td>15 min</td>
+<td>papier ou machine</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>Compter et regrouper</td>
+<td>★</td>
+<td>20 min</td>
+<td>machine</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>Rechercher une clé ou une valeur</td>
+<td>★★</td>
+<td>20 min</td>
+<td>papier</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>Une deuxième implémentation</td>
+<td>★</td>
+<td>15 min</td>
+<td>machine</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>Changer d'implémentation, mesurer</td>
+<td>★★</td>
+<td>20 min</td>
+<td>machine</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>Une table de hachage <em>(hors programme)</em></td>
+<td>★★ / ★★★</td>
+<td>25 min</td>
+<td>machine</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>Le Grand Raid — <em>format de l'épreuve écrite</em></td>
+<td>★★</td>
+<td>35 min</td>
+<td>papier</td>
+</tr>
+</tbody>
+</table>
+<p>★ application directe du cours · ★★ approfondissement · ★★★ pour aller plus loin</p>
+<p>La séance 3 se termine par une correction collective de l'exercice 7 (20 min), barème en main.</p>
+<p>L'exercice 6 est hors programme : les questions 1 à 3 sont faites par tous, les questions 4 à 6 sont réservées à ceux qui ont terminé.</p>
+<p>Pour les exercices 4 à 6, placez dans un même dossier les fichiers <code>liste_cellule.py</code> (cours C6C1) et <code>dico_liste.py</code> (cours C6C2, § 2.1).</p>
+</div>
 <hr />
-<h2 id="exercice-2-fonction-de-hachage-simple">Exercice 2 — Fonction de hachage simple<a class="headerlink" href="#exercice-2-fonction-de-hachage-simple" title="Permanent link">⚓︎</a></h2>
-<p>On définit :</p>
+<h2 id="exercice-1-manipuler-un-dict">Exercice 1 — Manipuler un <code>dict</code> ★<a class="headerlink" href="#exercice-1-manipuler-un-dict" title="Permanent link">⚓︎</a></h2>
+<p><em>Capacités : utiliser un dictionnaire, itérer sur ses éléments (classe de première).</em></p>
+<p>On considère le dictionnaire suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">notes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Hoarau&#39;</span><span class="p">:</span> <span class="mf">14.5</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Grondin&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Nguyen&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Que valent <code>notes['Payet']</code> et <code>len(notes)</code> ?</li>
+<li>Que provoque l'instruction <code>notes['Lebon']</code> ? Écrire des instructions qui affichent la note de Lebon si elle existe, et le message <code>absent</code> sinon, sans provoquer d'erreur.</li>
+<li>Écrire une instruction qui ajoute 2 points à la note de Payet, puis une instruction qui ajoute Lebon avec la note 11.</li>
+<li>Un élève écrit <code>notes[0]</code> pour obtenir « la première note ». Que se passe-t-il ? Pourquoi ?</li>
+<li>Écrire une fonction <code>moyenne(notes)</code> qui renvoie la moyenne des notes du dictionnaire, supposé non vide.</li>
+<li>Écrire une fonction <code>meilleur(notes)</code> qui renvoie le nom de l'élève qui a la meilleure note, le dictionnaire étant supposé non vide.</li>
+</ol>
+<p>Tests à exécuter avec le dictionnaire de départ :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">moyenne</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="o">==</span> <span class="mf">12.875</span>
+<span class="k">assert</span> <span class="n">meilleur</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Nguyen&#39;</span>
+</code></pre></div></td></tr></table></div>
+<details class="success">
+<summary>Corrigé</summary>
+<ol>
+<li><code>notes['Payet']</code> vaut <code>9</code> et <code>len(notes)</code> vaut <code>4</code>, le nombre de couples.</li>
+<li>La clé <code>'Lebon'</code> est absente : Python lève une erreur <code>KeyError</code>. On teste d'abord la présence de la clé :
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span> <span class="s1">&#39;Lebon&#39;</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">notes</span><span class="p">[</span><span class="s1">&#39;Lebon&#39;</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;absent&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></li>
+<li><code>notes['Payet'] = notes['Payet'] + 2</code>, puis <code>notes['Lebon'] = 11</code>.</li>
+<li>Python lève une erreur <code>KeyError: 0</code>, car <code>0</code> n'est pas une <strong>clé</strong> du dictionnaire. Un dictionnaire n'a pas d'indices, et il n'a pas de « premier » élément au sens du type abstrait.</li>
+<li>et 6.
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">moyenne</span><span class="p">(</span><span class="n">notes</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dictionnaire vide&quot;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">notes</span><span class="p">[</span><span class="n">nom</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">meilleur</span><span class="p">(</span><span class="n">notes</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dictionnaire vide&quot;</span>
+    <span class="n">nom_max</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nom_max</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">notes</span><span class="p">[</span><span class="n">nom</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">notes</span><span class="p">[</span><span class="n">nom_max</span><span class="p">]:</span>
+            <span class="n">nom_max</span> <span class="o">=</span> <span class="n">nom</span>
+    <span class="k">return</span> <span class="n">nom_max</span>
+</code></pre></div></td></tr></table></div></li>
+</ol>
+</details>
+<hr />
+<h2 id="exercice-2-compter-et-regrouper">Exercice 2 — Compter et regrouper ★<a class="headerlink" href="#exercice-2-compter-et-regrouper" title="Permanent link">⚓︎</a></h2>
+<p><em>Capacités : choisir une structure de données adaptée à la situation à modéliser.</em></p>
+<p>Un groupe de randonneurs relève des observations d'oiseaux de La Réunion. Chaque observation est un couple (espèce, lieu) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">observations</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;papangue&quot;</span><span class="p">,</span> <span class="s2">&quot;Maïdo&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;tuit-tuit&quot;</span><span class="p">,</span> <span class="s2">&quot;Roche Écrite&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;oiseau-vert&quot;</span><span class="p">,</span> <span class="s2">&quot;Maïdo&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;papangue&quot;</span><span class="p">,</span> <span class="s2">&quot;Plaine des Palmistes&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;tec-tec&quot;</span><span class="p">,</span> <span class="s2">&quot;Maïdo&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;oiseau-vert&quot;</span><span class="p">,</span> <span class="s2">&quot;Roche Écrite&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;oiseau-vert&quot;</span><span class="p">,</span> <span class="s2">&quot;Maïdo&quot;</span><span class="p">)]</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Écrire une fonction <code>compter(observations)</code> qui renvoie un dictionnaire associant à chaque espèce son nombre d'observations.</li>
+<li>Écrire une fonction <code>especes_par_lieu(observations)</code> qui renvoie un dictionnaire associant à chaque lieu le tableau des espèces qui y ont été observées, sans doublon, dans l'ordre de leur première observation.</li>
+<li>Avec une table de hachage, chercher une clé coûte <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne. Quel est le coût moyen de <code>compter</code> pour <span class="arithmatex">\(n\)</span> observations ? Quel serait ce coût si l'on rangeait les résultats dans un tableau de couples <code>[espece, nombre]</code> ?</li>
+</ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hachage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
-    <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="n">somme</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">somme</span> <span class="o">%</span> <span class="n">M</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">compter</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;papangue&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;tuit-tuit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;oiseau-vert&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;tec-tec&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">compter</span><span class="p">([])</span> <span class="o">==</span> <span class="p">{}</span>
+<span class="k">assert</span> <span class="n">especes_par_lieu</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Maïdo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;papangue&#39;</span><span class="p">,</span> <span class="s1">&#39;oiseau-vert&#39;</span><span class="p">,</span> <span class="s1">&#39;tec-tec&#39;</span><span class="p">],</span>
+                                          <span class="s1">&#39;Roche Écrite&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;tuit-tuit&#39;</span><span class="p">,</span> <span class="s1">&#39;oiseau-vert&#39;</span><span class="p">],</span>
+                                          <span class="s1">&#39;Plaine des Palmistes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;papangue&#39;</span><span class="p">]}</span>
+</code></pre></div></td></tr></table></div>
+<details class="success">
+<summary>Corrigé</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compter</span><span class="p">(</span><span class="n">observations</span><span class="p">):</span>
+    <span class="n">compte</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">espece</span><span class="p">,</span> <span class="n">lieu</span> <span class="ow">in</span> <span class="n">observations</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">espece</span> <span class="ow">in</span> <span class="n">compte</span><span class="p">:</span>
+            <span class="n">compte</span><span class="p">[</span><span class="n">espece</span><span class="p">]</span> <span class="o">=</span> <span class="n">compte</span><span class="p">[</span><span class="n">espece</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">compte</span><span class="p">[</span><span class="n">espece</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">compte</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">especes_par_lieu</span><span class="p">(</span><span class="n">observations</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">espece</span><span class="p">,</span> <span class="n">lieu</span> <span class="ow">in</span> <span class="n">observations</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lieu</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultat</span><span class="p">:</span>
+            <span class="n">resultat</span><span class="p">[</span><span class="n">lieu</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">espece</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resultat</span><span class="p">[</span><span class="n">lieu</span><span class="p">]:</span>      <span class="c1"># recherche dans un tableau</span>
+            <span class="n">resultat</span><span class="p">[</span><span class="n">lieu</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">espece</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>3.</strong> Chaque tour de boucle de <code>compter</code> fait une recherche de clé et un ajout ou une modification, en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne : le coût total est en <span class="arithmatex">\(\mathcal{O}(n)\)</span> en moyenne. Avec un tableau de couples, chaque recherche de l'espèce impose un parcours du tableau, en <span class="arithmatex">\(\mathcal{O}(n)\)</span> dans le pire cas : le coût total devient <span class="arithmatex">\(\mathcal{O}(n^2)\)</span>.</p>
+<p>Remarque : dans <code>especes_par_lieu</code>, le test <code>espece not in resultat[lieu]</code> est une recherche dans un <strong>tableau</strong>, donc en temps linéaire. C'est acceptable ici, car le nombre d'espèces par lieu reste petit.</p>
+</details>
+<hr />
+<h2 id="exercice-3-rechercher-une-cle-ou-une-valeur">Exercice 3 — Rechercher une clé ou une valeur ★★<a class="headerlink" href="#exercice-3-rechercher-une-cle-ou-une-valeur" title="Permanent link">⚓︎</a></h2>
+<p><em>Capacité : distinguer la recherche d'une valeur dans une liste et dans un dictionnaire.</em></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">annuaire</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Hoarau&#39;</span><span class="p">:</span> <span class="s1">&#39;0692 11 22 33&#39;</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">:</span> <span class="s1">&#39;0693 44 55 66&#39;</span><span class="p">,</span> <span class="s1">&#39;Grondin&#39;</span><span class="p">:</span> <span class="s1">&#39;0262 77 88 99&#39;</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ol>
-<li>Explique pourquoi cette fonction est <strong>peu efficace</strong> pour des mots similaires.  </li>
-<li>Calcule le <strong>rapport</strong> <span class="arithmatex">\(n/M\)</span> si <span class="arithmatex">\(n = 10^4\)</span> et <span class="arithmatex">\(M = 100\)</span>.  </li>
-<li>Décris les conséquences sur le nombre de collisions et les performances.  </li>
-<li>Propose une amélioration.</li>
+<li>Quelle instruction donne le numéro de Payet ? Quel est son coût en moyenne, pour un annuaire de <span class="arithmatex">\(n\)</span> personnes ?</li>
+<li>Écrire une fonction <code>nom_de(annuaire, numero)</code> qui renvoie le nom associé au numéro <code>numero</code>, ou <code>None</code> si ce numéro n'est pas dans l'annuaire. Quel est son coût dans le pire cas ?</li>
+<li>Écrire une fonction <code>inverser(annuaire)</code> qui renvoie un nouveau dictionnaire associant chaque numéro au nom correspondant. Quel est son coût ?</li>
+<li>Un standard téléphonique doit identifier l'appelant de 1 000 appels avec un annuaire de <span class="arithmatex">\(10^4\)</span> personnes. Comparer le nombre approximatif de comparaisons avec <code>nom_de</code>, puis avec <code>inverser</code> suivi de 1 000 recherches de clé.</li>
+<li>Dans l'annuaire ci-dessous, Hoarau et Lebon partagent le même téléphone fixe. Que renvoie <code>inverser(famille)</code> ? Pourquoi ? Proposer une structure de résultat qui ne perd pas d'information.</li>
 </ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">famille</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Hoarau&#39;</span><span class="p">:</span> <span class="s1">&#39;0262 10 20 30&#39;</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">:</span> <span class="s1">&#39;0693 44 55 66&#39;</span><span class="p">,</span> <span class="s1">&#39;Lebon&#39;</span><span class="p">:</span> <span class="s1">&#39;0262 10 20 30&#39;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">assert</span> <span class="n">nom_de</span><span class="p">(</span><span class="n">annuaire</span><span class="p">,</span> <span class="s1">&#39;0693 44 55 66&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Payet&#39;</span>
+<span class="k">assert</span> <span class="n">nom_de</span><span class="p">(</span><span class="n">annuaire</span><span class="p">,</span> <span class="s1">&#39;0262 00 00 00&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="n">inverser</span><span class="p">(</span><span class="n">annuaire</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;0692 11 22 33&#39;</span><span class="p">:</span> <span class="s1">&#39;Hoarau&#39;</span><span class="p">,</span> <span class="s1">&#39;0693 44 55 66&#39;</span><span class="p">:</span> <span class="s1">&#39;Payet&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;0262 77 88 99&#39;</span><span class="p">:</span> <span class="s1">&#39;Grondin&#39;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<details class="success">
+<summary>Corrigé</summary>
+<ol>
+<li><code>annuaire['Payet']</code> : c'est une recherche de <strong>clé</strong>, en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne.</li>
+<li>C'est une recherche de <strong>valeur</strong> : il faut parcourir le dictionnaire, en <span class="arithmatex">\(\mathcal{O}(n)\)</span> dans le pire cas (numéro absent).
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nom_de</span><span class="p">(</span><span class="n">annuaire</span><span class="p">,</span> <span class="n">numero</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">annuaire</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">annuaire</span><span class="p">[</span><span class="n">nom</span><span class="p">]</span> <span class="o">==</span> <span class="n">numero</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nom</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Un seul parcours, avec un ajout en <span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti par couple : <span class="arithmatex">\(\mathcal{O}(n)\)</span> en moyenne.
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">inverser</span><span class="p">(</span><span class="n">annuaire</span><span class="p">):</span>
+    <span class="n">inverse</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">annuaire</span><span class="p">:</span>
+        <span class="n">inverse</span><span class="p">[</span><span class="n">annuaire</span><span class="p">[</span><span class="n">nom</span><span class="p">]]</span> <span class="o">=</span> <span class="n">nom</span>
+    <span class="k">return</span> <span class="n">inverse</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Avec <code>nom_de</code> : jusqu'à <span class="arithmatex">\(1\,000 \times 10^4 = 10^7\)</span> comparaisons. Avec <code>inverser</code> : environ <span class="arithmatex">\(10^4\)</span> opérations pour construire le dictionnaire inverse, puis <span class="arithmatex">\(1\,000\)</span> recherches en temps constant, soit de l'ordre de <span class="arithmatex">\(10^4\)</span> opérations, mille fois moins. Construire l'inverse est rentable dès que l'on fait <strong>beaucoup</strong> de recherches par valeur.</li>
+<li>On obtient <code>{'0262 10 20 30': 'Lebon', '0693 44 55 66': 'Payet'}</code> : Hoarau a disparu. Une clé est <strong>unique</strong> : le second ajout de la clé <code>'0262 10 20 30'</code> a remplacé la valeur <code>'Hoarau'</code> par <code>'Lebon'</code>. Pour ne rien perdre, on associe à chaque numéro le <strong>tableau</strong> des noms :
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">inverser_multi</span><span class="p">(</span><span class="n">annuaire</span><span class="p">):</span>
+    <span class="n">inverse</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">annuaire</span><span class="p">:</span>
+        <span class="n">numero</span> <span class="o">=</span> <span class="n">annuaire</span><span class="p">[</span><span class="n">nom</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">numero</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">inverse</span><span class="p">:</span>
+            <span class="n">inverse</span><span class="p">[</span><span class="n">numero</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inverse</span><span class="p">[</span><span class="n">numero</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nom</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inverse</span>
+</code></pre></div></td></tr></table></div></li>
+</ol>
+</details>
 <hr />
-<h2 id="exercice-3-comparaison-empirique">Exercice 3 — Comparaison empirique<a class="headerlink" href="#exercice-3-comparaison-empirique" title="Permanent link">⚓︎</a></h2>
-<p>Compare expérimentalement le temps moyen de recherche entre :</p>
+<h2 id="exercice-4-une-deuxieme-implementation">Exercice 4 — Une deuxième implémentation ★<a class="headerlink" href="#exercice-4-une-deuxieme-implementation" title="Permanent link">⚓︎</a></h2>
+<p><em>Capacités : écrire plusieurs implémentations d'une même structure de données ; distinguer interface et implémentation.</em></p>
+<p>Le cours propose une implémentation du dictionnaire avec une liste chaînée de couples (<code>dico_liste.py</code>). On en écrit une deuxième, qui s'appuie sur le type <code>dict</code> de Python.</p>
+<p><strong>1.</strong> Écrire le fichier <code>dico_python.py</code>, qui définit les sept opérations de l'interface du cours. Chaque fonction doit <strong>vérifier sa précondition</strong> avec <code>assert</code>, et <code>cles</code> doit renvoyer un tableau (<code>list</code> Python).</p>
+<p><strong>2.</strong> Copier le programme de test ci-dessous dans un fichier <code>test_dico.py</code>. L'exécuter avec <code>dico_liste</code>, puis avec <code>dico_python</code>, en changeant <strong>uniquement</strong> la ligne d'import.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dico_liste</span><span class="w"> </span><span class="kn">import</span> <span class="n">dico_vide</span><span class="p">,</span> <span class="n">contient</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">ajouter</span><span class="p">,</span> <span class="n">modifier</span><span class="p">,</span> <span class="n">supprimer</span><span class="p">,</span> <span class="n">cles</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">dico_vide</span><span class="p">()</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">cles</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">==</span> <span class="p">[]</span>
+<span class="n">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Hoarau&#39;</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">)</span>
+<span class="n">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Grondin&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+<span class="n">modifier</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span>
+<span class="n">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Payet&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cles</span><span class="p">(</span><span class="n">D</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;Grondin&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoarau&#39;</span><span class="p">]</span>   <span class="c1"># l&#39;ordre des clés n&#39;est pas spécifié</span>
+<span class="n">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Grondin&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">cles</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;Hoarau&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tous les tests sont réussis.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>3.</strong> En Python, <code>D[c] = v</code> sert à la fois à ajouter et à modifier. Pourquoi les fonctions <code>ajouter</code> et <code>modifier</code> de <code>dico_python.py</code> ne se contentent-elles pas de cette instruction ?</p>
+<details class="success">
+<summary>Corrigé</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dico_vide</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="k">return</span> <span class="n">D</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">D</span><span class="p">,</span> <span class="s2">&quot;clé déjà présente&quot;</span>
+    <span class="n">D</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="n">D</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="k">del</span> <span class="n">D</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cles</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
+        <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>3.</strong> L'interface du cours <strong>spécifie</strong> des préconditions : <code>ajouter</code> exige une clé absente, <code>modifier</code> une clé présente. Une implémentation doit respecter la spécification, quelle que soit la façon dont elle est écrite. Sans les <code>assert</code>, un appel incorrect à <code>ajouter</code> écraserait silencieusement une valeur, alors que <code>dico_liste</code> le signalerait : les deux implémentations ne se comporteraient plus de la même façon.</p>
+</details>
+<hr />
+<h2 id="exercice-5-changer-dimplementation-mesurer">Exercice 5 — Changer d'implémentation, mesurer ★★<a class="headerlink" href="#exercice-5-changer-dimplementation-mesurer" title="Permanent link">⚓︎</a></h2>
+<p><em>Capacités : distinguer interface et implémentation ; choisir une structure de données adaptée.</em></p>
+<p><strong>1.</strong> Compléter la fonction <code>occurrences</code> en n'utilisant <strong>que</strong> les opérations de l'interface : pas de <code>in</code>, pas de crochets.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dico_liste</span><span class="w"> </span><span class="kn">import</span> <span class="n">dico_vide</span><span class="p">,</span> <span class="n">contient</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">ajouter</span><span class="p">,</span> <span class="n">modifier</span><span class="p">,</span> <span class="n">cles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">occurrences</span><span class="p">(</span><span class="n">mots</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un dictionnaire associant à chaque mot son nombre d&#39;apparitions.&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mots_aleatoires</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un tableau de n « mots » pris parmi au plus n // 2 mots différents.&quot;&quot;&quot;</span>
+    <span class="n">mots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">mots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;m&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">mots</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">occurrences</span><span class="p">([</span><span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;chien&quot;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cles</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="s1">&#39;chien&#39;</span><span class="p">,</span> <span class="s1">&#39;et&#39;</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">valeur</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">]:</span>
+    <span class="n">mots</span> <span class="o">=</span> <span class="n">mots_aleatoires</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">debut</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">occurrences</span><span class="p">(</span><span class="n">mots</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">debut</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>2.</strong> Exécuter le programme avec <code>dico_liste</code>, puis avec <code>dico_python</code>, en ne changeant que la première ligne. Quand <code>n</code> double, par combien la durée est-elle multipliée dans chaque cas ?</p>
+<p><strong>3.</strong> Justifier ces résultats par la complexité des opérations de chaque implémentation.</p>
+<p><strong>4.</strong> Pourquoi la fonction <code>occurrences</code> n'a-t-elle pas eu besoin d'être modifiée ?</p>
+<details class="success">
+<summary>Corrigé</summary>
+<p><strong>1.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">occurrences</span><span class="p">(</span><span class="n">mots</span><span class="p">):</span>
+    <span class="n">compte</span> <span class="o">=</span> <span class="n">dico_vide</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mots</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">contient</span><span class="p">(</span><span class="n">compte</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+            <span class="n">modifier</span><span class="p">(</span><span class="n">compte</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">valeur</span><span class="p">(</span><span class="n">compte</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ajouter</span><span class="p">(</span><span class="n">compte</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">compte</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>2.</strong> Ordres de grandeur obtenus sur une machine de test (ils varient selon l'ordinateur) : avec <code>dico_liste</code>, la durée est multipliée par environ <strong>4</strong> (de 0,03 s pour <span class="arithmatex">\(n = 1\,000\)</span> à près de 2 s pour <span class="arithmatex">\(n = 8\,000\)</span>) ; avec <code>dico_python</code>, par environ <strong>2</strong> (de 0,2 ms à 2 ms).</p>
+<p><strong>3.</strong> Avec <code>dico_liste</code>, chaque opération parcourt la liste chaînée, qui contient jusqu'à <span class="arithmatex">\(n/2\)</span> couples : <span class="arithmatex">\(\mathcal{O}(n)\)</span> par opération, donc <span class="arithmatex">\(\mathcal{O}(n^2)\)</span> pour les <span class="arithmatex">\(n\)</span> mots. Doubler <span class="arithmatex">\(n\)</span> multiplie le temps par <span class="arithmatex">\(2^2 = 4\)</span>. Avec <code>dico_python</code>, chaque opération est en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne, donc <span class="arithmatex">\(\mathcal{O}(n)\)</span> au total : doubler <span class="arithmatex">\(n\)</span> double le temps.</p>
+<p><strong>4.</strong> <code>occurrences</code> n'utilise que l'<strong>interface</strong>. Elle ne dépend pas de la façon dont le dictionnaire est représenté en mémoire : on peut changer d'implémentation sans réécrire le programme qui l'utilise.</p>
+</details>
+<hr />
+<h2 id="exercice-6-une-table-de-hachage-hors-programme">Exercice 6 — Une table de hachage ★★ / ★★★ <em>(hors programme)</em><a class="headerlink" href="#exercice-6-une-table-de-hachage-hors-programme" title="Permanent link">⚓︎</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Pour comprendre, pas pour être évalué</p>
+<p>Les tables de hachage ne sont pas au programme. Cet exercice permet de comprendre pourquoi le <code>dict</code> de Python est rapide, et pourquoi la qualité de la fonction de hachage compte. Les questions 1 à 3 sont pour tous ; les questions 4 à 6 sont un approfondissement.</p>
+</div>
+<p>On écrit une troisième implémentation de l'interface, <code>dico_hachage.py</code>, à partir du principe vu dans le cours (§ 2.2) : un tableau de <span class="arithmatex">\(M\)</span> cases, chacune contenant une liste chaînée de couples (clé, valeur).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">liste_cellule</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cellule</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">hachage</span><span class="p">(</span><span class="n">cle</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un indice entre 0 et M - 1 pour la chaîne cle.&quot;&quot;&quot;</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cle</span><span class="p">:</span>
+        <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">somme</span> <span class="o">%</span> <span class="n">M</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dico</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Table de hachage : M cases, chacune contenant une liste chaînée</span>
+<span class="sd">    de couples (clé, valeur), ou None si elle est vide.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dico_vide</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Dico</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">hachage</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie la cellule de clé c, ou None si c est absente.&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="o">...</span>                     <span class="c1"># ajout en tête de la liste de la case hachage(c, D.M)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cles</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Compléter les six fonctions, en s'inspirant de <code>dico_liste.py</code>. Vérifier le module avec <code>test_dico.py</code> (exercice 4).</li>
+<li>Utiliser <code>dico_hachage</code> dans le programme de l'exercice 5. Comparer les durées avec celles des deux autres implémentations.</li>
+<li>
+<p>Écrire une fonction <code>longueurs(D)</code> qui renvoie le tableau des longueurs des <span class="arithmatex">\(M\)</span> listes chaînées. Ajouter dans un dictionnaire <code>dico_hachage</code> les clés <code>'m1'</code>, <code>'m2'</code>, …, <code>'m4000'</code> (avec n'importe quelles valeurs), puis calculer :</p>
 <ul>
-<li>une <strong>liste</strong> de <span class="arithmatex">\(n\)</span> paires,</li>
-<li>un <strong>dictionnaire</strong> contenant les mêmes paires.</li>
+<li>le facteur de charge <span class="arithmatex">\(\frac{n}{M}\)</span> ;</li>
+<li>le nombre de cases non vides ;</li>
+<li>la longueur de la plus longue liste.</li>
 </ul>
-<p>Effectue des mesures pour <span class="arithmatex">\(n = 10^3, 10^4, 10^5\)</span> et commente la différence d’ordre de grandeur.</p>
+<p>Commenter.
+4. Montrer que deux anagrammes, comme <code>'abc'</code> et <code>'cab'</code>, ont toujours le même indice. Pourquoi est-ce un défaut ?
+5. Remplacer la fonction <code>hachage</code> par la fonction ci-dessous, qui tient compte de la position des caractères. Refaire les questions 2 et 3.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hachage</span><span class="p">(</span><span class="n">cle</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cle</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="mi">31</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="n">car</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>
+    <span class="k">return</span> <span class="n">h</span>
+</code></pre></div></td></tr></table></div>
+6. On range <span class="arithmatex">\(n = 10^4\)</span> clés dans une table de <span class="arithmatex">\(M = 100\)</span> cases, avec une bonne fonction de hachage. Combien de couples contient chaque liste en moyenne ? Combien de comparaisons faut-il, au plus, en moyenne, pour une recherche ? Comparer avec <code>dico_liste</code>. Que faudrait-il faire pour que le coût reste constant quand <span class="arithmatex">\(n\)</span> augmente ?</p>
+</li>
+</ol>
+<details class="success">
+<summary>Corrigé</summary>
+<p><strong>1.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">hachage</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cel</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="k">return</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="s2">&quot;clé déjà présente&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">hachage</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">hachage</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>         <span class="c1"># la clé est en tête de sa liste</span>
+        <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">suivant</span>
+        <span class="k">return</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">suivant</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cles</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">longueurs</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+        <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>2.</strong> <code>dico_hachage</code> est nettement plus rapide que <code>dico_liste</code>, mais plus lent que <code>dico_python</code>, et sa durée fait plus que doubler quand <span class="arithmatex">\(n\)</span> double : la répartition des clés est mauvaise (question 3).</p>
+<p><strong>3.</strong> Le facteur de charge vaut <span class="arithmatex">\(\frac{4\,000}{1\,000} = 4\)</span>. Pourtant, seules 84 cases sur 1 000 sont utilisées, et la plus longue liste contient 223 couples. Les clés <code>'m1'</code> à <code>'m4000'</code> ont au plus 5 caractères : la somme de leurs codes ne prend qu'environ 180 valeurs différentes. La recherche parcourt donc des listes bien plus longues que 4 couples.</p>
+<p><strong>4.</strong> L'addition ne dépend pas de l'ordre des termes : <code>'abc'</code> et <code>'cab'</code> ont la même somme de codes, donc le même indice. Toutes les anagrammes entrent en collision, alors qu'une bonne fonction de hachage doit répartir les clés le plus uniformément possible.</p>
+<p><strong>5.</strong> Avec la nouvelle fonction, 995 cases sur 1 000 sont utilisées et la plus longue liste ne contient que 9 couples, pour une moyenne de 4. Dans l'exercice 5, la durée ne fait plus que doubler environ quand <span class="arithmatex">\(n\)</span> double, comme avec <code>dico_python</code>. Elle reste une dizaine de fois plus grande : le <code>dict</code> de Python est écrit en langage C, et notre table ne s'agrandit pas.</p>
+<p><strong>6.</strong> En moyenne, chaque liste contient <span class="arithmatex">\(\frac{10^4}{100} = 100\)</span> couples : une recherche coûte au plus de l'ordre de 100 comparaisons, contre <span class="arithmatex">\(10^4\)</span> avec <code>dico_liste</code>. C'est cent fois mieux, mais le coût augmente encore avec <span class="arithmatex">\(n\)</span>. Pour qu'il reste constant, il faut <strong>agrandir la table</strong> quand le facteur de charge dépasse un seuil (par exemple en doublant <span class="arithmatex">\(M\)</span>) et ranger de nouveau tous les couples : c'est ce que fait Python.</p>
+</details>
 <hr />
-<h2 id="bonus-dictionnaire-avec-chainage">Bonus — Dictionnaire avec chaînage<a class="headerlink" href="#bonus-dictionnaire-avec-chainage" title="Permanent link">⚓︎</a></h2>
-<p>Implémente la classe <code>DictChaine</code> :</p>
+<h2 id="exercice-7-le-grand-raid-format-de-lepreuve-ecrite">Exercice 7 — Le Grand Raid ★★ <em>(format de l'épreuve écrite)</em><a class="headerlink" href="#exercice-7-le-grand-raid-format-de-lepreuve-ecrite" title="Permanent link">⚓︎</a></h2>
+<p><em>Durée conseillée : 35 minutes, sans ordinateur. Barème indicatif sur 10 points.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Vocabulaire des sujets de bac</p>
+<p>Dans les sujets de l'épreuve écrite, le mot « liste » désigne souvent le type <code>list</code> de Python, c'est-à-dire un <strong>tableau</strong>. Il faut savoir le repérer : le sens est en général précisé par le contexte ou par le code.</p>
+</div>
+<p>Chaque année, le Grand Raid de La Réunion propose plusieurs courses de montagne. Le dictionnaire <code>courses</code> associe à chaque nom de course un couple (distance en km, dénivelé positif en m) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">courses</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Diagonale des Fous&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">10200</span><span class="p">),</span>
+    <span class="s1">&#39;Trail de Bourbon&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">106</span><span class="p">,</span> <span class="mi">6200</span><span class="p">),</span>
+    <span class="s1">&#39;Mascareignes&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">74</span><span class="p">,</span> <span class="mi">3800</span><span class="p">),</span>
+    <span class="s1">&#39;Metis Trail&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">51</span><span class="p">,</span> <span class="mi">2500</span><span class="p">),</span>
+    <span class="s1">&#39;Zembrocal Trail&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8460</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>L'organisation enregistre les inscrits dans un second dictionnaire. La clé est le numéro de dossard ; la valeur est un dictionnaire qui décrit le coureur : nom, prénom, pays, quota d'inscription (<code>'Résident'</code>, <code>'Non Résident'</code> ou <code>'Extérieur'</code>), course choisie et abandon éventuel. Les coureurs ci-dessous sont fictifs.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">coureurs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1047</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Hoarau&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;Mickaël&#39;</span><span class="p">,</span> <span class="s1">&#39;pays&#39;</span><span class="p">:</span> <span class="s1">&#39;Réunion&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;quota&#39;</span><span class="p">:</span> <span class="s1">&#39;Résident&#39;</span><span class="p">,</span> <span class="s1">&#39;course&#39;</span><span class="p">:</span> <span class="s1">&#39;Diagonale des Fous&#39;</span><span class="p">,</span> <span class="s1">&#39;abandon&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="mi">1312</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Payet&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;Jean-Marc&#39;</span><span class="p">,</span> <span class="s1">&#39;pays&#39;</span><span class="p">:</span> <span class="s1">&#39;Réunion&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;quota&#39;</span><span class="p">:</span> <span class="s1">&#39;Résident&#39;</span><span class="p">,</span> <span class="s1">&#39;course&#39;</span><span class="p">:</span> <span class="s1">&#39;Trail de Bourbon&#39;</span><span class="p">,</span> <span class="s1">&#39;abandon&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="mi">2208</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Lemaire&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;Claire&#39;</span><span class="p">,</span> <span class="s1">&#39;pays&#39;</span><span class="p">:</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;quota&#39;</span><span class="p">:</span> <span class="s1">&#39;Non Résident&#39;</span><span class="p">,</span> <span class="s1">&#39;course&#39;</span><span class="p">:</span> <span class="s1">&#39;Diagonale des Fous&#39;</span><span class="p">,</span> <span class="s1">&#39;abandon&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="mi">2584</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Payet&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;Sophie&#39;</span><span class="p">,</span> <span class="s1">&#39;pays&#39;</span><span class="p">:</span> <span class="s1">&#39;Réunion&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;quota&#39;</span><span class="p">:</span> <span class="s1">&#39;Résident&#39;</span><span class="p">,</span> <span class="s1">&#39;course&#39;</span><span class="p">:</span> <span class="s1">&#39;Mascareignes&#39;</span><span class="p">,</span> <span class="s1">&#39;abandon&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="mi">3019</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;Nakamura&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;Kenji&#39;</span><span class="p">,</span> <span class="s1">&#39;pays&#39;</span><span class="p">:</span> <span class="s1">&#39;Japon&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;quota&#39;</span><span class="p">:</span> <span class="s1">&#39;Extérieur&#39;</span><span class="p">,</span> <span class="s1">&#39;course&#39;</span><span class="p">:</span> <span class="s1">&#39;Diagonale des Fous&#39;</span><span class="p">,</span> <span class="s1">&#39;abandon&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="partie-a-lire-et-parcourir-4-points">Partie A — Lire et parcourir (4 points)<a class="headerlink" href="#partie-a-lire-et-parcourir-4-points" title="Permanent link">⚓︎</a></h3>
+<p><strong>1.</strong> <em>(0,5 pt)</em> Que vaut l'expression <code>coureurs[1312]['prenom']</code> ?</p>
+<p><strong>2.</strong> <em>(1 pt)</em> Écrire une expression qui donne la distance, en km, de la course choisie par le coureur au dossard 3019. On utilisera les deux dictionnaires.</p>
+<p><strong>3.</strong> <em>(1 pt)</em> Expliquer pourquoi l'organisation a choisi le numéro de dossard comme clé, plutôt que le nom du coureur.</p>
+<p><strong>4.</strong> <em>(1 pt)</em> Écrire une fonction <code>nombre_par_course(coureurs)</code> qui renvoie un dictionnaire associant à chaque course le nombre de coureurs inscrits. Avec l'exemple, elle renvoie <code>{'Diagonale des Fous': 3, 'Trail de Bourbon': 1, 'Mascareignes': 1}</code>.</p>
+<p><strong>5.</strong> <em>(0,5 pt)</em> Écrire une fonction <code>en_course(coureurs)</code> qui renvoie la liste des dossards des coureurs qui n'ont pas abandonné.</p>
+<h3 id="partie-b-retrouver-un-coureur-3-points">Partie B — Retrouver un coureur (3 points)<a class="headerlink" href="#partie-b-retrouver-un-coureur-3-points" title="Permanent link">⚓︎</a></h3>
+<p>Un bénévole de l'équipe de secours connaît le <strong>nom</strong> d'un coureur, mais pas son dossard.</p>
+<p><strong>6.</strong> <em>(1 pt)</em> Écrire une fonction <code>dossards_de(coureurs, nom)</code> qui renvoie la liste des dossards des coureurs portant ce nom. Avec l'exemple, <code>dossards_de(coureurs, 'Payet')</code> renvoie <code>[1312, 2584]</code>.</p>
+<p><strong>7.</strong> <em>(1 pt)</em> Pour <span class="arithmatex">\(n\)</span> coureurs inscrits, comparer le coût de <code>coureurs[2584]</code> et celui de <code>dossards_de(coureurs, 'Payet')</code>. Justifier.</p>
+<p><strong>8.</strong> <em>(1 pt)</em> Pour chacune des situations suivantes, indiquer la structure de données la plus adaptée (pile, file ou dictionnaire), en justifiant :</p>
 <ul>
-<li>tableau de taille <code>M</code> ;</li>
-<li>gestion des collisions par <strong>chaînage</strong> (liste chaînée dans chaque case).
-Fais varier le rapport <span class="arithmatex">\(n/M\)</span> et observe son effet sur le <strong>nombre moyen d’éléments par case</strong>.</li>
+<li>a) au ravitaillement, les coureurs sont servis dans leur ordre d'arrivée ;</li>
+<li>b) le chronométreur annule ses saisies en commençant par la plus récente ;</li>
+<li>c) le médecin retrouve la fiche d'un coureur à partir de son dossard.</li>
 </ul>
-<hr />
+<h3 id="partie-c-les-points-de-controle-3-points">Partie C — Les points de contrôle (3 points)<a class="headerlink" href="#partie-c-les-points-de-controle-3-points" title="Permanent link">⚓︎</a></h3>
+<p>À chaque point de contrôle, un capteur enregistre les passages dans l'ordre chronologique, sous la forme d'une liste de couples <code>(dossard, minute)</code>, où <code>minute</code> est le nombre de minutes écoulées depuis le départ.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">passages</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1047</span><span class="p">,</span> <span class="mi">610</span><span class="p">),</span> <span class="p">(</span><span class="mi">2208</span><span class="p">,</span> <span class="mi">655</span><span class="p">),</span> <span class="p">(</span><span class="mi">1047</span><span class="p">,</span> <span class="mi">702</span><span class="p">),</span> <span class="p">(</span><span class="mi">3019</span><span class="p">,</span> <span class="mi">730</span><span class="p">),</span> <span class="p">(</span><span class="mi">2208</span><span class="p">,</span> <span class="mi">741</span><span class="p">)]</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>9.</strong> <em>(1,5 pt)</em> Écrire une fonction <code>derniers_passages(passages)</code> qui renvoie un dictionnaire associant à chaque dossard la minute de son <strong>dernier</strong> passage enregistré. Avec l'exemple, elle renvoie <code>{1047: 702, 2208: 741, 3019: 730}</code>.</p>
+<p><strong>10.</strong> <em>(1,5 pt)</em> Un élève propose de ranger le résultat dans une liste de couples <code>[dossard, minute]</code>, en cherchant le dossard dans cette liste à chaque passage. Le capteur enregistre <span class="arithmatex">\(10^4\)</span> passages pour environ <span class="arithmatex">\(3\,000\)</span> coureurs, l'ordre de grandeur des inscrits au Grand Raid. Comparer l'ordre de grandeur du nombre d'opérations des deux approches.</p>
+<details class="success">
+<summary>Corrigé et barème</summary>
+<p><strong>Partie A</strong></p>
+<p><strong>1.</strong> <code>'Jean-Marc'</code>.</p>
+<p><strong>2.</strong> <code>courses[coureurs[3019]['course']][0]</code>, qui vaut <code>180</code>. On lit d'abord la course du coureur, <code>coureurs[3019]['course']</code>, qui sert de clé dans <code>courses</code> ; on obtient un couple, dont la distance est le premier élément.</p>
+<p><strong>3.</strong> Une clé doit être <strong>unique</strong>. Deux coureurs peuvent porter le même nom (ici, les dossards 1312 et 2584 s'appellent Payet ; deux coureurs peuvent même avoir le même nom et le même prénom), alors qu'un numéro de dossard n'est attribué qu'une fois. Avec le nom comme clé, le second Payet aurait remplacé le premier.</p>
+<p><strong>4. et 5.</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nombre_par_course</span><span class="p">(</span><span class="n">coureurs</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">dossard</span> <span class="ow">in</span> <span class="n">coureurs</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">coureurs</span><span class="p">[</span><span class="n">dossard</span><span class="p">][</span><span class="s1">&#39;course&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">resultat</span><span class="p">:</span>
+            <span class="n">resultat</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultat</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">resultat</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">en_course</span><span class="p">(</span><span class="n">coureurs</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dossard</span> <span class="ow">in</span> <span class="n">coureurs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">coureurs</span><span class="p">[</span><span class="n">dossard</span><span class="p">][</span><span class="s1">&#39;abandon&#39;</span><span class="p">]:</span>
+            <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dossard</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p>Éléments attendus : un parcours des clés, l'accès imbriqué <code>coureurs[dossard]['course']</code>, le cas de la première rencontre d'une course.</p>
+<p><strong>Partie B</strong></p>
+<p><strong>6.</strong> Il ne faut pas s'arrêter au premier coureur trouvé : plusieurs coureurs peuvent porter le même nom.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dossards_de</span><span class="p">(</span><span class="n">coureurs</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dossard</span> <span class="ow">in</span> <span class="n">coureurs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coureurs</span><span class="p">[</span><span class="n">dossard</span><span class="p">][</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">nom</span><span class="p">:</span>
+            <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dossard</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>7.</strong> <code>coureurs[2584]</code> est une recherche de <strong>clé</strong> : <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne. <code>dossards_de</code> recherche une <strong>valeur</strong> (le nom se trouve dans les valeurs) : il faut parcourir tous les coureurs, <span class="arithmatex">\(\mathcal{O}(n)\)</span>.</p>
+<p><strong>8.</strong> a) Une <strong>file</strong> : le premier arrivé est le premier servi (FIFO). b) Une <strong>pile</strong> : la dernière saisie est la première annulée (LIFO). c) Un <strong>dictionnaire</strong> : on recherche par clé, le dossard.</p>
+<p><strong>Partie C</strong></p>
+<p><strong>9.</strong> Les passages étant dans l'ordre chronologique, chaque nouvelle affectation remplace la précédente : il reste la dernière.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">derniers_passages</span><span class="p">(</span><span class="n">passages</span><span class="p">):</span>
+    <span class="n">dernier</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">dossard</span><span class="p">,</span> <span class="n">minute</span> <span class="ow">in</span> <span class="n">passages</span><span class="p">:</span>
+        <span class="n">dernier</span><span class="p">[</span><span class="n">dossard</span><span class="p">]</span> <span class="o">=</span> <span class="n">minute</span>
+    <span class="k">return</span> <span class="n">dernier</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>10.</strong> Avec le dictionnaire : <span class="arithmatex">\(10^4\)</span> passages, chacun en temps constant en moyenne, soit de l'ordre de <span class="arithmatex">\(10^4\)</span> opérations. Avec la liste de couples : chaque passage impose de parcourir jusqu'à <span class="arithmatex">\(3\,000\)</span> couples, soit jusqu'à <span class="arithmatex">\(10^4 \times 3\,000 = 3 \times 10^7\)</span> opérations, environ trois mille fois plus.</p>
+</details>
 
 
 
@@ -6074,6 +6933,8 @@ Fais varier le rapport <span class="arithmatex">\(n/M\)</span> et observe son ef
         <script src="../../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax_details.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
       

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Cours NSI Terminale — TAD dictionnaire, hachage, opérations et complexité.">
+        <meta name="description" content="Support de cours, activités et TP en Spécialité NSI & Physique">
       
       
         <meta name="author" content="Bruno DARID">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Le type Dictionnaire - NSI</title>
+        <title>📖 Cours Dictionnaires - NSI</title>
       
     
     
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#le-type-dictionnaire" class="md-skip">
+        <a href="#cours-dictionnaires" class="md-skip">
           Aller au contenu
         </a>
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Le type Dictionnaire
+              📖 Cours Dictionnaires
             
           </span>
         </div>
@@ -3480,36 +3480,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#0-chercher-combien-ca-coute" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      0. 🔎 Chercher : combien ça coûte ?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#les-operations-du-type-dictionnaire" class="md-nav__link">
+  <a href="#1-le-type-abstrait-dictionnaire" class="md-nav__link">
     <span class="md-ellipsis">
-      Les opérations du type dictionnaire
+      1. 📚 Le type abstrait Dictionnaire
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-du-dictionnaire" class="md-nav__link">
+  <a href="#2-deux-implementations-du-dictionnaire" class="md-nav__link">
     <span class="md-ellipsis">
-      Implémentation du dictionnaire
+      2. 🔗 Deux implémentations du dictionnaire
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recherche-et-comparaison-liste-dictionnaire" class="md-nav__link">
+  <a href="#3-rechercher-une-cle-ou-une-valeur" class="md-nav__link">
     <span class="md-ellipsis">
-      Recherche et comparaison liste / dictionnaire
+      3. 🔍 Rechercher une clé ou une valeur ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-choisir-une-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ⚖️ Choisir une structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-sentrainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Pour s'entraîner
     </span>
   </a>
   
@@ -5960,152 +5987,672 @@
 
 
 
-<h1 id="le-type-dictionnaire">Le type Dictionnaire<a class="headerlink" href="#le-type-dictionnaire" title="Permanent link">⚓︎</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">⚓︎</a></h2>
-<p>Un dictionnaire (ou <strong>tableau associatif</strong>) généralise l’idée de tableau :<br />
-l’index (la <strong>clé</strong>) n’est pas forcément un entier naturel.</p>
-<p>D’un point de vue type abstrait de données (<strong>TAD</strong>), un dictionnaire est un <strong>ensemble de paires (clé, valeur)</strong><br />
-dans lequel <strong>chaque clé est unique</strong>.<br />
-Il permet de <strong>retrouver rapidement</strong> une valeur à partir de sa clé.</p>
-<blockquote>
-<p>⚠️ <strong>Attention (Python vs TAD)</strong><br />
-En Python, depuis la version 3.7, les dictionnaires <strong>préservent l’ordre d’insertion</strong>.<br />
-Au niveau abstrait (TAD), un dictionnaire reste <strong>non ordonné</strong>.</p>
-</blockquote>
-<p><em>Exemples d’applications</em> : carnet d’adresses, index de base de données, table de routage réseau, etc.</p>
-<p><img alt="Schéma d’un tableau associatif : clés quelconques pointant vers des valeurs" src="img/tableau_associatif.png" /></p>
-<hr />
-<h2 id="les-operations-du-type-dictionnaire">Les opérations du type dictionnaire<a class="headerlink" href="#les-operations-du-type-dictionnaire" title="Permanent link">⚓︎</a></h2>
-<p>Soit un dictionnaire abstrait <code>D</code> :</p>
+<h1 id="cours-dictionnaires">📖 Cours Dictionnaires<a class="headerlink" href="#cours-dictionnaires" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objectifs de la séance</p>
+<p>Programme de Terminale, rubrique « Structures de données » (BO spécial n° 8 du 25 juillet 2019) :</p>
 <ul>
-<li>
-<p><strong><code>D.insérer(c, v)</code></strong><br />
-  Ajoute la paire <code>(c, v)</code> si <code>c</code> est absente ; sinon <strong>remplace</strong> la valeur associée à <code>c</code>.</p>
-</li>
-<li>
-<p><strong><code>D.supprimer(c)</code></strong><br />
-  Supprime la paire de clé <code>c</code>.<br />
-  Si <code>c</code> n’existe pas, on peut ignorer l’opération, renvoyer un indicateur (<code>False</code>),<br />
-  ou lever une exception selon la spécification.</p>
-</li>
-<li>
-<p><strong><code>D.rechercher(c)</code></strong><br />
-  Renvoie la valeur associée à <code>c</code> si elle existe, sinon une valeur spéciale (<code>None</code>)<br />
-  ou lève une exception.</p>
-</li>
-<li>
-<p><strong><code>itérer()</code></strong><br />
-  Permet de parcourir toutes les <strong>clés</strong> du dictionnaire.</p>
-</li>
+<li><strong>Dictionnaires, index et clé</strong> : <em>distinguer la recherche d'une valeur dans une liste et dans un dictionnaire</em> ; <em>choisir une structure de données adaptée à la situation à modéliser</em>.</li>
+<li><strong>Structures de données, interface et implémentation</strong> : <em>spécifier une structure de données par son interface</em> ; <em>distinguer interface et implémentation</em> ; <em>écrire plusieurs implémentations d'une même structure de données</em>.</li>
 </ul>
-<blockquote>
-<p><strong>Qu'en est-il en Python?</strong><br />
-<code>k in D</code>, <code>D[k]</code>, <br />
-<code>D.keys()</code>, <code>D.values()</code>, <code>D.items()</code>.</p>
-</blockquote>
+<p>Prérequis : les <code>dict</code> Python (classe de première), le cours sur les listes chaînées (C6C1), la programmation objet (chapitre V).</p>
+</div>
 <hr />
-<h2 id="implementation-du-dictionnaire">Implémentation du dictionnaire<a class="headerlink" href="#implementation-du-dictionnaire" title="Permanent link">⚓︎</a></h2>
-<h3 id="principe-de-la-table-de-hachage">Principe de la table de hachage<a class="headerlink" href="#principe-de-la-table-de-hachage" title="Permanent link">⚓︎</a></h3>
-<p>Un dictionnaire peut être implémenté par une <strong>table de hachage</strong>.<br />
-Une <strong>fonction de hachage</strong> transforme une clé en un <strong>indice</strong> d’un tableau.<br />
-Deux clés différentes peuvent produire le même indice : c’est une <strong>collision</strong>.</p>
-<h3 id="gestion-des-collisions">Gestion des collisions<a class="headerlink" href="#gestion-des-collisions" title="Permanent link">⚓︎</a></h3>
-<ul>
-<li><strong>Chaînage</strong> : chaque case contient une petite <strong>liste chaînée</strong> de paires.  </li>
-<li><strong>Adressage ouvert</strong> : si la case est occupée, on cherche une autre selon une stratégie<br />
-  (linéaire, quadratique, double hachage…).</li>
-</ul>
-<h3 id="exemple-dune-fonction-de-hachage-naive">Exemple d’une fonction de hachage naïve<a class="headerlink" href="#exemple-dune-fonction-de-hachage-naive" title="Permanent link">⚓︎</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hachage</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">M</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="n">somme</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># code ASCII</span>
-    <span class="k">return</span> <span class="n">somme</span> <span class="o">%</span> <span class="n">M</span>
+<h2 id="0-chercher-combien-ca-coute">0. 🔎 Chercher : combien ça coûte ?<a class="headerlink" href="#0-chercher-combien-ca-coute" title="Permanent link">⚓︎</a></h2>
+<p>On compare trois recherches d'un élément <strong>absent</strong> (le pire cas), pour des tailles <code>n</code> qui doublent.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">perf_counter</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">duree_recherche</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">collection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie la durée de 200 tests « x in collection ».&quot;&quot;&quot;</span>
+    <span class="n">debut</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+        <span class="n">trouve</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">collection</span>
+    <span class="k">return</span> <span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">debut</span>
+
+
+<span class="n">absent</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                             <span class="c1"># ni clé, ni valeur</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">,</span> <span class="mi">40_000</span><span class="p">]:</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>                              <span class="c1"># tableau : 0, 1, ..., n-1</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="p">{}</span>                              <span class="c1"># dictionnaire : i -&gt; i</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span>
+          <span class="n">duree_recherche</span><span class="p">(</span><span class="n">absent</span><span class="p">,</span> <span class="n">T</span><span class="p">),</span>           <span class="c1"># valeur dans un tableau</span>
+          <span class="n">duree_recherche</span><span class="p">(</span><span class="n">absent</span><span class="p">,</span> <span class="n">D</span><span class="p">),</span>           <span class="c1"># clé dans un dictionnaire</span>
+          <span class="n">duree_recherche</span><span class="p">(</span><span class="n">absent</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>  <span class="c1"># valeur dans un dictionnaire</span>
 </code></pre></div></td></tr></table></div>
-<p>Cette fonction additionne les codes <strong>ASCII</strong> des caractères, puis prend le reste modulo <code>M</code>.<br />
-→ Elle est <strong>peu efficace</strong> : les chaînes anagrammes (ex. "abc" et "cab") ont le même résultat,<br />
-et la distribution des indices n’est pas uniforme.</p>
-<hr />
-<h3 id="le-hachage-en-python">💡 Le hachage en Python<a class="headerlink" href="#le-hachage-en-python" title="Permanent link">⚓︎</a></h3>
-<p>Python fournit une fonction intégrée <code>hash()</code> utilisée par les dictionnaires et ensembles (<code>set</code>).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">)</span>      <span class="c1"># produit un entier</span>
-<span class="nb">hash</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>      <span class="c1"># ok pour tuple</span>
-<span class="nb">hash</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>   <span class="c1"># ❌ TypeError : unhashable type: &#39;list&#39;</span>
-</code></pre></div></td></tr></table></div>
+<div class="admonition example">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Exécuter le programme et relever les durées, en secondes. Python peut afficher une très petite durée en notation scientifique : <code>9e-06</code> signifie <span class="arithmatex">\(9 \times 10^{-6}\)</span> s.</li>
+<li>Quand <code>n</code> double, par combien est multipliée chacune des trois durées ?</li>
+<li><code>absent in D</code> et <code>absent in D.values()</code> portent sur le <strong>même</strong> dictionnaire. Pourquoi leurs durées sont-elles si différentes, à votre avis ?</li>
+</ol>
+</div>
+<details class="success">
+<summary>Ce qu'il faut en retenir</summary>
 <ul>
-<li>Les <strong>objets immuables</strong> sont <em>hachables</em> (chaînes, nombres, tuples d’immutables).  </li>
-<li>Les objets <strong>mutables</strong> (listes, dictionnaires, ensembles) ne le sont pas.  </li>
-<li>Deux objets égaux (<code>==</code>) ont toujours le même hash, mais l’inverse n’est pas garanti.  </li>
-<li>Le résultat de <code>hash()</code> peut <strong>varier entre deux exécutions</strong> (sécurité : randomisation).</li>
+<li>Chercher une valeur dans un tableau impose de le parcourir : la durée <strong>double</strong> quand <code>n</code> double. Le coût est en <span class="arithmatex">\(\mathcal{O}(n)\)</span>.</li>
+<li>Chercher une <strong>clé</strong> dans un dictionnaire prend un temps qui <strong>ne dépend presque pas</strong> de <code>n</code> : on dit que le coût est constant <strong>en moyenne</strong>, en <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</li>
+<li>Chercher une <strong>valeur</strong> dans un dictionnaire impose, comme pour le tableau, de tout parcourir : <span class="arithmatex">\(\mathcal{O}(n)\)</span>.</li>
 </ul>
-<blockquote>
-<p>En Python, <code>dict</code> utilise <code>hash()</code> pour placer rapidement les clés dans une table interne,<br />
-puis vérifie leur égalité pour distinguer les collisions.</p>
-</blockquote>
+<p>👉 Un dictionnaire n'est rapide que pour retrouver une valeur <strong>à partir de sa clé</strong>. Ce cours explique pourquoi.</p>
+</details>
 <hr />
-<h3 id="pour-aller-plus-loin-facteur-de-remplissage">📘 Pour aller plus loin : facteur de remplissage<a class="headerlink" href="#pour-aller-plus-loin-facteur-de-remplissage" title="Permanent link">⚓︎</a></h3>
-<p>Plus la table contient d’éléments, plus les collisions sont probables.<br />
-Quand elle devient trop "pleine", les opérations ralentissent.<br />
-On peut alors <strong>agrandir la table</strong> et <strong>rehacher</strong> les clés.</p>
-<blockquote>
-<p><em>(Ce rapport nombre d’éléments / taille de la table est appelé « facteur de charge ».)</em></p>
-</blockquote>
-<hr />
-<h2 id="recherche-et-comparaison-liste-dictionnaire">Recherche et comparaison liste / dictionnaire<a class="headerlink" href="#recherche-et-comparaison-liste-dictionnaire" title="Permanent link">⚓︎</a></h2>
-<p>Dans une <strong>liste</strong> (tableau dynamique), la recherche d’une valeur est en <span class="arithmatex">\(\mathcal{O}(n)\)</span>.<br />
-Dans un <strong>dictionnaire</strong> implémenté par hachage, la recherche moyenne est <span class="arithmatex">\(\mathcal{O}(1)\)</span>,<br />
-mais elle peut atteindre <span class="arithmatex">\(\mathcal{O}(n)\)</span> en cas de nombreuses collisions.</p>
-<h3 id="tableau-comparatif-des-complexites">Tableau comparatif des complexités<a class="headerlink" href="#tableau-comparatif-des-complexites" title="Permanent link">⚓︎</a></h3>
+<h2 id="1-le-type-abstrait-dictionnaire">1. 📚 Le type abstrait Dictionnaire<a class="headerlink" href="#1-le-type-abstrait-dictionnaire" title="Permanent link">⚓︎</a></h2>
+<h3 id="11-definition">1.1 Définition<a class="headerlink" href="#11-definition" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Définition</p>
+<p>Un <strong>dictionnaire</strong> (ou <strong>tableau associatif</strong>) est un ensemble de couples <strong>(clé, valeur)</strong> dans lequel <strong>chaque clé apparaît au plus une fois</strong>. On accède à une valeur par sa clé.</p>
+</div>
+<p>Le dictionnaire généralise le tableau. Dans un tableau, on accède à une valeur par son <strong>indice</strong>, un entier entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(n-1\)</span> imposé par la position de la case. Dans un dictionnaire, on accède à une valeur par une <strong>clé</strong> qu'on choisit librement : une chaîne, un nombre, un couple…</p>
+<p><img alt="À gauche, un tableau (list Python) de quatre cases numérotées 0 à 3 contenant 12, 11, 13.1 et 10.5 : notes[3] vaut 10.5. À droite, un dictionnaire (dict Python) associant les clés 'Durand', 'Chen', 'Ahmed' et 'Dupond' aux valeurs 12, 11, 13.1 et 10.5 : notes['Dupond'] vaut 10.5. Les indices sont les entiers 0 à n − 1 ; les clés sont uniques et, en Python, hachables ; les valeurs sont de type quelconque." src="img/tableau_dictionnaire.svg" /></p>
+<p>Les quatre couples du dictionnaire sont dessinés séparément : contrairement aux cases d'un tableau, ils ne sont pas rangés dans un ordre imposé.</p>
+<div class="admonition warning">
+<p class="admonition-title">Un dictionnaire n'est pas ordonné</p>
+<p>Au niveau du type abstrait, un dictionnaire n'a <strong>pas d'ordre</strong> : c'est un ensemble de couples. En Python, depuis la version 3.7, un <code>dict</code> conserve l'ordre d'insertion de ses clés, mais c'est une propriété de <strong>l'implémentation Python</strong>, pas du type abstrait. Un algorithme sur les dictionnaires ne doit pas en dépendre.</p>
+</div>
+<p><em>Exemples d'utilisation</em> : un annuaire (nom ↦ numéro de téléphone), le décompte des mots d'un texte (mot ↦ nombre d'apparitions), un lexique (mot français ↦ mot créole), les notes d'une classe (nom ↦ moyenne).</p>
+<h3 id="12-interface">1.2 Interface<a class="headerlink" href="#12-interface" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
-<th>Structure</th>
-<th>Recherche</th>
-<th>Insertion</th>
-<th>Suppression</th>
+<th>Opération</th>
+<th>Rôle</th>
+<th>Précondition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Dictionnaire (moyenne)</strong></td>
-<td>O(1)</td>
-<td>O(1)</td>
-<td>O(1)</td>
+<td><code>dico_vide()</code></td>
+<td>renvoie un dictionnaire vide</td>
+<td>—</td>
 </tr>
 <tr>
-<td><strong>Dictionnaire (pire cas)</strong></td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>O(n)</td>
+<td><code>contient(D, c)</code></td>
+<td>renvoie <code>True</code> si la clé <code>c</code> est présente dans <code>D</code></td>
+<td>—</td>
 </tr>
 <tr>
-<td><strong>Liste (tableau dynamique)</strong></td>
-<td>O(n)</td>
-<td><strong>O(1)</strong> amorti / <strong>O(n)</strong> pire cas</td>
-<td>O(n)</td>
+<td><code>valeur(D, c)</code></td>
+<td>renvoie la valeur associée à la clé <code>c</code></td>
+<td><code>c</code> présente</td>
+</tr>
+<tr>
+<td><code>ajouter(D, c, v)</code></td>
+<td>ajoute le couple <code>(c, v)</code> à <code>D</code></td>
+<td><code>c</code> absente</td>
+</tr>
+<tr>
+<td><code>modifier(D, c, v)</code></td>
+<td>associe la nouvelle valeur <code>v</code> à la clé <code>c</code></td>
+<td><code>c</code> présente</td>
+</tr>
+<tr>
+<td><code>supprimer(D, c)</code></td>
+<td>retire de <code>D</code> la clé <code>c</code> et sa valeur</td>
+<td><code>c</code> présente</td>
+</tr>
+<tr>
+<td><code>cles(D)</code></td>
+<td>renvoie les clés de <code>D</code>, dans un ordre quelconque</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Amorti</em> : sur une suite d’insertions en fin de liste, le coût moyen est constant,<br />
-même si certaines opérations isolées peuvent coûter O(n) (réallocation, décalage…).</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Un type abstrait mutable</p>
+<p>Les opérations <code>ajouter</code>, <code>modifier</code> et <code>supprimer</code> <strong>modifient</strong> le dictionnaire <code>D</code> ; elles ne renvoient rien. C'est le même choix que pour la pile et la file du chapitre IV, et le contraire de l'interface du TAD Liste (C6C1), où <code>cons</code> et <code>queue</code> renvoient une nouvelle liste.</p>
+</div>
+<details class="question">
+<summary>Pourquoi une opération <code>contient</code> ?</summary>
+<p>On pourrait imaginer que <code>valeur(D, c)</code> renvoie <code>None</code> quand la clé est absente. Mais alors, comment distinguer une clé absente d'une clé <strong>présente</strong> dont la valeur est <code>None</code> ? Avec une précondition sur <code>valeur</code> et une opération <code>contient</code>, il n'y a plus d'ambiguïté : on vérifie d'abord, puis on lit.</p>
+</details>
+<h3 id="13-interface-et-implementation-trois-niveaux">1.3 Interface et implémentation : trois niveaux<a class="headerlink" href="#13-interface-et-implementation-trois-niveaux" title="Permanent link">⚓︎</a></h3>
+<p>On retrouve les trois niveaux des chapitres IV et VI :</p>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Question</th>
+<th>Pour le dictionnaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TAD</strong></td>
+<td><em>Que</em> peut-on faire ?</td>
+<td>l'interface du 1.2</td>
+</tr>
+<tr>
+<td><strong>Structure de données</strong></td>
+<td><em>Comment</em> range-t-on les couples en mémoire ?</td>
+<td>une liste chaînée de couples (2.1), ou une table de hachage (2.2)</td>
+</tr>
+<tr>
+<td><strong>Implémentation</strong></td>
+<td><em>Comment</em> écrit-on les opérations en Python ?</td>
+<td><code>dico_liste.py</code> (2.1), le type <code>dict</code> de Python (2.2)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-le-type-dict-de-python">1.4 Le type <code>dict</code> de Python<a class="headerlink" href="#14-le-type-dict-de-python" title="Permanent link">⚓︎</a></h3>
+<p>Python fournit le dictionnaire comme type de base, avec sa propre syntaxe :</p>
+<table>
+<thead>
+<tr>
+<th>Interface (1.2)</th>
+<th>En Python</th>
+<th>Remarque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dico_vide()</code></td>
+<td><code>D = {}</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>contient(D, c)</code></td>
+<td><code>c in D</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>valeur(D, c)</code></td>
+<td><code>D[c]</code></td>
+<td>lève une erreur <code>KeyError</code> si <code>c</code> est absente</td>
+</tr>
+<tr>
+<td><code>ajouter(D, c, v)</code></td>
+<td><code>D[c] = v</code></td>
+<td>la même instruction ajoute <strong>ou</strong> modifie : Python ne vérifie pas la précondition</td>
+</tr>
+<tr>
+<td><code>modifier(D, c, v)</code></td>
+<td><code>D[c] = v</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>supprimer(D, c)</code></td>
+<td><code>del D[c]</code></td>
+<td>lève une erreur <code>KeyError</code> si <code>c</code> est absente</td>
+</tr>
+<tr>
+<td><code>cles(D)</code></td>
+<td><code>D.keys()</code> ou <code>for c in D:</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Python propose aussi <code>len(D)</code> (nombre de couples), <code>D.values()</code> (les valeurs), <code>D.items()</code> (les couples) et <code>D.get(c, defaut)</code>, qui renvoie <code>defaut</code> si <code>c</code> est absente.</p>
+<div class="admonition example">
+<p class="admonition-title">Un usage typique : compter des occurrences</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">occurrences</span><span class="p">(</span><span class="n">mots</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un dictionnaire associant à chaque mot son nombre d&#39;apparitions.&quot;&quot;&quot;</span>
+    <span class="n">compte</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mots</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">compte</span><span class="p">:</span>
+            <span class="n">compte</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">compte</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">compte</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">compte</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">occurrences</span><span class="p">([</span><span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="s2">&quot;le&quot;</span><span class="p">,</span> <span class="s2">&quot;chien&quot;</span><span class="p">])</span>
+<span class="go">{&#39;le&#39;: 2, &#39;chat&#39;: 1, &#39;et&#39;: 1, &#39;chien&#39;: 1}</span>
+</code></pre></div></td></tr></table></div>
+<p>Chaque tour de boucle fait une recherche de <strong>clé</strong>, en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne : le comptage de <span class="arithmatex">\(n\)</span> mots coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span> en moyenne. Avec un tableau de couples <code>[mot, nombre]</code>, chaque recherche coûterait <span class="arithmatex">\(\mathcal{O}(n)\)</span>, et le comptage <span class="arithmatex">\(\mathcal{O}(n^2)\)</span>.</p>
+</div>
 <hr />
+<h2 id="2-deux-implementations-du-dictionnaire">2. 🔗 Deux implémentations du dictionnaire<a class="headerlink" href="#2-deux-implementations-du-dictionnaire" title="Permanent link">⚓︎</a></h2>
+<h3 id="21-avec-une-liste-chainee-de-couples">2.1 🌿 Avec une liste chaînée de couples<a class="headerlink" href="#21-avec-une-liste-chainee-de-couples" title="Permanent link">⚓︎</a></h3>
+<p>On réutilise la classe <code>Cellule</code> du cours C6C1 : chaque cellule contient un <strong>couple</strong> <code>(clé, valeur)</code>. Comme pour la classe <code>Liste</code> (C6C1, 2.3), une classe <code>Dico</code> encapsule la référence vers la première cellule, ce qui permet aux opérations de modifier le dictionnaire.</p>
+<p>Fichier <code>dico_liste.py</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">liste_cellule</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cellule</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dico</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dictionnaire représenté par une liste chaînée de couples (clé, valeur).&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>            <span class="c1"># référence vers la première cellule</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fonction auxiliaire (hors interface) :</span>
+<span class="sd">    renvoie la cellule de clé c, ou None si c est absente.&quot;&quot;&quot;</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span>
+    <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cel</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dico_vide</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Dico</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="k">return</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="s2">&quot;clé déjà présente&quot;</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>          <span class="c1"># ajout en tête</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">modifier</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">cellule_de</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="s2">&quot;clé absente&quot;</span>
+    <span class="k">if</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>                 <span class="c1"># la clé est dans la première cellule</span>
+        <span class="n">D</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">suivant</span>
+        <span class="k">return</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span>
+    <span class="k">while</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span>         <span class="c1"># on s&#39;arrête sur la cellule précédente</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">suivant</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cles</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">tete</span>
+    <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">dico_liste</span><span class="w"> </span><span class="kn">import</span> <span class="n">dico_vide</span><span class="p">,</span> <span class="n">contient</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">ajouter</span><span class="p">,</span> <span class="n">modifier</span><span class="p">,</span> <span class="n">supprimer</span><span class="p">,</span> <span class="n">cles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">dico_vide</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Durand&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ajouter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Chen&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Chen&#39;</span><span class="p">)</span>
+<span class="go">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Martin&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">supprimer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Durand&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cles</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="go">[&#39;Chen&#39;]</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Complexité</p>
+<p>Toutes les opérations, sauf <code>dico_vide</code>, commencent par chercher la clé en parcourant la liste depuis la tête : elles coûtent <span class="arithmatex">\(\mathcal{O}(n)\)</span> dans le pire cas pour un dictionnaire de <span class="arithmatex">\(n\)</span> couples. Même <code>ajouter</code> est en <span class="arithmatex">\(\mathcal{O}(n)\)</span>, car il faut vérifier que la clé est absente.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Les cellules sont modifiées en place</p>
+<p><code>modifier</code> et <code>supprimer</code> changent des cellules existantes. Au cours C6C1 (4.2), on a vu que c'est dangereux si des cellules sont <strong>partagées</strong>. Ici, elles ne le sont jamais : seule la classe <code>Dico</code> y accède.</p>
+</div>
+<h3 id="22-avec-une-table-de-hachage">2.2 ⚡ Avec une table de hachage<a class="headerlink" href="#22-avec-une-table-de-hachage" title="Permanent link">⚓︎</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Hors programme : pour comprendre, pas à savoir refaire</p>
+<p>Le programme ne mentionne pas les tables de hachage. Cette partie explique <strong>pourquoi</strong> le <code>dict</code> de Python recherche une clé en temps constant en moyenne. Le vocabulaire et le principe sont à comprendre ; ils ne sont pas exigibles à l'examen.</p>
+</div>
+<p>L'implémentation 2.1 est lente parce qu'il faut parcourir <strong>tous</strong> les couples. L'idée d'une table de hachage est de répartir les couples dans <span class="arithmatex">\(M\)</span> petites listes chaînées, et de savoir <strong>directement</strong> dans laquelle chercher.</p>
+<ul>
+<li>On utilise un <strong>tableau</strong> de <span class="arithmatex">\(M\)</span> cases. Chaque case contient une liste chaînée de couples (clé, valeur), ou <code>None</code> si elle est vide.</li>
+<li>Une <strong>fonction de hachage</strong> associe à chaque clé un indice entre <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(M-1\)</span> : la case où ranger le couple.</li>
+<li>Deux clés différentes peuvent avoir le même indice : c'est une <strong>collision</strong>. Les deux couples sont alors dans la même liste chaînée. On parle de <strong>résolution des collisions par chaînage</strong>.</li>
+</ul>
+<p>Voici une fonction de hachage simple pour des clés de type chaîne :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hachage</span><span class="p">(</span><span class="n">cle</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un indice entre 0 et M - 1 pour la chaîne cle.&quot;&quot;&quot;</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">cle</span><span class="p">:</span>
+        <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span> <span class="o">+</span> <span class="nb">ord</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>    <span class="c1"># ord renvoie le point de code Unicode du caractère</span>
+    <span class="k">return</span> <span class="n">somme</span> <span class="o">%</span> <span class="n">M</span>
+</code></pre></div></td></tr></table></div>
+<p>Avec <span class="arithmatex">\(M = 5\)</span>, on range les cinq couples <code>('Durand', 12)</code>, <code>('Chen', 11)</code>, <code>('Ahmed', 13.1)</code>, <code>('Dupond', 10.5)</code> et <code>('Lebon', 14)</code>, chacun ajouté en tête de la liste de sa case :</p>
+<p><img alt="Table de hachage de 5 cases numérotées 0 à 4. La case 0 vaut None. La case 1 référence une liste chaînée de deux cellules : ('Lebon', 14) puis ('Durand', 12), car hachage('Lebon', 5) et hachage('Durand', 5) valent tous deux 1 : c'est une collision. Les cases 2, 3 et 4 référencent chacune une seule cellule : ('Chen', 11), ('Dupond', 10.5) et ('Ahmed', 13.1)." src="img/table_hachage.svg" /></p>
+<p>On reconnaît les cellules du cours C6C1 : chaque case du tableau est une liste chaînée, avec une référence vers la cellule suivante et <code>None</code> à la fin.</p>
+<p>Pour <strong>chercher</strong> une clé <code>c</code>, on calcule <code>i = hachage(c, M)</code>, puis on ne parcourt <strong>que</strong> la liste de la case <code>i</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Dico</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">M</span>     <span class="c1"># M cases, toutes vides</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contient</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">cel</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">hachage</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">M</span><span class="p">)]</span>  <span class="c1"># on va directement dans la bonne case</span>
+    <span class="k">while</span> <span class="n">cel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">valeur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">cel</span> <span class="o">=</span> <span class="n">cel</span><span class="o">.</span><span class="n">suivant</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Pourquoi est-ce rapide ?</strong> Si la fonction de hachage répartit bien les <span class="arithmatex">\(n\)</span> clés, chaque liste contient en moyenne <span class="arithmatex">\(\frac{n}{M}\)</span> couples. Ce rapport s'appelle le <strong>facteur de charge</strong>. Quand il devient trop grand, on agrandit le tableau (par exemple en doublant <span class="arithmatex">\(M\)</span>) et on range de nouveau tous les couples : la longueur moyenne des listes reste <strong>bornée par une constante</strong>. La recherche d'une clé coûte alors <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne.</p>
+<p><strong>Et dans le pire cas ?</strong> Si toutes les clés tombent dans la même case, on retrouve une seule liste chaînée de <span class="arithmatex">\(n\)</span> couples, et la recherche coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Une fonction de hachage de mauvaise qualité</p>
+<p>La fonction <code>hachage</code> ci-dessus est <strong>rapide</strong> : son coût est proportionnel à la longueur de la clé. Mais elle <strong>répartit mal</strong> les clés :</p>
+<ul>
+<li>deux anagrammes ont toujours le même indice : <code>hachage('abc', M)</code> et <code>hachage('cab', M)</code> sont égaux, car l'addition ne tient pas compte de l'ordre des lettres ;</li>
+<li>pour des mots courts, les sommes restent petites (moins de 1 300 pour un mot de 10 lettres minuscules) : avec <span class="arithmatex">\(M = 10\,000\)</span>, la plupart des cases ne serviront jamais.</li>
+</ul>
+<p>Une bonne fonction de hachage tient compte de la <strong>position</strong> de chaque caractère.</p>
+</div>
+<h3 id="23-les-cles-dun-dict-python">2.3 🐍 Les clés d'un <code>dict</code> Python<a class="headerlink" href="#23-les-cles-dun-dict-python" title="Permanent link">⚓︎</a></h3>
+<p>Le type <code>dict</code> de Python est une table de hachage. Il utilise la fonction intégrée <code>hash</code> pour calculer l'indice d'une clé, puis compare les clés avec <code>==</code> pour distinguer celles qui sont en collision.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>            <span class="c1"># un tuple d&#39;entiers : accepté</span>
+<span class="go">8409376899596376432         # (la valeur exacte dépend de la version de Python)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hash</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="w">  </span><span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">unhashable type: &#39;list&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Une clé doit être <strong>hachable</strong>. Une <strong>liste</strong>, un <strong>dictionnaire</strong> ou un <strong>ensemble</strong> ne peuvent donc pas servir de clé ; une chaîne, un nombre ou un tuple de chaînes et de nombres le peuvent.</p>
+<div class="admonition warning">
+<p class="admonition-title">Deux clés égales sont la même clé</p>
+<p>Python garantit que deux objets égaux (<code>==</code>) ont le même <code>hash</code>. Comme <code>1 == True</code>, ce sont deux écritures de la même clé :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">}</span>
+<span class="go">{1: &#39;b&#39;}</span>
+</code></pre></div></td></tr></table></div>
+En revanche, deux objets différents peuvent avoir le même <code>hash</code> : c'est une collision.</p>
+</div>
+<details class="tip">
+<summary>Pour aller plus loin</summary>
+<ul>
+<li>Le <code>dict</code> de Python ne résout pas les collisions par chaînage, mais par <strong>adressage ouvert</strong> : si la case est occupée, on essaie une autre case du même tableau, selon une règle fixée.</li>
+<li>Pour des raisons de sécurité, le <code>hash</code> d'une <strong>chaîne</strong> change d'une exécution du programme à l'autre ; celui d'un entier, non.</li>
+<li>Les objets d'une classe que vous écrivez sont hachables par défaut (<code>hash(Cellule(1, None))</code> fonctionne) : ils sont alors comparés par <strong>identité</strong>, c'est-à-dire que deux objets sont égaux seulement s'ils sont le même objet en mémoire.</li>
+<li>L'agrandissement du tableau coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span>, mais il est rare : en doublant <span class="arithmatex">\(M\)</span> à chaque fois, le coût moyen d'un ajout sur une longue suite d'ajouts reste constant. On dit que l'ajout est en <span class="arithmatex">\(\mathcal{O}(1)\)</span> <strong>amorti</strong> (en moyenne), comme <code>append</code> pour une <code>list</code>.</li>
+</ul>
+</details>
+<hr />
+<h2 id="3-rechercher-une-cle-ou-une-valeur">3. 🔍 Rechercher une clé ou une valeur ?<a class="headerlink" href="#3-rechercher-une-cle-ou-une-valeur" title="Permanent link">⚓︎</a></h2>
+<p>C'est la distinction centrale du chapitre.</p>
+<div class="admonition danger">
+<p class="admonition-title">À ne pas confondre</p>
+<ul>
+<li><strong>Rechercher une clé</strong> dans un dictionnaire (<code>c in D</code>, <code>D[c]</code>) : <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne avec une table de hachage. C'est pour cela qu'on utilise un dictionnaire.</li>
+<li><strong>Rechercher une valeur</strong> dans un dictionnaire (<code>v in D.values()</code>) : il faut examiner tous les couples, <span class="arithmatex">\(\mathcal{O}(n)\)</span>, comme dans un tableau ou une liste chaînée.</li>
+</ul>
+</div>
+<p>Rechercher une valeur dans un dictionnaire, c'est faire un parcours :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">a_pour_valeur</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie True si l&#39;une des clés de D est associée à la valeur v.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">D</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="n">v</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+<p>Si un programme doit souvent retrouver la clé <strong>à partir de la valeur</strong> (par exemple, le nom à partir du numéro de téléphone), on construit un second dictionnaire, dont les clés sont les numéros.</p>
+<h3 id="tableau-comparatif">Tableau comparatif<a class="headerlink" href="#tableau-comparatif" title="Permanent link">⚓︎</a></h3>
+<p>Pour une collection de <span class="arithmatex">\(n\)</span> éléments :</p>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Tableau (<code>list</code> Python)</th>
+<th>Liste chaînée</th>
+<th>Dictionnaire (table de hachage)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accéder à l'élément d'indice <span class="arithmatex">\(k\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(k)\)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ajouter en tête</td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ajouter en fin</td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti</td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Rechercher une <strong>clé</strong></td>
+<td>—</td>
+<td>—</td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne, <span class="arithmatex">\(\mathcal{O}(n)\)</span> pire cas</td>
+</tr>
+<tr>
+<td>Ajouter ou supprimer une <strong>clé</strong></td>
+<td>—</td>
+<td>—</td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti, en moyenne</td>
+</tr>
+<tr>
+<td>Rechercher une <strong>valeur</strong></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Le tiret « — » signale une opération qui n'a pas de sens pour la structure : un dictionnaire n'a pas d'indices, un tableau n'a pas de clés.</p>
+<p>Les deux implémentations du dictionnaire, comparées :</p>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Liste chaînée de couples (2.1)</th>
+<th>Table de hachage (2.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contient</code>, <code>valeur</code>, <code>modifier</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne</td>
+</tr>
+<tr>
+<td><code>ajouter</code>, <code>supprimer</code></td>
+<td><span class="arithmatex">\(\mathcal{O}(n)\)</span></td>
+<td><span class="arithmatex">\(\mathcal{O}(1)\)</span> amorti, en moyenne</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-choisir-une-structure">4. ⚖️ Choisir une structure<a class="headerlink" href="#4-choisir-une-structure" title="Permanent link">⚓︎</a></h2>
+<div class="admonition example">
+<p class="admonition-title">À faire</p>
+<p>Pour chaque situation, choisir une structure parmi <strong>tableau</strong>, <strong>liste chaînée</strong>, <strong>pile</strong>, <strong>file</strong> et <strong>dictionnaire</strong>, et justifier en une phrase.</p>
+<ol>
+<li>Le bouton « Retour » d'un navigateur ramène à la dernière page visitée.</li>
+<li>Un serveur d'impression traite les documents dans leur ordre d'arrivée.</li>
+<li>Un annuaire doit retrouver très vite le numéro d'un élève à partir de son nom.</li>
+<li>On enregistre une température par heure et on consulte souvent celle de la <span class="arithmatex">\(k\)</span>-ième heure.</li>
+<li>On compte le nombre d'apparitions de chaque espèce dans une liste d'observations.</li>
+<li>Un programme ajoute très souvent des éléments au début d'une collection et ne la parcourt que du début à la fin.</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li><strong>Pile</strong> : la dernière page visitée est la première à ressortir (LIFO).</li>
+<li><strong>File</strong> : le premier document arrivé est le premier imprimé (FIFO).</li>
+<li><strong>Dictionnaire</strong> (nom ↦ numéro) : recherche d'une <strong>clé</strong> en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne.</li>
+<li><strong>Tableau</strong> : accès à l'indice <span class="arithmatex">\(k\)</span> en <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</li>
+<li><strong>Dictionnaire</strong> (espèce ↦ nombre) : voir la fonction <code>occurrences</code> du 1.4.</li>
+<li><strong>Liste chaînée</strong> : ajout en tête en <span class="arithmatex">\(\mathcal{O}(1)\)</span>, alors qu'il coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span> dans un tableau.</li>
+</ol>
+</details>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Beaucoup d'<strong>accès par indice</strong> → tableau.</li>
+<li>Beaucoup d'<strong>ajouts et de suppressions en tête</strong> → liste chaînée.</li>
+<li>Beaucoup de <strong>recherches par clé</strong> → dictionnaire.</li>
+<li>Une recherche <strong>par valeur</strong> coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span> dans toutes ces structures.</li>
+</ul>
+</div>
+<hr />
+<h2 id="5-synthese">5. 🧠 Synthèse<a class="headerlink" href="#5-synthese" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Un <strong>dictionnaire</strong> est un ensemble de couples (clé, valeur) dont les clés sont <strong>uniques</strong> ; il n'est <strong>pas ordonné</strong>.</li>
+<li>Son interface : <code>dico_vide</code>, <code>contient</code>, <code>valeur</code>, <code>ajouter</code>, <code>modifier</code>, <code>supprimer</code>, <code>cles</code>. C'est un type abstrait <strong>mutable</strong>.</li>
+<li>On l'a implémenté de deux façons, avec la même interface :<ul>
+<li>une <strong>liste chaînée de couples</strong> : toutes les opérations en <span class="arithmatex">\(\mathcal{O}(n)\)</span> ;</li>
+<li>une <strong>table de hachage</strong> : recherche d'une clé en <span class="arithmatex">\(\mathcal{O}(1)\)</span> en moyenne (hors programme, pour comprendre).</li>
+</ul>
+</li>
+<li>Le <code>dict</code> de Python est une table de hachage ; ses clés doivent être <strong>hachables</strong>.</li>
+<li>Rechercher une <strong>clé</strong> dans un dictionnaire est rapide ; rechercher une <strong>valeur</strong> coûte <span class="arithmatex">\(\mathcal{O}(n)\)</span>, comme dans un tableau ou une liste chaînée.</li>
+<li>Il faut savoir <strong>choisir</strong> entre tableau, liste chaînée, pile, file et dictionnaire selon les opérations dont on a besoin.</li>
+</ul>
+<hr />
+<h2 id="pour-sentrainer">📝 Pour s'entraîner<a class="headerlink" href="#pour-sentrainer" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li><a href="C6E3.html">✏️ Exercices Dictionnaires</a></li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -6168,6 +6715,8 @@ même si certaines opérations isolées peuvent coûter O(n) (réallocation, dé
         <script src="../../javascripts/config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax_details.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
       

@@ -1,0 +1,53 @@
+# Exercices
+
+## Exercice 1 — Implémentation naïve
+
+Implémente une classe Python `DictListe` qui réalise le TAD dictionnaire  
+en utilisant une **liste de paires (clé, valeur)**.
+
+- `insert(c, v)` : ajoute ou remplace la paire selon la présence de `c`.  
+- `rechercher(c)` : renvoie la valeur ou `None`.  
+- `supprimer(c)` : supprime la paire si la clé est présente.
+
+👉 Analyse la **complexité** de chaque opération.
+
+---
+
+## Exercice 2 — Fonction de hachage simple
+
+On définit :
+
+```python
+def hachage(s, M):
+    somme = 0
+    for c in s:
+        somme += ord(c)
+    return somme % M
+```
+
+1. Explique pourquoi cette fonction est **peu efficace** pour des mots similaires.  
+2. Calcule le **rapport** \(n/M\) si \(n = 10^4\) et \(M = 100\).  
+3. Décris les conséquences sur le nombre de collisions et les performances.  
+4. Propose une amélioration.
+
+---
+
+## Exercice 3 — Comparaison empirique
+
+Compare expérimentalement le temps moyen de recherche entre :
+
+- une **liste** de \(n\) paires,
+- un **dictionnaire** contenant les mêmes paires.
+
+Effectue des mesures pour \(n = 10^3, 10^4, 10^5\) et commente la différence d’ordre de grandeur.
+
+---
+
+## Bonus — Dictionnaire avec chaînage
+
+Implémente la classe `DictChaine` :
+
+- tableau de taille `M` ;
+- gestion des collisions par **chaînage** (liste chaînée dans chaque case).
+Fais varier le rapport \(n/M\) et observe son effet sur le **nombre moyen d’éléments par case**.
+---

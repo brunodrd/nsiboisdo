@@ -1,0 +1,136 @@
+---
+title: "Le type Dictionnaire"
+layout: page
+permalink: /NSITerm/SD/C6bC1.html
+description: "Cours NSI Terminale — TAD dictionnaire, hachage, opérations et complexité."
+toc: true
+mathjax: true
+last_modified_at: 2025-10-31
+categories: ["NSI", "Structures de données"]
+tags: ["dictionnaire", "hachage", "POO", "Terminale"]
+---
+
+# Le type Dictionnaire
+
+## Description
+
+Un dictionnaire (ou **tableau associatif**) généralise l’idée de tableau :  
+l’index (la **clé**) n’est pas forcément un entier naturel.
+
+D’un point de vue type abstrait de données (**TAD**), un dictionnaire est un **ensemble de paires (clé, valeur)**  
+dans lequel **chaque clé est unique**.  
+Il permet de **retrouver rapidement** une valeur à partir de sa clé.
+
+> ⚠️ **Attention (Python vs TAD)**  
+> En Python, depuis la version 3.7, les dictionnaires **préservent l’ordre d’insertion**.  
+> Au niveau abstrait (TAD), un dictionnaire reste **non ordonné**.
+
+*Exemples d’applications* : carnet d’adresses, index de base de données, table de routage réseau, etc.
+
+![Schéma d’un tableau associatif : clés quelconques pointant vers des valeurs](img/tableau_associatif.png)
+
+---
+
+## Les opérations du type dictionnaire
+
+Soit un dictionnaire abstrait `D` :
+
+- **`D.insérer(c, v)`**  
+  Ajoute la paire `(c, v)` si `c` est absente ; sinon **remplace** la valeur associée à `c`.
+
+- **`D.supprimer(c)`**  
+  Supprime la paire de clé `c`.  
+  Si `c` n’existe pas, on peut ignorer l’opération, renvoyer un indicateur (`False`),  
+  ou lever une exception selon la spécification.
+
+- **`D.rechercher(c)`**  
+  Renvoie la valeur associée à `c` si elle existe, sinon une valeur spéciale (`None`)  
+  ou lève une exception.
+
+- **`itérer()`**  
+  Permet de parcourir toutes les **clés** du dictionnaire.
+
+> **Qu'en est-il en Python?**  
+> `k in D`, `D[k]`,   
+> `D.keys()`, `D.values()`, `D.items()`.
+
+---
+
+## Implémentation du dictionnaire
+
+### Principe de la table de hachage
+
+Un dictionnaire peut être implémenté par une **table de hachage**.  
+Une **fonction de hachage** transforme une clé en un **indice** d’un tableau.  
+Deux clés différentes peuvent produire le même indice : c’est une **collision**.
+
+### Gestion des collisions
+
+- **Chaînage** : chaque case contient une petite **liste chaînée** de paires.  
+- **Adressage ouvert** : si la case est occupée, on cherche une autre selon une stratégie  
+  (linéaire, quadratique, double hachage…).
+
+### Exemple d’une fonction de hachage naïve
+
+```python
+def hachage(s: str, M: int) -> int:
+    somme = 0
+    for c in s:
+        somme += ord(c)  # code ASCII
+    return somme % M
+```
+
+Cette fonction additionne les codes **ASCII** des caractères, puis prend le reste modulo `M`.  
+→ Elle est **peu efficace** : les chaînes anagrammes (ex. "abc" et "cab") ont le même résultat,  
+et la distribution des indices n’est pas uniforme.
+
+---
+
+### 💡 Le hachage en Python
+
+Python fournit une fonction intégrée `hash()` utilisée par les dictionnaires et ensembles (`set`).
+
+```python
+hash("chat")      # produit un entier
+hash((2, 3))      # ok pour tuple
+hash([1, 2, 3])   # ❌ TypeError : unhashable type: 'list'
+```
+
+- Les **objets immuables** sont *hachables* (chaînes, nombres, tuples d’immutables).  
+- Les objets **mutables** (listes, dictionnaires, ensembles) ne le sont pas.  
+- Deux objets égaux (`==`) ont toujours le même hash, mais l’inverse n’est pas garanti.  
+- Le résultat de `hash()` peut **varier entre deux exécutions** (sécurité : randomisation).
+
+> En Python, `dict` utilise `hash()` pour placer rapidement les clés dans une table interne,  
+> puis vérifie leur égalité pour distinguer les collisions.
+
+---
+
+### 📘 Pour aller plus loin : facteur de remplissage
+
+Plus la table contient d’éléments, plus les collisions sont probables.  
+Quand elle devient trop "pleine", les opérations ralentissent.  
+On peut alors **agrandir la table** et **rehacher** les clés.
+
+> *(Ce rapport nombre d’éléments / taille de la table est appelé « facteur de charge ».)*
+
+---
+
+## Recherche et comparaison liste / dictionnaire
+
+Dans une **liste** (tableau dynamique), la recherche d’une valeur est en $\mathcal{O}(n)$.  
+Dans un **dictionnaire** implémenté par hachage, la recherche moyenne est $\mathcal{O}(1)$,  
+mais elle peut atteindre $\mathcal{O}(n)$ en cas de nombreuses collisions.
+
+### Tableau comparatif des complexités
+
+| Structure | Recherche | Insertion | Suppression |
+|------------|------------|------------|-------------|
+| **Dictionnaire (moyenne)** | O(1) | O(1) | O(1) |
+| **Dictionnaire (pire cas)** | O(n) | O(n) | O(n) |
+| **Liste (tableau dynamique)** | O(n) | **O(1)** amorti / **O(n)** pire cas | O(n) |
+
+> *Amorti* : sur une suite d’insertions en fin de liste, le coût moyen est constant,  
+> même si certaines opérations isolées peuvent coûter O(n) (réallocation, décalage…).
+---
+
