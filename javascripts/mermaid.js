@@ -12,7 +12,7 @@ window.mermaidConfig = {
       useMaxWidth: false
     },
     sequence: {
-      useMaxWidth: false
+      useMaxWidth: false,
       // Mermaid handles Firefox a little different.
       // For some reason, it doesn't attach font sizes to the labels in Firefox.
       // If we specify the documented defaults, font sizes are written to the labels in Firefox.

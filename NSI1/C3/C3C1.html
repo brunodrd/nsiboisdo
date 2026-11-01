@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#travailler-en-base-2-10-et-16" class="md-skip">
+        <a href="#ecrire-un-entier-naturel-en-base-2-10-et-16" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1390,36 +1390,81 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reperes-historiques" class="md-nav__link">
+  <a href="#1-reperes-historiques" class="md-nav__link">
     <span class="md-ellipsis">
-      Repères historiques
+      1. Repères historiques
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comment-representer-des-informations-sur-une-machine-numerique" class="md-nav__link">
+  <a href="#2-bits-octets-et-mots" class="md-nav__link">
     <span class="md-ellipsis">
-      Comment représenter des informations sur une machine numérique ?
+      2. Bits, octets et mots
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#representation-binaire-des-entiers-naturels" class="md-nav__link">
+  <a href="#3-lecriture-positionnelle-dans-une-base-b" class="md-nav__link">
     <span class="md-ellipsis">
-      Représentation binaire des entiers naturels
+      3. L'écriture positionnelle dans une base b
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#representation-hexadecimale" class="md-nav__link">
+  <a href="#4-convertir-vers-la-base-10" class="md-nav__link">
     <span class="md-ellipsis">
-      Représentation hexadécimale
+      4. Convertir vers la base 10
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-convertir-depuis-la-base-10-les-divisions-successives" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Convertir depuis la base 10 : les divisions successives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-passer-directement-du-binaire-a-lhexadecimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Passer directement du binaire à l'hexadécimal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-combien-de-bits-faut-il" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Combien de bits faut-il ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. En Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-en-resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. En résumé
     </span>
   </a>
   
@@ -5943,72 +5988,436 @@
 
 
 
-<h1 id="travailler-en-base-2-10-et-16">TRAVAILLER EN BASE 2, 10 ET 16<a class="headerlink" href="#travailler-en-base-2-10-et-16" title="Permanent link">⚓︎</a></h1>
-<h2 id="reperes-historiques">Repères historiques<a class="headerlink" href="#reperes-historiques" title="Permanent link">⚓︎</a></h2>
-<p>L'invention du système binaire est souvent attribué à tort au savant allemand <a href="https://fr.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz#Syst%C3%A8me_binaire">Wilhelm Gottfried Leibniz</a> (1646-1716). </p>
-<p>En effet, le mathématicien et astronome anglais <a href="https://images.math.cnrs.fr/L-edition-electronique-des-manuscrits-de-Thomas-Harriot-1560-1621">Thomas Harriot</a> (1560-1621) avait déjà travaillé sur les systèmes non décimaux. Voir une <a href="https://digilib.mpiwg-berlin.mpg.de/digitallibrary/jquery/digilib.html?fn=/permanent/library/TRMFCPMB/pageimg&amp;pn=693&amp;ww=0.7143&amp;wh=0.7143">publication en ligne des manuscrits de Harriot</a> </p>
-<p>Leibniz s'inspira des figures de le l'empereur chinois Fuxi (-3000) que l'on peut considérer comme la première expression d'un codage binaire.<br />
-<img alt="Trigramme" src="img/trigramme_200px.png" /></p>
-<h2 id="comment-representer-des-informations-sur-une-machine-numerique">Comment représenter des informations sur une machine numérique ?<a class="headerlink" href="#comment-representer-des-informations-sur-une-machine-numerique" title="Permanent link">⚓︎</a></h2>
-<h3 id="unite-dinformation">Unité d'information<a class="headerlink" href="#unite-dinformation" title="Permanent link">⚓︎</a></h3>
-<p>Les machines numériques sont composées d'éléments manipulant l'information sous forme de <strong>deux états distincts</strong>. C'est la raison pour laquelle on les appelle machine <strong>binaire</strong>. Par convention, ces états sont notés <span class="arithmatex">\(0\)</span> ou <span class="arithmatex">\(1\)</span>. En anglais, ces informations élémentaires sont appelées <em>binary digit</em> ou <strong>bit</strong>.<br />
-Un bit permet de représenter <span class="arithmatex">\(2^1=2\)</span> informations.  </p>
-<p>On peut généraliser: <span class="arithmatex">\(n\)</span> bits permettent de représenter <span class="arithmatex">\(2^n\)</span> informations. </p>
-<p>Les machines numériques manipulent habituellement des groupes de bits. Ainsi, un groupe de 8 bits forment un <strong>octet</strong>.  </p>
-<div class="admonition danger">
-<p class="admonition-title">ATTENTION</p>
-<p>en anglais un <strong>octet</strong> est traduit par <strong>BYTE</strong>. </p>
+<h1 id="ecrire-un-entier-naturel-en-base-2-10-et-16">Écrire un entier naturel en base 2, 10 et 16<a class="headerlink" href="#ecrire-un-entier-naturel-en-base-2-10-et-16" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme de première</p>
+<p><strong>Représentation des données : types et valeurs de base</strong></p>
+<table>
+<thead>
+<tr>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Écriture d'un entier positif dans une base <span class="arithmatex">\(b \geqslant 2\)</span></td>
+<td>Passer de la représentation d'une base dans une autre.</td>
+<td>Les bases 2, 10 et 16 sont privilégiées.</td>
+</tr>
+</tbody>
+</table>
+<p>Repères historiques travaillés au passage (rubrique <em>Histoire de l'informatique</em>).</p>
 </div>
-<p>Au delà de 8 bits on utilise le terme <strong>mot</strong>. On parle par exemple de mot de 16 bits, de mot de 32 bits (on trouve aussi le terme <em>double mot</em>) ou de mot de 64 bits (ou <em>quadruple mot</em>).</p>
-<p>Les quantités d'informations stockées ou manipulées s'expriment avec les préfixes habituels reliés aux puissances de 10 (1 kilooctet (ko) <span class="arithmatex">\(= 1\times10^3\)</span> octets, 1 mégaoctet (Mo) <span class="arithmatex">\(= 1\times10^6\)</span> octets, 1 gigaoctet (Go) <span class="arithmatex">\(= 1\times10^9\)</span> octets etc).  </p>
+<div class="admonition note">
+<p class="admonition-title">Objectifs</p>
+<p>À la fin de ce cours, il faut être capable de:</p>
+<ul>
+<li>expliquer ce que signifie l'écriture d'un entier dans une base <span class="arithmatex">\(b\)</span> ;</li>
+<li>passer de la base 2 ou 16 à la base 10, et inversement ;</li>
+<li>passer directement de la base 2 à la base 16, et inversement ;</li>
+<li>dire combien de valeurs distinctes on peut coder avec <span class="arithmatex">\(n\)</span> bits ;</li>
+<li>utiliser les fonctions <code>bin</code>, <code>hex</code> et <code>int</code> de Python.</li>
+</ul>
+</div>
+<h2 id="1-reperes-historiques">1. Repères historiques<a class="headerlink" href="#1-reperes-historiques" title="Permanent link">⚓︎</a></h2>
+<p>L'idée d'écrire les nombres avec deux symboles seulement est bien plus ancienne que l'ordinateur.</p>
+<ul>
+<li><strong>Thomas Harriot</strong> (1560-1621), mathématicien et astronome anglais, effectue au début du XVII<sup>e</sup> siècle des calculs en base 2 dans ses manuscrits, qui ne seront pas publiés de son vivant (<a href="https://images.math.cnrs.fr/L-edition-electronique-des-manuscrits-de-Thomas-Harriot-1560-1621">édition en ligne des manuscrits</a>).</li>
+<li><strong>Gottfried Wilhelm Leibniz</strong> (1646-1716) étudie la « progression dyadique » dès 1679 et publie en 1703 son <em>Explication de l'arithmétique binaire</em>. On lui attribue souvent, à tort, l'invention du binaire ; il en est surtout le premier grand promoteur.</li>
+<li>Le jésuite Joachim Bouvet lui fait découvrir les figures du <em>Yi Jing</em>, traditionnellement attribuées au souverain légendaire <strong>Fuxi</strong>. Leibniz y voit, <strong>après coup</strong>, une confirmation de son système : chaque figure est formée de traits pleins ou brisés, soit deux états.</li>
+</ul>
+<p><img alt="Les huit trigrammes : trois traits pleins ou brisés donnent huit figures, numérotées de 000 à 111 en binaire, soit de 0 à 7" src="img/trigrammes.svg" /></p>
+<p>Avec 3 traits à deux états, on obtient <span class="arithmatex">\(2 \times 2 \times 2 = 2^3 = 8\)</span> trigrammes. Avec les 6 traits d'un hexagramme, on en obtient <span class="arithmatex">\(2^6 = 64\)</span>. C'est exactement le raisonnement que l'on fait avec des bits.</p>
 <div class="admonition info">
-<p class="admonition-title">Remarque</p>
-<p>Certains informaticiens/électroniciens utilisent encore des définitions de ces quantités exprimées en puissances de 2 (<span class="arithmatex">\(2^{10}\)</span>, <span class="arithmatex">\(2^{20}\)</span>, <span class="arithmatex">\(2^{30}\)</span>, etc). Pour éviter les confusions, l'International Electrotechnical Commission (IEC) a normalisé ces appellations en décembre 1998. Voir <a href="https://physics.nist.gov/cuu/Units/binary.html">lien</a>.</p>
+<p class="admonition-title">Et l'ordinateur ?</p>
+<p>Le mot <strong>bit</strong> (<em>binary digit</em>) apparaît dans l'article fondateur de Claude Shannon sur la théorie de l'information (1948), qui l'attribue à John Tukey. Les premiers ordinateurs à programme enregistré datent de la même époque.</p>
 </div>
-<h2 id="representation-binaire-des-entiers-naturels">Représentation binaire des entiers naturels<a class="headerlink" href="#representation-binaire-des-entiers-naturels" title="Permanent link">⚓︎</a></h2>
-<h3 id="representation-positionnelle-decomposition-suivant-une-base">Représentation positionnelle: décomposition suivant une base<a class="headerlink" href="#representation-positionnelle-decomposition-suivant-une-base" title="Permanent link">⚓︎</a></h3>
-<p>On présente les nombres entiers de manière classique en <em>représentation positionnelle</em>. Par exemple en base 10, la suite 123 signifie <span class="arithmatex">\(1\times 10^2+2\times 10^1+3\times 10^0\)</span>. En base 2, la suite 10011 signifie <span class="arithmatex">\(1\times 2^4+0\times 2^3+0\times 2^2+1\times 2^1+1\times 2^0\)</span>.  </p>
-<p>Dans un motif binaire, le bit le plus à droite est le <strong>bit de poids faible</strong> ou <strong>LSB</strong> (<em>Least Significant Bit</em>). A l'opposé, le bit le plus à gauche est le <strong>bit de poids fort</strong> ou <strong>MSB</strong> (<em>Most Significant Bit</em>). </p>
-<div class="admonition hint">
-<p class="admonition-title">Astuce</p>
-<p>Le bit de poids faible peut être utilisé pour trouver la parité du nombre: <span class="arithmatex">\(0\)</span> indique un nombre pair et <span class="arithmatex">\(1\)</span> un nombre impair.</p>
+<h2 id="2-bits-octets-et-mots">2. Bits, octets et mots<a class="headerlink" href="#2-bits-octets-et-mots" title="Permanent link">⚓︎</a></h2>
+<h3 id="21-le-bit">2.1 Le bit<a class="headerlink" href="#21-le-bit" title="Permanent link">⚓︎</a></h3>
+<p>Une machine numérique manipule des éléments qui ne peuvent prendre que <strong>deux états distincts</strong>, notés par convention <span class="arithmatex">\(0\)</span> et <span class="arithmatex">\(1\)</span>. Un tel chiffre binaire s'appelle un <strong>bit</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Avec 1 bit, on distingue <span class="arithmatex">\(2^1 = 2\)</span> valeurs.</li>
+<li>Avec <span class="arithmatex">\(n\)</span> bits, on distingue <span class="arithmatex">\(2^n\)</span> valeurs : chaque bit ajouté double le nombre de combinaisons.</li>
+</ul>
 </div>
-<h3 id="conversion-binaire-decimal">Conversion binaire - décimal<a class="headerlink" href="#conversion-binaire-decimal" title="Permanent link">⚓︎</a></h3>
-<p>La conversion binaire - décimale d'un entier naturel découle simplement du mode de représentation positionnelle: on <strong>additionne les puissances de 2 présentes dans le motif binaire</strong>. Ainsi, pour l'exemple précédent on a:<br />
-<span class="arithmatex">\(10011_2=(1\times 2^4+0\times 2^3+0\times 2^2+1\times 2^1+1\times 2^0)_{10}=19_{10}\)</span>  </p>
+<h3 id="22-loctet-et-le-mot">2.2 L'octet et le mot<a class="headerlink" href="#22-loctet-et-le-mot" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Un <strong>octet</strong> est un groupe de <strong>8 bits</strong> : il permet de distinguer <span class="arithmatex">\(2^8 = 256\)</span> valeurs.</li>
+<li>Le mot anglais <strong>byte</strong> est aujourd'hui employé dans le sens d'octet (historiquement, sa taille a varié selon les machines).</li>
+<li>Un <strong>mot</strong> (<em>word</em>) désigne la taille des données que le processeur traite naturellement en une opération. Elle <strong>dépend de l'architecture</strong> : 16, 32 ou 64 bits sur la plupart des machines actuelles.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Les expressions « double mot » (32 bits) ou « quadruple mot » (64 bits) viennent d'une convention propre à certaines familles de processeurs (où le mot faisait 16 bits). Ce ne sont pas des définitions générales.</p>
+</div>
+<h3 id="23-les-unites-de-quantite-dinformation">2.3 Les unités de quantité d'information<a class="headerlink" href="#23-les-unites-de-quantite-dinformation" title="Permanent link">⚓︎</a></h3>
+<p>Les préfixes du Système international (kilo, méga, giga…) désignent des <strong>puissances de 10</strong>. Pour les puissances de 2, la Commission électrotechnique internationale (IEC) a normalisé fin 1998 des préfixes <strong>binaires</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Préfixe SI</th>
+<th>Valeur</th>
+<th>Préfixe binaire (IEC)</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 ko (kilooctet)</td>
+<td><span class="arithmatex">\(10^3\)</span> octets</td>
+<td>1 Kio (kibioctet)</td>
+<td><span class="arithmatex">\(2^{10} = 1\,024\)</span> octets</td>
+</tr>
+<tr>
+<td>1 Mo (mégaoctet)</td>
+<td><span class="arithmatex">\(10^6\)</span> octets</td>
+<td>1 Mio (mébioctet)</td>
+<td><span class="arithmatex">\(2^{20} = 1\,048\,576\)</span> octets</td>
+</tr>
+<tr>
+<td>1 Go (gigaoctet)</td>
+<td><span class="arithmatex">\(10^9\)</span> octets</td>
+<td>1 Gio (gibioctet)</td>
+<td><span class="arithmatex">\(2^{30}\)</span> octets</td>
+</tr>
+</tbody>
+</table>
+<p>Un disque vendu « 1 To » contient <span class="arithmatex">\(10^{12}\)</span> octets, soit environ <span class="arithmatex">\(931\)</span> Gio : ce n'est pas une erreur, c'est un changement d'unité.</p>
+<h2 id="3-lecriture-positionnelle-dans-une-base-b">3. L'écriture positionnelle dans une base b<a class="headerlink" href="#3-lecriture-positionnelle-dans-une-base-b" title="Permanent link">⚓︎</a></h2>
+<h3 id="31-le-principe-en-base-10">3.1 Le principe, en base 10<a class="headerlink" href="#31-le-principe-en-base-10" title="Permanent link">⚓︎</a></h3>
+<p>En base 10, l'écriture <span class="arithmatex">\(2026\)</span> signifie :</p>
+<div class="arithmatex">\[2026 = 2 \times 10^3 + 0 \times 10^2 + 2 \times 10^1 + 6 \times 10^0\]</div>
+<p>Chaque chiffre est multiplié par une puissance de 10 qui dépend de sa <strong>position</strong> (son <strong>rang</strong>, compté à partir de <span class="arithmatex">\(0\)</span> en partant de la droite).</p>
+<h3 id="32-generalisation">3.2 Généralisation<a class="headerlink" href="#32-generalisation" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Définition</p>
+<p>Soit <span class="arithmatex">\(b\)</span> un entier, <span class="arithmatex">\(b \geqslant 2\)</span>. Tout entier naturel <span class="arithmatex">\(n\)</span> s'écrit de façon unique sous la forme</p>
+<div class="arithmatex">\[n = a_{k-1}\, b^{k-1} + \dots + a_1\, b^1 + a_0\, b^0 = \sum_{i=0}^{k-1} a_i\, b^i\]</div>
+<p>où chaque <strong>chiffre</strong> <span class="arithmatex">\(a_i\)</span> vérifie <span class="arithmatex">\(0 \leqslant a_i \leqslant b-1\)</span> (et <span class="arithmatex">\(a_{k-1} \neq 0\)</span> si <span class="arithmatex">\(n \neq 0\)</span>).</p>
+<p>On note alors <span class="arithmatex">\(n = (a_{k-1} \dots a_1 a_0)_b\)</span>, ou plus simplement <span class="arithmatex">\(a_{k-1} \dots a_1 a_0{}_b\)</span>. Le nombre <span class="arithmatex">\(b^i\)</span> est le <strong>poids</strong> du chiffre de rang <span class="arithmatex">\(i\)</span>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Un nombre n'a pas de base ; c'est son écriture qui en a une</p>
+<p><span class="arithmatex">\(25_{10}\)</span> et <span class="arithmatex">\(11001_2\)</span> sont <strong>deux écritures du même nombre</strong>. On dit « l'écriture binaire de 25 », pas « le nombre 25 en binaire ».
+De même, <span class="arithmatex">\(101\)</span> n'a pas la même valeur selon la base : <span class="arithmatex">\(101_{10} = 101\)</span>, mais <span class="arithmatex">\(101_2 = 5\)</span>. Quand il y a ambiguïté, on indique <strong>toujours</strong> la base en indice.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Base</th>
+<th>Nom</th>
+<th>Chiffres utilisés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>binaire</td>
+<td>0, 1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>décimale</td>
+<td>0 à 9</td>
+</tr>
+<tr>
+<td>16</td>
+<td>hexadécimale</td>
+<td>0 à 9, puis A, B, C, D, E, F (qui valent 10 à 15)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-vocabulaire-en-binaire">3.3 Vocabulaire en binaire<a class="headerlink" href="#33-vocabulaire-en-binaire" title="Permanent link">⚓︎</a></h3>
+<p><img alt="Écriture binaire 10011 : chaque bit est surmonté de son poids, de 2 puissance 4 à 2 puissance 0 ; le bit le plus à gauche est le bit de poids fort, le plus à droite le bit de poids faible ; la valeur est 16 + 2 + 1 = 19" src="img/positionnel.svg" /></p>
+<ul>
+<li>Le bit le plus à droite (rang 0, poids <span class="arithmatex">\(2^0 = 1\)</span>) est le <strong>bit de poids faible</strong> ou <strong>LSB</strong> (<em>Least Significant Bit</em>).</li>
+<li>Le bit le plus à gauche est le <strong>bit de poids fort</strong> ou <strong>MSB</strong> (<em>Most Significant Bit</em>).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Astuce : la parité se lit sur le bit de poids faible</p>
+<p>Tous les poids sauf <span class="arithmatex">\(2^0\)</span> sont pairs. Un entier est donc <strong>pair</strong> si son bit de poids faible vaut <span class="arithmatex">\(0\)</span>, <strong>impair</strong> s'il vaut <span class="arithmatex">\(1\)</span>.</p>
+</div>
+<h2 id="4-convertir-vers-la-base-10">4. Convertir vers la base 10<a class="headerlink" href="#4-convertir-vers-la-base-10" title="Permanent link">⚓︎</a></h2>
+<p>On applique directement la définition : on <strong>additionne les chiffres multipliés par leur poids</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemples</p>
+<div class="arithmatex">\[10011_2 = 1 \times 2^4 + 0 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = 16 + 2 + 1 = 19\]</div>
+<div class="arithmatex">\[1\text{E}0_{16} = 1 \times 16^2 + 14 \times 16^1 + 0 \times 16^0 = 256 + 224 + 0 = 480\]</div>
+<p>Dans la seconde somme, le chiffre <span class="arithmatex">\(\text{E}\)</span> est remplacé par sa valeur, 14.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Connaître ses puissances de 2</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(2^0\)</span></th>
+<th><span class="arithmatex">\(2^1\)</span></th>
+<th><span class="arithmatex">\(2^2\)</span></th>
+<th><span class="arithmatex">\(2^3\)</span></th>
+<th><span class="arithmatex">\(2^4\)</span></th>
+<th><span class="arithmatex">\(2^5\)</span></th>
+<th><span class="arithmatex">\(2^6\)</span></th>
+<th><span class="arithmatex">\(2^7\)</span></th>
+<th><span class="arithmatex">\(2^8\)</span></th>
+<th><span class="arithmatex">\(2^9\)</span></th>
+<th><span class="arithmatex">\(2^{10}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>16</td>
+<td>32</td>
+<td>64</td>
+<td>128</td>
+<td>256</td>
+<td>512</td>
+<td>1024</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5-convertir-depuis-la-base-10-les-divisions-successives">5. Convertir depuis la base 10 : les divisions successives<a class="headerlink" href="#5-convertir-depuis-la-base-10-les-divisions-successives" title="Permanent link">⚓︎</a></h2>
+<h3 id="51-la-methode">5.1 La méthode<a class="headerlink" href="#51-la-methode" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Méthode</p>
+<p>Pour écrire l'entier <span class="arithmatex">\(n\)</span> en base <span class="arithmatex">\(b\)</span> :</p>
+<ol>
+<li>on effectue la division euclidienne de <span class="arithmatex">\(n\)</span> par <span class="arithmatex">\(b\)</span> : <span class="arithmatex">\(n = b \times q + r\)</span>, avec <span class="arithmatex">\(0 \leqslant r &lt; b\)</span> ;</li>
+<li>on recommence avec le quotient <span class="arithmatex">\(q\)</span>, <strong>tant que le quotient n'est pas nul</strong> ;</li>
+<li>l'écriture en base <span class="arithmatex">\(b\)</span> est formée des <strong>restes lus du dernier au premier</strong>.</li>
+</ol>
+</div>
+<h3 id="pourquoi-lit-on-les-restes-a-lenvers">Pourquoi lit-on les restes à l'envers ?<a class="headerlink" href="#pourquoi-lit-on-les-restes-a-lenvers" title="Permanent link">⚓︎</a></h3>
+<p>Faisons la même chose <strong>en base 10</strong>, où l'on connaît déjà la réponse : divisons <span class="arithmatex">\(2026\)</span> par <span class="arithmatex">\(10\)</span>, encore et encore.</p>
+<p><img alt="Divisions successives de 2026 par 10 : les restes 6, 2, 0, 2 sont dans l'ordre le chiffre des unités, des dizaines, des centaines et des milliers ; lus de bas en haut, ils redonnent 2026" src="img/div_2026_base10.svg" /></p>
+<ul>
+<li>Diviser par 10, c'est <strong>« couper » le dernier chiffre</strong> : le reste est le chiffre des unités, le quotient est ce qui reste à gauche (<span class="arithmatex">\(2026 \to 202\)</span>, reste <span class="arithmatex">\(6\)</span>).</li>
+<li>La <strong>première</strong> division donne donc le chiffre <strong>le plus à droite</strong> ; la suivante, celui juste à sa gauche ; et ainsi de suite.</li>
+<li>Pour écrire le nombre de gauche à droite, il faut donc lire les restes <strong>du dernier au premier</strong>.</li>
+</ul>
+<p>En base 2, c'est exactement pareil : diviser par 2 « coupe » le dernier bit. Le premier reste est le bit de poids faible (celui qui indique si le nombre est pair ou impair), le dernier reste est le bit de poids fort.</p>
+<details class="info">
+<summary>Pour aller plus loin : l'explication avec les notations du cours</summary>
+<p>Si <span class="arithmatex">\(n = (a_{k-1} \dots a_1 a_0)_b\)</span>, alors <span class="arithmatex">\(n = b \times (a_{k-1} \dots a_1)_b + a_0\)</span> avec <span class="arithmatex">\(0 \leqslant a_0 &lt; b\)</span>.
+La division euclidienne de <span class="arithmatex">\(n\)</span> par <span class="arithmatex">\(b\)</span> a donc pour reste <span class="arithmatex">\(a_0\)</span> (le chiffre de rang 0) et pour quotient le nombre écrit <span class="arithmatex">\(a_{k-1} \dots a_1\)</span> : on a « coupé » le dernier chiffre. On recommence avec ce quotient pour obtenir <span class="arithmatex">\(a_1\)</span>, puis <span class="arithmatex">\(a_2\)</span>, etc.</p>
+</details>
+<h3 id="52-en-base-2">5.2 En base 2<a class="headerlink" href="#52-en-base-2" title="Permanent link">⚓︎</a></h3>
+<p><img alt="Divisions successives de 25 par 2 : les restes sont 1, 0, 0, 1, 1 ; on s'arrête quand le quotient est nul ; lus du dernier au premier, ils donnent 11001" src="img/div_25_base2.svg" /></p>
+<div class="arithmatex">\[25 = 11001_2\]</div>
+<p>Vérification : <span class="arithmatex">\(16 + 8 + 1 = 25\)</span>. ✔</p>
+<div class="admonition tip">
+<p class="admonition-title">Autre méthode en base 2 : retirer les puissances de 2</p>
+<p>On cherche la plus grande puissance de 2 inférieure ou égale au nombre, on la retire, et on recommence avec le reste.
+<span class="arithmatex">\(25 = 16 + 9 = 16 + 8 + 1\)</span> : les poids <span class="arithmatex">\(2^4\)</span>, <span class="arithmatex">\(2^3\)</span> et <span class="arithmatex">\(2^0\)</span> sont présents, d'où <span class="arithmatex">\(11001_2\)</span>.</p>
+</div>
+<h3 id="53-en-base-16">5.3 En base 16<a class="headerlink" href="#53-en-base-16" title="Permanent link">⚓︎</a></h3>
+<p><img alt="Divisions successives de 480 par 16 : les restes sont 0, 14 (noté E), 1 ; lus du dernier au premier, ils donnent 1E0" src="img/div_480_base16.svg" /></p>
+<div class="arithmatex">\[480 = 1\text{E}0_{16}\]</div>
+<p>Un reste compris entre 10 et 15 est remplacé par le chiffre hexadécimal correspondant (A à F).</p>
+<h2 id="6-passer-directement-du-binaire-a-lhexadecimal">6. Passer directement du binaire à l'hexadécimal<a class="headerlink" href="#6-passer-directement-du-binaire-a-lhexadecimal" title="Permanent link">⚓︎</a></h2>
+<h3 id="61-pourquoi-ca-marche">6.1 Pourquoi ça marche<a class="headerlink" href="#61-pourquoi-ca-marche" title="Permanent link">⚓︎</a></h3>
+<p>Comme <span class="arithmatex">\(16 = 2^4\)</span>, <strong>un chiffre hexadécimal correspond exactement à 4 bits</strong>. La table suivante est à connaître (ou à savoir reconstruire très vite).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Décimal</th>
+<th style="text-align: center;">Binaire</th>
+<th style="text-align: center;">Hexa</th>
+<th></th>
+<th style="text-align: center;">Décimal</th>
+<th style="text-align: center;">Binaire</th>
+<th style="text-align: center;">Hexa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0001</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">2</td>
+<td></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">3</td>
+<td></td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1011</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0100</td>
+<td style="text-align: center;">4</td>
+<td></td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">1100</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0101</td>
+<td style="text-align: center;">5</td>
+<td></td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1101</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0110</td>
+<td style="text-align: center;">6</td>
+<td></td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;">E</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">7</td>
+<td></td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-du-binaire-vers-lhexadecimal">6.2 Du binaire vers l'hexadécimal<a class="headerlink" href="#62-du-binaire-vers-lhexadecimal" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Méthode</p>
+<p>On regroupe les bits <strong>par paquets de 4 en partant de la droite</strong> (du bit de poids faible), on complète si besoin le paquet de gauche par des zéros, puis on remplace chaque paquet par son chiffre hexadécimal.</p>
+</div>
+<p><img alt="Regroupement de 1101011111 : on ajoute deux zéros à gauche pour obtenir 0011 0101 1111, puis chaque paquet de 4 bits devient un chiffre hexadécimal : 3, 5, F" src="img/groupage_bin_hex.svg" /></p>
+<div class="arithmatex">\[1101011111_2 = 0011\ 0101\ 1111_2 = 35\text{F}_{16}\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Erreur fréquente</p>
+<p>Regrouper en partant de la gauche donne <span class="arithmatex">\(1101\ 0111\ 11\)</span>, soit un résultat faux. Les zéros ajoutés à gauche ne changent pas la valeur ; des zéros ajoutés à droite la multiplieraient.</p>
+</div>
+<h3 id="63-de-lhexadecimal-vers-le-binaire">6.3 De l'hexadécimal vers le binaire<a class="headerlink" href="#63-de-lhexadecimal-vers-le-binaire" title="Permanent link">⚓︎</a></h3>
+<p>On remplace chaque chiffre hexadécimal par ses <strong>4 bits</strong> (en gardant les zéros à l'intérieur) :</p>
+<div class="arithmatex">\[\text{F}15_{16} = 1111\ 0001\ 0101_2\]</div>
 <div class="admonition info">
-<p class="admonition-title">Remarque</p>
-<p>La base a été indiquée ici en indice, on peut l'omettre lorsqu'il n'y a pas d'ambiguité.</p>
+<p class="admonition-title">Où rencontre-t-on l'hexadécimal ?</p>
+<p>Un octet s'écrit avec exactement <strong>2 chiffres hexadécimaux</strong> (de <span class="arithmatex">\(00\)</span> à <span class="arithmatex">\(\text{FF}\)</span>). D'où son usage pour :</p>
+<ul>
+<li>les couleurs en HTML/CSS : <code>#FF8000</code> = rouge <span class="arithmatex">\(\text{FF}_{16} = 255\)</span>, vert <span class="arithmatex">\(80_{16} = 128\)</span>, bleu <span class="arithmatex">\(00_{16} = 0\)</span> ;</li>
+<li>les adresses matérielles (MAC) des cartes réseau, comme <code>3C:52:82:1A:F0:07</code> ;</li>
+<li>l'affichage du contenu de la mémoire ou d'un fichier, octet par octet.</li>
+</ul>
 </div>
-<h3 id="conversion-decimal-binaire">Conversion décimal - binaire<a class="headerlink" href="#conversion-decimal-binaire" title="Permanent link">⚓︎</a></h3>
-<p>On <strong>décompose le nombre entier en une somme de puissance de 2</strong> par divisions 
-entières successives tant que le quotient n'est pas nul. Le résultat est 
-alors constitué des restes de chaque division, en commençant par la dernière.  </p>
-<p><img alt="exemple25" src="img/exemple25.png" />  </p>
-<p><span class="arithmatex">\(25=11001_2\)</span>  </p>
-<h2 id="representation-hexadecimale">Représentation hexadécimale<a class="headerlink" href="#representation-hexadecimale" title="Permanent link">⚓︎</a></h2>
-<p>La représentation binaire devient rapidement encombrante. On lui préfère souvent la représentation <em>hexadécimale</em> (base 16). L'utilisation de cette base nécessite 16 caractères. Le tableau ci-dessous présente ces caractères ainsi que leur équivalence en base 10 et 2.  </p>
-<p><img alt="Caractères hexadécimaux" src="img/hexa.png" /></p>
-<h3 id="conversion-decimal-hexadecimale">Conversion décimal - hexadécimale<a class="headerlink" href="#conversion-decimal-hexadecimale" title="Permanent link">⚓︎</a></h3>
-<p>De la même façon qu'en binaire, on décompose le nombre entier en une somme de 
-puissance de 16, par divisions successives par 16 tant que le quotient n'est pas nul.  </p>
-<p><img alt="base1016" src="img/base1016.png" /></p>
-<p><span class="arithmatex">\(480=1\mathrm{E}0_{16}\)</span></p>
-<h3 id="conversion-hexadecimale-decimale">Conversion hexadécimale - décimale<a class="headerlink" href="#conversion-hexadecimale-decimale" title="Permanent link">⚓︎</a></h3>
-<p>On additionne les puissances de 16 présentes dans le motif hexadécimal.  </p>
-<p><span class="arithmatex">\(1\mathrm{E}0_{16}=1\times 16^2+14\times 16^1+0\times 16^0=256+224+0=480\)</span>  </p>
-<div class="admonition hint">
-<p class="admonition-title">Remarque</p>
-<p>Dans la somme, on remplace évidemment chaque chiffre hexadécimal par sa valeur
-(en décimal). Dans l'exemple précédent, <span class="arithmatex">\(\mathrm{E}\)</span> est remplacé par 14.</p>
+<h2 id="7-combien-de-bits-faut-il">7. Combien de bits faut-il ?<a class="headerlink" href="#7-combien-de-bits-faut-il" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Avec <span class="arithmatex">\(k\)</span> bits, on écrit tous les entiers naturels de <span class="arithmatex">\(0\)</span> à <span class="arithmatex">\(2^k - 1\)</span> (soit <span class="arithmatex">\(2^k\)</span> valeurs).</li>
+<li>Un entier <span class="arithmatex">\(n \geqslant 1\)</span> s'écrit avec exactement <span class="arithmatex">\(k\)</span> bits lorsque <span class="arithmatex">\(2^{k-1} \leqslant n &lt; 2^k\)</span>.</li>
+</ul>
 </div>
-<h3 id="conversions-binaire-hexadecimal-et-vice-versa">Conversions binaire - hexadécimal et vice-versa<a class="headerlink" href="#conversions-binaire-hexadecimal-et-vice-versa" title="Permanent link">⚓︎</a></h3>
-<p>Pour passer du binaire à l'hexadécimal il suffit de grouper les bits par 4 et de 
-les remplacer par leur équivalent hexdécimal (<em>voir tableau ci-dessus</em>).  </p>
-<p><span class="arithmatex">\(1101011111_2=0011\ 0101\ 1111=35\mathrm{F}_{16}\)</span></p>
-<p>A l'inverse, pour passer de l'hexadécimal au binaire, on remplace chaque 
-chiffre hexadécimal par sa valeur en binaire.</p>
-<p><span class="arithmatex">\(\mathrm{F}15_{16}=1111\ 0001\ 0101_2\)</span></p>
+<div class="admonition example">
+<p class="admonition-title">Exemple</p>
+<p><span class="arithmatex">\(512 = 2^9 \leqslant 1000 &lt; 2^{10} = 1024\)</span> : il faut <strong>10 bits</strong> pour écrire <span class="arithmatex">\(1000\)</span>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Taille</th>
+<th>Plus grand entier naturel représentable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 bits</td>
+<td><span class="arithmatex">\(2^8 - 1 = 255\)</span></td>
+</tr>
+<tr>
+<td>16 bits</td>
+<td><span class="arithmatex">\(2^{16} - 1 = 65\,535\)</span></td>
+</tr>
+<tr>
+<td>32 bits</td>
+<td><span class="arithmatex">\(2^{32} - 1 = 4\,294\,967\,295\)</span></td>
+</tr>
+<tr>
+<td>64 bits</td>
+<td><span class="arithmatex">\(2^{64} - 1 \approx 1{,}8 \times 10^{19}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Ces tailles « courantes » seront reprises avec la représentation des entiers relatifs (complément à 2). En Python, les entiers ne sont pas limités à 64 bits : leur taille s'adapte à la valeur.</p>
+<h2 id="8-en-python">8. En Python<a class="headerlink" href="#8-en-python" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mb">0b11001</span>          <span class="c1"># littéral écrit en binaire</span>
+<span class="mi">25</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mh">0x1E0</span>            <span class="c1"># littéral écrit en hexadécimal</span>
+<span class="mi">480</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>          <span class="c1"># renvoie une CHAÎNE, préfixée par &#39;0b&#39;</span>
+<span class="s1">&#39;0b11001&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">480</span><span class="p">)</span>         <span class="c1"># renvoie une CHAÎNE, préfixée par &#39;0x&#39;, en minuscules</span>
+<span class="s1">&#39;0x1e0&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;11001&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># chaîne écrite en base 2 -&gt; entier</span>
+<span class="mi">25</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1E0&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>   <span class="c1"># chaîne écrite en base 16 -&gt; entier</span>
+<span class="mi">480</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">25</span><span class="si">:</span><span class="s2">08b</span><span class="si">}</span><span class="s2">&quot;</span>      <span class="c1"># écriture binaire sur 8 bits, complétée par des zéros</span>
+<span class="s1">&#39;00011001&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Entier ou chaîne ?</p>
+<p><code>0b11001</code> et <code>25</code> sont <strong>le même entier</strong> : Python l'affiche en décimal. En revanche, <code>bin(25)</code> est une <strong>chaîne de caractères</strong> (<code>type(bin(25))</code> renvoie <code>&lt;class 'str'&gt;</code>) : on ne peut pas calculer avec.</p>
+</div>
+<h2 id="9-en-resume">9. En résumé<a class="headerlink" href="#9-en-resume" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">L'essentiel</p>
+<ul>
+<li>En base <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(n = \sum a_i\, b^i\)</span> avec des chiffres <span class="arithmatex">\(0 \leqslant a_i \leqslant b-1\)</span>.</li>
+<li><strong>Base <span class="arithmatex">\(b\)</span> → base 10</strong> : somme des chiffres multipliés par leur poids <span class="arithmatex">\(b^i\)</span>.</li>
+<li><strong>Base 10 → base <span class="arithmatex">\(b\)</span></strong> : divisions euclidiennes successives par <span class="arithmatex">\(b\)</span> jusqu'à un quotient nul, restes lus du dernier au premier.</li>
+<li><strong>Binaire ↔ hexadécimal</strong> : 1 chiffre hexadécimal = 4 bits ; on regroupe <strong>depuis la droite</strong>.</li>
+<li><span class="arithmatex">\(k\)</span> bits permettent d'écrire les entiers de <span class="arithmatex">\(0\)</span> à <span class="arithmatex">\(2^k - 1\)</span>.</li>
+</ul>
+</div>
 
 
 
@@ -6085,8 +6494,6 @@ chiffre hexadécimal par sa valeur en binaire.</p>
         <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
       
         <script src="https://logic.modulo-info.ch/simulator/lib/bundle.js"></script>
-      
-        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

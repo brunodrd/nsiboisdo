@@ -14,12 +14,9 @@
     const resultats = racine.querySelector("#resultats-nsi");
 
     try {
-      const script = document.querySelector(
-        'script[src*="javascripts/catalogue.js"]'
-      );
       const url = new URL(
-        "../data/catalogue_index.json",
-        script.src
+        "data/catalogue_index.json",
+        __md_scope
       );
       const reponse = await fetch(url);
 
@@ -30,8 +27,8 @@
       const exercices = await reponse.json();
 
       const urlThemes = new URL(
-        "../data/themes_nsi.json",
-        script.src
+        "data/themes_nsi.json",
+        __md_scope
       );
       const reponseThemes = await fetch(urlThemes);
 
