@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#serie-2-la-liste-modifiable-en-place" class="md-skip">
+        <a href="#serie-2-la-liste-chainee-modifiable-en-place" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3528,99 +3528,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#le-code-de-depart" class="md-nav__link">
+  <a href="#exercice-1-du-schema-au-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Le code de départ
+      Exercice 1 — Du schéma au code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-1-construire-et-observer" class="md-nav__link">
+  <a href="#exercice-2-modifier-ou-reaffecter" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 1 — Construire et observer
+      Exercice 2 — Modifier ou réaffecter ?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-2-lire-lelement-dindice-k" class="md-nav__link">
+  <a href="#exercice-3-retirer-en-tete" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 2 — Lire l'élément d'indice k
+      Exercice 3 — Retirer en tête
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-3-inserer-prevoir-avant-dexecuter" class="md-nav__link">
+  <a href="#exercice-4-ajouter-en-fin" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 3 — Insérer : prévoir avant d'exécuter
+      Exercice 4 — Ajouter en fin
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-4-supprimer-lelement-dindice-k" class="md-nav__link">
+  <a href="#exercice-5-supprimer-lelement-dindice-k" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 4 — Supprimer l'élément d'indice k
+      Exercice 5 — Supprimer l'élément d'indice k
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-5-acceder-a-la-fin" class="md-nav__link">
+  <a href="#exercice-6-retirer-les-repetitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 5 — Accéder à la fin
+      Exercice 6 — Retirer les répétitions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-6-retirer-toutes-les-occurrences" class="md-nav__link">
+  <a href="#exercice-7-traquer-leffet-de-bord" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 6 — Retirer toutes les occurrences
+      Exercice 7 — Traquer l'effet de bord
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-7-concatener-et-ses-effets-de-bord" class="md-nav__link">
+  <a href="#exercice-8-raccorder-deux-listes" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 7 — Concaténer… et ses effets de bord
+      Exercice 8 — Raccorder deux listes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-8-bilan-des-complexites" class="md-nav__link">
+  <a href="#exercice-9-complexite" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 8 — Bilan des complexités
+      Exercice 9 — Complexité
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-9-type-bac-une-file-efficace" class="md-nav__link">
+  <a href="#sujets-de-baccalaureat" class="md-nav__link">
     <span class="md-ellipsis">
-      🌟 Exercice 9 — Type bac : une file efficace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pour-aller-plus-loin" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Pour aller plus loin
+      🎓 Sujets de baccalauréat
     </span>
   </a>
   
@@ -6002,20 +5993,18 @@
 
 
 
-<h1 id="serie-2-la-liste-modifiable-en-place">✏️ Série 2 : la liste modifiable en place<a class="headerlink" href="#serie-2-la-liste-modifiable-en-place" title="Permanent link">⚓︎</a></h1>
+<h1 id="serie-2-la-liste-chainee-modifiable-en-place">✏️ Série 2 : la liste chaînée modifiable en place<a class="headerlink" href="#serie-2-la-liste-chainee-modifiable-en-place" title="Permanent link">⚓︎</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Objectifs</p>
 <ul>
-<li>Manipuler une liste chaînée <strong>modifiable en place</strong> à travers la classe <code>Liste</code>.</li>
-<li>Écrire des méthodes qui parcourent les cellules et modifient les références.</li>
-<li>Repérer les <strong>effets de bord</strong> créés par le partage de cellules.</li>
-<li>Évaluer la complexité de chaque opération.</li>
+<li>Passer d'un schéma de cellules au code Python, et inversement.</li>
+<li>Lire et modifier des références (<code>c.suivant</code>, <code>L.tete</code>).</li>
+<li>Écrire des méthodes qui modifient une liste en place.</li>
+<li>Repérer et expliquer les effets de bord.</li>
 </ul>
 </div>
-<p>Prérequis : <a href="C6C1.html">cours</a>, sections 2.2, 2.3 et 4.2. On rappelle que cette classe propose une
-<strong>autre interface</strong> que celle du TAD : ses méthodes modifient la liste au lieu d'en renvoyer une nouvelle.</p>
-<h2 id="le-code-de-depart">Le code de départ<a class="headerlink" href="#le-code-de-depart" title="Permanent link">⚓︎</a></h2>
-<p>Il reprend le cours. Les méthodes des exercices sont à ajouter à la classe <code>Liste</code>.</p>
+<p>Prérequis : <a href="C6C1.html">cours</a>, section 5.</p>
+<p>Le fichier <code>liste_objet.py</code> contient le code ci-dessous. Chaque exercice commence par <code>from liste_objet import Cellule, Liste, liste_de</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6062,18 +6051,9 @@
 <span class="normal">44</span>
 <span class="normal">45</span>
 <span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Cellule</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Une cellule : une valeur et une référence vers la cellule suivante.&quot;&quot;&quot;</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Cellule</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Un maillon : une valeur et une référence vers le maillon suivant.&quot;&quot;&quot;</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valeur</span><span class="p">,</span> <span class="n">suivant</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="n">valeur</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">suivant</span>
@@ -6083,19 +6063,19 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Liste chaînée modifiable en place.&quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>                    <span class="c1"># référence vers la première cellule</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># référence vers la première cellule</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="ow">is</span> <span class="kc">None</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>           <span class="c1"># O(1)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">premier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(1)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">premier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;liste vide&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">valeur</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(n)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
         <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -6103,7 +6083,7 @@
             <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
         <span class="k">return</span> <span class="n">n</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(n)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">morceaux</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
         <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -6111,211 +6091,38 @@
             <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
         <span class="k">return</span> <span class="s2">&quot; -&gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">morceaux</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;None&quot;</span><span class="p">])</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">inserer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>                <span class="c1"># O(k)</span>
-        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-            <span class="k">return</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">assert</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;indice hors limites&quot;</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
-        <span class="k">assert</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;indice hors limites&quot;</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
 
-
-<span class="k">def</span><span class="w"> </span><span class="nf">depuis_tableau</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construit un objet Liste ayant les mêmes éléments que le tableau T (pour les tests).&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">liste_de</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie un objet Liste ayant les éléments du tableau T, dans le même ordre.&quot;&quot;&quot;</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">L</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="exercice-1-construire-et-observer">Exercice 1 — Construire et observer<a class="headerlink" href="#exercice-1-construire-et-observer" title="Permanent link">⚓︎</a></h2>
+<h2 id="exercice-1-du-schema-au-code">Exercice 1 — Du schéma au code<a class="headerlink" href="#exercice-1-du-schema-au-code" title="Permanent link">⚓︎</a></h2>
+<p><img alt="Une variable L désigne un objet Liste. Son attribut tete pointe vers la cellule c5 de valeur 5, qui pointe vers la cellule c7 de valeur 7, qui pointe vers la cellule c2 de valeur 2, dont la référence vaut None." src="img/s2_depart.svg" width="78%" /></p>
 <ol>
-<li>Écrire les instructions qui créent l'objet <code>L</code> contenant, dans cet ordre, les entiers 10, 20, 30,
-   en n'utilisant que <code>Liste()</code> et <code>ajouter_en_tete</code>.</li>
-<li>Dessiner le schéma « boîtes et flèches » de <code>L</code>, objet <code>Liste</code> compris (voir cours, 2.3).</li>
-<li>Sans exécuter, donner ce qu'affichent <code>print(L)</code> et <code>print(len(L))</code>.</li>
-<li>On exécute :
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">tete</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
-</code></pre></div></td></tr></table></div>
-    Quelle cellule la variable <code>c</code> désigne-t-elle ? Que vaut <code>c.suivant.suivant</code> ?
-    La liste <code>L</code> a-t-elle été modifiée ?</li>
-</ol>
-<hr />
-<h2 id="exercice-2-lire-lelement-dindice-k">Exercice 2 — Lire l'élément d'indice k<a class="headerlink" href="#exercice-2-lire-lelement-dindice-k" title="Permanent link">⚓︎</a></h2>
-<p>Écrire la méthode <code>lire(self, k)</code> qui renvoie la valeur de l'élément d'indice <code>k</code> (0 pour la tête).
-Si <code>k</code> est négatif ou trop grand, une assertion échoue.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
-<span class="k">assert</span> <span class="n">L</span><span class="o">.</span><span class="n">lire</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<span class="k">assert</span> <span class="n">L</span><span class="o">.</span><span class="n">lire</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">30</span>
-</code></pre></div></td></tr></table></div>
-<p>Donner la complexité de <code>lire</code> en fonction de <code>k</code>. Comparer avec l'accès <code>T[k]</code> dans un tableau.</p>
-<hr />
-<h2 id="exercice-3-inserer-prevoir-avant-dexecuter">Exercice 3 — Insérer : prévoir avant d'exécuter<a class="headerlink" href="#exercice-3-inserer-prevoir-avant-dexecuter" title="Permanent link">⚓︎</a></h2>
-<p>On part de <code>M = depuis_tableau([1, 2, 3])</code>. <strong>Sans exécuter</strong>, donner le résultat de <code>print(M)</code>
-après chacune des instructions suivantes, exécutées dans cet ordre :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">M</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
-<span class="n">M</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="n">M</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">M</span><span class="o">.</span><span class="n">inserer</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>Pour l'instruction <code>M.inserer(2, 42)</code>, dessiner l'état de la liste <strong>avant</strong> et <strong>après</strong>,
-   en faisant apparaître la variable <code>c</code> de la méthode (voir cours, 4.2).</li>
-<li>Que se passe-t-il pour la dernière instruction ? Pourquoi ?</li>
-<li>Vérifier vos réponses en exécutant le code.</li>
-</ol>
-<hr />
-<h2 id="exercice-4-supprimer-lelement-dindice-k">Exercice 4 — Supprimer l'élément d'indice k<a class="headerlink" href="#exercice-4-supprimer-lelement-dindice-k" title="Permanent link">⚓︎</a></h2>
-<p>Écrire la méthode <code>supprimer(self, k)</code> qui supprime l'élément d'indice <code>k</code> <strong>en modifiant la liste</strong>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">S</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">S</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; None&quot;</span>
-<span class="n">S</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 3 -&gt; 4 -&gt; None&quot;</span>
-<span class="n">S</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 3 -&gt; None&quot;</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>Dessiner l'état de la liste avant et après <code>S.supprimer(1)</code> dans le test ci-dessus.
-   Quelle référence est modifiée ?</li>
-<li>Pourquoi faut-il traiter le cas <code>k == 0</code> à part ?</li>
-<li>Comparer avec la fonction <code>supprimer</code> de la série 1 : nombre de cellules créées, liste d'origine.</li>
-</ol>
-<details class="tip">
-<summary>Indice</summary>
-<p>Comme pour <code>inserer</code>, on s'arrête sur la cellule d'indice <code>k - 1</code>.</p>
-</details>
-<hr />
-<h2 id="exercice-5-acceder-a-la-fin">Exercice 5 — Accéder à la fin<a class="headerlink" href="#exercice-5-acceder-a-la-fin" title="Permanent link">⚓︎</a></h2>
-<ol>
-<li>Écrire la méthode <code>dernier(self)</code> qui renvoie la valeur de la dernière cellule d'une liste non vide.</li>
-<li>Écrire la méthode <code>ajouter_en_fin(self, x)</code>. Penser au cas de la liste vide.</li>
-<li>Donner la complexité de ces deux méthodes.</li>
-</ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">F</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
-<span class="n">F</span><span class="o">.</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">F</span><span class="o">.</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; None&quot;</span>
-<span class="k">assert</span> <span class="n">F</span><span class="o">.</span><span class="n">dernier</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
-</code></pre></div></td></tr></table></div>
-<hr />
-<h2 id="exercice-6-retirer-toutes-les-occurrences">Exercice 6 — Retirer toutes les occurrences<a class="headerlink" href="#exercice-6-retirer-toutes-les-occurrences" title="Permanent link">⚓︎</a></h2>
-<p>Écrire la méthode <code>retirer_tous(self, x)</code> qui supprime <strong>toutes</strong> les cellules de valeur <code>x</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">R</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">R</span><span class="o">.</span><span class="n">retirer_tous</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; None&quot;</span>
-<span class="n">R2</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">R2</span><span class="o">.</span><span class="n">retirer_tous</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">R2</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-<details class="tip">
-<summary>Deux pièges</summary>
-<ul>
-<li>Plusieurs cellules de valeur <code>x</code> peuvent se trouver <strong>en tête</strong> : il ne suffit pas d'un <code>if</code>.</li>
-<li>Après avoir supprimé la cellule suivante, il ne faut <strong>pas</strong> avancer : la nouvelle suivante
-  vaut peut-être <code>x</code>, elle aussi.</li>
+<li>Écrire les instructions qui créent les trois cellules <code>c5</code>, <code>c7</code> et <code>c2</code>, puis l'objet <code>L</code> représentés ci-dessus.</li>
+<li>Sans machine, donner la valeur de chaque expression, puis vérifier.<ul>
+<li><code>c5.valeur</code></li>
+<li><code>c5.suivant.valeur</code></li>
+<li><code>L.tete.suivant is c7</code></li>
+<li><code>c5.suivant.suivant.suivant</code></li>
+<li><code>L.premier()</code></li>
 </ul>
-</details>
-<hr />
-<h2 id="exercice-7-concatener-et-ses-effets-de-bord">Exercice 7 — Concaténer… et ses effets de bord<a class="headerlink" href="#exercice-7-concatener-et-ses-effets-de-bord" title="Permanent link">⚓︎</a></h2>
-<p>On souhaite une méthode <code>concatener(self, autre)</code> qui accroche les cellules de la liste <code>autre</code>
-à la fin de la liste <code>self</code>, <strong>sans les recopier</strong>. Après <code>L1.concatener(L2)</code>, la mémoire est dans
-l'état suivant :</p>
-<p><img alt="Après L1.concatener(L2) : L1 désigne un objet dont l'attribut tete pointe vers 1, 2, 3, 4. La référence de la cellule 2 a été modifiée pour pointer vers la cellule 3. L2 désigne un objet dont l'attribut tete pointe vers la cellule 3 : les cellules 3 et 4 sont communes aux deux listes." src="img/s2_concatener.svg" width="70%" /></p>
-<ol>
-<li>Écrire la méthode <code>concatener</code>. Penser au cas où <code>self</code> est vide.</li>
-<li>On exécute ensuite <code>L2.inserer(1, 99)</code>. <strong>Sans exécuter</strong>, donner ce qu'affiche <code>print(L1)</code>.</li>
-<li>On exécute enfin <code>L2.ajouter_en_tete(0)</code>. La liste <code>L1</code> est-elle modifiée ? Pourquoi ?</li>
-<li>Vérifier vos réponses en exécutant le code. Comment s'appelle ce phénomène ?
-   Proposer une façon d'écrire <code>concatener</code> qui l'évite. Quel en est le coût ?</li>
+</li>
+<li>Que provoque l'évaluation de <code>c2.suivant.valeur</code> ? Pourquoi ?</li>
+<li>
+<p>Donner <strong>une seule</strong> instruction qui transforme <code>L</code> en la liste ci-dessous.</p>
+<p><img alt="Une variable L désigne un objet Liste. Son attribut tete pointe vers la cellule de valeur 5, qui pointe vers la cellule de valeur 2, dont la référence vaut None." src="img/s2_apres.svg" width="59%" /></p>
+</li>
+<li>
+<p>La cellule <code>c7</code> existe-t-elle encore ? Fait-elle encore partie de la liste <code>L</code> ?</p>
+</li>
 </ol>
 <hr />
-<h2 id="exercice-8-bilan-des-complexites">Exercice 8 — Bilan des complexités<a class="headerlink" href="#exercice-8-bilan-des-complexites" title="Permanent link">⚓︎</a></h2>
-<p>Recopier et compléter le tableau, pour une liste de <code>n</code> éléments.</p>
-<table>
-<thead>
-<tr>
-<th>Opération</th>
-<th>Méthode (classe <code>Liste</code>)</th>
-<th>Complexité</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ajouter en tête</td>
-<td><code>ajouter_en_tete</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Lire l'indice <code>k</code></td>
-<td><code>lire</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Insérer en position <code>k</code></td>
-<td><code>inserer</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Supprimer l'indice <code>k</code></td>
-<td><code>supprimer</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Ajouter en fin</td>
-<td><code>ajouter_en_fin</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Longueur</td>
-<td><code>__len__</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Concaténer</td>
-<td><code>concatener</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="exercice-9-type-bac-une-file-efficace">🌟 Exercice 9 — Type bac : une file efficace<a class="headerlink" href="#exercice-9-type-bac-une-file-efficace" title="Permanent link">⚓︎</a></h2>
-<p>Une application gère une file d'attente : on ajoute des éléments <strong>en fin</strong> et on les retire <strong>en tête</strong>,
-des milliers de fois.</p>
-<ol>
-<li>Avec la classe <code>Liste</code>, quelle est la complexité de chacune de ces deux opérations ?</li>
-<li>Justifier qu'une liste chaînée est préférable à un tableau Python pour retirer en tête.</li>
-<li>On crée une classe <code>File</code> qui possède, en plus de l'attribut <code>tete</code>, un attribut <code>fin</code> qui référence
-   la <strong>dernière</strong> cellule. Écrire son constructeur et ses méthodes <code>est_vide</code>, <code>enfiler(self, x)</code> (ajout en fin)
-   et <code>defiler(self)</code> (retrait en tête, renvoie la valeur retirée). Les deux dernières doivent être en O(1).</li>
-<li>Quel cas particulier faut-il traiter dans <code>enfiler</code> ? Et dans <code>defiler</code> ?</li>
-<li>Faire le lien avec les implémentations de la file vues au chapitre IV.</li>
-</ol>
+<h2 id="exercice-2-modifier-ou-reaffecter">Exercice 2 — Modifier ou réaffecter ?<a class="headerlink" href="#exercice-2-modifier-ou-reaffecter" title="Permanent link">⚓︎</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6324,29 +6131,177 @@ des milliers de fois.</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="n">File</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="n">f</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
-<span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span>
-<span class="k">assert</span> <span class="n">f</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p>Pour chaque fonction, on exécute :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">M</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">f1</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># puis f2(M, 0), puis f3(M, 0), en recréant M à chaque fois</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Prédire l'affichage dans chacun des trois cas, puis vérifier sur machine.</li>
+<li>Laquelle de ces fonctions ne modifie pas la liste de l'appelant ? Expliquer pourquoi.</li>
+<li>Laquelle fait perdre des éléments ? Lesquels ?</li>
+</ol>
 <hr />
-<h2 id="pour-aller-plus-loin">🚀 Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permanent link">⚓︎</a></h2>
-<p>Une liste <strong>doublement chaînée</strong> possède, dans chaque cellule, une référence vers la cellule
-<strong>précédente</strong> en plus de la suivante. Quelles opérations deviennent plus efficaces ? Quel en est le prix ?</p>
+<h2 id="exercice-3-retirer-en-tete">Exercice 3 — Retirer en tête<a class="headerlink" href="#exercice-3-retirer-en-tete" title="Permanent link">⚓︎</a></h2>
+<p>Écrire la méthode <code>retirer_en_tete(self)</code> qui retire la première cellule et <strong>renvoie sa valeur</strong>. Une assertion vérifie que la liste n'est pas vide.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">L</span><span class="o">.</span><span class="n">retirer_en_tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;8 -&gt; None&quot;</span>
+<span class="k">assert</span> <span class="n">L</span><span class="o">.</span><span class="n">retirer_en_tete</span><span class="p">()</span> <span class="o">==</span> <span class="mi">8</span>
+<span class="k">assert</span> <span class="n">L</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Quelle structure du chapitre IV retrouve-t-on avec <code>ajouter_en_tete</code> et <code>retirer_en_tete</code> ?</p>
+<hr />
+<h2 id="exercice-4-ajouter-en-fin">Exercice 4 — Ajouter en fin<a class="headerlink" href="#exercice-4-ajouter-en-fin" title="Permanent link">⚓︎</a></h2>
+<p>Compléter la méthode <code>ajouter_en_fin(self, x)</code>, qui ne renvoie rien.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># méthode de la classe Liste</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_fin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">nouvelle</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="k">return</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
+    <span class="k">while</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span> <span class="o">...</span> <span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+<span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; None&quot;</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Pourquoi le cas de la liste vide est-il traité à part ?</li>
+<li>Pourquoi écrit-on <code>while c.suivant ...</code> et non <code>while c ...</code> ?</li>
+</ol>
+<hr />
+<h2 id="exercice-5-supprimer-lelement-dindice-k">Exercice 5 — Supprimer l'élément d'indice k<a class="headerlink" href="#exercice-5-supprimer-lelement-dindice-k" title="Permanent link">⚓︎</a></h2>
+<p>Écrire la méthode <code>supprimer(self, k)</code> qui retire l'élément d'indice <code>k</code> et ne renvoie rien. Si <code>k</code> n'est pas un indice valide, une assertion échoue. S'inspirer de la méthode <code>inserer</code> du cours (5.3).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">L</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; 3 -&gt; None&quot;</span>
+<span class="n">L</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 3 -&gt; None&quot;</span>
+<span class="n">L</span><span class="o">.</span><span class="n">supprimer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; None&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Dessiner la liste juste avant et juste après <code>L.supprimer(1)</code> sur la liste 1, 2, 3, en faisant apparaître la cellule désignée par <code>c</code>.</p>
+<hr />
+<h2 id="exercice-6-retirer-les-repetitions">Exercice 6 — Retirer les répétitions<a class="headerlink" href="#exercice-6-retirer-les-repetitions" title="Permanent link">⚓︎</a></h2>
+<p>Écrire la méthode <code>sans_repetition(self)</code> qui, dans chaque suite de valeurs égales et consécutives, ne garde que la première. La méthode ne crée aucune cellule et ne renvoie rien.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">L</span><span class="o">.</span><span class="n">sans_repetition</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; 3 -&gt; 1 -&gt; None&quot;</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+<span class="n">V</span><span class="o">.</span><span class="n">sans_repetition</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">V</span><span class="o">.</span><span class="n">est_vide</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Après avoir retiré une cellule, faut-il avancer <code>c</code> ? Justifier avec l'exemple 2, 2, 2.</li>
+<li>Combien de cellules de la liste initiale restent accessibles depuis <code>L.tete</code> dans le premier exemple ?</li>
+</ol>
+<hr />
+<h2 id="exercice-7-traquer-leffet-de-bord">Exercice 7 — Traquer l'effet de bord<a class="headerlink" href="#exercice-7-traquer-leffet-de-bord" title="Permanent link">⚓︎</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+<span class="n">B</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">suivant</span>
+<span class="n">B</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">suivant</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Dessiner l'état de la mémoire juste avant la ligne <code>A.tete.suivant.valeur = 99</code>.</li>
+<li>Prédire les deux affichages, puis vérifier.</li>
+<li><code>B.ajouter_en_tete(0)</code> modifie-t-elle <code>A</code> ? Et <code>A.tete.suivant.valeur = 99</code> modifie-t-elle <code>B</code> ? Expliquer la différence.</li>
+</ol>
+<hr />
+<h2 id="exercice-8-raccorder-deux-listes">Exercice 8 — Raccorder deux listes<a class="headerlink" href="#exercice-8-raccorder-deux-listes" title="Permanent link">⚓︎</a></h2>
+<p>Écrire la méthode <code>raccorder(self, autre)</code> qui rattache la première cellule de <code>autre</code> à la fin de <code>self</code>, <strong>sans créer de cellule</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">liste_de</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">A</span><span class="o">.</span><span class="n">raccorder</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; None&quot;</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+<span class="n">V</span><span class="o">.</span><span class="n">raccorder</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;3 -&gt; 4 -&gt; None&quot;</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>La liste <code>A</code> est-elle modifiée ? La liste <code>B</code> est-elle modifiée ?</li>
+<li>Que devient <code>A</code> si l'on exécute ensuite <code>B.tete.valeur = 30</code> ? Pourquoi est-ce un risque ?</li>
+<li>Comparer avec une concaténation qui reconstruit <code>A</code> avec <code>cons</code> : quelles cellules sont recopiées, lesquelles sont partagées ?</li>
+</ol>
+<hr />
+<h2 id="exercice-9-complexite">Exercice 9 — Complexité<a class="headerlink" href="#exercice-9-complexite" title="Permanent link">⚓︎</a></h2>
+<p>Pour une liste de longueur <code>n</code>, donner en justifiant la complexité en temps de <code>retirer_en_tete</code>, <code>ajouter_en_fin</code>, <code>supprimer</code> (en fonction de <code>k</code>), <code>sans_repetition</code> et <code>raccorder</code> (en fonction de la longueur de <code>self</code>).</p>
+<hr />
+<h2 id="sujets-de-baccalaureat">🎓 Sujets de baccalauréat<a class="headerlink" href="#sujets-de-baccalaureat" title="Permanent link">⚓︎</a></h2>
+<p>Ces structures apparaissent sous d'autres noms dans les sujets : les énoncés fournissent les classes, il faut savoir les lire.</p>
+<ul>
+<li><a href="https://eduscol.education.gouv.fr/sites/default/files/document/24-nsij2an1v1pdf-106668.pdf">24-NSIJ2AN1, exercice 3</a>, questions 3 à 7 : une chaîne de blocs, avec une méthode <code>ajouter_bloc</code> à écrire. Quelle méthode de la classe <code>Liste</code> lui ressemble ?</li>
+<li><a href="https://eduscol.education.gouv.fr/sites/default/files/document/25-nsipe4v1pdf-120492.pdf">25-NSIPE4, exercice 3</a>, partie B : une liste <code>Maillon</code> / <code>Liste</code> à construire puis à modifier en place. Comparer la question 10 avec l'exercice 6.</li>
+</ul>
 
 
 
 
 
 
-
-  
-  
 
 
 

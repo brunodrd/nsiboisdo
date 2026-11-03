@@ -1,0 +1,541 @@
+---
+title: 📖 Cours Listes
+---
+
+## 0. 🔎 Le tableau a-t-il un point faible ?
+
+On veut construire une collection de `n` entiers en ajoutant **chaque nouvel élément au début**.
+On compare deux façons de faire.
+
+```python
+import time
+
+def duree_tableau(n):
+    debut = time.perf_counter()
+    T = []
+    for i in range(n):
+        T.insert(0, i)          # ajout au début d'une list Python
+    return time.perf_counter() - debut
+
+def duree_chainee(n):
+    debut = time.perf_counter()
+    L = None
+    for i in range(n):
+        L = (i, L)              # ajout « en tête » d'une paire
+    return time.perf_counter() - debut
+
+for n in [100_000, 200_000]:
+    print(n, duree_tableau(n), duree_chainee(n))
+```
+
+!!! question "À faire"
+    1. Exécuter le programme et relever les durées.
+    2. Quand `n` double, par combien est multiplié le temps de `duree_tableau` ?
+    3. Comparer les ordres de grandeur des deux colonnes.
+
+??? info "Ce qu'il faut en retenir"
+    On utilise ici une `list` Python comme un **tableau** : les éléments sont rangés dans des cases
+    numérotées 0, 1, 2…
+    Insérer au début oblige à **décaler tous les éléments** d'une case, comme dans le tri par insertion
+    vu en première : chaque insertion coûte O(n),
+    et les `n` insertions coûtent O(n²). Doubler `n` multiplie donc le temps par environ 4.
+
+    Avec les paires, ajouter en tête ne déplace rien : on crée une nouvelle paire qui **pointe** vers
+    l'ancienne. Chaque ajout coûte O(1).
+
+    👉 Selon les opérations dont on a besoin, une autre structure que le tableau peut être bien plus efficace.
+    C'est l'objet de ce chapitre.
+
+---
+
+## 1. 📚 Le type abstrait Liste
+
+### 1.1 Une structure linéaire
+
+!!! note "Rappel : structure de données linéaire"
+    Les éléments sont rangés **les uns à la suite des autres**, dans un ordre défini : chaque élément,
+    sauf le dernier, a un **successeur**. On parcourt la structure de manière séquentielle.
+    Les **piles** et les **files** (chapitre IV) sont aussi des structures linéaires.
+
+!!! warning "Attention au vocabulaire"
+    Depuis la classe de première, on utilise le type `list` de Python **comme un tableau** :
+    on accède directement à un élément par son indice.
+    Malgré son nom, ce n'est pas une liste au sens de ce chapitre.
+    Ici, « liste » désigne le **type abstrait** défini ci-dessous.
+
+### 1.2 Définition récursive
+
+Une liste `L` d'éléments d'un ensemble `E` est :
+
+- soit la **liste vide** ;
+- soit un **couple** `(x, R)` où `x ∈ E` est la **tête** de la liste et `R` est la **queue** : une liste qui contient la suite des éléments.
+
+Exemple : la liste des éléments 1, 2, 3 est le couple `(1, R)` où `R` est la liste 2, 3, c'est-à-dire `(2, (3, vide))`.
+
+### 1.3 Interface
+
+| Opération      | Rôle                                             | Précondition    |
+| -------------- | ------------------------------------------------ | --------------- |
+| `liste_vide()` | renvoie une liste vide                           | —               |
+| `est_vide(L)`  | renvoie `True` si `L` est vide                   | —               |
+| `cons(x, L)`   | renvoie la liste de tête `x` et de queue `L`     | —               |
+| `tete(L)`      | renvoie le premier élément de `L`                | `L` non vide    |
+| `queue(L)`     | renvoie la liste `L` privée de son premier élément | `L` non vide  |
+
+??? info "D'où vient le nom `cons` ?"
+    Il vient du langage **Lisp** (*LISt Processing*), créé par John McCarthy à la fin des années 1950.
+    C'est l'un des tout premiers langages de haut niveau, et le premier construit autour des listes.
+    `cons` est l'abréviation de **construct** : la fonction *construit* une nouvelle cellule à partir
+    d'une valeur et d'une liste. En anglais, on appelle d'ailleurs une cellule une *cons cell*.
+
+    En Lisp, la tête et la queue s'obtiennent avec `car` et `cdr`. Ces noms désignaient deux parties
+    d'un mot mémoire de l'ordinateur IBM 704, sur lequel Lisp a été programmé pour la première fois.
+    Les langages plus récents emploient des noms plus parlants : `head` et `tail` en Haskell,
+    `hd` et `tl` en OCaml. C'est de là que viennent nos `tete` et `queue`.
+
+    Lisp est aussi l'ancêtre des langages **fonctionnels**, que nous retrouverons dans le chapitre
+    sur les paradigmes de programmation.
+
+!!! tip "Lien avec la pile"
+    Une **pile** ressemble à une liste où l'on n'agit **qu'en tête** :
+    `empiler` correspond à `cons`, `sommet` à `tete`, et `depiler` retire la tête comme `queue`.
+    Une différence importante : au chapitre IV, `empiler` et `depiler` **modifient** la pile,
+    alors que `cons` et `queue` **renvoient une nouvelle liste** sans modifier `L`.
+    La liste est aussi plus générale : on va accéder à n'importe quel élément,
+    insérer ou supprimer au milieu.
+
+---
+
+## 2. 🔗 Implémenter le TAD Liste par chaînage
+
+Pour implémenter le TAD Liste, il faut choisir une façon de ranger les éléments en mémoire.
+Le choix étudié ici est le **chaînage** : on obtient une **liste chaînée**.
+
+Une **liste chaînée** est une suite de **cellules** (ou maillons). Chaque cellule contient :
+
+- une **valeur** ;
+- une **référence** vers la cellule suivante (ou `None` pour la dernière).
+
+On représente la liste 1, 2, 3 par le schéma suivant :
+
+![Liste chaînée 1, 2, 3 : la variable L référence la première cellule ; chaque cellule contient une valeur et une référence vers la suivante ; la dernière référence vaut None](img/chainage.svg){ width="70%" }
+
+On retrouve la définition récursive du 1.2 : la première cellule porte la **tête**, et sa référence
+`suivant` désigne la **queue**, qui est elle-même une liste.
+
+La variable `L` ne contient pas les trois valeurs : elle contient **une référence vers la première cellule**.
+Pour atteindre la troisième valeur, il faut suivre les flèches depuis le début.
+
+!!! abstract "Rappel du chapitre IV : trois niveaux"
+    | Niveau | Question | Pour la liste |
+    | ------ | -------- | ------------- |
+    | **TAD** | *Que* peut-on faire ? | le TAD Liste : `liste_vide`, `est_vide`, `cons`, `tete`, `queue` |
+    | **Structure de données** | *Comment* range-t-on les éléments en mémoire ? | la **liste chaînée** (cellules + références) — un tableau serait une autre structure possible |
+    | **Implémentation** | *Comment* écrit-on les opérations en Python ? | avec des paires (2.1) ou avec des objets (2.2) |
+
+    La liste chaînée n'est donc pas le TAD Liste : c'est **une structure de données** qui permet de l'implémenter.
+
+Nous allons écrire **deux implémentations du TAD Liste**, toutes deux fondées sur la même structure, la liste chaînée.
+Comme pour la pile et la file au chapitre IV, elles respectent **exactement la même interface** :
+seule la façon de représenter les cellules change.
+
+| Implémentation | Fichier            | Cellule représentée par      |
+| -------------- | ------------------ | ---------------------------- |
+| 2.1            | `liste_tuple.py`   | un tuple `(valeur, suivant)` |
+| 2.2            | `liste_cellule.py` | un objet de la classe `Cellule` |
+
+---
+
+### 2.1 🌿 Implémentation par paires
+
+Fichier `liste_tuple.py` :
+
+```python
+def liste_vide():
+    return None
+
+def est_vide(L):
+    return L is None
+
+def cons(x, L):
+    return (x, L)
+
+def tete(L):
+    assert not est_vide(L), "liste vide"
+    return L[0]
+
+def queue(L):
+    assert not est_vide(L), "liste vide"
+    return L[1]
+```
+
+```python
+>>> L = cons(1, cons(2, cons(3, liste_vide())))
+>>> L
+(1, (2, (3, None)))
+>>> tete(queue(L))
+2
+```
+
+Un tuple ne peut pas être modifié : **une fois construite, une liste ne change plus**.
+Les opérations « qui modifient » renvoient en réalité une **nouvelle liste**.
+
+---
+
+### 2.2 🧱 Implémentation par objets
+
+On réinvestit la programmation objet (chapitre V) : une cellule devient un objet de la classe `Cellule`.
+
+Fichier `liste_cellule.py` :
+
+```python
+class Cellule:
+    """Un maillon : une valeur et une référence vers le maillon suivant."""
+    def __init__(self, valeur, suivant):
+        self.valeur = valeur
+        self.suivant = suivant
+
+def liste_vide():
+    return None
+
+def est_vide(L):
+    return L is None
+
+def cons(x, L):
+    return Cellule(x, L)
+
+def tete(L):
+    assert not est_vide(L), "liste vide"
+    return L.valeur
+
+def queue(L):
+    assert not est_vide(L), "liste vide"
+    return L.suivant
+```
+
+```python
+>>> L = cons(1, cons(2, cons(3, liste_vide())))
+>>> tete(queue(L))
+2
+```
+
+Les noms et le rôle des opérations sont **les mêmes qu'en 2.1** : un programme qui utilise l'interface
+fonctionne avec l'une ou l'autre implémentation (voir 3.1). Les fonctions de l'interface ne modifient
+jamais une cellule : comme en 2.1, chaque opération renvoie une liste sans toucher aux anciennes.
+
+---
+
+### 2.3 🔧 Pour aller plus loin : une liste modifiable en place
+
+La pile du chapitre IV était **modifiée** par `empiler` et `depiler`. On peut de la même façon
+définir une liste modifiable en place. La classe `Liste` **encapsule** la référence vers la première
+cellule : l'utilisateur manipule un objet `Liste` et n'a pas à se soucier des cellules.
+
+!!! warning "Une autre interface"
+    Ici, les opérations **modifient** l'objet au lieu de renvoyer une nouvelle liste.
+    L'interface n'est donc **plus la même** que celle du 1.3 : la classe `Liste` n'est pas une
+    troisième implémentation du même TAD, mais une **variante modifiable** de la liste,
+    construite sur la même structure chaînée.
+
+| Interface du 1.3 (renvoie une nouvelle liste) | Classe `Liste` (modifie la liste) |
+| --------------------------------------------- | --------------------------------- |
+| `L = liste_vide()`                            | `L = Liste()`                     |
+| `est_vide(L)`                                 | `L.est_vide()`                    |
+| `L = cons(x, L)`                              | `L.ajouter_en_tete(x)`            |
+| `tete(L)`                                     | `L.premier()`                     |
+
+```python
+class Liste:                                # utilise la classe Cellule du 2.2
+    """Liste chaînée mutable."""
+
+    def __init__(self):
+        self.tete = None                    # référence vers la première cellule
+
+    def est_vide(self):
+        return self.tete is None
+
+    def ajouter_en_tete(self, x):           # O(1)
+        self.tete = Cellule(x, self.tete)
+
+    def premier(self):                      # O(1)
+        assert not self.est_vide(), "liste vide"
+        return self.tete.valeur
+
+    def __len__(self):                      # O(n)
+        n = 0
+        c = self.tete
+        while c is not None:
+            n += 1
+            c = c.suivant
+        return n
+
+    def __str__(self):                      # O(n)
+        morceaux = []
+        c = self.tete
+        while c is not None:
+            morceaux.append(str(c.valeur))
+            c = c.suivant
+        return " -> ".join(morceaux + ["None"])
+```
+
+```python
+>>> L = Liste()
+>>> for x in [3, 2, 1]:
+...     L.ajouter_en_tete(x)
+>>> print(L)
+1 -> 2 -> 3 -> None
+>>> len(L)
+3
+```
+
+!!! info "Pourquoi une classe `Liste` en plus de `Cellule` ?"
+    Pour ajouter ou supprimer **en tête**, il faut changer la première cellule.
+    Si la liste n'était qu'une variable pointant vers une cellule, une fonction ne pourrait pas
+    modifier cette variable chez l'appelant : elle devrait renvoyer la nouvelle tête,
+    et l'appelant devrait penser à écrire `L = f(L, ...)`.
+    En stockant la référence dans l'attribut `self.tete`, la méthode peut la modifier directement.
+
+    ![Comparaison. 1 : sans classe Liste, la variable L désigne directement la cellule 1 ; une fonction a créé une nouvelle cellule 0 qui pointe vers la cellule 1, mais L désigne toujours la cellule 1. 2 : avec la classe Liste, L désigne un objet Liste dont l'attribut tete pointe désormais vers la cellule 0, l'ancienne valeur pointant vers la cellule 1.](img/classe_liste.svg){ width="78%" }
+
+    C'est l'**encapsulation** vue au chapitre V : l'utilisateur ne manipule que l'objet `L`,
+    et c'est la classe qui gère la référence vers la première cellule.
+
+!!! note "Méthodes spéciales"
+    Définir `__len__` permet d'écrire `len(L)` ; définir `__str__` permet d'écrire `print(L)`.
+
+---
+
+## 3. ⚙️ Algorithmes sur les listes
+
+### 3.1 Programmer avec l'interface seulement
+
+Les fonctions suivantes n'utilisent **que** `liste_vide`, `est_vide`, `cons`, `tete` et `queue`.
+Elles ne savent pas si une liste est un tuple ou autre chose : elles fonctionnent avec **toute implémentation**
+qui respecte l'interface.
+
+Pour le vérifier, il suffit de changer le module importé : `liste_tuple.py` (2.1) ou `liste_cellule.py` (2.2).
+
+```python
+from liste_tuple import liste_vide, est_vide, cons, tete, queue
+# pour changer d'implémentation, il suffit de remplacer liste_tuple par liste_cellule :
+# le reste du programme ne change pas !
+```
+
+!!! note "Pourquoi pas `from liste_tuple import *` ?"
+    Comme on l'a vu au chapitre III, `import *` importe des noms sans les montrer : on ne sait plus
+    d'où ils viennent, et ils peuvent en écraser d'autres. Ici, la liste des noms importés est
+    **exactement l'interface** du TAD : la ligne d'import indique à elle seule ce dont le programme a besoin.
+
+!!! success "Interface et implémentation"
+    C'est tout l'intérêt de séparer **interface** et **implémentation** : on peut changer
+    l'implémentation sans réécrire les programmes qui l'utilisent (programmation modulaire, chapitre III).
+
+### 3.2 Longueur
+
+=== "Récursive"
+
+    ```python
+    def longueur(L):
+        if est_vide(L):
+            return 0
+        return 1 + longueur(queue(L))
+    ```
+
+=== "Itérative"
+
+    ```python
+    def longueur_iter(L):
+        n = 0
+        while not est_vide(L):
+            n += 1
+            L = queue(L)
+        return n
+    ```
+
+La version récursive suit directement la définition récursive de la liste.
+
+!!! warning "Limite de la récursivité en Python"
+    Python limite par défaut la profondeur des appels récursifs (environ 1000).
+    `longueur` provoque une `RecursionError` sur une liste de 5000 éléments ;
+    `longueur_iter` n'a pas ce problème.
+
+### 3.3 Accès au k-ième élément
+
+Il n'y a pas d'accès direct : il faut **partir de la tête et faire k pas**.
+
+=== "Récursive"
+
+    ```python
+    def kieme_rec(L, k):
+        assert k >= 0 and not est_vide(L), "indice hors limites"
+        if k == 0:
+            return tete(L)
+        return kieme_rec(queue(L), k - 1)
+    ```
+
+=== "Itérative"
+
+    ```python
+    def kieme_iter(L, k):
+        assert k >= 0, "indice hors limites"
+        for _ in range(k):
+            assert not est_vide(L), "indice hors limites"
+            L = queue(L)
+        assert not est_vide(L), "indice hors limites"
+        return tete(L)
+    ```
+
+**Complexité : O(k)**, soit O(n) dans le pire cas, pour une liste de `n` éléments.
+Chaque pas (lecture de la queue) coûte un temps constant.
+
+### 3.4 Recherche d'une valeur
+
+```python
+def appartient(x, L):
+    while not est_vide(L):
+        if tete(L) == x:
+            return True
+        L = queue(L)
+    return False
+```
+
+**Complexité : O(n)** dans le pire cas (valeur absente ou en fin de liste).
+
+!!! tip "Vers les dictionnaires"
+    Rechercher une valeur dans une liste impose de la parcourir. Le prochain cours présente le
+    **dictionnaire**, dans lequel la recherche d'une **clé** se fait en temps constant en moyenne.
+
+---
+
+## 4. ✂️ Insérer et supprimer : immuable ou mutable ?
+
+### 4.1 Avec l'interface du TAD (2.1 ou 2.2)
+
+Les opérations de l'interface ne modifient jamais une liste existante : on **reconstruit** le début
+et on **réutilise** la fin. Le code ci-dessous fonctionne avec les deux implémentations.
+
+```python
+def inserer(L, k, x):
+    """Renvoie une nouvelle liste où x est en position k. L n'est pas modifiée."""
+    if k == 0:
+        return cons(x, L)
+    assert not est_vide(L), "indice hors limites"
+    return cons(tete(L), inserer(queue(L), k - 1, x))
+```
+
+```python
+>>> L = cons(1, cons(2, cons(3, liste_vide())))
+>>> L2 = inserer(L, 1, 9)
+>>> L2                                  # affichage avec l'implémentation par paires
+(1, (9, (2, (3, None))))
+>>> L                                   # L n'a pas changé
+(1, (2, (3, None)))
+>>> queue(queue(L2)) is queue(L)       # la fin est partagée !
+True
+```
+
+![Après L2 = inserer(L, 1, 9) : L désigne toujours la liste 1, 2, 3. L2 désigne deux nouvelles cellules, une copie de 1 puis 9, et la cellule 9 pointe vers la cellule 2 de L : les cellules 2 et 3 sont partagées par L et L2.](img/insertion_immuable.svg){ width="78%" }
+
+Les cellules situées **avant** la position d'insertion sont recopiées ; celles situées **après**
+ne sont pas recopiées : `L2` les partage avec `L`.
+
+- **Temps : O(k)** ; **mémoire : k + 1 nouvelles cellules**.
+- La liste `L` d'origine reste intacte : pas d'effet de bord. Le partage est **sans danger**
+  puisque personne ne peut modifier les cellules.
+
+### 4.2 Avec la liste modifiable (classe `Liste` du 2.3)
+
+On se place sur la cellule **précédant** la position `k`, puis on modifie sa référence `suivant`.
+
+```python
+    # méthode de la classe Liste
+    def inserer(self, k, x):                # O(k)
+        if k == 0:
+            self.ajouter_en_tete(x)
+            return
+        c = self.tete
+        for _ in range(k - 1):              # on s'arrête sur la cellule n° k-1
+            assert c is not None, "indice hors limites"
+            c = c.suivant
+        assert c is not None, "indice hors limites"
+        c.suivant = Cellule(x, c.suivant)
+```
+
+![Avant L.inserer(1, 9) : L désigne un objet dont l'attribut tete pointe vers la liste 1, 2, 3 ; la variable c de la méthode désigne la cellule 1, d'indice k − 1. Après : la référence de la cellule 1 pointe vers une nouvelle cellule 9, qui pointe vers la cellule 2 ; l'ancienne référence de 1 vers 2 a disparu.](img/insertion_en_place.svg){ width="78%" }
+
+Comparez avec le schéma du 4.1 : ici, aucune cellule n'est recopiée, mais la liste d'origine
+est **modifiée**.
+
+- **Temps : O(k)** pour atteindre la position ; la modification elle-même est en O(1).
+- **Mémoire : une seule nouvelle cellule.**
+- La liste est **modifiée en place**.
+
+!!! warning "Danger du partage avec des cellules mutables"
+    ```python
+    a = Cellule(3, None)
+    b = Cellule(2, a)
+    c = Cellule(1, a)          # b et c partagent la cellule a
+    a.valeur = 99              # b ET c sont modifiées !
+    ```
+    Quand les cellules sont modifiables, partager une partie de liste crée des **effets de bord**
+    difficiles à repérer. C'est l'une des raisons pour lesquelles on encapsule les cellules dans une
+    classe `Liste`.
+
+### 4.3 Bilan
+
+| Insertion en position k | Interface du TAD (2.1, 2.2) | Classe `Liste` (2.3) |
+| ----------------------- | ----------------------- | ------------------------ |
+| Temps                   | O(k)                    | O(k)                     |
+| Nouvelles cellules      | k + 1                   | 1                        |
+| Liste d'origine         | inchangée               | modifiée                 |
+| Partage de cellules     | sans risque             | source d'effets de bord  |
+
+!!! note "Remarque"
+    Les deux implémentations ont **la même complexité en temps**. Ce qui les distingue, c'est
+    la mutabilité : coût mémoire d'un côté, effets de bord possibles de l'autre.
+    Ces deux façons de programmer seront approfondies dans le chapitre sur les paradigmes de programmation.
+
+---
+
+## 5. ⚖️ Tableau ou liste chaînée : que choisir ?
+
+| Opération (n éléments)      | Tableau                 | Liste chaînée |
+| --------------------------- | ----------------------- | ------------- |
+| Lire l'élément d'indice k   | **O(1)**                | O(k)          |
+| Ajouter / supprimer en tête | O(n)                    | **O(1)**      |
+| Insérer en position k       | O(n − k)                | O(k)          |
+| Rechercher une valeur       | O(n)                    | O(n)          |
+
+Ces coûts découlent du modèle « cases numérotées » pour le tableau, et du parcours depuis la tête
+pour la liste chaînée.
+
+!!! success "À retenir"
+    - Beaucoup d'**accès par indice** → tableau.
+    - Beaucoup d'**ajouts et de suppressions au début** → liste chaînée.
+    - Beaucoup de **recherches** d'une valeur → ni l'un ni l'autre : un **dictionnaire** (cours suivant).
+
+---
+
+## 6. 🧠 Synthèse
+
+- Le **TAD Liste** est défini par une interface : `liste_vide`, `est_vide`, `cons`, `tete`, `queue`.
+- Une **liste chaînée** est une **structure de données** qui permet d'implémenter le TAD Liste :
+  une suite de cellules reliées par des références, parcourue à partir de la tête.
+  Un tableau serait une autre structure possible.
+- On a écrit **deux implémentations** du TAD sur cette structure (paires, objets `Cellule`),
+  avec exactement la même interface.
+- La classe `Liste` propose une **autre interface**, où les opérations modifient la liste en place.
+- Un algorithme écrit avec **l'interface seulement** fonctionne avec toutes les implémentations.
+- Il faut savoir donner la **complexité** des opérations et **choisir** entre tableau, liste chaînée
+  et dictionnaire.
+
+---
+
+## 📝 Pour s'entraîner
+
+- [✏️ Exercices Listes (Série 1)](C6E1.md)
+- [✏️ Exercices Listes (Série 2)](C6E2.md)
+
+---
+
+CC-BY-NC-SA 4.0

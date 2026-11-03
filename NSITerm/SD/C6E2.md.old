@@ -1,0 +1,254 @@
+---
+title: ✏️ Exercices Listes (Série 2)
+---
+
+# ✏️ Série 2 : la liste modifiable en place
+
+!!! abstract "Objectifs"
+    - Manipuler une liste chaînée **modifiable en place** à travers la classe `Liste`.
+    - Écrire des méthodes qui parcourent les cellules et modifient les références.
+    - Repérer les **effets de bord** créés par le partage de cellules.
+    - Évaluer la complexité de chaque opération.
+
+Prérequis : [cours](C6C1.md), sections 2.2, 2.3 et 4.2. On rappelle que cette classe propose une
+**autre interface** que celle du TAD : ses méthodes modifient la liste au lieu d'en renvoyer une nouvelle.
+
+## Le code de départ
+
+Il reprend le cours. Les méthodes des exercices sont à ajouter à la classe `Liste`.
+
+```python
+class Cellule:
+    """Une cellule : une valeur et une référence vers la cellule suivante."""
+    def __init__(self, valeur, suivant):
+        self.valeur = valeur
+        self.suivant = suivant
+
+
+class Liste:
+    """Liste chaînée modifiable en place."""
+
+    def __init__(self):
+        self.tete = None                    # référence vers la première cellule
+
+    def est_vide(self):
+        return self.tete is None
+
+    def ajouter_en_tete(self, x):           # O(1)
+        self.tete = Cellule(x, self.tete)
+
+    def premier(self):                      # O(1)
+        assert not self.est_vide(), "liste vide"
+        return self.tete.valeur
+
+    def __len__(self):                      # O(n)
+        n = 0
+        c = self.tete
+        while c is not None:
+            n += 1
+            c = c.suivant
+        return n
+
+    def __str__(self):                      # O(n)
+        morceaux = []
+        c = self.tete
+        while c is not None:
+            morceaux.append(str(c.valeur))
+            c = c.suivant
+        return " -> ".join(morceaux + ["None"])
+
+    def inserer(self, k, x):                # O(k)
+        if k == 0:
+            self.ajouter_en_tete(x)
+            return
+        c = self.tete
+        for _ in range(k - 1):
+            assert c is not None, "indice hors limites"
+            c = c.suivant
+        assert c is not None, "indice hors limites"
+        c.suivant = Cellule(x, c.suivant)
+
+
+def depuis_tableau(T):
+    """Construit un objet Liste ayant les mêmes éléments que le tableau T (pour les tests)."""
+    L = Liste()
+    for i in range(len(T) - 1, -1, -1):
+        L.ajouter_en_tete(T[i])
+    return L
+```
+
+---
+
+## Exercice 1 — Construire et observer
+
+1. Écrire les instructions qui créent l'objet `L` contenant, dans cet ordre, les entiers 10, 20, 30,
+   en n'utilisant que `Liste()` et `ajouter_en_tete`.
+2. Dessiner le schéma « boîtes et flèches » de `L`, objet `Liste` compris (voir cours, 2.3).
+3. Sans exécuter, donner ce qu'affichent `print(L)` et `print(len(L))`.
+4. On exécute :
+    ```python
+    c = L.tete
+    c = c.suivant
+    ```
+    Quelle cellule la variable `c` désigne-t-elle ? Que vaut `c.suivant.suivant` ?
+    La liste `L` a-t-elle été modifiée ?
+
+---
+
+## Exercice 2 — Lire l'élément d'indice k
+
+Écrire la méthode `lire(self, k)` qui renvoie la valeur de l'élément d'indice `k` (0 pour la tête).
+Si `k` est négatif ou trop grand, une assertion échoue.
+
+```python
+L = depuis_tableau([10, 20, 30])
+assert L.lire(0) == 10
+assert L.lire(2) == 30
+```
+
+Donner la complexité de `lire` en fonction de `k`. Comparer avec l'accès `T[k]` dans un tableau.
+
+---
+
+## Exercice 3 — Insérer : prévoir avant d'exécuter
+
+On part de `M = depuis_tableau([1, 2, 3])`. **Sans exécuter**, donner le résultat de `print(M)`
+après chacune des instructions suivantes, exécutées dans cet ordre :
+
+```python
+M.inserer(0, 99)
+M.inserer(2, 42)
+M.inserer(5, 7)
+M.inserer(8, 0)
+```
+
+1. Pour l'instruction `M.inserer(2, 42)`, dessiner l'état de la liste **avant** et **après**,
+   en faisant apparaître la variable `c` de la méthode (voir cours, 4.2).
+2. Que se passe-t-il pour la dernière instruction ? Pourquoi ?
+3. Vérifier vos réponses en exécutant le code.
+
+---
+
+## Exercice 4 — Supprimer l'élément d'indice k
+
+Écrire la méthode `supprimer(self, k)` qui supprime l'élément d'indice `k` **en modifiant la liste**.
+
+```python
+S = depuis_tableau([0, 1, 2, 3, 4])
+S.supprimer(0)
+assert str(S) == "1 -> 2 -> 3 -> 4 -> None"
+S.supprimer(1)
+assert str(S) == "1 -> 3 -> 4 -> None"
+S.supprimer(2)
+assert str(S) == "1 -> 3 -> None"
+```
+
+1. Dessiner l'état de la liste avant et après `S.supprimer(1)` dans le test ci-dessus.
+   Quelle référence est modifiée ?
+2. Pourquoi faut-il traiter le cas `k == 0` à part ?
+3. Comparer avec la fonction `supprimer` de la série 1 : nombre de cellules créées, liste d'origine.
+
+??? tip "Indice"
+    Comme pour `inserer`, on s'arrête sur la cellule d'indice `k - 1`.
+
+---
+
+## Exercice 5 — Accéder à la fin
+
+1. Écrire la méthode `dernier(self)` qui renvoie la valeur de la dernière cellule d'une liste non vide.
+2. Écrire la méthode `ajouter_en_fin(self, x)`. Penser au cas de la liste vide.
+3. Donner la complexité de ces deux méthodes.
+
+```python
+F = Liste()
+F.ajouter_en_fin(1)
+F.ajouter_en_fin(2)
+assert str(F) == "1 -> 2 -> None"
+assert F.dernier() == 2
+```
+
+---
+
+## Exercice 6 — Retirer toutes les occurrences
+
+Écrire la méthode `retirer_tous(self, x)` qui supprime **toutes** les cellules de valeur `x`.
+
+```python
+R = depuis_tableau([4, 4, 1, 4, 2, 4, 4])
+R.retirer_tous(4)
+assert str(R) == "1 -> 2 -> None"
+R2 = depuis_tableau([4, 4])
+R2.retirer_tous(4)
+assert R2.est_vide()
+```
+
+??? tip "Deux pièges"
+    - Plusieurs cellules de valeur `x` peuvent se trouver **en tête** : il ne suffit pas d'un `if`.
+    - Après avoir supprimé la cellule suivante, il ne faut **pas** avancer : la nouvelle suivante
+      vaut peut-être `x`, elle aussi.
+
+---
+
+## Exercice 7 — Concaténer… et ses effets de bord
+
+On souhaite une méthode `concatener(self, autre)` qui accroche les cellules de la liste `autre`
+à la fin de la liste `self`, **sans les recopier**. Après `L1.concatener(L2)`, la mémoire est dans
+l'état suivant :
+
+![Après L1.concatener(L2) : L1 désigne un objet dont l'attribut tete pointe vers 1, 2, 3, 4. La référence de la cellule 2 a été modifiée pour pointer vers la cellule 3. L2 désigne un objet dont l'attribut tete pointe vers la cellule 3 : les cellules 3 et 4 sont communes aux deux listes.](img/s2_concatener.svg){ width="70%" }
+
+1. Écrire la méthode `concatener`. Penser au cas où `self` est vide.
+2. On exécute ensuite `L2.inserer(1, 99)`. **Sans exécuter**, donner ce qu'affiche `print(L1)`.
+3. On exécute enfin `L2.ajouter_en_tete(0)`. La liste `L1` est-elle modifiée ? Pourquoi ?
+4. Vérifier vos réponses en exécutant le code. Comment s'appelle ce phénomène ?
+   Proposer une façon d'écrire `concatener` qui l'évite. Quel en est le coût ?
+
+---
+
+## Exercice 8 — Bilan des complexités
+
+Recopier et compléter le tableau, pour une liste de `n` éléments.
+
+| Opération               | Méthode (classe `Liste`) | Complexité |
+| ----------------------- | ------------------------ | ---------- |
+| Ajouter en tête         | `ajouter_en_tete`        |            |
+| Lire l'indice `k`       | `lire`                   |            |
+| Insérer en position `k` | `inserer`                |            |
+| Supprimer l'indice `k`  | `supprimer`              |            |
+| Ajouter en fin          | `ajouter_en_fin`         |            |
+| Longueur                | `__len__`                |            |
+| Concaténer              | `concatener`             |            |
+
+---
+
+## 🌟 Exercice 9 — Type bac : une file efficace
+
+Une application gère une file d'attente : on ajoute des éléments **en fin** et on les retire **en tête**,
+des milliers de fois.
+
+1. Avec la classe `Liste`, quelle est la complexité de chacune de ces deux opérations ?
+2. Justifier qu'une liste chaînée est préférable à un tableau Python pour retirer en tête.
+3. On crée une classe `File` qui possède, en plus de l'attribut `tete`, un attribut `fin` qui référence
+   la **dernière** cellule. Écrire son constructeur et ses méthodes `est_vide`, `enfiler(self, x)` (ajout en fin)
+   et `defiler(self)` (retrait en tête, renvoie la valeur retirée). Les deux dernières doivent être en O(1).
+4. Quel cas particulier faut-il traiter dans `enfiler` ? Et dans `defiler` ?
+5. Faire le lien avec les implémentations de la file vues au chapitre IV.
+
+```python
+f = File()
+for x in (1, 2, 3):
+    f.enfiler(x)
+assert f.defiler() == 1
+assert f.defiler() == 2
+f.enfiler(4)
+assert f.defiler() == 3
+assert f.defiler() == 4
+assert f.est_vide()
+```
+
+---
+
+## 🚀 Pour aller plus loin
+
+Une liste **doublement chaînée** possède, dans chaque cellule, une référence vers la cellule
+**précédente** en plus de la suivante. Quelles opérations deviennent plus efficaces ? Quel en est le prix ?

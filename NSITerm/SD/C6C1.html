@@ -3491,27 +3491,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-inserer-et-supprimer-immuable-ou-mutable" class="md-nav__link">
+  <a href="#4-inserer-en-reconstruisant" class="md-nav__link">
     <span class="md-ellipsis">
-      4. ✂️ Insérer et supprimer : immuable ou mutable ?
+      4. ✂️ Insérer en reconstruisant
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-tableau-ou-liste-chainee-que-choisir" class="md-nav__link">
+  <a href="#5-une-variante-modifiable-en-place" class="md-nav__link">
     <span class="md-ellipsis">
-      5. ⚖️ Tableau ou liste chaînée : que choisir ?
+      5. 🔧 Une variante modifiable en place
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-synthese" class="md-nav__link">
+  <a href="#6-tableau-ou-liste-chainee-que-choisir" class="md-nav__link">
     <span class="md-ellipsis">
-      6. 🧠 Synthèse
+      6. ⚖️ Tableau ou liste chaînée : que choisir ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 🧠 Synthèse
     </span>
   </a>
   
@@ -6288,135 +6297,6 @@ Les opérations « qui modifient » renvoient en réalité une <strong>nouvelle 
 fonctionne avec l'une ou l'autre implémentation (voir 3.1). Les fonctions de l'interface ne modifient
 jamais une cellule : comme en 2.1, chaque opération renvoie une liste sans toucher aux anciennes.</p>
 <hr />
-<h3 id="23-pour-aller-plus-loin-une-liste-modifiable-en-place">2.3 🔧 Pour aller plus loin : une liste modifiable en place<a class="headerlink" href="#23-pour-aller-plus-loin-une-liste-modifiable-en-place" title="Permanent link">⚓︎</a></h3>
-<p>La pile du chapitre IV était <strong>modifiée</strong> par <code>empiler</code> et <code>depiler</code>. On peut de la même façon
-définir une liste modifiable en place. La classe <code>Liste</code> <strong>encapsule</strong> la référence vers la première
-cellule : l'utilisateur manipule un objet <code>Liste</code> et n'a pas à se soucier des cellules.</p>
-<div class="admonition warning">
-<p class="admonition-title">Une autre interface</p>
-<p>Ici, les opérations <strong>modifient</strong> l'objet au lieu de renvoyer une nouvelle liste.
-L'interface n'est donc <strong>plus la même</strong> que celle du 1.3 : la classe <code>Liste</code> n'est pas une
-troisième implémentation du même TAD, mais une <strong>variante modifiable</strong> de la liste,
-construite sur la même structure chaînée.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Interface du 1.3 (renvoie une nouvelle liste)</th>
-<th>Classe <code>Liste</code> (modifie la liste)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>L = liste_vide()</code></td>
-<td><code>L = Liste()</code></td>
-</tr>
-<tr>
-<td><code>est_vide(L)</code></td>
-<td><code>L.est_vide()</code></td>
-</tr>
-<tr>
-<td><code>L = cons(x, L)</code></td>
-<td><code>L.ajouter_en_tete(x)</code></td>
-</tr>
-<tr>
-<td><code>tete(L)</code></td>
-<td><code>L.premier()</code></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Liste</span><span class="p">:</span>                                <span class="c1"># utilise la classe Cellule du 2.2</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Liste chaînée mutable.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>                    <span class="c1"># référence vers la première cellule</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="ow">is</span> <span class="kc">None</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>           <span class="c1"># O(1)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">premier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(1)</span>
-        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;liste vide&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">valeur</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(n)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
-        <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
-        <span class="k">return</span> <span class="n">n</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                      <span class="c1"># O(n)</span>
-        <span class="n">morceaux</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
-        <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">morceaux</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">valeur</span><span class="p">))</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
-        <span class="k">return</span> <span class="s2">&quot; -&gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">morceaux</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;None&quot;</span><span class="p">])</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-<span class="o">...</span>     <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="mi">1</span> <span class="o">-&gt;</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="kc">None</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="mi">3</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition info">
-<p class="admonition-title">Pourquoi une classe <code>Liste</code> en plus de <code>Cellule</code> ?</p>
-<p>Pour ajouter ou supprimer <strong>en tête</strong>, il faut changer la première cellule.
-Si la liste n'était qu'une variable pointant vers une cellule, une fonction ne pourrait pas
-modifier cette variable chez l'appelant : elle devrait renvoyer la nouvelle tête,
-et l'appelant devrait penser à écrire <code>L = f(L, ...)</code>.
-En stockant la référence dans l'attribut <code>self.tete</code>, la méthode peut la modifier directement.</p>
-<p><img alt="Comparaison. 1 : sans classe Liste, la variable L désigne directement la cellule 1 ; une fonction a créé une nouvelle cellule 0 qui pointe vers la cellule 1, mais L désigne toujours la cellule 1. 2 : avec la classe Liste, L désigne un objet Liste dont l'attribut tete pointe désormais vers la cellule 0, l'ancienne valeur pointant vers la cellule 1." src="img/classe_liste.svg" width="78%" /></p>
-<p>C'est l'<strong>encapsulation</strong> vue au chapitre V : l'utilisateur ne manipule que l'objet <code>L</code>,
-et c'est la classe qui gère la référence vers la première cellule.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Méthodes spéciales</p>
-<p>Définir <code>__len__</code> permet d'écrire <code>len(L)</code> ; définir <code>__str__</code> permet d'écrire <code>print(L)</code>.</p>
-</div>
-<hr />
 <h2 id="3-algorithmes-sur-les-listes">3. ⚙️ Algorithmes sur les listes<a class="headerlink" href="#3-algorithmes-sur-les-listes" title="Permanent link">⚓︎</a></h2>
 <h3 id="31-programmer-avec-linterface-seulement">3.1 Programmer avec l'interface seulement<a class="headerlink" href="#31-programmer-avec-linterface-seulement" title="Permanent link">⚓︎</a></h3>
 <p>Les fonctions suivantes n'utilisent <strong>que</strong> <code>liste_vide</code>, <code>est_vide</code>, <code>cons</code>, <code>tete</code> et <code>queue</code>.
@@ -6532,22 +6412,180 @@ Chaque pas (lecture de la queue) coûte un temps constant.</p>
 <strong>dictionnaire</strong>, dans lequel la recherche d'une <strong>clé</strong> se fait en temps constant en moyenne.</p>
 </div>
 <hr />
-<h2 id="4-inserer-et-supprimer-immuable-ou-mutable">4. ✂️ Insérer et supprimer : immuable ou mutable ?<a class="headerlink" href="#4-inserer-et-supprimer-immuable-ou-mutable" title="Permanent link">⚓︎</a></h2>
-<h3 id="41-avec-linterface-du-tad-21-ou-22">4.1 Avec l'interface du TAD (2.1 ou 2.2)<a class="headerlink" href="#41-avec-linterface-du-tad-21-ou-22" title="Permanent link">⚓︎</a></h3>
-<p>Les opérations de l'interface ne modifient jamais une liste existante : on <strong>reconstruit</strong> le début
-et on <strong>réutilise</strong> la fin. Le code ci-dessous fonctionne avec les deux implémentations.</p>
+<h2 id="4-inserer-en-reconstruisant">4. ✂️ Insérer en reconstruisant<a class="headerlink" href="#4-inserer-en-reconstruisant" title="Permanent link">⚓︎</a></h2>
+<p>Les opérations de l'interface ne modifient jamais une liste existante. Pour obtenir une liste différente, on <strong>reconstruit</strong> le début et on <strong>réutilise</strong> la fin. Le code de cette section fonctionne avec les deux implémentations (2.1 et 2.2).</p>
+<h3 id="41-reconstruire-au-retour-des-appels-ajouter-en-fin">4.1 Reconstruire au retour des appels : ajouter en fin<a class="headerlink" href="#41-reconstruire-au-retour-des-appels-ajouter-en-fin" title="Permanent link">⚓︎</a></h3>
+<p>Une liste non vide est un couple (tête, queue). Pour ajouter <code>x</code> à la fin :</p>
+<ul>
+<li>on ajoute <code>x</code> à la fin de la queue, ce que fait l'appel récursif ;</li>
+<li>on replace la tête devant le résultat, avec <code>cons</code>.</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">inserer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_fin</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie une nouvelle liste : les éléments de L suivis de x.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="n">ajouter_en_fin</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>   <span class="c1"># on suppose que cet appel est correct</span>
+    <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">fin</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">liste_vide</span><span class="p">()))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">ajouter_en_fin</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L2</span>                      <span class="c1"># affichage avec l&#39;implémentation par paires</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span>                       <span class="c1"># L n&#39;a pas changé</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition success">
+<p class="admonition-title">Comment lire une fonction récursive</p>
+<p>On ne suit pas tous les appels mentalement. On <strong>suppose</strong> que l'appel sur <code>queue(L)</code> renvoie le bon résultat, et on vérifie deux choses : ce qu'on fait de ce résultat, et le cas de base.</p>
+</div>
+<p><img alt="Après L2 = ajouter_en_fin(L, 9) : L désigne toujours les cellules 1 et 2, la dernière valant None. L2 désigne une copie de la cellule 1, qui pointe vers une copie de la cellule 2, qui pointe vers une nouvelle cellule 9. L et L2 n'ont aucune cellule en commun." src="img/ajout_fin_immuable.svg" width="62%" /></p>
+<p><strong>Pourquoi tout recopier ?</strong> La dernière cellule de <code>L</code> a pour suivante <code>None</code>. Pour que <code>9</code> vienne après elle, il faudrait changer sa référence, donc modifier <code>L</code>. On crée à la place une copie de cette cellule, qui pointe vers <code>9</code>. L'avant-dernière cellule doit alors pointer vers cette copie : elle est recopiée à son tour, et ainsi de suite jusqu'à la tête.</p>
+<div class="admonition success">
+<p class="admonition-title">La règle à retenir</p>
+<p>Sans modification, <strong>une cellule dont la suivante change doit être recopiée</strong>, ainsi que toutes celles qui la précèdent.</p>
+</div>
+<p>Pour une liste de longueur <code>n</code>, <code>ajouter_en_fin</code> crée donc <code>n + 1</code> cellules : <code>n</code> copies et la cellule de <code>x</code>. <code>L</code> et le résultat n'ont aucune cellule en commun. À l'inverse, <code>cons(x, L)</code> ne crée qu'une cellule et partage toute la liste <code>L</code>, car aucune référence existante ne change.</p>
+<p><strong>Et pour construire toute une liste ?</strong> Partons d'une liste vide et ajoutons <code>n</code> éléments en fin. Le 1ᵉʳ ajout crée 1 cellule, le 2ᵉ en crée 2, le 3ᵉ en crée 3, et ainsi de suite : il faut au total 1 + 2 + … + n cellules. Avec des ajouts en tête, chaque ajout n'en crée qu'une.</p>
+<table>
+<thead>
+<tr>
+<th>Nombre d'éléments <code>n</code></th>
+<th>Cellules créées par ajouts en tête</th>
+<th>Cellules créées par ajouts en fin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>10</td>
+<td>55</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100</td>
+<td>5 050</td>
+</tr>
+<tr>
+<td>1 000</td>
+<td>1 000</td>
+<td>500 500</td>
+</tr>
+</tbody>
+</table>
+<p>Quand <code>n</code> est multiplié par 10, le nombre de cellules créées par ajouts en fin est multiplié par environ 100 : le coût est en O(n²), comme pour les insertions au début d'un tableau dans la section 0. Pour construire une liste, on privilégie donc l'ajout en tête.</p>
+<h3 id="42-inserer-en-position-k">4.2 Insérer en position k<a class="headerlink" href="#42-inserer-en-position-k" title="Permanent link">⚓︎</a></h3>
+<p><code>inserer</code> réunit deux idées déjà rencontrées :</p>
+<table>
+<thead>
+<tr>
+<th>Idée</th>
+<th>Déjà vue dans</th>
+<th>Dans <code>inserer</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>descendre dans la liste en diminuant <code>k</code></td>
+<td><code>kieme_rec</code> (3.3)</td>
+<td><code>inserer(queue(L), k - 1, x)</code></td>
+</tr>
+<tr>
+<td>replacer la tête au retour de l'appel</td>
+<td><code>ajouter_en_fin</code> (4.1)</td>
+<td><code>cons(tete(L), fin)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">inserer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie une nouvelle liste où x est en position k. L n&#39;est pas modifiée.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="s2">&quot;indice hors limites&quot;</span>
-    <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">inserer</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="n">fin</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Pourquoi <code>k - 1</code> ?</p>
+<p><code>k</code> est une position <strong>dans la liste reçue</strong>. Quand on enlève la tête, chaque élément restant recule d'un rang : la position <code>k</code> dans <code>L</code> devient la position <code>k - 1</code> dans <code>queue(L)</code>.</p>
+</div>
+<p>Voici le déroulement de <code>inserer(L, 1, 9)</code> pour la liste 1, 2, 3. La dernière colonne se remplit <strong>de bas en haut</strong>, au retour des appels.</p>
+<table>
+<thead>
+<tr>
+<th>Appel</th>
+<th>Liste reçue</th>
+<th><code>k</code></th>
+<th>Liste renvoyée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1, 2, 3</td>
+<td>1</td>
+<td>1, 9, 2, 3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2, 3</td>
+<td>0</td>
+<td>9, 2, 3</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Sur le même modèle, dresser le tableau de déroulement de <code>inserer(L, 2, 9)</code>.</p>
+</div>
+<details class="success">
+<summary>Réponse</summary>
+<table>
+<thead>
+<tr>
+<th>Appel</th>
+<th>Liste reçue</th>
+<th><code>k</code></th>
+<th>Liste renvoyée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1, 2, 3</td>
+<td>2</td>
+<td>1, 2, 9, 3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2, 3</td>
+<td>1</td>
+<td>2, 9, 3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>9, 3</td>
+</tr>
+</tbody>
+</table>
+</details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6557,22 +6595,181 @@ et on <strong>réutilise</strong> la fin. Le code ci-dessous fonctionne avec les
 <span class="normal">7</span>
 <span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">liste_vide</span><span class="p">())))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">L2</span> <span class="o">=</span> <span class="n">inserer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">L2</span>                                  <span class="c1"># affichage avec l&#39;implémentation par paires</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L2</span>      <span class="c1"># affichage avec l&#39;implémentation par paires</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">))))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span>                                   <span class="c1"># L n&#39;a pas changé</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span>       <span class="c1"># L n&#39;a pas changé</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">queue</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L2</span><span class="p">))</span> <span class="ow">is</span> <span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>       <span class="c1"># la fin est partagée !</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">queue</span><span class="p">(</span><span class="n">queue</span><span class="p">(</span><span class="n">L2</span><span class="p">))</span> <span class="ow">is</span> <span class="n">queue</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>    <span class="c1"># la fin est partagée !</span>
 <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
 <p><img alt="Après L2 = inserer(L, 1, 9) : L désigne toujours la liste 1, 2, 3. L2 désigne deux nouvelles cellules, une copie de 1 puis 9, et la cellule 9 pointe vers la cellule 2 de L : les cellules 2 et 3 sont partagées par L et L2." src="img/insertion_immuable.svg" width="78%" /></p>
-<p>Les cellules situées <strong>avant</strong> la position d'insertion sont recopiées ; celles situées <strong>après</strong>
-ne sont pas recopiées : <code>L2</code> les partage avec <code>L</code>.</p>
+<p>On retrouve la règle du 4.1 : les cellules situées <strong>avant</strong> la position d'insertion sont recopiées ; celles situées <strong>après</strong> ne changent pas de suivante et sont partagées par <code>L2</code> et <code>L</code>.</p>
 <ul>
 <li><strong>Temps : O(k)</strong> ; <strong>mémoire : k + 1 nouvelles cellules</strong>.</li>
-<li>La liste <code>L</code> d'origine reste intacte : pas d'effet de bord. Le partage est <strong>sans danger</strong>
-  puisque personne ne peut modifier les cellules.</li>
+<li>La liste <code>L</code> reste intacte : pas d'effet de bord. Le partage est <strong>sans danger</strong> tant que personne ne modifie les cellules.</li>
 </ul>
-<h3 id="42-avec-la-liste-modifiable-classe-liste-du-23">4.2 Avec la liste modifiable (classe <code>Liste</code> du 2.3)<a class="headerlink" href="#42-avec-la-liste-modifiable-classe-liste-du-23" title="Permanent link">⚓︎</a></h3>
+<hr />
+<h2 id="5-une-variante-modifiable-en-place">5. 🔧 Une variante modifiable en place<a class="headerlink" href="#5-une-variante-modifiable-en-place" title="Permanent link">⚓︎</a></h2>
+<h3 id="51-peut-on-modifier-une-liste-depuis-une-fonction">5.1 Peut-on modifier une liste depuis une fonction ?<a class="headerlink" href="#51-peut-on-modifier-une-liste-depuis-une-fonction" title="Permanent link">⚓︎</a></h3>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Prédire ce qu'affiche le dernier appel, puis vérifier sur machine.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">liste_tuple</span><span class="w"> </span><span class="kn">import</span> <span class="n">liste_vide</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">tete</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ajoute</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">liste_vide</span><span class="p">())</span>
+<span class="n">ajoute</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tete</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<p>Le programme affiche <code>1</code> : <code>M</code> n'a pas changé. L'instruction <code>L = cons(x, L)</code> <strong>réaffecte la variable locale</strong> <code>L</code> ; la variable <code>M</code> du programme appelant désigne toujours la même cellule.</p>
+<p>Il y a deux solutions :</p>
+<ul>
+<li><strong>renvoyer la nouvelle liste</strong> et écrire <code>M = cons(0, M)</code> : c'est ce que fait l'interface du 1.3 ;</li>
+<li><strong>placer la référence vers la première cellule dans un objet</strong> : une méthode peut alors modifier un attribut de cet objet.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Une différence avec la pile du chapitre IV</p>
+<p><code>empiler(p, x)</code> peut modifier <code>p</code> sans la réaffecter, car une <code>list</code> Python reste un objet modifiable, même vide. La liste vide du 2.1 et du 2.2 vaut <code>None</code>, et <code>None</code> ne se modifie pas : il faut donc un objet qui enveloppe la chaîne.</p>
+</div>
+<h3 id="52-la-classe-liste">5.2 La classe <code>Liste</code><a class="headerlink" href="#52-la-classe-liste" title="Permanent link">⚓︎</a></h3>
+<p>Cette classe réutilise la classe <code>Cellule</code> du 2.2. Son attribut <code>tete</code> <strong>encapsule</strong> la référence vers la première cellule.</p>
+<p><img alt="Comparaison. 1 : sans classe Liste, la variable L désigne directement la cellule 1 ; une fonction a créé une nouvelle cellule 0 qui pointe vers la cellule 1, mais L désigne toujours la cellule 1. 2 : avec la classe Liste, L désigne un objet Liste dont l'attribut tete pointe désormais vers la cellule 0, l'ancienne valeur pointant vers la cellule 1." src="img/classe_liste.svg" width="78%" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Liste</span><span class="p">:</span>                                <span class="c1"># utilise la classe Cellule du 2.2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Liste chaînée modifiable en place.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># référence vers la première cellule</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">est_vide</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">ajouter_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>   <span class="c1"># O(1)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tete</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">premier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>              <span class="c1"># O(1)</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_vide</span><span class="p">(),</span> <span class="s2">&quot;liste vide&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span><span class="o">.</span><span class="n">valeur</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>              <span class="c1"># O(n)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
+        <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
+        <span class="k">return</span> <span class="n">n</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>              <span class="c1"># O(n)</span>
+        <span class="n">morceaux</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
+        <span class="k">while</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">morceaux</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">valeur</span><span class="p">))</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
+        <span class="k">return</span> <span class="s2">&quot; -&gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">morceaux</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;None&quot;</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="n">Liste</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+<span class="o">...</span>     <span class="n">L</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="mi">1</span> <span class="o">-&gt;</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="mi">3</span>
+</code></pre></div></td></tr></table></div>
+<p>C'est l'<strong>encapsulation</strong> vue au chapitre V : l'utilisateur ne manipule que l'objet <code>L</code>,
+et c'est la classe qui gère la référence vers la première cellule.</p>
+<div class="admonition note">
+<p class="admonition-title">Méthodes spéciales</p>
+<p>Définir <code>__len__</code> permet d'écrire <code>len(L)</code> ; définir <code>__str__</code> permet d'écrire <code>print(L)</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Le mot « tête » désigne deux choses</p>
+<ul>
+<li><code>tete(L)</code>, dans l'interface du 1.3, renvoie une <strong>valeur</strong>.</li>
+<li><code>L.tete</code>, dans cette classe, est une <strong>cellule</strong>. Sa valeur s'obtient par <code>L.tete.valeur</code> ou <code>L.premier()</code>.</li>
+</ul>
+<p>Ce nom d'attribut est courant : on le retrouve dans des sujets de baccalauréat. Dans un énoncé, on vérifie donc toujours ce que désigne chaque attribut.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Une autre interface</p>
+<p>Ici, les opérations <strong>modifient</strong> l'objet au lieu de renvoyer une nouvelle liste. La classe <code>Liste</code> n'est donc pas une troisième implémentation de l'interface du 1.3, mais une <strong>variante modifiable</strong>, construite sur la même structure chaînée.</p>
+<table>
+<thead>
+<tr>
+<th>Interface du 1.3 (renvoie une nouvelle liste)</th>
+<th>Classe <code>Liste</code> (modifie la liste)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>L = liste_vide()</code></td>
+<td><code>L = Liste()</code></td>
+</tr>
+<tr>
+<td><code>est_vide(L)</code></td>
+<td><code>L.est_vide()</code></td>
+</tr>
+<tr>
+<td><code>L = cons(x, L)</code></td>
+<td><code>L.ajouter_en_tete(x)</code></td>
+</tr>
+<tr>
+<td><code>tete(L)</code></td>
+<td><code>L.premier()</code></td>
+</tr>
+<tr>
+<td><code>queue(L)</code></td>
+<td>pas d'équivalent ici</td>
+</tr>
+</tbody>
+</table>
+<p>Les fonctions de la section 3 utilisent <code>queue</code> : elles ne s'appliquent donc pas directement à un objet <code>Liste</code>. Les méthodes parcourent les cellules avec une variable <code>c</code>.</p>
+</div>
+<h3 id="53-inserer-en-place">5.3 Insérer en place<a class="headerlink" href="#53-inserer-en-place" title="Permanent link">⚓︎</a></h3>
 <p>On se place sur la cellule <strong>précédant</strong> la position <code>k</code>, puis on modifie sa référence <code>suivant</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -6584,47 +6781,44 @@ ne sont pas recopiées : <code>L2</code> les partage avec <code>L</code>.</p>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="c1"># méthode de la classe Liste</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">inserer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>                <span class="c1"># O(k)</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="c1"># méthode de la classe Liste</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inserer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>    <span class="c1"># O(k)</span>
+        <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;indice hors limites&quot;</span>
         <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ajouter_en_tete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tete</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>              <span class="c1"># on s&#39;arrête sur la cellule n° k-1</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># on s&#39;arrête sur la cellule n° k-1</span>
             <span class="k">assert</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;indice hors limites&quot;</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span>
         <span class="k">assert</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;indice hors limites&quot;</span>
         <span class="n">c</span><span class="o">.</span><span class="n">suivant</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">suivant</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p>Dans la dernière ligne, Python évalue d'abord la partie droite : la nouvelle cellule pointe vers l'ancienne suivante, puis <code>c</code> pointe vers la nouvelle cellule.</p>
 <p><img alt="Avant L.inserer(1, 9) : L désigne un objet dont l'attribut tete pointe vers la liste 1, 2, 3 ; la variable c de la méthode désigne la cellule 1, d'indice k − 1. Après : la référence de la cellule 1 pointe vers une nouvelle cellule 9, qui pointe vers la cellule 2 ; l'ancienne référence de 1 vers 2 a disparu." src="img/insertion_en_place.svg" width="78%" /></p>
-<p>Comparez avec le schéma du 4.1 : ici, aucune cellule n'est recopiée, mais la liste d'origine
-est <strong>modifiée</strong>.</p>
+<p>Comparez avec le schéma du 4.2 : ici, aucune cellule n'est recopiée, mais la liste d'origine est <strong>modifiée</strong>.</p>
 <ul>
 <li><strong>Temps : O(k)</strong> pour atteindre la position ; la modification elle-même est en O(1).</li>
 <li><strong>Mémoire : une seule nouvelle cellule.</strong></li>
-<li>La liste est <strong>modifiée en place</strong>.</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Danger du partage avec des cellules mutables</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<h3 id="54-le-danger-du-partage">5.4 Le danger du partage<a class="headerlink" href="#54-le-danger-du-partage" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>          <span class="c1"># b et c partagent la cellule a</span>
-<span class="n">a</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">99</span>              <span class="c1"># b ET c sont modifiées !</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cellule</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>   <span class="c1"># b et c partagent la cellule a</span>
+<span class="n">a</span><span class="o">.</span><span class="n">valeur</span> <span class="o">=</span> <span class="mi">99</span>       <span class="c1"># la chaîne qui part de b ET celle qui part de c changent !</span>
 </code></pre></div></td></tr></table></div>
-Quand les cellules sont modifiables, partager une partie de liste crée des <strong>effets de bord</strong>
-difficiles à repérer. C'est l'une des raisons pour lesquelles on encapsule les cellules dans une
-classe <code>Liste</code>.</p>
-</div>
-<h3 id="43-bilan">4.3 Bilan<a class="headerlink" href="#43-bilan" title="Permanent link">⚓︎</a></h3>
+<p>Quand les cellules sont modifiables, partager une partie de liste crée des <strong>effets de bord</strong> difficiles à repérer. C'est l'une des raisons pour lesquelles l'utilisateur de la classe <code>Liste</code> passe par ses méthodes plutôt que de manipuler directement les cellules.</p>
+<h3 id="55-bilan">5.5 Bilan<a class="headerlink" href="#55-bilan" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
 <th>Insertion en position k</th>
-<th>Interface du TAD (2.1, 2.2)</th>
-<th>Classe <code>Liste</code> (2.3)</th>
+<th>Interface du 1.3 (4.2)</th>
+<th>Classe <code>Liste</code> (5.3)</th>
 </tr>
 </thead>
 <tbody>
@@ -6650,14 +6844,13 @@ classe <code>Liste</code>.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Remarque</p>
-<p>Les deux implémentations ont <strong>la même complexité en temps</strong>. Ce qui les distingue, c'est
-la mutabilité : coût mémoire d'un côté, effets de bord possibles de l'autre.
-Ces deux façons de programmer seront approfondies dans le chapitre sur les paradigmes de programmation.</p>
+<p>Les deux approches ont <strong>la même complexité en temps</strong>. Ce qui les distingue, c'est la mutabilité : coût mémoire d'un côté, effets de bord possibles de l'autre. Ces deux façons de programmer seront approfondies dans le chapitre sur les paradigmes de programmation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Vers les arbres</p>
+<p>Un nœud d'arbre binaire ressemble à une cellule, avec deux références au lieu d'une : <code>gauche</code> et <code>droit</code>. Ce travail sur les références resservira au chapitre sur les arbres.</p>
 </div>
 <hr />
-<h2 id="5-tableau-ou-liste-chainee-que-choisir">5. ⚖️ Tableau ou liste chaînée : que choisir ?<a class="headerlink" href="#5-tableau-ou-liste-chainee-que-choisir" title="Permanent link">⚓︎</a></h2>
+<h2 id="6-tableau-ou-liste-chainee-que-choisir">6. ⚖️ Tableau ou liste chaînée : que choisir ?<a class="headerlink" href="#6-tableau-ou-liste-chainee-que-choisir" title="Permanent link">⚓︎</a></h2>
 <table>
 <thead>
 <tr>
@@ -6689,8 +6882,7 @@ Ces deux façons de programmer seront approfondies dans le chapitre sur les para
 </tr>
 </tbody>
 </table>
-<p>Ces coûts découlent du modèle « cases numérotées » pour le tableau, et du parcours depuis la tête
-pour la liste chaînée.</p>
+<p>Ces coûts découlent du modèle « cases numérotées » pour le tableau, et du parcours depuis la tête pour la liste chaînée.</p>
 <div class="admonition success">
 <p class="admonition-title">À retenir</p>
 <ul>
@@ -6700,18 +6892,15 @@ pour la liste chaînée.</p>
 </ul>
 </div>
 <hr />
-<h2 id="6-synthese">6. 🧠 Synthèse<a class="headerlink" href="#6-synthese" title="Permanent link">⚓︎</a></h2>
+<h2 id="7-synthese">7. 🧠 Synthèse<a class="headerlink" href="#7-synthese" title="Permanent link">⚓︎</a></h2>
 <ul>
 <li>Le <strong>TAD Liste</strong> est défini par une interface : <code>liste_vide</code>, <code>est_vide</code>, <code>cons</code>, <code>tete</code>, <code>queue</code>.</li>
-<li>Une <strong>liste chaînée</strong> est une <strong>structure de données</strong> qui permet d'implémenter le TAD Liste :
-  une suite de cellules reliées par des références, parcourue à partir de la tête.
-  Un tableau serait une autre structure possible.</li>
-<li>On a écrit <strong>deux implémentations</strong> du TAD sur cette structure (paires, objets <code>Cellule</code>),
-  avec exactement la même interface.</li>
-<li>La classe <code>Liste</code> propose une <strong>autre interface</strong>, où les opérations modifient la liste en place.</li>
+<li>Une <strong>liste chaînée</strong> est une <strong>structure de données</strong> qui permet d'implémenter le TAD Liste : une suite de cellules reliées par des références, parcourue à partir de la tête. Un tableau serait une autre structure possible.</li>
+<li>On a écrit <strong>deux implémentations</strong> du TAD sur cette structure (paires, objets <code>Cellule</code>), avec exactement la même interface.</li>
 <li>Un algorithme écrit avec <strong>l'interface seulement</strong> fonctionne avec toutes les implémentations.</li>
-<li>Il faut savoir donner la <strong>complexité</strong> des opérations et <strong>choisir</strong> entre tableau, liste chaînée
-  et dictionnaire.</li>
+<li>Avec cette interface, on <strong>reconstruit</strong> le début d'une liste et on partage la fin, sans effet de bord. Il faut savoir dérouler un tel appel récursif.</li>
+<li>La classe <code>Liste</code> propose une <strong>autre interface</strong>, où les méthodes modifient la liste en place. Il faut savoir construire une chaîne à partir d'un schéma, lire des expressions comme <code>c.suivant.valeur</code> et modifier une référence.</li>
+<li>Il faut savoir donner la <strong>complexité</strong> des opérations et <strong>choisir</strong> entre tableau, liste chaînée et dictionnaire.</li>
 </ul>
 <hr />
 <h2 id="pour-sentrainer">📝 Pour s'entraîner<a class="headerlink" href="#pour-sentrainer" title="Permanent link">⚓︎</a></h2>

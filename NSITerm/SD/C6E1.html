@@ -3559,9 +3559,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-7-ajouter-en-fin" class="md-nav__link">
+  <a href="#exercice-7-remplacer-une-valeur" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 7 — Ajouter en fin
+      Exercice 7 — Remplacer une valeur
     </span>
   </a>
   
@@ -6012,7 +6012,7 @@
 <li>Construire de nouvelles listes <strong>sans modifier</strong> les listes existantes, et repérer les cellules partagées.</li>
 </ul>
 </div>
-<p>Prérequis : <a href="C6C1.html">cours</a>, sections 1.3, 2.1, 3 et 4.1.</p>
+<p>Prérequis : <a href="C6C1.html">cours</a>, sections 1.3, 2.1, 3 et 4.</p>
 <div class="admonition warning">
 <p class="admonition-title">Règle du jeu</p>
 <p>À partir de l'exercice 3, on n'utilise <strong>que</strong> les cinq opérations de l'interface :
@@ -6056,7 +6056,7 @@ Chaque programme commence par :
 <hr />
 <h2 id="exercice-3-afficher-une-liste">Exercice 3 — Afficher une liste<a class="headerlink" href="#exercice-3-afficher-une-liste" title="Permanent link">⚓︎</a></h2>
 <p>Écrire la fonction <code>vers_chaine(L)</code> qui <strong>renvoie</strong> une chaîne de caractères décrivant la liste,
-dans le format de la méthode <code>__str__</code> du cours.</p>
+dans le format montré par les tests.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">cons</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">cons</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">liste_vide</span><span class="p">())))</span>
@@ -6113,25 +6113,35 @@ d'une liste d'entiers.</p>
 <p><code>cons</code> ajoute en tête : par quelle extrémité du tableau faut-il commencer ?</p>
 </details>
 <hr />
-<h2 id="exercice-7-ajouter-en-fin">Exercice 7 — Ajouter en fin<a class="headerlink" href="#exercice-7-ajouter-en-fin" title="Permanent link">⚓︎</a></h2>
-<p>Écrire <code>ajouter_en_fin(L, x)</code> qui <strong>renvoie une nouvelle liste</strong> formée des éléments de <code>L</code> suivis de <code>x</code>.
-La liste <code>L</code> ne doit pas être modifiée.</p>
+<h2 id="exercice-7-remplacer-une-valeur">Exercice 7 — Remplacer une valeur<a class="headerlink" href="#exercice-7-remplacer-une-valeur" title="Permanent link">⚓︎</a></h2>
+<p>Écrire <code>remplacer(L, a, b)</code> qui <strong>renvoie une nouvelle liste</strong> où chaque élément égal à <code>a</code> est remplacé par <code>b</code>.
+La liste <code>L</code> ne doit pas être modifiée. S'inspirer de <code>ajouter_en_fin</code> (cours, 4.1).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">ajouter_en_fin</span><span class="p">(</span><span class="n">liste_vide</span><span class="p">(),</span> <span class="mi">4</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">depuis_tableau</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">remplacer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">remplacer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">remplacer</span><span class="p">(</span><span class="n">liste_vide</span><span class="p">(),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="p">[]</span>
+<span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-<ol>
-<li>Combien de cellules sont créées pour une liste <code>L</code> de longueur <code>n</code> ?</li>
-<li>Comparer avec le coût de <code>cons(x, L)</code>. Quelle opération faut-il privilégier pour construire une liste ?</li>
-</ol>
+<p>Combien de cellules sont créées pour une liste <code>L</code> de longueur <code>n</code> ?</p>
 <hr />
 <h2 id="exercice-8-supprimer-lelement-dindice-k">Exercice 8 — Supprimer l'élément d'indice k<a class="headerlink" href="#exercice-8-supprimer-lelement-dindice-k" title="Permanent link">⚓︎</a></h2>
 <p>Écrire <code>supprimer(L, k)</code> qui <strong>renvoie une nouvelle liste</strong> privée de l'élément d'indice <code>k</code>.
 Si <code>k</code> n'est pas un indice valide, une assertion échoue.</p>
+<p>Compléter le code :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">supprimer</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">est_vide</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="s2">&quot;indice hors limites&quot;</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">cons</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">supprimer</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6141,7 +6151,7 @@ Si <code>k</code> n'est pas un indice valide, une assertion échoue.</p>
 <span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">supprimer</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <ol>
-<li>Dessiner l'état de la mémoire après <code>N2 = supprimer(N, 2)</code>, sur le modèle du schéma du cours (4.1).</li>
+<li>Dessiner l'état de la mémoire après <code>N2 = supprimer(N, 2)</code>, sur le modèle du schéma du cours (4.2).</li>
 <li>Combien de cellules sont créées ? Lesquelles sont partagées par <code>N</code> et <code>N2</code> ?</li>
 <li>Vérifier la réponse avec l'opérateur <code>is</code> : que vaut <code>queue(queue(N2)) is queue(queue(queue(N)))</code> ?</li>
 </ol>
