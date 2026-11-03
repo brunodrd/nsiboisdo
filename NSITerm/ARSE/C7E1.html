@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gestion-des-ressources-par-un-se-exercices" class="md-skip">
+        <a href="#gestion-des-processus-et-des-ressources-exercices" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3646,18 +3646,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercice-1" class="md-nav__link">
+  <a href="#questions-flash-debut-de-seance" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 1
+      Questions flash (début de séance)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-2" class="md-nav__link">
+  <a href="#exercice-1-etats-dun-processus" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 2
+      Exercice 1 – États d'un processus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-observer-les-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2 – Observer les processus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-ordonnancement-par-priorites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3 – Ordonnancement par priorités
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-appliquer-un-algorithme-decrit-dans-lenonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 4 – Appliquer un algorithme décrit dans l'énoncé
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-le-tourniquet-et-sa-programmation-avec-une-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 5 – Le tourniquet et sa programmation avec une file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-interblocage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 6 – Interblocage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-7-acces-concurrent-a-une-donnee-partagee" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Exercice 7 – Accès concurrent à une donnée partagée
     </span>
   </a>
   
@@ -5921,75 +5975,380 @@
 
 
 
-<h1 id="gestion-des-ressources-par-un-se-exercices">Gestion des ressources par un SE - Exercices<a class="headerlink" href="#gestion-des-ressources-par-un-se-exercices" title="Permanent link">⚓︎</a></h1>
+<h1 id="gestion-des-processus-et-des-ressources-exercices">Gestion des processus et des ressources – Exercices<a class="headerlink" href="#gestion-des-processus-et-des-ressources-exercices" title="Permanent link">⚓︎</a></h1>
 <div class="admonition info">
-<p class="admonition-title">Sources</p>
-<p>Cette fiche d'exercices provient du travail de David Roche, enseignant de NSI en Haute-Savoie et disponible <a href="https://pixees.fr/informatiquelycee/term/c19e.html">sur son site personnel</a>.</p>
-</div>
-<h2 id="exercice-1">Exercice 1<a class="headerlink" href="#exercice-1" title="Permanent link">⚓︎</a></h2>
-<p><em>D'après le sujet du bac NSI 2021</em></p>
-<p><strong>1)</strong> La commande <code>ps</code> suivie éventuellement de diverses options permet de lister les processus actifs ou en attente sur une machine. Sur une machine équipée du système d’exploitation GNU/Linux, la commande <code>ps -aef</code> permet d’obtenir la sortie suivante (<em>extrait</em>) :  </p>
-<p><img alt="im1e1" src="img/c19e_1.png" /></p>
-<p><strong>a)</strong> Quelle est la particularité de l’utilisateur <em>root</em>?</p>
-<p><strong>b)</strong> Quel est le processus parent du processus ayant pour <code>PID 3383</code>?</p>
-<p>Dans un bureau d’architectes, on dispose de certaines ressources qui ne peuvent être utilisées simultanément par plus d’un processus, comme l’imprimante, la table traçante, le modem. Chaque programme, lorsqu’il s’exécute, demande l’allocation des ressources qui lui sont nécessaires. Lorsqu’il a fini de s’exécuter, il libère ses ressources.</p>
-<p><img alt="im2e1" src="img/c19e_2.png" /></p>
-<p><strong>2)</strong> On appelle <span class="arithmatex">\(\mathcal{P}_1\)</span>, <span class="arithmatex">\(\mathcal{P}_2\)</span> et <span class="arithmatex">\(\mathcal{P}_3\)</span> les processus associés respectivement aux programmes 1, 2 et 3.</p>
-<p><strong>a)</strong> Justifier qu'une situation d'interblocage peut se produire.</p>
-<p><strong>b)</strong> Modifier l'ordre des instructions du programme 3 pour qu'une telle situation ne puisse pas se produire.</p>
-<h2 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">⚓︎</a></h2>
-<p><em>D'après le sujet du bac NSI 2021</em></p>
-<p><strong>Partie A</strong></p>
-<p>Cette partie est un questionnaire à choix multiples (QCM). Pour chacune des questions, une seule des quatre réponses est exacte. Le candidat indiquera sur sa copie le numéro de la question et la lettre correspondant à la réponse exacte. Aucune justification n’est demandée. Une réponse fausse ou une absence de réponse n’enlève aucun point.</p>
-<p><strong>1)</strong> Parmi les commandes ci-dessous, laquelle permet d’afficher les processus en cours d’exécution ?</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    a. dir
-    b. ps
-    c. man
-    d. ls
-</code></pre></div></td></tr></table></div>
-<p><strong>2)</strong> Quelle abréviation désigne l’identifiant d’un processus dans un système d’exploitation de type UNIX ?  </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    a. PIX
-    b. SIG
-    c. PID
-    d. SID
-</code></pre></div></td></tr></table></div>
-<p><strong>3)</strong> Comment s’appelle la gestion du partage du processeur entre différents processus ?</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    a. L’interblocage
-    b. L’ordonnancement
-    c. La planification
-    d. La priorisation
-</code></pre></div></td></tr></table></div>
-<p><strong>4)</strong> Quelle commande permet d’interrompre un processus dans un système d’exploitation de type UNIX ?</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>    a. stop
-    b. interrupt
-    c. end
-    d. kill
-</code></pre></div></td></tr></table></div>
-<p><strong>Partie B</strong></p>
-<p><strong>1)</strong> Un processeur choisit à chaque cycle d’exécution le processus qui doit être exécuté. Le tableau ci-dessous donne pour trois processus P1, P2, P3 :</p>
+<p class="admonition-title">Organisation</p>
 <ul>
-<li>la durée d’exécution (en nombre de cycles),</li>
-<li>l’instant d’arrivée sur le processeur (exprimé en nombre de cycles à partir de 0),</li>
-<li>le numéro de priorité.</li>
+<li>Les exercices 1 à 6 suivent le format des sujets d'écrit des sessions 2023 à 2026. Les exercices marqués ⭐ sont des prolongements.</li>
+<li><strong>Toute réponse doit être justifiée par une ou deux phrases rédigées</strong>, sauf mention contraire. À l'écrit du baccalauréat, la maîtrise de la langue (vocabulaire juste, raisonnement formulé) compte pour 2 points sur 20.</li>
+<li>Pour les chronogrammes, appliquer la méthode du cours : relire les règles, repérer les conventions, avancer cycle par cycle. Dans les énoncés, « instant » a le sens de « date » dans le cours : le cycle <span class="arithmatex">\(k\)</span> s'étend de l'instant <span class="arithmatex">\(k\)</span> à l'instant <span class="arithmatex">\(k+1\)</span>.</li>
 </ul>
-<p>Le numéro de priorité est d’autant plus petit que la priorité est grande. On suppose qu’à chaque instant, c’est le processus qui a le plus petit numéro de priorité qui est exécuté, ce qui peut provoquer la suspension d’un autre processus, lequel reprendra lorsqu’il sera le plus prioritaire.</p>
-<p><img alt="im3e1" src="img/c19e_3.png" /></p>
-<p>Reproduire le tableau ci-dessous sur la copie et indiquer dans chacune des cases le processus exécuté à chaque cycle.</p>
-<p><img alt="im4e1" src="img/c19e_4.png" /></p>
-<p><strong>2)</strong> On suppose maintenant que les trois processus précédents s’exécutent et utilisent une ou plusieurs ressources parmi R1, R2 et R3. Parmi les scénarios suivants, lequel provoque un interblocage ? Justifier.</p>
-<p><img alt="im5e1" src="img/c19e_5.png" /></p>
+</div>
+<h2 id="questions-flash-debut-de-seance">Questions flash (début de séance)<a class="headerlink" href="#questions-flash-debut-de-seance" title="Permanent link">⚓︎</a></h2>
+<p><em>D'après le sujet du bac NSI 2021. Une seule réponse exacte par question, sans justification.</em></p>
+<ol>
+<li>Quelle commande affiche les processus en cours d'exécution ? <strong>a.</strong> <code>dir</code> <strong>b.</strong> <code>ps</code> <strong>c.</strong> <code>man</code> <strong>d.</strong> <code>ls</code></li>
+<li>Quelle abréviation désigne l'identifiant d'un processus dans un système de type UNIX ? <strong>a.</strong> PIX <strong>b.</strong> SIG <strong>c.</strong> PID <strong>d.</strong> SID</li>
+<li>Comment s'appelle la gestion du partage du processeur entre différents processus ? <strong>a.</strong> l'interblocage <strong>b.</strong> l'ordonnancement <strong>c.</strong> la planification <strong>d.</strong> la priorisation</li>
+<li>Quelle commande permet d'interrompre un processus dans un système de type UNIX ? <strong>a.</strong> <code>stop</code> <strong>b.</strong> <code>interrupt</code> <strong>c.</strong> <code>end</code> <strong>d.</strong> <code>kill</code></li>
+</ol>
+<h2 id="exercice-1-etats-dun-processus">Exercice 1 – États d'un processus<a class="headerlink" href="#exercice-1-etats-dun-processus" title="Permanent link">⚓︎</a></h2>
+<p><em>Inspiré de 26-NSIJ2AN1 (exercice 1, partie A) et 24-NSIJ1AN1 (exercice 1).</em></p>
+<ol>
+<li>Citer les trois états dans lesquels peut se trouver un processus.</li>
+<li>
+<p>Associer à chacune des lettres (a) à (g) du schéma ci-dessous l'un des termes : « élu », « prêt », « bloqué », « élection », « blocage », « déblocage », « préemption ».</p>
+<p><img alt="Schéma des états d'un processus à compléter : trois états notés (a), (b), (c) et quatre transitions notées (d) de (a) vers (b), (e) de (b) vers (a), (f) de (b) vers (c) et (g) de (c) vers (a). Un état Nouveau mène à (a) par l'admission, et (b) mène à Terminé." src="img/etats_a_completer.svg" /></p>
+</li>
+<li>
+<p>Sur un ordinateur à un seul processeur, on observe à un instant donné trois processus :</p>
+<ul>
+<li>A effectue un calcul et utilise le processeur ;</li>
+<li>B a demandé la lecture d'un fichier sur le disque et attend que les données soient chargées ;</li>
+<li>C dispose de tout ce qu'il lui faut, mais le processeur est occupé.</li>
+</ul>
+<p>Indiquer l'état de chacun des trois processus.</p>
+</li>
+<li>
+<p>La lecture demandée par B se termine. Dans quel état passe B ? Peut-il utiliser immédiatement le processeur ? Justifier.</p>
+</li>
+<li>On suppose dans cette question qu'aucun processus n'utilise de ressource autre que le processeur. Quels sont alors les seuls états possibles pour un processus ? Justifier.</li>
+</ol>
+<h2 id="exercice-2-observer-les-processus">Exercice 2 – Observer les processus<a class="headerlink" href="#exercice-2-observer-les-processus" title="Permanent link">⚓︎</a></h2>
+<p><em>Inspiré de 23-NSIJ2PO1 (exercice 3).</em></p>
+<p>La commande <code>ps -ef</code> produit l'affichage suivant (extrait, colonnes simplifiées) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>UID     PID  PPID  CMD
+root      1     0  /sbin/init
+root    612     1  /usr/sbin/sshd
+alice  1201     1  /lib/systemd/systemd --user
+alice  1350  1201  /usr/bin/gnome-terminal
+alice  1357  1350  bash
+alice  1402  1201  /usr/lib/firefox/firefox
+alice  1460  1402  /usr/lib/firefox/firefox -contentproc
+alice  1471  1402  /usr/lib/firefox/firefox -contentproc
+alice  1532  1357  python3 calcul.py
+alice  1533  1532  python3 calcul.py
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Quel est le processus père du processus de PID 1533 ? Quel est son père à lui ?</li>
+<li>Représenter sous forme d'arbre les processus descendants du processus de PID 1201 (on indiquera les PID).</li>
+<li>Écrire <strong>une seule</strong> commande <code>kill</code> qui termine Firefox et tous ses processus fils, et uniquement eux.</li>
+<li>La ligne <code>python3 calcul.py</code> apparaît deux fois. Proposer une explication en utilisant le vocabulaire du cours.</li>
+<li>L'utilisatrice alice tape <code>kill 612</code>. Que se passe-t-il ? Pourquoi ?</li>
+</ol>
+<h2 id="exercice-3-ordonnancement-par-priorites">Exercice 3 – Ordonnancement par priorités<a class="headerlink" href="#exercice-3-ordonnancement-par-priorites" title="Permanent link">⚓︎</a></h2>
+<p><em>Format des sujets de 2021 et de 23-NSIJ2NC1 (exercice 3).</em></p>
+<p>Un processeur choisit, à chaque cycle, le processus à exécuter. Le <strong>numéro de priorité</strong> est d'autant plus petit que la priorité est grande. À chaque cycle, le processus prêt qui a le plus petit numéro est exécuté, ce qui peut provoquer la suspension d'un autre processus ; celui-ci reprendra lorsqu'il sera de nouveau le plus prioritaire. Un processus arrivé à l'instant <span class="arithmatex">\(t\)</span> peut être exécuté dès le cycle <span class="arithmatex">\(t\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Processus</th>
+<th style="text-align: center;">Instant d'arrivée</th>
+<th style="text-align: center;">Durée (cycles)</th>
+<th style="text-align: center;">Numéro de priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>P2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>P3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>P4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Recopier et compléter le chronogramme en indiquant le processus exécuté à chaque cycle.</p>
+<table>
+<thead>
+<tr>
+<th>Cycle</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Élu</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Calculer le temps de séjour (fin − arrivée) et le temps d'attente de chaque processus.</p>
+</li>
+<li>Quel processus est le plus pénalisé ? Expliquer quel risque courrait ce processus si des processus de numéro de priorité 0 ou 1 arrivaient sans cesse. Nommer ce phénomène.</li>
+</ol>
+<h2 id="exercice-4-appliquer-un-algorithme-decrit-dans-lenonce">Exercice 4 – Appliquer un algorithme décrit dans l'énoncé<a class="headerlink" href="#exercice-4-appliquer-un-algorithme-decrit-dans-lenonce" title="Permanent link">⚓︎</a></h2>
+<p><em>Inspiré de 23-NSIJ2PO1 (exercice 3, question 2).</em></p>
+<p>On considère l'algorithme d'ordonnancement suivant, qui n'a pas été étudié en cours :</p>
+<ul>
+<li>parmi les processus prêts, l'ordonnanceur choisit celui dont la <strong>durée restante</strong> est la plus courte ;</li>
+<li>le processeur exécute <strong>un cycle</strong> de ce processus, puis l'ordonnanceur choisit de nouveau ;</li>
+<li>en cas d'égalité, il choisit le processus <strong>arrivé le plus tôt</strong> ;</li>
+<li>un processus arrivé à l'instant <span class="arithmatex">\(t\)</span> peut être choisi dès le cycle <span class="arithmatex">\(t\)</span>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Processus</th>
+<th style="text-align: center;">Instant d'arrivée</th>
+<th style="text-align: center;">Durée (cycles)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td>P2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>P3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>P4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Cet algorithme est-il préemptif ? Justifier.</li>
+<li>Construire le chronogramme de 0 à la fin de l'exécution de tous les processus.</li>
+<li>Calculer la moyenne des temps de séjour des quatre processus.</li>
+<li>Construire le chronogramme du même jeu de processus avec l'algorithme FIFO, puis calculer la moyenne des temps de séjour. Quel algorithme est le plus performant selon ce critère ?</li>
+<li>Quel inconvénient l'algorithme de cet exercice présente-t-il pour un processus long comme P1 ?</li>
+</ol>
+<h2 id="exercice-5-le-tourniquet-et-sa-programmation-avec-une-file">Exercice 5 – Le tourniquet et sa programmation avec une file<a class="headerlink" href="#exercice-5-le-tourniquet-et-sa-programmation-avec-une-file" title="Permanent link">⚓︎</a></h2>
+<p><em>Inspiré de 26-NSIJ2AN1 (exercice 1, partie B) et 24-NSIJ1AN1 (exercice 1).</em></p>
+<p>On utilise un ordonnanceur de type tourniquet, de quantum 2 cycles :</p>
+<ul>
+<li>le processus en tête de la file d'attente est défilé et s'exécute pendant au plus un quantum ;</li>
+<li>s'il a terminé avant ou à la fin du quantum, le processus suivant est défilé ;</li>
+<li>sinon, il est remis <strong>en queue</strong> de la file d'attente ;</li>
+<li><strong>convention</strong> : un processus qui arrive à l'instant <span class="arithmatex">\(t\)</span> est enfilé <strong>avant</strong> un processus remis en file au même instant.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Processus</th>
+<th style="text-align: center;">Instant d'arrivée</th>
+<th style="text-align: center;">Durée (cycles)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td>P2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>P3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td>P4</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="partie-a-a-la-main">Partie A – à la main<a class="headerlink" href="#partie-a-a-la-main" title="Permanent link">⚓︎</a></h3>
+<ol>
+<li>
+<p>Recopier et compléter le chronogramme. On indiquera à chaque instant où un processus est défilé le contenu de la file d'attente.</p>
+<table>
+<thead>
+<tr>
+<th>Cycle</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Élu</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Calculer le temps de séjour de chaque processus.</p>
+</li>
+<li>À quels instants la convention d'arrivée intervient-elle ? Donner le chronogramme obtenu avec la convention inverse (le processus remis en file passe devant le processus qui arrive au même instant).</li>
+</ol>
+<h3 id="partie-b-en-python">Partie B – en Python<a class="headerlink" href="#partie-b-en-python" title="Permanent link">⚓︎</a></h3>
+<p>Chaque processus est représenté par un dictionnaire ; la clé <code>'reste'</code> donne le nombre de cycles qu'il lui reste à exécuter. On dispose d'une classe <code>File</code> munie des méthodes <code>est_vide()</code>, <code>enfiler(element)</code> et <code>defiler()</code>.</p>
+<ol>
+<li>Écrire les instructions qui créent une file <code>f</code> contenant les processus A (3 cycles), B (5 cycles) et C (2 cycles), dans cet ordre, A étant en tête.</li>
+<li>
+<p>La fonction <code>execute_une_tranche</code> réalise une étape du tourniquet : elle défile un processus, l'exécute pendant au plus <code>quantum</code> cycles à partir de l'instant <code>t</code>, le remet en queue de file s'il n'est pas terminé, et renvoie l'instant où l'étape se termine. Recopier et compléter son code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">execute_une_tranche</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">quantum</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">defiler</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;reste&#39;</span><span class="p">]</span> <span class="o">...</span> <span class="n">quantum</span><span class="p">:</span>
+        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;reste&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">t</span> <span class="o">+</span> <span class="o">...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fin</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="o">...</span>
+        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;reste&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">fin</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>On suppose que tous les processus sont déjà dans la file à l'instant 0. Écrire une fonction <code>execute_tous(file, quantum)</code> qui exécute tous les processus avec le tourniquet et renvoie l'instant où se termine le dernier.</p>
+</li>
+<li>Que renvoie <code>execute_tous(f, 2)</code> avec la file <code>f</code> créée au début de cette partie ? Pouvait-on prévoir ce résultat sans dérouler l'algorithme ? Justifier.</li>
+</ol>
+<h2 id="exercice-6-interblocage">Exercice 6 – Interblocage<a class="headerlink" href="#exercice-6-interblocage" title="Permanent link">⚓︎</a></h2>
+<p><em>Format de 24-NSIJ1AN1 (question 7) et 26-NSIJ2AN1 (question 4).</em></p>
+<p>Trois ressources A, B et C ne peuvent être utilisées que par un seul processus à la fois. Trois processus s'exécutent de manière concurrente ; chacun demande et libère les ressources dans l'ordre indiqué (de haut en bas). Un processus qui demande une ressource déjà détenue passe à l'état bloqué jusqu'à ce qu'elle soit libérée.</p>
+<table>
+<thead>
+<tr>
+<th>P1</th>
+<th>P2</th>
+<th>P3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>demander A</td>
+<td>demander B</td>
+<td>demander C</td>
+</tr>
+<tr>
+<td>demander B</td>
+<td>demander C</td>
+<td>demander A</td>
+</tr>
+<tr>
+<td>libérer B</td>
+<td>libérer C</td>
+<td>libérer A</td>
+</tr>
+<tr>
+<td>libérer A</td>
+<td>libérer B</td>
+<td>libérer C</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Expliquer, de façon générale, dans quelle situation un interblocage peut survenir.</li>
+<li>Proposer un ordre d'exécution des instructions qui conduit à un interblocage. Justifier en indiquant, à la fin, quelle ressource chaque processus détient et laquelle il attend.</li>
+<li>Représenter cette situation par un schéma d'allocation des ressources et montrer qu'il contient une attente circulaire.</li>
+<li>Modifier l'ordre des demandes <strong>d'un seul processus</strong> pour que l'interblocage devienne impossible. Justifier.</li>
+</ol>
+<h2 id="exercice-7-acces-concurrent-a-une-donnee-partagee">⭐ Exercice 7 – Accès concurrent à une donnée partagée<a class="headerlink" href="#exercice-7-acces-concurrent-a-une-donnee-partagee" title="Permanent link">⚓︎</a></h2>
+<p><em>Inspiré de 23-NSIJ2NC1 (exercice 3). Prolongement : les notions de cet exercice dépassent le programme.</em></p>
+<p>Deux guichets vendent des billets pour un même concert. Une variable partagée <code>places</code> contient le nombre de places restantes, initialement 10. Pour vendre un billet, chacun des deux processus G1 et G2 exécute :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>x ← places        (lecture de la variable partagée dans une variable locale)
+x ← x − 1
+places ← x        (écriture)
+</code></pre></div></td></tr></table></div>
+<p>L'ordonnanceur peut interrompre un processus entre deux de ces instructions.</p>
+<ol>
+<li>On exécute G1 en entier, puis G2 en entier. Quelle est la valeur finale de <code>places</code> ?</li>
+<li>Proposer un entrelacement des instructions de G1 et G2 pour lequel la valeur finale est 9. Expliquer pourquoi ce résultat est faux.</li>
+<li>On protège les trois instructions par un <strong>verrou</strong> : un processus doit acquérir le verrou avant la lecture et le libérer après l'écriture ; un processus qui demande un verrou déjà pris est bloqué. Expliquer pourquoi le résultat est alors toujours correct.</li>
+<li>Faire le lien avec la notion de ressource en exclusion mutuelle du cours.</li>
+</ol>
 
 
 
