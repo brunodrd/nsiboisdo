@@ -3559,36 +3559,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercice-7-remplacer-une-valeur" class="md-nav__link">
+  <a href="#exercice-7-changer-dimplementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercice 7 — Remplacer une valeur
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercice-8-supprimer-lelement-dindice-k" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercice 8 — Supprimer l'élément d'indice k
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercice-9-supprimer-une-valeur" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercice 9 — Supprimer une valeur
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercice-10-changer-dimplementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercice 10 — Changer d'implémentation
+      Exercice 7 — Changer d'implémentation
     </span>
   </a>
   
@@ -6009,10 +5982,11 @@
 <li>Passer du schéma d'une liste chaînée à sa représentation par paires, et inversement.</li>
 <li>Écrire l'implémentation par paires du TAD Liste.</li>
 <li>Écrire des algorithmes qui n'utilisent <strong>que l'interface</strong> : ils fonctionneront avec toute implémentation.</li>
-<li>Construire de nouvelles listes <strong>sans modifier</strong> les listes existantes, et repérer les cellules partagées.</li>
+<li>Vérifier qu'un programme écrit avec l'interface fonctionne avec une autre implémentation.</li>
+<li>Pour aller plus loin : construire de nouvelles listes <strong>sans modifier</strong> les listes existantes, et repérer les cellules partagées.</li>
 </ul>
 </div>
-<p>Prérequis : <a href="C6C1.html">cours</a>, sections 1.3, 2.1, 3 et 4.</p>
+<p>Prérequis : <a href="C6C1.html">cours</a>, sections 1.3, 2.1, 2.2 et 3 pour les exercices 1 à 7 ; section 4 pour la partie « Pour aller plus loin ».</p>
 <div class="admonition warning">
 <p class="admonition-title">Règle du jeu</p>
 <p>À partir de l'exercice 3, on n'utilise <strong>que</strong> les cinq opérations de l'interface :
@@ -6113,7 +6087,21 @@ d'une liste d'entiers.</p>
 <p><code>cons</code> ajoute en tête : par quelle extrémité du tableau faut-il commencer ?</p>
 </details>
 <hr />
-<h2 id="exercice-7-remplacer-une-valeur">Exercice 7 — Remplacer une valeur<a class="headerlink" href="#exercice-7-remplacer-une-valeur" title="Permanent link">⚓︎</a></h2>
+<h2 id="exercice-7-changer-dimplementation">Exercice 7 — Changer d'implémentation<a class="headerlink" href="#exercice-7-changer-dimplementation" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Récupérer le module <code>liste_cellule.py</code> du cours (2.2).</li>
+<li>Dans votre programme, remplacer <code>liste_tuple</code> par <code>liste_cellule</code> dans la ligne d'import, <strong>sans rien
+   modifier d'autre</strong>, puis relancer tous les tests.</li>
+<li>Quels tests échouent ? Pourquoi ? <em>(Pensez à l'exercice 2.)</em></li>
+<li>Expliquer en deux phrases ce que cet exercice montre sur la séparation entre interface et implémentation.</li>
+</ol>
+<hr />
+<h2 id="pour-aller-plus-loin">🚀 Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Reconstruire une liste</p>
+<p>Ces exercices demandent le cours, section 4 : on construit une nouvelle liste sans modifier l'ancienne, et on repère les cellules partagées. Ils sont facultatifs dans un premier temps.</p>
+</div>
+<h3 id="exercice-8-remplacer-une-valeur">Exercice 8 — Remplacer une valeur<a class="headerlink" href="#exercice-8-remplacer-une-valeur" title="Permanent link">⚓︎</a></h3>
 <p>Écrire <code>remplacer(L, a, b)</code> qui <strong>renvoie une nouvelle liste</strong> où chaque élément égal à <code>a</code> est remplacé par <code>b</code>.
 La liste <code>L</code> ne doit pas être modifiée. S'inspirer de <code>ajouter_en_fin</code> (cours, 4.1).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6127,8 +6115,7 @@ La liste <code>L</code> ne doit pas être modifiée. S'inspirer de <code>ajouter
 <span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>Combien de cellules sont créées pour une liste <code>L</code> de longueur <code>n</code> ?</p>
-<hr />
-<h2 id="exercice-8-supprimer-lelement-dindice-k">Exercice 8 — Supprimer l'élément d'indice k<a class="headerlink" href="#exercice-8-supprimer-lelement-dindice-k" title="Permanent link">⚓︎</a></h2>
+<h3 id="exercice-9-supprimer-lelement-dindice-k">Exercice 9 — Supprimer l'élément d'indice k<a class="headerlink" href="#exercice-9-supprimer-lelement-dindice-k" title="Permanent link">⚓︎</a></h3>
 <p>Écrire <code>supprimer(L, k)</code> qui <strong>renvoie une nouvelle liste</strong> privée de l'élément d'indice <code>k</code>.
 Si <code>k</code> n'est pas un indice valide, une assertion échoue.</p>
 <p>Compléter le code :</p>
@@ -6155,8 +6142,7 @@ Si <code>k</code> n'est pas un indice valide, une assertion échoue.</p>
 <li>Combien de cellules sont créées ? Lesquelles sont partagées par <code>N</code> et <code>N2</code> ?</li>
 <li>Vérifier la réponse avec l'opérateur <code>is</code> : que vaut <code>queue(queue(N2)) is queue(queue(queue(N)))</code> ?</li>
 </ol>
-<hr />
-<h2 id="exercice-9-supprimer-une-valeur">Exercice 9 — Supprimer une valeur<a class="headerlink" href="#exercice-9-supprimer-une-valeur" title="Permanent link">⚓︎</a></h2>
+<h3 id="exercice-10-supprimer-une-valeur">Exercice 10 — Supprimer une valeur<a class="headerlink" href="#exercice-10-supprimer-une-valeur" title="Permanent link">⚓︎</a></h3>
 <p>Écrire <code>supprimer_valeur(L, x)</code> qui renvoie une nouvelle liste où <strong>la première occurrence</strong> de <code>x</code>
 a été supprimée. Si <code>x</code> n'apparaît pas, la liste renvoyée a les mêmes éléments que <code>L</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6165,17 +6151,7 @@ a été supprimée. Si <code>x</code> n'apparaît pas, la liste renvoyée a les 
 <span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">supprimer_valeur</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">vers_tableau</span><span class="p">(</span><span class="n">supprimer_valeur</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
-<hr />
-<h2 id="exercice-10-changer-dimplementation">Exercice 10 — Changer d'implémentation<a class="headerlink" href="#exercice-10-changer-dimplementation" title="Permanent link">⚓︎</a></h2>
-<ol>
-<li>Récupérer le module <code>liste_cellule.py</code> du cours (2.2).</li>
-<li>Dans votre programme, remplacer <code>liste_tuple</code> par <code>liste_cellule</code> dans la ligne d'import, <strong>sans rien
-   modifier d'autre</strong>, puis relancer tous les tests.</li>
-<li>Quels tests échouent ? Pourquoi ? <em>(Pensez à l'exercice 2.)</em></li>
-<li>Expliquer en deux phrases ce que cet exercice montre sur la séparation entre interface et implémentation.</li>
-</ol>
-<hr />
-<h2 id="pour-aller-plus-loin">🚀 Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permanent link">⚓︎</a></h2>
+<h3 id="deux-derniers-defis">Deux derniers défis<a class="headerlink" href="#deux-derniers-defis" title="Permanent link">⚓︎</a></h3>
 <ul>
 <li><strong>Renverser</strong> : écrire <code>renverser(L)</code> qui renvoie la liste des éléments de <code>L</code> dans l'ordre inverse,
   en un seul parcours.</li>
