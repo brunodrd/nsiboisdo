@@ -6014,12 +6014,22 @@
 <p class="admonition-title">Règle du jeu</p>
 <p>À partir de l'exercice 3, on n'utilise <strong>que</strong> les cinq opérations de l'interface :
 <code>liste_vide</code>, <code>est_vide</code>, <code>cons</code>, <code>tete</code> et <code>queue</code>.
-Pas d'accès direct aux paires (<code>L[0]</code>, <code>L[1]</code>), pas de <code>len</code>.
-Chaque programme commence par :
+Pas d'accès direct aux paires (<code>L[0]</code>, <code>L[1]</code>), pas de <code>len</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Organisation des fichiers</p>
+<p>Travailler dans un même dossier, avec ces trois fichiers :</p>
+<ul>
+<li><code>liste_tuple.py</code> : le module à écrire à l'exercice 2 ;</li>
+<li><code>tests_ex2.py</code> : à créer, avec les tests de l'exercice 2 ;</li>
+<li><a href="serie1.py"><code>serie1.py</code></a> : <strong>à télécharger</strong>. Il contient les fonctions à compléter à partir de l'exercice 3, et leurs tests.</li>
+</ul>
+<p><code>tests_ex2.py</code> commence par la même ligne d'import que <code>serie1.py</code> :
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">liste_tuple</span><span class="w"> </span><span class="kn">import</span> <span class="n">liste_vide</span><span class="p">,</span> <span class="n">est_vide</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">tete</span><span class="p">,</span> <span class="n">queue</span>
 </code></pre></div></td></tr></table></div></p>
+<p>Dans <code>serie1.py</code>, chaque test s'active en retirant le <code>#</code> devant la ligne correspondante, en bas du fichier.</p>
 </div>
-<p>Chaque exercice fournit des tests : un programme est terminé quand tous ses <code>assert</code> passent.</p>
+<p>Chaque exercice fournit des tests : un exercice est terminé quand tous ses <code>assert</code> passent.</p>
 <hr />
 <h2 id="exercice-1-du-schema-aux-paires">Exercice 1 — Du schéma aux paires<a class="headerlink" href="#exercice-1-du-schema-aux-paires" title="Permanent link">⚓︎</a></h2>
 <ol>
@@ -6036,6 +6046,7 @@ Chaque programme commence par :
 <h2 id="exercice-2-ecrire-limplementation">Exercice 2 — Écrire l'implémentation<a class="headerlink" href="#exercice-2-ecrire-limplementation" title="Permanent link">⚓︎</a></h2>
 <p>Écrire le module <code>liste_tuple.py</code> qui contient les cinq opérations de l'interface (cours, 1.3).
 <code>tete</code> et <code>queue</code> vérifient leur précondition avec une assertion.</p>
+<p>Copier les tests suivants dans <code>tests_ex2.py</code>, puis exécuter ce fichier :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -6112,10 +6123,10 @@ d'une liste d'entiers.</p>
 <hr />
 <h2 id="exercice-7-changer-dimplementation">Exercice 7 — Changer d'implémentation<a class="headerlink" href="#exercice-7-changer-dimplementation" title="Permanent link">⚓︎</a></h2>
 <ol>
-<li>Récupérer le module <code>liste_cellule.py</code> du cours (2.2).</li>
-<li>Dans votre programme, remplacer <code>liste_tuple</code> par <code>liste_cellule</code> dans la ligne d'import, <strong>sans rien
-   modifier d'autre</strong>, puis relancer tous les tests.</li>
-<li>Quels tests échouent ? Pourquoi ? <em>(Pensez à l'exercice 2.)</em></li>
+<li>On utilise maintenant le module <code>liste_cellule.py</code> déjà attaché à votre notebook Capytale.</li>
+<li>Copier le contenu de <code>serie1.py</code> dans une nouvelle cellule et remplacer <code>liste_tuple</code> par <code>liste_cellule</code> dans la ligne d'import, <strong>sans rien
+   modifier d'autre</strong>, puis exécuter le fichier. Que constate-t-on ?</li>
+<li>Faire le même remplacement dans <code>tests_ex2.py</code>, puis exécuter ce fichier. Quel test échoue ? Pourquoi ?</li>
 <li>Expliquer en deux phrases ce que cet exercice montre sur la séparation entre interface et implémentation.</li>
 </ol>
 <hr />

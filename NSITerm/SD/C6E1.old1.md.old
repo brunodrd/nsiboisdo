@@ -1,0 +1,198 @@
+---
+title: ✏️ Exercices Listes (Série 1)
+---
+
+# ✏️ Série 1 : programmer avec l'interface du TAD Liste
+
+!!! abstract "Objectifs"
+    - Passer du schéma d'une liste chaînée à sa représentation par paires, et inversement.
+    - Écrire l'implémentation par paires du TAD Liste.
+    - Écrire des algorithmes qui n'utilisent **que l'interface** : ils fonctionneront avec toute implémentation.
+    - Vérifier qu'un programme écrit avec l'interface fonctionne avec une autre implémentation.
+    - Pour aller plus loin : construire de nouvelles listes **sans modifier** les listes existantes, et repérer les cellules partagées.
+
+Prérequis : [cours](C6C1.md), sections 1.3, 2.1, 2.2 et 3 pour les exercices 1 à 7 ; section 4 pour la partie « Pour aller plus loin ».
+
+!!! warning "Règle du jeu"
+    À partir de l'exercice 3, on n'utilise **que** les cinq opérations de l'interface :
+    `liste_vide`, `est_vide`, `cons`, `tete` et `queue`.
+    Pas d'accès direct aux paires (`L[0]`, `L[1]`), pas de `len`.
+    Chaque programme commence par :
+    ```python
+    from liste_tuple import liste_vide, est_vide, cons, tete, queue
+    ```
+
+Chaque exercice fournit des tests : un programme est terminé quand tous ses `assert` passent.
+
+---
+
+## Exercice 1 — Du schéma aux paires
+
+1. Écrire l'instruction Python qui construit, avec des paires, la liste chaînée `M` ci-dessous.
+
+    ![Liste chaînée M : 4, puis 8, puis 15, puis None](img/s1_representation.svg){ width="70%" }
+
+2. Dessiner le schéma « boîtes et flèches » de la liste `(1, (2, None))`.
+3. Combien de cellules contient la liste `None` ? Et la liste `(None, None)` ?
+
+---
+
+## Exercice 2 — Écrire l'implémentation
+
+Écrire le module `liste_tuple.py` qui contient les cinq opérations de l'interface (cours, 1.3).
+`tete` et `queue` vérifient leur précondition avec une assertion.
+
+```python
+L = cons(3, cons(5, cons(7, liste_vide())))
+assert L == (3, (5, (7, None)))
+assert tete(L) == 3
+assert queue(L) == (5, (7, None))
+assert est_vide(queue(queue(queue(L))))
+```
+
+??? question "Que se passe-t-il si l'on appelle `tete(liste_vide())` ?"
+    Testez, puis expliquez le message obtenu.
+
+---
+
+## Exercice 3 — Afficher une liste
+
+Écrire la fonction `vers_chaine(L)` qui **renvoie** une chaîne de caractères décrivant la liste,
+dans le format montré par les tests.
+
+```python
+L = cons(3, cons(5, cons(7, liste_vide())))
+assert vers_chaine(L) == "3 -> 5 -> 7 -> None"
+assert vers_chaine(liste_vide()) == "None"
+```
+
+??? tip "Pourquoi renvoyer une chaîne plutôt qu'afficher ?"
+    Une fonction qui renvoie un résultat se teste avec `assert` ; une fonction qui affiche ne se teste pas.
+    Pour afficher, il suffit d'écrire `print(vers_chaine(L))`.
+
+---
+
+## Exercice 4 — Somme des éléments
+
+Écrire `somme_rec(L)` (récursive) puis `somme_iter(L)` (itérative), qui renvoient la somme des éléments
+d'une liste d'entiers.
+
+```python
+L = cons(3, cons(5, cons(7, liste_vide())))
+assert somme_rec(L) == somme_iter(L) == 15
+assert somme_rec(liste_vide()) == somme_iter(liste_vide()) == 0
+```
+
+---
+
+## Exercice 5 — Compter et chercher le maximum
+
+1. Écrire `nb_occurrences(L, x)` qui renvoie le nombre d'éléments de `L` égaux à `x`.
+2. Écrire `maximum(L)` qui renvoie le plus grand élément d'une liste **non vide**.
+   La précondition est vérifiée par une assertion.
+3. Donner la complexité de chaque fonction en fonction de la longueur `n` de la liste.
+
+```python
+M = cons(1, cons(4, cons(2, cons(4, liste_vide()))))
+assert nb_occurrences(M, 4) == 2
+assert nb_occurrences(M, 9) == 0
+assert maximum(M) == 4
+assert maximum(cons(-3, cons(-1, liste_vide()))) == -1
+```
+
+---
+
+## Exercice 6 — Conversions avec un tableau
+
+Ces deux fonctions faciliteront l'écriture des tests dans la suite de la série.
+
+1. Écrire `depuis_tableau(T)` qui construit la liste ayant les mêmes éléments que le tableau `T`,
+   dans le même ordre.
+2. Écrire `vers_tableau(L)` qui fait l'inverse.
+
+```python
+assert vers_tableau(depuis_tableau([1, 2, 3])) == [1, 2, 3]
+assert vers_tableau(depuis_tableau([])) == []
+```
+
+??? tip "Indice pour `depuis_tableau`"
+    `cons` ajoute en tête : par quelle extrémité du tableau faut-il commencer ?
+
+---
+
+## Exercice 7 — Changer d'implémentation
+
+1. Récupérer le module `liste_cellule.py` du cours (2.2).
+2. Dans votre programme, remplacer `liste_tuple` par `liste_cellule` dans la ligne d'import, **sans rien
+   modifier d'autre**, puis relancer tous les tests.
+3. Quels tests échouent ? Pourquoi ? *(Pensez à l'exercice 2.)*
+4. Expliquer en deux phrases ce que cet exercice montre sur la séparation entre interface et implémentation.
+
+---
+
+## 🚀 Pour aller plus loin
+
+!!! abstract "Reconstruire une liste"
+    Ces exercices demandent le cours, section 4 : on construit une nouvelle liste sans modifier l'ancienne, et on repère les cellules partagées. Ils sont facultatifs dans un premier temps.
+
+### Exercice 8 — Remplacer une valeur
+
+Écrire `remplacer(L, a, b)` qui **renvoie une nouvelle liste** où chaque élément égal à `a` est remplacé par `b`.
+La liste `L` ne doit pas être modifiée. S'inspirer de `ajouter_en_fin` (cours, 4.1).
+
+```python
+L = depuis_tableau([3, 5, 3])
+assert vers_tableau(remplacer(L, 3, 9)) == [9, 5, 9]
+assert vers_tableau(remplacer(L, 7, 9)) == [3, 5, 3]
+assert vers_tableau(remplacer(liste_vide(), 3, 9)) == []
+assert vers_tableau(L) == [3, 5, 3]
+```
+
+Combien de cellules sont créées pour une liste `L` de longueur `n` ?
+
+
+### Exercice 9 — Supprimer l'élément d'indice k
+
+Écrire `supprimer(L, k)` qui **renvoie une nouvelle liste** privée de l'élément d'indice `k`.
+Si `k` n'est pas un indice valide, une assertion échoue.
+
+Compléter le code :
+
+```python
+def supprimer(L, k):
+    assert not est_vide(L), "indice hors limites"
+    if k == 0:
+        return ...
+    return cons(..., supprimer(..., ...))
+```
+
+```python
+N = depuis_tableau([0, 1, 2, 3, 4])
+assert vers_tableau(supprimer(N, 0)) == [1, 2, 3, 4]
+assert vers_tableau(supprimer(N, 2)) == [0, 1, 3, 4]
+assert vers_tableau(supprimer(N, 4)) == [0, 1, 2, 3]
+```
+
+1. Dessiner l'état de la mémoire après `N2 = supprimer(N, 2)`, sur le modèle du schéma du cours (4.2).
+2. Combien de cellules sont créées ? Lesquelles sont partagées par `N` et `N2` ?
+3. Vérifier la réponse avec l'opérateur `is` : que vaut `queue(queue(N2)) is queue(queue(queue(N)))` ?
+
+
+### Exercice 10 — Supprimer une valeur
+
+Écrire `supprimer_valeur(L, x)` qui renvoie une nouvelle liste où **la première occurrence** de `x`
+a été supprimée. Si `x` n'apparaît pas, la liste renvoyée a les mêmes éléments que `L`.
+
+```python
+M = depuis_tableau([1, 4, 2, 4])
+assert vers_tableau(supprimer_valeur(M, 4)) == [1, 2, 4]
+assert vers_tableau(supprimer_valeur(M, 9)) == [1, 4, 2, 4]
+```
+
+
+### Deux derniers défis
+
+- **Renverser** : écrire `renverser(L)` qui renvoie la liste des éléments de `L` dans l'ordre inverse,
+  en un seul parcours.
+- **Concaténer** : écrire `concatener(L1, L2)` qui renvoie la liste des éléments de `L1` suivis de
+  ceux de `L2`. Quelles cellules sont recopiées ? Lesquelles sont partagées ?

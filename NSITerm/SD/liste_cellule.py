@@ -1,6 +1,5 @@
-"""Implémentation du TAD Liste par objets Cellule (cours, section 2.2)."""
-
 class Cellule:
+    """Un maillon : une valeur et une référence vers le maillon suivant."""
     def __init__(self, valeur, suivant):
         self.valeur = valeur
         self.suivant = suivant
