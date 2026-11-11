@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#le-codage-du-temps" class="md-skip">
+        <a href="#probleme-le-bug-de-2038" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1344,18 +1344,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#le-probleme" class="md-nav__link">
+  <a href="#le-contexte-lheure-unix" class="md-nav__link">
     <span class="md-ellipsis">
-      Le problème
+      Le contexte : l'heure Unix
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-solution" class="md-nav__link">
+  <a href="#exercice-1-les-limites-dun-compteur-sur-32-bits" class="md-nav__link">
     <span class="md-ellipsis">
-      Une solution
+      Exercice 1 – Les limites d'un compteur sur 32 bits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-la-derniere-seconde-representable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2 – La dernière seconde représentable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-une-seconde-plus-tard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3 – Une seconde plus tard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-quelles-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Exercice 4 – Quelles solutions ?
     </span>
   </a>
   
@@ -5704,37 +5731,79 @@
 
 
 
-<h1 id="le-codage-du-temps">Le codage du temps<a class="headerlink" href="#le-codage-du-temps" title="Permanent link">⚓︎</a></h1>
-<figure>
-    <p><a href="https://commons.wikimedia.org/wiki/File:Year_2038_problem.gif#/media/Fichier:Year_2038_problem.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Year_2038_problem.gif" alt="Year 2038 problem.gif" height="130" width="400"></a><br>Par <a href="//commons.wikimedia.org/wiki/User:Monaneko" title="User:Monaneko">Monaneko</a> — <span class="int-own-work" lang="fr">Travail personnel</span>, Domaine public, <a href="https://commons.wikimedia.org/w/index.php?curid=1711901">Lien</a></p>    
-</figure>
-
-<p>Extrait de <a href="https://fr.wikipedia.org/wiki/Heure_Unix">Wikipedia</a></p>
-<blockquote>
-<p>L'heure Unix ou heure Posix est une mesure du temps fondée sur le nombre de secondes écoulées depuis le 1er janvier 1970 00:00:00 UTC, hors secondes intercalaires. Elle est utilisée principalement dans les systèmes qui respectent la norme POSIX1, dont les systèmes de type Unix, d'où son nom. C'est la représentation POSIX du temps.</p>
-</blockquote>
-<h2 id="le-probleme">Le problème<a class="headerlink" href="#le-probleme" title="Permanent link">⚓︎</a></h2>
-<p>La méthode plus courante pour lire l'heure sous Unix, est l'appel à la fonction <code>time</code>. Le prototype de cette fonction est le suivant:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>time_t time(NULL);
+<h1 id="probleme-le-bug-de-2038">✏️ Problème : le bug de 2038<a class="headerlink" href="#probleme-le-bug-de-2038" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Repères</p>
+<p>Cours associés : <a href="C3C2.html">cours C3C2</a>, sections 4 (intervalle des entiers sur <span class="arithmatex">\(n\)</span> bits), 7 (dépassement de capacité) et 9 (le complément à 2 en Python) ; <a href="C3C1.html">cours C3C1</a> pour l'hexadécimal.</p>
+<p>Durée : environ 45 minutes, sur machine. L'exercice marqué d'une ⭐ est un prolongement, pour ceux qui ont terminé.</p>
+<p>Le cours C3C2 annonce, à la fin de la section 7, que certains systèmes informatiques reviendront en 1901 le 19 janvier 2038. Ce problème le démontre, puis étudie les solutions possibles.</p>
+</div>
+<h2 id="le-contexte-lheure-unix">Le contexte : l'heure Unix<a class="headerlink" href="#le-contexte-lheure-unix" title="Permanent link">⚓︎</a></h2>
+<p>Les systèmes de type Unix, dont Linux, mesurent le temps par un seul nombre entier : le nombre de secondes écoulées depuis le <strong>1ᵉʳ janvier 1970 à 0 h 00 min 00 s (UTC)</strong>, sans compter les secondes intercalaires. Ce nombre s'appelle l'<strong>heure Unix</strong> (<a href="https://fr.wikipedia.org/wiki/Heure_Unix">article « Heure Unix » sur Wikipédia</a>).</p>
+<p>En langage C, la fonction <code>time</code> renvoie l'heure Unix, avec le type <code>time_t</code>. La norme ne fixe pas la taille de ce type. Sur de nombreux systèmes anciens ou embarqués, c'est un <strong>entier signé sur 32 bits</strong>, codé en complément à 2.</p>
+<p><img alt="Animation : un compteur de secondes sur 32 bits, codé en complément à 2, et la date qui lui correspond. Le compteur augmente jusqu'à 01111111 11111111 11111111 11111111, le 19 janvier 2038 à 3 h 14 min 07 s (UTC). À la seconde suivante, il passe à 10000000 00000000 00000000 00000000 et la date affichée devient le 13 décembre 1901." src="img/bug_2038.gif" /></p>
+<p>Animation : <a href="https://commons.wikimedia.org/wiki/File:Year_2038_problem.gif">Monaneko, Wikimedia Commons</a>, domaine public.</p>
+<h2 id="exercice-1-les-limites-dun-compteur-sur-32-bits">Exercice 1 – Les limites d'un compteur sur 32 bits<a class="headerlink" href="#exercice-1-les-limites-dun-compteur-sur-32-bits" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Donnez le plus grand et le plus petit entier relatif que l'on peut coder sur 32 bits en complément à 2, sous la forme d'une puissance de 2, puis en décimal.</li>
+<li>Écrivez le code sur 32 bits du plus grand de ces entiers, en binaire puis en hexadécimal.</li>
+<li>Vérifiez la question 2 dans la console Python avec <code>hex</code>.</li>
+</ol>
+<h2 id="exercice-2-la-derniere-seconde-representable">Exercice 2 – La dernière seconde représentable<a class="headerlink" href="#exercice-2-la-derniere-seconde-representable" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Sans machine, estimez la date correspondant au plus grand entier de l'exercice 1 : combien de jours cela représente-t-il ? Combien d'années, environ ? En quelle année tombe cette date ?</li>
+<li>
+<p>Le module <code>datetime</code> de Python convertit une heure Unix en date :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">utc</span><span class="p">)</span>
+<span class="go">datetime.datetime(1970, 1, 1, 0, 0, tzinfo=datetime.timezone.utc)</span>
 </code></pre></div></td></tr></table></div>
-<p>En langage C, on interprète cette déclaration de la manière suivante: la fonction <code>time</code> ne prend pas de paramètres et renvoie une valeur de type <code>time_t</code>. Malheureusement, ce type n'est pas clairement défini par la norme POSIX. Sur les systèmes 32 bits (<em>comme beaucoup de systèmes embarqués</em>), il est très probable qu'il s'agisse d'un <strong>entier signé sur 32 bits</strong>.</p>
-<p>Ce qui peut peut engendrer le problème visible sur l'animation présenté en introduction.</p>
-<h3 id="question-a">Question a<a class="headerlink" href="#question-a" title="Permanent link">⚓︎</a></h3>
-<p>Quelles sont les limites du domaine de valeurs représentables si on travaille sur 32 bits signés?</p>
-<h3 id="question-b">Question b<a class="headerlink" href="#question-b" title="Permanent link">⚓︎</a></h3>
-<p>À partir du résultat de la <strong>question a</strong> et des considérations suivantes:</p>
-<ul>
-<li>origine des temps: 1er janvier 1970 00:00:00 UTC;</li>
-<li>une seconde écoulée correspondra à l'ajout d'une unité;</li>
-<li>on ne tient pas compte des <a href="https://fr.wikipedia.org/wiki/Seconde_intercalaire">secondes intercalaires</a></li>
-</ul>
-<p>quelle est la date maximale représentable sur un système UNIX 32 bits ?</p>
-<h3 id="question-c">Question c<a class="headerlink" href="#question-c" title="Permanent link">⚓︎</a></h3>
-<p>Que se passe-t-il une seconde plus tard ? Donner la valeur renvoyée par la fonction <code>time</code>.</p>
-<h3 id="question-d">Question d<a class="headerlink" href="#question-d" title="Permanent link">⚓︎</a></h3>
-<p>Justifier alors la date affichée sur l'animation et correspondant à ce que l'on nomme souvent le <strong>bug de 2038</strong>.</p>
-<h2 id="une-solution">Une solution<a class="headerlink" href="#une-solution" title="Permanent link">⚓︎</a></h2>
-<p>Quelle solution pourrait-on envisager avant 2038 ?</p>
+<p>Utilisez-le pour obtenir la date exacte correspondant au plus grand entier de l'exercice 1. Est-ce cohérent avec votre estimation ?</p>
+</li>
+</ol>
+<h2 id="exercice-3-une-seconde-plus-tard">Exercice 3 – Une seconde plus tard<a class="headerlink" href="#exercice-3-une-seconde-plus-tard" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Posez à la main l'addition binaire, sur 32 bits, du code du plus grand entier et du code de 1. Quel code obtient-on ?</li>
+<li>Décodez ce résultat en complément à 2 : quel entier relatif représente-t-il ? Comment s'appelle ce phénomène (cours C3C2, section 7) ?</li>
+<li>
+<p>En Python, les entiers ne sont pas limités à 32 bits (cours C3C2, section 9) : <code>2**31 - 1 + 1</code> vaut bien <code>2147483648</code>. Pour simuler un compteur sur 32 bits, complétez la fonction suivante, en vous inspirant de l'utilisation de <code>%</code> dans la section 9 du cours C3C2.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">entier_32_bits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie l&#39;entier relatif dont le code en complément à 2</span>
+<span class="sd">    sur 32 bits est formé des 32 bits de poids faible de n.&quot;&quot;&quot;</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>          <span class="c1"># entier naturel entre 0 et 2**32 - 1</span>
+    <span class="c1"># À COMPLÉTER</span>
+
+
+<span class="k">assert</span> <span class="n">entier_32_bits</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">entier_32_bits</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span>
+<span class="k">assert</span> <span class="n">entier_32_bits</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">31</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">31</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">entier_32_bits</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">31</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="mi">31</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Avec <code>datetime</code>, donnez la date correspondant à <code>entier_32_bits(2**31 - 1 + 1)</code>. Expliquez la date affichée à la fin de l'animation.</p>
+</li>
+</ol>
+<h2 id="exercice-4-quelles-solutions">⭐ Exercice 4 – Quelles solutions ?<a class="headerlink" href="#exercice-4-quelles-solutions" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Une première idée consiste à garder 32 bits, mais en <strong>entier naturel</strong> (non signé). Quelle serait la dernière date représentable ? Quel inconvénient cela présente-t-il pour les dates antérieures à 1970 ?</li>
+<li>Les systèmes récents utilisent un <code>time_t</code> sur <strong>64 bits</strong>, en complément à 2. Calculez, en ordre de grandeur, le nombre d'années que l'on peut alors compter après 1970. Comparez avec l'âge de l'Univers, environ 14 milliards d'années.</li>
+<li>Pourquoi le problème n'est-il pas entièrement réglé aujourd'hui ? Pensez aux appareils qui fonctionnent pendant des dizaines d'années sans être mis à jour, et aux fichiers qui enregistrent des dates sur 32 bits.</li>
+</ol>
 
 
 

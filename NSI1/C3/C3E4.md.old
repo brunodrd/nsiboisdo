@@ -1,0 +1,50 @@
+Le codage du temps
+==================
+
+<figure>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Year_2038_problem.gif#/media/Fichier:Year_2038_problem.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Year_2038_problem.gif" alt="Year 2038 problem.gif" height="130" width="400"></a><br>Par <a href="//commons.wikimedia.org/wiki/User:Monaneko" title="User:Monaneko">Monaneko</a> — <span class="int-own-work" lang="fr">Travail personnel</span>, Domaine public, <a href="https://commons.wikimedia.org/w/index.php?curid=1711901">Lien</a></p>    
+</figure>
+
+Extrait de [Wikipedia](https://fr.wikipedia.org/wiki/Heure_Unix)
+
+>L'heure Unix ou heure Posix est une mesure du temps fondée sur le nombre de secondes écoulées depuis le 1er janvier 1970 00:00:00 UTC, hors secondes intercalaires. Elle est utilisée principalement dans les systèmes qui respectent la norme POSIX1, dont les systèmes de type Unix, d'où son nom. C'est la représentation POSIX du temps.
+
+Le problème
+-----------
+
+La méthode plus courante pour lire l'heure sous Unix, est l'appel à la fonction `time`. Le prototype de cette fonction est le suivant:
+
+```
+time_t time(NULL);
+```
+
+En langage C, on interprète cette déclaration de la manière suivante: la fonction `time` ne prend pas de paramètres et renvoie une valeur de type `time_t`. Malheureusement, ce type n'est pas clairement défini par la norme POSIX. Sur les systèmes 32 bits (_comme beaucoup de systèmes embarqués_), il est très probable qu'il s'agisse d'un __entier signé sur 32 bits__.
+
+Ce qui peut peut engendrer le problème visible sur l'animation présenté en introduction.
+
+### Question a
+
+Quelles sont les limites du domaine de valeurs représentables si on travaille sur 32 bits signés?
+
+### Question b
+
+À partir du résultat de la __question a__ et des considérations suivantes:
+
+* origine des temps: 1er janvier 1970 00:00:00 UTC;
+* une seconde écoulée correspondra à l'ajout d'une unité;
+* on ne tient pas compte des [secondes intercalaires](https://fr.wikipedia.org/wiki/Seconde_intercalaire)
+
+quelle est la date maximale représentable sur un système UNIX 32 bits ?
+
+### Question c
+
+Que se passe-t-il une seconde plus tard ? Donner la valeur renvoyée par la fonction `time`.
+
+### Question d
+
+Justifier alors la date affichée sur l'animation et correspondant à ce que l'on nomme souvent le __bug de 2038__.
+
+Une solution
+------------
+
+Quelle solution pourrait-on envisager avant 2038 ?
