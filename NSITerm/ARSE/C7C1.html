@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation" class="md-skip">
+        <a href="#cours-gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3648,7 +3648,7 @@
         <li class="md-nav__item">
   <a href="#programme-et-objectifs" class="md-nav__link">
     <span class="md-ellipsis">
-      Programme et objectifs
+      🎯 Programme et objectifs
     </span>
   </a>
   
@@ -3657,7 +3657,7 @@
         <li class="md-nav__item">
   <a href="#1-du-programme-au-processus" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Du programme au processus
+      1. 📚 Du programme au processus
     </span>
   </a>
   
@@ -3666,7 +3666,7 @@
         <li class="md-nav__item">
   <a href="#2-le-systeme-dexploitation-gestionnaire-de-ressources" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Le système d'exploitation, gestionnaire de ressources
+      2. 🗂️ Le système d'exploitation, gestionnaire de ressources
     </span>
   </a>
   
@@ -3675,7 +3675,7 @@
         <li class="md-nav__item">
   <a href="#3-observer-les-processus-dune-machine" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Observer les processus d'une machine
+      3. 🖥️ Observer les processus d'une machine
     </span>
   </a>
   
@@ -3684,7 +3684,7 @@
         <li class="md-nav__item">
   <a href="#4-creer-un-processus" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Créer un processus
+      4. 🍴 Créer un processus
     </span>
   </a>
   
@@ -3693,7 +3693,7 @@
         <li class="md-nav__item">
   <a href="#5-etats-et-ordonnancement-des-processus" class="md-nav__link">
     <span class="md-ellipsis">
-      5. États et ordonnancement des processus
+      5. ⏱️ États et ordonnancement des processus
     </span>
   </a>
   
@@ -3702,7 +3702,7 @@
         <li class="md-nav__item">
   <a href="#6-le-risque-dinterblocage" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Le risque d'interblocage
+      6. 🔒 Le risque d'interblocage
     </span>
   </a>
   
@@ -3711,16 +3711,25 @@
         <li class="md-nav__item">
   <a href="#7-pour-aller-plus-loin-hors-programme" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Pour aller plus loin (hors programme)
+      7. 🔭 Pour aller plus loin (hors programme)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
+  <a href="#synthese" class="md-nav__link">
     <span class="md-ellipsis">
-      À retenir
+      🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-sentrainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Pour s'entraîner
     </span>
   </a>
   
@@ -6007,8 +6016,8 @@
 
 
 
-<h1 id="gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation">Gestion des processus et des ressources par un système d'exploitation<a class="headerlink" href="#gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation" title="Permanent link">⚓︎</a></h1>
-<h2 id="programme-et-objectifs">Programme et objectifs<a class="headerlink" href="#programme-et-objectifs" title="Permanent link">⚓︎</a></h2>
+<h1 id="cours-gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation">📖 Cours Gestion des processus et des ressources par un système d'exploitation<a class="headerlink" href="#cours-gestion-des-processus-et-des-ressources-par-un-systeme-dexploitation" title="Permanent link">⚓︎</a></h1>
+<h2 id="programme-et-objectifs">🎯 Programme et objectifs<a class="headerlink" href="#programme-et-objectifs" title="Permanent link">⚓︎</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Programme de Terminale – rubrique « Architectures matérielles, systèmes d'exploitation et réseaux »</p>
 <table>
@@ -6028,10 +6037,10 @@
 </tbody>
 </table>
 </div>
-<div class="admonition note">
+<div class="admonition abstract">
 <p class="admonition-title">À la fin de ce chapitre, je sais…</p>
 <ol>
-<li>distinguer un <strong>programme</strong> d'un <strong>processus</strong> et identifier un processus par son <strong>PID</strong> et son <strong>PPID</strong> ;</li>
+<li><strong>distinguer</strong> un <strong>programme</strong> d'un <strong>processus</strong> et identifier un processus par son <strong>PID</strong> et son <strong>PPID</strong> ;</li>
 <li><strong>observer</strong> les processus d'une machine avec des outils standard (<code>ps</code>, <code>pstree</code>, <code>top</code>) et en terminer un avec <code>kill</code> ;</li>
 <li><strong>décrire la création</strong> d'un processus (lancement d'un programme, appel système <code>fork</code>) ;</li>
 <li><strong>décrire les états</strong> d'un processus et nommer les transitions entre ces états ;</li>
@@ -6044,10 +6053,10 @@
 <p class="admonition-title">Prérequis</p>
 <ul>
 <li>Première : fonctions d'un système d'exploitation, commandes de base du terminal, droits et permissions.</li>
-<li>Terminale : structure de <strong>file</strong> (chapitre Piles &amp; Files).</li>
+<li>Terminale : structure de <strong>file</strong> chapitre IV (Piles &amp; Files).</li>
 </ul>
 </div>
-<h2 id="1-du-programme-au-processus">1. Du programme au processus<a class="headerlink" href="#1-du-programme-au-processus" title="Permanent link">⚓︎</a></h2>
+<h2 id="1-du-programme-au-processus">1. 📚 Du programme au processus<a class="headerlink" href="#1-du-programme-au-processus" title="Permanent link">⚓︎</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Définitions</p>
 <ul>
@@ -6057,7 +6066,7 @@
 </div>
 <p>Un même programme peut donner naissance à <strong>plusieurs processus</strong> simultanés : ouvrir deux fois un terminal crée deux processus distincts exécutant le même programme.</p>
 <p>Le système d'exploitation identifie chaque processus par un entier unique, le <strong>PID</strong> (<em>Process IDentifier</em>). Tout processus, sauf le tout premier, est créé par un autre processus, son <strong>père</strong>. Le <strong>PPID</strong> (<em>Parent PID</em>) est le PID de ce père. Les processus forment donc une <strong>arborescence</strong>, dont la racine est le premier processus lancé au démarrage, de PID 1 (<code>systemd</code> sur la plupart des distributions Linux actuelles, historiquement <code>init</code>).</p>
-<h2 id="2-le-systeme-dexploitation-gestionnaire-de-ressources">2. Le système d'exploitation, gestionnaire de ressources<a class="headerlink" href="#2-le-systeme-dexploitation-gestionnaire-de-ressources" title="Permanent link">⚓︎</a></h2>
+<h2 id="2-le-systeme-dexploitation-gestionnaire-de-ressources">2. 🗂️ Le système d'exploitation, gestionnaire de ressources<a class="headerlink" href="#2-le-systeme-dexploitation-gestionnaire-de-ressources" title="Permanent link">⚓︎</a></h2>
 <p>En Première, on a vu que le système d'exploitation (SE) sert d'intermédiaire entre les applications et le matériel. Le programme de Terminale précise ce rôle : le SE a pour fonction de <strong>charger les programmes</strong> depuis la mémoire de masse et de <strong>lancer leur exécution en leur créant des processus</strong>, de <strong>gérer l'ensemble des ressources</strong>, de <strong>traiter les interruptions</strong> et les entrées-sorties, et d'<strong>assurer la sécurité</strong> globale du système.</p>
 <div class="admonition note">
 <p class="admonition-title">Définition – Ressource</p>
@@ -6065,8 +6074,8 @@
 <p>Certaines ressources ne peuvent être utilisées que par <strong>un seul processus à la fois</strong> (une imprimante en cours d'impression, un fichier ouvert en écriture exclusive) : on dit qu'elles sont en <strong>exclusion mutuelle</strong>. C'est à leur sujet que naissent les difficultés de ce chapitre.</p>
 </div>
 <p>La partie du SE qui s'exécute avec tous les privilèges et gère ces ressources s'appelle le <strong>noyau</strong> (<em>kernel</em>).</p>
-<h2 id="3-observer-les-processus-dune-machine">3. Observer les processus d'une machine<a class="headerlink" href="#3-observer-les-processus-dune-machine" title="Permanent link">⚓︎</a></h2>
-<div class="admonition example">
+<h2 id="3-observer-les-processus-dune-machine">3. 🖥️ Observer les processus d'une machine<a class="headerlink" href="#3-observer-les-processus-dune-machine" title="Permanent link">⚓︎</a></h2>
+<div class="admonition question">
 <p class="admonition-title">Activité 1 – sur machine, 30 min</p>
 <p>Ouvrir un terminal et exécuter les commandes suivantes. Noter à chaque fois ce qu'on observe.</p>
 <ol>
@@ -6122,7 +6131,7 @@
 <p class="admonition-title">Terminer un processus</p>
 <p>La commande <code>kill PID</code> demande au système de terminer le processus désigné. On ne peut terminer que <strong>ses propres</strong> processus, sauf en tant qu'administrateur.</p>
 </div>
-<h2 id="4-creer-un-processus">4. Créer un processus<a class="headerlink" href="#4-creer-un-processus" title="Permanent link">⚓︎</a></h2>
+<h2 id="4-creer-un-processus">4. 🍴 Créer un processus<a class="headerlink" href="#4-creer-un-processus" title="Permanent link">⚓︎</a></h2>
 <p>Un processus est créé :</p>
 <ul>
 <li>par le <strong>système</strong> lui-même, au démarrage (services, gestionnaires de périphériques…) ;</li>
@@ -6178,12 +6187,12 @@
     <span class="n">pid_fini</span><span class="p">,</span> <span class="n">statut</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>     <span class="c1"># le père attend la fin de son fils</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Père] mon fils </span><span class="si">{</span><span class="n">pid_fini</span><span class="si">}</span><span class="s2"> est terminé&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition example">
+<div class="admonition question">
 <p class="admonition-title">Activité 2 – sur machine, 30 min</p>
 <ol>
 <li>Enregistrer le script dans un fichier <code>creer_processus.py</code> et le lancer <strong>depuis un terminal</strong> : <code>python3 creer_processus.py</code>. Vérifier que le PPID du fils est égal au PID du père.</li>
 <li>
-<p>Pendant les 30 secondes de pause, exécuter dans un <strong>second terminal</strong> <code>ps -ef | grep creer_processus</code>. Combien de processus voit-on ? Dans quel état sont-ils ?</p>
+<p>Pendant les 30 secondes de pause, exécuter dans un <strong>second terminal</strong> <code>pgrep -af creer_processus</code>. Combien de processus voit-on ? Dans quel état sont-ils ?</p>
 <p><em>Conseil : taper la commande dans le second terminal avant de lancer le script, puis la valider dès que le script tourne.</em></p>
 </li>
 <li>
@@ -6192,7 +6201,7 @@
 <li><em>Facultatif.</em> Remplacer les deux lignes <code>pid_fini, statut = os.wait()</code> et <code>print(...)</code> du père par <code>time.sleep(60)</code> (le père doit dormir plus longtemps que le fils). Relancer le script et, une fois le message <code>[Fils] je me termine</code> affiché, observer les processus avec <code>ps -o pid,ppid,stat,cmd -u $USER</code> (le fils apparaît alors sous le nom <code>[python3] &lt;defunct&gt;</code>). Dans quel état est-il ? Pourquoi n'a-t-il pas disparu ?</li>
 </ol>
 </div>
-<h2 id="5-etats-et-ordonnancement-des-processus">5. États et ordonnancement des processus<a class="headerlink" href="#5-etats-et-ordonnancement-des-processus" title="Permanent link">⚓︎</a></h2>
+<h2 id="5-etats-et-ordonnancement-des-processus">5. ⏱️ États et ordonnancement des processus<a class="headerlink" href="#5-etats-et-ordonnancement-des-processus" title="Permanent link">⚓︎</a></h2>
 <h3 id="51-pourquoi-ordonnancer">5.1 Pourquoi ordonnancer ?<a class="headerlink" href="#51-pourquoi-ordonnancer" title="Permanent link">⚓︎</a></h3>
 <p>Un cœur de processeur n'exécute qu'<strong>un seul processus à la fois</strong>. Pour donner l'illusion que de nombreux processus s'exécutent simultanément, le SE fait <strong>alterner</strong> très rapidement les processus sur le processeur (toutes les quelques millisecondes). Le composant du noyau qui choisit, à chaque instant, quel processus obtient le processeur s'appelle l'<strong>ordonnanceur</strong> (<em>scheduler</em>).</p>
 <p>Quand l'ordonnanceur retire le processeur à un processus pour le donner à un autre, le noyau sauvegarde le contexte du premier et restaure celui du second : c'est la <strong>commutation de contexte</strong>. Elle prend un peu de temps, ce qui explique qu'on ne peut pas alterner infiniment vite.</p>
@@ -6218,9 +6227,9 @@
 <p class="admonition-title">Le vocabulaire varie selon les auteurs</p>
 <p>Les sujets d'examen n'emploient pas toujours les mêmes mots : un processus bloqué peut être dit <strong>en attente</strong> ; un processus préempté peut être dit <strong>suspendu</strong> ; un processus élu peut être dit <strong>en cours d'exécution</strong>. <strong>Un énoncé définit toujours ses termes : il faut appliquer ses définitions</strong>, même si elles diffèrent de celles du cours.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Retour à l'observation</p>
-<p>Les codes affichés par <code>ps</code> (§3) correspondent aux états du modèle :</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Les codes affichés par <code>ps</code> (section 3) correspondent aux états du modèle :</p>
 <table>
 <thead>
 <tr>
@@ -6400,14 +6409,14 @@
 </tr>
 </tbody>
 </table>
-<details class="question">
+<details class="tip">
 <summary>Détail de l'évolution de la file des prêts</summary>
 <ul>
 <li>Date 0 : file <code>[P1]</code> → P1 élu pour les cycles 0 et 1.</li>
 <li>P2 arrive à la date 1, P3 à la date 2 ; à la date 2, P1 est préempté et placé <strong>après</strong> eux : file <code>[P2, P3, P1]</code>.</li>
-<li>Date 2 : P2 élu (il lui reste 1 cycle) → file <code>[P3, P1, P2]</code>.</li>
+<li>Date 2 : P2 élu (reste 3 cycles), exécute 2 cycles → reste 1, file <code>[P3, P1, P2]</code>.</li>
 <li>Date 4 : P3 élu, il se termine à la date 5 → file <code>[P1, P2]</code>.</li>
-<li>Date 5 : P1 élu (il lui reste 1 cycle) → file <code>[P2, P1]</code>.</li>
+<li>Date 5 : P1 élu (reste 3 cycles), exécute 2 cycles → reste 1, file <code>[P2, P1]</code>.</li>
 <li>Date 7 : P2 se termine à la date 8 ; date 8 : P1 se termine à la date 9.</li>
 </ul>
 </details>
@@ -6516,8 +6525,8 @@
 </table>
 <p>Le processus le plus prioritaire n'attend jamais. En contrepartie, si des processus prioritaires arrivent sans cesse, un processus peu prioritaire peut <strong>ne jamais</strong> être élu : on parle de <strong>famine</strong>. Sous Linux, la commande <code>nice</code> permet de lancer un programme avec une priorité plus faible.</p>
 <h3 id="54-simuler-le-tourniquet-avec-une-file">5.4 Simuler le tourniquet avec une file<a class="headerlink" href="#54-simuler-le-tourniquet-avec-une-file" title="Permanent link">⚓︎</a></h3>
-<p>La file des processus prêts du tourniquet est une <strong>file</strong> au sens du chapitre Piles &amp; Files : on <strong>défile</strong> le processus élu en tête, et on <strong>enfile</strong> en queue les nouveaux arrivants et les processus préemptés. On peut donc simuler l'ordonnanceur en Python.</p>
-<div class="admonition example">
+<p>La file des processus prêts du tourniquet est une <strong>file</strong> au sens du chapitre IV (Piles &amp; Files) : on <strong>défile</strong> le processus élu en tête, et on <strong>enfile</strong> en queue les nouveaux arrivants et les processus préemptés. On peut donc simuler l'ordonnanceur en Python.</p>
+<div class="admonition question">
 <p class="admonition-title">Activité 3 – programmer le tourniquet, sur machine, 40 min</p>
 <p>Chaque processus est représenté par un dictionnaire ; la clé <code>'reste'</code> donne le nombre de cycles qu'il lui reste à exécuter. On dispose d'une classe <code>File</code> et d'une fonction <code>admettre</code> qui enfile les processus arrivant à une date donnée.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tourniquet.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -6641,8 +6650,8 @@
 <li><em>Pour aller plus loin.</em> Écrire une fonction <code>temps_sejour(chronogramme, processus)</code> qui renvoie un dictionnaire associant à chaque processus son temps de séjour.</li>
 </ol>
 </div>
-<h2 id="6-le-risque-dinterblocage">6. Le risque d'interblocage<a class="headerlink" href="#6-le-risque-dinterblocage" title="Permanent link">⚓︎</a></h2>
-<div class="admonition example">
+<h2 id="6-le-risque-dinterblocage">6. 🔒 Le risque d'interblocage<a class="headerlink" href="#6-le-risque-dinterblocage" title="Permanent link">⚓︎</a></h2>
+<div class="admonition question">
 <p class="admonition-title">Activité 4 – débranchée, 20 min (avant de lire la suite)</p>
 <p>Deux élèves jouent les processus, deux objets (un feutre, une feuille) jouent les ressources. Chaque « processus » doit écrire son prénom sur la feuille avec le feutre, et ne rend un objet qu'à la fin de sa tâche.</p>
 <ol>
@@ -6667,22 +6676,23 @@
 <p>On représente la situation par un <strong>schéma d'allocation des ressources</strong> : une flèche pleine <span class="arithmatex">\(R \to P\)</span> signifie « la ressource <span class="arithmatex">\(R\)</span> est détenue par <span class="arithmatex">\(P\)</span> », une flèche en pointillés <span class="arithmatex">\(P \dashrightarrow R\)</span> signifie « le processus <span class="arithmatex">\(P\)</span> attend <span class="arithmatex">\(R\)</span> ».</p>
 <p><img alt="Schéma d'allocation des ressources : R1 est détenue par P1, P1 attend R2, R2 est détenue par P2, P2 attend R1 ; en suivant les flèches, on revient au point de départ : c'est une attente circulaire." src="img/interblocage.svg" /></p>
 <p>En suivant les flèches à partir de P1, on passe par R2, P2, R1… et on <strong>revient à P1</strong> : chaque processus attend un autre processus de la chaîne, qui attend lui-même… C'est une <strong>attente circulaire</strong>. Lorsque chaque ressource n'existe qu'en un seul exemplaire, une attente circulaire dans le schéma d'allocation signifie que les processus concernés sont en interblocage.</p>
-<h3 id="62-conditions-et-prevention">6.2 Conditions et prévention<a class="headerlink" href="#62-conditions-et-prevention" title="Permanent link">⚓︎</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Les quatre conditions de l'interblocage (Coffman, 1971)</p>
-<p>Un interblocage ne peut se produire que si les quatre conditions sont réunies <strong>simultanément</strong> :</p>
+<h3 id="62-eviter-linterblocage">6.2 Éviter l'interblocage<a class="headerlink" href="#62-eviter-linterblocage" title="Permanent link">⚓︎</a></h3>
+<p>La méthode la plus simple consiste à imposer que <strong>tous les processus demandent les ressources dans le même ordre</strong> (toujours R1 avant R2). Aucune attente circulaire ne peut alors se former : dans l'exemple, P2 ne pourrait pas obtenir R2 sans détenir déjà R1.</p>
+<details class="info">
+<summary>Pour aller plus loin : les quatre conditions de Coffman (non exigible)</summary>
+<p>Un interblocage ne peut se produire que si les quatre conditions suivantes sont réunies <strong>simultanément</strong> (Coffman, 1971) :</p>
 <ol>
 <li><strong>exclusion mutuelle</strong> : les ressources ne sont pas partageables ;</li>
 <li><strong>détention et attente</strong> : un processus garde ses ressources pendant qu'il en attend d'autres ;</li>
 <li><strong>pas de réquisition</strong> : on ne peut pas retirer de force une ressource à un processus ;</li>
 <li><strong>attente circulaire</strong> : il existe une chaîne de processus qui s'attendent mutuellement et qui se referme sur elle-même.</li>
 </ol>
-</div>
-<p>Il suffit d'empêcher <strong>une</strong> de ces conditions pour rendre l'interblocage impossible. La méthode la plus simple consiste à empêcher l'attente circulaire : <strong>tous les processus demandent les ressources dans le même ordre</strong> (toujours R1 avant R2). Dans l'exemple, P2 ne pourrait alors pas obtenir R2 sans détenir déjà R1.</p>
+<p>Il suffit d'empêcher <strong>une</strong> de ces conditions pour rendre l'interblocage impossible. Imposer un ordre unique d'acquisition empêche la quatrième.</p>
+</details>
 <p>Les systèmes d'exploitation généralistes comme Linux ou Windows ne détectent <strong>pas</strong> les interblocages entre processus utilisateurs : c'est au programmeur de les éviter. En revanche, les systèmes de gestion de bases de données détectent ceux qui surviennent entre transactions et en annulent une.</p>
-<div class="admonition example">
+<div class="admonition question">
 <p class="admonition-title">Activité 5 – mettre en évidence l'interblocage sur machine, 25 min</p>
-<p>Le module <code>multiprocessing</code> crée de vrais processus. Il fournit aussi des <strong>verrous</strong> (<code>Lock</code>) : un verrou est une ressource <em>logicielle</em>, créée par le programmeur, qu'un seul processus peut détenir à la fois. Un processus qui demande un verrou déjà détenu est bloqué jusqu'à sa libération. Les verrous jouent donc ici le rôle de ressources en exclusion mutuelle. L'attente est limitée à 5 secondes pour que le programme ne reste pas figé indéfiniment.</p>
+<p>Le module <code>multiprocessing</code> crée de vrais processus. Il fournit aussi des <strong>verrous</strong> (<code>Lock</code>) : un verrou est une ressource <em>logicielle</em>, créée par le programmeur, qu'un seul processus peut détenir à la fois. Un processus qui demande un verrou déjà détenu est bloqué jusqu'à sa libération. Les verrous jouent donc ici le rôle de ressources en exclusion mutuelle. L’attente est limitée (5 s pour P1, 10 s pour P2).</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">interblocage_demo.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6702,26 +6712,30 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">tache</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">premiere</span><span class="p">,</span> <span class="n">seconde</span><span class="p">):</span>
-    <span class="k">with</span> <span class="n">premiere</span><span class="p">:</span>                                   <span class="c1"># acquiert la 1re ressource</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> détient sa première ressource&quot;</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                                <span class="c1"># laisse l&#39;autre prendre la sienne</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> attend la seconde ressource...&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">seconde</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>               <span class="c1"># attente limitée à 5 s</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> a obtenu les deux ressources&quot;</span><span class="p">)</span>
-            <span class="n">seconde</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> : toujours bloqué après 5 s -&gt; interblocage !&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tache</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">premiere</span><span class="p">,</span> <span class="n">seconde</span><span class="p">,</span> <span class="n">delai</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">premiere</span><span class="p">:</span>                                   <span class="c1"># acquiert la 1re ressource</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> détient sa première ressource&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                                <span class="c1"># laisse l&#39;autre prendre la sienne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> attend la seconde ressource...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seconde</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">delai</span><span class="p">):</span>           <span class="c1"># attente limitée à delai secondes</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> a obtenu les deux ressources&quot;</span><span class="p">)</span>
+        <span class="n">seconde</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> : toujours bloqué après </span><span class="si">{</span><span class="n">delai</span><span class="si">}</span><span class="s2"> s -&gt; interblocage !&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">(),</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P1&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P2&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r1</span><span class="p">))</span>   <span class="c1"># ordre inverse !</span>
-    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">();</span> <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">();</span> <span class="n">p2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P1&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P2&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1"># ordre inverse !</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>Exécuter le programme. Pourquoi un des deux processus finit-il quand même par obtenir les deux ressources ?</li>
@@ -6729,20 +6743,20 @@
 <li>Modifier <strong>une seule ligne</strong> pour que l'interblocage devienne impossible.</li>
 </ol>
 </div>
-<h2 id="7-pour-aller-plus-loin-hors-programme">7. Pour aller plus loin (hors programme)<a class="headerlink" href="#7-pour-aller-plus-loin-hors-programme" title="Permanent link">⚓︎</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Signaux</p>
-<p>La commande <code>kill</code> (§3) fonctionne en envoyant un <strong>signal</strong> au processus. Un processus peut recevoir des signaux envoyés par le noyau ou par un autre processus :</p>
+<h2 id="7-pour-aller-plus-loin-hors-programme">7. 🔭 Pour aller plus loin (hors programme)<a class="headerlink" href="#7-pour-aller-plus-loin-hors-programme" title="Permanent link">⚓︎</a></h2>
+<details class="info">
+<summary>Signaux</summary>
+<p>La commande <code>kill</code> (section 3) fonctionne en envoyant un <strong>signal</strong> au processus. Un processus peut recevoir des signaux envoyés par le noyau ou par un autre processus :</p>
 <ul>
 <li><code>kill PID</code> envoie par défaut <code>SIGTERM</code>, qui <strong>demande</strong> au processus de se terminer (il peut d'abord enregistrer son travail) ;</li>
 <li><code>kill -KILL PID</code> envoie <code>SIGKILL</code>, qui <strong>force</strong> sa terminaison ;</li>
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>＋</span><kbd class="key-c">C</kbd></span> envoie <code>SIGINT</code> au processus au premier plan.</li>
 </ul>
 <p>Seuls certains numéros de signaux sont fixés par la norme POSIX (2 pour <code>SIGINT</code>, 9 pour <code>SIGKILL</code> et 15 pour <code>SIGTERM</code> en font partie) ; d'autres varient selon les systèmes. Mieux vaut donc désigner les signaux par leur <strong>nom</strong>.</p>
-</div>
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">⚓︎</a></h2>
-<div class="admonition success">
-<p class="admonition-title">Synthèse</p>
+</details>
+<h2 id="synthese">🧠 Synthèse<a class="headerlink" href="#synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
 <ul>
 <li>Un <strong>processus</strong> est un programme en cours d'exécution, identifié par son <strong>PID</strong> ; il est créé par un processus père (<strong>PPID</strong>). Sous UNIX, l'appel système <code>fork</code> crée une copie du processus appelant et renvoie 0 au fils, le PID du fils au père.</li>
 <li>On observe les processus avec <code>ps</code>, <code>pstree</code> et <code>top</code> ; on en termine un avec <code>kill PID</code>.</li>
@@ -6838,10 +6852,8 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Exercices</p>
+<h2 id="pour-sentrainer">📝 Pour s'entraîner<a class="headerlink" href="#pour-sentrainer" title="Permanent link">⚓︎</a></h2>
 <p>Mettre en pratique : <a href="C7E1.html">exercices du chapitre</a>.</p>
-</div>
 
 
 
