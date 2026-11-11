@@ -1,0 +1,116 @@
+Représentations binaire et hexadécimale: applications
+====================================================
+
+__Objectifs__
+
+* manipuler les numérations binaire et hexadécimale;
+* se familiariser avec les techniques de programmation impératives en python;
+* utiliser la ligne de commande
+* s'approprier et utiliser une documentation (_en ligne ou celle du système_)
+
+!!! important "Pour information"
+    Les questions de code intégrées à cette page et fournies avec correction ne sont pas évaluées.
+
+Un convertisseur décimal binaire
+--------------------------------
+
+Python possède une fonction native qui permet la conversion d'un entier en binaire: la fonction `bin()`.  
+
+```python
+bin(77)
+>>> '0b1001101'
+```
+
+On constate que le résultat est:  
+
+* une chaîne de caractères;
+* préfixé des caractères `0b` pour indiquer du binaire.  
+
+On se propose d'écrire ici notre propre fonction de conversion en python, en suivant l'algorithme écrit en pseudo-code ci-après.  
+
+<figure markdown="span">
+<img alt="algobinaire" src="../img/dec2bin.png" width="72%">
+    <figcaption>Algorithme de conversion en binaire</figcaption>
+</figure>
+
+Dans cet algorithme, l'affectation est notée $\leftarrow$ (flêche gauche) et la chaine de caractères vide `""`.  
+!!! warning "Attention ..."
+    ... à l'interprétation de la ligne `"reste de la division de quotient par 2"`. Les doubles quotes `" "` indiquent ici qu'on __transforme le reste de la division de quotient par 2 en ... chaîne de caractères__.
+
+
+Par ailleurs, en python:  
+
+  *  le reste `r` de la division d'un entier naturel $a$ par un entier naturel $b$ est obtenu par `r = a % b`; 
+  *  le quotient `q` de la division euclidienne de $a$ par $b$ s'obtient par `q = a // b`;
+  *  la transformation d'un nombre $x$ en chaine de caractères `"x"` est réalisée par `str(x)`.  
+
+{{ IDE('NSI1C3/division') }}
+
+!!! question "À faire :star:"
+    * Traduire l'algorithme 1 en python en écrivant une fonction `dec2bin` qui prend en paramètre un entier naturel `n` et qui renvoit la représentation binaire de `n` sous la forme d'une chaine de caractères.
+    * **Bonus** Écrire une fonction `convertir_sur_16_bits` qui prend en paramètre un entier n et qui renvoit sa décomposition binaire écrite sur 16 bits. Il faudra donc rajouter, si besoin, des zéros.  
+    !!! tip "Indication pour le bonus"
+        Réutiliser la fonction précédente.
+{{ IDE('NSI1S3/TP1Code1', MAX=10) }}
+
+{{ IDE('NSI1S3/TP1Code2') }}
+
+Numération hexadécimale
+-----------------------
+
+### Un outil en ligne de commande
+
+Quelque soit leur type, les fichiers sont stockés en machine sous forme binaire. Celle-ci est peu pratique la plupart du temps. On lui préfère la forme hexadécimale. Le fichier de travail est un fichier image [à télécharger ici](logo.bmp). 
+
+!!! question "À faire :star:"
+    * On peut utiliser un outil en ligne de commande: `hexdump` pour visualiser le contenu en hexadécimal d'un fichier.  **Après voir consulté la documentation** en annexe, dans un terminal (++ctrl+alt+t++), saisir la commande `hexdump -C -n 64 logo.bmp` qui affiche les 64 premiers octets du fichier `logo.bmp` en hexadécimal. On s'intéressera uniquement à la colonne centrale où chaque ligne représente 16 octets.
+    * Donner la valeur des 6 premiers octets.
+    * On peut aussi convertir un nombre hexadécimal en décimal via la ligne de commande en prenant soin de le préfixé par `0x`. Exemple de syntaxe: `echo $((0x7F))` qui donne 127. Convertir le nombre héxadécimal `B104` en décimal.
+
+### Notion de boutisme (endianness en anglais)
+
+Pour une donnée qui occupent au moins deux octets, la question de sa représentation en mémoire (on dit aussi de son boutisme) se pose. En effet, on a deux possibilités pour l'écrire:  
+
+* de l'octet de poids fort vers l'octet de poids faible; c'est la représentation *gros-boutisme* ou *big-endian*;
+* de l'octet de poids faible vers l'octet de poids fort; c'est la représentation *petit-boutisme* ou *little-endian*;
+
+Le choix du boutisme est typiquement fixé par l'architecture du processeur ou le protocole. Pour ce TP, au lycée, c'est la représentation *little-endian* qui prévaut.  
+
+**Exemple**  
+Le nombre hexadécimal `0x1A597C` occupe trois octets, `1A` est l'octet de poids fort et `7C` l'octet de poids faible. Sur une architecture *little-endian* ce nombre sera représenté par `7C 59 1A`.  
+
+!!! question "À faire"
+    * Saisir la commande `hexdump -C -n 14 logo.bmp` qui affiche les 14 premiers octets du fichier. Relever les 4 octets allant du n°2 au n°5;
+    
+    !!! warning "Numérotation des octets"
+        Attention, on compte à partir de 0.
+        
+    * Sachant que c'est la représentation *little-endian* qui est utilisée, quel est le nombre hexadécimal correspondant ?
+
+### Caractéristiques d'une image au format BMP
+
+Les fichiers images au format [BMP](https://en.wikipedia.org/wiki/BMP_file_format) sont bien documentés. On peut aisemment consulter les informations avec un éditeur hexadecimal. Dans ce TP, ce sera `hexdump`.
+
+#### Exploitation de l'entête Bitmap File Header
+
+Les 2 premiers octets servent à identifier le fichier. Pour une image BMP, on doit avoir `B` et `M` soit `42` et `4D` en hexadécimal.  
+
+Les **4 octets suivants nous donnent la taille du fichier**, en hexadécimal.  
+
+!!! question "À faire"
+
+    * Consulter la documentation en annexe sur l'organisation d'un fichier image `BMP`;
+    * _Rappel: consulter la documentation de `hexdump` afin de prendre connaissance de ses principales options_. Compte tenu du boutisme, donner la commande qui permet d'avoir la taille du fichier **et uniquement celle-ci**, en hexadécimal.
+    * Donner la commande qui permet de convertir la valeur précédente en décimal.
+    * La valeur trouvée est-elle cohérente avec celle fournie par la commande `ls -l`?
+
+#### Exploitation de l'entête DIB Header
+
+On se réfère toujours à la documention du format BMP fournie en annexe (*qui est disponible sur en version complète sur* [wikipedia](https://en.wikipedia.org/wiki/BMP_file_format)). Sur le schéma proposé, la *taille* d'une cellule est de 4 octets. 
+
+!!! question "À faire"
+    En exploitant les informations extraites de l'entête *DIB Header* et en utilisant `hexdump`:
+
+    * trouver la valeur hexadécimale correspondant à la largeur (en anglais *width*) en pixels, de l'image; convertir cette valeur en décimal;
+    * trouver la valeur hexadécimale correspondant à la hauteur (en anglais *height*) en pixels, de l'image; convertir cette valeur en décimal;
+    * trouver la valeur hexadécimale correspondant à la méthode de compression de l'image. Quelle est la signification de cette valeur, sachant que le format utilisé est _Windows BITMAPINFOHEADER header_ ?
