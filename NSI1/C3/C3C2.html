@@ -1415,7 +1415,7 @@
         <li class="md-nav__item">
   <a href="#1-le-cadre-un-nombre-fixe-de-bits-et-un-additionneur" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Le cadre : un nombre fixe de bits et un additionneur
+      1. 🧮 Le cadre : un nombre fixe de bits et un additionneur
     </span>
   </a>
   
@@ -1424,7 +1424,7 @@
         <li class="md-nav__item">
   <a href="#2-une-fausse-bonne-idee-signe-et-valeur-absolue" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Une fausse bonne idée : signe et valeur absolue
+      2. 🚫 Une fausse bonne idée : signe et valeur absolue
     </span>
   </a>
   
@@ -1433,7 +1433,7 @@
         <li class="md-nav__item">
   <a href="#3-lidee-du-complement-a-2" class="md-nav__link">
     <span class="md-ellipsis">
-      3. L'idée du complément à 2
+      3. 🕛 L'idée du complément à 2
     </span>
   </a>
   
@@ -1442,7 +1442,7 @@
         <li class="md-nav__item">
   <a href="#4-definition-et-proprietes" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Définition et propriétés
+      4. 📚 Définition et propriétés
     </span>
   </a>
   
@@ -1451,7 +1451,7 @@
         <li class="md-nav__item">
   <a href="#5-coder-un-entier-negatif-inverser-puis-ajouter-1" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Coder un entier négatif : «inverser puis ajouter 1»
+      5. 🔄 Coder un entier négatif : « inverser puis ajouter 1 »
     </span>
   </a>
   
@@ -1460,7 +1460,7 @@
         <li class="md-nav__item">
   <a href="#6-decoder-un-code-en-complement-a-2" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Décoder un code en complément à 2
+      6. 🔓 Décoder un code en complément à 2
     </span>
   </a>
   
@@ -1469,7 +1469,7 @@
         <li class="md-nav__item">
   <a href="#7-additionner-soustraire-et-le-depassement-de-capacite" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Additionner, soustraire, et le dépassement de capacité
+      7. ➕ Additionner, soustraire, et le dépassement de capacité
     </span>
   </a>
   
@@ -1478,7 +1478,7 @@
         <li class="md-nav__item">
   <a href="#8-combien-de-bits-pour-une-somme-ou-un-produit" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Combien de bits pour une somme ou un produit ?
+      8. 📏 Combien de bits pour une somme ou un produit ?
     </span>
   </a>
   
@@ -1487,16 +1487,16 @@
         <li class="md-nav__item">
   <a href="#9-et-en-python" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Et en Python ?
+      9. 🐍 Et en Python ?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-en-resume" class="md-nav__link">
+  <a href="#10-synthese" class="md-nav__link">
     <span class="md-ellipsis">
-      10. En résumé
+      10. 🧠 Synthèse
     </span>
   </a>
   
@@ -6020,7 +6020,7 @@
 
 
 
-<h1 id="coder-un-entier-relatif-le-complement-a-2">Coder un entier relatif : le complément à 2<a class="headerlink" href="#coder-un-entier-relatif-le-complement-a-2" title="Permanent link">⚓︎</a></h1>
+<h1 id="coder-un-entier-relatif-le-complement-a-2">📖 Coder un entier relatif : le complément à 2<a class="headerlink" href="#coder-un-entier-relatif-le-complement-a-2" title="Permanent link">⚓︎</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Programme de première (BO spécial n° 1 du 22 janvier 2019)</p>
 <p><strong>Représentation des données : types et valeurs de base</strong></p>
@@ -6041,19 +6041,18 @@
 </tbody>
 </table>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Objectifs</p>
-<p>À la fin de ce cours, je sais :</p>
-<ul>
-<li>expliquer pourquoi on n'utilise pas un simple « bit de signe » ;</li>
-<li>coder un entier relatif en complément à 2 sur <span class="arithmatex">\(n\)</span> bits, et décoder un tel code ;</li>
-<li>donner l'intervalle des entiers représentables sur 8, 16, 32 ou 64 bits ;</li>
-<li>additionner deux codes et repérer un <strong>dépassement de capacité</strong> ;</li>
-<li>évaluer le nombre de bits nécessaires pour écrire une somme ou un produit.</li>
-</ul>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de ce chapitre, je sais…</p>
+<ol>
+<li><strong>expliquer</strong> pourquoi on n'utilise pas un simple « bit de signe » ;</li>
+<li><strong>coder</strong> un entier relatif en complément à 2 sur <span class="arithmatex">\(n\)</span> bits, et <strong>décoder</strong> un tel code ;</li>
+<li><strong>donner</strong> l'intervalle des entiers représentables sur 8, 16, 32 ou 64 bits ;</li>
+<li><strong>additionner</strong> deux codes et <strong>repérer</strong> un dépassement de capacité ;</li>
+<li><strong>évaluer</strong> le nombre de bits nécessaires pour écrire une somme ou un produit.</li>
+</ol>
 </div>
-<p><strong>Prérequis</strong> : écriture binaire d'un entier naturel (<a href="C3C1.html">cours 1</a>) ; <span class="arithmatex">\(k\)</span> bits permettent d'écrire les entiers de <span class="arithmatex">\(0\)</span> à <span class="arithmatex">\(2^k - 1\)</span>.</p>
-<h2 id="1-le-cadre-un-nombre-fixe-de-bits-et-un-additionneur">1. Le cadre : un nombre fixe de bits et un additionneur<a class="headerlink" href="#1-le-cadre-un-nombre-fixe-de-bits-et-un-additionneur" title="Permanent link">⚓︎</a></h2>
+<p><strong>Prérequis</strong> : écriture binaire d'un entier naturel (<a href="C3C1.html">cours C3C1</a>) ; <span class="arithmatex">\(k\)</span> bits permettent d'écrire les entiers de <span class="arithmatex">\(0\)</span> à <span class="arithmatex">\(2^k - 1\)</span>.</p>
+<h2 id="1-le-cadre-un-nombre-fixe-de-bits-et-un-additionneur">1. 🧮 Le cadre : un nombre fixe de bits et un additionneur<a class="headerlink" href="#1-le-cadre-un-nombre-fixe-de-bits-et-un-additionneur" title="Permanent link">⚓︎</a></h2>
 <p>Un processeur range les entiers dans des cases de <strong>taille fixe</strong> : 8, 16, 32 ou 64 bits. Pour calculer, il dispose d'un circuit <strong>additionneur</strong>, qui additionne deux codes binaires de <span class="arithmatex">\(n\)</span> bits, colonne par colonne, avec des retenues.</p>
 <div class="admonition note">
 <p class="admonition-title">Rappel : additionner en binaire</p>
@@ -6099,15 +6098,15 @@
              1 1 1 1      (15)
            + 0 0 0 1      (1)
            ---------
-           1 0 0 0 0      résultat sur 4 bits : 0000 ; la retenue sortante vaut 1
+           1 0 0 0 0      sur 4 bits : 0000 ; la retenue sortante vaut 1
 </code></pre></div></td></tr></table></div>
 <p>C'est comme l'heure sur un téléphone : après 23 h, on ne passe pas à 24 h mais à 0 h. L'heure « fait le tour », et l'additionneur sur 4 bits aussi : après <span class="arithmatex">\(1111\)</span> (15), il revient à <span class="arithmatex">\(0000\)</span>.</p>
-<div class="admonition tip">
+<div class="admonition abstract">
 <p class="admonition-title">À retenir</p>
 <p>Sur <span class="arithmatex">\(n\)</span> bits, l'additionneur calcule le résultat <strong>à <span class="arithmatex">\(2^n\)</span> près</strong> : si la somme atteint ou dépasse <span class="arithmatex">\(2^n\)</span>, on obtient la somme diminuée de <span class="arithmatex">\(2^n\)</span>. On dit que l'addition est <strong>modulaire</strong> (modulo <span class="arithmatex">\(2^n\)</span>).</p>
 </div>
 <p><strong>Le problème</strong> : avec ce seul additionneur, comment représenter des entiers <strong>négatifs</strong> pour que les additions, et donc les soustractions <span class="arithmatex">\(a - b = a + (-b)\)</span>, donnent le bon résultat ?</p>
-<h2 id="2-une-fausse-bonne-idee-signe-et-valeur-absolue">2. Une fausse bonne idée : signe et valeur absolue<a class="headerlink" href="#2-une-fausse-bonne-idee-signe-et-valeur-absolue" title="Permanent link">⚓︎</a></h2>
+<h2 id="2-une-fausse-bonne-idee-signe-et-valeur-absolue">2. 🚫 Une fausse bonne idée : signe et valeur absolue<a class="headerlink" href="#2-une-fausse-bonne-idee-signe-et-valeur-absolue" title="Permanent link">⚓︎</a></h2>
 <p>L'idée la plus naturelle : le bit de poids fort code le signe (0 pour <span class="arithmatex">\(+\)</span>, 1 pour <span class="arithmatex">\(-\)</span>), les autres bits codent la valeur absolue.</p>
 <p><img alt="Code de -5 sur 4 bits en signe et valeur absolue : un bit de signe égal à 1, suivi de 101, l'écriture binaire de 5" src="img/signe_valeur_absolue.svg" /></p>
 <p>Ce codage présente <strong>deux défauts</strong> :</p>
@@ -6124,7 +6123,7 @@
            1 0 0 1 0      sur 4 bits : 0010, c&#39;est-à-dire +2 au lieu de 0
 </code></pre></div></td></tr></table></div>
 <p>Il faudrait un circuit spécial pour les nombres négatifs : ce codage n'est pas utilisé pour les entiers.</p>
-<h2 id="3-lidee-du-complement-a-2">3. L'idée du complément à 2<a class="headerlink" href="#3-lidee-du-complement-a-2" title="Permanent link">⚓︎</a></h2>
+<h2 id="3-lidee-du-complement-a-2">3. 🕛 L'idée du complément à 2<a class="headerlink" href="#3-lidee-du-complement-a-2" title="Permanent link">⚓︎</a></h2>
 <h3 id="31-chercher-le-code-de-5">3.1 Chercher le code de −5<a class="headerlink" href="#31-chercher-le-code-de-5" title="Permanent link">⚓︎</a></h3>
 <p>On cherche, sur 4 bits, un code <span class="arithmatex">\(y\)</span> tel que l'additionneur donne <span class="arithmatex">\(0000\)</span> quand on lui ajoute le code de <span class="arithmatex">\(5\)</span> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6147,25 +6146,25 @@
 </thead>
 <tbody>
 <tr>
-<td>1<sup>re</sup> (droite)</td>
+<td>1ʳᵉ (droite)</td>
 <td><span class="arithmatex">\(1 + {?}\)</span> doit donner <span class="arithmatex">\(0\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span> (car <span class="arithmatex">\(1 + 1 = 10_2\)</span>)</td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
 </tr>
 <tr>
-<td>2<sup>e</sup></td>
+<td>2ᵉ</td>
 <td><span class="arithmatex">\(0 + {?} + 1\)</span> doit donner <span class="arithmatex">\(0\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
 </tr>
 <tr>
-<td>3<sup>e</sup></td>
+<td>3ᵉ</td>
 <td><span class="arithmatex">\(1 + {?} + 1\)</span> doit donner <span class="arithmatex">\(0\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
 </tr>
 <tr>
-<td>4<sup>e</sup> (gauche)</td>
+<td>4ᵉ (gauche)</td>
 <td><span class="arithmatex">\(0 + {?} + 1\)</span> doit donner <span class="arithmatex">\(0\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
 <td style="text-align: center;"><span class="arithmatex">\(1\)</span> (retenue sortante)</td>
@@ -6186,7 +6185,7 @@
 <p>On décide donc que <strong><span class="arithmatex">\(1011\)</span> sera le code de <span class="arithmatex">\(-5\)</span></strong>.</p>
 <h3 id="32-dou-vient-ce-code">3.2 D'où vient ce code ?<a class="headerlink" href="#32-dou-vient-ce-code" title="Permanent link">⚓︎</a></h3>
 <p>Lu comme un entier naturel, <span class="arithmatex">\(1011_2 = 8 + 2 + 1 = 11\)</span>. Or <span class="arithmatex">\(5 + 11 = 16\)</span>, et <span class="arithmatex">\(16 = 10000_2\)</span> s'écrit avec 5 bits : sur 4 bits, il ne reste que <span class="arithmatex">\(0000\)</span>.</p>
-<div class="admonition note">
+<div class="admonition abstract">
 <p class="admonition-title">À retenir</p>
 <p>Sur 4 bits, l'additionneur affiche <span class="arithmatex">\(0000\)</span> quand la somme vaut <span class="arithmatex">\(16\)</span>.
 Pour coder <span class="arithmatex">\(-5\)</span>, on prend donc l'entier naturel qu'il faut ajouter à <span class="arithmatex">\(5\)</span> pour atteindre <span class="arithmatex">\(16\)</span> : <span class="arithmatex">\(16 - 5 = 11 = 1011_2\)</span>.</p>
@@ -6200,7 +6199,7 @@ Pour coder <span class="arithmatex">\(-5\)</span>, on prend donc l'entier nature
 <p>De même, <span class="arithmatex">\(-1\)</span> est représenté par <span class="arithmatex">\(16 - 1 = 15 = 1111\)</span> : c'est le « 23 h » de cette horloge, la position juste avant <span class="arithmatex">\(0000\)</span>.</p>
 <p>Le cercle ci-dessous représente cette horloge à 16 positions.</p>
 <p><img alt="Les 16 codes sur 4 bits disposés sur un cercle. De 0000 à 0111, ils codent 0 à 7 ; de 1000 à 1111, ils codent -8 à -1. Ajouter 1 fait tourner d'un cran dans le sens des aiguilles d'une montre. Passer de 1111 à 0000 donne -1 + 1 = 0, résultat juste ; passer de 0111 à 1000 donne 7 + 1 = -8 : c'est un dépassement" src="img/cercle_4bits.svg" /></p>
-<h2 id="4-definition-et-proprietes">4. Définition et propriétés<a class="headerlink" href="#4-definition-et-proprietes" title="Permanent link">⚓︎</a></h2>
+<h2 id="4-definition-et-proprietes">4. 📚 Définition et propriétés<a class="headerlink" href="#4-definition-et-proprietes" title="Permanent link">⚓︎</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Définition : complément à 2 sur <span class="arithmatex">\(n\)</span> bits</p>
 <p>Soit <span class="arithmatex">\(x\)</span> un entier relatif tel que <span class="arithmatex">\(-2^{n-1} \leqslant x \leqslant 2^{n-1} - 1\)</span>.</p>
@@ -6257,8 +6256,8 @@ Pour coder <span class="arithmatex">\(-5\)</span>, on prend donc l'entier nature
 </tr>
 </tbody>
 </table>
-<h2 id="5-coder-un-entier-negatif-inverser-puis-ajouter-1">5. Coder un entier négatif : «inverser puis ajouter 1»<a class="headerlink" href="#5-coder-un-entier-negatif-inverser-puis-ajouter-1" title="Permanent link">⚓︎</a></h2>
-<div class="admonition note">
+<h2 id="5-coder-un-entier-negatif-inverser-puis-ajouter-1">5. 🔄 Coder un entier négatif : « inverser puis ajouter 1 »<a class="headerlink" href="#5-coder-un-entier-negatif-inverser-puis-ajouter-1" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
 <p class="admonition-title">Méthode : « inverser puis ajouter 1 »</p>
 <p>Pour coder un entier négatif <span class="arithmatex">\(x\)</span> sur <span class="arithmatex">\(n\)</span> bits :</p>
 <ol>
@@ -6275,7 +6274,7 @@ Pour coder <span class="arithmatex">\(-5\)</span>, on prend donc l'entier nature
 inversion        1 0 0 1 0 1 0 0
 + 1              1 0 0 1 0 1 0 1      code de -107
 </code></pre></div></td></tr></table></div>
-On retrouve le résultat du § 4.</p>
+On retrouve le résultat de la section 4.</p>
 </div>
 <p>Plus généralement, <strong>« inverser puis ajouter 1 » appliqué au code de <span class="arithmatex">\(x\)</span> donne le code de <span class="arithmatex">\(-x\)</span></strong>, que <span class="arithmatex">\(x\)</span> soit positif ou négatif. En l'appliquant au code de <span class="arithmatex">\(-107\)</span>, on retrouve le code de <span class="arithmatex">\(107\)</span> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6294,13 +6293,13 @@ inversion        0 1 1 0 1 0 1 0
 <div class="arithmatex">\[\underbrace{(2^n - 1) - |x|}_{\text{bits de } |x| \text{ inversés}} + 1 = 2^n - |x|\]</div>
 <p>qui est bien la valeur dont l'écriture binaire code <span class="arithmatex">\(x\)</span>.</p>
 </details>
-<h2 id="6-decoder-un-code-en-complement-a-2">6. Décoder un code en complément à 2<a class="headerlink" href="#6-decoder-un-code-en-complement-a-2" title="Permanent link">⚓︎</a></h2>
+<h2 id="6-decoder-un-code-en-complement-a-2">6. 🔓 Décoder un code en complément à 2<a class="headerlink" href="#6-decoder-un-code-en-complement-a-2" title="Permanent link">⚓︎</a></h2>
 <p>On lit d'abord le <strong>bit de poids fort</strong> :</p>
 <ul>
-<li>s'il vaut <span class="arithmatex">\(0\)</span>, le code est l'écriture binaire d'un entier positif : on convertit comme au cours 1 ;</li>
+<li>s'il vaut <span class="arithmatex">\(0\)</span>, le code est l'écriture binaire d'un entier positif : on convertit comme dans le cours C3C1 ;</li>
 <li>s'il vaut <span class="arithmatex">\(1\)</span>, l'entier est négatif. Deux méthodes :</li>
 </ul>
-<div class="admonition note">
+<div class="admonition tip">
 <p class="admonition-title">Méthode 1 : chercher l'opposé</p>
 <p>On applique « inverser puis ajouter 1 » : on obtient le code de <span class="arithmatex">\(|x|\)</span>.</p>
 <p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -6311,13 +6310,13 @@ inversion        0 0 1 0 1 0 0 1
 </code></pre></div></td></tr></table></div>
 Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="arithmatex">\(-42\)</span>.</p>
 </div>
-<div class="admonition note">
+<div class="admonition tip">
 <p class="admonition-title">Méthode 2 : le bit de poids fort compte négativement</p>
 <p>Sur <span class="arithmatex">\(n\)</span> bits, le bit de poids fort a pour poids <span class="arithmatex">\(-2^{n-1}\)</span> ; les autres bits gardent leur poids habituel.</p>
 <p><img alt="Code 10010101 sur 8 bits : le bit de poids fort a pour poids -128, les autres 64, 32, 16, 8, 4, 2, 1 ; la valeur est -128 + 16 + 4 + 1 = -107" src="img/poids_c2.svg" /></p>
 </div>
 <p>La méthode 2 est souvent la plus rapide. <strong>Pourquoi fonctionne-t-elle ?</strong> Lu comme un entier naturel, <span class="arithmatex">\(1001\,0101_2 = 128 + 21 = 149\)</span>, et ce code représente <span class="arithmatex">\(149 - 256 = -107\)</span>. Or <span class="arithmatex">\(149 - 256 = 128 + 21 - 256 = -128 + 21\)</span> : tout se passe comme si le bit de poids fort valait <span class="arithmatex">\(-128\)</span> au lieu de <span class="arithmatex">\(+128\)</span>.</p>
-<h2 id="7-additionner-soustraire-et-le-depassement-de-capacite">7. Additionner, soustraire, et le dépassement de capacité<a class="headerlink" href="#7-additionner-soustraire-et-le-depassement-de-capacite" title="Permanent link">⚓︎</a></h2>
+<h2 id="7-additionner-soustraire-et-le-depassement-de-capacite">7. ➕ Additionner, soustraire, et le dépassement de capacité<a class="headerlink" href="#7-additionner-soustraire-et-le-depassement-de-capacite" title="Permanent link">⚓︎</a></h2>
 <p>Le complément à 2 permet d'utiliser <strong>le même additionneur</strong> pour tous les entiers relatifs, et de soustraire en ajoutant l'opposé : <span class="arithmatex">\(a - b = a + (-b)\)</span>. Pour lire le résultat comme un entier relatif, on ne tient compte que des <span class="arithmatex">\(n\)</span> bits du résultat, <strong>pas de la retenue sortante</strong>.</p>
 <div class="admonition example">
 <p class="admonition-title"><span class="arithmatex">\(100 - 30\)</span> sur 8 bits</p>
@@ -6350,11 +6349,11 @@ Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="
 <li>Un dépassement ne peut se produire que si les deux nombres sont <strong>de même signe</strong>. On le repère quand le résultat est <strong>de signe contraire</strong> : deux positifs donnent un « négatif », ou deux négatifs donnent un « positif ».</li>
 </ul>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Le bug de l'an 2038</p>
-<p>Beaucoup de systèmes comptent le temps en secondes écoulées depuis le 1<sup>er</sup> janvier 1970 à 0 h (UTC), dans un entier signé sur <strong>32 bits</strong>. Le plus grand entier représentable, <span class="arithmatex">\(2^{31} - 1 = 2\,147\,483\,647\)</span> secondes, est atteint le <strong>19 janvier 2038 à 3 h 14 min 07 s (UTC)</strong>. Une seconde plus tard, le compteur passe à <span class="arithmatex">\(-2^{31}\)</span> : les dates reviennent en 1901. Voir l'activité <a href="C3E4.html">Bug de 2038</a>.</p>
-</div>
-<h2 id="8-combien-de-bits-pour-une-somme-ou-un-produit">8. Combien de bits pour une somme ou un produit ?<a class="headerlink" href="#8-combien-de-bits-pour-une-somme-ou-un-produit" title="Permanent link">⚓︎</a></h2>
+<details class="info">
+<summary>Le bug de l'an 2038</summary>
+<p>Beaucoup de systèmes comptent le temps en secondes écoulées depuis le 1ᵉʳ janvier 1970 à 0 h (UTC), dans un entier signé sur <strong>32 bits</strong>. Le plus grand entier représentable, <span class="arithmatex">\(2^{31} - 1 = 2\,147\,483\,647\)</span> secondes, est atteint le <strong>19 janvier 2038 à 3 h 14 min 07 s (UTC)</strong>. Une seconde plus tard, le compteur passe à <span class="arithmatex">\(-2^{31}\)</span> : les dates reviennent en 1901. Voir l'activité <a href="C3E4.html">Bug de 2038</a>.</p>
+</details>
+<h2 id="8-combien-de-bits-pour-une-somme-ou-un-produit">8. 📏 Combien de bits pour une somme ou un produit ?<a class="headerlink" href="#8-combien-de-bits-pour-une-somme-ou-un-produit" title="Permanent link">⚓︎</a></h2>
 <div class="admonition example">
 <p class="admonition-title">Un exemple</p>
 <p><span class="arithmatex">\(255 = 1111\,1111_2\)</span> est le plus grand entier naturel qui s'écrit avec 8 bits.</p>
@@ -6363,16 +6362,16 @@ Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="
 <li><span class="arithmatex">\(255 \times 255 = 65\,025 = 1111\,1110\,0000\,0001_2\)</span> : il faut <strong>16 bits</strong>, deux fois plus.</li>
 </ul>
 </div>
-<div class="admonition note">
+<div class="admonition abstract">
 <p class="admonition-title">À retenir (entiers naturels)</p>
 <p>Si <span class="arithmatex">\(a\)</span> s'écrit avec <span class="arithmatex">\(p\)</span> bits et <span class="arithmatex">\(b\)</span> avec <span class="arithmatex">\(q\)</span> bits :</p>
 <ul>
 <li>la somme <span class="arithmatex">\(a + b\)</span> s'écrit avec <strong>au plus un bit de plus que le plus long des deux</strong>, c'est-à-dire au plus <span class="arithmatex">\(\max(p, q) + 1\)</span> bits ;</li>
 <li>le produit <span class="arithmatex">\(a \times b\)</span> s'écrit avec <strong>au plus <span class="arithmatex">\(p + q\)</span> bits</strong>.</li>
 </ul>
-<p>C'est pourquoi le résultat d'un calcul peut ne pas « tenir » dans la même taille que les opérandes (§ 7).</p>
+<p>C'est pourquoi le résultat d'un calcul peut ne pas « tenir » dans la même taille que les opérandes (section 7).</p>
 </div>
-<details class="info">
+<details class="tip">
 <summary>Justification</summary>
 <p>Un entier qui s'écrit avec <span class="arithmatex">\(p\)</span> bits est inférieur à <span class="arithmatex">\(2^p\)</span>. On a donc <span class="arithmatex">\(a &lt; 2^p\)</span> et <span class="arithmatex">\(b &lt; 2^q\)</span>.</p>
 <ul>
@@ -6380,35 +6379,35 @@ Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="
 <li><strong>Produit.</strong> <span class="arithmatex">\(a \times b &lt; 2^p \times 2^q = 2^{p+q}\)</span> : <span class="arithmatex">\(p + q\)</span> bits suffisent.</li>
 </ul>
 </details>
-<h2 id="9-et-en-python">9. Et en Python ?<a class="headerlink" href="#9-et-en-python" title="Permanent link">⚓︎</a></h2>
-<div class="admonition info">
+<h2 id="9-et-en-python">9. 🐍 Et en Python ?<a class="headerlink" href="#9-et-en-python" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
 <p class="admonition-title">Les entiers de Python sont de taille arbitraire</p>
 <p>Un entier Python n'est pas limité à 64 bits : sa taille en mémoire s'adapte à sa valeur. Il n'y a donc <strong>pas de dépassement de capacité</strong> sur les entiers en Python : la seule limite est la mémoire disponible.
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
-<span class="mi">1267650600228229401496703205376</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
+<span class="go">1267650600228229401496703205376</span>
 </code></pre></div></td></tr></table></div>
 En revanche, les entiers de taille fixe existent dans d'autres langages (C, Java), dans les bibliothèques de calcul (<code>numpy</code>) et dans le processeur lui-même.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><code>bin</code> ne donne pas le complément à 2</p>
 <p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-<span class="s1">&#39;-0b101&#39;</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">&#39;-0b101&#39;</span>
 </code></pre></div></td></tr></table></div>
 Python écrit un signe moins suivi de la valeur absolue. Pour obtenir le code sur 8 bits, on utilise le fait que <code>x % 256</code> vaut <span class="arithmatex">\(2^8 + x\)</span> quand <span class="arithmatex">\(-128 \leqslant x &lt; 0\)</span> :
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">256</span>
-<span class="mi">251</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">format</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;08b&quot;</span><span class="p">)</span>
-<span class="s1">&#39;11111011&#39;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">256</span>
+<span class="go">251</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;08b&quot;</span><span class="p">)</span>
+<span class="go">&#39;11111011&#39;</span>
 </code></pre></div></td></tr></table></div></p>
 </div>
-<h2 id="10-en-resume">10. En résumé<a class="headerlink" href="#10-en-resume" title="Permanent link">⚓︎</a></h2>
-<div class="admonition note">
-<p class="admonition-title">L'essentiel</p>
+<h2 id="10-synthese">10. 🧠 Synthèse<a class="headerlink" href="#10-synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
 <ul>
 <li>Sur <span class="arithmatex">\(n\)</span> bits, l'additionneur calcule à <span class="arithmatex">\(2^n\)</span> près : la retenue sortante ne fait pas partie du résultat.</li>
 <li><strong>Complément à 2</strong> : <span class="arithmatex">\(x \geqslant 0\)</span> est codé par <span class="arithmatex">\(x\)</span> ; <span class="arithmatex">\(x &lt; 0\)</span> est codé par <span class="arithmatex">\(2^n - |x|\)</span>.</li>
