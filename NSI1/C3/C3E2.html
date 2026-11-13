@@ -1501,12 +1501,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C2.html" class="md-nav__link">
+      <a href="C3C4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    COURS 4
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
     
   </span>
   
@@ -1524,12 +1524,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E2.html" class="md-nav__link">
+      <a href="C3E5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    EXERCICES E4
+    ✏️ Exercices 4 : textes
     
   </span>
   
@@ -3589,6 +3589,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
         
   
@@ -3635,12 +3658,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+      <a href="../../NSITerm/BDD/C8E2.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ✏️ Exercices: Schémas relationnels
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
     
   </span>
   
@@ -3704,7 +3727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8TP4.html" class="md-nav__link">
+      <a href="../../NSITerm/BDD/C8TP3.html" class="md-nav__link">
         
   
   
@@ -5717,8 +5740,7 @@
 <div class="admonition abstract">
 <p class="admonition-title">Repères</p>
 <p>Cours associé : <a href="C3C2.html">Coder un entier relatif : le complément à 2</a>.</p>
-<p>★ : automatismes, pour tous. ★★ : raisonnement. ★★★ : approfondissement.
-Les exercices 1 à 8 se font <strong>sans machine</strong> ; les exercices 9 et 10 sur machine, avec le fichier <a href="code/relatifs_tp.py"><code>relatifs_tp.py</code></a>.</p>
+<p>★ : automatismes, pour tous. ★★ : raisonnement. ★★★ : approfondissement. Les exercices 1 à 8 se font <strong>sans machine</strong> ; les exercices 9 et 10 sur machine, avec le fichier <a href="code/relatifs_tp.py"><code>relatifs_tp.py</code></a>.</p>
 </div>
 <h2 id="partie-a-automatismes">Partie A – Automatismes<a class="headerlink" href="#partie-a-automatismes" title="Permanent link">⚓︎</a></h2>
 <div class="admonition question">
@@ -5752,7 +5774,7 @@ Les exercices 1 à 8 se font <strong>sans machine</strong> ; les exercices 9 et 
 <p class="admonition-title">Exercice 4 ★ – Coder et décoder sur 8 bits</p>
 <ol>
 <li>
-<p>Donnez le code en complément à 2 sur 8 bits de </p>
+<p>Donnez le code en complément à 2 sur 8 bits de</p>
 <ul>
 <li><span class="arithmatex">\(-1\)</span></li>
 <li><span class="arithmatex">\(-128\)</span></li>
@@ -5802,15 +5824,15 @@ Les exercices 1 à 8 se font <strong>sans machine</strong> ; les exercices 9 et 
 <div class="admonition question">
 <p class="admonition-title">Exercice 7 ★★ – Combien de bits ?</p>
 <ol>
-<li>Combien de bits faut-il pour écrire <span class="arithmatex">\(1023\)</span> ? et <span class="arithmatex">\(127\)</span> ?</li>
-<li>Sans les calculer, donnez un nombre de bits suffisant pour écrire <span class="arithmatex">\(1023 + 127\)</span> et <span class="arithmatex">\(1023 \times 127\)</span>.</li>
-<li>Vérifiez en calculant ces deux nombres et leur nombre de bits.</li>
+<li>Combien de bits faut-il pour écrire <span class="arithmatex">\(200\)</span> ? et <span class="arithmatex">\(150\)</span> ?</li>
+<li>Sans les calculer, donnez un nombre de bits suffisant pour écrire <span class="arithmatex">\(200 + 150\)</span> et <span class="arithmatex">\(200 \times 150\)</span>.</li>
+<li>Vérifiez en calculant ces deux nombres et leur nombre de bits. Les nombres de bits trouvés à la question 2 sont-ils atteints ?</li>
 <li>Un programme multiplie deux entiers naturels de 32 bits. Sur combien de bits faut-il prévoir le résultat pour être certain qu'il tienne ?</li>
 </ol>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Exercice 8 ★★ – Le bug de l'an 2038</p>
-<p>De nombreux systèmes enregistrent une date comme le nombre de secondes écoulées depuis le 1<sup>er</sup> janvier 1970 à 0 h (UTC), dans un entier signé de 32 bits codé en complément à 2.</p>
+<p>De nombreux systèmes enregistrent une date comme le nombre de secondes écoulées depuis le 1ᵉʳ janvier 1970 à 0 h (UTC), dans un entier signé de 32 bits codé en complément à 2.</p>
 <ol>
 <li>Quel est le plus grand nombre de secondes que l'on peut enregistrer ?</li>
 <li>Convertissez cette durée en années (on prendra 1 an = 365,25 jours). En quelle année le compteur atteint-il sa valeur maximale ?</li>

@@ -1,0 +1,170 @@
+# 🧪 TP 2 : Mener une enquête avec SQL
+
+!!! abstract "À la fin de ce TP, je sais…"
+
+    1. **Explorer** une base inconnue : lister ses tables et lire leur structure.
+    2. **Lire** un schéma relationnel dont les conventions ne sont pas celles du cours.
+    3. **Traduire** un indice écrit en français ou en anglais en une requête SQL.
+    4. **Croiser** deux ou trois tables avec `JOIN ... ON` pour relier un indice à une personne.
+    5. **Rédiger** une requête au propre, comme à l'épreuve écrite.
+
+Ce TP reprend le jeu « SQL Murder Mystery », créé par le Knight Lab de l'université Northwestern et distribué sous licence MIT. Un meurtre a été commis à SQL City. Toutes les informations de la police sont dans une base de données : à vous de retrouver le coupable.
+
+!!! note "Rappel : règles du jeu"
+
+    - Chaque élève travaille sur **sa propre copie** du fichier `sql-murder-mystery.db`.
+    - Clauses autorisées : `SELECT`, `FROM`, `WHERE` avec `AND`, `OR`, `NOT`, `JOIN ... ON`, `DISTINCT`, `ORDER BY`, et les fonctions `COUNT`, `MIN`, `MAX`.
+    - Clauses interdites, car hors programme : `GROUP BY`, `HAVING`, `LIMIT`, et les requêtes imbriquées. L'enquête se résout entièrement sans elles.
+    - L'opérateur `LIKE`, non exigible, est utile ici : `plaque LIKE '%AB12%'` est vrai si la plaque contient `AB12`, et `nom LIKE 'Mar%'` est vrai si le nom commence par `Mar`.
+
+!!! tip "Méthode : le compte rendu"
+
+    Pour chaque étape, noter quatre choses : la **question** que l'on se pose, en français ; la **requête** écrite ; le **résultat** obtenu, en quelques mots ; la **déduction** que l'on en tire. Une requête qui ne donne rien d'utile se note aussi : elle fait partie de l'enquête.
+
+## 1. 🧭 Découvrir la base
+
+Dans un terminal, se placer dans le dossier qui contient le fichier, puis ouvrir la base :
+
+```text
+sqlite3 sql-murder-mystery.db
+```
+
+Une fois dans le client, trois réglages et deux commandes sont utiles. Elles commencent par un point et ne se terminent pas par un point-virgule : ce ne sont pas des requêtes SQL.
+
+| Commande | Effet |
+|------|--------|
+| `.headers on` | affiche le nom des colonnes au-dessus des résultats |
+| `.mode column` | aligne les résultats en colonnes |
+| `.tables` | liste les tables de la base |
+| `.schema person` | montre la structure de la table `person` |
+| `.quit` | quitte le client |
+
+Le schéma de la base, écrit avec les conventions du cours :
+
+- crime_scene_report (date, type, description, city)
+- person (^^id^^, name, #license_id, address_number, address_street_name, #ssn)
+- drivers_license (^^id^^, age, height, eye_color, hair_color, gender, plate_number, car_make, car_model)
+- income (^^ssn^^, annual_income)
+- interview (#person_id, transcript)
+- get_fit_now_member (^^id^^, #person_id, name, membership_start_date, membership_status)
+- get_fit_now_check_in (#membership_id, check_in_date, check_in_time, check_out_time)
+- facebook_event_checkin (#person_id, event_id, event_name, date)
+- solution (user, value)
+
+!!! warning "Attention : les conventions de cette base"
+
+    Les dates sont des **entiers** de la forme AAAAMMJJ : le 15 janvier 2018 s'écrit `20180115`, sans apostrophes. Les tailles sont en pouces. Les noms des tables et des attributs sont en anglais, comme les textes à lire.
+
+!!! question "À faire"
+
+    1. Ouvrir la base, appliquer les deux réglages d'affichage, puis lister les tables. Combien y en a-t-il ?
+    2. Afficher la structure de `person` avec `.schema person`. Comment la clé primaire et les clés étrangères y sont-elles indiquées ?
+    3. Combien de personnes la base contient-elle ? Combien de témoignages ?
+    4. D'après le schéma, par quelle table faut-il passer pour relier un témoignage (`interview`) au nom de la personne qui l'a donné ?
+    5. Quatre relations n'ont pas de clé primaire soulignée. Lesquelles ? Qu'est-ce que cela autorise, que le modèle relationnel interdit ?
+
+## 2. 📄 Le rapport de police
+
+Vous savez seulement ceci : le crime est un meurtre (`murder`), commis le 15 janvier 2018 à SQL City.
+
+!!! question "À faire"
+
+    1. Retrouver le rapport de police correspondant.
+    2. Jalon : la table contient 9 rapports pour SQL City, dont 3 meurtres. Votre requête finale doit renvoyer **une seule ligne**.
+    3. Lire la description. Combien de témoins sont cités ? Que sait-on de chacun ?
+
+## 3. 👥 Les témoins
+
+!!! question "À faire"
+
+    1. Le premier témoin habite la dernière maison d'une rue, c'est-à-dire celle qui porte le plus grand numéro. Retrouver son nom avec `ORDER BY`, sans `LIMIT` : il suffit de lire la première ligne du résultat.
+    2. Jalon : cette rue compte 50 habitants dans la base.
+    3. Retrouver le second témoin à partir de son prénom et de sa rue.
+    4. Jalon : 4 personnes de la base portent ce prénom, une seule habite la bonne rue.
+    5. Noter l'identifiant (`id`) des deux témoins.
+
+## 4. 🎤 Les témoignages
+
+!!! question "À faire"
+
+    1. Écrire **une seule requête avec jointure** qui affiche le nom de chaque témoin et son témoignage.
+    2. Jalon : deux lignes.
+    3. Relever tous les indices. Pour chacun, noter dans quelle table et dans quel attribut on pourra le vérifier.
+
+??? tip "Méthode : vocabulaire utile pour lire les témoignages"
+
+    | Anglais | Français |
+    |------|------|
+    | gunshot | coup de feu |
+    | bag | sac |
+    | membership number | numéro d'adhérent |
+    | gold member | adhérent de niveau « gold » |
+    | plate | plaque d'immatriculation |
+    | to work out | faire du sport |
+    | to hire | engager |
+
+## 5. 🎯 Le suspect
+
+Les indices concernent un club de sport et une voiture.
+
+!!! question "À faire"
+
+    1. Retrouver les adhérents du club qui correspondent aux indices sur le numéro et le niveau d'adhésion.
+    2. Jalon : 3 adhérents ont un numéro qui commence comme l'indique le témoin, 2 seulement ont le bon niveau.
+    3. Vérifier lesquels étaient présents au club le jour indiqué par le second témoin.
+    4. Jalon : 10 passages au club sont enregistrés ce jour-là.
+    5. Retrouver les personnes dont la plaque contient les caractères donnés par le témoin. Il faut une jointure entre `person` et `drivers_license`.
+    6. Jalon : 3 plaques correspondent.
+    7. Quelle personne vérifie tous les indices ?
+
+## 6. ✅ Vérifier sa réponse
+
+La table `solution` sert à vérifier une réponse. On y insère une ligne, puis on lit le message que la base renvoie.
+
+!!! question "À faire"
+
+    1. Écrire la requête qui insère dans `solution` la ligne formée de l'entier 1 et du nom du suspect, écrit comme dans la table `person`.
+    2. Exécuter `SELECT value FROM solution;` et lire le message.
+    3. Quelle famille de requêtes venez-vous d'utiliser pour la première fois dans ce TP ?
+
+## 7. 🎭 Le commanditaire
+
+Le message vous met sur une nouvelle piste : le meurtrier n'a pas agi seul.
+
+!!! question "À faire"
+
+    1. Lire le témoignage du meurtrier et relever les indices.
+    2. Retrouver les personnes qui correspondent aux indices physiques et à la voiture.
+    3. Jalon : 3 personnes.
+    4. Le dernier indice porte sur un nombre de présences à un événement. Sans `GROUP BY`, compter ces présences pour chacune des trois personnes, avec `COUNT` et `WHERE`.
+    5. Jalon : l'événement a 21 présences enregistrées sur le mois indiqué.
+    6. Vérifier votre réponse comme à la section 6.
+
+## 8. ✍️ Au propre, comme à l'écrit
+
+Ces requêtes se rédigent **sur papier**, sans machine, avec le schéma de la section 1 sous les yeux. On les teste ensuite. Les trois dernières modifient la base : chacun travaille sur sa propre copie, il n'y a aucun risque.
+
+1. Écrire une requête qui donne le nom des adhérents du club dont le niveau est `gold`, par ordre alphabétique.
+2. Écrire une requête qui donne le nombre de rapports de type `theft` établis à SQL City.
+3. Écrire une requête qui donne le nom et la plaque d'immatriculation des personnes dont la voiture est de marque `Tesla` et de modèle `Model S`.
+4. Écrire une requête qui donne le témoignage de la personne nommée `Annabel Miller`.
+5. Décrire par une phrase le résultat de la requête suivante.
+
+    ```sql
+    SELECT DISTINCT facebook_event_checkin.event_name
+    FROM facebook_event_checkin
+    JOIN person ON facebook_event_checkin.person_id = person.id
+    WHERE person.name = 'Jeremy Bowers'
+    ORDER BY facebook_event_checkin.event_name;
+    ```
+
+6. Un vol (`theft`) a eu lieu à SQL City le 2 mars 2018. La description est « Bike stolen near the station. ». Écrire la requête qui enregistre ce rapport.
+7. L'adhérent du club dont le numéro est `48Z7A` passe du niveau `gold` au niveau `silver`. Écrire la requête correspondante.
+8. Le club efface tous les passages antérieurs au 1er février 2017. Écrire la requête correspondante.
+9. Peut-on supprimer de la table `person` la personne d'identifiant 67318 sans autre précaution ? Justifier à l'aide du schéma.
+
+## 9. 🧠 Synthèse
+
+!!! question "À faire"
+
+    Rédiger un bilan de cinq à dix lignes : la suite des tables consultées pour arriver au coupable, la requête qui vous a posé le plus de difficulté et pourquoi, et ce que la jointure vous a permis de faire qu'une seule table ne permettait pas.

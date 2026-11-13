@@ -1,0 +1,206 @@
+LANGAGE SQL
+============
+
+Le langage
+----------
+
+SQL ou *Structured Query Language* est un langage standardisé de dialogue avec une base de données. C'est un langage déclaratif impératif; on décrit le *quoi* pas le *comment*.  
+Conformément au programme, on va se limiter aux instructions d'**interrogation** et de **mise à jour**. En d'autres termes, il s'agira:  
+
+* de demander des informations;
+* d'extraire une partie des informations suivant des critères précis;
+* de modifier des données (insertion ou suppression)
+
+
+
+Les requêtes d'interrogation
+----------------------------
+
+Une requête qui permet d'obtenir tout ou une partie des attributs d'une relation (*projection en algèbre relationnelle*) a une syntaxe du type:  
+
+!!! tip "Syntaxe"
+    ```sql
+    SELECT attribut(s) FROM table(s) 
+    ```
+
+---
+
+**Application 1**  
+
+1. Donner le schéma de la BDD `Livres`.
+2. Ecrire et tester la requête SQL qui permet d'obtenir tous les titres de la relation `livre`. Combien de titres sont présents?
+
+---
+
+On peut rajouter une condition de restriction sur les informations extraites en utilisant la clause `WHERE`. La syntaxe devient alors:  
+
+!!! tip "Syntaxe"
+    ```sql
+    SELECT attribut(s) FROM table(s) WHERE condition(s);
+    ```
+
+---
+
+**Application 2.1**  
+
+En utilisant la relation `livre`, écrire et tester la requête SQL permettant d'obtenir toutes informations sur les livres publiés par l'éditeur `Dargaud`.
+
+---
+
+La condition peut être exprimée avec les opérateur de comparaisons habituels mais aussi avec des opérateurs de comparaison de texte comme `LIKE`.
+
+---
+
+**Application 2.2**  
+
+Que produit la requête:  
+
+```sql
+SELECT titre FROM livre WHERE titre LIKE '%Astérix%'
+```
+
+---
+
+Si on désire obtenir les résultats dans un ordre particulier, on pourra utiliser la clause `ORDER BY`. La syntaxe est:  
+
+!!! tip "Syntaxe"
+    ```sql
+    SELECT attribut(s) FROM table(s) WHERE condition(s) ORDER BY attribut;
+    ```
+
+---
+
+**Application 3**  
+
+Écrire et tester la requête SQL permettant d'obtenir tous les titres de livres publiés après 1990, classés par titre (on dit aussi *ordre lexicographique*).
+
+---
+
+Si on veut éviter les doublons, on ajoute le mot clé `DISTINCT` à la clause `SELECT`.
+
+---
+
+**Application 4**  
+
+Comparer les sorties des deux requêtes suivantes:  
+
+* `SELECT annee FROM livre;`
+* `SELECT DISTINCT annee FROM livre;`
+
+---
+
+À partir de la table `emprunt`, on peut obtenir la liste de tous les livres empruntés avec la requête simple `SELECT * FROM emprunt`. Le résultat n'est très exploitable. Il serait intéressant d'avoir aussi les informations sur les livres à partir de l'isbn de la table `livre`. Cette opération de *fusion* des tables `emprunt` et `livre` est appelée **jointure**.  La syntaxe générale d'une jointure en SQL est:  
+
+!!! tip "Syntaxe"
+    ```sql
+    SELECT attribut(s) FROM table JOIN table_aux ON condition(s)
+    ```
+
+**Application 5**  
+
+* Tester la jointure des tables `emprunt` et `livre` avec la requête suivante: `SELECT * FROM emprunt JOIN livre ON emprunt.isbn=livre.isbn`.
+* Que réalise la requête ci-dessous? Tester.  
+
+```sql
+SELECT livre.titre, emprunt.retour
+FROM emprunt JOIN livre ON emprunt.isbn=livre.isbn
+WHERE emprunt.retour < '2020-02-01';
+```
+
+
+Les requêtes de mise à jour
+---------------------------
+
+### INSERT
+
+Une première opération de mise à jour consiste à insérer des nouvelles entrées dans une table. La syntaxe est:  
+
+!!! tip "Syntaxe"
+    ```sql
+    INSERT INTO table VALUES (liste de valeurs des attributs);
+    ```
+
+**Application 6**  
+
+Insérer une ligne de valeurs dans la table `usager`. Vérifier la mise à jour.
+
+### UPDATE
+
+Lorsqu'on souhaite modifier un ou plusieurs attributs, on utilise la clause `UPDATE` avec une syntaxe du type:  
+
+!!! tip "Syntaxe"
+    ```sql
+    UPDATE table SET att1=valeur1, att2=valeur2, ..., attn=valeurn WHERE condition;
+    ```
+Par exemple, on peut mettre à jour l'email de l'usager `PAYET`, dont `code_barre = '934701281931117'` avec la requête:  
+
+```sql
+UPDATE usager SET email='david@payet.re' WHERE code_barre = '934701281931117';
+```
+
+**Application 7**  
+
+Procéder à la mise à jour d'un ou plusieurs attributs dans l'enregistrement effectué à l'application 6.
+
+### DELETE
+
+On peut supprimer une ou plusieurs lignes d'une table avec la clause `DELETE` dont la syntaxe est la suivante:  
+
+!!! tip "Syntaxe"
+    ```sql
+    DELETE FROM table WHERE condition
+    ```
+Par exemple, si on veut supprimer l'usager `PAYET`, on peut utiliser la requête:
+
+```sql
+DELETE FROM usager WHERE code_barre = '934701281931117';
+```
+
+!!! warning "Remarque"
+    L'éxecution de cette requête provoque une erreur dans le cadre de l'espace de travail du cours, l'administrateur ayant retiré le droit d'utiliser la clause 
+    `DELETE`.
+
+
+# Les fonctions d'agrégation
+
+Les fonctions d'agrégation servent majoritairement à faire des statistiques: compter des lignes, connaître une moyenne, trouver la valeur maximale d'une colonne, etc.
+
+## Exemple 1: COUNT
+
+On s'intéresse à la table `livre` où on désire connaître le nombre de livres présents. On utilise la fonction `COUNT`:  
+
+```sql
+SELECT COUNT(*)
+FROM livre;
+```
+On voudrait maintenant le nombre d'éditeurs différents présents:  
+
+```sql
+SELECT COUNT(DISTINCT editeur)
+FROM livre;
+```
+
+## Exemple 2: MIN, MAX
+
+On souhaiterait maintenant connaître l'année correspondant au livre le plus ancien et celle du plus récent:
+
+```sql
+SELECT MIN(annee), MAX(annee)
+FROM livre;
+```
+
+## Exemple 3: AVG
+
+On se propose de trouver l'âge moyen des livres. On peut commencer par trouver *l'année moyenne* de sortie des livres:
+
+```sql
+SELECT AVG(annee)
+FROM livre;
+```
+
+On peut récupérer l'année en cours en SQL en composant deux fonctions (**non exigibles**) `YEAR` et `NOW`:
+
+```sql
+SELECT YEAR(NOW()) - AVG(annee)
+FROM livre
+```

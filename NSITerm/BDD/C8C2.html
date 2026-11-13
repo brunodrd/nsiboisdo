@@ -16,7 +16,7 @@
         <link rel="prev" href="C8C1.html">
       
       
-        <link rel="next" href="C8C3.html">
+        <link rel="next" href="C8E1.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#structure-des-bases-de-donnees-relationnelles" class="md-skip">
+        <a href="#cours-2-structure-dune-base-de-donnees-relationnelle" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1423,12 +1423,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSI1/S5/S5C2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3C4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    COURS 4
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
     
   </span>
   
@@ -1446,12 +1446,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSI1/S5/S5E2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3E5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    EXERCICES E4
+    ✏️ Exercices 4 : textes
     
   </span>
   
@@ -3545,27 +3545,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#schema-dune-base-de-donnees" class="md-nav__link">
+  <a href="#0-activite-damorce-une-seule-table-pour-tout-ranger" class="md-nav__link">
     <span class="md-ellipsis">
-      Schéma d'une base de données
+      0. 🔎 Activité d'amorce : une seule table pour tout ranger
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#consequences-dun-mauvais-schema" class="md-nav__link">
+  <a href="#1-structure-et-contenu" class="md-nav__link">
     <span class="md-ellipsis">
-      Conséquences d'un mauvais schéma
+      1. 📚 Structure et contenu
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprendre-un-bon-schema-dune-base-de-donnees" class="md-nav__link">
+  <a href="#2-lire-un-schema-relationnel" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprendre un (bon) schéma d'une base de données
+      2. 🗺️ Lire un schéma relationnel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-redondance-et-anomalies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 🔁 Redondance et anomalies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-repartir-les-donnees-pour-supprimer-les-anomalies" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. ✂️ Répartir les données pour supprimer les anomalies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-pour-sentrainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 📝 Pour s'entraîner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-de-prolongement-reparer-le-schema-du-magasin" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Exercice de prolongement – Réparer le schéma du magasin
     </span>
   </a>
   
@@ -3575,6 +3620,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3633,12 +3701,12 @@
   
   
     <li class="md-nav__item">
-      <a href="C8E1.html" class="md-nav__link">
+      <a href="C8E2.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ✏️ Exercices: Schémas relationnels
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
     
   </span>
   
@@ -3702,7 +3770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="C8TP4.html" class="md-nav__link">
+      <a href="C8TP3.html" class="md-nav__link">
         
   
   
@@ -5711,115 +5779,411 @@
 
 
 
-<h1 id="structure-des-bases-de-donnees-relationnelles">STRUCTURE DES BASES DE DONNEES RELATIONNELLES<a class="headerlink" href="#structure-des-bases-de-donnees-relationnelles" title="Permanent link">⚓︎</a></h1>
-<h2 id="schema-dune-base-de-donnees">Schéma d'une base de données<a class="headerlink" href="#schema-dune-base-de-donnees" title="Permanent link">⚓︎</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Définition</p>
-<p>Donner le schéma d'une relation consiste à donner un nom et un ensemble d'attribut / domaine.</p>
-</div>
-<p>Comme on l'a vu au cours des séquences précédentes, il n'est pas recommandable de mettre toutes les données dans une seule table. Il est en général nécessaire de créer plusieurs relations associées les unes aux autres.  </p>
-<div class="admonition important">
-<p class="admonition-title">Définition</p>
-<p>On définit le <strong>schéma d'une base de données</strong> comme un ensemble de schémas de relation. </p>
-</div>
-<p>Il s'agit de la <strong>structure de la base</strong>, à ne pas confondre avec le <strong>contenu</strong> de la base</p>
-<h2 id="consequences-dun-mauvais-schema">Conséquences d'un mauvais schéma<a class="headerlink" href="#consequences-dun-mauvais-schema" title="Permanent link">⚓︎</a></h2>
-<p>Avant d'entreprendre la compréhension d'un schéma relationnel <em>correct</em> d'une base de données, examinons les conséquences d'un mauvais schéma.</p>
-<p>On veut créer une base de données <code>Infos_films</code> représentant des films, avec des informations comme le titre, l’année, le réalisateur, etc. On part d’un schéma rassemblant ces informations dans une unique table:<br />
-<code>Film(titre, année, prénomRéalisateur, nomRéalisateur, annéeNaiss)</code></p>
+<h1 id="cours-2-structure-dune-base-de-donnees-relationnelle">📖 Cours 2 : Structure d'une base de données relationnelle<a class="headerlink" href="#cours-2-structure-dune-base-de-donnees-relationnelle" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme</p>
 <table>
 <thead>
 <tr>
-<th>titre</th>
-<th>année</th>
-<th>prénomRéalisateur</th>
-<th>nomRéalisateur</th>
-<th>annéeNais</th>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Alien</td>
-<td>1979</td>
-<td>Ridley</td>
-<td>Scott</td>
-<td>1943</td>
-</tr>
-<tr>
-<td>Vertigo</td>
-<td>1958</td>
-<td>Alfred</td>
-<td>Hitchcock</td>
-<td>1899</td>
-</tr>
-<tr>
-<td>Psychose</td>
-<td>1960</td>
-<td>Alfred</td>
-<td>Hitchcock</td>
-<td>1899</td>
-</tr>
-<tr>
-<td>Kagemusha</td>
-<td>1980</td>
-<td>Akira</td>
-<td>Kurosawa</td>
-<td>1910</td>
-</tr>
-<tr>
-<td>Volte-face</td>
-<td>1997</td>
-<td>John</td>
-<td>Woo</td>
-<td>1946</td>
-</tr>
-<tr>
-<td>Pulp Fiction</td>
-<td>1995</td>
-<td>Quentin</td>
-<td>Tarantino</td>
-<td>1963</td>
-</tr>
-<tr>
-<td>Titanic</td>
-<td>1997</td>
-<td>James</td>
-<td>Cameron</td>
-<td>1954</td>
-</tr>
-<tr>
-<td>Sacrifice</td>
-<td>1986</td>
-<td>Andrei</td>
-<td>Tarkovski</td>
-<td>1932</td>
+<td>Base de données relationnelle.</td>
+<td>Savoir distinguer la structure d'une base de données de son contenu. Repérer des anomalies dans le schéma d'une base de données.</td>
+<td>La structure est un ensemble de schémas relationnels qui respecte les contraintes du modèle relationnel. Les anomalies peuvent être des redondances de données ou des anomalies d'insertion, de suppression, de mise à jour. On privilégie la manipulation de données nombreuses et réalistes.</td>
 </tr>
 </tbody>
 </table>
-<p>Les problèmes potentiels ont pour origine la redondance d'informations.</p>
-<h3 id="anomalies-dinsertion">Anomalies d'insertion<a class="headerlink" href="#anomalies-dinsertion" title="Permanent link">⚓︎</a></h3>
-<p>En l'état, <strong>sans clé primaire définie, rien n'interdit l'insertion d'un film déjà présent</strong>. Par ailleurs, pour insérer un film il faut absolument saisir son réalisateur (à moins d'accepter une valeur vide <code>NULL</code>, ce qui n'est jamais très bon). Un problème similaire se pose si on veut entrer un réalisateur: il faut saisir un film qu'il a réalisé.</p>
-<h3 id="anomalies-de-mise-a-jour">Anomalies de mise à jour<a class="headerlink" href="#anomalies-de-mise-a-jour" title="Permanent link">⚓︎</a></h3>
-<p>Supposons que l’on modifie l’année de naissance de Hitchcock pour la ligne <em>Vertigo</em> et que l'on oublie d'effectuer la modification pour la ligne <em>Psychose</em>. On se <strong>retrouve alors avec des informations incohérentes</strong>.</p>
-<h3 id="anomalies-de-suppression">Anomalies de suppression<a class="headerlink" href="#anomalies-de-suppression" title="Permanent link">⚓︎</a></h3>
-<p>On ne peut pas supprimer un film sans supprimer du même coup son réalisateur. Si on souhaite, par exemple, ne plus voir le film <em>Titanic</em> figurer dans la base de données, on va effacer du même coup les informations sur <em>James Cameron</em>.</p>
-<h2 id="comprendre-un-bon-schema-dune-base-de-donnees">Comprendre un (bon) schéma d'une base de données<a class="headerlink" href="#comprendre-un-bon-schema-dune-base-de-donnees" title="Permanent link">⚓︎</a></h2>
-<p><em>Le schéma de la base support pour cette section peut être consultée avec l'interface en ligne</em> <code>dbdiagram.io</code>. Le lien est disponible sur Pronote.</p>
-<p>Le modèle relationnel possède un outil (<em>hors programme de terminale</em>) permettant d'éviter tous les problèmes liés à la redondance: la <strong>normalisation</strong>. En l'appliquant au problème précédent on peut aboutir au schéma de base de données <code>Infos_films</code> suivant:  </p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de ce chapitre, je sais…</p>
+<ol>
+<li><strong>Distinguer</strong> la structure d'une base de données de son contenu.</li>
+<li><strong>Lire</strong> le schéma relationnel d'une base, sous forme de texte ou de diagramme.</li>
+<li><strong>Repérer</strong> une redondance dans un schéma.</li>
+<li><strong>Expliquer</strong> sur un exemple une anomalie de mise à jour, d'insertion ou de suppression.</li>
+<li><strong>Expliquer</strong> pourquoi la répartition des données en plusieurs relations supprime ces anomalies.</li>
+</ol>
+</div>
+<h2 id="0-activite-damorce-une-seule-table-pour-tout-ranger">0. 🔎 Activité d'amorce : une seule table pour tout ranger<a class="headerlink" href="#0-activite-damorce-une-seule-table-pour-tout-ranger" title="Permanent link">⚓︎</a></h2>
+<p>Pour gérer les livres et leurs auteurs, on imagine une base faite d'une seule relation :</p>
+<p>catalogue (titre, editeur, annee, isbn, nom, prenom)</p>
+<p>Voici un extrait de son contenu, construit avec les données de la base <code>Livres_2</code>.</p>
+<table>
+<thead>
+<tr>
+<th>titre</th>
+<th>editeur</th>
+<th>annee</th>
+<th>isbn</th>
+<th>nom</th>
+<th>prenom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seconde Fondation</td>
+<td>adsaa</td>
+<td>1979</td>
+<td>000-0000000097</td>
+<td>Asimov</td>
+<td>Isaac</td>
+</tr>
+<tr>
+<td>Fondation et Empire</td>
+<td>Editions Denoël</td>
+<td>1999</td>
+<td>978-2207249123</td>
+<td>Asimov</td>
+<td>Isaac</td>
+</tr>
+<tr>
+<td>Astérix chez les Pictes</td>
+<td>Editions Albert René</td>
+<td>2013</td>
+<td>978-2864972662</td>
+<td>Goscinny</td>
+<td>René</td>
+</tr>
+<tr>
+<td>Astérix chez les Pictes</td>
+<td>Editions Albert René</td>
+<td>2013</td>
+<td>978-2864972662</td>
+<td>Ferri</td>
+<td>Jean-Yves</td>
+</tr>
+<tr>
+<td>Astérix chez les Pictes</td>
+<td>Editions Albert René</td>
+<td>2013</td>
+<td>978-2864972662</td>
+<td>Uderzo</td>
+<td>Albert</td>
+</tr>
+<tr>
+<td>Astérix chez les Pictes</td>
+<td>Editions Albert René</td>
+<td>2013</td>
+<td>978-2864972662</td>
+<td>Conrad</td>
+<td>Didier</td>
+</tr>
+<tr>
+<td>Le Papyrus de César</td>
+<td>Editions Albert René</td>
+<td>2015</td>
+<td>978-2864972716</td>
+<td>Ferri</td>
+<td>Jean-Yves</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Quelles informations sont écrites plusieurs fois dans cet extrait ?</li>
+<li>L'attribut <code>isbn</code> peut-il servir de clé primaire à la relation <code>catalogue</code> ? Proposer une clé primaire.</li>
+<li>L'année de « Astérix chez les Pictes » est fausse et doit être corrigée. Combien de lignes faut-il modifier ? Que se passe-t-il si on en oublie une ?</li>
+<li>La bibliothèque veut enregistrer une nouvelle autrice dont elle ne possède encore aucun livre. Est-ce possible ?</li>
+<li>La bibliothèque se sépare du livre « Le Papyrus de César » et supprime sa ligne. Perd-on une autre information ? Même question pour « Seconde Fondation ».</li>
+</ol>
+</div>
+<h2 id="1-structure-et-contenu">1. 📚 Structure et contenu<a class="headerlink" href="#1-structure-et-contenu" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition : schéma relationnel d'une base</p>
+<p>Le schéma relationnel d'une base de données est l'ensemble des schémas de ses relations, avec leurs clés primaires et leurs clés étrangères. Il constitue la <strong>structure</strong> de la base.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Définition : contenu d'une base</p>
+<p>Le contenu d'une base de données est l'ensemble des n-uplets de ses relations à un instant donné.</p>
+</div>
+<p>Pour la base <code>Livres_2</code> :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Structure</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ce que c'est</td>
+<td>5 schémas de relations, leurs clés et leurs domaines</td>
+<td>128 livres, 119 auteurs, 12 usagers, 17 emprunts, 160 liens entre auteurs et livres</td>
+</tr>
+<tr>
+<td>Quand cela change</td>
+<td>rarement : la structure est décidée à la conception de la base</td>
+<td>sans cesse : à chaque inscription, chaque emprunt, chaque retour</td>
+</tr>
+<tr>
+<td>Qui la respecte</td>
+<td>elle respecte les règles du modèle relationnel</td>
+<td>il respecte la structure, donc les contraintes d'intégrité</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">À ne pas confondre</p>
+<p>Ajouter, modifier ou supprimer une ligne change le <strong>contenu</strong>, jamais la <strong>structure</strong>. Ajouter un attribut <code>date_emprunt</code> à la relation <code>emprunt</code>, ou créer une relation <code>editeur</code>, change la structure. Une anomalie, au sens de ce cours, est un défaut de la structure : elle existe avant même qu'une seule ligne soit saisie.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Pour chaque phrase, dire si elle décrit la structure ou le contenu de la base <code>Livres_2</code>.</p>
+<ol>
+<li>La relation <code>usager</code> a sept attributs.</li>
+<li>L'usager DUBOIS habite à Paris.</li>
+<li>L'attribut <code>isbn</code> de <code>emprunt</code> fait référence à la clé primaire de <code>livre</code>.</li>
+<li>Dix-sept livres sont actuellement empruntés.</li>
+<li>Deux usagers ne peuvent pas avoir le même code-barres.</li>
+<li>Aucun livre de la base n'a été publié avant 1933.</li>
+</ol>
+</div>
+<h2 id="2-lire-un-schema-relationnel">2. 🗺️ Lire un schéma relationnel<a class="headerlink" href="#2-lire-un-schema-relationnel" title="Permanent link">⚓︎</a></h2>
+<p>Un schéma relationnel se présente sous deux formes. Les sujets d'examen utilisent l'une ou l'autre.</p>
+<p><strong>Sous forme de texte</strong>, comme au cours C8C1, section 5 :</p>
 <ul>
-<li>Film (<u>idFilm</u>, titre, année, genre, résumé, #idRéalisateur, #codePays)</li>
-<li>Pays (<u>code</u>, nom, langue)</li>
-<li>Artiste (<u>idArtiste</u>, nom, prénom, annéeNaissance)</li>
-<li>Rôle (<u>#idFilm, #idActeur</u>, nomRôle)</li>
-<li>Internaute (<u>email</u>, nom, prénom, région)</li>
-<li>Notation (<u>#email, #idFilm</u>, note)</li>
+<li>livre (titre, editeur, annee, <ins>isbn</ins>)</li>
+<li>auteur (<ins>a_id</ins>, nom, prenom)</li>
+<li>auteur_de (<ins>#a_id, #isbn</ins>)</li>
+<li>usager (nom, prenom, adresse, cp, ville, email, <ins>code_barre</ins>)</li>
+<li>emprunt (#code_barre, <ins>#isbn</ins>, retour)</li>
 </ul>
-<p>On peut d'abord noter que chaque relation possède une clé primaire, ce qui assure l'unicité des n-uplets.<br />
-La clé étrangère <code>idRéalisateur</code> dans <code>Film</code> référence la clé primaire <code>idArtiste</code> de <code>Artiste</code>. De même, La clé étrangère <code>codePays</code> dans <code>Film</code> référence la clé primaire <code>code</code> de <code>Pays</code>. Ainsi, connaissant un film on peut retrouver son réalisateur ou son pays de production.</p>
-<p>On peut aussi utiliser une méthode <em>graphique</em> pour visualiser les liens entre les diverses relations.<br />
-<img alt="graphe" src="img/films_2.png" /></p>
-<hr />
-<p><strong>Référence</strong>: <a href="http://sql.bdpedia.fr/">Cours base de données de Philipe Rigaux</a></p>
+<p><strong>Sous forme de diagramme</strong> : chaque relation est une boîte qui liste ses attributs, et chaque clé étrangère est reliée par une flèche à la clé primaire qu'elle référence.</p>
+<p><img alt="Diagramme du schéma relationnel de la base Livres_2, fait de cinq boîtes. La boîte auteur contient a_id souligné, nom, prenom. La boîte auteur_de contient #a_id et #isbn, tous deux soulignés. La boîte livre contient titre, editeur, annee et isbn souligné. La boîte usager contient nom, prenom, adresse, cp, ville, email et code_barre souligné. La boîte emprunt contient #code_barre, #isbn souligné et retour. Quatre flèches rouges indiquent les références : de #a_id de auteur_de vers a_id de auteur, de #isbn de auteur_de vers isbn de livre, de #isbn de emprunt vers isbn de livre, de #code_barre de emprunt vers code_barre de usager. Une légende rappelle : souligné pour la clé primaire, # pour une clé étrangère, flèche pour « fait référence à »." src="img/schema_base_livres_2.svg" /></p>
+<p>Ce diagramme montre d'un coup d'œil le chemin à suivre pour relier deux informations. Pour passer du nom d'un auteur au titre de ses livres, il faut traverser <code>auteur_de</code>. Pour passer du nom d'un usager au titre des livres qu'il a empruntés, il faut traverser <code>emprunt</code>. Ces chemins deviendront les jointures du cours C8C3, section 5.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention : chaque sujet a ses conventions</p>
+<p>Le soulignement et le signe <code>#</code> sont les conventions les plus courantes, mais un énoncé peut en choisir d'autres : clé primaire en gras, symbole de clé, trait entre deux attributs. Les conventions sont toujours données dans l'énoncé : on les lit avant de répondre.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Quelles relations faut-il traverser pour relier le nom d'un usager au nom de l'auteur d'un livre qu'il a emprunté ?</li>
+<li>D'après le schéma, un livre peut-il avoir plusieurs auteurs ? Un livre peut-il être emprunté par deux usagers en même temps ?</li>
+<li>D'après le schéma, la base peut-elle contenir un auteur dont elle ne possède aucun livre ?</li>
+</ol>
+</div>
+<h2 id="3-redondance-et-anomalies">3. 🔁 Redondance et anomalies<a class="headerlink" href="#3-redondance-et-anomalies" title="Permanent link">⚓︎</a></h2>
+<p>Reprenons la relation unique de l'activité d'amorce : catalogue (titre, editeur, annee, isbn, nom, prenom).</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : redondance</p>
+<p>Il y a redondance quand une même information est enregistrée plusieurs fois dans la base.</p>
+</div>
+<p>Dans <code>catalogue</code>, le titre, l'éditeur et l'année d'un livre sont répétés autant de fois que le livre a d'auteurs. Le nom et le prénom d'un auteur sont répétés autant de fois qu'il a écrit de livres. Cette redondance n'est pas due à une saisie maladroite : elle est imposée par le schéma. Elle provoque trois anomalies.</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : anomalies de mise à jour, d'insertion, de suppression</p>
+<ul>
+<li><strong>Anomalie de mise à jour</strong> : pour modifier une seule information, il faut modifier plusieurs lignes. Si l'une est oubliée, la base contient deux versions contradictoires de la même information.</li>
+<li><strong>Anomalie d'insertion</strong> : on ne peut pas enregistrer une information sans en fournir une autre, qui n'a rien à voir ou qu'on ne connaît pas encore.</li>
+<li><strong>Anomalie de suppression</strong> : en supprimant une information, on en perd une autre qu'on voulait garder.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exemple : les trois anomalies dans <code>catalogue</code></p>
+<ul>
+<li><strong>Mise à jour.</strong> Corriger l'année de « Astérix chez les Pictes » demande de modifier quatre lignes. Si on n'en modifie que trois, le même livre a deux années de publication.</li>
+<li><strong>Insertion.</strong> On ne peut pas enregistrer un auteur tant qu'on ne possède aucun de ses livres : il n'y aurait rien à mettre dans <code>titre</code>, <code>editeur</code>, <code>annee</code> et <code>isbn</code>, alors que <code>isbn</code> fait partie de la clé primaire.</li>
+<li><strong>Suppression.</strong> Brian W. Kernighan et Rob Pike ne sont les auteurs que d'un seul livre de la base, « The Practice of Programming ». Supprimer ce livre fait disparaître ces deux auteurs.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>Anomalie</th>
+<th>Opération en cause</th>
+<th>Conséquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>de mise à jour</td>
+<td>modification</td>
+<td>incohérence : deux valeurs pour une même information</td>
+</tr>
+<tr>
+<td>d'insertion</td>
+<td>ajout</td>
+<td>impossibilité d'enregistrer une information seule</td>
+</tr>
+<tr>
+<td>de suppression</td>
+<td>suppression</td>
+<td>perte d'une information qu'on voulait garder</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Méthode : repérer une anomalie dans un schéma</p>
+<ol>
+<li>Chercher ce que décrit la relation. Si la réponse contient un « et » (des livres <strong>et</strong> des auteurs, des commandes <strong>et</strong> des clients), le schéma mélange plusieurs objets.</li>
+<li>Chercher un attribut dont la valeur est déterminée par un autre attribut qui n'est pas la clé primaire. Dans <code>catalogue</code>, le titre est déterminé par <code>isbn</code> seul, alors que la clé primaire est plus large : le titre sera répété.</li>
+<li>Pour chaque anomalie, décrire une opération précise sur des données de l'énoncé, comme dans l'exemple ci-dessus.</li>
+</ol>
+</div>
+<h2 id="4-repartir-les-donnees-pour-supprimer-les-anomalies">4. ✂️ Répartir les données pour supprimer les anomalies<a class="headerlink" href="#4-repartir-les-donnees-pour-supprimer-les-anomalies" title="Permanent link">⚓︎</a></h2>
+<p>La solution a été trouvée dans l'activité C8A1 : chaque objet a sa propre relation, et des clés étrangères relient les relations. C'est exactement la structure de <code>Livres_2</code> :</p>
+<ul>
+<li>livre (titre, editeur, annee, <ins>isbn</ins>) : chaque livre est décrit une seule fois ;</li>
+<li>auteur (<ins>a_id</ins>, nom, prenom) : chaque auteur est décrit une seule fois ;</li>
+<li>auteur_de (<ins>#a_id, #isbn</ins>) : une ligne par couple formé d'un auteur et d'un livre.</li>
+</ul>
+<p>Les trois anomalies ont disparu.</p>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Dans <code>catalogue</code></th>
+<th>Dans <code>Livres_2</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corriger l'année de « Astérix chez les Pictes »</td>
+<td>quatre lignes à modifier</td>
+<td>une seule ligne de <code>livre</code></td>
+</tr>
+<tr>
+<td>Enregistrer un auteur sans livre</td>
+<td>impossible</td>
+<td>une ligne dans <code>auteur</code>, rien d'autre</td>
+</tr>
+<tr>
+<td>Supprimer « The Practice of Programming »</td>
+<td>ses deux auteurs disparaissent</td>
+<td>ils restent dans <code>auteur</code></td>
+</tr>
+</tbody>
+</table>
+<p>Aucune information n'est perdue par ce découpage : en suivant les clés étrangères, on reconstitue toutes les lignes de <code>catalogue</code>.</p>
+<details class="info">
+<summary>Hors programme : la normalisation</summary>
+<p>Il existe une théorie, la normalisation, qui donne des règles précises pour décider si un schéma est correct et comment le découper. Elle n'est pas au programme. En terminale, on attend seulement de repérer les redondances et de décrire les anomalies sur un exemple.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Attention : un bon schéma ne corrige pas une mauvaise saisie</p>
+<p>La structure de <code>Livres_2</code> permet de décrire chaque auteur une seule fois. Elle n'y oblige pas. Si le même auteur est saisi deux fois avec deux identifiants différents, aucune contrainte d'intégrité n'est violée, et la redondance revient par le contenu (cours C8C1, section 6).</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Ouvrir la table <code>auteur</code> dans phpMyAdmin et la trier par nom en cliquant sur l'en-tête de la colonne <code>nom</code>.</p>
+<ol>
+<li>Relever au moins quatre auteurs enregistrés plusieurs fois. Pour chacun, noter les identifiants et ce qui diffère entre les lignes.</li>
+<li>Un auteur a son nom et son prénom inversés. Lequel ?</li>
+<li>On cherche tous les livres de René Barjavel. Pourquoi une recherche sur un seul identifiant donne-t-elle une réponse incomplète ?</li>
+<li>Pourquoi le système de gestion de bases de données a-t-il accepté ces lignes ?</li>
+<li>Proposer une règle de saisie qui aurait évité ces doublons.</li>
+</ol>
+</div>
+<h2 id="5-synthese">5. 🧠 Synthèse<a class="headerlink" href="#5-synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>La structure d'une base est son schéma relationnel : les schémas des relations, avec leurs clés. Le contenu est l'ensemble des n-uplets à un instant donné.</li>
+<li>Un schéma relationnel se lit sous forme de texte ou de diagramme. Les conventions sont données par l'énoncé.</li>
+<li>Une redondance est une information enregistrée plusieurs fois.</li>
+<li>Un schéma qui impose des redondances provoque des anomalies de mise à jour, d'insertion et de suppression.</li>
+<li>On supprime ces anomalies en donnant à chaque objet sa propre relation et en reliant les relations par des clés étrangères.</li>
+<li>Un bon schéma n'empêche pas les erreurs de saisie.</li>
+</ul>
+</div>
+<h2 id="6-pour-sentrainer">6. 📝 Pour s'entraîner<a class="headerlink" href="#6-pour-sentrainer" title="Permanent link">⚓︎</a></h2>
+<p>Ces questions se traitent sur papier. Chaque réponse est justifiée par une phrase complète. L'exercice marqué ⭐ est un prolongement.</p>
+<h3 id="exercice-1-un-magasin-en-une-seule-table">Exercice 1 – Un magasin en une seule table<a class="headerlink" href="#exercice-1-un-magasin-en-une-seule-table" title="Permanent link">⚓︎</a></h3>
+<p>Un magasin enregistre ses ventes dans une seule relation :</p>
+<p>vente (num, date, client, ville, produit, prix, quantite)</p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>date</th>
+<th>client</th>
+<th>ville</th>
+<th>produit</th>
+<th>prix</th>
+<th>quantite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2026-03-02</td>
+<td>Hoarau</td>
+<td>Saint-Pierre</td>
+<td>clavier</td>
+<td>25</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2026-03-02</td>
+<td>Hoarau</td>
+<td>Saint-Pierre</td>
+<td>souris</td>
+<td>12</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2026-03-02</td>
+<td>Grondin</td>
+<td>Le Tampon</td>
+<td>clavier</td>
+<td>25</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2026-03-05</td>
+<td>Hoarau</td>
+<td>Saint-Pierre</td>
+<td>écran</td>
+<td>140</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>L'attribut <code>num</code>, qui est le numéro de la commande, peut-il servir de clé primaire ? Proposer une clé primaire.</li>
+<li>Citer deux informations redondantes dans cet extrait.</li>
+<li>Le prix du clavier passe à 27. Décrire l'anomalie que cette opération peut provoquer.</li>
+<li>Le magasin veut ajouter à son catalogue un produit que personne n'a encore commandé. Décrire l'anomalie.</li>
+<li>La commande 3 est annulée et sa ligne supprimée. Quelle information perd-on en plus de la commande ?</li>
+<li>Dire si chacune des phrases suivantes décrit la structure ou le contenu : « une vente a une quantité » ; « le client Grondin habite Le Tampon ».</li>
+</ol>
+<h3 id="exercice-2-lire-un-schema">Exercice 2 – Lire un schéma<a class="headerlink" href="#exercice-2-lire-un-schema" title="Permanent link">⚓︎</a></h3>
+<p>Une base décrit des films et les notes que leur donnent des internautes.</p>
+<ul>
+<li>film (<ins>id_film</ins>, titre, annee, genre, #id_realisateur, #code_pays)</li>
+<li>pays (<ins>code</ins>, nom, langue)</li>
+<li>artiste (<ins>id_artiste</ins>, nom, prenom, annee_naissance)</li>
+<li>role (<ins>#id_film, #id_acteur</ins>, nom_role)</li>
+<li>internaute (<ins>email</ins>, nom, prenom, region)</li>
+<li>notation (<ins>#email, #id_film</ins>, note)</li>
+</ul>
+<p>Les attributs <code>id_realisateur</code> et <code>id_acteur</code> font référence à <code>id_artiste</code>. L'attribut <code>code_pays</code> fait référence à <code>code</code>.</p>
+<ol>
+<li>Combien de relations cette base contient-elle ? Laquelle a le plus d'attributs ?</li>
+<li>D'après ce schéma, un film peut-il avoir deux réalisateurs ? Peut-il avoir plusieurs acteurs ?</li>
+<li>Un internaute peut-il donner deux notes au même film ? Justifier à l'aide de la clé primaire de <code>notation</code>.</li>
+<li>Un même artiste peut-il être réalisateur d'un film et acteur dans un autre ? Justifier.</li>
+<li>Peut-on enregistrer un film dont le pays n'est pas encore dans la relation <code>pays</code> ? Nommer la contrainte en jeu.</li>
+<li>Pourquoi le nom du réalisateur n'est-il pas un attribut de la relation <code>film</code> ?</li>
+</ol>
+<h2 id="exercice-de-prolongement-reparer-le-schema-du-magasin">⭐ Exercice de prolongement – Réparer le schéma du magasin<a class="headerlink" href="#exercice-de-prolongement-reparer-le-schema-du-magasin" title="Permanent link">⚓︎</a></h2>
+<p>On reprend la relation <code>vente</code> de l'exercice 1. On décide de la remplacer par quatre relations : <code>client</code>, <code>produit</code>, <code>commande</code> et <code>ligne_commande</code>.</p>
+<ol>
+<li>Écrire le schéma de <code>client</code> et celui de <code>produit</code>, en ajoutant à chacune un identifiant comme clé primaire.</li>
+<li>Écrire le schéma de <code>commande</code>. Quelle clé étrangère contient-elle ?</li>
+<li>La relation <code>ligne_commande</code> indique quel produit figure dans quelle commande, et en quelle quantité. Écrire son schéma, avec sa clé primaire et ses clés étrangères.</li>
+<li>Vérifier que les trois anomalies des questions 3, 4 et 5 de l'exercice 1 ont disparu.</li>
+</ol>
 
 
 

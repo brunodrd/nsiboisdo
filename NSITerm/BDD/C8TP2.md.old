@@ -1,0 +1,125 @@
+# 🕵️ TP SQL -- **SQL Murder Mystery**
+
+## Terminale NSI --- Année scolaire 2025 / 26
+
+## 🎯 Objectifs
+
+-   Interroger une base de données SQL
+-   Utiliser **SELECT**, **WHERE**, **JOIN**
+-   Lire et analyser un schéma relationnel
+-   Résoudre une enquête en utilisant les données
+
+------------------------------------------------------------------------
+
+## 🔎 Consignes générales
+
+Le site de l'énigme se trouve à [cette adresse](https://mystery.knightlab.com/walkthrough.html)
+
+Pour chaque étape le plan sera le suivant: 
+
+1. **Formuler la ou les questions en langage naturel**
+2. **Écrire la (les) requête(s) SQL**
+3. **Observer le résultat**
+4. **Expliquer la déduction**
+
+Note **toutes** tes requêtes et tes conclusions.
+
+**Les cellules intitulées "Espace de travail" sont à compléter avec les réponses aux questions, les requêtes SQL et les résultats**.
+
+------------------------------------------------------------------------
+
+## 🧩 Étape 1 --- Retrouver la scène de crime
+
+Un meurtre a eu lieu le **15 janvier 2018** à **SQL City**.
+
+### ❓ Questions
+
+-   Quelle table contient les rapports de scène de crime ?
+-   Quelle requête permet de retrouver celui du jour et du lieu indiqués
+    ?
+-   Quels témoins sont cités ?
+
+### 📝 Espace de travail
+
+**Requête SQL :**
+
+**Résultats / Analyse :**
+
+------------------------------------------------------------------------
+
+## 🧩 Étape 2 --- Interroger les témoins
+
+Les témoins retrouvés ont été interrogés.
+
+### ❓ Questions
+
+-   Quelle table contient les interviews ?
+-   Que disent les témoins ?
+-   Quels indices importants donnent-ils ?
+
+### 📝 Espace de travail
+
+**Requête SQL :**
+
+**Résultats / Analyse :**
+
+------------------------------------------------------------------------
+
+## 🧩 Étape 3 --- Identifier un suspect potentiel
+
+Les témoins donnent des détails (lieu fréquenté, apparence,
+véhicule...).
+
+### ❓ Questions
+
+-   Quelles tables sont nécessaires pour vérifier ces indices ?
+-   Comment filtrer les candidats potentiels ?
+-   Quel suspect correspond à l'ensemble des indices ?
+
+### 📝 Espace de travail
+
+**Requête SQL (joins possibles) :**
+
+**Résultats / Analyse :**
+
+------------------------------------------------------------------------
+
+## 🧩 Étape 4 --- Confirmer l'identité du coupable
+
+Tu as un ou plusieurs suspects.
+
+### ❓ Questions
+
+-   Comment vérifier les informations personnelles du suspect ?
+-   Ses déplacements / activités correspondent-ils aux indices ?
+
+### 📝 Espace de travail
+
+**Requête SQL :**
+
+**Résultats / Analyse :**
+
+------------------------------------------------------------------------
+
+## 🧩 Étape 5 --- L'enquête continue ...
+
+Une fois le meurtrier trouvé, réinterroge-le : il pourrait révéler un
+complice.
+
+
+### 📝 Espace de travail
+
+**Requête SQL :**
+
+**Résultats / Analyse :**
+
+------------------------------------------------------------------------
+
+## 🏁 Conclusion
+
+Rédige une courte conclusion expliquant :
+
+* comment tu as identifié le coupable,
+* quelles tables ont été les plus utiles,
+* quelles difficultés tu as rencontrées.
+

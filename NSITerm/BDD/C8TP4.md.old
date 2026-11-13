@@ -1,0 +1,72 @@
+# Service rendus par un SGBDR
+
+!!! info "Indication"
+    Le SGBDR utilisé dans ce TP sera MySQL. Sa socumentation est disponible à [cette adresse](https://dev.mysql.com/doc/refman/8.3/en/).
+    ![logo](img/MySQLlogo.png)
+
+**L'intégralité du TP sera réalisé en ligne de commande**.
+
+# Question 1: licence
+
+À partir d'une recherche rapide donner les particularités de la licence d'utilisation de MySQL.
+
+# Question 2: sécurisation des accès
+
+**a)** Se connecter au serveur avec les paramètres d'authentification fournis. Typiquement, dans un shell Bash, on entrera la commande:  
+`mysql --host=xxx.xxx.xxx.xxx -ueleve -p`.
+
+où: `xxx` représente l'adresse IPv4 de la machine (prof) hébergeant le serveur, `eleve` est le login, à remplacer par votre prénom et `-p` le mot de passe.  
+
+**b)** Entrer les deux requêtes suivantes: `SHOW DATABASES` puis `SELECT User,Host FROM mysql.user`. Comparer la réponse avec celle reçue par le professeur:  
+![reponse1](img/TP3_fig3.png)
+
+**c)** La douzième ligne de la réponse à la requête `SELECT User,Host FROM mysql.user` du professeur montre un problème de sécurité potentiel. Expliquer.  
+
+!!! tip "Indication"
+    `%` signifie n'importe quelle machine et `localhost` est la machine locale.
+    
+**d)** Se déconnecter du serveur avec la commande `exit`. Le prompt `mysql>` réapparait.
+
+# Question 3: accès concurrents
+
+Il s'agit de voir le comportement du SGBDR lors d'accès concurrents.  
+
+**a)** Se connecter au serveur avec vos login / mot de passe précédents et se placer dans la base `tpnsi` avec la commande SQL:  
+
+```sql
+USE tpnsi;
+```  
+
+**b)** Combien de relation sont présentes dans cette table?  
+
+!!! tip "Commande SQL"
+    La commande `SHOW` permet de consulter aussi les tables: `SHOW tables;`
+    
+**c)** Prendre connaissance de la structure de la table `speNSI`.  
+
+!!! tip "Commande SQL"
+    La commande `DESCRIBE` permet de consulter aussi la structure d'une table: `DESCRIBE speNSI` par exemple.
+    
+**d)** Réaliser la **transaction** suivante:  
+
+```sql
+START TRANSACTION;
+INSERT INTO speNSI VALUES (..., ...., ...., ....);
+SELECT * FROM speNSI;
+COMMIT;
+```
+!!! warning "Champ id"
+    `id` sera un entier naturel compris entre 1 et 15 inclus.
+    
+**e)** Vérifier auprès d'un voisin que les modifications sont visibles dans la table.
+
+**f)** Réaliser la **transaction** suivante: 
+
+```sql
+START TRANSACTION;
+DELETE FROM speNSI WHERE id=xx;
+SELECT * FROM speNSI;
+ROLLBACK;
+```
+
+Commenter le résultat obtenu après avoir entrer à nouveau `SELECT * FROM speNSI;`.

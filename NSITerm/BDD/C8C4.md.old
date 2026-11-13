@@ -1,0 +1,58 @@
+# Les SGBDR
+
+# Architecture
+
+Les SGBDR se retrouvent habituellement dans un environnement client / serveur. Une architecture courante est celle des 3 tiers, aussi appelée architecture à trois niveaux ou architecture à trois couches.  
+On y distingue:  
+
+* au niveau 1: la couche de présentation des données, correspondant à l'affichage, la restitution sur le poste de travail, le dialogue avec l'utilisateur;
+* au niveau 2: la couche de traitement des données, correspondant à la mise en œuvre de l'ensemble des règles de gestion et de la logique applicative;
+* au niveau 3: la couche d'accès aux données persistantes, correspondant aux données qui sont destinées à être conservées sur la durée, voire de manière définitive.
+
+![trois-tiers](img/3-tier.jpg)
+
+Parmi les SGBDR courants, on peut citer: Oracle Database, MySQL, MS SQL Server, PostGreSQL, etc.
+
+# Services rendus par un SGBDR
+
+## Sécurisation des accès
+
+Parmi les services rendus par les SGBDR on peut citer la **sécurisation des accès aux données**. Pour cela, un certain nombre de mécanismes sont mis en oeuvre:  
+
+* l'authentification, réalisée habituellement par la fourniture du couple nom d'utilisateur / mot de passe;
+* l'attribution de droits et privilèges: une fois correctement identifié l'utilisateur doit pouvoir accéder aux informations et ressources auxquelles il a droit et uniquement à celles-ci;
+* la production de LOGs ou traces, permettant d'enregistrer tout ou partie des informations concernant les accès réussis ou échoués.
+
+Exemple: pensez au système de gestion *Pronote*
+
+## Persistance des données et accès concurrents
+
+LES SGBDR doivent également rendre deux autres services importants:  
+
+* la gestion des accès concurrents. En effet, de multiples utilisateurs doivent pouvoir accéder et utiliser la base de donnée en même temps;
+* l'assurance d'avoir des données persistantes notamment en cas de panne.
+
+La solution à ces deux problématiques se trouve dans la gestion des **transactions**.  
+
+!!! info "Définition (non exigible)"
+    Une transaction est une suite d'opérations interrogeant et/ou modiant la base de données, pour laquelle l'ensemble des opérations doit être soit validé (**COMMIT**), soit annulé (**ROLLBACK**).
+    
+Une transaction fait passer la base de données d'un état cohérent à un autre état cohérent. On peut y voir une analogie avec une transaction bancaire.  
+Par ailleurs, l'utilisation de *journaux* (LOGS) de transactions permet de gérer les reprises sur panne. 
+
+L'utilisation des transactions permet au SGBDR de garantir les quatres propriétés **ACID**.
+
+!!! question "À faire"
+    Effectuer une recherche afin de déterminer la signification de cet acronyme.
+
+## Efficacité de traitements des requêtes
+
+L'utilisateur exprime une requête sous une forme déclarative (*il formule ce qu'il souhaite, pas comment faire*). Le SGBDR va **transformer une requête SQL en une ou plusieurs expressions algébriques**, puis à l'aide d'algorithmes complexes va faire le choix d'un plan d'exécution afin **d'optimiser l'efficacité du traitement des requêtes**.
+
+![optimisation](img/exec-optim-4.png)
+
+---
+*Source - credits photo*  
+Image 3 Architecture 3-tier (commentcamarche.net - © 2003 Pillou - GNU FDL)  
+Cours Base de données Philippe Rigaux - http://sys.bdpedia.fr/optim.html  
+

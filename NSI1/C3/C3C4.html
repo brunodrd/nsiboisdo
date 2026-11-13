@@ -1,0 +1,6310 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Support de cours, activités et TP en Spécialité NSI & Physique">
+      
+      
+        <meta name="author" content="Bruno DARID">
+      
+      
+      
+        <link rel="prev" href="C3R1.html">
+      
+      
+        <link rel="next" href="C3E5.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode - NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20%2017h2v-2h-2zm0-10v6h2V7zm-9%202h5.5L11%203.5zM4%202h8l6%206v12c0%201.11-.89%202-2%202H4a2%202%200%200%201-2-2V4c0-1.11.89-2%202-2m9%2016v-2H4v2zm3-4v-2H4v2z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+
+      
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/css/jquery.terminal.min.css" rel="stylesheet">
+<script src="../../pyodide-mkdocs/utils.js"></script> 
+<script src="../../pyodide-mkdocs/interpreter.js"></script> 
+
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/catalogue.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<link rel="stylesheet" href="../../pyodide-mkdocs/pyoditeur.css">
+<link rel="stylesheet" href="../../qcm/qcm.css">
+
+
+<input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coder-un-texte-ascii-iso-8859-1-unicode" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../index.html" title="NSI" class="md-header__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blog/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../bo.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Officiel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../C1/C1A1.html" class="md-tabs__link">
+          
+  
+  
+  NSI1
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NSITerm/LP2/C1C1.html" class="md-tabs__link">
+          
+  
+  
+  NSITerm
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Projets/jeu_carte.html" class="md-tabs__link">
+          
+  
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PC/sem3600.html" class="md-tabs__link">
+          
+  
+  
+  Physique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../perso/videos.html" class="md-tabs__link">
+          
+  
+  
+  Liens divers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pythonneries/pythonnerie1.html" class="md-tabs__link">
+          
+  
+  
+  Pythonneries
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI" class="md-nav__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Officiel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    NSI1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NSI1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. I: Systèmes d'exploitation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I: Systèmes d'exploitation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ACTIVITÉS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1EV.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Évaluations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. II: Intoduction à la programmation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II: Intoduction à la programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ACTIVITÉS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2A2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    COURS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            COURS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TP 2 ASCII Art
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. III: Représentation des données
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III: Représentation des données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1 : écrire un entier naturel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 1 : bases 2, 10 et 16
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2 : coder un entier relatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 2 : complément à 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Problème : le bug de 2038
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3TP3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP : lire une image octet par octet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3 : coder un nombre réel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E3a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 3 : flottants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Problème : le missile Patriot (1991)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3R1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 L'essentiel du chapitre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C3C4.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-activite-damorce" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. 🔎 Activité d'amorce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-caractere-numero-octets" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 📚 Caractère, numéro, octets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lascii-128-caracteres" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 📟 L'ASCII : 128 caractères
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-liso-8859-1-256-caracteres-pour-leurope-de-louest" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 🌍 L'ISO-8859-1 : 256 caractères pour l'Europe de l'Ouest
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-unicode-et-utf-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🌐 Unicode et UTF-8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-convertir-un-fichier-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🔄 Convertir un fichier texte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pour-sentrainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 📝 Pour s'entraîner
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3E5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 4 : textes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IV: Au coeur de l'ordinateur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV: Au coeur de l'ordinateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS / ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4A2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TP 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S4/S4R1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    En résumé
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. V: Tableaux et données tabulées
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V: Tableaux et données tabulées
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VI: IHM sur le web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI: IHM sur le web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VII: Algorithmique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII: Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 5: Algorithme glouton
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 6: knn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/correction_tp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TP Iris de Fisher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/pr3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini projet 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VIII: Réseau
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII: Réseau
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c16c3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c16a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c17c2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c17a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c18c2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c18a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c19a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NSITerm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            NSITerm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. I Récursivité
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I Récursivité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Fractales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. II Mise au point & Bugs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II Mise au point & Bugs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C2E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. III Programmation modulaire
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III Programmation modulaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Activité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Modularité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IV Piles & Files
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV Piles & Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C4TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Piles et Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. V Programmation Objet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V Programmation Objet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VI Listes & Dictionnaires
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI Listes & Dictionnaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Listes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6C2b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Dictionnaires
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Listes (Série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Listes (Série 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Dictionnaires
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VII Gestion des ressources (SE)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII Gestion des ressources (SE)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Processus & Ressources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VIII Bases de données & SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII Bases de données & SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Activité de découverte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Modèle relationnel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: BDD Relationnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3: Langage SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4: Les SGBDR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 2 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 3 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IX Protocoles de routage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IX Protocoles de routage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C9C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Routage RIP/OSPF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/c11e.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. X Algorithmique avancée
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. X Algorithmique avancée
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Diviser pour régner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: Parcours de graphes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3: Recherche textuelle (Boyer-Moore)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4: Programmation dynamique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C11TD1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ TD 1: Application complexe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices: Parcours de graphes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1: Tri fusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 2: Tourner R2D2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 3: Labyrinthe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XI Arbres binaires
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_11">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XI Arbres binaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C1b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Structures arborescentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: ABR & Parcours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XII Paradigmes de programmation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_12">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XII Paradigmes de programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Impératif, Fonctionnel & Objet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XIII Théorie des Graphes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_13">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XIII Théorie des Graphes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C13C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Modélisation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C13E1b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XIV Sécurisation des données
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_14">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XIV Sécurisation des données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C14C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Chiffrement & HTTPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C14TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1: Analyse réseau (Bob & Alice)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XV Systèmes sur puce (SoC)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_15">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XV Systèmes sur puce (SoC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C15C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Architecture SoC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XVI Calculabilité & Décidabilité
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_16">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XVI Calculabilité & Décidabilité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C16C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Halting Problem & Turing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📝 Évaluations & Sujets bac
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17">
+            <span class="md-nav__icon md-icon"></span>
+            📝 Évaluations & Sujets bac
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/DS-2_NSI_2026.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📄 DS 2 (09/10/2026)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/DS-2_NSI_2026_COR.html" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23 12-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68zm-13 5-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9z"/></svg>
+  
+  <span class="md-ellipsis">
+    ✅ DS 2 (Corrigé)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_3" id="__nav_5_17_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📁 Bacs Blancs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_3">
+            <span class="md-nav__icon md-icon"></span>
+            📁 Bacs Blancs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/revisions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Révisions 12/2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/correction1re.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrections exo niveau 1re
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/sujet_042024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sujet bac blanc 04/2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/bblanc2024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrigé bac blanc 04/2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/correction_bblanc_dec24.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrigé bac blanc déc. 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_4" id="__nav_5_17_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📁 Annales Sujets Officiels
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_4">
+            <span class="md-nav__icon md-icon"></span>
+            📁 Annales Sujets Officiels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ANNALES/catalogue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Catalogue interactif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ANNALES/statistiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 Analyse statistique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_5" id="__nav_5_17_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    💻 Épreuves Pratiques (EP)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_5">
+            <span class="md-nav__icon md-icon"></span>
+            💻 Épreuves Pratiques (EP)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/EP2024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sujets EP 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Projets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terminale
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Terminale
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/jeu_carte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet 1: Autour de la POO - Jeu de cartes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Première
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Première
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet 1: en période 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projet/projet_fin_NSI1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet fin d'année
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Physique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Physique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/sem3600.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interface Bluetooth SEM3600 d'un compteur d'énergie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/ucontroleur.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Micro contrôleur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/connexion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connexions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/mode_fonctionnement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mode de fonctionnement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/HelloWorld.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/capteurs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mise en oeuvre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/matplotlib.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Annexe: graphiques avec matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Liens divers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Liens divers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/videos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Videos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/textes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Textes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pythonneries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Pythonneries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonneries/pythonnerie1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pythonnerie 1: définir une classe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+                  
+
+
+
+<h1 id="coder-un-texte-ascii-iso-8859-1-unicode">📖 Coder un texte : ASCII, ISO-8859-1, Unicode<a class="headerlink" href="#coder-un-texte-ascii-iso-8859-1-unicode" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme de première (BO spécial n° 1 du 22 janvier 2019)</p>
+<p><strong>Représentation des données : types et valeurs de base</strong></p>
+<table>
+<thead>
+<tr>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Représentation d'un texte en machine. Exemples des encodages ASCII, ISO-8859-1, Unicode</td>
+<td>Identifier l'intérêt des différents systèmes d'encodage. Convertir un fichier texte dans différents formats d'encodage.</td>
+<td>Aucune connaissance précise des normes d'encodage n'est exigible.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de ce chapitre, je sais…</p>
+<ol>
+<li><strong>distinguer</strong> un caractère, son numéro et les octets qui le codent ;</li>
+<li><strong>retrouver</strong> le code ASCII d'un caractère, et <strong>expliquer</strong> les limites de l'ASCII ;</li>
+<li><strong>expliquer</strong> l'intérêt et les limites de l'encodage ISO-8859-1 ;</li>
+<li><strong>coder</strong> un caractère en UTF-8 à partir de son numéro Unicode, à l'aide du tableau du cours ;</li>
+<li><strong>convertir</strong> un fichier texte d'un encodage à un autre, dans le terminal et en Python ;</li>
+<li><strong>expliquer</strong> l'apparition de caractères erronés comme « Ã© » à la place de « é ».</li>
+</ol>
+</div>
+<p><strong>Prérequis</strong> : l'hexadécimal et les octets (<a href="C3C1.html">cours C3C1</a>) ; la commande <code>hexdump</code> (<a href="C3TP3.html">TP C3TP3</a>).</p>
+<p>Comme aux cours C3C2 et C3C3, on <strong>code</strong> des données : on choisit une convention, et c'est elle qui donne un sens aux octets. Pour un texte, plusieurs conventions coexistent, et c'est la source de bien des problèmes.</p>
+<h2 id="0-activite-damorce">0. 🔎 Activité d'amorce<a class="headerlink" href="#0-activite-damorce" title="Permanent link">⚓︎</a></h2>
+<div class="admonition question">
+<p class="admonition-title">À faire : un message abîmé</p>
+<p>Une élève de Saint-Denis envoie à un correspondant le message <code>Noël à La Réunion</code>. Il reçoit :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>NoÃ«l Ã  La RÃ©union
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Quels caractères ont été abîmés ? Lesquels sont arrivés intacts ?</li>
+<li>Chaque caractère abîmé a été remplacé par combien de caractères ?</li>
+<li>Proposez une hypothèse pour expliquer ce qui s'est passé.</li>
+</ol>
+<p>La réponse complète est donnée à la fin de la section 5.</p>
+</div>
+<h2 id="1-caractere-numero-octets">1. 📚 Caractère, numéro, octets<a class="headerlink" href="#1-caractere-numero-octets" title="Permanent link">⚓︎</a></h2>
+<p>Un ordinateur ne stocke que des octets. Pour stocker un texte, il faut donc une convention qui fait correspondre chaque caractère à des octets. On sépare deux étapes.</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : jeu de caractères et encodage</p>
+<ul>
+<li>Un <strong>jeu de caractères</strong> associe à chaque caractère un <strong>numéro</strong> unique. Par exemple, la lettre <code>A</code> porte le numéro 65 dans la plupart des jeux de caractères.</li>
+<li>Un <strong>encodage</strong> indique comment ce numéro est écrit en <strong>octets</strong>, dans la mémoire ou dans un fichier.</li>
+</ul>
+<p>Pour l'ASCII et l'ISO-8859-1, les deux étapes se confondent : le numéro est écrit sur un seul octet. Pour Unicode, elles sont distinctes : un même numéro peut être écrit de plusieurs façons (section 4).</p>
+</div>
+<p>En Python, la fonction <code>ord</code> renvoie le numéro d'un caractère, et la fonction <code>chr</code> fait l'inverse :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="go">65</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="go">&#39;0x41&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">chr</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>
+<span class="go">&#39;B&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Dans le TP C3TP3, les deux premiers octets d'un fichier BMP valaient <code>42</code> et <code>4D</code> en hexadécimal, soit 66 et 77 : ce sont les numéros des lettres <code>B</code> et <code>M</code>.</p>
+<h2 id="2-lascii-128-caracteres">2. 📟 L'ASCII : 128 caractères<a class="headerlink" href="#2-lascii-128-caracteres" title="Permanent link">⚓︎</a></h2>
+<p>L'<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>), normalisé en 1963, est le premier codage de texte largement partagé.</p>
+<ul>
+<li>Il utilise <strong>7 bits</strong>, donc <span class="arithmatex">\(2^7 = 128\)</span> numéros, de 0 à 127.</li>
+<li>Les numéros 0 à 31, ainsi que 127, désignent des <strong>caractères de contrôle</strong>, qui ne s'affichent pas : le numéro 10, par exemple, marque un saut de ligne.</li>
+<li>Les numéros 32 à 126 désignent 95 caractères affichables : l'espace (32), les chiffres, les lettres majuscules et minuscules <strong>sans accent</strong>, et la ponctuation.</li>
+</ul>
+<p>La table ci-dessous donne le numéro, en hexadécimal, de chaque caractère affichable : le chiffre de la ligne est celui des seizaines, le chiffre de la colonne celui des unités. Par exemple, <code>A</code> est sur la ligne <code>4</code> et dans la colonne <code>1</code> : son numéro est <code>41</code> en hexadécimal, soit <span class="arithmatex">\(4 \times 16 + 1 = 65\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>0</code></th>
+<th><code>1</code></th>
+<th><code>2</code></th>
+<th><code>3</code></th>
+<th><code>4</code></th>
+<th><code>5</code></th>
+<th><code>6</code></th>
+<th><code>7</code></th>
+<th><code>8</code></th>
+<th><code>9</code></th>
+<th><code>A</code></th>
+<th><code>B</code></th>
+<th><code>C</code></th>
+<th><code>D</code></th>
+<th><code>E</code></th>
+<th><code>F</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2</code></td>
+<td>esp.</td>
+<td><code>!</code></td>
+<td><code>"</code></td>
+<td><code>#</code></td>
+<td><code>$</code></td>
+<td><code>%</code></td>
+<td><code>&amp;</code></td>
+<td><code>'</code></td>
+<td><code>(</code></td>
+<td><code>)</code></td>
+<td><code>*</code></td>
+<td><code>+</code></td>
+<td><code>,</code></td>
+<td><code>-</code></td>
+<td><code>.</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>2</code></td>
+<td><code>3</code></td>
+<td><code>4</code></td>
+<td><code>5</code></td>
+<td><code>6</code></td>
+<td><code>7</code></td>
+<td><code>8</code></td>
+<td><code>9</code></td>
+<td><code>:</code></td>
+<td><code>;</code></td>
+<td><code>&lt;</code></td>
+<td><code>=</code></td>
+<td><code>&gt;</code></td>
+<td><code>?</code></td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>@</code></td>
+<td><code>A</code></td>
+<td><code>B</code></td>
+<td><code>C</code></td>
+<td><code>D</code></td>
+<td><code>E</code></td>
+<td><code>F</code></td>
+<td><code>G</code></td>
+<td><code>H</code></td>
+<td><code>I</code></td>
+<td><code>J</code></td>
+<td><code>K</code></td>
+<td><code>L</code></td>
+<td><code>M</code></td>
+<td><code>N</code></td>
+<td><code>O</code></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td><code>P</code></td>
+<td><code>Q</code></td>
+<td><code>R</code></td>
+<td><code>S</code></td>
+<td><code>T</code></td>
+<td><code>U</code></td>
+<td><code>V</code></td>
+<td><code>W</code></td>
+<td><code>X</code></td>
+<td><code>Y</code></td>
+<td><code>Z</code></td>
+<td><code>[</code></td>
+<td><code>\</code></td>
+<td><code>]</code></td>
+<td><code>^</code></td>
+<td><code>_</code></td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td><code>`</code></td>
+<td><code>a</code></td>
+<td><code>b</code></td>
+<td><code>c</code></td>
+<td><code>d</code></td>
+<td><code>e</code></td>
+<td><code>f</code></td>
+<td><code>g</code></td>
+<td><code>h</code></td>
+<td><code>i</code></td>
+<td><code>j</code></td>
+<td><code>k</code></td>
+<td><code>l</code></td>
+<td><code>m</code></td>
+<td><code>n</code></td>
+<td><code>o</code></td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td><code>p</code></td>
+<td><code>q</code></td>
+<td><code>r</code></td>
+<td><code>s</code></td>
+<td><code>t</code></td>
+<td><code>u</code></td>
+<td><code>v</code></td>
+<td><code>w</code></td>
+<td><code>x</code></td>
+<td><code>y</code></td>
+<td><code>z</code></td>
+<td><code>{</code></td>
+<td>|</td>
+<td><code>}</code></td>
+<td><code>~</code></td>
+<td>DEL</td>
+</tr>
+</tbody>
+</table>
+<p>Dans cette table, « esp. » désigne l'espace (<code>20</code>) et <code>DEL</code> est un caractère de contrôle (<code>7F</code>).</p>
+<p>Les chiffres, les lettres majuscules et les lettres minuscules ont des <strong>numéros consécutifs</strong>, dans l'ordre : <code>0</code> a le numéro <code>30</code>, <code>1</code> le numéro <code>31</code>… ; <code>A</code> a le numéro <code>41</code>, <code>B</code> le numéro <code>42</code>… ; <code>a</code> a le numéro <code>61</code>, <code>b</code> le numéro <code>62</code>…</p>
+<p>En mémoire, un caractère ASCII occupe un octet entier, dont le bit de poids fort vaut 0.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire : lire et écrire en ASCII</p>
+<ol>
+<li>Décodez le message <code>4E 53 49</code>, écrit en hexadécimal.</li>
+<li>Codez <code>Bac 2027</code> en hexadécimal.</li>
+<li>Quel écart y a-t-il entre le numéro d'une lettre minuscule et celui de la majuscule correspondante ? Écrivez cet écart en binaire.</li>
+<li>Pourquoi l'ASCII ne permet-il pas d'écrire <code>Noël</code> ?</li>
+</ol>
+</div>
+<h2 id="3-liso-8859-1-256-caracteres-pour-leurope-de-louest">3. 🌍 L'ISO-8859-1 : 256 caractères pour l'Europe de l'Ouest<a class="headerlink" href="#3-liso-8859-1-256-caracteres-pour-leurope-de-louest" title="Permanent link">⚓︎</a></h2>
+<p>Pour écrire les lettres accentuées, on utilise le <strong>huitième bit</strong> de l'octet, ce qui donne <span class="arithmatex">\(2^8 = 256\)</span> numéros. La norme <strong>ISO-8859-1</strong>, aussi appelée <strong>Latin-1</strong>, publiée en 1987 :</p>
+<ul>
+<li>reprend l'ASCII pour les numéros 0 à 127 : un texte ASCII est donc aussi un texte ISO-8859-1 ;</li>
+<li>utilise les numéros 160 à 255 pour les lettres accentuées et les symboles des langues d'Europe de l'Ouest : <code>é</code> porte le numéro 233, soit <code>E9</code> en hexadécimal.</li>
+</ul>
+<p>Ce codage a deux limites.</p>
+<ul>
+<li><strong>Une seule famille de langues à la fois.</strong> ISO-8859-1 n'est qu'une partie d'une famille de normes, ISO 8859. Chaque partie utilise les numéros 160 à 255 pour un alphabet différent : l'octet <code>E9</code> désigne <code>é</code> en ISO-8859-1 (Europe de l'Ouest), mais <code>щ</code> en ISO-8859-5 (cyrillique) et <code>ι</code> en ISO-8859-7 (grec). Un octet seul ne suffit donc pas : il faut savoir quel encodage a été utilisé.</li>
+<li><strong>Même pour le français, il manque des caractères</strong> : <code>œ</code>, <code>Œ</code>, <code>Ÿ</code>, et le symbole <code>€</code>, créé après la norme. La norme ISO-8859-15 (1999) les ajoute, au prix de quelques symboles retirés.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention : « ASCII étendu » n'est pas une norme</p>
+<p>On rencontre souvent des tables dites d'« ASCII étendu ». Ce nom désigne en fait n'importe lequel des nombreux codages sur 8 bits qui prolongent l'ASCII, et ces codages ne sont pas compatibles entre eux. Il faut toujours nommer l'encodage précis : ISO-8859-1, ISO-8859-15…</p>
+</div>
+<h2 id="4-unicode-et-utf-8">4. 🌐 Unicode et UTF-8<a class="headerlink" href="#4-unicode-et-utf-8" title="Permanent link">⚓︎</a></h2>
+<h3 id="41-unicode-un-numero-pour-chaque-caractere">4.1 Unicode : un numéro pour chaque caractère<a class="headerlink" href="#41-unicode-un-numero-pour-chaque-caractere" title="Permanent link">⚓︎</a></h3>
+<p>Le standard <strong>Unicode</strong>, publié à partir de 1991, donne un numéro unique à <strong>tous</strong> les caractères de toutes les écritures du monde, ainsi qu'à des symboles et aux emoji. Sa version 17.0 (septembre 2025) compte plus de 159 000 caractères. Il est synchronisé avec la norme internationale ISO/CEI 10646.</p>
+<ul>
+<li>Le numéro d'un caractère s'appelle son <strong>point de code</strong>. Il s'écrit <code>U+</code> suivi d'au moins 4 chiffres hexadécimaux : <code>U+0041</code> pour <code>A</code>, <code>U+00E9</code> pour <code>é</code>, <code>U+2205</code> pour <code>∅</code>, <code>U+1F914</code> pour l'emoji « visage pensif ».</li>
+<li>Les points de code vont de <code>U+0000</code> à <code>U+10FFFF</code>.</li>
+<li>Les 256 premiers points de code sont ceux de l'ISO-8859-1 : <code>é</code> porte le numéro 233 dans les deux.</li>
+</ul>
+<p>Unicode ne dit pas, à lui seul, comment écrire ces numéros en octets : c'est le rôle d'un encodage.</p>
+<div class="admonition danger">
+<p class="admonition-title">À ne pas confondre : le point de code et les octets</p>
+<p>Le point de code de <code>é</code> est <code>U+00E9</code> : c'est son <strong>numéro</strong> dans Unicode. En UTF-8, ce numéro est écrit avec <strong>deux octets</strong>, <code>C3 A9</code>. En ISO-8859-1, <code>é</code> est écrit avec <strong>un seul octet</strong>, <code>E9</code>. Le même caractère, avec le même numéro, n'occupe donc pas les mêmes octets selon l'encodage choisi.</p>
+</div>
+<h3 id="42-lencodage-utf-8">4.2 L'encodage UTF-8<a class="headerlink" href="#42-lencodage-utf-8" title="Permanent link">⚓︎</a></h3>
+<p><strong>UTF-8</strong> (<em>Unicode Transformation Format</em>, sur des unités de 8 bits) est l'encodage le plus utilisé, en particulier sur le Web. Il écrit chaque point de code sur <strong>1 à 4 octets</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Points de code</th>
+<th>Octets utilisés (en binaire)</th>
+<th>Bits disponibles pour le numéro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>U+0000</code> à <code>U+007F</code></td>
+<td><code>0xxxxxxx</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>U+0080</code> à <code>U+07FF</code></td>
+<td><code>110xxxxx 10xxxxxx</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>U+0800</code> à <code>U+FFFF</code></td>
+<td><code>1110xxxx 10xxxxxx 10xxxxxx</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>U+10000</code> à <code>U+10FFFF</code></td>
+<td><code>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code></td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+<p>Ce tableau n'est pas à apprendre : le programme précise qu'« aucune connaissance précise des normes d'encodage n'est exigible ». Il faut en revanche savoir l'utiliser.</p>
+<ul>
+<li>Un caractère ASCII s'écrit sur <strong>un seul octet</strong>, identique à son code ASCII : un texte ASCII est donc aussi un texte UTF-8.</li>
+<li>Pour un caractère sur plusieurs octets, le premier octet commence par autant de <code>1</code> qu'il y a d'octets, suivis d'un <code>0</code> ; les octets suivants commencent tous par <code>10</code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Méthode : coder un caractère en UTF-8</p>
+<ol>
+<li>Écrire le point de code en binaire.</li>
+<li>Choisir la ligne du tableau d'après le point de code.</li>
+<li>Compléter l'écriture binaire par des 0 à gauche, jusqu'au nombre de bits disponibles.</li>
+<li>Répartir ces bits, de gauche à droite, dans les <code>x</code> du modèle.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exemple : coder <code>é</code> (<code>U+00E9</code>) et <code>∅</code> (<code>U+2205</code>)</p>
+<p><strong><code>é</code></strong> : <span class="arithmatex">\(\text{E9}_{16} = 1110\,1001_2\)</span>. Comme <code>U+00E9</code> est entre <code>U+0080</code> et <code>U+07FF</code>, on utilise 2 octets, avec 11 bits disponibles. On complète : <code>000 1110 1001</code>. On répartit les 5 premiers bits puis les 6 suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>110 00011   10 101001
+= 1100 0011   1010 1001
+= C3 A9
+</code></pre></div></td></tr></table></div>
+<p><strong><code>∅</code></strong> : <span class="arithmatex">\(2205_{16} = 10\,0010\,0000\,0101_2\)</span>, soit 14 bits. Comme <code>U+2205</code> est entre <code>U+0800</code> et <code>U+FFFF</code>, on utilise 3 octets, avec 16 bits disponibles. On complète : <code>0010 0010 0000 0101</code>. On répartit 4, puis 6, puis 6 bits :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>1110 0010   10 001000   10 000101
+= E2 88 85
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="info">
+<summary>Hors programme : UTF-16 et UTF-32</summary>
+<p>Unicode définit d'autres encodages. UTF-32 écrit chaque point de code sur 4 octets : il est simple, mais quatre fois plus gros que l'ASCII pour un texte anglais. UTF-16 utilise 2 ou 4 octets ; il est employé à l'intérieur de certains systèmes, comme Windows ou Java.</p>
+</details>
+<h3 id="43-les-textes-en-python">4.3 Les textes en Python<a class="headerlink" href="#43-les-textes-en-python" title="Permanent link">⚓︎</a></h3>
+<p>En Python, une chaîne de caractères (type <code>str</code>) est une suite de <strong>points de code</strong>, et non une suite d'octets. On passe des caractères aux octets avec la méthode <code>encode</code>, et des octets aux caractères avec la méthode <code>decode</code>, en précisant l'encodage. Le résultat de <code>encode</code> est de type <code>bytes</code>, une suite d'octets, que Python affiche précédée d'un <code>b</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;é&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="go">b&#39;\xc3\xa9&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;é&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span>
+<span class="go">b&#39;\xe9&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Noël&quot;</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Noël&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xc3\xa9</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="go">&#39;é&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>La chaîne <code>"Noël"</code> contient 4 caractères, mais son encodage UTF-8 occupe 5 octets, car <code>ë</code> en occupe deux.</p>
+<h2 id="5-convertir-un-fichier-texte">5. 🔄 Convertir un fichier texte<a class="headerlink" href="#5-convertir-un-fichier-texte" title="Permanent link">⚓︎</a></h2>
+<p>Un fichier texte ne contient que des octets : rien n'y indique l'encodage utilisé. Le logiciel qui l'ouvre doit le connaître, ou le deviner.</p>
+<p><strong>Dans le terminal</strong>, sous Linux :</p>
+<ul>
+<li><code>file -i fichier.txt</code> devine l'encodage d'un fichier ;</li>
+<li><code>iconv -f ENCODAGE_SOURCE -t ENCODAGE_CIBLE source.txt -o cible.txt</code> convertit un fichier ;</li>
+<li><code>hexdump -C fichier.txt</code> affiche ses octets (TP C3TP3).</li>
+</ul>
+<p><strong>En Python</strong>, la fonction <code>open</code> accepte un paramètre <code>encoding</code>. Pour convertir un fichier, on le lit avec son encodage d'origine, puis on l'écrit avec le nouvel encodage :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">texte</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;texte_latin1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">open</span><span class="p">(</span><span class="s2">&quot;texte_utf8.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">À faire : un même texte, deux fichiers</p>
+<ol>
+<li>Avec un éditeur de texte, créez un fichier <code>texte_utf8.txt</code> contenant la ligne <code>Noël à La Réunion</code>, enregistré en UTF-8. Vérifiez son encodage avec <code>file -i</code>.</li>
+<li>Affichez ses octets avec <code>hexdump -C</code>. Repérez les octets de <code>ë</code>, de <code>à</code> et de <code>é</code>.</li>
+<li>
+<p>Convertissez-le en ISO-8859-1 avec la commande :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>iconv -f UTF-8 -t ISO-8859-1 texte_utf8.txt -o texte_latin1.txt
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Comparez les tailles des deux fichiers avec <code>ls -l</code>, puis leurs octets avec <code>hexdump -C</code>. Expliquez la différence de taille.</p>
+</li>
+<li>Affichez <code>texte_latin1.txt</code> dans le terminal avec <code>cat</code>. Le terminal lit les octets en UTF-8 : qu'observe-t-on ? Pourquoi ?</li>
+<li>Essayez de convertir en ISO-8859-1 un fichier contenant le mot <code>cœur</code>. Que se passe-t-il ? Recommencez avec <code>ISO-8859-15</code>.</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li>En UTF-8, <code>ë</code> s'écrit <code>c3 ab</code>, <code>à</code> s'écrit <code>c3 a0</code> et <code>é</code> s'écrit <code>c3 a9</code>.</li>
+<li>et 4. <code>texte_utf8.txt</code> fait 21 octets et <code>texte_latin1.txt</code> 18 octets : en ISO-8859-1, chacun des trois caractères accentués n'occupe plus qu'un octet (<code>eb</code>, <code>e0</code> et <code>e9</code>).</li>
+<li>Le terminal affiche <code>No�l � La R�union</code> : les octets <code>eb</code>, <code>e0</code> et <code>e9</code> ne forment pas de caractère valide en UTF-8, et sont remplacés par le symbole <code>�</code>.</li>
+<li><code>iconv</code> signale une erreur : <code>œ</code> n'existe pas en ISO-8859-1. En ISO-8859-15, il est codé par l'octet <code>bd</code>.</li>
+</ol>
+<p>👉 Pour lire correctement un fichier texte, il faut connaître l'encodage avec lequel il a été écrit.</p>
+</details>
+<details class="success">
+<summary>Ce qu'il faut en retenir de l'activité d'amorce</summary>
+<p>Le message a été <strong>écrit en UTF-8</strong> puis <strong>lu en ISO-8859-1</strong>. En UTF-8, <code>é</code> s'écrit avec les deux octets <code>C3 A9</code>. Lus en ISO-8859-1, ces deux octets deviennent deux caractères : <code>C3</code> est <code>Ã</code> et <code>A9</code> est <code>©</code>. Les caractères ASCII, eux, s'écrivent de la même façon dans les deux encodages : ils sont arrivés intacts. On peut le vérifier en Python :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Noël à La Réunion&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span>
+<span class="go">&#39;NoÃ«l Ã\xa0 La RÃ©union&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><code>\xa0</code> est une espace insécable, invisible à l'affichage.</p>
+<p>👉 Un texte abîmé de cette façon est le signe d'un désaccord entre l'encodage de l'écriture et celui de la lecture.</p>
+</details>
+<h2 id="6-synthese">6. 🧠 Synthèse<a class="headerlink" href="#6-synthese" title="Permanent link">⚓︎</a></h2>
+<table>
+<thead>
+<tr>
+<th>Encodage</th>
+<th>Taille d'un caractère</th>
+<th>Nombre de caractères</th>
+<th>Compatible avec l'ASCII</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCII</td>
+<td>7 bits, rangés dans un octet</td>
+<td>128</td>
+<td>oui</td>
+<td>anglais sans accents</td>
+</tr>
+<tr>
+<td>ISO-8859-1</td>
+<td>1 octet</td>
+<td>256</td>
+<td>oui</td>
+<td>langues d'Europe de l'Ouest, une famille à la fois</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>1 à 4 octets</td>
+<td>tous les caractères d'Unicode</td>
+<td>oui</td>
+<td>toutes les langues ; le standard du Web</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Un <strong>jeu de caractères</strong> donne un numéro à chaque caractère ; un <strong>encodage</strong> écrit ce numéro en octets.</li>
+<li>L'ASCII code 128 caractères sur 7 bits, sans lettres accentuées.</li>
+<li>L'ISO-8859-1 code 256 caractères sur un octet ; il prolonge l'ASCII, mais ne couvre qu'une famille de langues, et pas tous les caractères du français.</li>
+<li>Unicode donne un point de code à chaque caractère de toutes les écritures ; UTF-8 l'écrit sur 1 à 4 octets, et reste compatible avec l'ASCII.</li>
+<li>Un fichier texte ne contient que des octets : pour le lire, il faut connaître son encodage. On le convertit avec <code>iconv</code> ou avec Python (<code>open(…, encoding=…)</code>).</li>
+<li>Un texte écrit dans un encodage et lu dans un autre s'affiche avec des caractères erronés.</li>
+</ul>
+</div>
+<h2 id="7-pour-sentrainer">7. 📝 Pour s'entraîner<a class="headerlink" href="#7-pour-sentrainer" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li><a href="C3E5.html">Exercices C3E5 : coder un texte</a>, pour s'entraîner sur toutes les capacités de ce cours.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+<script src="../../pyodide-mkdocs/ide.js"></script> 
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.path", "content.code.copy", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="../../javascripts/catalogue.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax_details.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://logic.modulo-info.ch/simulator/lib/bundle.js"></script>
+      
+    
+  </body>
+</html>

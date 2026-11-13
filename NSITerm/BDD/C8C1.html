@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#le-modele-relationnel" class="md-skip">
+        <a href="#cours-1-le-modele-relationnel" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1423,12 +1423,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSI1/S5/S5C2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3C4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    COURS 4
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
     
   </span>
   
@@ -1446,12 +1446,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSI1/S5/S5E2.html" class="md-nav__link">
+      <a href="../../NSI1/C3/C3E5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    EXERCICES E4
+    ✏️ Exercices 4 : textes
     
   </span>
   
@@ -3522,18 +3522,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#0-activite-damorce-explorer-une-base" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      0. 🔎 Activité d'amorce : explorer une base
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#le-modele-relationnel-les-concepts" class="md-nav__link">
+  <a href="#1-base-de-donnees-et-modele-relationnel" class="md-nav__link">
     <span class="md-ellipsis">
-      Le modèle relationnel - les concepts
+      1. 📚 Base de données et modèle relationnel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-relation-attribut-domaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 🧱 Relation, attribut, domaine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-schema-dune-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 📐 Schéma d'une relation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cle-primaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🔑 Clé primaire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cle-etrangere" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🔗 Clé étrangère
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-contraintes-dintegrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 🛡️ Contraintes d'intégrité
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-pour-sentrainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 📝 Pour s'entraîner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-de-prolongement-garder-lhistorique-des-emprunts" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Exercice de prolongement – Garder l'historique des emprunts
     </span>
   </a>
   
@@ -3561,6 +3633,29 @@
   
   <span class="md-ellipsis">
     📖 Cours 2: BDD Relationnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
     
   </span>
   
@@ -3624,12 +3719,12 @@
   
   
     <li class="md-nav__item">
-      <a href="C8E1.html" class="md-nav__link">
+      <a href="C8E2.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ✏️ Exercices: Schémas relationnels
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
     
   </span>
   
@@ -3693,7 +3788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="C8TP4.html" class="md-nav__link">
+      <a href="C8TP3.html" class="md-nav__link">
         
   
   
@@ -5702,473 +5797,343 @@
 
 
 
-<h1 id="le-modele-relationnel">LE MODELE RELATIONNEL<a class="headerlink" href="#le-modele-relationnel" title="Permanent link">⚓︎</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h2>
-<p>Comme on l'a vu dans l'activité introductive, l'utilisation de structures de données plates souffre de nombreux inconvénients (redondance, mise à jour et recherche difficiles, performances médiocres lorsque le fichier devient volumineux, etc.).<br />
-Plus généralement, pour toute application sérieuse, on se tourne vers une <strong>base de données</strong>. </p>
-<div class="admonition tip">
-<p class="admonition-title">Définition</p>
-<p>On définit une base de données comme une collection de données structurées (<em>de manière logique</em>) stockées sur un support persistent.  </p>
+<h1 id="cours-1-le-modele-relationnel">📖 Cours 1 : Le modèle relationnel<a class="headerlink" href="#cours-1-le-modele-relationnel" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme</p>
+<table>
+<thead>
+<tr>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modèle relationnel : relation, attribut, domaine, clef primaire, clef étrangère, schéma relationnel.</td>
+<td>Identifier les concepts définissant le modèle relationnel.</td>
+<td>Ces concepts permettent d'exprimer les contraintes d'intégrité (domaine, relation et référence).</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Modéliser les données nécessitera trois grandes étapes:  </p>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de ce chapitre, je sais…</p>
+<ol>
+<li><strong>Définir</strong> une base de données et dire ce qu'apporte le modèle relationnel.</li>
+<li><strong>Nommer</strong> les éléments d'une relation : attribut, domaine, n-uplet, valeur.</li>
+<li><strong>Écrire</strong> le schéma d'une relation avec ses domaines.</li>
+<li><strong>Justifier</strong> qu'un attribut, ou un ensemble d'attributs, peut ou ne peut pas servir de clé primaire.</li>
+<li><strong>Repérer</strong> une clé étrangère et dire à quelle clé primaire elle fait référence.</li>
+<li><strong>Énoncer</strong> les trois contraintes d'intégrité et dire laquelle explique le refus d'une modification.</li>
+</ol>
+</div>
+<h2 id="0-activite-damorce-explorer-une-base">0. 🔎 Activité d'amorce : explorer une base<a class="headerlink" href="#0-activite-damorce-explorer-une-base" title="Permanent link">⚓︎</a></h2>
+<p>L'activité C8A1 a montré les défauts d'un fichier unique : informations répétées, incohérences, mises à jour risquées. La solution trouvée consistait à répartir les données dans plusieurs tables reliées entre elles. Ce cours donne le vocabulaire exact de cette organisation.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Ouvrir la base <code>Livres_2</code> dans l'interface phpMyAdmin.</p>
+<ol>
+<li>Combien de tables cette base contient-elle ? Relever leurs noms.</li>
+<li>Relever le nom et le type de chaque colonne de la table <code>auteur</code>.</li>
+<li>Combien de lignes la table <code>usager</code> contient-elle ?</li>
+<li>Dans quelle table trouve-t-on la date de retour d'un livre emprunté ? Y trouve-t-on aussi le titre du livre ?</li>
+</ol>
+</div>
+<h2 id="1-base-de-donnees-et-modele-relationnel">1. 📚 Base de données et modèle relationnel<a class="headerlink" href="#1-base-de-donnees-et-modele-relationnel" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition : base de données</p>
+<p>Une base de données est un ensemble de données structurées, enregistrées sur un support persistant. « Persistant » signifie que les données existent encore après l'arrêt du programme ou de la machine.</p>
+</div>
+<p>Un <strong>modèle</strong> de données fixe la façon de structurer ces données. Le <strong>modèle relationnel</strong> est le plus répandu. Son idée centrale : toutes les données sont rangées dans des tableaux à deux dimensions, appelés <strong>relations</strong>, et rien d'autre.</p>
+<p>Construire une base demande trois étapes :</p>
 <ul>
-<li>trouver les objets ou acteurs du problème ainsi les associations existant entre eux -<em>cette étape n'est pas abordée en terminale</em>-;</li>
-<li>modéliser les objets / acteurs comme des relations;</li>
-<li>définir les contraintes.</li>
+<li>repérer les objets à décrire et ce qui les relie : cette étape de conception n'est pas au programme de terminale ;</li>
+<li>représenter ces objets par des relations ;</li>
+<li>énoncer les contraintes que les données doivent toujours respecter.</li>
 </ul>
-<p>Enfin, pour gérer la base de données on aura un besoin d'un logiciel appelé <strong>Sytème de Gestion de Base de Données</strong> ou <strong>SGBD</strong>. Dans les applications de ce cours, on utilisera le SGBD <code>MySQL</code> (<em>couplé à l'interface phpMyAdmin</em>).</p>
-<h2 id="le-modele-relationnel-les-concepts">Le modèle relationnel - les concepts<a class="headerlink" href="#le-modele-relationnel-les-concepts" title="Permanent link">⚓︎</a></h2>
-<p>Parmi les <em>modèles</em> permettant de structurer de manière logique les données, un des plus populaires est le <strong>modèle relationnel</strong> développé en 1970 par l'américain <a href="https://fr.wikipedia.org/wiki/Edgar_Frank_Codd">Edgar Frank Codd</a>.</p>
-<h3 id="le-vocabulaire">Le vocabulaire<a class="headerlink" href="#le-vocabulaire" title="Permanent link">⚓︎</a></h3>
-<p>Pour Philippe Rigaux, Professeur au CNAM, le <strong>modèle relationnel</strong> est:  </p>
-<blockquote>
-<p><em>un ensemble de résultats scientifiques, qui ont en commun de s’appuyer sur une représentation tabulaire des données</em>.  </p>
-</blockquote>
-<p>L'expression <em>modèle relationnel</em> vient de la notion de <strong>relation</strong> en mathématique.  </p>
-<h4 id="relation-n-uplet-attribut-schema">Relation, n-uplet, attribut, schéma<a class="headerlink" href="#relation-n-uplet-attribut-schema" title="Permanent link">⚓︎</a></h4>
-<p>Dans une première approche, une relation peut être vue comme <strong>un tableau à deux dimensions</strong> (on dit aussi <em>table</em>) et est repérée par un nom.<br />
-<img alt="table1" src="img/vocabulaire_relation_3.png" /></p>
-<p>Une relation est un ensemble fini de <strong>n-uplets</strong> (<em>lignes</em>). Chaque composante d'un n-uplet est un <strong>attribut</strong>. L'ensemble des valeurs possibles que peut prendre un attribut est son <strong>domaine</strong>. Le domaine peut être vu comme le <em>type</em> en informatique.  </p>
-<p>Chaque relation est conforme à un <strong>schéma</strong>. Il s'agit d'un <strong>ensemble ordonné de couple attribut-domaine</strong>, distinct deux-à-deux, qui caractérise un n-uplet.  Par exemple, le <strong>schéma de la relation</strong> <code>Logement</code> de l'exemple ci-dessus est:  </p>
-<p><em>Logement</em> ((id, <code>str</code>), (nom, <code>str</code>), (capacité, <code>int</code>), (type, <code>str</code>), (lieu, <code>str</code>))  </p>
-<p>Une base de données est un ensemble de relations.</p>
+<p>Le logiciel qui gère une base de données s'appelle un système de gestion de bases de données (cours C8C4). Dans ce chapitre, c'est MySQL, utilisé à travers l'interface phpMyAdmin.</p>
+<details class="info">
+<summary>Culture : l'origine du modèle relationnel</summary>
+<p>Le modèle relationnel a été proposé en 1970 par Edgar F. Codd, informaticien britannique qui travaillait chez IBM aux États-Unis. Le mot « relation » vient des mathématiques, où il désigne un ensemble de n-uplets.</p>
+</details>
+<h2 id="2-relation-attribut-domaine">2. 🧱 Relation, attribut, domaine<a class="headerlink" href="#2-relation-attribut-domaine" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition : relation, attribut, domaine, n-uplet</p>
+<ul>
+<li>Une <strong>relation</strong> porte un nom et contient un ensemble de <strong>n-uplets</strong>. On la représente par une table : chaque n-uplet est une ligne.</li>
+<li>Un <strong>attribut</strong> est le nom d'une colonne. Tous les attributs d'une relation ont des noms différents.</li>
+<li>Le <strong>domaine</strong> d'un attribut est l'ensemble des valeurs qu'il peut prendre. Il joue le rôle du type en programmation.</li>
+<li>Un n-uplet donne une <strong>valeur</strong> à chaque attribut, prise dans le domaine de cet attribut.</li>
+</ul>
+</div>
+<p><img alt="Table de la relation livre. Une accolade au-dessus de la ligne d'en-tête indique ses 4 attributs : titre, editeur, annee, isbn. Trois lignes suivent : Lolita, Penguin UK, 2012, 978-0141391601 ; Mrs Dalloway, Flammarion, 2015, 978-2081358881 ; La Planète des singes, Julliard, 2011, 978-2260019183. La ligne Mrs Dalloway est encadrée en rouge avec l'étiquette « un n-uplet ». Une flèche désigne la case Julliard avec l'étiquette « une valeur ». Une accolade sous la colonne annee porte l'étiquette « domaine : entiers »." src="img/vocabulaire_relation.svg" /></p>
+<p>Sur ce schéma, la relation <code>livre</code> a quatre attributs. Le n-uplet encadré donne la valeur <code>Flammarion</code> à l'attribut <code>editeur</code> et la valeur 2015 à l'attribut <code>annee</code>, dont le domaine est celui des entiers.</p>
+<p>Dans ce cours, les domaines sont notés comme dans les sujets d'examen :</p>
+<table>
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Valeurs</th>
+<th>Exemple dans <code>Livres_2</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INT</code></td>
+<td>nombres entiers</td>
+<td><code>annee</code>, <code>cp</code>, <code>code_barre</code>, <code>a_id</code></td>
+</tr>
+<tr>
+<td><code>TEXT</code></td>
+<td>chaînes de caractères</td>
+<td><code>titre</code>, <code>nom</code>, <code>isbn</code></td>
+</tr>
+<tr>
+<td><code>DATE</code></td>
+<td>dates</td>
+<td><code>retour</code></td>
+</tr>
+</tbody>
+</table>
+<p>Une relation est un <strong>ensemble</strong> de n-uplets. Ce mot a deux conséquences :</p>
+<ul>
+<li>les n-uplets n'ont pas d'ordre : la table peut être affichée dans n'importe quel ordre de lignes, c'est la même relation ;</li>
+<li>une relation ne contient jamais deux n-uplets identiques.</li>
+</ul>
+<p>Le vocabulaire du modèle relationnel et celui de l'usage courant désignent les mêmes objets.</p>
+<table>
+<thead>
+<tr>
+<th>Modèle relationnel</th>
+<th>Usage courant, langage SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>relation</td>
+<td>table</td>
+</tr>
+<tr>
+<td>n-uplet</td>
+<td>ligne, enregistrement</td>
+</tr>
+<tr>
+<td>attribut</td>
+<td>colonne</td>
+</tr>
+<tr>
+<td>domaine</td>
+<td>type</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-schema-dune-relation">3. 📐 Schéma d'une relation<a class="headerlink" href="#3-schema-dune-relation" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition : schéma d'une relation</p>
+<p>Le schéma d'une relation est son nom, suivi de la liste de ses attributs, chacun avec son domaine.</p>
+</div>
+<p>Le schéma de la relation <code>livre</code> s'écrit :</p>
+<p>livre (titre : TEXT, editeur : TEXT, annee : INT, <ins>isbn</ins> : TEXT)</p>
+<p>Quand les domaines sont évidents ou donnés ailleurs, on écrit le schéma sans eux : livre (titre, editeur, annee, <ins>isbn</ins>). Le soulignement de <code>isbn</code> est expliqué à la section 4.</p>
+<p>Le schéma décrit la <strong>structure</strong> de la relation. Les n-uplets forment son <strong>contenu</strong>. Ajouter un livre change le contenu, pas le schéma. Cette distinction est reprise au cours C8C2.</p>
 <div class="admonition question">
-<p class="admonition-title">Application 1</p>
+<p class="admonition-title">À faire</p>
 <ol>
-<li>Ouvrir la base de données <code>Livres_2</code> à partir de l'interface <em>phpMyAdmin</em>.</li>
-<li>Combien de relation comporte cette base?</li>
-<li>Donner les attributs ainsi que leur domaine, présents dans la relation <code>auteur</code>.</li>
-<li>Donner le schéma de la relation <code>livre</code>.</li>
-<li>Combien de n-uplets comporte la table <code>usager</code>?</li>
+<li>Écrire le schéma de la relation <code>auteur</code>, avec les domaines.</li>
+<li>Écrire le schéma de la relation <code>usager</code>, avec les domaines.</li>
+<li>Un élève propose <code>TEXT</code> comme domaine de l'attribut <code>cp</code>. Citer un avantage et un inconvénient de ce choix.</li>
 </ol>
 </div>
-<h4 id="cle-primaire">Clé primaire<a class="headerlink" href="#cle-primaire" title="Permanent link">⚓︎</a></h4>
-<p>Si un ensemble d'attributs <span class="arithmatex">\(\mathcal{K}\)</span> permet d'identifier un unique n-uplet alors c'est <strong>une clé</strong>. Si cet ensemble est minimal on dit que c'est <strong>une clé primaire</strong>.<br />
-Dans la relation <code>livre</code> de l'application 1, l'attribut <code>isbn</code> constitue une clé primaire.  </p>
-<p><img alt="tablelivre" src="img/C8C1_fig01.png" />  </p>
-<p>Très souvent, on sera amené à ajouter une clé <em>artificielle</em> qui servira de clé primaire et qui sera un identifiant entier auto-incrémenté.</p>
+<h2 id="4-cle-primaire">4. 🔑 Clé primaire<a class="headerlink" href="#4-cle-primaire" title="Permanent link">⚓︎</a></h2>
+<p>Pour retrouver un n-uplet sans ambiguïté, il faut un moyen de le désigner. C'est le rôle de la clé primaire.</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : clé primaire</p>
+<p>La clé primaire d'une relation est un attribut, ou un ensemble d'attributs, choisi pour identifier chaque n-uplet : deux n-uplets différents n'ont jamais la même valeur de clé primaire, et cette valeur est toujours renseignée. Dans un schéma, la clé primaire est <strong>soulignée</strong>.</p>
+</div>
+<p>Dans la relation <code>livre</code>, la clé primaire est <code>isbn</code> : l'ISBN est un numéro attribué à chaque édition d'un livre, deux éditions différentes n'ont jamais le même.</p>
+<div class="admonition danger">
+<p class="admonition-title">À ne pas confondre</p>
+<p>Une clé primaire se justifie par le <strong>sens des données</strong>, pas par l'extrait que l'on a sous les yeux. Dans la base <code>Livres_2</code>, aucun titre n'apparaît deux fois. Pourtant <code>titre</code> ne peut pas servir de clé primaire : deux éditions d'un même roman portent le même titre, et la base doit pouvoir les accueillir toutes les deux. La bonne question n'est pas « les valeurs sont-elles toutes différentes aujourd'hui ? » mais « pourraient-elles un jour être égales ? ».</p>
+</div>
+<p>Trois situations se rencontrent.</p>
+<ul>
+<li><strong>Un attribut naturel convient.</strong> C'est le cas de <code>isbn</code> pour <code>livre</code>.</li>
+<li><strong>Aucun attribut naturel ne convient.</strong> Dans <code>usager</code>, deux personnes peuvent porter le même nom : la base contient déjà deux usagers nommés PAYET. On ajoute alors un attribut créé pour cela, ici <code>code_barre</code>. De même, <code>a_id</code> identifie chaque auteur.</li>
+<li><strong>Il faut plusieurs attributs.</strong> Dans <code>auteur_de</code>, un auteur a écrit plusieurs livres et un livre peut avoir plusieurs auteurs : ni <code>a_id</code> seul ni <code>isbn</code> seul n'identifie une ligne. La clé primaire est le couple (<code>a_id</code>, <code>isbn</code>). On parle de clé primaire composée.</li>
+</ul>
+<p>Les schémas des cinq relations de la base, clés primaires soulignées :</p>
+<ul>
+<li>livre (titre, editeur, annee, <ins>isbn</ins>)</li>
+<li>auteur (<ins>a_id</ins>, nom, prenom)</li>
+<li>auteur_de (<ins>a_id, isbn</ins>)</li>
+<li>usager (nom, prenom, adresse, cp, ville, email, <ins>code_barre</ins>)</li>
+<li>emprunt (code_barre, <ins>isbn</ins>, retour)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Méthode : justifier qu'un attribut ne peut pas être clé primaire</p>
+<p>Il suffit de décrire une situation réaliste où deux n-uplets différents auraient la même valeur pour cet attribut. Exemple : « <code>nom</code> ne peut pas être la clé primaire de <code>usager</code>, car deux usagers peuvent porter le même nom de famille ».</p>
+</div>
 <div class="admonition question">
-<p class="admonition-title">Aplication 2</p>
+<p class="admonition-title">À faire</p>
 <ol>
-<li>L'attribut <code>annee</code> peut-il être une clé primaire?</li>
-<li>L'ensemble <code>titre, editeur</code> peut-il être une clé primaire?</li>
+<li>L'attribut <code>annee</code> peut-il servir de clé primaire à la relation <code>livre</code> ? Justifier.</li>
+<li>Le couple (<code>titre</code>, <code>editeur</code>) peut-il servir de clé primaire à la relation <code>livre</code> ? Justifier.</li>
+<li>La clé primaire de <code>emprunt</code> est <code>isbn</code>. Qu'est-ce que ce choix interdit ? Est-ce raisonnable pour une bibliothèque qui possède un seul exemplaire de chaque livre ?</li>
 </ol>
 </div>
-<h4 id="cle-etrangere">Clé étrangère<a class="headerlink" href="#cle-etrangere" title="Permanent link">⚓︎</a></h4>
-<p>Considérons une relation <code>INFO_LIVRES</code> ci-après. Un rapide examen permet de constater que beaucoup d'informations sont dupliquées.</p>
-<p><strong>Relation INFO_LIVRES</strong></p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>titre</th>
-<th>nom</th>
-<th>prenom</th>
-<th>date_nai</th>
-<th>langue_ecriture</th>
-<th>ann_publi</th>
-<th>note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1984</td>
-<td>Orwell</td>
-<td>George</td>
-<td>1903</td>
-<td>anglais</td>
-<td>1949</td>
-<td>10</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Dune</td>
-<td>Herbert</td>
-<td>Frank</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1965</td>
-<td>8</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Fondation</td>
-<td>Asimov</td>
-<td>Isaac</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1951</td>
-<td>9</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Le meilleur des mondes</td>
-<td>Huxley</td>
-<td>Aldous</td>
-<td>1894</td>
-<td>anglais</td>
-<td>1931</td>
-<td>7</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Fahrenheit 451</td>
-<td>Bradbury</td>
-<td>Ray</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1953</td>
-<td>7</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Ubik</td>
-<td>K.Dick</td>
-<td>Philip</td>
-<td>1928</td>
-<td>anglais</td>
-<td>1969</td>
-<td>9</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Chroniques martiennes</td>
-<td>Bradbury</td>
-<td>Ray</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1950</td>
-<td>8</td>
-</tr>
-<tr>
-<td>8</td>
-<td>La nuit des temps</td>
-<td>Barjavel</td>
-<td>René</td>
-<td>1911</td>
-<td>français</td>
-<td>1968</td>
-<td>7</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Blade Runner</td>
-<td>K.Dick</td>
-<td>Philip</td>
-<td>1928</td>
-<td>anglais</td>
-<td>1968</td>
-<td>8</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Les Robots</td>
-<td>Asimov</td>
-<td>Isaac</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1950</td>
-<td>9</td>
-</tr>
-<tr>
-<td>11</td>
-<td>La Planète des singes</td>
-<td>Boulle</td>
-<td>Pierre</td>
-<td>1912</td>
-<td>français</td>
-<td>1963</td>
-<td>8</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Ravage</td>
-<td>Barjavel</td>
-<td>René</td>
-<td>1911</td>
-<td>français</td>
-<td>1943</td>
-<td>8</td>
-</tr>
-<tr>
-<td>13</td>
-<td>Le Maître du Haut Château</td>
-<td>K.Dick</td>
-<td>Philip</td>
-<td>1928</td>
-<td>anglais</td>
-<td>1962</td>
-<td>8</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Le monde des Ā</td>
-<td>Van Vogt</td>
-<td>Alfred Elton</td>
-<td>1912</td>
-<td>anglais</td>
-<td>1945</td>
-<td>7</td>
-</tr>
-<tr>
-<td>15</td>
-<td>La Fin de l’éternité</td>
-<td>Asimov</td>
-<td>Isaac</td>
-<td>1920</td>
-<td>anglais</td>
-<td>1955</td>
-<td>8</td>
-</tr>
-<tr>
-<td>16</td>
-<td>De la Terre à la Lune</td>
-<td>Verne</td>
-<td>Jules</td>
-<td>1828</td>
-<td>français</td>
-<td>1865</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-<p>Dans l'activité d'introduction sur les <em>insuffisances des structures de données plates</em> on a vu qu'une solution au problème de redondance était la séparation des données en plusieurs tables. On parvient alors à <strong>reconstruire toute l'information avec un ou des attributs jouant le rôle de lien</strong>.  </p>
-<p>Ici, on sépare les informations dans deux tables <code>LIVRES</code> et <code>AUTEURS</code>.</p>
-<p><strong>Relation AUTEURS</strong>  </p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>nom</th>
-<th>prenom</th>
-<th>ann_naissance</th>
-<th>langue_ecriture</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Orwell</td>
-<td>George</td>
-<td>1903</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Herbert</td>
-<td>Frank</td>
-<td>1920</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Asimov</td>
-<td>Isaac</td>
-<td>1920</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Huxley</td>
-<td>Aldous</td>
-<td>1894</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Bradbury</td>
-<td>Ray</td>
-<td>1920</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>6</td>
-<td>K.Dick</td>
-<td>Philip</td>
-<td>1928</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Barjavel</td>
-<td>René</td>
-<td>1911</td>
-<td>français</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Boulle</td>
-<td>Pierre</td>
-<td>1912</td>
-<td>français</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Van Vogt</td>
-<td>Alfred Elton</td>
-<td>1912</td>
-<td>anglais</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Verne</td>
-<td>Jules</td>
-<td>1828</td>
-<td>français</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Relation LIVRES</strong></p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>titre</th>
-<th>id_auteur</th>
-<th>ann_publi</th>
-<th>note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1984</td>
-<td>1</td>
-<td>1949</td>
-<td>10</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Dune</td>
-<td>2</td>
-<td>1965</td>
-<td>8</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Fondation</td>
-<td>3</td>
-<td>1951</td>
-<td>9</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Le meilleur des mondes</td>
-<td>4</td>
-<td>1931</td>
-<td>7</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Fahrenheit 451</td>
-<td>5</td>
-<td>1953</td>
-<td>7</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Ubik</td>
-<td>6</td>
-<td>1969</td>
-<td>9</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Chroniques martiennes</td>
-<td>5</td>
-<td>1950</td>
-<td>8</td>
-</tr>
-<tr>
-<td>8</td>
-<td>La nuit des temps</td>
-<td>7</td>
-<td>1968</td>
-<td>7</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Blade Runner</td>
-<td>6</td>
-<td>1968</td>
-<td>8</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Les Robots</td>
-<td>3</td>
-<td>1950</td>
-<td>9</td>
-</tr>
-<tr>
-<td>11</td>
-<td>La Planète des singes</td>
-<td>8</td>
-<td>1963</td>
-<td>8</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Ravage</td>
-<td>7</td>
-<td>1943</td>
-<td>8</td>
-</tr>
-<tr>
-<td>13</td>
-<td>Le Maître du Haut Château</td>
-<td>6</td>
-<td>1962</td>
-<td>8</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Le monde des Ā</td>
-<td>9</td>
-<td>1945</td>
-<td>7</td>
-</tr>
-<tr>
-<td>15</td>
-<td>La Fin de l’éternité</td>
-<td>3</td>
-<td>1955</td>
-<td>8</td>
-</tr>
-<tr>
-<td>16</td>
-<td>De la Terre à la Lune</td>
-<td>10</td>
-<td>1865</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-<p>Dans cet exemple, la relation <code>LIVRES</code> possède un attribut <code>id_auteur</code> qui correspond à l'attribut <code>id</code> de la relation <code>AUTEURS</code>.<br />
-Cet attribut de la relation <code>LIVRES</code> qui fait référence à la clé primaire d'une autre relation est appelée <strong>clé étrangère</strong>.  </p>
-<p>Dans le schéma d'une relation, <strong>la clé primaire est souvent soulignée</strong> et les éventuelles <strong>clés étangères sont précédées du signe</strong> <code>#</code>.</p>
-<div class="admonition question">
-<p class="admonition-title">Application 3</p>
-<p>Écrire le schéma des relations <code>LIVRES</code> et <code>AUTEURS</code>.</p>
+<h2 id="5-cle-etrangere">5. 🔗 Clé étrangère<a class="headerlink" href="#5-cle-etrangere" title="Permanent link">⚓︎</a></h2>
+<p>La relation <code>emprunt</code> ne contient ni le titre du livre emprunté ni le nom de l'emprunteur. Elle contient seulement un ISBN et un code-barres. Ces deux valeurs suffisent : elles désignent un n-uplet de <code>livre</code> et un n-uplet de <code>usager</code>. On évite ainsi de recopier les mêmes informations à plusieurs endroits, ce qui était le défaut du fichier unique de l'activité C8A1.</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : clé étrangère</p>
+<p>Une clé étrangère est un attribut, ou un ensemble d'attributs, d'une relation, dont chaque valeur doit être une valeur de la clé primaire d'une relation. On dit que la clé étrangère <strong>fait référence</strong> à cette clé primaire. Dans un schéma, une clé étrangère est précédée du signe <code>#</code>.</p>
 </div>
-<h3 id="les-contraintes-dintegrite">Les contraintes d'intégrité<a class="headerlink" href="#les-contraintes-dintegrite" title="Permanent link">⚓︎</a></h3>
-<p>Un contrainte d'intégrité est une <strong>propriété logique, vérifiée à chaque instant et qui garantit la cohérence des données</strong>.</p>
-<h4 id="contrainte-de-domaine">Contrainte de domaine<a class="headerlink" href="#contrainte-de-domaine" title="Permanent link">⚓︎</a></h4>
-<p>Les contraintes de domaine sont utiles pour contrôler le type de données stockées. Cela est intégré au modèle relationnel. Par exemple, dans la table <code>Logement</code> évoquée plus haut, une entrée comme <code>10</code> pour l'attribut <code>id</code> sera refusée car le domaine de cet attribut est une chaîne de caractère.</p>
-<h4 id="contrainte-dintegrite-des-relations">Contrainte d'intégrité des relations<a class="headerlink" href="#contrainte-dintegrite-des-relations" title="Permanent link">⚓︎</a></h4>
-<p>Cette contrainte permet d'assurer que chaque relation a bien une clé primaire unique et bien définie. Deux n-uplets ne peuvent avoir les mêmes valeurs pour l'ensemble des attributs.  </p>
-<p>Par exemple, dans la relation <code>LIVRES</code>, choisir <code>titre</code> comme clé n'est pas une bonne idée (<em>on peut avoir deux livres avec le même titre</em>). On lui préfère une clé artificielle <code>id</code>.</p>
-<h4 id="contrainte-dintegrite-referentielle">Contrainte d'intégrité référentielle<a class="headerlink" href="#contrainte-dintegrite-referentielle" title="Permanent link">⚓︎</a></h4>
-<p>Cette contrainte permet d'assurer que chaque valeur d'une clé étrangère doit correspondre une valeur de clé primaire associée.<br />
-Par exemple, dans la relation <code>LIVRES</code> possède une clé étrangère <code>id_auteur</code>. Pour qu'une valeur de <code>id_auteur</code> soit acceptée, il faut que cette valeur apparaisse dans la clé primaire de <code>AUTEURS</code></p>
-<hr />
-<p><strong>Références</strong>  </p>
-<p>Spécialité NSI - Terminale - pages 285 - 294; Balabonski &amp; al; ellipses<br />
-Site David Roche https://pixees.fr/informatiquelycee/n_site/nsi_term_bd_rela.html</p>
-<p><strong>Liens intéressants pour manipuler les tables en markdown</strong>  </p>
-<p><a href="https://www.convertcsv.com/html-table-to-csv.htm">convertion HTML vers csv</a><br />
-<a href="https://donatstudios.com/CsvToMarkdownTable">convertion csv vers markdown</a></p>
+<p><img alt="En haut, la table livre avec ses attributs titre, editeur, annee et isbn, ce dernier souligné et étiqueté « clé primaire ». Elle contient trois lignes : Lolita, Mrs Dalloway et La Planète des singes. En bas, la table emprunt avec ses attributs #code_barre, #isbn souligné et retour, étiquetés « clés étrangères ». Elle contient deux lignes dont les ISBN, écrits en rouge, sont ceux de Mrs Dalloway et de La Planète des singes. Une flèche rouge « fait référence à » part de la colonne #isbn de emprunt et pointe vers la colonne isbn de livre. Une note précise que chaque valeur de #isbn existe dans livre." src="img/cle_etrangere_emprunt_livre.svg" /></p>
+<p>Sur ce schéma, les deux ISBN présents dans <code>emprunt</code> existent dans <code>livre</code>. L'ISBN de Lolita n'apparaît pas dans <code>emprunt</code> : ce livre n'est pas emprunté, et rien ne l'oblige à l'être. La contrainte ne joue que dans un sens.</p>
+<p>Le schéma complet de la base, avec clés primaires et clés étrangères :</p>
+<ul>
+<li>livre (titre, editeur, annee, <ins>isbn</ins>)</li>
+<li>auteur (<ins>a_id</ins>, nom, prenom)</li>
+<li>auteur_de (<ins>#a_id, #isbn</ins>)</li>
+<li>usager (nom, prenom, adresse, cp, ville, email, <ins>code_barre</ins>)</li>
+<li>emprunt (#code_barre, <ins>#isbn</ins>, retour)</li>
+</ul>
+<p>Un attribut peut appartenir à la fois à la clé primaire et à une clé étrangère : c'est le cas de <code>isbn</code> dans <code>emprunt</code>, et des deux attributs de <code>auteur_de</code>. Cette dernière relation ne contient que des clés étrangères. Elle sert uniquement à relier les auteurs et les livres. Elle répond au problème du livre écrit par plusieurs auteurs, resté sans solution dans l'activité C8A1.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention : le nom de l'attribut ne fait pas la clé étrangère</p>
+<p>Dans <code>Livres_2</code>, une clé étrangère porte le même nom que la clé primaire qu'elle référence. Ce n'est pas une règle : dans un sujet, un attribut <code>id_realisateur</code> peut faire référence à la clé primaire <code>id_artiste</code> d'une autre relation. C'est l'énoncé, ou le signe <code>#</code>, qui indique les clés étrangères.</p>
+</div>
+<details class="info">
+<summary>Pour aller plus loin : une clé étrangère vers sa propre relation</summary>
+<p>Une clé étrangère peut faire référence à la clé primaire de la relation où elle se trouve. Exemple : dans une relation employe (<ins>id</ins>, nom, #id_responsable), l'attribut <code>id_responsable</code> contient l'identifiant d'un autre employé.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>À quelle clé primaire l'attribut <code>code_barre</code> de <code>emprunt</code> fait-il référence ?</li>
+<li>L'usager dont le code-barres est 421921003090881 a trois emprunts en cours. Est-ce compatible avec la définition d'une clé étrangère ? Est-ce compatible avec la clé primaire de <code>emprunt</code> ?</li>
+<li>Le livre « The Practice of Programming » a deux auteurs. Combien de n-uplets de <code>auteur_de</code> portent son ISBN ?</li>
+</ol>
+</div>
+<h2 id="6-contraintes-dintegrite">6. 🛡️ Contraintes d'intégrité<a class="headerlink" href="#6-contraintes-dintegrite" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition : contrainte d'intégrité</p>
+<p>Une contrainte d'intégrité est une règle que les données de la base doivent respecter à tout instant. Le système de gestion de bases de données <strong>refuse</strong> toute modification qui la violerait.</p>
+</div>
+<p>Le modèle relationnel définit trois contraintes. Chacune découle d'un concept vu plus haut.</p>
+<table>
+<thead>
+<tr>
+<th>Contrainte</th>
+<th>Ce qu'elle impose</th>
+<th>Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>de domaine</td>
+<td>chaque valeur appartient au domaine de son attribut</td>
+<td>domaine</td>
+</tr>
+<tr>
+<td>de relation</td>
+<td>chaque n-uplet a une valeur de clé primaire, différente de toutes les autres</td>
+<td>clé primaire</td>
+</tr>
+<tr>
+<td>de référence</td>
+<td>chaque valeur d'une clé étrangère existe dans la clé primaire référencée</td>
+<td>clé étrangère</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Exemple : trois modifications refusées dans <code>Livres_2</code></p>
+<ul>
+<li><strong>Domaine.</strong> Ajouter un livre dont l'année est le texte <code>deux mille douze</code> : l'attribut <code>annee</code> a pour domaine <code>INT</code>.</li>
+<li><strong>Relation.</strong> Ajouter un usager dont le code-barres est 934701281931116 : cette valeur de clé primaire est déjà celle d'un autre usager.</li>
+<li><strong>Référence.</strong> Ajouter un emprunt pour un ISBN qui n'existe pas dans <code>livre</code>. Ou encore supprimer de <code>livre</code> un livre emprunté : la ligne de <code>emprunt</code> qui porte son ISBN ne désignerait plus rien.</li>
+</ul>
+</div>
+<p>La contrainte de référence agit donc dans deux situations : quand on ajoute une valeur de clé étrangère, et quand on supprime ou modifie une valeur de clé primaire référencée. Les requêtes correspondantes sont étudiées au cours C8C3, section 6.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention : cohérent ne veut pas dire vrai</p>
+<p>Les contraintes d'intégrité garantissent que les données sont cohérentes entre elles. Elles ne garantissent pas qu'elles sont exactes. Rien n'empêche d'enregistrer qu'Isaac Asimov est l'auteur de Lolita : l'auteur existe, le livre existe, les trois contraintes sont respectées.</p>
+</div>
+<h2 id="7-synthese">7. 🧠 Synthèse<a class="headerlink" href="#7-synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Une base de données relationnelle est un ensemble de relations.</li>
+<li>Une relation a un nom, des attributs et un ensemble de n-uplets, sans ordre ni doublon. Chaque attribut a un domaine.</li>
+<li>Le schéma d'une relation donne son nom et ses attributs avec leurs domaines : c'est la structure, les n-uplets sont le contenu.</li>
+<li>La clé primaire, soulignée, identifie chaque n-uplet. Elle peut être composée de plusieurs attributs. Elle se justifie par le sens des données.</li>
+<li>Une clé étrangère, précédée de <code>#</code>, fait référence à une clé primaire : chacune de ses valeurs doit y exister.</li>
+<li>Trois contraintes d'intégrité : de domaine, de relation, de référence. Une modification qui en viole une est refusée.</li>
+</ul>
+</div>
+<h2 id="8-pour-sentrainer">8. 📝 Pour s'entraîner<a class="headerlink" href="#8-pour-sentrainer" title="Permanent link">⚓︎</a></h2>
+<p>Ces questions se traitent sur papier, avec le schéma complet de la base <code>Livres_2</code> sous les yeux (section 5). Chaque réponse est justifiée par une phrase complète. L'exercice marqué ⭐ est un prolongement.</p>
+<ol>
+<li>Citer les attributs de la relation <code>emprunt</code> et le domaine de chacun.</li>
+<li>Dans la base, tous les usagers ont actuellement des couples (<code>nom</code>, <code>prenom</code>) différents. Expliquer pourquoi ce couple ne peut tout de même pas servir de clé primaire à <code>usager</code>.</li>
+<li>Expliquer pourquoi l'attribut <code>code_barre</code> ne peut pas servir de clé primaire à la relation <code>emprunt</code>.</li>
+<li>Expliquer pourquoi l'attribut <code>a_id</code> seul ne peut pas servir de clé primaire à la relation <code>auteur_de</code>.</li>
+<li>
+<p>La base contient l'auteur d'identifiant 30 (George Orwell) et l'usager de code-barres 421921003090881. Le livre d'ISBN <code>978-0141391601</code> (Lolita) n'est pas emprunté. Celui d'ISBN <code>978-2081358881</code> (Mrs Dalloway) l'est. Aucun auteur n'a l'identifiant 200 et aucun usager n'a le code-barres 111111111111111. Pour chaque n-uplet, dire s'il peut être ajouté à la relation indiquée. S'il est refusé, nommer la contrainte violée.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Relation</th>
+<th>N-uplet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td><code>auteur</code></td>
+<td><code>(30, 'Verne', 'Jules')</code></td>
+</tr>
+<tr>
+<td>b</td>
+<td><code>auteur</code></td>
+<td><code>(200, 'Verne', 'Jules')</code></td>
+</tr>
+<tr>
+<td>c</td>
+<td><code>emprunt</code></td>
+<td><code>(421921003090881, '978-0141391601', '2020-05-12')</code></td>
+</tr>
+<tr>
+<td>d</td>
+<td><code>emprunt</code></td>
+<td><code>(421921003090881, '978-2081358881', '2020-05-12')</code></td>
+</tr>
+<tr>
+<td>e</td>
+<td><code>emprunt</code></td>
+<td><code>(111111111111111, '978-0141391601', '2020-05-12')</code></td>
+</tr>
+<tr>
+<td>f</td>
+<td><code>livre</code></td>
+<td><code>('Dune', 'Pocket', 'deux mille douze', '978-2266320481')</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Peut-on supprimer de la relation <code>usager</code> l'usager de code-barres 421921003090881 ? Justifier.</p>
+</li>
+</ol>
+<h2 id="exercice-de-prolongement-garder-lhistorique-des-emprunts">⭐ Exercice de prolongement – Garder l'historique des emprunts<a class="headerlink" href="#exercice-de-prolongement-garder-lhistorique-des-emprunts" title="Permanent link">⚓︎</a></h2>
+<p>La bibliothèque souhaite conserver la trace de tous les emprunts passés, et non plus seulement des emprunts en cours.</p>
+<ol>
+<li>Expliquer pourquoi le schéma actuel de <code>emprunt</code> ne le permet pas.</li>
+<li>Proposer un nouveau schéma pour <code>emprunt</code>, en ajoutant un attribut et en changeant la clé primaire.</li>
+<li>Avec ce nouveau schéma, comment reconnaître un emprunt en cours ?</li>
+</ol>
 
 
 

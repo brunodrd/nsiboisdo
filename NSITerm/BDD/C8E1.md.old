@@ -1,0 +1,144 @@
+Modèle relationnel - Exercices
+=========================
+
+## Relation livres
+
+Soit la relation `LIVRES` suivante:  
+
+| id | titre                     | auteur    | ann_publi | note | 
+|----|---------------------------|-----------|-----------|------| 
+| 1  | 1984                      | Orwell    | 1949      | 10   | 
+| 2  |  Dune                     | Herbert   | 1965      | 8    | 
+| 3  | Fondation                 | Asimov    | 1951      | 9    | 
+| 4  | Le meilleur des mondes    | Huxley    | 1931      | 7    | 
+| 5  | Fahrenheit 451            | Bradbury  | 1953      | 7    | 
+| 6  | Ubik                      | K. Dick   | 1969      | 9    | 
+| 7  | Chroniques martiennes     | Bradbury  | 1950      | 8    | 
+| 8  | La nuit des temps         | Barjavel  | 1968      | 7    | 
+| 9  | Blade Runner              | K. Dick   | 1968      | 8    | 
+| 10 | Les Robots                | Asimov    | 1950      | 9    | 
+| 11 | La Planète des singes     | Boulle    | 1963      | 8    | 
+| 12 | Ravage                    | Barjavel  | 1943      | 8    | 
+| 13 | Le Maître du Haut Château | K. Dick   | 1962      | 8    | 
+| 14 | Le monde des non-A        | Van Vogt  | 1945      | 7    | 
+| 15 | La Fin de l'éternité      | Asimov    | 1955      | 8    | 
+| 16 | De la Terre à la Lune     | Verne     | 1865      | 10   | 
+
+
+*On justifiera toutes les réponses*  
+
+1. L'attribut `note` peut-il jouer le rôle de clé primaire ? 
+2. L'attribut `ann_publi` peut-il jouer le rôle de clé primaire ?
+3. L'attribut `auteur` peut-il jouer le rôle de clé primaire ?
+4. L'attribut `titre` peut-il jouer le rôle de clé primaire ?
+
+## Relation films
+
+En partant de la relation FILMS ci-dessous, créez une relation REALISATEURS (attributs de la relation REALISATEURS : id, nom, prenom et ann_naissance, vous trouverez toutes les informations nécessaires sur le Web). Modifiez ensuite la relation FILMS afin d'établir un lien entre les relations FILMS et REALISATEURS. Vous préciserez l'attribut qui jouera le rôle de clef étrangère.  
+
+| id |            titre             | realisateur | ann_sortie | note_sur_10 |
+|----|------------------------------|-------------|------------|-------------|
+| 1  | Alien, le huitième passager  |    Scott    |    1979    |     10      |
+| 2  |             Dune             |    Lynch    |    1985    |      5      |
+| 3  | 2001 : l'odyssée de l'espace |   Kubrick   |    1968    |      9      |
+| 4  |         Blade Runner         |    Scott    |    1982    |     10      |
+
+## Extraits et adaptation des exercices  du livre NSI Terminale éd. ellipses 
+
+**Exercice 140**  
+
+On souhaite modéliser un annuaire téléphonique simple dans lequel chaque personne (*identifiée par son nom et son prénom*) est associée à son numéro de téléphone. Proposer une modélisation relationnelle de cet annuaire.  
+
+**Exercice 141**  
+
+On souhaite établir la modélisation relationnelle d'un bulletin scolaire. Pour cela, on s'appuie sur trois relations `Eleve`, `Matiere` et `Note` ayant les propriétés suivantes:  
+
+* les élèves, possédent un numéro d'identification alphanumérique unique;
+* les matières possèdent un intitulé, mais sont parfois déclinées en ensemble de matières (par exemple l'enseignement scientique);
+* il y aura une note sur 20, par matière et par élève.
+
+Établir le schéma de ces trois relations. On précisera éventuellement les contraintes qui ne peuvent êtres inscrites dans les schémas des relations.  
+
+**Exercice 142**  
+
+On considère la solution donnée pour l'exercice 140. Dire si chacun des ensembles est une relation valide pour le schéma *Annuaire*.  
+
+1. {}
+2. {( 'Titi ' , 'Toto', ' 0123456789 ' )}
+3. {('Titi', 'Toto', ' 0123456789 ' ), ('Doe', 'John', ' 0123456789 ')}
+4. {( 'Titi ', 'Toto', ' 0123456789 ' ), ( 'Titi ' , 'Toto', ' 987654343210 ' )}
+5. {( 'Titi ' , 'Toto', ' 0123456789 ' ), ('Doe', ' John' )}
+6. {('Titi', 'Toto', 42)}
+
+**Exercice 143**  
+
+On considère la solution donnée pour l'exercice 141. Dire si chacun des ensembles est une relation valide pour le schéma de la base de données du bulletin de notes.  
+
+Proposition 1.
+
+* Eleve = { }
+* Matiere = { }
+* Note = { }
+
+Proposition 2.  
+
+* Eleve = {( 'Titi ' , 'Toto', 'AB56789 ' ), }
+* Matiere = {('NSI', 0), ( 'Sport ', 1)}
+* Note = {(' AB56789 ' , 1, 17)}
+
+Proposition 3.  
+
+* Eleve = {('Titi', 'Toto', 'AB56789' ), }
+* Matiere = {('NSI' ,0)}
+* Note = {('AB56789' , 1,17)} 
+
+Proposition 4.
+
+* Eleve = {('Titi' , 'Toto', 'AB56789'), }
+* Matiere = {('NS1' ,0),}
+* Note= {('AB56789', 0, 17), ('AB56789', 0, 18)
+
+Proposition 5.
+
+* Eleve = {('Titi' , 'Toto' , 'AB56789'), }
+* Matiere= {('NSI', 0), ('Sport', 1)}
+* Note= {('AB56789', 0, 17), ('AB56789' , 1, 17)} 
+
+**Exercice 144**  
+
+On souhaite établir une modélisation relationnelle des départements français ainsi que leur(s) éventuels départements voisins.  
+Pour cela, on créé deux relations `Departement` et `Voisins` en tenant compte des propriétés suivantes:  
+
+* pour chaque département on veut pouvoir stocker son nom, son code, son chef-lieu. Attention, les codes de département sont tous des nombres, sauf la Corse du Sud et la Haute Corse qui ont les codes 2A et 2B respectivement. Les départements d'Outre-Mer ont un code sur trois chiffres (de 971 à 976).
+* les départements voisins seront représentés sous la forme de couple ($d_1,d_2$) où $d_1$ et $d_2$ sont les codes de deux départements et $d_1<d_2$. On supposera que l'on peut comparer des chaînes de caractères.
+
+Donner le schéma relationnel de `Departement` et `Voisins`.
+
+**Exercice 145**  
+
+On souhaite modéliser un réseau de bus. Cette modélisation doit être suffisamment riche pour permettre de générer, pour chaque arrêt de bus du réseau, une fiche horaire avec tous les horaires de passage de toutes les lignes de bus qui desservent l'arrêt.  
+
+*Indications*  
+
+* le réseau est composé d'**arrêts de bus**. Un arrêt peut être représenté par ses coordonnées GPS (latitude et longitude), un nom et un identifiant unique;
+* une **ligne de bus** est représenté par un numéro unique et un nom;
+* des **horaires de passage**. Pour chaque ligne et chaque arrêt desservi par cette ligne, on stocke l'heure de passage et ainsi que l'indication *semaine* ou *dimanche-jour férié*.  
+
+Proposer des schémas relationnels permettant cette modélisation
+
+
+**Exercice 146**  
+
+On considère deux relations:  
+
+* R (<u>(a: int)</u>, (b: int), (c: int));
+* S (<u>#(a: int), (e: int)</u>)
+
+où l'attribut `a` de S est une clé étrangère faisant référence à `a` de R. Dire si les affirmations suivantes sont vraies ou fausses, en justifiant.  
+
+1. Les `a` de R sont tous deux à deux distincts.
+2. Les `b` de R sont tous deux à deux distincts.
+3. Les `a` de S sont tous deux à deux distincts.
+4. Les `e` de S sont tous deux à deux distincts.
+5. S peut être vide alors que R est non vide.
+6. R peut être vide alors que S est non vide .

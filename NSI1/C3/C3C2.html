@@ -1564,12 +1564,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5C2.html" class="md-nav__link">
+      <a href="C3C4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    COURS 4
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
     
   </span>
   
@@ -1587,12 +1587,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../S5/S5E2.html" class="md-nav__link">
+      <a href="C3E5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    EXERCICES E4
+    ✏️ Exercices 4 : textes
     
   </span>
   
@@ -3652,6 +3652,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
         
   
@@ -3698,12 +3721,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+      <a href="../../NSITerm/BDD/C8E2.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ✏️ Exercices: Schémas relationnels
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
     
   </span>
   
@@ -3767,7 +3790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NSITerm/BDD/C8TP4.html" class="md-nav__link">
+      <a href="../../NSITerm/BDD/C8TP3.html" class="md-nav__link">
         
   
   
@@ -6111,7 +6134,7 @@ Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="
 </details>
 <h2 id="8-combien-de-bits-pour-une-somme-ou-un-produit">8. 📏 Combien de bits pour une somme ou un produit ?<a class="headerlink" href="#8-combien-de-bits-pour-une-somme-ou-un-produit" title="Permanent link">⚓︎</a></h2>
 <div class="admonition example">
-<p class="admonition-title">Un exemple</p>
+<p class="admonition-title">Exemple : avec 8 bits</p>
 <p><span class="arithmatex">\(255 = 1111\,1111_2\)</span> est le plus grand entier naturel qui s'écrit avec 8 bits.</p>
 <ul>
 <li><span class="arithmatex">\(255 + 255 = 510 = 1\,1111\,1110_2\)</span> : il faut <strong>9 bits</strong>, un de plus.</li>
@@ -6119,22 +6142,23 @@ Donc <span class="arithmatex">\(1101\,0110\)</span> est le code de <span class="
 </ul>
 </div>
 <div class="admonition abstract">
-<p class="admonition-title">À retenir (entiers naturels)</p>
-<p>Si <span class="arithmatex">\(a\)</span> s'écrit avec <span class="arithmatex">\(p\)</span> bits et <span class="arithmatex">\(b\)</span> avec <span class="arithmatex">\(q\)</span> bits :</p>
+<p class="admonition-title">À retenir</p>
+<p>Si <span class="arithmatex">\(a\)</span> et <span class="arithmatex">\(b\)</span> sont deux entiers naturels qui s'écrivent avec au plus <span class="arithmatex">\(n\)</span> bits :</p>
 <ul>
-<li>la somme <span class="arithmatex">\(a + b\)</span> s'écrit avec <strong>au plus un bit de plus que le plus long des deux</strong>, c'est-à-dire au plus <span class="arithmatex">\(\max(p, q) + 1\)</span> bits ;</li>
-<li>le produit <span class="arithmatex">\(a \times b\)</span> s'écrit avec <strong>au plus <span class="arithmatex">\(p + q\)</span> bits</strong>.</li>
+<li>la somme <span class="arithmatex">\(a + b\)</span> s'écrit avec <strong>au plus <span class="arithmatex">\(n + 1\)</span> bits</strong> ;</li>
+<li>le produit <span class="arithmatex">\(a \times b\)</span> s'écrit avec <strong>au plus <span class="arithmatex">\(2n\)</span> bits</strong>.</li>
 </ul>
-<p>C'est pourquoi le résultat d'un calcul peut ne pas « tenir » dans la même taille que les opérandes (section 7).</p>
+<p>La règle de la somme vaut aussi en complément à 2 : la somme de deux entiers codés sur <span class="arithmatex">\(n\)</span> bits tient toujours sur <span class="arithmatex">\(n + 1\)</span> bits, mais pas toujours sur <span class="arithmatex">\(n\)</span>. C'est l'origine du dépassement de capacité (section 7).</p>
 </div>
 <details class="tip">
 <summary>Justification</summary>
-<p>Un entier qui s'écrit avec <span class="arithmatex">\(p\)</span> bits est inférieur à <span class="arithmatex">\(2^p\)</span>. On a donc <span class="arithmatex">\(a &lt; 2^p\)</span> et <span class="arithmatex">\(b &lt; 2^q\)</span>.</p>
-<ul>
-<li><strong>Somme.</strong> Supposons <span class="arithmatex">\(p \geqslant q\)</span>. Alors <span class="arithmatex">\(b &lt; 2^q \leqslant 2^p\)</span>, donc <span class="arithmatex">\(a + b &lt; 2^p + 2^p = 2^{p+1}\)</span> : <span class="arithmatex">\(p + 1\)</span> bits suffisent.</li>
-<li><strong>Produit.</strong> <span class="arithmatex">\(a \times b &lt; 2^p \times 2^q = 2^{p+q}\)</span> : <span class="arithmatex">\(p + q\)</span> bits suffisent.</li>
-</ul>
+<p>Un entier naturel qui s'écrit avec au plus <span class="arithmatex">\(n\)</span> bits est inférieur à <span class="arithmatex">\(2^n\)</span>. Donc <span class="arithmatex">\(a + b &lt; 2^n + 2^n = 2^{n+1}\)</span> et <span class="arithmatex">\(a \times b &lt; 2^n \times 2^n = 2^{2n}\)</span>.</p>
+<p>En complément à 2 sur <span class="arithmatex">\(n\)</span> bits, <span class="arithmatex">\(a\)</span> et <span class="arithmatex">\(b\)</span> sont compris entre <span class="arithmatex">\(-2^{n-1}\)</span> et <span class="arithmatex">\(2^{n-1} - 1\)</span>, donc <span class="arithmatex">\(a + b\)</span> est compris entre <span class="arithmatex">\(-2^n\)</span> et <span class="arithmatex">\(2^n - 2\)</span> : c'est dans l'intervalle des entiers codés sur <span class="arithmatex">\(n + 1\)</span> bits, de <span class="arithmatex">\(-2^n\)</span> à <span class="arithmatex">\(2^n - 1\)</span>.</p>
 </details>
+<div class="admonition note">
+<p class="admonition-title">Remarque : des écritures de longueurs différentes</p>
+<p>Si <span class="arithmatex">\(a\)</span> s'écrit avec <span class="arithmatex">\(p\)</span> bits et <span class="arithmatex">\(b\)</span> avec <span class="arithmatex">\(q\)</span> bits, on complète la plus courte par des 0 : la somme s'écrit avec au plus <span class="arithmatex">\(\max(p, q) + 1\)</span> bits. Pour le produit, on a même mieux : au plus <span class="arithmatex">\(p + q\)</span> bits.</p>
+</div>
 <h2 id="9-et-en-python">9. 🐍 Et en Python ?<a class="headerlink" href="#9-et-en-python" title="Permanent link">⚓︎</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Les entiers de Python sont de taille arbitraire</p>
