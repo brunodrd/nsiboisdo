@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#activite-de-decouverte-insuffisance-des-structures-de-donnees-plates" class="md-skip">
+        <a href="#activite-de-decouverte-les-limites-dun-fichier-unique" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3499,36 +3499,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#1-le-contexte" class="md-nav__link">
     <span class="md-ellipsis">
-      Contexte
+      1. 🏛️ Le contexte
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#une-solution-simple-et-naive" class="md-nav__link">
+  <a href="#2-une-solution-simple-un-seul-fichier" class="md-nav__link">
     <span class="md-ellipsis">
-      Une solution simple et naïve...
+      2. 📄 Une solution simple : un seul fichier
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mais-pas-sans-consequence" class="md-nav__link">
+  <a href="#3-les-limites-du-fichier-unique" class="md-nav__link">
     <span class="md-ellipsis">
-      ...Mais pas sans conséquence
+      3. 🚧 Les limites du fichier unique
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#affinement-de-la-solution" class="md-nav__link">
+  <a href="#4-repartir-les-donnees-dans-plusieurs-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Affinement de la solution
+      4. 🗂️ Répartir les données dans plusieurs tables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prolongement-retrouver-les-livres-dun-auteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Prolongement – Retrouver les livres d'un auteur
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🧠 Synthèse
     </span>
   </a>
   
@@ -5743,509 +5761,445 @@
 
 
 
-<h1 id="activite-de-decouverte-insuffisance-des-structures-de-donnees-plates">Activité de découverte: insuffisance des structures de données plates<a class="headerlink" href="#activite-de-decouverte-insuffisance-des-structures-de-donnees-plates" title="Permanent link">⚓︎</a></h1>
-<p><em>Certains d'entre vous ont probablement déjà entendu parler des bases de données. Dans le cadre de cette activité, oublions, dans un premier temps, toutes nos connaissances et nos réflexions sur le sujet</em>.  </p>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">⚓︎</a></h2>
-<p>Supposons que nous ayons à développer une application de gestion d'une bibliothèque. Tous les livres de la bibliothèque possèdent un <strong>numéro d'exemplaire</strong>, un <strong>titre</strong>, un ou plusieurs <strong>auteurs</strong> et un <strong>éditeur</strong>. Le numéro d'exemplaire est un identifiant unique permettant de différencier les exemplaires d'un même livre. Lorsqu'une personne emprunte un livre, il faut mémoriser son <strong>nom</strong>, son <strong>prénom</strong>, son <strong>numéro de téléphone</strong>, son <strong>adresse</strong>, la <strong>date de l'emprunt</strong> et la <strong>date de retour</strong> une fois ce dernier réalisé. Toutes les informations doivent être conservées pour garder un historique des emprunts.  </p>
-<h2 id="une-solution-simple-et-naive">Une solution simple et naïve...<a class="headerlink" href="#une-solution-simple-et-naive" title="Permanent link">⚓︎</a></h2>
-<p>Notre application va devoir stocker toutes les informations précisées ci-dessus de manière persistante. Nous choisissons donc d'utiliser un fichier texte de type <code>csv</code> pour enregistrer les données. Pour cela, nous adoptons naïvement la solution simple et naturelle suivante : </p>
-<p>— Nous créons un fichier texte <code>csv</code> comportant à l'origine une ligne par livre.<br />
-— Dans chaque ligne, nous renseignons les informations: <code>idEx</code> (<em>numéro d'exemplaire</em>), <code>Titre</code>, <code>Auteur</code> et <code>Éditeur</code>, séparées par une virgule.<br />
-— Quand une personne emprunte un livre, nous complétons la ligne du livre emprunté par les champs: <code>Nom</code>, <code>Prénom</code>, <code>Téléphone</code>, <code>Adresse</code> et <code>Date-emprunt</code> toujours en séparant ces informations par une virgule.<br />
-— Lorsqu'une personne ramène un livre, il suffit de compléter le dernier champ <code>Date-retour</code> sur la ligne du livre emprunté.<br />
-— Quand un livre est emprunté une nouvelle fois, nous ajoutons une nouvelle ligne avec toutes les informations concernant le livre et la personne qui l'emprunte. </p>
-<p>Bien entendu, le bibliothécaire ne ressaisit pas tout, l'application va chercher la plupart de ces informations dans le fichier. Le fichier en question peut donc être perçu comme un tableau de chaînes de caractères. Nous parlerons également de table plutôt que de tableau ou de fichier. </p>
-<div class="admonition question">
-<p class="admonition-title">À faire</p>
-<p>Ouvrir le fichier <code>biblio.csv</code> pour avoir une idée plus précise du contenu.</p>
+<h1 id="activite-de-decouverte-les-limites-dun-fichier-unique">🔎 Activité de découverte : les limites d'un fichier unique<a class="headerlink" href="#activite-de-decouverte-les-limites-dun-fichier-unique" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme</p>
+<table>
+<thead>
+<tr>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base de données relationnelle.</td>
+<td>Savoir distinguer la structure d'une base de données de son contenu. Repérer des anomalies dans le schéma d'une base de données.</td>
+<td>Les anomalies peuvent être des redondances de données ou des anomalies d'insertion, de suppression, de mise à jour. On privilégie la manipulation de données nombreuses et réalistes.</td>
+</tr>
+</tbody>
+</table>
 </div>
-<table>
-<thead>
-<tr>
-<th>idEx</th>
-<th>Titre</th>
-<th>Auteur</th>
-<th>Editeur</th>
-<th>Nom</th>
-<th>Prenom</th>
-<th>tel</th>
-<th>Date-emp</th>
-<th>Date-ret</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>La volonté de puissance</td>
-<td>Nietzsche</td>
-<td>Gallimard</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Espoir-du-cerf</td>
-<td>O Scott Card</td>
-<td>Denoël</td>
-<td>Michel</td>
-<td>Tom</td>
-<td></td>
-<td>20/10/08</td>
-<td>07/11/08</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>M. Tournier</td>
-<td>Poche</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>02/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Élévation</td>
-<td>D. Brin</td>
-<td>J’AI LU</td>
-<td>Laurent</td>
-<td>Camille</td>
-<td></td>
-<td>02/04/06</td>
-<td>20/04/06</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>M. Tournier</td>
-<td>Poche</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>02/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>M. Tournier</td>
-<td>Poche</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td>Ainsi parlait Zarathoustra</td>
-<td>F. Nietzsche</td>
-<td>Poche</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>8</td>
-<td>Humain  trop humain</td>
-<td>F. NIETZSCHE</td>
-<td>POCHE</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>9</td>
-<td>Les maîtres chanteurs</td>
-<td>O.S. Card</td>
-<td>Denoël</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>08/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>10</td>
-<td>Les maîtres chanteurs</td>
-<td>O.S. Card</td>
-<td>Denoel</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>11</td>
-<td>Les maîtres chanteurs</td>
-<td>O.S. Card</td>
-<td>Denoël</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>12</td>
-<td>St-Exupery  Terre des hommes</td>
-<td>F. Brin</td>
-<td>Broché</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>13</td>
-<td>Rédemption</td>
-<td>Brin</td>
-<td>J’ai lu</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Espoir-du-cerf</td>
-<td>O Scott Card</td>
-<td>Denoël</td>
-<td>Roux</td>
-<td>Sarah</td>
-<td></td>
-<td>20/11/09</td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Élévation</td>
-<td>D. Brin</td>
-<td>J’AI LU</td>
-<td>Dubois</td>
-<td>Mathis</td>
-<td></td>
-<td>25/11/09</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="mais-pas-sans-consequence">...Mais pas sans conséquence<a class="headerlink" href="#mais-pas-sans-consequence" title="Permanent link">⚓︎</a></h2>
-<p>Supposons que l'application de gestion de bibliothèque fonctionne correctement et stocke toutes ses données dans un fichier comme celui que nous venons de décrire. Nous allons nous pencher sur les inconvénients et les conséquences inhérentes à une telle approche.<br />
-L'application fonctionne maintenant depuis 20 ans. Le nombre de personnes s'inscrivant à la bibliothèque est d'environ 5000 par an. Un abonné emprunte en moyenne 2 livres par mois.</p>
-<p><strong>1.</strong> Montrer qu'une année de fonctionnement entraînera la création de <span class="arithmatex">\(120\ 000\)</span> lignes. En déduire le nombre de lignes approximatif du fichier des données, au bout de 20 ans?  </p>
-<p><strong>2.</strong> Quelle est la taille approximative du fichier sachant que chaque caractère est codé sur 1 octet et qu'une ligne contient, en moyenne, 200 caractères? <em>Donner le résultat en Mo</em>.    </p>
-<p><strong>3.</strong> Lorsqu'un abonné emprunte un livre, le bibliothécaire saisit simplement le numéro de l'exemplaire et le nom et le prénom de l'abonné. L'application se charge alors de parcourir le fichier pour rechercher les informations manquantes concernant le livre et l'abonné afin de préremplir, à la fin du fichier, la nouvelle ligne concernant l'emprunt. Dans le pire des cas, l'application doit parcourir tout le fichier.  </p>
-<p>Supposons:  </p>
-<ul>
-<li>qu'un accès au fichier coûte 8 ms (<em>c'est le temps d'accès moyen au disque dur</em>);</li>
-<li>qu'une lecture de ligne coûte 0.1 ms (<em>temps pour lire les 200 caractères de la ligne</em>);</li>
-<li>qu'une recherche sur la ligne pour trouver le numéro de l'exemplaire ou le nom et le prénom de l'abonné coûte 0.01 ms.  </li>
-</ul>
-<p>Quel est, dans le pire des cas, le temps mis par l'application pour compléter les informations saisies par le bibliothécaire ? <em>Donner le résultat en seconde puis en minutes secondes</em>.    </p>
-<p><strong>4.</strong> Supposons qu'une personne est abonnée depuis l'origine de l'application. Elle prévient le bibliothécaire que son prénom est mal orthographié. Combien de lignes, approximativement, doivent être modifiées pour corriger cette erreur dans tout le fichier de données?  </p>
-<p><strong>5.</strong> Cette base de données permet-elle vraiment de retrouver des informations ? Par exemple, en se rappelant du travail fait en 1re sur l'exploitation des fichiers <code>csv</code> (<em>en python</em>), réfléchir au moyen de retrouver les informations suivantes :  </p>
-<ul>
-<li>Quels sont les livres édités chez Poche?</li>
-<li>Quels sont les livres édités chez Denoêl?</li>
-<li>Quels sont les livres écrits par Orson Scott Card?</li>
-<li>Quels sont les livres écrits par Friedrich Nietzsche?</li>
-<li>Quels sont les livres écrits par David Brin?</li>
-</ul>
-<details class="tip">
-<summary>Indice</summary>
-<p>On pourra utiliser le cadeau du professeur:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
-
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;biblio.csv&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
-</code></pre></div></td></tr></table></div>
-</details>
-<p><strong>6.</strong> La mise à jour.  </p>
-<div class="admonition question">
-<p class="admonition-title">Analyse d'une situation</p>
-<p>M. Moreau Jean-Batiste et son fils, dont le prénom est également Jean-Batiste, ont tous les deux emprunté 
-un exemplaire d'un livre: <em>Vendredi ou la vie sauvage de Michel Tournier chez Poche</em> et <em>Vendredi ou la 
-vie sauvage de Michel Tournier chez Poche</em>.<br />
-Lorsqu'il vient rendre les deux livres, le père précise que le prénom de son fils est <code>Jean-Batiste 
-Junior</code>, et non pas <code>Jean-Batiste</code>. Il remarque également que le livre qu'il (<em>le père</em>) vient 
-d'emprunter, qui porte le numéro 3, n'est pas écrit par <code>Michel Tournier</code>, mais qu'il est coécrit par 
-<code>Michel Tournier et Gérard Franquin</code>. </p>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de cette activité, je sais…</p>
+<ol>
+<li><strong>Estimer</strong> la taille d'un fichier de données et le coût d'une recherche dans ce fichier.</li>
+<li><strong>Expliquer</strong> pourquoi une saisie libre empêche d'interroger correctement des données.</li>
+<li><strong>Repérer</strong> une redondance, une anomalie de mise à jour, une anomalie d'insertion et une anomalie de suppression.</li>
+<li><strong>Répartir</strong> des données dans plusieurs tables reliées par des identifiants, sans perdre d'information.</li>
+</ol>
 </div>
-<p>Est-il possible de corriger ces erreurs dans notre fichier ?  </p>
-<p><strong>7.</strong> Énumérer ou résumer tous les problèmes que la représentation des données choisie (c'est-à-dire utilisation d'un fichier de données) semble poser.  </p>
-<h2 id="affinement-de-la-solution">Affinement de la solution<a class="headerlink" href="#affinement-de-la-solution" title="Permanent link">⚓︎</a></h2>
-<p>Il est maintenant évident que la solution naïve décrite dans la section précédente pose de nombreux problèmes. Elle est totalement inacceptable pour une application sérieuse bien qu'elle soit encore largement employée dans des cas de petite taille.<br />
-Pour résoudre les problèmes d'incohérences concernant les auteurs, nous proposons de décomposer le tableau de départ en deux sous-tableaux (voir les fichiers <code>EMPRUNTS_Q8.csv</code> et <code>AUTEURS.csv</code>).<br />
-Les colonnes <code>idAu</code> permettent de faire le lien entre les deux tables. La redondance sur les noms des auteurs est-elle toujours présente ?</p>
-<h3 id="table-emprunts">Table EMPRUNTS<a class="headerlink" href="#table-emprunts" title="Permanent link">⚓︎</a></h3>
-<table>
-<thead>
-<tr>
-<th>idEx</th>
-<th>Titre</th>
-<th>idAu</th>
-<th>Editeur</th>
-<th>Nom</th>
-<th>Prenom</th>
-<th>tel</th>
-<th>Date-emp</th>
-<th>Date-ret</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>La volonté de puissance</td>
-<td>1</td>
-<td>Gallimard</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Espoir-du-cerf</td>
-<td>2</td>
-<td>Denoël</td>
-<td>Michel</td>
-<td>Tom</td>
-<td></td>
-<td>20/10/08</td>
-<td>07/11/08</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>3</td>
-<td>Poche</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>02/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Élévation</td>
-<td>4</td>
-<td>J’AI LU</td>
-<td>Laurent</td>
-<td>Camille</td>
-<td></td>
-<td>02/04/06</td>
-<td>20/04/06</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>3</td>
-<td>Poche</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>02/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Vendredi ou la vie sauvage</td>
-<td>3</td>
-<td>Poche</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7</td>
-<td>Ainsi parlait Zarathoustra</td>
-<td>1</td>
-<td>Poche</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>8</td>
-<td>Humain  trop humain</td>
-<td>1</td>
-<td>POCHE</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>9</td>
-<td>Les maîtres chanteurs</td>
-<td>2</td>
-<td>Denoël</td>
-<td>Moreau</td>
-<td>J. Batiste</td>
-<td></td>
-<td>08/10/09</td>
-<td></td>
-</tr>
-<tr>
-<td>10</td>
-<td>Les maîtres chanteurs</td>
-<td>2</td>
-<td>Denoël</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>11</td>
-<td>Les maîtres chanteurs</td>
-<td>2</td>
-<td>Denoël</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>12</td>
-<td>St-Exupery  Terre des hommes</td>
-<td>5</td>
-<td>Broché</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>13</td>
-<td>Rédemption</td>
-<td>4</td>
-<td>J’ai lu</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Espoir-du-cerf</td>
-<td>2</td>
-<td>Denoël</td>
-<td>Roux</td>
-<td>Sarah</td>
-<td></td>
-<td>20/11/09</td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Élévation</td>
-<td>4</td>
-<td>J’AI LU</td>
-<td>Dubois</td>
-<td>Mathis</td>
-<td></td>
-<td>25/11/09</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="table-auteurs">Table AUTEURS<a class="headerlink" href="#table-auteurs" title="Permanent link">⚓︎</a></h3>
-<table>
-<thead>
-<tr>
-<th>idAu</th>
-<th>Nom</th>
-<th>Prénom</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Nietzsche</td>
-<td>Friedrich</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Card</td>
-<td>Orson Scott</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Tournier</td>
-<td>Michel</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Brin</td>
-<td>David</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Brin</td>
-<td>Françoise</td>
-</tr>
-</tbody>
-</table>
-<p><strong>8.</strong> Cette décomposition a-t-elle engendré une perte d'information? Autrement dit, est-il possible de reconstituer la table originale à partir de cette décomposition?  </p>
-<p><strong>9.</strong> Pouvons-nous maintenant répondre aux requêtes suivantes :  </p>
+<p>Cette activité dure deux heures et se fait sur machine, par binôme. Elle réutilise le travail de première sur les données en table : lecture d'un fichier <code>csv</code>, recherche dans une table, fusion de deux tables. Pour l'instant, on oublie tout ce que l'on sait ou croit savoir sur les bases de données.</p>
+<h2 id="1-le-contexte">1. 🏛️ Le contexte<a class="headerlink" href="#1-le-contexte" title="Permanent link">⚓︎</a></h2>
+<p>Une bibliothèque veut une application pour gérer ses prêts.</p>
+<p>Chaque livre de la bibliothèque existe en un ou plusieurs exemplaires. Pour chaque exemplaire, on enregistre :</p>
 <ul>
-<li>Quels sont les livres écrits par Orson Scott Card?</li>
-<li>Quels sont les livres écrits par Friedrich Nietzsche?</li>
-<li>Quels sont les livres écrits par David Brin? </li>
+<li>un numéro d'exemplaire, différent pour chaque exemplaire, même quand il s'agit du même livre ;</li>
+<li>le titre du livre ;</li>
+<li>son ou ses auteurs ;</li>
+<li>son éditeur.</li>
 </ul>
-<p><strong>10.</strong> Sur le même principe, proposer une solution pour que le titre de chaque livre ne soit représenté qu'une seule fois dans notre base de données.  </p>
-<details class="tip">
-<summary>Indication</summary>
-<p>On pourra introduire une table supplémentaire <code>LIVRES</code>.</p>
-</details>
-<p><strong>11.</strong> Toujours en appliquant la même méthode, supprimer les redondances concernant la mention des éditeurs et les informations associées aux abonnés. Pour ce faire, nous précisons que l'abonné qui a emprunté le livre <em>Les maîtres chanteurs</em> est le père.  </p>
-<p><strong>12.</strong> Notre base de données comporte encore des redondances. Où se situent-elles ?</p>
-<details class="tip">
-<summary>Aide</summary>
-<p>On pourra lire les fichiers avec python suivant la méthode habituelle:  </p>
+<p>Pour chaque emprunt, on enregistre le nom, le prénom, le numéro de téléphone et l'adresse de l'abonné, la date de l'emprunt, puis la date du retour. La bibliothèque veut garder l'historique de tous les emprunts.</p>
+<h2 id="2-une-solution-simple-un-seul-fichier">2. 📄 Une solution simple : un seul fichier<a class="headerlink" href="#2-une-solution-simple-un-seul-fichier" title="Permanent link">⚓︎</a></h2>
+<p>Le développeur choisit la solution la plus simple : tout est rangé dans un seul fichier texte au format <code>csv</code>, nommé <code>biblio.csv</code>.</p>
+<ul>
+<li>Au départ, le fichier contient une ligne par exemplaire. Les colonnes <code>id_ex</code>, <code>titre</code>, <code>auteur</code> et <code>editeur</code> sont remplies, les autres sont vides.</li>
+<li>Quand un exemplaire est emprunté pour la première fois, sa ligne est complétée avec les colonnes <code>nom</code>, <code>prenom</code>, <code>tel</code>, <code>adresse</code> et <code>date_emp</code>.</li>
+<li>Au retour du livre, la colonne <code>date_ret</code> est complétée.</li>
+<li>Quand le même exemplaire est emprunté à nouveau, une nouvelle ligne est ajoutée à la fin du fichier.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Rappel : le vocabulaire de première</p>
+<p>Un fichier <code>csv</code> représente une <strong>table</strong>. Chaque ligne du fichier est un <strong>enregistrement</strong>. La première ligne donne les noms des colonnes, appelés <strong>descripteurs</strong>. En Python, on représente une table par une liste de dictionnaires : un dictionnaire par enregistrement, dont les clés sont les descripteurs.</p>
+</div>
+<p>Le programme suivant charge la table en mémoire. Toutes les valeurs lues sont des chaînes de caractères.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">charger</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie la table du fichier csv : une liste de dictionnaires.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nom_fichier</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fichier</span><span class="p">))</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;EMPRUNTS_Q8.csv&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">emprunts</span><span class="p">:</span>
-    <span class="n">tab_emp</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">emprunts</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;AUTEURS.csv&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">auteurs</span><span class="p">:</span>
-    <span class="n">tab_aut</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">auteurs</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+<span class="n">biblio</span> <span class="o">=</span> <span class="n">charger</span><span class="p">(</span><span class="s1">&#39;biblio.csv&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-</details>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p>Télécharger l'archive <a href="data/C8A1_fichiers.zip"><code>C8A1_fichiers.zip</code></a> et la décompresser dans le dossier de travail. Ouvrir <code>biblio.csv</code> avec un éditeur de texte, puis exécuter le programme ci-dessus.</p>
+<p><strong>Question 1.</strong> Combien d'exemplaires la bibliothèque possède-t-elle ? Combien d'emprunts le fichier garde-t-il en mémoire ?</p>
+<p><strong>Question 2.</strong> Pourquoi les numéros d'exemplaire 2 et 4 apparaissent-ils deux fois ?</p>
+</div>
+<p>Voici un extrait du fichier. Les colonnes <code>tel</code> et <code>adresse</code> ne sont pas reproduites.</p>
+<table>
+<thead>
+<tr>
+<th>id_ex</th>
+<th>titre</th>
+<th>auteur</th>
+<th>editeur</th>
+<th>nom</th>
+<th>prenom</th>
+<th>date_emp</th>
+<th>date_ret</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>La Volonté de puissance</td>
+<td>Nietzsche</td>
+<td>Gallimard</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Espoir-du-cerf</td>
+<td>O Scott Card</td>
+<td>Denoël</td>
+<td>Michel</td>
+<td>Tom</td>
+<td>2025-10-20</td>
+<td>2025-11-07</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Vendredi ou la Vie sauvage</td>
+<td>M. Tournier</td>
+<td>Gallimard</td>
+<td>Moreau</td>
+<td>Jean-Baptiste</td>
+<td>2026-10-02</td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Rédemption</td>
+<td>Brin</td>
+<td>J'ai lu</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Espoir-du-cerf</td>
+<td>O Scott Card</td>
+<td>Denoël</td>
+<td>Roux</td>
+<td>Sarah</td>
+<td>2026-11-03</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Élévation</td>
+<td>D. Brin</td>
+<td>J'AI LU</td>
+<td>Dubois</td>
+<td>Mathis</td>
+<td>2026-11-10</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- latex: \newpage -->
+
+<h2 id="3-les-limites-du-fichier-unique">3. 🚧 Les limites du fichier unique<a class="headerlink" href="#3-les-limites-du-fichier-unique" title="Permanent link">⚓︎</a></h2>
+<p>Le fichier fourni ne contient que quinze lignes. Pour juger la solution, il faut l'imaginer en usage réel.</p>
+<h3 id="31-le-volume-et-le-temps-de-recherche">3.1 Le volume et le temps de recherche<a class="headerlink" href="#31-le-volume-et-le-temps-de-recherche" title="Permanent link">⚓︎</a></h3>
+<p>L'application fonctionne depuis 20 ans. La bibliothèque compte chaque année environ 5 000 abonnés actifs, qui empruntent chacun 2 livres par mois en moyenne. On admet que presque tous ces emprunts ajoutent une ligne au fichier.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 3.</strong> Montrer qu'une année de fonctionnement ajoute environ 120 000 lignes au fichier. En déduire le nombre de lignes après 20 ans.</p>
+<p><strong>Question 4.</strong> Une ligne occupe en moyenne 200 octets. Estimer la taille du fichier en mégaoctets, avec 1 Mo = <span class="arithmatex">\(10^6\)</span> octets.</p>
+<p><strong>Question 5.</strong> Pour enregistrer un emprunt, l'application cherche les coordonnées de l'abonné dans le fichier. Dans le pire des cas, elle doit lire toutes les lignes.</p>
+<ul>
+<li><strong>a.</strong> Quel algorithme de première reconnaît-on ? Quel est son coût en fonction du nombre <span class="arithmatex">\(n\)</span> de lignes ?</li>
+<li><strong>b.</strong> Un programme Python lit environ un million de lignes par seconde. Estimer la durée d'une recherche dans le pire des cas.</li>
+</ul>
+<p><strong>Question 6.</strong> La bibliothèque a trois postes de prêt. Deux bibliothécaires enregistrent un emprunt au même instant : les deux programmes ajoutent une ligne à la fin du même fichier. Quel risque voit-on ?</p>
+</div>
+<h3 id="32-interroger-les-donnees">3.2 Interroger les données<a class="headerlink" href="#32-interroger-les-donnees" title="Permanent link">⚓︎</a></h3>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 7.</strong> Écrire en Python les instructions qui affichent le numéro et le titre des exemplaires :</p>
+<ul>
+<li><strong>a.</strong> édités par Le Livre de Poche ;</li>
+<li><strong>b.</strong> écrits par Orson Scott Card ;</li>
+<li><strong>c.</strong> écrits par Neil Gaiman.</li>
+</ul>
+<p><strong>Question 8.</strong> Comparer chaque résultat avec ce qu'on trouve en lisant soi-même le fichier. Combien d'exemplaires le programme oublie-t-il dans chaque cas ?</p>
+<p><strong>Question 9.</strong> Deux causes différentes expliquent ces oublis. La première concerne la façon dont les auteurs et les éditeurs ont été saisis. La seconde concerne l'exemplaire 12. Les formuler.</p>
+</div>
+<h3 id="33-modifier-les-donnees">3.3 Modifier les données<a class="headerlink" href="#33-modifier-les-donnees" title="Permanent link">⚓︎</a></h3>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 10.</strong> Sarah Roux change de numéro de téléphone.</p>
+<ul>
+<li><strong>a.</strong> Combien de lignes faut-il modifier dans le fichier fourni ?</li>
+<li><strong>b.</strong> Combien de lignes faudrait-il modifier pour un abonné inscrit depuis 20 ans, qui emprunte 2 livres par mois ?</li>
+<li><strong>c.</strong> Le programme de mise à jour s'arrête au milieu du fichier à cause d'une coupure de courant. Dans quel état les données se trouvent-elles ?</li>
+</ul>
+<p><strong>Question 11.</strong> Monsieur Moreau et son fils portent le même prénom, Jean-Baptiste. Ils habitent à la même adresse et ont donné le même numéro de téléphone. Le fils demande que son prénom soit enregistré sous la forme « Jean-Baptiste Junior ». Peut-on savoir quelles lignes modifier ? Justifier.</p>
+</div>
+<h3 id="34-ajouter-et-supprimer-des-donnees">3.4 Ajouter et supprimer des données<a class="headerlink" href="#34-ajouter-et-supprimer-des-donnees" title="Permanent link">⚓︎</a></h3>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 12.</strong> Lina Payet s'inscrit à la bibliothèque. Elle n'emprunte rien aujourd'hui. Peut-on enregistrer son nom et ses coordonnées dans le fichier ? Si oui, que met-on dans la colonne <code>id_ex</code> ?</p>
+<p><strong>Question 13.</strong> Pour alléger le fichier, on décide de supprimer les lignes des emprunts rendus depuis plus de deux ans.</p>
+<ul>
+<li><strong>a.</strong> Quelle ligne du fichier fourni est concernée ?</li>
+<li><strong>b.</strong> Quelles informations disparaissent avec elle, alors qu'on ne voulait pas les perdre ?</li>
+</ul>
+</div>
+<h3 id="35-rien-narrete-une-erreur">3.5 Rien n'arrête une erreur<a class="headerlink" href="#35-rien-narrete-une-erreur" title="Permanent link">⚓︎</a></h3>
+<p>Avec un éditeur de texte, quelqu'un ajoute ces deux lignes à la fin de <code>biblio.csv</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>14,Fondation,I. Asimov,Denoël,Roux,Sarah,06 39 98 05 90,2 rue des Tamarins 97460 Saint-Paul,hier,
+3,Dune,F. Herbert,Pocket,,,,,,
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 14.</strong> Pour chacune des deux lignes, dire ce qui ne va pas. Le fichier a-t-il refusé l'ajout ? Le programme <code>charger</code> signale-t-il un problème ?</p>
+</div>
+<h3 id="36-bilan">3.6 Bilan<a class="headerlink" href="#36-bilan" title="Permanent link">⚓︎</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Définition : redondance et anomalies</p>
+<ul>
+<li>Il y a <strong>redondance</strong> quand une même information est écrite à plusieurs endroits.</li>
+<li>Il y a <strong>anomalie de mise à jour</strong> quand la modification d'une seule information oblige à modifier plusieurs lignes : si l'une d'elles est oubliée, les données se contredisent.</li>
+<li>Il y a <strong>anomalie d'insertion</strong> quand on ne peut pas enregistrer une information sans en enregistrer une autre, qui n'existe pas encore.</li>
+<li>Il y a <strong>anomalie de suppression</strong> quand la suppression d'une information en fait disparaître une autre, qu'on voulait garder.</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 15.</strong> Associer chacune des questions 10, 12 et 13 à l'une des trois anomalies.</p>
+<p><strong>Question 16.</strong> Relever dans <code>biblio.csv</code> trois informations redondantes.</p>
+</div>
+<!-- latex: \newpage -->
+
+<h2 id="4-repartir-les-donnees-dans-plusieurs-tables">4. 🗂️ Répartir les données dans plusieurs tables<a class="headerlink" href="#4-repartir-les-donnees-dans-plusieurs-tables" title="Permanent link">⚓︎</a></h2>
+<h3 id="41-premiere-separation-les-abonnes">4.1 Première séparation : les abonnés<a class="headerlink" href="#41-premiere-separation-les-abonnes" title="Permanent link">⚓︎</a></h3>
+<p>Pour ne plus répéter les coordonnées des abonnés, on les sort du fichier. On obtient deux tables.</p>
+<p>La table <code>abonnes</code>, dans le fichier <code>abonnes.csv</code>, contient une ligne par abonné. Chaque abonné reçoit un numéro, <code>id_abonne</code>. Monsieur Moreau père porte le numéro 2, son fils le numéro 4.</p>
+<table>
+<thead>
+<tr>
+<th>id_abonne</th>
+<th>nom</th>
+<th>prenom</th>
+<th>tel</th>
+<th>adresse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Michel</td>
+<td>Tom</td>
+<td>06 39 98 01 12</td>
+<td>3 rue des Jacarandas 97400 Saint-Denis</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Moreau</td>
+<td>Jean-Baptiste</td>
+<td>06 39 98 02 34</td>
+<td>18 chemin des Letchis 97410 Saint-Pierre</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Laurent</td>
+<td>Camille</td>
+<td>06 39 98 03 56</td>
+<td>7 allée des Vacoas 97430 Le Tampon</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Moreau</td>
+<td>Jean-Baptiste</td>
+<td>06 39 98 02 34</td>
+<td>18 chemin des Letchis 97410 Saint-Pierre</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Roux</td>
+<td>Sarah</td>
+<td>06 39 98 05 90</td>
+<td>2 rue des Tamarins 97460 Saint-Paul</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dubois</td>
+<td>Mathis</td>
+<td>06 39 98 06 71</td>
+<td>41 avenue des Flamboyants 97400 Saint-Denis</td>
+</tr>
+</tbody>
+</table>
+<p>La table <code>biblio_v2</code>, dans le fichier <code>biblio_v2.csv</code>, reprend <code>biblio.csv</code>. Les quatre colonnes <code>nom</code>, <code>prenom</code>, <code>tel</code> et <code>adresse</code> y sont remplacées par une seule colonne, <code>id_abonne</code>.</p>
+<table>
+<thead>
+<tr>
+<th>id_ex</th>
+<th>titre</th>
+<th>auteur</th>
+<th>editeur</th>
+<th>id_abonne</th>
+<th>date_emp</th>
+<th>date_ret</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>La Volonté de puissance</td>
+<td>Nietzsche</td>
+<td>Gallimard</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Espoir-du-cerf</td>
+<td>O Scott Card</td>
+<td>Denoël</td>
+<td>1</td>
+<td>2025-10-20</td>
+<td>2025-11-07</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Vendredi ou la Vie sauvage</td>
+<td>M. Tournier</td>
+<td>Gallimard</td>
+<td>2</td>
+<td>2026-10-02</td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 17.</strong> Reprendre les questions 10, 11, 12 et 13 avec cette nouvelle organisation. Pour chacune, dire si le problème a disparu et pourquoi.</p>
+<p><strong>Question 18.</strong> A-t-on perdu de l'information en séparant les données ? Pour le vérifier, compléter la fonction <code>fusion</code>, qui reconstruit la table d'origine à partir des deux nouvelles tables. Le test final doit afficher <code>True</code>.</p>
+<p><strong>Question 19.</strong> On ajoute à <code>biblio_v2.csv</code> la ligne suivante. Que signifie-t-elle ? Quel est le problème ? Le fichier refuse-t-il cet ajout ?</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6,Vendredi ou la Vie sauvage,M. Tournier,Gallimard,9,2026-11-12,
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fusion</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">abonnes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Renvoie la table obtenue en remplaçant, dans chaque ligne de table,</span>
+<span class="sd">    la colonne id_abonne par les quatre colonnes de coordonnées de l&#39;abonné.&quot;&quot;&quot;</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+        <span class="n">nouvelle</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id_ex&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;id_ex&#39;</span><span class="p">],</span> <span class="s1">&#39;titre&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;titre&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;auteur&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;auteur&#39;</span><span class="p">],</span> <span class="s1">&#39;editeur&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;editeur&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;prenom&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;tel&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;adresse&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;date_emp&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;date_emp&#39;</span><span class="p">],</span> <span class="s1">&#39;date_ret&#39;</span><span class="p">:</span> <span class="n">ligne</span><span class="p">[</span><span class="s1">&#39;date_ret&#39;</span><span class="p">]}</span>
+        <span class="k">for</span> <span class="n">abonne</span> <span class="ow">in</span> <span class="n">abonnes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="o">...</span><span class="p">:</span>
+                <span class="n">nouvelle</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">abonne</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span>
+                <span class="o">...</span>
+        <span class="n">resultat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nouvelle</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+
+<span class="n">biblio</span> <span class="o">=</span> <span class="n">charger</span><span class="p">(</span><span class="s1">&#39;biblio.csv&#39;</span><span class="p">)</span>
+<span class="n">biblio_v2</span> <span class="o">=</span> <span class="n">charger</span><span class="p">(</span><span class="s1">&#39;biblio_v2.csv&#39;</span><span class="p">)</span>
+<span class="n">abonnes</span> <span class="o">=</span> <span class="n">charger</span><span class="p">(</span><span class="s1">&#39;abonnes.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fusion</span><span class="p">(</span><span class="n">biblio_v2</span><span class="p">,</span> <span class="n">abonnes</span><span class="p">)</span> <span class="o">==</span> <span class="n">biblio</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="42-poursuivre-la-separation">4.2 Poursuivre la séparation<a class="headerlink" href="#42-poursuivre-la-separation" title="Permanent link">⚓︎</a></h3>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 20.</strong> Dans <code>biblio_v2.csv</code>, quelles informations sont encore écrites plusieurs fois ?</p>
+<p><strong>Question 21.</strong> La table <code>biblio_v2</code> mélange trois sortes d'informations : celles qui décrivent un livre, celles qui décrivent un exemplaire et celles qui décrivent un emprunt. On veut les séparer en trois tables, <code>livres</code>, <code>exemplaires</code> et <code>emprunts</code>, sur le modèle de la section 4.1.</p>
+<ul>
+<li><strong>a.</strong> Donner les colonnes de chacune des trois tables. On peut créer de nouveaux numéros.</li>
+<li><strong>b.</strong> Écrire sur papier les trois premières lignes de chaque table.</li>
+</ul>
+<p><strong>Question 22.</strong> Pour éviter les écritures différentes d'un même auteur, on crée une table <code>auteurs</code>, avec les colonnes <code>id_auteur</code>, <code>nom</code> et <code>prenom</code>.</p>
+<ul>
+<li><strong>a.</strong> Pourquoi une colonne <code>id_auteur</code> ajoutée à la table <code>livres</code> ne convient-elle pas pour le livre <em>De bons présages</em> ?</li>
+<li><strong>b.</strong> Proposer une solution.</li>
+</ul>
+</div>
+<p>L'archive téléchargée contient une organisation complète, en sept fichiers : <code>abonnes.csv</code>, <code>auteurs.csv</code>, <code>editeurs.csv</code>, <code>livres.csv</code>, <code>auteur_de.csv</code>, <code>exemplaires.csv</code> et <code>emprunts.csv</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 23.</strong> Ouvrir les sept fichiers et les comparer aux propositions des questions 21 et 22.</p>
+<p><strong>Question 24.</strong> Le nom « Le Livre de Poche » est-il encore écrit plusieurs fois ? Et le titre <em>Vendredi ou la Vie sauvage</em> ?</p>
+<p><strong>Question 25.</strong> Pour chacun des sept fichiers, indiquer la colonne, ou le groupe de colonnes, dont la valeur suffit à désigner une ligne et une seule.</p>
+</div>
+<h2 id="prolongement-retrouver-les-livres-dun-auteur">⭐ Prolongement – Retrouver les livres d'un auteur<a class="headerlink" href="#prolongement-retrouver-les-livres-dun-auteur" title="Permanent link">⚓︎</a></h2>
+<p>Cette question est un prolongement, pour les binômes qui ont terminé ⭐.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<p><strong>Question 26.</strong> Avec les sept fichiers, écrire en Python les instructions qui affichent les titres des livres écrits par Neil Gaiman. Combien de tables faut-il parcourir ? Le résultat est-il maintenant complet ?</p>
+</div>
+<h2 id="5-synthese">5. 🧠 Synthèse<a class="headerlink" href="#5-synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Un fichier unique oblige à répéter les mêmes informations : c'est la redondance.</li>
+<li>La redondance provoque des anomalies de mise à jour, d'insertion et de suppression.</li>
+<li>Un fichier texte accepte n'importe quelle ligne : rien ne garantit que les données restent correctes.</li>
+<li>On supprime la redondance en répartissant les données dans plusieurs tables. Chaque table décrit une seule sorte d'objets, et un numéro permet de désigner une ligne depuis une autre table.</li>
+<li>Cette répartition ne perd aucune information : on retrouve la table d'origine en fusionnant les tables.</li>
+</ul>
+</div>
+<p>Deux problèmes restent entiers. Les fichiers acceptent toujours des lignes fausses, comme à la question 19. Et il faut désormais parcourir plusieurs tables pour répondre à une question simple, comme à la question 26.</p>
+<p>Le cours C8C1 donne le vocabulaire exact de cette organisation en plusieurs tables : c'est le modèle relationnel. Le numéro qui désigne une ligne s'y appelle une clé primaire (cours C8C1, section 4), et la colonne qui renvoie vers une autre table s'y appelle une clé étrangère (cours C8C1, section 5). Les règles qui interdisent les lignes fausses s'y appellent des contraintes d'intégrité (cours C8C1, section 6). Le logiciel qui fait respecter ces règles, qui cherche vite et qui gère plusieurs utilisateurs à la fois est présenté dans le cours C8C4.</p>
 
 
 

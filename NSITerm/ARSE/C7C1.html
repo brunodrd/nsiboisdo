@@ -5973,7 +5973,7 @@
 <ol>
 <li>Enregistrer le script dans un fichier <code>creer_processus.py</code> et le lancer <strong>depuis un terminal</strong> : <code>python3 creer_processus.py</code>. Vérifier que le PPID du fils est égal au PID du père.</li>
 <li>
-<p>Pendant les 30 secondes de pause, exécuter dans un <strong>second terminal</strong> <code>pgrep -af creer_processus</code>. Combien de processus voit-on ? Dans quel état sont-ils ?</p>
+<p>Pendant les 30 secondes de pause, exécuter dans un <strong>second terminal</strong> <code>pgrep -af creer_processus</code>. Combien de processus voit-on ? Exécuter ensuite <code>ps -o pid,ppid,stat,args -C python3</code> : dans quel état sont-ils ? Lequel est le père de l'autre ?</p>
 <p><em>Conseil : taper la commande dans le second terminal avant de lancer le script, puis la valider dès que le script tourne.</em></p>
 </li>
 <li>
@@ -6307,9 +6307,21 @@
 <p>Le processus le plus prioritaire n'attend jamais. En contrepartie, si des processus prioritaires arrivent sans cesse, un processus peu prioritaire peut <strong>ne jamais</strong> être élu : on parle de <strong>famine</strong>. Sous Linux, la commande <code>nice</code> permet de lancer un programme avec une priorité plus faible.</p>
 <h3 id="54-simuler-le-tourniquet-avec-une-file">5.4 Simuler le tourniquet avec une file<a class="headerlink" href="#54-simuler-le-tourniquet-avec-une-file" title="Permanent link">⚓︎</a></h3>
 <p>La file des processus prêts du tourniquet est une <strong>file</strong> au sens du chapitre IV (Piles &amp; Files) : on <strong>défile</strong> le processus élu en tête, et on <strong>enfile</strong> en queue les nouveaux arrivants et les processus préemptés. On peut donc simuler l'ordonnanceur en Python.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Travail à faire pour mardi</p>
+<p>La section 5.4 se travaille <strong>à la maison</strong>, sur Capytale, dans le notebook <strong>« Programmer le tourniquet – travail à la maison »</strong>.</p>
+<ul>
+<li><strong>Durée</strong> : environ 30 minutes pour la partie obligatoire.</li>
+<li><strong>Obligatoire (tous)</strong> : parties 1 à 3 du notebook. On programme le tourniquet dans le cas où <strong>tous les processus sont présents au départ</strong> ; une cellule de test indique si la fonction est juste.</li>
+<li><strong>Facultatif</strong> : partie 4, la version complète avec des arrivées en cours de route (c'est l'activité 3 ci-dessous).</li>
+<li><strong>À rendre</strong> sur Capytale <strong>mardi, en début de séance</strong>.</li>
+</ul>
+<p>Méthode : fais d'abord le chronogramme <strong>à la main</strong> (question 1), puis complète le code. Si tu bloques, ouvre les <strong>coups de pouce</strong> du notebook, dans l'ordre, avant de chercher ailleurs : ils sont faits pour te débloquer sans te donner la réponse.</p>
+<p>Les quatre lignes à compléter correspondent aux opérations vues en classe : <strong>défiler</strong> l'élu, <strong>continuer</strong> tant qu'il reste du quantum et du travail, <strong>diminuer</strong> son reste, <strong>réenfiler</strong> un processus préempté.</p>
+</div>
 <div class="admonition question">
 <p class="admonition-title">Activité 3 – programmer le tourniquet, sur machine, 40 min</p>
-<p>Chaque processus est représenté par un dictionnaire ; la clé <code>'reste'</code> donne le nombre de cycles qu'il lui reste à exécuter. On dispose d'une classe <code>File</code> et d'une fonction <code>admettre</code> qui enfile les processus arrivant à une date donnée.</p>
+<p>Chaque processus est représenté par un <strong>dictionnaire</strong> à trois clés : <code>'nom'</code>, <code>'arrivee'</code> (date d'arrivée) et <code>'reste'</code> (nombre de cycles qu'il lui reste à exécuter). L'ensemble des processus à ordonnancer est une <strong>liste</strong> de dictionnaires, notée <code>liste_processus</code> dans le code. On dispose d'une classe <code>File</code> et d'une fonction <code>admettre</code> qui enfile les processus arrivant à une date donnée.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tourniquet.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6359,7 +6371,12 @@
 <span class="normal">47</span>
 <span class="normal">48</span>
 <span class="normal">49</span>
-<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">File</span><span class="p">:</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">File</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;File (premier entré, premier sorti) implémentée avec une liste Python.&quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span> <span class="o">=</span> <span class="p">[]</span>
@@ -6374,28 +6391,33 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">admettre</span><span class="p">(</span><span class="n">processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enfile les processus qui arrivent à la date t.&quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processus</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">admettre</span><span class="p">(</span><span class="n">liste_processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;liste_processus : liste de processus (dictionnaires)</span>
+<span class="sd">    t : date (entier) ; file : file des processus prêts.</span>
+<span class="sd">    Enfile dans file chaque processus de liste_processus</span>
+<span class="sd">    dont la date d&#39;arrivée vaut t.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">liste_processus</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;arrivee&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
             <span class="n">file</span><span class="o">.</span><span class="n">enfiler</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">tourniquet</span><span class="p">(</span><span class="n">processus</span><span class="p">,</span> <span class="n">quantum</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simule le tourniquet. Renvoie le chronogramme : liste du processus</span>
-<span class="sd">    élu à chaque cycle (None si le processeur est inoccupé).&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tourniquet</span><span class="p">(</span><span class="n">liste_processus</span><span class="p">,</span> <span class="n">quantum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;liste_processus : liste de processus (dictionnaires)</span>
+<span class="sd">    quantum : entier strictement positif.</span>
+<span class="sd">    Simule le tourniquet et renvoie le chronogramme : liste du nom</span>
+<span class="sd">    du processus élu à chaque cycle (None si le processeur est inoccupé).&quot;&quot;&quot;</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">()</span>
     <span class="n">chronogramme</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">restant</span> <span class="o">=</span> <span class="mi">0</span>                            <span class="c1"># nombre total de cycles à exécuter</span>
-    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processus</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">liste_processus</span><span class="p">:</span>
         <span class="n">restant</span> <span class="o">=</span> <span class="n">restant</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;reste&#39;</span><span class="p">]</span>
-    <span class="n">admettre</span><span class="p">(</span><span class="n">processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    <span class="n">admettre</span><span class="p">(</span><span class="n">liste_processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">restant</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">est_vide</span><span class="p">():</span>                <span class="c1"># aucun processus prêt</span>
             <span class="n">chronogramme</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
             <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">admettre</span><span class="p">(</span><span class="n">processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+            <span class="n">admettre</span><span class="p">(</span><span class="n">liste_processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">elu</span> <span class="o">=</span> <span class="o">...</span>                      <span class="c1"># à compléter</span>
             <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>                          <span class="c1"># cycles déjà utilisés dans le quantum</span>
@@ -6405,7 +6427,7 @@
                 <span class="n">restant</span> <span class="o">=</span> <span class="n">restant</span> <span class="o">-</span> <span class="mi">1</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
                 <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
-                <span class="n">admettre</span><span class="p">(</span><span class="n">processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>   <span class="c1"># arrivées pendant la tranche</span>
+                <span class="n">admettre</span><span class="p">(</span><span class="n">liste_processus</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>   <span class="c1"># arrivées pendant la tranche</span>
             <span class="k">if</span> <span class="n">elu</span><span class="p">[</span><span class="s1">&#39;reste&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="o">...</span>                        <span class="c1"># à compléter</span>
     <span class="k">return</span> <span class="n">chronogramme</span>
@@ -6428,7 +6450,7 @@
 </li>
 <li>Relancer avec un quantum de 100, après avoir recréé <code>procs</code>. Quel algorithme retrouve-t-on ? Justifier.</li>
 <li>Pourquoi faut-il recréer <code>procs</code> avant chaque appel ?</li>
-<li><em>Pour aller plus loin.</em> Écrire une fonction <code>temps_sejour(chronogramme, processus)</code> qui renvoie un dictionnaire associant à chaque processus son temps de séjour.</li>
+<li><em>Pour aller plus loin.</em> Écrire une fonction <code>temps_sejour(chronogramme, liste_processus)</code> qui renvoie un dictionnaire associant à chaque processus son temps de séjour.</li>
 </ol>
 </div>
 <h2 id="6-le-risque-dinterblocage">6. 🔒 Le risque d'interblocage<a class="headerlink" href="#6-le-risque-dinterblocage" title="Permanent link">⚓︎</a></h2>
@@ -6442,7 +6464,7 @@
 </ol>
 </div>
 <h3 id="61-une-situation-dattente-circulaire">6.1 Une situation d'attente circulaire<a class="headerlink" href="#61-une-situation-dattente-circulaire" title="Permanent link">⚓︎</a></h3>
-<p>L'activité précédente se formalise ainsi. Deux processus P1 et P2 ont <strong>tous deux besoin</strong> de deux ressources en exclusion mutuelle R1 et R2 pour terminer leur travail :</p>
+<p>L'activité précédente se formalise ainsi. Deux processus P1 et P2 ont <strong>tous deux besoin</strong> de deux ressources en exclusion mutuelle R1 et R2 (chacune ne peut être utilisée que par un seul processus à la fois, voir section 2) pour terminer leur travail :</p>
 <ol>
 <li>P1 obtient R1 ;</li>
 <li>P2 obtient R2 ;</li>
@@ -6473,7 +6495,42 @@
 <p>Les systèmes d'exploitation généralistes comme Linux ou Windows ne détectent <strong>pas</strong> les interblocages entre processus utilisateurs : c'est au programmeur de les éviter. En revanche, les systèmes de gestion de bases de données détectent ceux qui surviennent entre transactions et en annulent une.</p>
 <div class="admonition question">
 <p class="admonition-title">Activité 5 – mettre en évidence l'interblocage sur machine, 25 min</p>
-<p>Le module <code>multiprocessing</code> crée de vrais processus. Il fournit aussi des <strong>verrous</strong> (<code>Lock</code>) : un verrou est une ressource <em>logicielle</em>, créée par le programmeur, qu'un seul processus peut détenir à la fois. Un processus qui demande un verrou déjà détenu est bloqué jusqu'à sa libération. Les verrous jouent donc ici le rôle de ressources en exclusion mutuelle. L’attente est limitée (5 s pour P1, 10 s pour P2).</p>
+<p>Le programme ci-dessous crée deux vrais processus, P1 et P2, et deux ressources en exclusion mutuelle, R1 et R2. Ces ressources sont des <strong>verrous</strong> : un verrou est une ressource <em>logicielle</em>, créée par le programmeur, qu'un seul processus peut détenir à la fois. Un processus qui demande un verrou déjà détenu est bloqué jusqu'à sa libération.</p>
+<p><strong>On ne demande pas de comprendre chaque instruction</strong> : les commentaires suffisent pour savoir quel processus demande quelle ressource, et dans quel ordre. Le tableau suivant n'est qu'un mode d'emploi, à ne pas apprendre.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mp.Lock()</code></td>
+<td>crée une ressource en exclusion mutuelle (un verrou)</td>
+</tr>
+<tr>
+<td><code>r.acquire()</code></td>
+<td>demander la ressource <code>r</code> : le processus est bloqué tant qu'elle est détenue par un autre</td>
+</tr>
+<tr>
+<td><code>r.acquire(timeout=5)</code></td>
+<td>demander la ressource <code>r</code>, en attendant au plus 5 secondes</td>
+</tr>
+<tr>
+<td><code>r.release()</code></td>
+<td>libérer la ressource <code>r</code></td>
+</tr>
+<tr>
+<td><code>mp.Process(target=f, args=(...))</code></td>
+<td>crée un processus qui exécutera la fonction <code>f</code> avec ces arguments</td>
+</tr>
+<tr>
+<td><code>p.start()</code> / <code>p.join()</code></td>
+<td>lance le processus <code>p</code> / attend qu'il soit terminé</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">interblocage_demo.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6495,33 +6552,42 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">tache</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">premiere</span><span class="p">,</span> <span class="n">seconde</span><span class="p">,</span> <span class="n">delai</span><span class="p">):</span>
-<span class="k">with</span> <span class="n">premiere</span><span class="p">:</span>                                   <span class="c1"># acquiert la 1re ressource</span>
+    <span class="n">premiere</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>                          <span class="c1"># demander la 1re ressource</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> détient sa première ressource&quot;</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                                <span class="c1"># laisse l&#39;autre prendre la sienne</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> attend la seconde ressource...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">seconde</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">delai</span><span class="p">):</span>           <span class="c1"># attente limitée à delai secondes</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                               <span class="c1"># laisser l&#39;autre prendre la sienne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> demande la seconde ressource...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seconde</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">delai</span><span class="p">):</span>          <span class="c1"># demander la 2e (attente limitée à delai s)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> a obtenu les deux ressources&quot;</span><span class="p">)</span>
-        <span class="n">seconde</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="n">seconde</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>                       <span class="c1"># libérer la 2e</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> : toujours bloqué après </span><span class="si">{</span><span class="n">delai</span><span class="si">}</span><span class="s2"> s -&gt; interblocage !&quot;</span><span class="p">)</span>
+    <span class="n">premiere</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>                          <span class="c1"># libérer la 1re</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">(),</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P1&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P2&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1"># ordre inverse !</span>
-    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>                              <span class="c1"># ressource R1</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>                              <span class="c1"># ressource R2</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P1&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>    <span class="c1"># P1 : R1 puis R2</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">tache</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;P2&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>   <span class="c1"># P2 : R2 puis R1 (ordre inverse !)</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>                                  <span class="c1"># lancer les deux processus</span>
     <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>                                   <span class="c1"># attendre qu&#39;ils soient terminés</span>
     <span class="n">p2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Réponses en une ou deux phrases, avec le vocabulaire du cours : <strong>détenir</strong>, <strong>demander</strong>, <strong>libérer</strong>, <strong>bloqué</strong>, <strong>attente circulaire</strong>.</p>
 <ol>
-<li>Exécuter le programme. Pourquoi un des deux processus finit-il quand même par obtenir les deux ressources ?</li>
-<li>Que se passerait-il sans le paramètre <code>timeout</code> ?</li>
-<li>Modifier <strong>une seule ligne</strong> pour que l'interblocage devienne impossible.</li>
+<li>Exécuter le programme <strong>dans un terminal</strong> (<code>python3 interblocage_demo.py</code>, pas sur Capytale : le Python de Capytale, qui s'exécute dans le navigateur, ne peut pas créer de processus) et recopier l'affichage obtenu.</li>
+<li>D'après les commentaires, quelle ressource chaque processus demande-t-il en premier ? en second ?</li>
+<li>Environ une seconde après le lancement, quelle ressource P1 détient-il, et laquelle attend-il ? Mêmes questions pour P2. Dans quel état (au sens du cours) sont alors les deux processus ?</li>
+<li>Représenter cette situation par un schéma d'allocation des ressources, comme en section 6.1. Nommer le phénomène observé.</li>
+<li>Le paramètre <code>timeout</code> limite l'attente de P1 à 5 secondes. Expliquer pourquoi P2 finit alors par obtenir les deux ressources.</li>
+<li>Que se passerait-il si aucun des deux processus n'avait de délai d'attente ? Justifier.</li>
+<li>La ligne qui crée P2 contient <code>args=("P2", r2, r1, 10)</code>. La modifier pour que P2 demande les ressources <strong>dans le même ordre que P1</strong>, relancer le programme, puis expliquer à l'aide de la règle de la section 6.2 pourquoi l'interblocage a disparu.</li>
 </ol>
 </div>
 <h2 id="7-pour-aller-plus-loin-hors-programme">7. 🔭 Pour aller plus loin (hors programme)<a class="headerlink" href="#7-pour-aller-plus-loin-hors-programme" title="Permanent link">⚓︎</a></h2>
