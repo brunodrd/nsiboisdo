@@ -1,0 +1,64 @@
+# ✏️ Problème : le missile Patriot (1991)
+
+!!! abstract "Repères"
+
+    Cours associé : [cours C3C3](C3C3.md), sections 1.3 (écriture binaire de $0{,}1$) et 3 (un nombre fini de bits donne une valeur approchée).
+
+    Durée : environ 45 minutes, en partie sur machine. L'exercice marqué d'une ⭐ est un prolongement, pour ceux qui ont terminé.
+
+## Le contexte
+
+Le 25 février 1991, pendant la guerre du Golfe, une batterie de missiles antimissiles Patriot protégeait la base américaine de Dhahran, en Arabie saoudite. Elle n'a pas intercepté un missile Scud irakien, qui a frappé un baraquement et tué 28 soldats.
+
+Le rapport d'enquête de l'administration américaine ([rapport GAO/IMTEC-92-26](https://www.gao.gov/assets/imtec-92-26.pdf), en anglais) a établi la cause : une erreur de calcul dans le logiciel de l'ordinateur de conduite de tir. Le mathématicien Douglas N. Arnold en a fait un exemple célèbre de « désastre numérique » ([article de D. N. Arnold](https://www-users.cse.umn.edu/~arnold/disasters/patriot.html), en anglais). Ce problème reconstitue le calcul.
+
+![Photographie : un missile Patriot quitte son lanceur, dans un nuage de fumée.](img/patriot_lancement.jpg)
+
+Photographie : armée des États-Unis, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Patriot_missile_launch_b.jpg), domaine public.
+
+**Le modèle étudié.** L'horloge du système compte le temps en **dixièmes de seconde**, sous la forme d'un entier $N$. Pour obtenir le temps en secondes, l'ordinateur multiplie $N$ par $\dfrac{1}{10}$. Ce nombre $\dfrac{1}{10}$ est rangé dans un registre de 24 bits ; on admet que 23 de ces bits servent à sa partie fractionnaire. L'ordinateur ne garde donc que les **23 premiers chiffres** après la virgule de l'écriture binaire de $0{,}1$, et oublie les suivants.
+
+## Exercice 1 – La valeur réellement stockée
+
+1. Rappelez l'écriture binaire de $0{,}1$ (cours C3C3, section 1.3). Quel bloc de chiffres se répète ?
+2. Écrivez les 23 premiers chiffres après la virgule de cette écriture. On note $T_P$ le nombre obtenu : c'est la valeur que l'ordinateur utilise à la place de $0{,}1$.
+3. Dans la console Python, `int("…", 2)` convertit en décimal une chaîne de chiffres binaires. Utilisez-la avec vos 23 chiffres : vous obtenez un entier $c$. Expliquez pourquoi $T_P = \dfrac{c}{2^{23}}$.
+4. Calculez avec Python la valeur décimale de $T_P$, puis l'erreur $\Delta T_P = 0{,}1 - T_P$ commise à chaque dixième de seconde. Donnez-la en notation scientifique.
+
+??? tip "Une autre méthode, sans machine"
+
+    L'erreur est la valeur des chiffres oubliés, à partir du 24ᵉ. D'après la question 1, ces chiffres forment le bloc $1100\,1100\,1100\ldots$, décalé de 23 rangs : $\Delta T_P = 0{,}1100\,1100\ldots_2 \times 2^{-23}$. Or $0{,}1100\,1100\ldots_2 = 8 \times 0{,}0001\,1001\,1001\ldots_2 = 8 \times 0{,}1 = 0{,}8$. Donc $\Delta T_P = 0{,}8 \times 2^{-23}$.
+
+## Exercice 2 – L'erreur s'accumule
+
+1. La batterie de Dhahran fonctionnait sans interruption depuis 100 heures. Combien de dixièmes de seconde l'horloge a-t-elle comptés ? On note $N$ ce nombre.
+2. À chaque dixième de seconde compté, l'ordinateur commet l'erreur $\Delta T_P$. Calculez l'erreur $\Delta t$ sur le temps calculé après 100 heures.
+3. Que devient $\Delta t$ si le système fonctionne deux fois plus longtemps ?
+
+## Exercice 3 – Les conséquences
+
+Pour savoir où se trouvera le Scud, le système multiplie sa vitesse par le temps écoulé. Une erreur sur le temps donne donc une erreur sur la position prévue : le radar cherche le missile au mauvais endroit. D'après le rapport d'enquête, au-delà d'environ 20 heures de fonctionnement continu, cette erreur était assez grande pour que le radar ne repère plus le missile.
+
+1. Le Scud vole à environ 1 676 m/s. Quelle distance parcourt-il pendant la durée $\Delta t$ calculée à l'exercice 2 ?
+2. La batterie de Dhahran fonctionnait depuis 100 heures. Combien de fois plus longtemps que la limite de 20 heures ? Expliquez pourquoi elle n'a pas tiré sur le Scud.
+3. Le rapport indique qu'il aurait suffi de redémarrer le système toutes les quelques heures pour éviter le problème. Pourquoi ?
+
+## ⭐ Exercice 4 – Et avec un flottant de 64 bits ?
+
+Le module `fractions` de Python calcule exactement avec des fractions. `Fraction(0.1)` donne la valeur exacte du flottant `0.1`.
+
+```pycon
+>>> from fractions import Fraction
+>>> Fraction(0.1) - Fraction(1, 10)
+Fraction(1, 180143985094819840)
+```
+
+1. Que représente ce résultat ? Donnez sa valeur en notation scientifique.
+2. Si l'ordinateur du Patriot avait utilisé un flottant de 64 bits, quelle aurait été l'erreur sur le temps après 100 heures ? Et l'erreur sur la position du Scud ?
+3. Le problème venait-il de l'écriture en base 2, ou du nombre de bits utilisés ? Justifiez.
+
+??? info "Pour aller plus loin : la fenêtre de poursuite"
+
+    Le rapport d'enquête décrit plus précisément le mécanisme. Quand le radar détecte un objet qui ressemble à un Scud, le système calcule une zone de l'espace, appelée **fenêtre de poursuite** (*range gate*), où il doit le retrouver à l'instant suivant. Il ne traite que les objets situés dans cette zone. Avec l'erreur sur le temps, la fenêtre se décale par rapport au missile. D'après le rapport, le système ne poursuit plus un Scud quand ce décalage atteint la moitié de la fenêtre, ce qui arrivait après environ 20 heures. Le rapport note aussi que la version corrigée du logiciel est arrivée à Dhahran le 26 février 1991, le lendemain de l'attaque.
+
+    Si vous lisez l'article d'Arnold, attention : il écrit que $\dfrac{1}{10}$ a été coupé « 24 bits après la virgule », mais la valeur stockée qu'il donne compte 23 chiffres après la virgule, et son erreur correspond bien à 23 bits.

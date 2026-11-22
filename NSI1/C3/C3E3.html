@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#microcontroleur-du-systeme-patriot" class="md-skip">
+        <a href="#probleme-le-missile-patriot-1991" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1317,12 +1317,35 @@
   
   
     <li class="md-nav__item">
-      <a href="C3TP3.html" class="md-nav__link">
+      <a href="C3TP3a.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    🧪 TP : lire une image octet par octet
+    🧪 TP -partie 1- : lire une image octet par octet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C3TP3b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP -partie 2- : lire une image octet par octet
     
   </span>
   
@@ -1436,9 +1459,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#probleme" class="md-nav__link">
+  <a href="#le-contexte" class="md-nav__link">
     <span class="md-ellipsis">
-      Problème
+      Le contexte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-la-valeur-reellement-stockee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1 – La valeur réellement stockée
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-lerreur-saccumule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2 – L'erreur s'accumule
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-les-consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3 – Les conséquences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-et-avec-un-flottant-de-64-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Exercice 4 – Et avec un flottant de 64 bits ?
     </span>
   </a>
   
@@ -5718,40 +5777,61 @@
 
 
 
-<h1 id="microcontroleur-du-systeme-patriot">Microcontrôleur du système Patriot<a class="headerlink" href="#microcontroleur-du-systeme-patriot" title="Permanent link">⚓︎</a></h1>
-<figure>
-    <p><a href="https://commons.wikimedia.org/wiki/File:Patriot_missile_launch_b.jpg#/media/Fichier:Patriot_missile_launch_b.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Patriot_missile_launch_b.jpg" alt="Patriot missile launch b.jpg" height="480" width="379"></a><br>Par <a href="//commons.wikimedia.org/wiki/User:Bernd_vdB" title="User:Bernd vdB">Bernd vdB</a> — <a rel="nofollow" class="external autonumber" href="https://www.army.mil/redstone">[1]</a>, Domaine public, <a href="https://commons.wikimedia.org/w/index.php?curid=894093">Lien</a></p>
-    Le système anti-missile Patriot
-</figure>
-
-<p>Dans une <a href="https://fr.wikipedia.org/wiki/MIM-104_Patriot">publication sur Wikipedia</a>, on note:</p>
-<blockquote>
-<p>Avant la première guerre du Golfe, la défense contre les missiles balistiques n'était pas la première raison d'être du Patriot mais cette guerre démontra qu'il en avait largement les capacités. Le Patriot avait été affecté à la destruction des missiles balistiques irakiens Scud, que Saddam Hussein aurait été susceptible de lancer sur les bases arrière de la coalition en Arabie saoudite ou en Israël. La première utilisation en combat du Patriot s'est produite le 18 janvier 1991. [..]
-Le 25 février 1991, un Scud irakien frappait les casernes de Dhahran, en Arabie saoudite, tuant 28 soldats du centre de commandement du 14e détachement de l'armée des États-Unis.</p>
-</blockquote>
-<p>Dans un <a href="https://www-users.cse.umn.edu/~arnold/disasters/patriot.html">article</a>, le professeur de mathématique Douglas N. Arnold reprend les éléments de l'enquête et explique que ce drame a pour origine ... une erreur de conversion d'un nombre en binaire !</p>
-<p>Le rapport d'enquête est disponible <a href="https://www.gao.gov/assets/imtec-92-26.pdf">ici</a>.</p>
-<h2 id="probleme">Problème<a class="headerlink" href="#probleme" title="Permanent link">⚓︎</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Source</p>
-<p>Ce problème a été inspiré d'un exercice du livre Hatier 1re NSI.</p>
+<h1 id="probleme-le-missile-patriot-1991">✏️ Problème : le missile Patriot (1991)<a class="headerlink" href="#probleme-le-missile-patriot-1991" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Repères</p>
+<p>Cours associé : <a href="C3C3.html">cours C3C3</a>, sections 1.3 (écriture binaire de <span class="arithmatex">\(0{,}1\)</span>) et 3 (un nombre fini de bits donne une valeur approchée).</p>
+<p>Durée : environ 45 minutes, en partie sur machine. L'exercice marqué d'une ⭐ est un prolongement, pour ceux qui ont terminé.</p>
+<p>Source : ce problème est adapté de l'exercice 15, « Représenter des nombres en virgule fixe », du manuel <em>Prépabac Cours &amp; entraînement – NSI Spécialité 1re générale</em> (Hatier, août 2019, p. 29-30). Il a été remanié à partir du rapport d'enquête GAO/IMTEC-92-26.</p>
 </div>
-<p>L'horloge interne du système est basé sur des impulsions de fréquence <span class="arithmatex">\(f=10\ \mathrm{Hz}\)</span>, ce qui correspond à une période <span class="arithmatex">\(T=\dfrac{1}{10}\ \mathrm{s}\)</span>.<br />
-Cette valeur était stockée dans un registre 24 bits.</p>
-<h3 id="question-a">Question a<a class="headerlink" href="#question-a" title="Permanent link">⚓︎</a></h3>
-<p>Convertir cette période en binaire, virgule fixe. <em>On gardera une trentaine de chiffres binaires après la virgule</em>.</p>
-<h3 id="question-b">Question b<a class="headerlink" href="#question-b" title="Permanent link">⚓︎</a></h3>
-<p>Étant donnée la taille du registre affecté au stockage de cette valeur, il ne reste que 23 bits pour représenter la partie décimale de la période <span class="arithmatex">\(T\)</span>. Donner la valeur binaire <span class="arithmatex">\(T_P\)</span> <strong>effectivement retenue</strong> comme période dans le système Patriot. </p>
-<h3 id="question-c">Question c<a class="headerlink" href="#question-c" title="Permanent link">⚓︎</a></h3>
-<p>Convertir la valeur binaire effective <span class="arithmatex">\(T_P\)</span> en décimal. En déduire alors l'erreur absolue <span class="arithmatex">\(\Delta T_P\)</span> commise sur une période. <em>On privilégiera la notation scientifique</em>.</p>
-<h3 id="question-d">Question d<a class="headerlink" href="#question-d" title="Permanent link">⚓︎</a></h3>
-<p>On se place maintenant dans le cas d'un fonctionnement en continu du système pendant <span class="arithmatex">\(100\ \mathrm{h}\)</span>. Combien d'impulsions d'horloge <span class="arithmatex">\(N\)</span> a-t-on déjà eu à ce moment là ?</p>
-<h3 id="question-e">Question e<a class="headerlink" href="#question-e" title="Permanent link">⚓︎</a></h3>
-<p>En déduire de la question précédente, l'erreur absolue <span class="arithmatex">\(\Delta \mathrm{t}\)</span> commise sur la mesure du temps après <span class="arithmatex">\(100\ \mathrm{h}\)</span> de fonctionnement en continu du système anti-missile.</p>
-<h3 id="question-f">Question f<a class="headerlink" href="#question-f" title="Permanent link">⚓︎</a></h3>
-<p>Dans le rapport d'enquête, on apprend que les missiles Scud irakiens se déplaçaient environ à une vitesse de <span class="arithmatex">\(3750\ \mathrm{mph}\)</span> soit <span class="arithmatex">\(1676\ \mathrm{m\cdot s^{-1}}\)</span>. Quelle distance aura parcourue le missile pendant la durée calculée à la question précédente ? </p>
-<h3 id="question-g">Question g<a class="headerlink" href="#question-g" title="Permanent link">⚓︎</a></h3>
-<p>Sachant que l'incertitude maximale sur la position du missile doit être inférieure à <span class="arithmatex">\(500\ \mathrm{m}\)</span>. Justifier le fait que le Patriot ait raté sa cible.</p>
+<h2 id="le-contexte">Le contexte<a class="headerlink" href="#le-contexte" title="Permanent link">⚓︎</a></h2>
+<p>Le 25 février 1991, pendant la guerre du Golfe, une batterie de missiles antimissiles Patriot protégeait la base américaine de Dhahran, en Arabie saoudite. Elle n'a pas intercepté un missile Scud irakien, qui a frappé un baraquement et tué 28 soldats.</p>
+<p>Le rapport d'enquête de l'administration américaine (<a href="https://www.gao.gov/assets/imtec-92-26.pdf">rapport GAO/IMTEC-92-26</a>, en anglais) a établi la cause : une erreur de calcul dans le logiciel de l'ordinateur de conduite de tir. Le mathématicien Douglas N. Arnold en a fait un exemple célèbre de « désastre numérique » (<a href="https://www-users.cse.umn.edu/~arnold/disasters/patriot.html">article de D. N. Arnold</a>, en anglais). Ce problème reconstitue le calcul.</p>
+<p><img alt="Photographie : un missile Patriot quitte son lanceur, dans un nuage de fumée." src="img/patriot_lancement.jpg" /></p>
+<p>Photographie : armée des États-Unis, <a href="https://commons.wikimedia.org/wiki/File:Patriot_missile_launch_b.jpg">Wikimedia Commons</a>, domaine public.</p>
+<p><strong>Le modèle étudié.</strong> L'horloge du système compte le temps en <strong>dixièmes de seconde</strong>, sous la forme d'un entier <span class="arithmatex">\(N\)</span>. Pour obtenir le temps en secondes, l'ordinateur multiplie <span class="arithmatex">\(N\)</span> par <span class="arithmatex">\(\dfrac{1}{10}\)</span>. Ce nombre <span class="arithmatex">\(\dfrac{1}{10}\)</span> est rangé dans un registre de 24 bits ; on admet que 23 de ces bits servent à sa partie fractionnaire. L'ordinateur ne garde donc que les <strong>23 premiers chiffres</strong> après la virgule de l'écriture binaire de <span class="arithmatex">\(0{,}1\)</span>, et oublie les suivants.</p>
+<h2 id="exercice-1-la-valeur-reellement-stockee">Exercice 1 – La valeur réellement stockée<a class="headerlink" href="#exercice-1-la-valeur-reellement-stockee" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>Rappelez l'écriture binaire de <span class="arithmatex">\(0{,}1\)</span> (cours C3C3, section 1.3). Quel bloc de chiffres se répète ?</li>
+<li>Écrivez les 23 premiers chiffres après la virgule de cette écriture. On note <span class="arithmatex">\(T_P\)</span> le nombre obtenu : c'est la valeur que l'ordinateur utilise à la place de <span class="arithmatex">\(0{,}1\)</span>.</li>
+<li>Dans la console Python, <code>int("…", 2)</code> convertit en décimal une chaîne de chiffres binaires. Utilisez-la avec vos 23 chiffres : vous obtenez un entier <span class="arithmatex">\(c\)</span>. Expliquez pourquoi <span class="arithmatex">\(T_P = \dfrac{c}{2^{23}}\)</span>.</li>
+<li>Calculez avec Python la valeur décimale de <span class="arithmatex">\(T_P\)</span>, puis l'erreur <span class="arithmatex">\(\Delta T_P = 0{,}1 - T_P\)</span> commise à chaque dixième de seconde. Donnez-la en notation scientifique.</li>
+</ol>
+<details class="tip">
+<summary>Une autre méthode, sans machine</summary>
+<p>L'erreur est la valeur des chiffres oubliés, à partir du 24ᵉ. D'après la question 1, ces chiffres forment le bloc <span class="arithmatex">\(1100\,1100\,1100\ldots\)</span>, décalé de 23 rangs : <span class="arithmatex">\(\Delta T_P = 0{,}1100\,1100\ldots_2 \times 2^{-23}\)</span>. Or <span class="arithmatex">\(0{,}1100\,1100\ldots_2 = 8 \times 0{,}0001\,1001\,1001\ldots_2 = 8 \times 0{,}1 = 0{,}8\)</span>. Donc <span class="arithmatex">\(\Delta T_P = 0{,}8 \times 2^{-23}\)</span>.</p>
+</details>
+<h2 id="exercice-2-lerreur-saccumule">Exercice 2 – L'erreur s'accumule<a class="headerlink" href="#exercice-2-lerreur-saccumule" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>La batterie de Dhahran fonctionnait sans interruption depuis 100 heures. Combien de dixièmes de seconde l'horloge a-t-elle comptés ? On note <span class="arithmatex">\(N\)</span> ce nombre.</li>
+<li>À chaque dixième de seconde compté, l'ordinateur commet l'erreur <span class="arithmatex">\(\Delta T_P\)</span>. Calculez l'erreur <span class="arithmatex">\(\Delta t\)</span> sur le temps calculé après 100 heures.</li>
+<li>Que devient <span class="arithmatex">\(\Delta t\)</span> si le système fonctionne deux fois plus longtemps ?</li>
+</ol>
+<h2 id="exercice-3-les-consequences">Exercice 3 – Les conséquences<a class="headerlink" href="#exercice-3-les-consequences" title="Permanent link">⚓︎</a></h2>
+<p>Pour savoir où se trouvera le Scud, le système multiplie sa vitesse par le temps écoulé. Une erreur sur le temps donne donc une erreur sur la position prévue : le radar cherche le missile au mauvais endroit. D'après le rapport d'enquête, au-delà d'environ 20 heures de fonctionnement continu, cette erreur était assez grande pour que le radar ne repère plus le missile.</p>
+<ol>
+<li>Le Scud vole à environ 1 676 m/s. Quelle distance parcourt-il pendant la durée <span class="arithmatex">\(\Delta t\)</span> calculée à l'exercice 2 ?</li>
+<li>La batterie de Dhahran fonctionnait depuis 100 heures. Combien de fois plus longtemps que la limite de 20 heures ? Expliquez pourquoi elle n'a pas tiré sur le Scud.</li>
+<li>Le rapport indique qu'il aurait suffi de redémarrer le système toutes les quelques heures pour éviter le problème. Pourquoi ?</li>
+</ol>
+<h2 id="exercice-4-et-avec-un-flottant-de-64-bits">⭐ Exercice 4 – Et avec un flottant de 64 bits ?<a class="headerlink" href="#exercice-4-et-avec-un-flottant-de-64-bits" title="Permanent link">⚓︎</a></h2>
+<p>Le module <code>fractions</code> de Python calcule exactement avec des fractions. <code>Fraction(0.1)</code> donne la valeur exacte du flottant <code>0.1</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">fractions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fraction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Fraction</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">Fraction(1, 180143985094819840)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Que représente ce résultat ? Donnez sa valeur en notation scientifique.</li>
+<li>Si l'ordinateur du Patriot avait utilisé un flottant de 64 bits, quelle aurait été l'erreur sur le temps après 100 heures ? Et l'erreur sur la position du Scud ?</li>
+<li>Le problème venait-il de l'écriture en base 2, ou du nombre de bits utilisés ? Justifiez.</li>
+</ol>
+<details class="info">
+<summary>Pour aller plus loin : la fenêtre de poursuite</summary>
+<p>Le rapport d'enquête décrit plus précisément le mécanisme. Quand le radar détecte un objet qui ressemble à un Scud, le système calcule une zone de l'espace, appelée <strong>fenêtre de poursuite</strong> (<em>range gate</em>), où il doit le retrouver à l'instant suivant. Il ne traite que les objets situés dans cette zone. Avec l'erreur sur le temps, la fenêtre se décale par rapport au missile. D'après le rapport, le système ne poursuit plus un Scud quand ce décalage atteint la moitié de la fenêtre, ce qui arrivait après environ 20 heures. Le rapport note aussi que la version corrigée du logiciel est arrivée à Dhahran le 26 février 1991, le lendemain de l'attaque.</p>
+<p>Si vous lisez l'article d'Arnold, attention : il écrit que <span class="arithmatex">\(\dfrac{1}{10}\)</span> a été coupé « 24 bits après la virgule », mais la valeur stockée qu'il donne compte 23 chiffres après la virgule, et son erreur correspond bien à 23 bits.</p>
+</details>
 
 
 

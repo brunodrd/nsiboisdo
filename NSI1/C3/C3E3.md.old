@@ -1,0 +1,53 @@
+Microcontrôleur du système Patriot
+==================================
+
+<figure>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Patriot_missile_launch_b.jpg#/media/Fichier:Patriot_missile_launch_b.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Patriot_missile_launch_b.jpg" alt="Patriot missile launch b.jpg" height="480" width="379"></a><br>Par <a href="//commons.wikimedia.org/wiki/User:Bernd_vdB" title="User:Bernd vdB">Bernd vdB</a> — <a rel="nofollow" class="external autonumber" href="https://www.army.mil/redstone">[1]</a>, Domaine public, <a href="https://commons.wikimedia.org/w/index.php?curid=894093">Lien</a></p>
+    Le système anti-missile Patriot
+</figure>
+
+Dans une [publication sur Wikipedia](https://fr.wikipedia.org/wiki/MIM-104_Patriot), on note:
+
+> Avant la première guerre du Golfe, la défense contre les missiles balistiques n'était pas la première raison d'être du Patriot mais cette guerre démontra qu'il en avait largement les capacités. Le Patriot avait été affecté à la destruction des missiles balistiques irakiens Scud, que Saddam Hussein aurait été susceptible de lancer sur les bases arrière de la coalition en Arabie saoudite ou en Israël. La première utilisation en combat du Patriot s'est produite le 18 janvier 1991. [..]
+> Le 25 février 1991, un Scud irakien frappait les casernes de Dhahran, en Arabie saoudite, tuant 28 soldats du centre de commandement du 14e détachement de l'armée des États-Unis.
+
+Dans un [article](https://www-users.cse.umn.edu/~arnold/disasters/patriot.html), le professeur de mathématique Douglas N. Arnold reprend les éléments de l'enquête et explique que ce drame a pour origine ... une erreur de conversion d'un nombre en binaire !
+
+Le rapport d'enquête est disponible [ici](https://www.gao.gov/assets/imtec-92-26.pdf).
+
+Problème
+--------
+
+!!! info "Source"
+    Ce problème a été inspiré d'un exercice du livre Hatier 1re NSI.
+
+L'horloge interne du système est basé sur des impulsions de fréquence $f=10\ \mathrm{Hz}$, ce qui correspond à une période $T=\dfrac{1}{10}\ \mathrm{s}$.  
+Cette valeur était stockée dans un registre 24 bits.
+
+### Question a
+
+Convertir cette période en binaire, virgule fixe. _On gardera une trentaine de chiffres binaires après la virgule_.
+
+### Question b
+
+Étant donnée la taille du registre affecté au stockage de cette valeur, il ne reste que 23 bits pour représenter la partie décimale de la période $T$. Donner la valeur binaire $T_P$ __effectivement retenue__ comme période dans le système Patriot. 
+
+### Question c
+
+Convertir la valeur binaire effective $T_P$ en décimal. En déduire alors l'erreur absolue $\Delta T_P$ commise sur une période. _On privilégiera la notation scientifique_.
+
+### Question d
+
+On se place maintenant dans le cas d'un fonctionnement en continu du système pendant $100\ \mathrm{h}$. Combien d'impulsions d'horloge $N$ a-t-on déjà eu à ce moment là ?
+
+### Question e
+
+En déduire de la question précédente, l'erreur absolue $\Delta \mathrm{t}$ commise sur la mesure du temps après $100\ \mathrm{h}$ de fonctionnement en continu du système anti-missile.
+
+### Question f
+
+Dans le rapport d'enquête, on apprend que les missiles Scud irakiens se déplaçaient environ à une vitesse de $3750\ \mathrm{mph}$ soit $1676\ \mathrm{m\cdot s^{-1}}$. Quelle distance aura parcourue le missile pendant la durée calculée à la question précédente ? 
+
+### Question g
+
+Sachant que l'incertitude maximale sur la position du missile doit être inférieure à $500\ \mathrm{m}$. Justifier le fait que le Patriot ait raté sa cible.
