@@ -1,0 +1,34 @@
+Ce qu’il faut savoir
+===================
+
+#### Logique booléenne
+- un ordinateur ne *connait* que 2 états (0/1 ou vrai/faux), un ordinateur travaille donc en binaire
+- les opérateurs logiques essentiels sont les opérateurs `not`, `or` et `and`.
+- à chaque opérateur logique est associé une table de vérité (vous devez connaître ces tables)
+- en combinant les opérations logiques, on obtient des circuits plus complexes (exemple: l'additionneur).
+- le langage Python permet de manipuler les expressions booléennes; ne pas oublier le caractère séquentiel de leur évaluation.
+
+#### Les composants essentiels d’un ordinateur
+
+- La mémoire (vive ou RAM pour Random Access Memory): la mémoire vive permet de stocker des données et des programmes.  
+- Le processeur ou CPU (Central Processing Unit) qui exécute les instructions extraites de la mémoire. Il est composé des 3 éléments suivants:
+	- les registres permettent de mémoriser de l'information (donnée ou instruction) au sein même du CPU. Leur nombre et leur taille sont variables en fonction du type de microprocesseur.
+	- L'unité arithmétique et logique (*UAL*) est chargée de l'exécution de tous les calculs. L'UAL stocke le résultat des calculs dans l'accumulateur.
+	- L'unité de commande permet de coordonner les échanges entre mémoire et registres ou UAL.
+
+- Les dispositifs d'entrée/sortie qui permettent de communiquer avec le monde extérieur. 
+- Le bus qui permettent la communication entre les divers composants.
+
+#### Architecture de von Neumann
+
+John von Neumann (mathématicien et physicien américano-hongrois 1903-1957) proposa en 1945 un modèle où données et programmes seraient stockées en mémoire. 
+Voici un schéma, à connaître, qui représente ce modèle de von Neumann :
+
+![](img/c8c_13.gif)
+
+Les ordinateurs actuels continuent de se baser sur l'architecture de von Neumann. Pendant très longtemps les constructeurs ont cherché à augmenter la fréquence d’horloge des CPU afin d’améliorer les performances, aujourd’hui la tendance est plutôt à l’augmentation du
+nombre de coeurs
+
+### Ce qu’il faut savoir faire
+
+Vous devez être capable d’écrire et de lire (et comprendre) des programmes simples en assembleur (en ayant en votre possession l’aide mémoire sur l’assembleur)

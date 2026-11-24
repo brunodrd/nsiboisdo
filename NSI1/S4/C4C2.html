@@ -1,0 +1,6372 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Support de cours, activités et TP en Spécialité NSI & Physique">
+      
+      
+        <meta name="author" content="Bruno DARID">
+      
+      
+      
+        <link rel="prev" href="C4E1.html">
+      
+      
+        <link rel="next" href="C4TP2.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>📖 COURS 2 - NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20%2017h2v-2h-2zm0-10v6h2V7zm-9%202h5.5L11%203.5zM4%202h8l6%206v12c0%201.11-.89%202-2%202H4a2%202%200%200%201-2-2V4c0-1.11.89-2%202-2m9%2016v-2H4v2zm3-4v-2H4v2z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+
+      
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css">
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.34.0/css/jquery.terminal.min.css" rel="stylesheet">
+<script src="../../pyodide-mkdocs/utils.js"></script> 
+<script src="../../pyodide-mkdocs/interpreter.js"></script> 
+
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/catalogue.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<link rel="stylesheet" href="../../pyodide-mkdocs/pyoditeur.css">
+<link rel="stylesheet" href="../../qcm/qcm.css">
+
+
+<input id="ace_palette" autocomplete="off" class="md-toggle" data-ace-dark-mode="tomorrow_night_bright" data-ace-light-mode="crimson_editor" type="checkbox"></input>
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cours-architecture-de-von-neumann" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../index.html" title="NSI" class="md-header__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📖 COURS 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode nuit"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode nuit" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode jour"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode jour" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blog/index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../bo.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Officiel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../C1/C1A1.html" class="md-tabs__link">
+          
+  
+  
+  NSI1
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NSITerm/LP2/C1C1.html" class="md-tabs__link">
+          
+  
+  
+  NSITerm
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Projets/jeu_carte.html" class="md-tabs__link">
+          
+  
+  
+  Projets
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PC/sem3600.html" class="md-tabs__link">
+          
+  
+  
+  Physique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../perso/videos.html" class="md-tabs__link">
+          
+  
+  
+  Liens divers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pythonneries/pythonnerie1.html" class="md-tabs__link">
+          
+  
+  
+  Pythonneries
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI" class="md-nav__button md-logo" aria-label="NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Officiel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    NSI1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NSI1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. I: Systèmes d'exploitation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I: Systèmes d'exploitation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ACTIVITÉS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1A4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C1/C1EV.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Évaluations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. II: Intoduction à la programmation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II: Intoduction à la programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ACTIVITÉS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITE 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2A2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    COURS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            COURS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C2/C2TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TP 2 ASCII Art
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. III: Représentation des données
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III: Représentation des données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1 : écrire un entier naturel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 1 : bases 2, 10 et 16
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2 : coder un entier relatif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 2 : complément à 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Problème : le bug de 2038
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3TP3a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP -partie 1- : lire une image octet par octet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3TP3b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP -partie 2- : lire une image octet par octet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3 : coder un nombre réel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E3a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 3 : flottants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Problème : le missile Patriot (1991)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3R1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 L'essentiel du chapitre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4 : coder un texte ASCII, ISO-8859-1, Unicode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C3/C3E5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 4 : textes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IV: Au coeur de l'ordinateur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV: Au coeur de l'ordinateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C4C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 COURS-ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C4TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C4E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    📖 COURS 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="C4C2.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 COURS 2
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-activite-damorce-lordinateur-en-papier" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. 🔎 Activité d'amorce : l'ordinateur en papier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-le-modele-de-von-neumann" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 📚 Le modèle de von Neumann
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-le-processeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 🧮 Le processeur
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-les-memoires" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. ⚖️ Les mémoires
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-les-entrees-sorties-et-les-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 🔌 Les entrées-sorties et les bus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-executer-un-programme" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 🔁 Exécuter un programme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-et-aujourdhui" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. ⚙️ Et aujourd'hui ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 🧠 Synthèse
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C4TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 TP 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C4E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. V: Tableaux et données tabulées
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V: Tableaux et données tabulées
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5C6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S5/S5E4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VI: IHM sur le web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI: IHM sur le web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EXERCICES E2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S6/S6C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VII: Algorithmique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII: Algorithmique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 5: Algorithme glouton
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/S8C6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 6: knn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/correction_tp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TP Iris de Fisher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S8/pr3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini projet 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VIII: Réseau
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII: Réseau
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c16c3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c16a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c17c2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c17a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c18c2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    COURS 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c18a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reseau/c19a.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACTIVITÉ 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NSITerm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            NSITerm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. I Récursivité
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. I Récursivité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C1TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Fractales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. II Mise au point & Bugs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. II Mise au point & Bugs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C5E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C2E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. III Programmation modulaire
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. III Programmation modulaire
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Activité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C3TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Modularité
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IV Piles & Files
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IV Piles & Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C2E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C4TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP Piles et Files
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. V Programmation Objet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. V Programmation Objet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C3E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VI Listes & Dictionnaires
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VI Listes & Dictionnaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Listes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6C2b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Dictionnaires
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Listes (Série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Listes (Série 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C6E3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Dictionnaires
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VII Gestion des ressources (SE)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VII Gestion des ressources (SE)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Processus & Ressources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C7E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. VIII Bases de données & SQL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. VIII Bases de données & SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Activité de découverte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Modèle relationnel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: BDD Relationnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Schémas relationnels (série 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3: Langage SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4: Les SGBDR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices Bases de données (Série 2) : vers le bac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 2 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/BDD/C8TP3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 3 SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. IX Protocoles de routage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. IX Protocoles de routage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C9C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours Routage RIP/OSPF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/c11e.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. X Algorithmique avancée
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. X Algorithmique avancée
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Diviser pour régner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: Parcours de graphes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 3: Recherche textuelle (Boyer-Moore)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10C4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 4: Programmation dynamique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C11TD1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ TD 1: Application complexe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices: Parcours de graphes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1: Tri fusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 2: Tourner R2D2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C10TP3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 3: Labyrinthe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XI Arbres binaires
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_11">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XI Arbres binaires
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C1b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Structures arborescentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11C2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 2: ABR & Parcours
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C11E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XII Paradigmes de programmation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_12">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XII Paradigmes de programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Impératif, Fonctionnel & Objet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12E2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/LP2/C12E1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices - Série 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XIII Théorie des Graphes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_13">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XIII Théorie des Graphes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C13C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours 1: Modélisation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/SD/C13E1b.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ✏️ Exercices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XIV Sécurisation des données
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_14">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XIV Sécurisation des données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C14C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Chiffrement & HTTPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C14TP1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💻 TP 1: Analyse réseau (Bob & Alice)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XV Systèmes sur puce (SoC)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_15">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XV Systèmes sur puce (SoC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ARSE/C15C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Architecture SoC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chap. XVI Calculabilité & Décidabilité
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_16">
+            <span class="md-nav__icon md-icon"></span>
+            Chap. XVI Calculabilité & Décidabilité
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ALGO/C16C1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📖 Cours: Halting Problem & Turing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📝 Évaluations & Sujets bac
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17">
+            <span class="md-nav__icon md-icon"></span>
+            📝 Évaluations & Sujets bac
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/DS-2_NSI_2026.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📄 DS 2 (09/10/2026)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/DS-2_NSI_2026_COR.html" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23 12-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68zm-13 5-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9z"/></svg>
+  
+  <span class="md-ellipsis">
+    ✅ DS 2 (Corrigé)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_3" id="__nav_5_17_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📁 Bacs Blancs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_3">
+            <span class="md-nav__icon md-icon"></span>
+            📁 Bacs Blancs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/revisions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Révisions 12/2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/correction1re.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrections exo niveau 1re
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/sujet_042024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sujet bac blanc 04/2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/bblanc2024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrigé bac blanc 04/2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/correction_bblanc_dec24.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Corrigé bac blanc déc. 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_4" id="__nav_5_17_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📁 Annales Sujets Officiels
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_4">
+            <span class="md-nav__icon md-icon"></span>
+            📁 Annales Sujets Officiels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ANNALES/catalogue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔎 Catalogue interactif
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/ANNALES/statistiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📊 Analyse statistique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_17_5" id="__nav_5_17_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    💻 Épreuves Pratiques (EP)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_17_5">
+            <span class="md-nav__icon md-icon"></span>
+            💻 Épreuves Pratiques (EP)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NSITerm/EVAL/EP2024.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sujets EP 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Projets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terminale
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Terminale
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/jeu_carte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet 1: Autour de la POO - Jeu de cartes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Première
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Première
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Projets/web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet 1: en période 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projet/projet_fin_NSI1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projet fin d'année
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Physique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Physique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/sem3600.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interface Bluetooth SEM3600 d'un compteur d'énergie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/ucontroleur.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Micro contrôleur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/connexion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connexions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/mode_fonctionnement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mode de fonctionnement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/HelloWorld.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/capteurs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mise en oeuvre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PC/matplotlib.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Annexe: graphiques avec matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Liens divers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Liens divers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/videos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Videos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perso/textes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Textes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pythonneries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Pythonneries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonneries/pythonnerie1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pythonnerie 1: définir une classe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+                  
+
+
+
+<h1 id="cours-architecture-de-von-neumann">📖 Cours Architecture de von Neumann<a class="headerlink" href="#cours-architecture-de-von-neumann" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Programme</p>
+<table>
+<thead>
+<tr>
+<th>Contenus</th>
+<th>Capacités attendues</th>
+<th>Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modèle d'architecture séquentielle (von Neumann)</td>
+<td>Distinguer les rôles et les caractéristiques des différents constituants d'une machine. Dérouler l'exécution d'une séquence d'instructions simples du type langage machine.</td>
+<td>La présentation se limite aux concepts généraux. On distingue les architectures monoprocesseur et les architectures multiprocesseur. Des activités débranchées sont proposées. Les circuits combinatoires réalisent des fonctions booléennes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">À la fin de ce chapitre, je sais…</p>
+<ol>
+<li><strong>Expliquer</strong> ce qu'est un ordinateur « à programme enregistré ».</li>
+<li><strong>Citer</strong> les constituants du modèle de von Neumann et <strong>décrire</strong> le rôle de chacun.</li>
+<li><strong>Comparer</strong> les mémoires selon leur vitesse, leur capacité et leur volatilité.</li>
+<li><strong>Relier</strong> la largeur du bus d'adresses au nombre de cases mémoire accessibles.</li>
+<li><strong>Décrire</strong> le cycle chargement – décodage – exécution et le rôle du compteur de programme.</li>
+<li><strong>Dérouler</strong> l'exécution d'une courte séquence d'instructions en langage d'assemblage.</li>
+<li><strong>Distinguer</strong> une architecture monoprocesseur d'une architecture multiprocesseur.</li>
+</ol>
+</div>
+<h2 id="0-activite-damorce-lordinateur-en-papier">0. 🔎 Activité d'amorce : l'ordinateur en papier<a class="headerlink" href="#0-activite-damorce-lordinateur-en-papier" title="Permanent link">⚓︎</a></h2>
+<p>Cette activité se fait sans ordinateur, par groupes de quatre. Chaque élève joue un constituant de la machine :</p>
+<ul>
+<li>la <strong>Mémoire</strong> garde la feuille ci-dessous et ne fait que deux choses : donner le contenu d'une case dont on lui annonce le numéro, ou écrire une valeur dans une case ;</li>
+<li>l'<strong>Unité de commande</strong> tient un papier où est écrit un numéro de case, le <strong>compteur</strong>, qui vaut 0 au départ ;</li>
+<li>l'<strong>Unité de calcul</strong> fait les additions et les soustractions qu'on lui demande, et rien d'autre ;</li>
+<li>les <strong>Registres</strong> tiennent une ardoise à deux cases, R0 et R1, qui valent 0 au départ.</li>
+</ul>
+<p>Règle du jeu : on ne se parle que par petits papiers, sur lesquels on écrit <strong>soit un numéro de case, soit une valeur</strong>. L'Unité de commande répète toujours les mêmes gestes : elle demande à la Mémoire le contenu de la case indiquée par le compteur, ajoute 1 au compteur, puis fait exécuter ce qu'elle a lu.</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Contenu</th>
+<th>Case</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>copier le contenu de la case 10 dans R0</td>
+<td>10</td>
+<td>25</td>
+</tr>
+<tr>
+<td>1</td>
+<td>copier le contenu de la case 11 dans R1</td>
+<td>11</td>
+<td>17</td>
+</tr>
+<tr>
+<td>2</td>
+<td>additionner R0 et R1, résultat dans R0</td>
+<td>12</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>copier R0 dans la case 12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>arrêter</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Jouez le programme jusqu'à l'arrêt. Que contient la case 12 à la fin ?</li>
+<li>Combien de fois la Mémoire a-t-elle été sollicitée ? Quel élève a été le plus occupé ?</li>
+<li>Où se trouve le programme : dans la tête d'un élève, ou ailleurs ?</li>
+<li>Sans changer les rôles, comment faire calculer <span class="arithmatex">\(25 - 17\)</span> ? Qu'a-t-il fallu modifier ?</li>
+<li>Si la case 2 contenait le nombre 25, l'Unité de commande pourrait-elle s'en apercevoir avant de la lire ?</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li>La case 12 contient 42.</li>
+<li>La Mémoire est sollicitée 8 fois : 5 lectures d'instructions, 2 lectures de données (cases 10 et 11) et 1 écriture (case 12). C'est elle qui travaille le plus : chaque instruction commence par un aller-retour vers elle.</li>
+<li>Le programme est rangé <strong>dans la mémoire</strong>, au même endroit que les nombres.</li>
+<li>Il suffit de réécrire le contenu de la case 2 (« soustraire R1 de R0 »). On change le programme <strong>sans rien changer à la machine</strong>.</li>
+<li>Non : une case contient un code, rien n'indique s'il s'agit d'une instruction ou d'une donnée. C'est le compteur qui décide de ce qui sera lu comme une instruction.</li>
+</ol>
+</details>
+<h2 id="1-le-modele-de-von-neumann">1. 📚 Le modèle de von Neumann<a class="headerlink" href="#1-le-modele-de-von-neumann" title="Permanent link">⚓︎</a></h2>
+<h3 id="11-le-programme-enregistre">1.1 Le programme enregistré<a class="headerlink" href="#11-le-programme-enregistre" title="Permanent link">⚓︎</a></h3>
+<p>Les premiers calculateurs électroniques se programmaient en modifiant leur câblage. Pour faire exécuter un autre calcul à l'ENIAC, achevé fin 1945, il fallait plusieurs jours de rebranchements à la main.</p>
+<p>En 1945, le mathématicien John von Neumann décrit, dans un rapport sur le projet d'ordinateur EDVAC, une machine d'un genre nouveau. Le programme n'est plus dans le câblage : il est codé en binaire et rangé dans la mémoire, comme les données. Changer de programme revient alors à changer le contenu de la mémoire, ce que la machine peut faire elle-même.</p>
+<div class="admonition note">
+<p class="admonition-title">Définition : programme enregistré</p>
+<p>Dans un ordinateur <strong>à programme enregistré</strong>, les instructions du programme et les données qu'il traite sont stockées dans la <strong>même mémoire</strong>, sous la même forme : des mots binaires.</p>
+</div>
+<details class="info">
+<summary>Pour aller plus loin : une idée collective</summary>
+<p>Le rapport de 1945 porte le seul nom de von Neumann, mais l'idée a mûri au sein de l'équipe de l'ENIAC, en particulier chez John Eckert et John Mauchly. Elle prolonge aussi les travaux d'Alan Turing, qui avait montré en 1936 qu'une machine « universelle » peut exécuter n'importe quel programme qu'on lui fournit comme une donnée. Cette notion de programme vu comme une donnée sera reprise en Terminale.</p>
+</details>
+<h3 id="12-les-constituants">1.2 Les constituants<a class="headerlink" href="#12-les-constituants" title="Permanent link">⚓︎</a></h3>
+<p>Le modèle de von Neumann organise la machine autour de quatre constituants, reliés par des <strong>bus</strong>.</p>
+<p><img alt="Schéma du modèle de von Neumann. Trois blocs côte à côte : à gauche, le processeur (CPU), qui contient l'unité de commande avec les registres PC et RI, l'unité arithmétique et logique, et une rangée de registres R0, R1… ; au centre, la mémoire, qui contient les programmes (instructions) et les données ; à droite, les entrées-sorties : entrées (clavier, capteurs…) et sorties (écran, actionneurs…). Sous les trois blocs passent trois lignes horizontales : bus d'adresses, bus de données, bus de contrôle. Une flèche à double sens relie chaque bloc à ces bus." src="img/modele_von_neumann.svg" /></p>
+<p>Le schéma montre que la mémoire contient à la fois les programmes et les données, et que tous les échanges passent par les bus : le processeur ne communique jamais directement avec un périphérique sans eux.</p>
+<table>
+<thead>
+<tr>
+<th>Constituant</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unité arithmétique et logique (UAL)</td>
+<td>effectue les calculs : opérations arithmétiques (addition, soustraction…), opérations logiques (and, or, not), comparaisons</td>
+</tr>
+<tr>
+<td>Unité de commande</td>
+<td>lit les instructions en mémoire, les décode et commande les autres constituants pour les exécuter</td>
+</tr>
+<tr>
+<td>Registres</td>
+<td>petites mémoires très rapides, internes au processeur, qui contiennent les valeurs en cours de traitement</td>
+</tr>
+<tr>
+<td>Mémoire</td>
+<td>contient les instructions et les données, rangées dans des cases numérotées par leur <strong>adresse</strong></td>
+</tr>
+<tr>
+<td>Entrées-sorties</td>
+<td>échangent des informations avec l'extérieur : utilisateur, capteurs, actionneurs, réseau, disque</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>ensembles de fils qui transportent les adresses, les données et les signaux de commande</td>
+</tr>
+</tbody>
+</table>
+<p>L'UAL, l'unité de commande et les registres forment le <strong>processeur</strong> (en anglais CPU, <em>Central Processing Unit</em>).</p>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Le programme et les données sont dans la même mémoire.</li>
+<li>Processeur (UAL, unité de commande, registres), mémoire et entrées-sorties communiquent par des bus.</li>
+</ul>
+</div>
+<h2 id="2-le-processeur">2. 🧮 Le processeur<a class="headerlink" href="#2-le-processeur" title="Permanent link">⚓︎</a></h2>
+<h3 id="21-lunite-arithmetique-et-logique">2.1 L'unité arithmétique et logique<a class="headerlink" href="#21-lunite-arithmetique-et-logique" title="Permanent link">⚓︎</a></h3>
+<p>L'UAL est un circuit combinatoire : ses sorties ne dépendent que de ses entrées. Elle est construite avec les portes logiques étudiées au début de ce chapitre. L'additionneur complet du TP S4TP1 (partie C) en est un exemple : en chaînant 64 additionneurs complets, on additionne deux nombres de 64 bits.</p>
+<div class="admonition tip">
+<p class="admonition-title">Méthode : relier le calcul à la logique</p>
+<p>Toute opération de l'UAL est une fonction booléenne : chaque bit du résultat s'exprime avec and, or et not à partir des bits des opérandes. C'est le sens de la phrase du programme « les circuits combinatoires réalisent des fonctions booléennes ».</p>
+</div>
+<h3 id="22-lunite-de-commande-et-ses-registres">2.2 L'unité de commande et ses registres<a class="headerlink" href="#22-lunite-de-commande-et-ses-registres" title="Permanent link">⚓︎</a></h3>
+<p>L'unité de commande utilise deux registres particuliers :</p>
+<ul>
+<li>le <strong>compteur de programme</strong> (PC, <em>Program Counter</em>) contient l'<strong>adresse de la prochaine instruction</strong> à lire en mémoire ;</li>
+<li>le <strong>registre d'instruction</strong> (RI) contient l'instruction en cours de traitement.</li>
+</ul>
+<p>Le processeur est rythmé par une <strong>horloge</strong>. Sa <strong>fréquence</strong> se mesure en hertz : un processeur à 3 GHz reçoit 3 milliards de signaux d'horloge par seconde. Une instruction simple demande un ou quelques cycles d'horloge.</p>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>L'UAL calcule ; l'unité de commande dirige ; les registres conservent les valeurs en cours.</li>
+<li>Le registre PC contient l'adresse de la <strong>prochaine</strong> instruction.</li>
+<li>La fréquence d'horloge est une caractéristique du processeur.</li>
+</ul>
+</div>
+<h2 id="3-les-memoires">3. ⚖️ Les mémoires<a class="headerlink" href="#3-les-memoires" title="Permanent link">⚓︎</a></h2>
+<h3 id="31-une-hierarchie-de-memoires">3.1 Une hiérarchie de mémoires<a class="headerlink" href="#31-une-hierarchie-de-memoires" title="Permanent link">⚓︎</a></h3>
+<p>Une mémoire à la fois très rapide, très grande et bon marché n'existe pas. Un ordinateur combine donc plusieurs mémoires.</p>
+<p><img alt="Pyramide à quatre étages. De haut en bas : registres (dans le processeur, volatile), mémoire cache (dans le processeur, volatile), mémoire vive ou RAM (sur la carte mère, volatile), mémoire de masse (SSD, disque dur, non volatile). Une flèche rouge à gauche, dirigée vers le haut, indique « plus rapide, plus chère par octet ». Une flèche à droite, dirigée vers le bas, indique « plus grande capacité »." src="img/hierarchie_memoires.svg" /></p>
+<p>Plus on monte dans la pyramide, plus la mémoire est rapide, mais plus elle est petite et coûteuse. Le processeur travaille sur les étages du haut et va chercher plus bas ce qui lui manque.</p>
+<table>
+<thead>
+<tr>
+<th>Mémoire</th>
+<th>Temps d'accès (ordre de grandeur)</th>
+<th>Capacité (ordre de grandeur)</th>
+<th>Volatile ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registres</td>
+<td>moins d'une nanoseconde</td>
+<td>quelques dizaines de valeurs de 64 bits</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Mémoire cache</td>
+<td>quelques nanosecondes</td>
+<td>de quelques Mo à quelques dizaines de Mo</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Mémoire vive (RAM)</td>
+<td>une centaine de nanosecondes</td>
+<td>de 8 à 64 Go</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td>quelques dizaines de microsecondes</td>
+<td>de 256 Go à quelques To</td>
+<td>non</td>
+</tr>
+<tr>
+<td>Disque dur</td>
+<td>quelques millisecondes</td>
+<td>quelques To</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Définition : mémoire volatile</p>
+<p>Une mémoire est <strong>volatile</strong> si elle perd son contenu lorsqu'elle n'est plus alimentée électriquement. Les registres, le cache et la mémoire vive sont volatiles.</p>
+</div>
+<p>La <strong>mémoire vive</strong> (RAM, <em>Random Access Memory</em>) est accessible en lecture et en écriture. C'est elle qui joue le rôle de la « mémoire » du modèle de von Neumann : le programme en cours d'exécution et ses données y sont chargés. Une <strong>mémoire morte</strong> (ROM, <em>Read Only Memory</em>) est non volatile et, en principe, accessible seulement en lecture : elle contient par exemple le micrologiciel qui démarre la machine.</p>
+<div class="admonition danger">
+<p class="admonition-title">À ne pas confondre</p>
+<p><strong>Mémoire vive</strong> et <strong>mémoire de masse</strong> sont deux choses différentes. Un téléphone « 8 Go / 256 Go » possède 8 Go de mémoire vive, où s'exécutent les applications, et 256 Go de stockage, où sont conservés les fichiers. Dans le modèle de von Neumann, le disque ou le SSD n'est pas « la mémoire » : c'est un <strong>périphérique d'entrée-sortie</strong>. Un programme rangé sur le disque doit être copié en mémoire vive avant de pouvoir s'exécuter.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Classez de la plus rapide à la plus lente : disque dur, registre, mémoire vive, mémoire cache.</li>
+<li>On éteint un ordinateur pendant la rédaction d'un texte non enregistré. Expliquez pourquoi le texte est perdu, en employant le mot « volatile ».</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li>Registre, mémoire cache, mémoire vive, disque dur.</li>
+<li>Le texte en cours de rédaction se trouve en mémoire vive. Cette mémoire est volatile : elle perd son contenu quand elle n'est plus alimentée. Seul un enregistrement l'aurait copié sur la mémoire de masse, qui est non volatile.</li>
+</ol>
+</details>
+<h2 id="4-les-entrees-sorties-et-les-bus">4. 🔌 Les entrées-sorties et les bus<a class="headerlink" href="#4-les-entrees-sorties-et-les-bus" title="Permanent link">⚓︎</a></h2>
+<p>Les <strong>périphériques d'entrée</strong> (clavier, souris, capteurs, micro) transmettent des informations à l'ordinateur ; les <strong>périphériques de sortie</strong> (écran, imprimante, actionneurs) en reçoivent. Les périphériques de stockage et la carte réseau font les deux.</p>
+<p>Autour du processeur, on distingue trois bus :</p>
+<ul>
+<li>le <strong>bus d'adresses</strong> transporte l'adresse de la case mémoire ou du périphérique concerné ; il va du processeur vers les autres constituants ;</li>
+<li>le <strong>bus de données</strong> transporte les valeurs lues ou écrites, dans les deux sens ;</li>
+<li>le <strong>bus de contrôle</strong> transporte les signaux de commande (lecture ou écriture, horloge…).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemple : largeur du bus d'adresses</p>
+<p>Un bus d'adresses de <span class="arithmatex">\(n\)</span> fils transporte une adresse de <span class="arithmatex">\(n\)</span> bits. Avec <span class="arithmatex">\(n\)</span> bits, on écrit <span class="arithmatex">\(2^n\)</span> nombres différents (chapitre III) : le processeur peut donc désigner <span class="arithmatex">\(2^n\)</span> cases mémoire.</p>
+<p>Avec un bus d'adresses de 16 bits, le processeur désigne <span class="arithmatex">\(2^{16} = 65\,536\)</span> cases. Si chaque case contient un octet, il accède à 65 536 octets, soit 64 Kio (1 Kio vaut <span class="arithmatex">\(2^{10} = 1\,024\)</span> octets).</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>Un processeur possède un bus d'adresses de 32 bits et chaque adresse désigne un octet. Combien d'octets peut-il adresser ? Exprimez le résultat en Gio, sachant que <span class="arithmatex">\(1 \text{ Gio} = 2^{30}\)</span> octets.</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li>Il adresse <span class="arithmatex">\(2^{32}\)</span> octets. Comme <span class="arithmatex">\(2^{32} = 2^{2} \times 2^{30}\)</span>, cela fait 4 Gio (un peu plus de 4 milliards d'octets). C'est pourquoi les anciens systèmes 32 bits ne pouvaient pas utiliser plus de 4 Gio de mémoire vive.</li>
+</ol>
+</details>
+<details class="info">
+<summary>Hors programme : les contrôleurs et l'accès direct à la mémoire</summary>
+<p>Le processeur ne pilote pas lui-même chaque octet lu sur un disque. Il confie la lecture à un <strong>contrôleur</strong> de périphérique, qui écrit directement les octets en mémoire vive (accès direct à la mémoire, ou DMA) et prévient le processeur à la fin par une <strong>interruption</strong>. Pendant ce temps, le processeur exécute d'autres instructions.</p>
+</details>
+<h2 id="5-executer-un-programme">5. 🔁 Exécuter un programme<a class="headerlink" href="#5-executer-un-programme" title="Permanent link">⚓︎</a></h2>
+<h3 id="51-langage-machine-et-langage-dassemblage">5.1 Langage machine et langage d'assemblage<a class="headerlink" href="#51-langage-machine-et-langage-dassemblage" title="Permanent link">⚓︎</a></h3>
+<p>Une instruction en mémoire est un mot binaire, par exemple sur 32 bits. Une partie du mot indique l'opération à effectuer (le <strong>code opération</strong>), le reste indique ses <strong>opérandes</strong> : registres, valeur, adresse. L'ensemble des instructions que reconnaît un processeur forme son <strong>jeu d'instructions</strong> ; c'est le <strong>langage machine</strong> de ce processeur.</p>
+<p>Lire ou écrire des mots binaires est très difficile pour un humain. On utilise donc un <strong>langage d'assemblage</strong>, où chaque instruction est écrite avec un nom court, appelé mnémonique. Un programme appelé <strong>assembleur</strong> traduit ensuite chaque ligne en un mot binaire.</p>
+<table>
+<thead>
+<tr>
+<th>Langage d'assemblage</th>
+<th>Langage machine (32 bits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MOV R0,#42</code></td>
+<td><code>11100011 10100000 00000000 00101010</code></td>
+</tr>
+</tbody>
+</table>
+<p>On reconnaît dans le dernier octet la valeur <span class="arithmatex">\(00101010_2 = 42_{10}\)</span>.</p>
+<p>Dans ce cours et dans le TP S4TP2, on utilise le jeu d'instructions simplifié du simulateur AQA, proche de celui des processeurs ARM des téléphones. Voici les instructions du cours :</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MOV R0,#42</code></td>
+<td>place la valeur 42 dans le registre R0</td>
+</tr>
+<tr>
+<td><code>MOV R1,R0</code></td>
+<td>copie le contenu du registre R0 dans le registre R1</td>
+</tr>
+<tr>
+<td><code>LDR R0,10</code></td>
+<td>copie dans R0 le contenu de la case mémoire d'adresse 10 (<em>load</em>, charger)</td>
+</tr>
+<tr>
+<td><code>STR R0,12</code></td>
+<td>copie le contenu de R0 dans la case mémoire d'adresse 12 (<em>store</em>, ranger)</td>
+</tr>
+<tr>
+<td><code>ADD R2,R0,R1</code></td>
+<td>place dans R2 la somme R0 + R1</td>
+</tr>
+<tr>
+<td><code>ADD R2,R0,#5</code></td>
+<td>place dans R2 la somme R0 + 5</td>
+</tr>
+<tr>
+<td><code>SUB R2,R0,R1</code></td>
+<td>place dans R2 la différence R0 − R1</td>
+</tr>
+<tr>
+<td><code>HALT</code></td>
+<td>arrête le programme</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Attention : valeur ou adresse</p>
+<p>Le signe <code>#</code> change tout. <code>MOV R0,#12</code> place la <strong>valeur</strong> 12 dans R0. <code>LDR R0,12</code> place dans R0 le <strong>contenu de la case d'adresse 12</strong>, qui peut valoir n'importe quoi.</p>
+</div>
+<h3 id="52-le-cycle-dexecution">5.2 Le cycle d'exécution<a class="headerlink" href="#52-le-cycle-dexecution" title="Permanent link">⚓︎</a></h3>
+<p>Le processeur exécute les instructions l'une après l'autre, d'où le nom d'architecture <strong>séquentielle</strong>. Pour chaque instruction, l'unité de commande répète le même cycle.</p>
+<p><img alt="Cycle en trois phases reliées par des flèches qui tournent : 1. Chargement, puis 2. Décodage, puis 3. Exécution, qui ramène au chargement. Près du chargement : lire en mémoire l'instruction dont l'adresse est dans PC, la copier dans RI, PC augmente de 1. Près du décodage : identifier l'opération et ses opérandes. Près de l'exécution : calcul par l'UAL, transfert entre registres et mémoire, ou saut : PC reçoit une autre adresse." src="img/cycle_execution.svg" /></p>
+<ol>
+<li><strong>Chargement</strong> : l'unité de commande envoie le contenu de PC sur le bus d'adresses, reçoit l'instruction par le bus de données et la place dans RI ; PC augmente de 1.</li>
+<li><strong>Décodage</strong> : l'unité de commande identifie l'opération et ses opérandes.</li>
+<li><strong>Exécution</strong> : l'UAL calcule, ou une valeur passe entre un registre et la mémoire.</li>
+</ol>
+<p>Comme PC augmente de 1 à chaque chargement, les instructions s'exécutent dans l'ordre des adresses. Seule une instruction de <strong>saut</strong> (étudiée dans le TP S4TP2) modifie PC pour reprendre ailleurs : c'est ainsi que sont réalisés les tests et les boucles.</p>
+<h3 id="53-derouler-un-programme">5.3 Dérouler un programme<a class="headerlink" href="#53-derouler-un-programme" title="Permanent link">⚓︎</a></h3>
+<p>Dérouler un programme, c'est noter, instruction après instruction, l'état des registres et des cases mémoire qui changent.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemple : le programme de l'amorce</p>
+<p>Le programme de l'ordinateur en papier s'écrit ainsi en langage d'assemblage. On suppose que les cases 10 et 11 contiennent 25 et 17.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">LDR</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="mi">10</span>
+<span class="nf">LDR</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="mi">11</span>
+<span class="nf">ADD</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="nb">R0</span><span class="p">,</span><span class="nb">R1</span>
+<span class="nf">STR</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="mi">12</span>
+<span class="nf">HALT</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>PC avant</th>
+<th>Instruction exécutée</th>
+<th>R0</th>
+<th>R1</th>
+<th>case 12</th>
+<th>PC après</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>LDR R0,10</code></td>
+<td>25</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>LDR R1,11</code></td>
+<td>25</td>
+<td>17</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>ADD R0,R0,R1</code></td>
+<td>42</td>
+<td>17</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>STR R0,12</code></td>
+<td>42</td>
+<td>17</td>
+<td>42</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>HALT</code></td>
+<td>42</td>
+<td>17</td>
+<td>42</td>
+<td>arrêt</td>
+</tr>
+</tbody>
+</table>
+<p>On remarque que <code>ADD R0,R0,R1</code> remplace l'ancienne valeur de R0 par le résultat.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+<ol>
+<li>
+<p>Déroulez le programme suivant dans un tableau du même modèle. Que contient la case 30 à la fin ?</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">MOV</span><span class="w"> </span><span class="nb">R0</span><span class="p">,</span><span class="c1">#9</span>
+<span class="nf">MOV</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="c1">#4</span>
+<span class="nf">SUB</span><span class="w"> </span><span class="nb">R2</span><span class="p">,</span><span class="nb">R0</span><span class="p">,</span><span class="nb">R1</span>
+<span class="nf">ADD</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="nb">R2</span><span class="p">,</span><span class="nb">R2</span>
+<span class="nf">STR</span><span class="w"> </span><span class="nb">R1</span><span class="p">,</span><span class="mi">30</span>
+<span class="nf">HALT</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+</div>
+<details class="success">
+<summary>Éléments de correction</summary>
+<ol>
+<li>Après les deux <code>MOV</code>, R0 = 9 et R1 = 4. <code>SUB</code> donne R2 = 5. <code>ADD R1,R2,R2</code> donne R1 = 10 (l'ancienne valeur 4 est écrasée). <code>STR</code> écrit 10 dans la case 30. À la fin : R0 = 9, R1 = 10, R2 = 5, case 30 = 10.</li>
+</ol>
+</details>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Une instruction est un mot binaire : un code opération et des opérandes.</li>
+<li>Le langage d'assemblage est une écriture lisible du langage machine ; l'assembleur le traduit.</li>
+<li>Cycle : chargement (PC augmente de 1), décodage, exécution.</li>
+<li>Dérouler un programme, c'est suivre l'évolution de PC, des registres et de la mémoire.</li>
+</ul>
+</div>
+<h2 id="6-et-aujourdhui">6. ⚙️ Et aujourd'hui ?<a class="headerlink" href="#6-et-aujourdhui" title="Permanent link">⚓︎</a></h2>
+<p>Plus de 80 ans après, les ordinateurs, les téléphones et les consoles suivent toujours le modèle de von Neumann. Deux évolutions sont à connaître.</p>
+<p><strong>La mémoire cache.</strong> Le processeur va beaucoup plus vite que la mémoire vive : sans précaution, il passerait l'essentiel de son temps à attendre les échanges sur le bus. On place donc entre eux une mémoire cache, qui garde une copie des instructions et des données utilisées récemment.</p>
+<p><strong>Du monoprocesseur au multiprocesseur.</strong> Une architecture <strong>monoprocesseur</strong> ne comporte qu'une unité de traitement : une seule suite d'instructions s'exécute à un instant donné. Pendant des décennies, on a gagné en vitesse en augmentant la fréquence d'horloge. Vers 2005, cette course s'est arrêtée : au-delà de quelques GHz, le processeur chauffe trop. Les constructeurs ont alors multiplié les unités de traitement. Une architecture <strong>multiprocesseur</strong> en comporte plusieurs, qui exécutent chacune leur propre suite d'instructions en même temps. Dans un processeur <strong>multicœur</strong>, ces unités, appelées <strong>cœurs</strong>, sont gravées sur une même puce.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention : plus de cœurs ne veut pas dire plus rapide</p>
+<p>Un programme écrit comme une seule suite d'instructions n'utilise qu'un cœur à la fois. Huit cœurs n'accélèrent un calcul que si le travail peut être découpé en tâches indépendantes, et si le programme est écrit pour cela.</p>
+</div>
+<details class="info">
+<summary>Pour aller plus loin : l'architecture de Harvard</summary>
+<p>Dans l'architecture de Harvard, les instructions et les données sont rangées dans <strong>deux mémoires séparées</strong>, reliées au processeur par des bus distincts. Le processeur peut ainsi lire une instruction et une donnée en même temps, ce qui évite d'attendre le bus unique du modèle de von Neumann. On la trouve dans beaucoup de microcontrôleurs, comme celui des cartes Arduino. Les processeurs actuels mêlent les deux modèles : une seule mémoire vive, mais deux caches séparés, l'un pour les instructions, l'autre pour les données.</p>
+</details>
+<h2 id="7-synthese">7. 🧠 Synthèse<a class="headerlink" href="#7-synthese" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Modèle de von Neumann : processeur (UAL, unité de commande, registres), mémoire, entrées-sorties, reliés par des bus ; le programme est enregistré dans la même mémoire que les données.</li>
+<li>Les mémoires forment une hiérarchie : registres, cache, mémoire vive, mémoire de masse. Plus une mémoire est rapide, plus elle est petite et coûteuse. Les trois premières sont volatiles.</li>
+<li>Un bus d'adresses de <span class="arithmatex">\(n\)</span> bits permet de désigner <span class="arithmatex">\(2^n\)</span> cases mémoire.</li>
+<li>Le processeur répète le cycle chargement – décodage – exécution ; PC contient l'adresse de la prochaine instruction, un saut le modifie.</li>
+<li>Un processeur multicœur exécute plusieurs suites d'instructions en même temps ; un programme n'en profite que s'il est découpé en tâches indépendantes.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+<script src="../../pyodide-mkdocs/ide.js"></script> 
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC-BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.path", "content.code.copy", "toc.integrate", "header.autohide"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="../../javascripts/catalogue.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax_details.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://logic.modulo-info.ch/simulator/lib/bundle.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,84 @@
+Exercices de logique booléenne en python
+===================================
+
+## L'opérateur XOR
+
+1. En s'appuyant sur une simulation réalisée dans l'activité 1 (*Dilemme*) écrire une fonction python `xor` qui prend en paramètre deux variables booléennes `a` et `b` et qui renvoie le résultat de `a xor b`.
+2. Vérifier l'égalité `a xor b = (a and not b) or ((not a) and b)` en utilisant une assertion. 
+
+
+```python
+def xor(a, b):
+    """
+    renvoie a xor b
+    a,b : variables booléennes
+    """
+    pass
+```
+
+
+```python
+# Question 2 - décommentez et complétez
+#assert ...
+```
+
+## L'opérateur logique NAND
+
+1. Ecrire une fonction python `nand` (*pour not and*) qui prend en paramètres deux variables booléennes `a` et `b` et qui renvoie le résultat de `a nand b`.
+2. Ecrire la table de vérité.
+3. Comparer les expressions suivantes:
+    * `nand(a,a)` et `not a`;
+    * `nand(nand(a, b), nand(a, b))` et `a and b`;
+    * `nand(nand(a, a), nand(b, b))` et `a or b`
+
+
+```python
+
+```
+
+
+```python
+# Question 1
+def nand(a, b):
+    """
+    renvoie a nand b
+    a,b: variables booléennes
+    """
+    pass
+```
+
+*Question 2*
+
+
+
+
+```python
+# Question 3
+```
+
+## L'opérateur logique NOR
+
+1. Ecrire une fonction python `nor` (*pour not or*) qui prend en paramètres deux variables booléennes `a` et `b` et qui renvoie le résultat de `a nor b`.
+2. Ecrire la table de vérité.
+3. Comparer les expressions suivantes:
+    * `nor(a,a)` et `not a`;
+    * `nor(nor(a, b), nor(a, b))` et `a or b`;
+    * `nor(nor(a, a), nor(b, b))` et `a and b`
+
+
+```python
+# Question 1
+def nor(a, b):
+    """
+    renvoie a nor b
+    a,b: variables booléennes
+    """
+    pass   
+```
+
+*Question 2*
+
+
+```python
+# Question 3
+```
