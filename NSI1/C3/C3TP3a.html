@@ -5895,11 +5895,16 @@
 </ol>
 </div>
 <h2 id="2-les-couleurs-des-pixels">2. 🎨 Les couleurs des pixels<a class="headerlink" href="#2-les-couleurs-des-pixels" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Méthode : lire un nombre écrit sur plusieurs octets</p>
+<p>Dans un fichier BMP, un nombre écrit sur plusieurs octets est rangé en commençant par son octet de <strong>poids faible</strong> : on lit donc ses octets <strong>du dernier au premier</strong>. Par exemple, <code>18 00</code> se lit <code>0018</code>, c'est-à-dire <code>0x18</code>.</p>
+<p>Dans cette séance, les nombres à lire n'ont qu'un seul octet non nul, le premier : leur valeur est celle de cet octet.</p>
+</div>
 <div class="admonition question">
 <p class="admonition-title">À faire : comment les pixels sont-ils codés ?</p>
 <ol>
-<li>Affichez les 2 octets du nombre de bits par pixel. Le second octet vaut <code>00</code> : il suffit de convertir le premier. Combien de bits code-t-on par pixel ? Combien d'octets cela fait-il ?</li>
-<li>Affichez les 4 octets de la position du premier octet des pixels. Seul le premier n'est pas nul : convertissez-le en décimal.</li>
+<li>Affichez les 2 octets du nombre de bits par pixel, puis donnez ce nombre en décimal (voir la méthode ci-dessus). Combien d'octets cela fait-il par pixel ?</li>
+<li>Affichez les 4 octets de la position du premier octet des pixels, puis donnez cette position en décimal.</li>
 </ol>
 </div>
 <p>Chaque pixel est donc codé sur 3 octets. Ils donnent les intensités de <strong>bleu</strong>, de <strong>vert</strong> et de <strong>rouge</strong>, dans cet ordre, chacune entre 0 et 255.</p>

@@ -5818,7 +5818,7 @@
 <p><strong>Durée</strong> : 1 h. <strong>Prérequis</strong> : la séance 1 de ce TP ; cours C3C1, section 4 (convertir vers la base 10).</p>
 <p><strong>Fichiers</strong> : l'image <a href="logo.bmp"><code>logo.bmp</code></a> et le programme <a href="code/bmp_tp2.py"><code>bmp_tp2.py</code></a>, à enregistrer dans un même dossier.</p>
 <h2 id="0-activite-damorce">0. 🔎 Activité d'amorce<a class="headerlink" href="#0-activite-damorce" title="Permanent link">⚓︎</a></h2>
-<p>En séance 1, chaque nombre lu dans l'en-tête n'avait qu'un seul octet non nul. Ce n'est pas le cas de la taille du fichier, écrite sur 4 octets à partir de la position 2.</p>
+<p>En séance 1, on a lu les octets du dernier au premier, mais chaque nombre n'avait qu'un seul octet non nul. La taille du fichier, écrite sur 4 octets à partir de la position 2, en a trois. Pour voir pourquoi la règle compte, faisons d'abord comme si on l'oubliait.</p>
 <div class="admonition question">
 <p class="admonition-title">À faire : un nombre sur 4 octets</p>
 <ol>
@@ -5828,8 +5828,8 @@
 </div>
 <h2 id="1-un-entier-ecrit-sur-plusieurs-octets">1. 📚 Un entier écrit sur plusieurs octets<a class="headerlink" href="#1-un-entier-ecrit-sur-plusieurs-octets" title="Permanent link">⚓︎</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Définition : rangement petit-boutiste</p>
-<p>Le format BMP range un nombre écrit sur plusieurs octets en commençant par l'octet de <strong>poids faible</strong> : c'est le rangement <strong>petit-boutiste</strong> (<em>little-endian</em> en anglais). Pour retrouver le nombre, on lit donc les octets <strong>du dernier au premier</strong>.</p>
+<p class="admonition-title">Rappel : rangement petit-boutiste</p>
+<p>Comme vu en séance 1, le format BMP range un nombre écrit sur plusieurs octets en commençant par l'octet de <strong>poids faible</strong> : on lit donc les octets <strong>du dernier au premier</strong>. Ce rangement s'appelle le rangement <strong>petit-boutiste</strong> (<em>little-endian</em> en anglais).</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Exemple : la taille du fichier</p>
